@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit colors="true" stopOnFailure="false" bootstrap="gocardless.php">
+  <testsuites>
+    <testsuite name="lib">
+      <directory>./tests</directory>
+    </testsuite>
+  </testsuites>
+</phpunit>

@@ -22,25 +22,25 @@ gem '<no value>'
 Simple requests can be made like this:
 
 ```
-<no value>.resource.list
+GoCardless.resource.list
 ```
 
 If you need to pass any options, the last (or in the absence of URL params, the only) argument is an options hash. You can use this to pass query params and headers like this:
 
 ```
-<no value>.resource.list(headers: { 'Foo' => 'Baz' }, query: { limit: 400 })
+GoCardless.resource.list(headers: { 'Foo' => 'Baz' }, query: { limit: 400 })
 ```
 
 In the case where url parameters are needed, the method signature will contain required arguments:
 
 ```
-<no value>.resource.show(resource_id)
+GoCardless.resource.show(resource_id)
 ```
 
 As with list, the last argument can be an options hash:
 
 ```
-<no value>.resource.show(resource_id, query: { limit: 200 }, headers: { 'Foo' => 'Bar' })
+GoCardless.resource.show(resource_id, query: { limit: 200 }, headers: { 'Foo' => 'Bar' })
 ```
 
 ### POST/PUT Requests
@@ -48,7 +48,7 @@ If your request needs a body, you can add this in the same way you would add que
 **However**, you need to add the enveloping key!
 
 ```
-<no value>.resource.create(body: {
+GoCardless.resource.create(body: {
     resources: {
         first_name: "Pete",
         last_name: "Hamilton",
@@ -60,7 +60,7 @@ If your request needs a body, you can add this in the same way you would add que
 As with GET requests, if href params are required they come first
 
 ```
-<no value>.resource.update(resource_id, body: { ... })
+GoCardless.resource.update(resource_id, body: { ... })
 ```
 
 ### Handling failures
@@ -90,7 +90,7 @@ Assuming the error response form the server is in JSON format, like:
 }
 ```
 
-Crank will return an <no value>::Core::ApiError error. You can access the raw hash (unenveloped) via a `.errors` method, by default the error message will contain the error's message and a link to the documentation if it exists.
+Crank will return an GoCardless::Core::ApiError error. You can access the raw hash (unenveloped) via a `.errors` method, by default the error message will contain the error's message and a link to the documentation if it exists.
 
 
 
