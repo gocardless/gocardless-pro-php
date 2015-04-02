@@ -59,8 +59,7 @@ class RedirectFlow extends Base
     *
     *  Example URL: /redirect_flows
     **/
-    
-    public function docreate($options = array())
+    public function create($options = array())
     {
 
       return $this->makeRequest("post", "/redirect_flows", $options);
@@ -73,11 +72,10 @@ class RedirectFlow extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "RE"
     **/
-    
-    public function doget($identity, $options = array())
+    public function get($identity, $options = array())
     {
 
-      $path = $this->subUrl("/redirect_flows/%v", array(
+      $path = $this->subUrl("/redirect_flows/:identity", array(
         "identity" => $identity
       ));
 
@@ -105,11 +103,10 @@ class RedirectFlow extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "RE"
     **/
-    
-    public function docomplete($identity, $options = array())
+    public function complete($identity, $options = array())
     {
 
-      $path = $this->subUrl("/redirect_flows/%v/actions/complete", array(
+      $path = $this->subUrl("/redirect_flows/:identity/actions/complete", array(
         "identity" => $identity
       ));
 
@@ -118,6 +115,9 @@ class RedirectFlow extends Base
 
 
 
+  /**
+   * Get the resource loading class.
+   */
    protected function resourceClass() {
      return '\GoCardless\Resources\RedirectFlow';
    }

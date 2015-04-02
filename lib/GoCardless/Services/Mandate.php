@@ -27,8 +27,7 @@ class Mandate extends Base
     *
     *  Example URL: /mandates
     **/
-    
-    public function docreate($options = array())
+    public function create($options = array())
     {
 
       return $this->makeRequest("post", "/mandates", $options);
@@ -42,8 +41,7 @@ class Mandate extends Base
     *
     *  Example URL: /mandates
     **/
-    
-    public function dolist($options = array())
+    public function all($options = array())
     {
 
       return $this->makeRequest("get", "/mandates", $options);
@@ -67,11 +65,10 @@ class Mandate extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "MD"
     **/
-    
-    public function doget($identity, $options = array())
+    public function get($identity, $options = array())
     {
 
-      $path = $this->subUrl("/mandates/%v", array(
+      $path = $this->subUrl("/mandates/:identity", array(
         "identity" => $identity
       ));
 
@@ -85,11 +82,10 @@ class Mandate extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "MD"
     **/
-    
-    public function doupdate($identity, $options = array())
+    public function update($identity, $options = array())
     {
 
-      $path = $this->subUrl("/mandates/%v", array(
+      $path = $this->subUrl("/mandates/:identity", array(
         "identity" => $identity
       ));
 
@@ -108,11 +104,10 @@ class Mandate extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "MD"
     **/
-    
-    public function docancel($identity, $options = array())
+    public function cancel($identity, $options = array())
     {
 
-      $path = $this->subUrl("/mandates/%v/actions/cancel", array(
+      $path = $this->subUrl("/mandates/:identity/actions/cancel", array(
         "identity" => $identity
       ));
 
@@ -136,11 +131,10 @@ class Mandate extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "MD"
     **/
-    
-    public function doreinstate($identity, $options = array())
+    public function reinstate($identity, $options = array())
     {
 
-      $path = $this->subUrl("/mandates/%v/actions/reinstate", array(
+      $path = $this->subUrl("/mandates/:identity/actions/reinstate", array(
         "identity" => $identity
       ));
 
@@ -149,6 +143,9 @@ class Mandate extends Base
 
 
 
+  /**
+   * Get the resource loading class.
+   */
    protected function resourceClass() {
      return '\GoCardless\Resources\Mandate';
    }

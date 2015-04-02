@@ -45,8 +45,7 @@ class Helper extends Base
     *
     *  Example URL: /helpers/mandate
     **/
-    
-    public function domandate($options = array())
+    public function mandate($options = array())
     {
 
       return $this->makeRequest("post", "/helpers/mandate", $options);
@@ -66,8 +65,7 @@ class Helper extends Base
     *
     *  Example URL: /helpers/modulus_check
     **/
-    
-    public function domodulus_check($options = array())
+    public function modulus_check($options = array())
     {
 
       return $this->makeRequest("post", "/helpers/modulus_check", $options);
@@ -75,6 +73,9 @@ class Helper extends Base
 
 
 
+  /**
+   * Get the resource loading class.
+   */
    protected function resourceClass() {
      return '\GoCardless\Resources\Helper';
    }

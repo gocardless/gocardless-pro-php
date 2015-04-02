@@ -15,7 +15,8 @@ class HttpClient
   private $_urlBase;
   private $_defaultHeaders = array();
 
-  public function __construct($authenticator, $urlBase, $options = array()) {
+  public function __construct($authenticator, $urlBase, $options = array())
+  {
     $this->_urlBase = $urlBase;
     if (!($authenticator instanceof Authenticator))
     {
@@ -27,175 +28,177 @@ class HttpClient
     {
       $this->_defaultHeaders = $options['default_headers'];
     }
-    array_push($this->_defaultHeaders, 'Accept: application/json');
-    array_push($this->_defaultHeaders, 'GoCardless-Version: 2014-11-03');
 
+    // Set Headers
+    array_push($this->_defaultHeaders, 'User-Agent: ' . $this->getUserAgent());
+    array_push($this->_defaultHeaders, 'Accept: application/json');
+    // Config Headers
+    array_push($this->_defaultHeaders, 'GoCardless-Version: 2014-11-03');
   }
 
-  function makeRequest($envelopeKey) {
+  function makeRequest($envelopeKey)
+  {
     return new Request(
       $this->_urlBase, $this->_authenticator, $this->_defaultHeaders, $envelopeKey);
   }
 
-  function getDefaultHeaders() {
+  function getDefaultHeaders()
+  {
     return $this->_defaultHeaders;
   }
-  function getAuthenticator() {
+
+  function getAuthenticator()
+  {
     return $this->_authenticator;
   }
-  function getUrlBase() {
+
+  function getUrlBase()
+  {
     return $this->_urlBase;
   }
 
 
 
-    // @return [ApiKey]
-    public function api_keys(){
-      if (!isset($this->api_keys)) {
-        $this->api_keys = new ApiKey($this);
-      }
-      return $this->api_keys;
+  // @return [ApiKey]
+  public function api_keys(){
+    if (!isset($this->api_keys)) {
+      $this->api_keys = new ApiKey($this);
     }
+    return $this->api_keys;
+  }
 
-
-    // @return [Creditor]
-    public function creditors(){
-      if (!isset($this->creditors)) {
-        $this->creditors = new Creditor($this);
-      }
-      return $this->creditors;
+  // @return [Creditor]
+  public function creditors(){
+    if (!isset($this->creditors)) {
+      $this->creditors = new Creditor($this);
     }
+    return $this->creditors;
+  }
 
-
-    // @return [CreditorBankAccount]
-    public function creditor_bank_accounts(){
-      if (!isset($this->creditor_bank_accounts)) {
-        $this->creditor_bank_accounts = new CreditorBankAccount($this);
-      }
-      return $this->creditor_bank_accounts;
+  // @return [CreditorBankAccount]
+  public function creditor_bank_accounts(){
+    if (!isset($this->creditor_bank_accounts)) {
+      $this->creditor_bank_accounts = new CreditorBankAccount($this);
     }
+    return $this->creditor_bank_accounts;
+  }
 
-
-    // @return [Customer]
-    public function customers(){
-      if (!isset($this->customers)) {
-        $this->customers = new Customer($this);
-      }
-      return $this->customers;
+  // @return [Customer]
+  public function customers(){
+    if (!isset($this->customers)) {
+      $this->customers = new Customer($this);
     }
+    return $this->customers;
+  }
 
-
-    // @return [CustomerBankAccount]
-    public function customer_bank_accounts(){
-      if (!isset($this->customer_bank_accounts)) {
-        $this->customer_bank_accounts = new CustomerBankAccount($this);
-      }
-      return $this->customer_bank_accounts;
+  // @return [CustomerBankAccount]
+  public function customer_bank_accounts(){
+    if (!isset($this->customer_bank_accounts)) {
+      $this->customer_bank_accounts = new CustomerBankAccount($this);
     }
+    return $this->customer_bank_accounts;
+  }
 
-
-    // @return [Event]
-    public function events(){
-      if (!isset($this->events)) {
-        $this->events = new Event($this);
-      }
-      return $this->events;
+  // @return [Event]
+  public function events(){
+    if (!isset($this->events)) {
+      $this->events = new Event($this);
     }
+    return $this->events;
+  }
 
-
-    // @return [Helper]
-    public function helpers(){
-      if (!isset($this->helpers)) {
-        $this->helpers = new Helper($this);
-      }
-      return $this->helpers;
+  // @return [Helper]
+  public function helpers(){
+    if (!isset($this->helpers)) {
+      $this->helpers = new Helper($this);
     }
+    return $this->helpers;
+  }
 
-
-    // @return [Mandate]
-    public function mandates(){
-      if (!isset($this->mandates)) {
-        $this->mandates = new Mandate($this);
-      }
-      return $this->mandates;
+  // @return [Mandate]
+  public function mandates(){
+    if (!isset($this->mandates)) {
+      $this->mandates = new Mandate($this);
     }
+    return $this->mandates;
+  }
 
-
-    // @return [Payment]
-    public function payments(){
-      if (!isset($this->payments)) {
-        $this->payments = new Payment($this);
-      }
-      return $this->payments;
+  // @return [Payment]
+  public function payments(){
+    if (!isset($this->payments)) {
+      $this->payments = new Payment($this);
     }
+    return $this->payments;
+  }
 
-
-    // @return [Payout]
-    public function payouts(){
-      if (!isset($this->payouts)) {
-        $this->payouts = new Payout($this);
-      }
-      return $this->payouts;
+  // @return [Payout]
+  public function payouts(){
+    if (!isset($this->payouts)) {
+      $this->payouts = new Payout($this);
     }
+    return $this->payouts;
+  }
 
-
-    // @return [PublishableApiKey]
-    public function publishable_api_keys(){
-      if (!isset($this->publishable_api_keys)) {
-        $this->publishable_api_keys = new PublishableApiKey($this);
-      }
-      return $this->publishable_api_keys;
+  // @return [PublishableApiKey]
+  public function publishable_api_keys(){
+    if (!isset($this->publishable_api_keys)) {
+      $this->publishable_api_keys = new PublishableApiKey($this);
     }
+    return $this->publishable_api_keys;
+  }
 
-
-    // @return [RedirectFlow]
-    public function redirect_flows(){
-      if (!isset($this->redirect_flows)) {
-        $this->redirect_flows = new RedirectFlow($this);
-      }
-      return $this->redirect_flows;
+  // @return [RedirectFlow]
+  public function redirect_flows(){
+    if (!isset($this->redirect_flows)) {
+      $this->redirect_flows = new RedirectFlow($this);
     }
+    return $this->redirect_flows;
+  }
 
-
-    // @return [Refund]
-    public function refunds(){
-      if (!isset($this->refunds)) {
-        $this->refunds = new Refund($this);
-      }
-      return $this->refunds;
+  // @return [Refund]
+  public function refunds(){
+    if (!isset($this->refunds)) {
+      $this->refunds = new Refund($this);
     }
+    return $this->refunds;
+  }
 
-
-    // @return [Role]
-    public function roles(){
-      if (!isset($this->roles)) {
-        $this->roles = new Role($this);
-      }
-      return $this->roles;
+  // @return [Role]
+  public function roles(){
+    if (!isset($this->roles)) {
+      $this->roles = new Role($this);
     }
+    return $this->roles;
+  }
 
-
-    // @return [Subscription]
-    public function subscriptions(){
-      if (!isset($this->subscriptions)) {
-        $this->subscriptions = new Subscription($this);
-      }
-      return $this->subscriptions;
+  // @return [Subscription]
+  public function subscriptions(){
+    if (!isset($this->subscriptions)) {
+      $this->subscriptions = new Subscription($this);
     }
+    return $this->subscriptions;
+  }
 
-
-    // @return [User]
-    public function users(){
-      if (!isset($this->users)) {
-        $this->users = new User($this);
-      }
-      return $this->users;
+  // @return [User]
+  public function users(){
+    if (!isset($this->users)) {
+      $this->users = new User($this);
     }
+    return $this->users;
+  }
 
-
-  public function run($req) {
+  public function run($req)
+  {
     return $this->makeRequest($req->getMethod(), $req->getUri(), $req->getOpts());
   }
 
-
+  private function getUserAgent()
+  {
+    $curlinfo = curl_version();
+    $uagent = 'GoCardless Client v0.0.1; ';
+    $uagent .= 'OS ' . $curlinfo['host'] . '; ';
+    $uagent .= 'Curl ' . $curlinfo['version'] . '; ';
+    $uagent .= 'PHP ' . phpversion();
+    return $uagent;
+  }
 }

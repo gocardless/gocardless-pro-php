@@ -88,8 +88,7 @@ class Subscription extends Base
     *
     *  Example URL: /subscriptions
     **/
-    
-    public function docreate($options = array())
+    public function create($options = array())
     {
 
       return $this->makeRequest("post", "/subscriptions", $options);
@@ -102,8 +101,7 @@ class Subscription extends Base
     *
     *  Example URL: /subscriptions
     **/
-    
-    public function dolist($options = array())
+    public function all($options = array())
     {
 
       return $this->makeRequest("get", "/subscriptions", $options);
@@ -116,11 +114,10 @@ class Subscription extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "SB"
     **/
-    
-    public function doget($identity, $options = array())
+    public function get($identity, $options = array())
     {
 
-      $path = $this->subUrl("/subscriptions/%v", array(
+      $path = $this->subUrl("/subscriptions/:identity", array(
         "identity" => $identity
       ));
 
@@ -134,11 +131,10 @@ class Subscription extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "SB"
     **/
-    
-    public function doupdate($identity, $options = array())
+    public function update($identity, $options = array())
     {
 
-      $path = $this->subUrl("/subscriptions/%v", array(
+      $path = $this->subUrl("/subscriptions/:identity", array(
         "identity" => $identity
       ));
 
@@ -158,11 +154,10 @@ class Subscription extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "SB"
     **/
-    
-    public function docancel($identity, $options = array())
+    public function cancel($identity, $options = array())
     {
 
-      $path = $this->subUrl("/subscriptions/%v/actions/cancel", array(
+      $path = $this->subUrl("/subscriptions/:identity/actions/cancel", array(
         "identity" => $identity
       ));
 
@@ -171,6 +166,9 @@ class Subscription extends Base
 
 
 
+  /**
+   * Get the resource loading class.
+   */
    protected function resourceClass() {
      return '\GoCardless\Resources\Subscription';
    }

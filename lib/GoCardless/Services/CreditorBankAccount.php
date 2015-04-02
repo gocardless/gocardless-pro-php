@@ -35,8 +35,7 @@ class CreditorBankAccount extends Base
     *
     *  Example URL: /creditor_bank_accounts
     **/
-    
-    public function docreate($options = array())
+    public function create($options = array())
     {
 
       return $this->makeRequest("post", "/creditor_bank_accounts", $options);
@@ -49,8 +48,7 @@ class CreditorBankAccount extends Base
     *
     *  Example URL: /creditor_bank_accounts
     **/
-    
-    public function dolist($options = array())
+    public function all($options = array())
     {
 
       return $this->makeRequest("get", "/creditor_bank_accounts", $options);
@@ -63,11 +61,10 @@ class CreditorBankAccount extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "BA"
     **/
-    
-    public function doget($identity, $options = array())
+    public function get($identity, $options = array())
     {
 
-      $path = $this->subUrl("/creditor_bank_accounts/%v", array(
+      $path = $this->subUrl("/creditor_bank_accounts/:identity", array(
         "identity" => $identity
       ));
 
@@ -89,11 +86,10 @@ class CreditorBankAccount extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "BA"
     **/
-    
-    public function dodisable($identity, $options = array())
+    public function disable($identity, $options = array())
     {
 
-      $path = $this->subUrl("/creditor_bank_accounts/%v/actions/disable", array(
+      $path = $this->subUrl("/creditor_bank_accounts/:identity/actions/disable", array(
         "identity" => $identity
       ));
 
@@ -102,6 +98,9 @@ class CreditorBankAccount extends Base
 
 
 
+  /**
+   * Get the resource loading class.
+   */
    protected function resourceClass() {
      return '\GoCardless\Resources\CreditorBankAccount';
    }

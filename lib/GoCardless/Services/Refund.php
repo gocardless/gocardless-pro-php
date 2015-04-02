@@ -51,8 +51,7 @@ class Refund extends Base
     *
     *  Example URL: /refunds
     **/
-    
-    public function docreate($options = array())
+    public function create($options = array())
     {
 
       return $this->makeRequest("post", "/refunds", $options);
@@ -65,8 +64,7 @@ class Refund extends Base
     *
     *  Example URL: /refunds
     **/
-    
-    public function dolist($options = array())
+    public function all($options = array())
     {
 
       return $this->makeRequest("get", "/refunds", $options);
@@ -79,11 +77,10 @@ class Refund extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "RF"
     **/
-    
-    public function doget($identity, $options = array())
+    public function get($identity, $options = array())
     {
 
-      $path = $this->subUrl("/refunds/%v", array(
+      $path = $this->subUrl("/refunds/:identity", array(
         "identity" => $identity
       ));
 
@@ -97,11 +94,10 @@ class Refund extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "RF"
     **/
-    
-    public function doupdate($identity, $options = array())
+    public function update($identity, $options = array())
     {
 
-      $path = $this->subUrl("/refunds/%v", array(
+      $path = $this->subUrl("/refunds/:identity", array(
         "identity" => $identity
       ));
 
@@ -110,6 +106,9 @@ class Refund extends Base
 
 
 
+  /**
+   * Get the resource loading class.
+   */
    protected function resourceClass() {
      return '\GoCardless\Resources\Refund';
    }

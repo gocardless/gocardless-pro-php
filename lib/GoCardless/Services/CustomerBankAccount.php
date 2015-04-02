@@ -51,8 +51,7 @@ class CustomerBankAccount extends Base
     *
     *  Example URL: /customer_bank_accounts
     **/
-    
-    public function docreate($options = array())
+    public function create($options = array())
     {
 
       return $this->makeRequest("post", "/customer_bank_accounts", $options);
@@ -65,8 +64,7 @@ class CustomerBankAccount extends Base
     *
     *  Example URL: /customer_bank_accounts
     **/
-    
-    public function dolist($options = array())
+    public function all($options = array())
     {
 
       return $this->makeRequest("get", "/customer_bank_accounts", $options);
@@ -79,11 +77,10 @@ class CustomerBankAccount extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "BA"
     **/
-    
-    public function doget($identity, $options = array())
+    public function get($identity, $options = array())
     {
 
-      $path = $this->subUrl("/customer_bank_accounts/%v", array(
+      $path = $this->subUrl("/customer_bank_accounts/:identity", array(
         "identity" => $identity
       ));
 
@@ -98,11 +95,10 @@ class CustomerBankAccount extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "BA"
     **/
-    
-    public function doupdate($identity, $options = array())
+    public function update($identity, $options = array())
     {
 
-      $path = $this->subUrl("/customer_bank_accounts/%v", array(
+      $path = $this->subUrl("/customer_bank_accounts/:identity", array(
         "identity" => $identity
       ));
 
@@ -123,11 +119,10 @@ class CustomerBankAccount extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "BA"
     **/
-    
-    public function dodisable($identity, $options = array())
+    public function disable($identity, $options = array())
     {
 
-      $path = $this->subUrl("/customer_bank_accounts/%v/actions/disable", array(
+      $path = $this->subUrl("/customer_bank_accounts/:identity/actions/disable", array(
         "identity" => $identity
       ));
 
@@ -136,6 +131,9 @@ class CustomerBankAccount extends Base
 
 
 
+  /**
+   * Get the resource loading class.
+   */
    protected function resourceClass() {
      return '\GoCardless\Resources\CustomerBankAccount';
    }

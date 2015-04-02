@@ -25,8 +25,7 @@ class Customer extends Base
     *
     *  Example URL: /customers
     **/
-    
-    public function docreate($options = array())
+    public function create($options = array())
     {
 
       return $this->makeRequest("post", "/customers", $options);
@@ -39,8 +38,7 @@ class Customer extends Base
     *
     *  Example URL: /customers
     **/
-    
-    public function dolist($options = array())
+    public function all($options = array())
     {
 
       return $this->makeRequest("get", "/customers", $options);
@@ -53,11 +51,10 @@ class Customer extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "CU".
     **/
-    
-    public function doget($identity, $options = array())
+    public function get($identity, $options = array())
     {
 
-      $path = $this->subUrl("/customers/%v", array(
+      $path = $this->subUrl("/customers/:identity", array(
         "identity" => $identity
       ));
 
@@ -72,11 +69,10 @@ class Customer extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "CU".
     **/
-    
-    public function doupdate($identity, $options = array())
+    public function update($identity, $options = array())
     {
 
-      $path = $this->subUrl("/customers/%v", array(
+      $path = $this->subUrl("/customers/:identity", array(
         "identity" => $identity
       ));
 
@@ -85,6 +81,9 @@ class Customer extends Base
 
 
 
+  /**
+   * Get the resource loading class.
+   */
    protected function resourceClass() {
      return '\GoCardless\Resources\Customer';
    }

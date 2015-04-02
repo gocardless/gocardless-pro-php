@@ -38,8 +38,7 @@ class Payment extends Base
     *
     *  Example URL: /payments
     **/
-    
-    public function docreate($options = array())
+    public function create($options = array())
     {
 
       return $this->makeRequest("post", "/payments", $options);
@@ -52,8 +51,7 @@ class Payment extends Base
     *
     *  Example URL: /payments
     **/
-    
-    public function dolist($options = array())
+    public function all($options = array())
     {
 
       return $this->makeRequest("get", "/payments", $options);
@@ -66,11 +64,10 @@ class Payment extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "PM"
     **/
-    
-    public function doget($identity, $options = array())
+    public function get($identity, $options = array())
     {
 
-      $path = $this->subUrl("/payments/%v", array(
+      $path = $this->subUrl("/payments/:identity", array(
         "identity" => $identity
       ));
 
@@ -84,11 +81,10 @@ class Payment extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "PM"
     **/
-    
-    public function doupdate($identity, $options = array())
+    public function update($identity, $options = array())
     {
 
-      $path = $this->subUrl("/payments/%v", array(
+      $path = $this->subUrl("/payments/:identity", array(
         "identity" => $identity
       ));
 
@@ -108,11 +104,10 @@ class Payment extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "PM"
     **/
-    
-    public function docancel($identity, $options = array())
+    public function cancel($identity, $options = array())
     {
 
-      $path = $this->subUrl("/payments/%v/actions/cancel", array(
+      $path = $this->subUrl("/payments/:identity/actions/cancel", array(
         "identity" => $identity
       ));
 
@@ -135,11 +130,10 @@ class Payment extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "PM"
     **/
-    
-    public function doretry($identity, $options = array())
+    public function retry($identity, $options = array())
     {
 
-      $path = $this->subUrl("/payments/%v/actions/retry", array(
+      $path = $this->subUrl("/payments/:identity/actions/retry", array(
         "identity" => $identity
       ));
 
@@ -148,6 +142,9 @@ class Payment extends Base
 
 
 
+  /**
+   * Get the resource loading class.
+   */
    protected function resourceClass() {
      return '\GoCardless\Resources\Payment';
    }

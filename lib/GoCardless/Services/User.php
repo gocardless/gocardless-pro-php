@@ -22,8 +22,7 @@ class User extends Base
     *
     *  Example URL: /users
     **/
-    
-    public function docreate($options = array())
+    public function create($options = array())
     {
 
       return $this->makeRequest("post", "/users", $options);
@@ -36,8 +35,7 @@ class User extends Base
     *
     *  Example URL: /users
     **/
-    
-    public function dolist($options = array())
+    public function all($options = array())
     {
 
       return $this->makeRequest("get", "/users", $options);
@@ -51,11 +49,10 @@ class User extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "US"
     **/
-    
-    public function doget($identity, $options = array())
+    public function get($identity, $options = array())
     {
 
-      $path = $this->subUrl("/users/%v", array(
+      $path = $this->subUrl("/users/:identity", array(
         "identity" => $identity
       ));
 
@@ -70,11 +67,10 @@ class User extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "US"
     **/
-    
-    public function doupdate($identity, $options = array())
+    public function update($identity, $options = array())
     {
 
-      $path = $this->subUrl("/users/%v", array(
+      $path = $this->subUrl("/users/:identity", array(
         "identity" => $identity
       ));
 
@@ -88,11 +84,10 @@ class User extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "US"
     **/
-    
-    public function doenable($identity, $options = array())
+    public function enable($identity, $options = array())
     {
 
-      $path = $this->subUrl("/users/%v/actions/enable", array(
+      $path = $this->subUrl("/users/:identity/actions/enable", array(
         "identity" => $identity
       ));
 
@@ -106,11 +101,10 @@ class User extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "US"
     **/
-    
-    public function dodisable($identity, $options = array())
+    public function disable($identity, $options = array())
     {
 
-      $path = $this->subUrl("/users/%v/actions/disable", array(
+      $path = $this->subUrl("/users/:identity/actions/disable", array(
         "identity" => $identity
       ));
 
@@ -119,6 +113,9 @@ class User extends Base
 
 
 
+  /**
+   * Get the resource loading class.
+   */
    protected function resourceClass() {
      return '\GoCardless\Resources\User';
    }

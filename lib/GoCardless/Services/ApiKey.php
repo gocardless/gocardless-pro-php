@@ -24,8 +24,7 @@ class ApiKey extends Base
     *
     *  Example URL: /api_keys
     **/
-    
-    public function docreate($options = array())
+    public function create($options = array())
     {
 
       return $this->makeRequest("post", "/api_keys", $options);
@@ -38,8 +37,7 @@ class ApiKey extends Base
     *
     *  Example URL: /api_keys
     **/
-    
-    public function dolist($options = array())
+    public function all($options = array())
     {
 
       return $this->makeRequest("get", "/api_keys", $options);
@@ -52,11 +50,10 @@ class ApiKey extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "AK"
     **/
-    
-    public function doget($identity, $options = array())
+    public function get($identity, $options = array())
     {
 
-      $path = $this->subUrl("/api_keys/%v", array(
+      $path = $this->subUrl("/api_keys/:identity", array(
         "identity" => $identity
       ));
 
@@ -71,11 +68,10 @@ class ApiKey extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "AK"
     **/
-    
-    public function doupdate($identity, $options = array())
+    public function update($identity, $options = array())
     {
 
-      $path = $this->subUrl("/api_keys/%v", array(
+      $path = $this->subUrl("/api_keys/:identity", array(
         "identity" => $identity
       ));
 
@@ -91,11 +87,10 @@ class ApiKey extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "AK"
     **/
-    
-    public function dodisable($identity, $options = array())
+    public function disable($identity, $options = array())
     {
 
-      $path = $this->subUrl("/api_keys/%v/actions/disable", array(
+      $path = $this->subUrl("/api_keys/:identity/actions/disable", array(
         "identity" => $identity
       ));
 
@@ -104,6 +99,9 @@ class ApiKey extends Base
 
 
 
+  /**
+   * Get the resource loading class.
+   */
    protected function resourceClass() {
      return '\GoCardless\Resources\ApiKey';
    }

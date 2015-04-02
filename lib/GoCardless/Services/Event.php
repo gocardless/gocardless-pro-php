@@ -25,8 +25,7 @@ class Event extends Base
     *
     *  Example URL: /events
     **/
-    
-    public function dolist($options = array())
+    public function all($options = array())
     {
 
       return $this->makeRequest("get", "/events", $options);
@@ -39,11 +38,10 @@ class Event extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "EV"
     **/
-    
-    public function doget($identity, $options = array())
+    public function get($identity, $options = array())
     {
 
-      $path = $this->subUrl("/events/%v", array(
+      $path = $this->subUrl("/events/:identity", array(
         "identity" => $identity
       ));
 
@@ -52,6 +50,9 @@ class Event extends Base
 
 
 
+  /**
+   * Get the resource loading class.
+   */
    protected function resourceClass() {
      return '\GoCardless\Resources\Event';
    }

@@ -28,8 +28,7 @@ class Payout extends Base
     *
     *  Example URL: /payouts
     **/
-    
-    public function dolist($options = array())
+    public function all($options = array())
     {
 
       return $this->makeRequest("get", "/payouts", $options);
@@ -42,11 +41,10 @@ class Payout extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "PO"
     **/
-    
-    public function doget($identity, $options = array())
+    public function get($identity, $options = array())
     {
 
-      $path = $this->subUrl("/payouts/%v", array(
+      $path = $this->subUrl("/payouts/:identity", array(
         "identity" => $identity
       ));
 
@@ -55,6 +53,9 @@ class Payout extends Base
 
 
 
+  /**
+   * Get the resource loading class.
+   */
    protected function resourceClass() {
      return '\GoCardless\Resources\Payout';
    }

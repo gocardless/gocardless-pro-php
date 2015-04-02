@@ -30,8 +30,7 @@ class Creditor extends Base
     *
     *  Example URL: /creditors
     **/
-    
-    public function docreate($options = array())
+    public function create($options = array())
     {
 
       return $this->makeRequest("post", "/creditors", $options);
@@ -44,8 +43,7 @@ class Creditor extends Base
     *
     *  Example URL: /creditors
     **/
-    
-    public function dolist($options = array())
+    public function all($options = array())
     {
 
       return $this->makeRequest("get", "/creditors", $options);
@@ -58,11 +56,10 @@ class Creditor extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "CR".
     **/
-    
-    public function doget($identity, $options = array())
+    public function get($identity, $options = array())
     {
 
-      $path = $this->subUrl("/creditors/%v", array(
+      $path = $this->subUrl("/creditors/:identity", array(
         "identity" => $identity
       ));
 
@@ -77,11 +74,10 @@ class Creditor extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "CR".
     **/
-    
-    public function doupdate($identity, $options = array())
+    public function update($identity, $options = array())
     {
 
-      $path = $this->subUrl("/creditors/%v", array(
+      $path = $this->subUrl("/creditors/:identity", array(
         "identity" => $identity
       ));
 
@@ -90,6 +86,9 @@ class Creditor extends Base
 
 
 
+  /**
+   * Get the resource loading class.
+   */
    protected function resourceClass() {
      return '\GoCardless\Resources\Creditor';
    }

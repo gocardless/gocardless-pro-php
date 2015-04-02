@@ -79,8 +79,7 @@ class Role extends Base
     *
     *  Example URL: /roles
     **/
-    
-    public function docreate($options = array())
+    public function create($options = array())
     {
 
       return $this->makeRequest("post", "/roles", $options);
@@ -91,8 +90,7 @@ class Role extends Base
     *
     *  Example URL: /roles
     **/
-    
-    public function dolist($options = array())
+    public function all($options = array())
     {
 
       return $this->makeRequest("get", "/roles", $options);
@@ -105,11 +103,10 @@ class Role extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "RO"
     **/
-    
-    public function doget($identity, $options = array())
+    public function get($identity, $options = array())
     {
 
-      $path = $this->subUrl("/roles/%v", array(
+      $path = $this->subUrl("/roles/:identity", array(
         "identity" => $identity
       ));
 
@@ -124,11 +121,10 @@ class Role extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "RO"
     **/
-    
-    public function doupdate($identity, $options = array())
+    public function update($identity, $options = array())
     {
 
-      $path = $this->subUrl("/roles/%v", array(
+      $path = $this->subUrl("/roles/:identity", array(
         "identity" => $identity
       ));
 
@@ -142,11 +138,10 @@ class Role extends Base
     *  
     *  @param identity:  Unique identifier, beginning with "RO"
     **/
-    
-    public function dodisable($identity, $options = array())
+    public function disable($identity, $options = array())
     {
 
-      $path = $this->subUrl("/roles/%v/actions/disable", array(
+      $path = $this->subUrl("/roles/:identity/actions/disable", array(
         "identity" => $identity
       ));
 
@@ -155,6 +150,9 @@ class Role extends Base
 
 
 
+  /**
+   * Get the resource loading class.
+   */
    protected function resourceClass() {
      return '\GoCardless\Resources\Role';
    }
