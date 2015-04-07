@@ -7,7 +7,7 @@
 
 namespace GoCardless\Core;
 
-class ListResponse 
+class ListResponse
 {
   private $models = array();
   private $response;
@@ -17,14 +17,18 @@ class ListResponse
     $this->response = $response;
     foreach ($response->response() as $item)
     {
-      array_push($this->models, new $modelClass($item));
+      $this->models[] = new $modelClass($item);
     }
   }
-
 
   public function response()
   {
     return $this->response;
+  }
+
+  public function items()
+  {
+    return $this->models;
   }
 
   public function meta()
@@ -34,7 +38,7 @@ class ListResponse
 
   public function getItems()
   {
-    return $models;
+    return $this->models;
   }
 
 }

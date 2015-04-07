@@ -1,0 +1,23 @@
+<?php
+
+namespace GoCardless\Core\Error;
+
+class HttpError extends \Exception {
+  private $errorNumber;
+  private $errorDesc;
+
+  function __construct($curlErrorNo, $errorDesc)
+  {
+    $this->errorNumber = $curlErrorNo;
+    $this->errorDesc = $errorDesc;
+    parent::__construct($errorDesc . ' (' . $curlErrorNo . ')');
+  }
+  function getErrorNumber()
+  {
+    return $this->errorNumber;
+  }
+  function getErrorDesc()
+  {
+    return $this->errorDesc;
+  }
+}

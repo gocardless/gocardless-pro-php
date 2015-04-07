@@ -20,7 +20,7 @@ class Client {
       $req_options[$req_option] = $options[$req_option];
       unset($options[$req_option]);
     }
-    $this->httpClient = new Core\HttpClient(new Core\Authenticator($req_options['api_key'], $req_options['api_secret']), $req_options['environment'], $options);
+    $this->httpClient = new Core\HttpClient($req_options['api_key'], $req_options['api_secret'], $req_options['environment'], $options);
   }
 
 

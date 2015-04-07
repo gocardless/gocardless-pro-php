@@ -46,7 +46,7 @@ class Response {
   function response() {
     if (!isset($this->unwrapJson))
     {
-      throw new Exception("UnwrapJSON needs to be set before getting response body");
+      throw new \Exception("UnwrapJSON needs to be set before getting response body");
     }
     return $this->jsonBody()->{$this->unwrapJson};
   }
@@ -57,14 +57,6 @@ class Response {
 
   public function limit() {
     return $this->jsonBody()->meta->limit;
-  }
-
-  public function getPaginator() {
-    if (!isset($this->paginator))
-    {
-      $this->paginator = new Paginator($this);
-    }
-    return $this->paginator;
   }
 
   public function jsonBody() {
