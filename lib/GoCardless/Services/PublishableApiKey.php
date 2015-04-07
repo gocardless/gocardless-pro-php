@@ -50,14 +50,14 @@ class PublishableApiKey extends Base
   /**
     *  Returns all details about a single publishable API key
     *
-    *  Example URL: /publishable_api_key/:identity
+    *  Example URL: /publishable_api_keys/:identity
     *  
     *  @param identity:  Unique identifier, beginning with "PK"
     **/
     public function get($identity, $options = array())
     {
 
-      $path = $this->subUrl("/publishable_api_key/:identity", array(
+      $path = $this->subUrl("/publishable_api_keys/:identity", array(
         "identity" => $identity
       ));
 
