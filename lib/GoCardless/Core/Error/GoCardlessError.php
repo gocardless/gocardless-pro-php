@@ -6,7 +6,8 @@ class GoCardlessError extends \Exception
 {
     private $error;
     private $httpStatus;
-    public function __construct($error, $httpStatus) {
+    public function __construct($error, $httpStatus)
+    {
         $this->error = $error;
         $this->httpStatus = $httpStatus;
     
@@ -26,27 +27,30 @@ class GoCardlessError extends \Exception
         if ($error->error->type) {
             switch ($error->error->type) {
                 case 'invalid_api_usage':
-                return new InvalidApiUsageError($error, $status);
+                    return new InvalidApiUsageError($error, $status);
 
                 case 'invalid_state':
-                return new InvalidStateError($error, $status);
+                    return new InvalidStateError($error, $status);
 
                 case 'validation_failed':
-                return new ValidationFailedError($error, $status);
+                    return new ValidationFailedError($error, $status);
             }
         }
         return new GoCardlessError($error, $status);
     }
 
-    public function getError() {
+    public function getError()
+    {
         return $this->error;
     }
 
-    public function getErrors() {
+    public function getErrors()
+    {
         return $this->error->error->errors;
     }
 
-    public function getHttpStatus() {
+    public function getHttpStatus()
+    {
         return $this->httpStatus;
     }
 }
