@@ -2,6 +2,7 @@
 
 namespace GoCardless\Core\Error;
 
-class InvalidStateError extends GoCardlessError {
+class InvalidStateError extends GoCardlessError
+{
 
 }

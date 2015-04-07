@@ -11,48 +11,44 @@ class HttpClient
 {
   //  GoCardless Enterprise API
 
-  private $auth;
-  private $urlBase;
-  private $headers = array();
+    private $auth;
+    private $urlBase;
+    private $headers = array();
 
-  public function __construct($api_key, $api_secret, $urlBase, $options = array())
-  {
-    $this->urlBase = $urlBase;
-    $this->auth = $api_key . ":" . $api_secret;
-
-    $this->headers = array();
-    if (isset($options['default_headers']))
+    public function __construct($api_key, $api_secret, $urlBase, $options = array())
     {
-      $this->headers = $options['default_headers'];
+        $this->urlBase = $urlBase;
+        $this->auth = $api_key . ":" . $api_secret;
+
+        $this->headers = array();
+        if (isset($options['default_headers'])) {
+            $this->headers = $options['default_headers'];
+        }
+
+        // Set Accept Header
+        $this->headers['accept'] = 'application/json';
+
+        // Config Headers
+        $this->headers['GoCardless-Version'] = '2014-11-03';
+        
     }
 
-    // Set Accept Header
-    $this->headers['accept'] = 'application/json';
-
-    // Config Headers
-    $this->headers['GoCardless-Version'] = '2014-11-03';
-    
-  }
-
-  function makeRequest($envelopeKey)
-  {
-    return new Request($this, $envelopeKey);
-  }
-
-  function runCurlRequest($method, $path, $postBody)
-  {
-    $httpRequest = new CurlWrapper($method, $this->urlBase . substr($path, 1));
-
-    $httpRequest->setAuth($this->auth);
-    $httpRequest->setHeaders($this->headers);
-
-    if (isset($postBody))
+    public function makeRequest($envelopeKey)
     {
-      $httpRequest->setPostBody($postBody, 'application/json');
+        return new Request($this, $envelopeKey);
     }
 
-    return $httpRequest->run();
-  }
+    public function runCurlRequest($method, $path, $postBody)
+    {
+        $httpRequest = new CurlWrapper($method, $this->urlBase . substr($path, 1));
 
+        $httpRequest->setAuth($this->auth);
+        $httpRequest->setHeaders($this->headers);
 
+        if (isset($postBody)) {
+            $httpRequest->setPostBody($postBody, 'application/json');
+        }
+
+        return $httpRequest->run();
+    }
 }

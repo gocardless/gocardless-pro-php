@@ -2,6 +2,7 @@
 
 namespace GoCardless\Core\Error;
 
-class ValidationFailedError extends GoCardlessError {
+class ValidationFailedError extends GoCardlessError
+{
 
 }

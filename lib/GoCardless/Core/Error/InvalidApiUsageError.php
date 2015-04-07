@@ -2,6 +2,7 @@
 
 namespace GoCardless\Core\Error;
 
-class InvalidApiUsageError extends GoCardlessError {
+class InvalidApiUsageError extends GoCardlessError
+{
 
 }

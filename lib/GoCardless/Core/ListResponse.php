@@ -9,36 +9,34 @@ namespace GoCardless\Core;
 
 class ListResponse
 {
-  private $models = array();
-  private $response;
+    private $models = array();
+    private $response;
 
-  public function __construct($modelClass, $response)
-  {
-    $this->response = $response;
-    foreach ($response->response() as $item)
+    public function __construct($modelClass, $response)
     {
-      $this->models[] = new $modelClass($item);
+        $this->response = $response;
+        foreach ($response->response() as $item) {
+            $this->models[] = new $modelClass($item);
+        }
     }
-  }
 
-  public function response()
-  {
-    return $this->response;
-  }
+    public function response()
+    {
+        return $this->response;
+    }
 
-  public function items()
-  {
-    return $this->models;
-  }
+    public function items()
+    {
+        return $this->models;
+    }
 
-  public function meta()
-  {
-    return $this->response->meta();
-  }
+    public function meta()
+    {
+        return $this->response->meta();
+    }
 
-  public function getItems()
-  {
-    return $this->models;
-  }
-
+    public function getItems()
+    {
+        return $this->models;
+    }
 }
