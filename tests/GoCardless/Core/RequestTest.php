@@ -1,0 +1,48 @@
+<?php
+
+namespace GoCardless\Core;
+
+require_once(__DIR__ . '/CurlTestHelper.php');
+
+class RequestTest extends \PHPUnit_Framework_TestCase
+{
+    private $client;
+    public function tearDown()
+    {
+        StaticStorage::reset();
+    }
+    public function setUp()
+    {
+        $this->client = new \GoCardless\Client(array(
+          'api_key' => 'hi',
+          'api_secret' => 'ssssh',
+          'environment' => 'https://example.com/'
+        ));
+        $this->httpClient = $this->client->httpClient();
+        StaticStorage::setRetVal('exec', '{"thiskey": "hi!"}');
+        StaticStorage::setRetVal(CURLINFO_HTTP_CODE, 200);
+        StaticStorage::setRetVal(CURLINFO_CONTENT_TYPE, 'application/json');
+        $this->request = $this->httpClient->makeRequest('thiskey');
+    }
+
+    public function testHandlesProperQueryParameters()
+    {
+        $this->request->run('get', '/hi', array('age' => '23'));
+        $this->assertEquals('https://example.com/hi?age=23', StaticStorage::getOpt(CURLOPT_URL));
+    }
+    public function testHandlesJoinedQueryParameters()
+    {
+        $this->request->run('get', '/hi?name=jane', array('age' => '23'));
+        $this->assertEquals('https://example.com/hi?name=jane&age=23', StaticStorage::getOpt(CURLOPT_URL));
+    }
+    public function testHandlesMultipleQueryParams()
+    {
+        $this->request->run('get', '/hi?name=jane&', array('age' => '23'));
+        $this->assertEquals('https://example.com/hi?name=jane&age=23', StaticStorage::getOpt(CURLOPT_URL));
+    }
+    public function testHandlesAdjacentQueryParams()
+    {
+        $this->request->run('get', '/hi?', array('age' => '23'));
+        $this->assertEquals('https://example.com/hi?age=23', StaticStorage::getOpt(CURLOPT_URL));
+    }
+}
