@@ -79,122 +79,105 @@ namespace GoCardless\Resources;
   */
 class Subscription
 {
-  
-    
+
     private $data;
     private $response;
 
     public function __construct($data, $response = null)
     {
-      if ($data === null)
-      {
-        throw new \Exception('Data cannot be null');
-      }
-      $this->response = $response;
-      $this->data = $data;
+        if ($data === null) {
+            throw new \Exception('Data cannot be null');
+        }
+        $this->response = $response;
+        $this->data = $data;
     }
-  
-    
-    
+
     public function amount()
     {
-      return $this->data->amount;
+        return $this->data->amount;
     }
-  
-    
+
     public function count()
     {
-      return $this->data->count;
+        return $this->data->count;
     }
-  
-    
+
     public function created_at()
     {
-      return $this->data->created_at;
+        return $this->data->created_at;
     }
-  
-    
+
     public function currency()
     {
-      return $this->data->currency;
+        return $this->data->currency;
     }
-  
-    
+
     public function day_of_month()
     {
-      return $this->data->day_of_month;
+        return $this->data->day_of_month;
     }
-  
-    
+
     public function end_at()
     {
-      return $this->data->end_at;
+        return $this->data->end_at;
     }
-  
-    
+
     public function id()
     {
-      return $this->data->id;
+        return $this->data->id;
     }
-  
-    
+
     public function interval()
     {
-      return $this->data->interval;
+        return $this->data->interval;
     }
-  
-    
+
     public function interval_unit()
     {
-      return $this->data->interval_unit;
+        return $this->data->interval_unit;
     }
-  
-    
+
     public function links()
     {
-      return $this->data->links;
+        return $this->data->links;
     }
-  
-    
+
     public function metadata()
     {
-      return $this->data->metadata;
+        return $this->data->metadata;
     }
-  
-    
+
     public function month()
     {
-      return $this->data->month;
+        return $this->data->month;
     }
-  
-    
+
     public function name()
     {
-      return $this->data->name;
+        return $this->data->name;
     }
-  
-    
+
     public function start_at()
     {
-      return $this->data->start_at;
+        return $this->data->start_at;
     }
-  
-    
+
     public function status()
     {
-      return $this->data->status;
+        return $this->data->status;
     }
-  
-    
+
     public function upcoming_payments()
     {
-      return $this->data->upcoming_payments;
+        return $this->data->upcoming_payments;
     }
-  
-    
+
     public function response() {
-      return $this->response;
+        return $this->response;
     }
-
-
+    public function __toString() {
+        $ret = 'Subscription Class (';
+        $ret .= print_r($this->data, true) . ')';
+        return $ret;
+    }
 }

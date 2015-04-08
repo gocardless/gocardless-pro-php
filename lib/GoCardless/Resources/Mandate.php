@@ -18,74 +18,65 @@ namespace GoCardless\Resources;
   */
 class Mandate
 {
-  
-    
+
     private $data;
     private $response;
 
     public function __construct($data, $response = null)
     {
-      if ($data === null)
-      {
-        throw new \Exception('Data cannot be null');
-      }
-      $this->response = $response;
-      $this->data = $data;
+        if ($data === null) {
+            throw new \Exception('Data cannot be null');
+        }
+        $this->response = $response;
+        $this->data = $data;
     }
-  
-    
-    
+
     public function created_at()
     {
-      return $this->data->created_at;
+        return $this->data->created_at;
     }
-  
-    
+
     public function id()
     {
-      return $this->data->id;
+        return $this->data->id;
     }
-  
-    
+
     public function links()
     {
-      return $this->data->links;
+        return $this->data->links;
     }
-  
-    
+
     public function metadata()
     {
-      return $this->data->metadata;
+        return $this->data->metadata;
     }
-  
-    
+
     public function next_possible_charge_date()
     {
-      return $this->data->next_possible_charge_date;
+        return $this->data->next_possible_charge_date;
     }
-  
-    
+
     public function reference()
     {
-      return $this->data->reference;
+        return $this->data->reference;
     }
-  
-    
+
     public function scheme()
     {
-      return $this->data->scheme;
+        return $this->data->scheme;
     }
-  
-    
+
     public function status()
     {
-      return $this->data->status;
+        return $this->data->status;
     }
-  
-    
+
     public function response() {
-      return $this->response;
+        return $this->response;
     }
-
-
+    public function __toString() {
+        $ret = 'Mandate Class (';
+        $ret .= print_r($this->data, true) . ')';
+        return $ret;
+    }
 }

@@ -9,8 +9,10 @@ class Client {
    */
   public function __construct($options) {
     $req_options = array();
-    foreach (array('api_key', 'api_secret', 'environment') as $req_option)
-    {
+    if (!isset($options['environment'])) {
+        $options['environment'] = Environment::PRODUCTION;
+    }
+    foreach (array('api_key', 'api_secret', 'environment') as $req_option) {
       if (!isset($options[$req_option])) {
         throw new \Exception('Missing required option `' . $req_option . '`.');
       }
@@ -19,6 +21,9 @@ class Client {
       }
       $req_options[$req_option] = $options[$req_option];
       unset($options[$req_option]);
+    }
+    if (!empty($options)) {
+        throw new \Exception('Unexpected options passed in: ' . implode(', ', array_keys($options)));
     }
     $this->httpClient = new Core\HttpClient($req_options['api_key'], $req_options['api_secret'], $req_options['environment'], $options);
   }

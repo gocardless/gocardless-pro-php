@@ -3,12 +3,12 @@
 require('../gocardless.php');
 
 $client = new GoCardless\Client(array(
-  'api_key' => '',
-  'api_secret' => '',
-  'environment' => 'https://api-sandbox.gocardless.com/'
+  'api_key'     => '<no value>',
+  'api_secret'  => '<no value>',
+  'environment' => GoCardless\Environment::SANDBOX
 ));
 
-$creditors = $client->creditors()->dolist();
+$creditors = $client->creditors()->list();
 
 print_r($creditors);
 

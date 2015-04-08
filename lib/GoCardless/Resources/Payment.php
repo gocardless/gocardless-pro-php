@@ -22,92 +22,80 @@ namespace GoCardless\Resources;
   */
 class Payment
 {
-  
-    
+
     private $data;
     private $response;
 
     public function __construct($data, $response = null)
     {
-      if ($data === null)
-      {
-        throw new \Exception('Data cannot be null');
-      }
-      $this->response = $response;
-      $this->data = $data;
+        if ($data === null) {
+            throw new \Exception('Data cannot be null');
+        }
+        $this->response = $response;
+        $this->data = $data;
     }
-  
-    
-    
+
     public function amount()
     {
-      return $this->data->amount;
+        return $this->data->amount;
     }
-  
-    
+
     public function amount_refunded()
     {
-      return $this->data->amount_refunded;
+        return $this->data->amount_refunded;
     }
-  
-    
+
     public function charge_date()
     {
-      return $this->data->charge_date;
+        return $this->data->charge_date;
     }
-  
-    
+
     public function created_at()
     {
-      return $this->data->created_at;
+        return $this->data->created_at;
     }
-  
-    
+
     public function currency()
     {
-      return $this->data->currency;
+        return $this->data->currency;
     }
-  
-    
+
     public function description()
     {
-      return $this->data->description;
+        return $this->data->description;
     }
-  
-    
+
     public function id()
     {
-      return $this->data->id;
+        return $this->data->id;
     }
-  
-    
+
     public function links()
     {
-      return $this->data->links;
+        return $this->data->links;
     }
-  
-    
+
     public function metadata()
     {
-      return $this->data->metadata;
+        return $this->data->metadata;
     }
-  
-    
+
     public function reference()
     {
-      return $this->data->reference;
+        return $this->data->reference;
     }
-  
-    
+
     public function status()
     {
-      return $this->data->status;
+        return $this->data->status;
     }
-  
-    
+
     public function response() {
-      return $this->response;
+        return $this->response;
     }
-
-
+    public function __toString() {
+        $ret = 'Payment Class (';
+        $ret .= print_r($this->data, true) . ')';
+        return $ret;
+    }
 }

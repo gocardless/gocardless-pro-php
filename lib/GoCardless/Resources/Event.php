@@ -14,68 +14,60 @@ namespace GoCardless\Resources;
   */
 class Event
 {
-  
-    
+
     private $data;
     private $response;
 
     public function __construct($data, $response = null)
     {
-      if ($data === null)
-      {
-        throw new \Exception('Data cannot be null');
-      }
-      $this->response = $response;
-      $this->data = $data;
+        if ($data === null) {
+            throw new \Exception('Data cannot be null');
+        }
+        $this->response = $response;
+        $this->data = $data;
     }
-  
-    
-    
+
     public function action()
     {
-      return $this->data->action;
+        return $this->data->action;
     }
-  
-    
+
     public function created_at()
     {
-      return $this->data->created_at;
+        return $this->data->created_at;
     }
-  
-    
+
     public function details()
     {
-      return $this->data->details;
+        return $this->data->details;
     }
-  
-    
+
     public function id()
     {
-      return $this->data->id;
+        return $this->data->id;
     }
-  
-    
+
     public function links()
     {
-      return $this->data->links;
+        return $this->data->links;
     }
-  
-    
+
     public function metadata()
     {
-      return $this->data->metadata;
+        return $this->data->metadata;
     }
-  
-    
+
     public function resource_type()
     {
-      return $this->data->resource_type;
+        return $this->data->resource_type;
     }
-  
-    
+
     public function response() {
-      return $this->response;
+        return $this->response;
     }
-
-
+    public function __toString() {
+        $ret = 'Event Class (';
+        $ret .= print_r($this->data, true) . ')';
+        return $ret;
+    }
 }

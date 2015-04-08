@@ -49,74 +49,65 @@ namespace GoCardless\Resources;
   */
 class RedirectFlow
 {
-  
-    
+
     private $data;
     private $response;
 
     public function __construct($data, $response = null)
     {
-      if ($data === null)
-      {
-        throw new \Exception('Data cannot be null');
-      }
-      $this->response = $response;
-      $this->data = $data;
+        if ($data === null) {
+            throw new \Exception('Data cannot be null');
+        }
+        $this->response = $response;
+        $this->data = $data;
     }
-  
-    
-    
+
     public function created_at()
     {
-      return $this->data->created_at;
+        return $this->data->created_at;
     }
-  
-    
+
     public function description()
     {
-      return $this->data->description;
+        return $this->data->description;
     }
-  
-    
+
     public function id()
     {
-      return $this->data->id;
+        return $this->data->id;
     }
-  
-    
+
     public function links()
     {
-      return $this->data->links;
+        return $this->data->links;
     }
-  
-    
+
     public function redirect_url()
     {
-      return $this->data->redirect_url;
+        return $this->data->redirect_url;
     }
-  
-    
+
     public function scheme()
     {
-      return $this->data->scheme;
+        return $this->data->scheme;
     }
-  
-    
+
     public function session_token()
     {
-      return $this->data->session_token;
+        return $this->data->session_token;
     }
-  
-    
+
     public function success_redirect_url()
     {
-      return $this->data->success_redirect_url;
+        return $this->data->success_redirect_url;
     }
-  
-    
+
     public function response() {
-      return $this->response;
+        return $this->response;
     }
-
-
+    public function __toString() {
+        $ret = 'RedirectFlow Class (';
+        $ret .= print_r($this->data, true) . ')';
+        return $ret;
+    }
 }

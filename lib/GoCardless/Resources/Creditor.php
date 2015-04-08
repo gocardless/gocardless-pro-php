@@ -21,92 +21,80 @@ namespace GoCardless\Resources;
   */
 class Creditor
 {
-  
-    
+
     private $data;
     private $response;
 
     public function __construct($data, $response = null)
     {
-      if ($data === null)
-      {
-        throw new \Exception('Data cannot be null');
-      }
-      $this->response = $response;
-      $this->data = $data;
+        if ($data === null) {
+            throw new \Exception('Data cannot be null');
+        }
+        $this->response = $response;
+        $this->data = $data;
     }
-  
-    
-    
+
     public function address_line1()
     {
-      return $this->data->address_line1;
+        return $this->data->address_line1;
     }
-  
-    
+
     public function address_line2()
     {
-      return $this->data->address_line2;
+        return $this->data->address_line2;
     }
-  
-    
+
     public function address_line3()
     {
-      return $this->data->address_line3;
+        return $this->data->address_line3;
     }
-  
-    
+
     public function city()
     {
-      return $this->data->city;
+        return $this->data->city;
     }
-  
-    
+
     public function country_code()
     {
-      return $this->data->country_code;
+        return $this->data->country_code;
     }
-  
-    
+
     public function created_at()
     {
-      return $this->data->created_at;
+        return $this->data->created_at;
     }
-  
-    
+
     public function id()
     {
-      return $this->data->id;
+        return $this->data->id;
     }
-  
-    
+
     public function links()
     {
-      return $this->data->links;
+        return $this->data->links;
     }
-  
-    
+
     public function name()
     {
-      return $this->data->name;
+        return $this->data->name;
     }
-  
-    
+
     public function postal_code()
     {
-      return $this->data->postal_code;
+        return $this->data->postal_code;
     }
-  
-    
+
     public function region()
     {
-      return $this->data->region;
+        return $this->data->region;
     }
-  
-    
+
     public function response() {
-      return $this->response;
+        return $this->response;
     }
-
-
+    public function __toString() {
+        $ret = 'Creditor Class (';
+        $ret .= print_r($this->data, true) . ')';
+        return $ret;
+    }
 }

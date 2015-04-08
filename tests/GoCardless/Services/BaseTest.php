@@ -46,7 +46,25 @@ class BaseTest extends \PHPUnit_Framework_TestCase
 
   public function testSubMultipleChanges()
   {
+    $res = $this->base->proxySubUrl('/people/:county/:age', array('county' => 'london', 'age' => '30'));
+    $this->assertEquals($res, '/people/london/30');
+  }
+
+  public function testSubChangesWrongTypeInt()
+  {
+    $this->setExpectedException(
+        'Exception', 'URL value for age needs to be a string, not a integer.'
+    );
     $res = $this->base->proxySubUrl('/people/:county/:age', array('county' => 'london', 'age' => 30));
+    $this->assertEquals($res, '/people/london/30');
+  }
+
+  public function testSubChangesWrongTypeObject()
+  {
+    $this->setExpectedException(
+        'Exception', 'URL value for person needs to be a string, not a object.'
+    );
+    $res = $this->base->proxySubUrl('/people/:county/:age', array('person' => new \stdClass()));
     $this->assertEquals($res, '/people/london/30');
   }
 

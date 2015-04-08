@@ -70,56 +70,50 @@ namespace GoCardless\Resources;
   */
 class Role
 {
-  
-    
+
     private $data;
     private $response;
 
     public function __construct($data, $response = null)
     {
-      if ($data === null)
-      {
-        throw new \Exception('Data cannot be null');
-      }
-      $this->response = $response;
-      $this->data = $data;
+        if ($data === null) {
+            throw new \Exception('Data cannot be null');
+        }
+        $this->response = $response;
+        $this->data = $data;
     }
-  
-    
-    
+
     public function created_at()
     {
-      return $this->data->created_at;
+        return $this->data->created_at;
     }
-  
-    
+
     public function enabled()
     {
-      return $this->data->enabled;
+        return $this->data->enabled;
     }
-  
-    
+
     public function id()
     {
-      return $this->data->id;
+        return $this->data->id;
     }
-  
-    
+
     public function name()
     {
-      return $this->data->name;
+        return $this->data->name;
     }
-  
-    
+
     public function permissions()
     {
-      return $this->data->permissions;
+        return $this->data->permissions;
     }
-  
-    
+
     public function response() {
-      return $this->response;
+        return $this->response;
     }
-
-
+    public function __toString() {
+        $ret = 'Role Class (';
+        $ret .= print_r($this->data, true) . ')';
+        return $ret;
+    }
 }
