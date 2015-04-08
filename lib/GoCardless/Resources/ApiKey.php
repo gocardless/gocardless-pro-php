@@ -63,10 +63,12 @@ class ApiKey
         return $this->data->webhook_url;
     }
 
-    public function response() {
+    public function response()
+    {
         return $this->response;
     }
-    public function __toString() {
+    public function __toString()
+    {
         $ret = 'ApiKey Class (';
         $ret .= print_r($this->data, true) . ')';
         return $ret;

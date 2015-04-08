@@ -102,10 +102,12 @@ class RedirectFlow
         return $this->data->success_redirect_url;
     }
 
-    public function response() {
+    public function response()
+    {
         return $this->response;
     }
-    public function __toString() {
+    public function __toString()
+    {
         $ret = 'RedirectFlow Class (';
         $ret .= print_r($this->data, true) . ')';
         return $ret;

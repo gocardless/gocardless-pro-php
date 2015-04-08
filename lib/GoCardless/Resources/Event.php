@@ -62,10 +62,12 @@ class Event
         return $this->data->resource_type;
     }
 
-    public function response() {
+    public function response()
+    {
         return $this->response;
     }
-    public function __toString() {
+    public function __toString()
+    {
         $ret = 'Event Class (';
         $ret .= print_r($this->data, true) . ')';
         return $ret;

@@ -71,10 +71,12 @@ class Mandate
         return $this->data->status;
     }
 
-    public function response() {
+    public function response()
+    {
         return $this->response;
     }
-    public function __toString() {
+    public function __toString()
+    {
         $ret = 'Mandate Class (';
         $ret .= print_r($this->data, true) . ')';
         return $ret;

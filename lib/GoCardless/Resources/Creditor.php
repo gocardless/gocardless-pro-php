@@ -89,10 +89,12 @@ class Creditor
         return $this->data->region;
     }
 
-    public function response() {
+    public function response()
+    {
         return $this->response;
     }
-    public function __toString() {
+    public function __toString()
+    {
         $ret = 'Creditor Class (';
         $ret .= print_r($this->data, true) . ')';
         return $ret;

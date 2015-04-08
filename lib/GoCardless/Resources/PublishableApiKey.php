@@ -57,10 +57,12 @@ class PublishableApiKey
         return $this->data->name;
     }
 
-    public function response() {
+    public function response()
+    {
         return $this->response;
     }
-    public function __toString() {
+    public function __toString()
+    {
         $ret = 'PublishableApiKey Class (';
         $ret .= print_r($this->data, true) . ')';
         return $ret;

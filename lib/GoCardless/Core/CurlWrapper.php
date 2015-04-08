@@ -41,7 +41,8 @@ class CurlWrapper
         return $uagent;
     }
 
-    public function getOpt($opt) {
+    public function getOpt($opt)
+    {
         if (!isset($this->opts[$opt])) {
             return null;
         }

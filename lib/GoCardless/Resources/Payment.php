@@ -90,10 +90,12 @@ class Payment
         return $this->data->status;
     }
 
-    public function response() {
+    public function response()
+    {
         return $this->response;
     }
-    public function __toString() {
+    public function __toString()
+    {
         $ret = 'Payment Class (';
         $ret .= print_r($this->data, true) . ')';
         return $ret;

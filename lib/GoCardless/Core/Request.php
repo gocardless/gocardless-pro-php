@@ -25,7 +25,7 @@ class Request
             $urlParams = http_build_query($options);
             if (substr($path, -1) === '?' || substr($path, -1) === '&') {
                 $path = $path . $urlParams;
-            } else if (strstr($path, '?') !== false) {
+            } elseif (strstr($path, '?') !== false) {
                 $path = $path . '&' . $urlParams;
             } else {
                 $path = $path . '?' . $urlParams;

@@ -172,10 +172,12 @@ class Subscription
         return $this->data->upcoming_payments;
     }
 
-    public function response() {
+    public function response()
+    {
         return $this->response;
     }
-    public function __toString() {
+    public function __toString()
+    {
         $ret = 'Subscription Class (';
         $ret .= print_r($this->data, true) . ')';
         return $ret;

@@ -13,7 +13,8 @@ namespace GoCardless\Resources;
 class Helper
 {
 
-    public function __toString() {
+    public function __toString()
+    {
         $ret = 'Helper Class (';
         $ret .= print_r($this->data, true) . ')';
         return $ret;
