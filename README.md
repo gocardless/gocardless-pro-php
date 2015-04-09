@@ -74,7 +74,11 @@ returning an iteratable ListResponse.
 
 If you need to pass any options, the last (or in the absence of URL params, the only) argument is an options hash. You can use this to pass parameters like this:
 ```
-$client->resource()->list(array(limit => 400));
+$resources = $client->resource()->list(array('limit' => 400));
+echo count($resources);
+foreach ($resources as $resource) {
+  $resource->propertyName();
+}
 ```
 
 In the case where url parameters are needed, the method signature will contain required arguments:
@@ -91,7 +95,8 @@ The resource returned contains camelCased getter methods.
 As with list, the last argument can be an options hash:
 
 ```
-$client->resource()->show(resource_id, array(limit => 200));
+$resource = $client->resource()->show('IDXXXX', array('limit' => 200));
+echo $resource;
 ```
 
 ### POST/PUT Requests
@@ -99,10 +104,18 @@ If your request needs a body, you can add this by passing it in as the first arg
 **Note**, you do not need to add the enclosing key!
 
 ```
-$client->customer()->create(array(
-    "given_name" => "Pete",
-    "family_name"  => "Hamilton"
-));
+try {
+    $client->customer()->create(array(
+        "invalid_name" => "Pete",
+    ));
+} catch (\GoCardless\Core\Error\GoCardlessError $e) {
+  // Server validation failed / record couldn't be created.
+  echo $e->documentationUrl();
+  echo count($e->errors());
+  // => $e is an ValidationFailedError.
+} catch (\GoCardless\Core\Error\HttpError $e) {
+  echo $e;
+}
 ```
 This returns a response object as the new created resource
 

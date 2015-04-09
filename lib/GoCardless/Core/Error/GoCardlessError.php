@@ -44,9 +44,16 @@ class GoCardlessError extends \Exception
         return $this->error;
     }
 
-    public function allErrors()
+    public function errors()
     {
         return $this->error->error->errors;
+    }
+
+    public function documentationUrl()
+    {
+      if (isset($this->error->documentation_url)) {
+        return $this->error->documentation_url;
+      }
     }
 
     public function httpStatus()

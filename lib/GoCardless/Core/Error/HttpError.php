@@ -13,11 +13,11 @@ class HttpError extends \Exception
         $this->errorDesc = $errorDesc;
         parent::__construct($errorDesc . ' (' . $curlErrorNo . ')');
     }
-    public function getErrorNumber()
+    public function errorNumber()
     {
         return $this->errorNumber;
     }
-    public function getErrorDesc()
+    public function errorDesc()
     {
         return $this->errorDesc;
     }
