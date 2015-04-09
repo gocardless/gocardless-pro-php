@@ -2,10 +2,15 @@
 
 namespace GoCardless\Core;
 
-require_once(__DIR__ . '/CurlTestHelper.php');
+use \GoCardless\Core\Helpers\StaticStorage as StaticStorage;
 
 class CurlWrapperRest extends \PHPUnit_Framework_TestCase
 {
+    public function __construct()
+    {
+        StaticStorage::setup();
+        parent::__construct();
+    }
     public function tearDown()
     {
         StaticStorage::reset();
@@ -43,7 +48,7 @@ class CurlWrapperRest extends \PHPUnit_Framework_TestCase
     }
     public function testSetupRequest()
     {
-        $wrapper = new OpenCurlWrapper('post', 'http://example.com/');
+        $wrapper = new Helpers\OpenCurlWrapper('post', 'http://example.com/');
         $wrapper->setHeaders(array('blahHeader' => 'testing'));
         $wrapper->setPostBody('{"company": "gc"}', 'application/json');
         $wrapper->doSetOpt('thisisFoo', 'blah');
@@ -60,7 +65,7 @@ class CurlWrapperRest extends \PHPUnit_Framework_TestCase
         StaticStorage::setRetVal(CURLINFO_HTTP_CODE, 200);
         StaticStorage::setRetVal(CURLINFO_CONTENT_TYPE, 'application/json');
 
-        $wrapper = new OpenCurlWrapper('post', 'http://example.com/');
+        $wrapper = new Helpers\OpenCurlWrapper('post', 'http://example.com/');
         $wrapper->run();
         $this->assertEquals(1, StaticStorage::getCalls('curl_init'));
         $this->assertEquals(1, StaticStorage::getCalls('curl_close'));

@@ -7,7 +7,6 @@ namespace GoCardless\Resources;
   */
 class ResourceTest extends \PHPUnit_Framework_TestCase
 {
-
   public function testOptionalResponse()
   {
     $resource = new Customer((object) array('given_name' => 'iain'));
@@ -58,5 +57,4 @@ class ResourceTest extends \PHPUnit_Framework_TestCase
 
      $this->assertEquals($mockResponse, $resource->response());
   }
-
 }

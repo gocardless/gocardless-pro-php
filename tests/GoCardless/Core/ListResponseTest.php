@@ -2,31 +2,22 @@
 
 namespace GoCardless\Core;
 
-class TestModelClass
-{
-    public $data;
-    public function __construct($data)
-    {
-        $this->data = $data;
-    }
-    public function getData()
-    {
-        return $this->data;
-    }
-}
-
 class ListResponseTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->raw_response = new Response('{"test": [{"obj":"hi"}, {"foo": "test"}], "meta": {"limit": 5}}', 200, 'text/html');
+        $this->raw_response = new Response(
+            '{"test": [{"obj":"hi"}, {"foo": "test"}], "meta": {"limit": 5}}',
+            200,
+            'text/html'
+        );
         $this->raw_response->setUnwrapJson('test');
-        $this->response = new ListResponse('\GoCardless\Core\TestModelClass', $this->raw_response);
+        $this->response = new ListResponse('\GoCardless\Core\Mocks\ResourceHolder', $this->raw_response);
     }
     public function testModelsUnwrap()
     {
         $this->assertEquals(count($this->response), 2);
-        $this->assertEquals('test', $this->response[1]->getData()->foo);
+        $this->assertEquals('test', $this->response[1]->data()->foo);
     }
     public function testModelsIndexing()
     {
@@ -38,12 +29,11 @@ class ListResponseTest extends \PHPUnit_Framework_TestCase
     {
         $count = 0;
         $items = array();
-        foreach($this->response as $item)
-        {
+        foreach ($this->response as $item) {
             $count++;
             $items[] = $item;
         }
-        $this->assertEquals('test', $items[1]->getData()->foo);
+        $this->assertEquals('test', $items[1]->data()->foo);
         $this->assertEquals(2, count($items));
     }
     public function testRawResponse()

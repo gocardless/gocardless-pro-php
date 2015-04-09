@@ -2,11 +2,15 @@
 
 namespace GoCardless\Core;
 
-require_once(__DIR__ . '/CurlTestHelper.php');
+use \GoCardless\Core\Helpers\StaticStorage as StaticStorage;
 
 class RequestTest extends \PHPUnit_Framework_TestCase
 {
     private $client;
+    public function __construct() {
+        StaticStorage::setup();
+        parent::__construct();
+    }
     public function tearDown()
     {
         StaticStorage::reset();

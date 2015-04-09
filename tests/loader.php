@@ -1,4 +1,7 @@
 <?php
+
+require(__DIR__ . '/../lib/loader.php');
+
 /**
  * Client psr-4 autoloader
  *
@@ -7,7 +10,7 @@
  * from /path/to/project/src/Baz/Qux.php:
  *
  *      new \Foo\Bar\Baz\Qux;
- *
+ *     
  * @param string $class The fully-qualified class name.
  * @return void
  */
