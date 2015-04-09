@@ -67,6 +67,8 @@ class Helper extends Base
     }
 
 
+
+
   /**
     * Handles functions in the API that are normally PHP reserved words.
     */

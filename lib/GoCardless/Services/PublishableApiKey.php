@@ -93,6 +93,20 @@ class PublishableApiKey extends Base
     }
 
 
+
+  /**
+    *  Returns a
+    *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
+    *  list of your publishable API keys
+    *
+    *  Example URL: /publishable_api_keys
+    **/
+    public function all($listMax, $options = array())
+    {
+        return new Paginator($this, $listMax, $this->do_list($options), $options);
+    }
+
+
   /**
     * Handles functions in the API that are normally PHP reserved words.
     */

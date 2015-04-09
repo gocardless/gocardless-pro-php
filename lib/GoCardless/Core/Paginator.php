@@ -4,66 +4,122 @@ namespace GoCardless\Core;
 
 class Paginator implements \Iterator
 {
-    const LIMIT_INCREMENT = 50;
+    const HARD_RECORD_LIMIT = 2000;
 
-    private $request;
     private $initialResponse;
+    private $currentResponse;
     private $options;
 
-    private $curId;
-    private $nextId;
-    private $prevId;
+    private $curPosition;
+    private $maxResults;
+    private $resultsCount;
+    private $parent;
+    private $pageStart;
+    private $meta;
 
-    public function __construct($request, $initialResponse, $options)
+    public function __construct($parent, $maxResults, $response, $options)
     {
-        $this->request = $request;
-        $this->initialResponse = $initialResponse;
+        $this->parent = $parent;
         $this->options = $options;
-        $this->currentResponse = $initialResponse;
-        updateIds($initialResponse);
+        $this->maxResults = min($maxResults, self::HARD_RECORD_LIMIT);
+        $this->resultsCount = 0;
+        $this->initialResponse = $response;
+        $this->currentResponse = $response;
+        $this->curPosition = 0;
+        $this->pageStart = 0;
+        $this->updateIds($response);
+        $this->hasNextPage = true;
     }
 
     private function updateIds($response)
     {
-        $this->curId = $response['id'];
-        $this->nextId = $response['meta']['pagiantion']['next'];
-        $this->prevId = $response['meta']['pagination']['prev'];
+        $this->resultsCount = 0;
+        $this->currentResponse = $response;
+        $this->pageStart = $this->curPosition;
+        if (!empty($response)) {
+            $this->meta = $response->meta();
+        }
+        $this->resultsCount += count($response);
     }
 
     public function rewind()
     {
-        updateIds($this->initialResponse);
+        $this->curPosition = 0;
+        $this->updateIds($this->initialResponse);
     }
 
     public function current()
     {
-        return $this->currentResponse->getData();
+        return $this->currentResponse[$this->key()];
     }
 
     public function key()
     {
-        return $this->currentId;
+        return $this->curPosition - $this->pageStart;
     }
 
     public function next()
     {
-        getNextPage();
-        return $this->current();
+        $this->curPosition++;
+        $this->needsNextPage();
+    }
+
+    private function needsNextPage()
+    {
+        if (!isset($this->currentResponse[$this->key()])) {
+            $this->nextPage();
+        }
+    }
+
+    public function items()
+    {
+      return $this->currentResponse;
+    }
+
+    public function previousPage()
+    {
+        if ($this->resultsCount > $this->maxResults) {
+            $this->currentResponse = array();
+            return false;
+        }
+        $options = $this->options;
+        $options['before'] = $this->meta->cursors->before;
+        if (empty($options['before'])) {
+            $this->currentResponse = array();
+            return false;
+        }
+        $this->currentResponse = $this->parent->list($options);
+        if (count($this->currentResponse) > 0) {
+            $this->updateIds($this->currentResponse);
+        }
+        $this->updateIds($this->currentResponse);
+        return true;
+    }
+
+    public function nextPage()
+    {
+        if ($this->resultsCount > $this->maxResults) {
+            $this->currentResponse = array();
+            return false;
+        }
+        $options = $this->options;
+        $options['after'] = $this->meta->cursors->after;
+        if (empty($options['after'])) {
+            $this->currentResponse = array();
+            return false;
+        }
+        $this->currentResponse = $this->parent->list($options);
+        if (count($this->currentResponse) > 0) {
+            $this->updateIds($this->currentResponse);
+        }
+        return true;
     }
 
     public function valid()
     {
-        return !!$this->nextId;
-    }
-
-    public function getNextPage()
-    {
-        $new_options = $this->options;
-        $new_options['query'] = $options["query"] || array();
-        $new_options['query']['after'] = $this->currentResponse->meta['cursors']['after'];
-        $new_options['query']['limit'] = $this->currentResponse->limit + LIMIT_INCREMENT;
-
-        $this->currentResponse = $this->request->make_request($new_options);
-        updateIds($this->currentResponse);
+        if ($this->resultsCount > $this->maxResults) {
+            return false;
+        }
+        return !empty($response) || isset($this->currentResponse[$this->key()]);
     }
 }

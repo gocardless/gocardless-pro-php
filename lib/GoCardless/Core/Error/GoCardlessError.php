@@ -39,17 +39,17 @@ class GoCardlessError extends \Exception
         return new GoCardlessError($error, $status);
     }
 
-    public function getError()
+    public function error()
     {
         return $this->error;
     }
 
-    public function getErrors()
+    public function allErrors()
     {
         return $this->error->error->errors;
     }
 
-    public function getHttpStatus()
+    public function httpStatus()
     {
         return $this->httpStatus;
     }

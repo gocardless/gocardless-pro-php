@@ -13,34 +13,47 @@ gem '<no value>'
 
 ## Usage Examples
 
-- In the case of singular responses, Crank will return you an unenveloped hash.
-- In the case of list responses, Crank returns an unenveloped Array of hashes.
-- In the case of non JSON responses, Crank will return the raw response (PDFs etc)
+- In the case of singular responses, Crank will return you an response object with getters matching the json descriptions and an attached response().
+- In the case of list responses, Crank returns an list response object that is read-only. Raw array data can be retrieved from the items() function of the object.
+- In the case of non JSON responses, Crank will return the raw response (PDFs etc.)
+
+### Client Initialisation
+```php
+$client = new \GoCardless\Client(array(
+  'api_key' => 'YOUR API KEY',
+  'api_secret' => 'YOUR API SECRET',
+  'environment' => \GoCardless\Environment::SANDBOX
+));
+```
+The api_key and api_secret can be found under the organisation tab, the environment can either be `\GoCardless\Environment::SANDBOX` or `\GoCardless\Environment::PRODUCTION`.
+
+Given the client object, resource objects can be accessed then methods on each resource can be called to either fetch or manipulate the resource's members.
 
 ### GET requests
 
 Simple requests can be made like this:
 
+```php
+$client->resource()->list()
 ```
-GoCardless.resource.list
-```
+returning an iteratable ListResponse.
 
-If you need to pass any options, the last (or in the absence of URL params, the only) argument is an options hash. You can use this to pass query params and headers like this:
 
+If you need to pass any options, the last (or in the absence of URL params, the only) argument is an options hash. You can use this to pass parameters like this:
 ```
-GoCardless.resource.list(headers: { 'Foo' => 'Baz' }, query: { limit: 400 })
+$client->resource()->list(array(limit => 400))
 ```
 
 In the case where url parameters are needed, the method signature will contain required arguments:
 
 ```
-GoCardless.resource.show(resource_id)
+$client->resource()->show(resource_id)
 ```
 
 As with list, the last argument can be an options hash:
 
 ```
-GoCardless.resource.show(resource_id, query: { limit: 200 }, headers: { 'Foo' => 'Bar' })
+$client->resource()->show(resource_id, array(limit => 200))
 ```
 
 ### POST/PUT Requests
@@ -48,24 +61,22 @@ If your request needs a body, you can add this in the same way you would add que
 **However**, you need to add the enveloping key!
 
 ```
-GoCardless.resource.create(body: {
-    resources: {
-        first_name: "Pete",
-        last_name: "Hamilton",
-        ...
-    }
-})
+$client->customer()->create(array(
+    "given_name" => "Pete",
+    "family_name"  => "Hamilton"
+));
 ```
+This returns a response object as the new created resource
 
 As with GET requests, if href params are required they come first
 
 ```
-GoCardless.resource.update(resource_id, body: { ... })
+$client->resource()->update(resource_id, array(...))
 ```
 
 ### Handling failures
 
-When an API returns an error, Crank will return an `ApiError`.
+When an API returns an error, Crank will return an `GoCardlessError`.
 
 Assuming the error response form the server is in JSON format, like:
 
@@ -90,45 +101,12 @@ Assuming the error response form the server is in JSON format, like:
 }
 ```
 
-Crank will return an GoCardless::Core::ApiError error. You can access the raw hash (unenveloped) via a `.errors` method, by default the error message will contain the error's message and a link to the documentation if it exists.
+Crank will return an `\GoCardless\Core\Error\GoCardlessError`-based error. The possible errors vary on the exception internally but are `InvalidApiUsageError`, `InvalidStateError`, and `ValidationFailedError`, all other errors use the `GoCardlessError` class. If the error is an http transport layer error (cannot connect, empty response from server, etc.), the client will throw an `HttpError`. You can access the raw hash (unenveloped) via the `->error()` method, and a list of all the errors via the `->allErrors()` method. By default the error message will contain the error's message and a link to the documentation if it exists.
 
 
-
-## Re-Generating the Client
-
-The client has an `.atum.yml` file which defines some defaults, meaning you can re-generate the client really easily by navigating to the client's root and running:
-
-```
-$ atum generate --file PATH_TO_SCHEMA
-```
-
-If for any reason, you need to override the URL or headers, you can do so using cli options. To see the full range of available options, use:
-
-```
-$ atum help
-```
-
-As always, make your changes in a branch and then when satisfied, merge into master and bump the version (don't forget to add tags!
-
-You can do this via:
-
-```
-$ gem bump --version (patch|minor|major) --tag
-```
-
-## Supporting Ruby < 2.0.0
-Crank only supports Ruby >= 2.0.0 out of the box due to our use of
-Enumerable::Lazy for lazy loading of paginated API resources.
-
-However, support for previous ruby versions can be added using a gem such as
-[backports](https://github.com/marcandre/backports).
-
-1. Add backports to your Gemfile
-   ```gem 'backports'```
-2. Require lazy enumerables
-   ```require 'backports/2.0.0/enumerable/lazy.rb'```
-
-
+## Supporting PHP < 5.3.3
+Crank only supports PHP >= 5.3.3 (possibly 5.0) out of the box due to its extensive
+use of OOP operators and namespaces in PHP for code cleanliness.
 
 ## Contributing
 

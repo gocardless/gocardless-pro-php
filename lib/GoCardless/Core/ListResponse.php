@@ -7,12 +7,11 @@
 
 namespace GoCardless\Core;
 
-class ListResponse implements \Iterator, \ArrayAccess
+class ListResponse extends \ArrayObject
 {
     private $models = array();
     private $response;
     private $modelClass;
-    private $position = 0;
 
     public function __construct($modelClass, $response)
     {
@@ -21,6 +20,7 @@ class ListResponse implements \Iterator, \ArrayAccess
         foreach ($response->response() as $item) {
             $this->models[] = new $modelClass($item);
         }
+        parent::__construct($this->models);
     }
 
     public function response()
@@ -41,49 +41,5 @@ class ListResponse implements \Iterator, \ArrayAccess
     public function getItems()
     {
         return $this->models;
-    }
-
-    /**
-      * Methods to allow for array access to list response.
-      */
-    public function offsetSet($offset, $value)
-    {
-        throw new \Exception($this->modelClass . ' ListResponse is readonly');
-    }
-    public function offsetUnset($offset)
-    {
-        throw new \Exception($this->modelClass . ' ListResponse is readonly');
-    }
-    public function offsetExists($offset)
-    {
-        return isset($this->models[$offset]);
-    }
-    public function offsetGet($offset)
-    {
-        return $this->models[$offset];
-    }
-
-    /**
-      * Array Iterator methods to allow foreach() on object.
-      */
-    public function rewind()
-    {
-        $this->position = 0;
-    }
-    public function current()
-    {
-        return $this->models[$this->position];
-    }
-    public function key()
-    {
-        return $this->position;
-    }
-    public function next()
-    {
-        ++$this->position;
-    }
-    public function valid()
-    {
-        return isset($this->models[$this->position]);
     }
 }

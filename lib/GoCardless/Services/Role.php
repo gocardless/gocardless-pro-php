@@ -141,6 +141,18 @@ class Role extends Base
     }
 
 
+
+  /**
+    *  List all existing roles
+    *
+    *  Example URL: /roles
+    **/
+    public function all($listMax, $options = array())
+    {
+        return new Paginator($this, $listMax, $this->do_list($options), $options);
+    }
+
+
   /**
     * Handles functions in the API that are normally PHP reserved words.
     */

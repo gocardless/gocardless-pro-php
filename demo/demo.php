@@ -1,6 +1,6 @@
 <?php
 
-require('../gocardless.php');
+require('../loader.php');
 
 $client = new GoCardless\Client(array(
   'api_key'     => '<no value>',

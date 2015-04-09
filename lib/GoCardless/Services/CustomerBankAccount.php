@@ -122,6 +122,20 @@ class CustomerBankAccount extends Base
     }
 
 
+
+  /**
+    *  Returns a
+    *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
+    *  list of your bank accounts.
+    *
+    *  Example URL: /customer_bank_accounts
+    **/
+    public function all($listMax, $options = array())
+    {
+        return new Paginator($this, $listMax, $this->do_list($options), $options);
+    }
+
+
   /**
     * Handles functions in the API that are normally PHP reserved words.
     */

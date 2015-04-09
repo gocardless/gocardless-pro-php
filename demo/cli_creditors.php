@@ -1,6 +1,6 @@
 <?php
 
-require('../gocardless.php');
+require('../loader.php');
 
 error_reporting(E_ALL | E_STRICT);
 
@@ -19,10 +19,10 @@ function get_input()
 $creditors = $client->creditors()->list();
 
 foreach ($creditors as $num => $creditor) {
-    echo $num . ': ' . $creditor->name() . "\n";
+    echo '[' . $num . '] ' . $creditor->name() . "\n";
 }
 
-echo 'Please select a creditor: ';
+echo 'Please select a creditor by number: ';
 
 $num = intval(get_input());
 
