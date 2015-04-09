@@ -8,17 +8,16 @@
 namespace GoCardless\Resources;
 
 /**
-  *  Payment objects represent payments from a
-  *  [customer](https://developer.gocardless.com/pro/#api-endpoints-customers)
-  *  to a
-  *  [creditor](https://developer.gocardless.com/pro/#api-endpoints-creditors),
-  *  taken against a Direct Debit
-  *  [mandate](https://developer.gocardless.com/pro/#api-endpoints-mandates).
- 
-  *  *  
-  *  GoCardless will notify you via a
-  *  [webhook](https://developer.gocardless.com/pro/#webhooks) whenever the
-  *  state of a payment changes.
+  * Payment objects represent payments from a
+  * [customer](https://developer.gocardless.com/pro/#api-endpoints-customers) to
+  * a [creditor](https://developer.gocardless.com/pro/#api-endpoints-creditors),
+  * taken against a Direct Debit
+  * [mandate](https://developer.gocardless.com/pro/#api-endpoints-mandates).
+  *
+  * 
+  * GoCardless will notify you via a
+  * [webhook](https://developer.gocardless.com/pro/#webhooks) whenever the state
+  * of a payment changes.
   */
 class Payment
 {
@@ -26,6 +25,11 @@ class Payment
     private $data;
     private $response;
 
+  /**
+    * Creates a new Resource from a http response passing in the data.
+    * @param mixed $data Data coming into the resource.
+    * @param Response $response \<no value>\Core\Response object.
+    */
     public function __construct($data, $response = null)
     {
         if ($data === null) {
@@ -35,69 +39,164 @@ class Payment
         $this->data = $data;
     }
 
+
+  /**
+    * Amount in pence or cents.
+    *
+    * @return int
+    */
     public function amount()
     {
         return $this->data->amount;
     }
 
-    public function amount_refunded()
+  /**
+    * Amount refunded in pence or cents.
+    *
+    * @return int
+    */
+    public function amountRefunded()
     {
         return $this->data->amount_refunded;
     }
 
-    public function charge_date()
+  /**
+    * A future date on which the payment should be collected. If not specified,
+    * the payment will be collected as soon as possible. This must be on or
+    * after the
+    * [mandate](https://developer.gocardless.com/pro/#api-endpoints-mandates)'s
+    * `next_possible_charge_date`, and will be rolled-forwards by GoCardless if
+    * it is not a working day.
+    *
+    * @return string
+    */
+    public function chargeDate()
     {
         return $this->data->charge_date;
     }
 
-    public function created_at()
+  /**
+    * Fixed
+    * [timestamp](https://developer.gocardless.com/pro/#overview-time-zones-dates),
+    * recording when this resource was created.
+    *
+    * @return string
+    */
+    public function createdAt()
     {
         return $this->data->created_at;
     }
 
+  /**
+    * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
+    * code, currently only "GBP" and "EUR" are supported.
+    *
+    * @return string
+    */
     public function currency()
     {
         return $this->data->currency;
     }
 
+  /**
+    * A human readable description of the payment.
+    *
+    * @return string
+    */
     public function description()
     {
         return $this->data->description;
     }
 
+  /**
+    * Unique identifier, beginning with "PM"
+    *
+    * @return string
+    */
     public function id()
     {
         return $this->data->id;
     }
 
+  /**
+    * Referenced objects. Key values to stdClasses returned.
+    *
+    * @return array[string]string
+    */
     public function links()
     {
         return $this->data->links;
     }
 
+  /**
+    * Key-value store of custom data. Up to 3 keys are permitted, with key names
+    * up to 50 characters and values up to 200 characters.
+    *
+    * @return array[string]string
+    */
     public function metadata()
     {
         return $this->data->metadata;
     }
 
+  /**
+    * An optional payment reference. This will be appended to the mandate
+    * reference on your customer's bank statement. For Bacs payments this can be
+    * up to 10 characters, for SEPA Core payments the limit is 140 characters.
+    *
+    * @return string
+    */
     public function reference()
     {
         return $this->data->reference;
     }
 
+  /**
+    * One of:
+    * <ul>
+    * <li>`pending_submission`: the payment has been
+    * created, but not yet submitted to the banks</li>
+    * <li>`submitted`:
+    * the payment has been submitted to the banks</li>
+    * <li>`confirmed`:
+    * the payment has been confirmed as collected</li>
+    * <li>`failed`: the
+    * payment failed to be processed. Note that payments can fail after being
+    * confirmed, if the failure message is sent late by the banks.</li>
+    *
+    * <li>`charged_back`: the payment has been charged back</li>
+    *
+    * <li>`paid_out`:  the payment has been paid out</li>
+    * <li>`cancelled`:
+    * the payment has been cancelled</li>
+    * </ul>
+    *
+    * @return string
+    */
     public function status()
     {
         return $this->data->status;
     }
 
+
+
+  /**
+    * Get the response object.
+    * @return \GoCardless\Core\Response
+    */
     public function response()
     {
         return $this->response;
     }
+
+  /**
+    * Returns a string representation of the project.
+    * @return string 
+    */
     public function __toString()
     {
         $ret = 'Payment Class (';
-        $ret .= print_r($this->data, true) . ')';
+        $ret .= print_r($this->data, true);
         return $ret;
     }
 }

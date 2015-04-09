@@ -8,12 +8,12 @@
 namespace GoCardless\Resources;
 
 /**
-  *  Payouts represent transfers from GoCardless to a
-  *  [creditor](https://developer.gocardless.com/pro/#api-endpoints-creditors).
-  *  Each payout contains the funds collected from one or many
-  *  [payments](https://developer.gocardless.com/pro/#api-endpoints-payments).
-  *  Payouts are created automatically after a payment has been successfully
-  *  collected.
+  * Payouts represent transfers from GoCardless to a
+  * [creditor](https://developer.gocardless.com/pro/#api-endpoints-creditors).
+  * Each payout contains the funds collected from one or many
+  * [payments](https://developer.gocardless.com/pro/#api-endpoints-payments).
+  * Payouts are created automatically after a payment has been successfully
+  * collected.
   */
 class Payout
 {
@@ -21,6 +21,11 @@ class Payout
     private $data;
     private $response;
 
+  /**
+    * Creates a new Resource from a http response passing in the data.
+    * @param mixed $data Data coming into the resource.
+    * @param Response $response \<no value>\Core\Response object.
+    */
     public function __construct($data, $response = null)
     {
         if ($data === null) {
@@ -30,49 +35,105 @@ class Payout
         $this->data = $data;
     }
 
+
+  /**
+    * Amount in pence or cents.
+    *
+    * @return int
+    */
     public function amount()
     {
         return $this->data->amount;
     }
 
-    public function created_at()
+  /**
+    * Fixed
+    * [timestamp](https://developer.gocardless.com/pro/#overview-time-zones-dates),
+    * recording when this resource was created.
+    *
+    * @return string
+    */
+    public function createdAt()
     {
         return $this->data->created_at;
     }
 
+  /**
+    * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
+    * code. Currently only "GBP" and "EUR" are supported.
+    *
+    * @return string
+    */
     public function currency()
     {
         return $this->data->currency;
     }
 
+  /**
+    * Unique identifier, beginning with "PO"
+    *
+    * @return string
+    */
     public function id()
     {
         return $this->data->id;
     }
 
+  /**
+    * Referenced objects. Key values to stdClasses returned.
+    *
+    * @return array[string]string
+    */
     public function links()
     {
         return $this->data->links;
     }
 
+  /**
+    * Reference which appears on the creditor's bank statement.
+    *
+    * @return string
+    */
     public function reference()
     {
         return $this->data->reference;
     }
 
+  /**
+    * One of:
+    * <ul>
+    * <li>`pending`: the payout has been created, but
+    * not yet sent to the banks</li>
+    * <li>`paid`: the payout has been sent
+    * to the banks</li>
+    * </ul>
+    * [pending paid]
+    * @return string
+    */
     public function status()
     {
         return $this->data->status;
     }
 
+
+
+  /**
+    * Get the response object.
+    * @return \GoCardless\Core\Response
+    */
     public function response()
     {
         return $this->response;
     }
+
+  /**
+    * Returns a string representation of the project.
+    * @return string 
+    */
     public function __toString()
     {
         $ret = 'Payout Class (';
-        $ret .= print_r($this->data, true) . ')';
+        $ret .= print_r($this->data, true);
         return $ret;
     }
 }

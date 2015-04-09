@@ -21,6 +21,7 @@ class Event extends Base
     *  list of your events.
     *
     *  Example URL: /events
+    *  @return ListResponse
     **/
     public function do_list($options = array())
     {
@@ -33,6 +34,7 @@ class Event extends Base
     *  Example URL: /events/:identity
     *
     *  @param identity:  Unique identifier, beginning with "EV"
+    *  @return Event
     **/
     public function get($identity, $options = array())
     {
@@ -50,7 +52,8 @@ class Event extends Base
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your events.
     *
-    *  Example URL: /events
+    *  Example URL: /events\
+    *  @return Paginator
     **/
     public function all($listMax, $options = array())
     {
@@ -58,21 +61,12 @@ class Event extends Base
     }
 
 
-  /**
-    * Handles functions in the API that are normally PHP reserved words.
+   /**
+    * Get the resource loading class.
+    * Used internally to send http requests.
+    *
+    * @return string
     */
-    public function __call($name, $args)
-    {
-        $attemptName = 'do_' . $name;
-        if (method_exists($this, $attemptName)) {
-            return call_user_func_array(array($this, $attemptName), $args);
-        }
-        return false;
-    }
-
-  /**
-   * Get the resource loading class.
-   */
     protected function resourceClass()
     {
         return '\GoCardless\Resources\Event';
@@ -80,6 +74,9 @@ class Event extends Base
 
   /**
     *  Get the key the response object is enclosed in in JSON.
+    *  Used internally to wrap and unwrap http requests.
+    *
+    *  @return string
     */
     protected function envelopeKey()
     {

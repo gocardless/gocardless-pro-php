@@ -20,6 +20,7 @@ class ApiKey extends Base
     *  Creates a new API key.
     *
     *  Example URL: /api_keys
+    *  @return ApiKey
     **/
     public function create($options = array())
     {
@@ -32,6 +33,7 @@ class ApiKey extends Base
     *  list of your API keys.
     *
     *  Example URL: /api_keys
+    *  @return ListResponse
     **/
     public function do_list($options = array())
     {
@@ -44,6 +46,7 @@ class ApiKey extends Base
     *  Example URL: /api_keys/:identity
     *
     *  @param identity:  Unique identifier, beginning with "AK"
+    *  @return ApiKey
     **/
     public function get($identity, $options = array())
     {
@@ -61,6 +64,7 @@ class ApiKey extends Base
     *  Example URL: /api_keys/:identity
     *
     *  @param identity:  Unique identifier, beginning with "AK"
+    *  @return ApiKey
     **/
     public function update($identity, $options = array())
     {
@@ -79,6 +83,7 @@ class ApiKey extends Base
     *  Example URL: /api_keys/:identity/actions/disable
     *
     *  @param identity:  Unique identifier, beginning with "AK"
+    *  @return ApiKey
     **/
     public function disable($identity, $options = array())
     {
@@ -96,7 +101,8 @@ class ApiKey extends Base
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your API keys.
     *
-    *  Example URL: /api_keys
+    *  Example URL: /api_keys\
+    *  @return Paginator
     **/
     public function all($listMax, $options = array())
     {
@@ -104,21 +110,12 @@ class ApiKey extends Base
     }
 
 
-  /**
-    * Handles functions in the API that are normally PHP reserved words.
+   /**
+    * Get the resource loading class.
+    * Used internally to send http requests.
+    *
+    * @return string
     */
-    public function __call($name, $args)
-    {
-        $attemptName = 'do_' . $name;
-        if (method_exists($this, $attemptName)) {
-            return call_user_func_array(array($this, $attemptName), $args);
-        }
-        return false;
-    }
-
-  /**
-   * Get the resource loading class.
-   */
     protected function resourceClass()
     {
         return '\GoCardless\Resources\ApiKey';
@@ -126,6 +123,9 @@ class ApiKey extends Base
 
   /**
     *  Get the key the response object is enclosed in in JSON.
+    *  Used internally to wrap and unwrap http requests.
+    *
+    *  @return string
     */
     protected function envelopeKey()
     {

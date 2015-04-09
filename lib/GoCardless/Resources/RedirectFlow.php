@@ -8,44 +8,43 @@
 namespace GoCardless\Resources;
 
 /**
-  *  Redirect flows enable you to use GoCardless Pro's secure payment pages to
-  *  set up mandates with your customers.
-  *  
-  *  The overall flow is:
-  *  
-
-  *   *  1. You
-  *  [create](https://developer.gocardless.com/pro/#create-a-redirect-flow) a
-  *  redirect flow for your customer, and redirect them to the returned redirect
-  *  url, e.g. `https://pay.gocardless.com/flow/RE123`.
-  *  
-  *  2. Your
-  *  customer supplies their name, email, address, and bank account details, and
-  *  submits the form. This securely stores their details, and redirects them
-  *  back to your `success_redirect_url` with `redirect_flow_id=RE123` in the
-  *  querystring.
-  *  
-  *  3. You
-  *  [complete](https://developer.gocardless.com/pro/#complete-a-redirect-flow)
-  *  the redirect flow, which creates a
-  *  [customer](https://developer.gocardless.com/pro/#api-endpoints-customers),
-  *  [customer bank
-  *  account](https://developer.gocardless.com/pro/#api-endpoints-customer-bank-accounts),
-  *  and
-  *  [mandate](https://developer.gocardless.com/pro/#api-endpoints-mandates),
-  *  and returns the ID of the mandate. You may wish to create a
-  *  [subscription](https://developer.gocardless.com/pro/#api-endpoints-subscriptions)
-  *  or [payment](https://developer.gocardless.com/pro/#api-endpoints-payments)
-  *  at this point.
-  *  
-  *  It is recommended that you link the redirect flow
-  *  to your user object as soon as it is created, and attach the created
-  *  resources to that user in the complete step.
-  *  
-  *  Redirect flows
-  *  expire 30 minutes after they are first created. You cannot
-  *  [complete](https://developer.gocardless.com/pro/#complete-a-redirect-flow)
-  *  an expired redirect flow.
+  * Redirect flows enable you to use GoCardless Pro's secure payment pages to
+  * set up mandates with your customers.
+  * 
+  * The overall flow is:
+  * 
+  *
+  * 1. You
+  * [create](https://developer.gocardless.com/pro/#create-a-redirect-flow) a
+  * redirect flow for your customer, and redirect them to the returned redirect
+  * url, e.g. `https://pay.gocardless.com/flow/RE123`.
+  * 
+  * 2. Your customer
+  * supplies their name, email, address, and bank account details, and submits
+  * the form. This securely stores their details, and redirects them back to
+  * your `success_redirect_url` with `redirect_flow_id=RE123` in the
+  * querystring.
+  * 
+  * 3. You
+  * [complete](https://developer.gocardless.com/pro/#complete-a-redirect-flow)
+  * the redirect flow, which creates a
+  * [customer](https://developer.gocardless.com/pro/#api-endpoints-customers),
+  * [customer bank
+  * account](https://developer.gocardless.com/pro/#api-endpoints-customer-bank-accounts),
+  * and [mandate](https://developer.gocardless.com/pro/#api-endpoints-mandates),
+  * and returns the ID of the mandate. You may wish to create a
+  * [subscription](https://developer.gocardless.com/pro/#api-endpoints-subscriptions)
+  * or [payment](https://developer.gocardless.com/pro/#api-endpoints-payments)
+  * at this point.
+  * 
+  * It is recommended that you link the redirect flow to
+  * your user object as soon as it is created, and attach the created resources
+  * to that user in the complete step.
+  * 
+  * Redirect flows expire 30 minutes
+  * after they are first created. You cannot
+  * [complete](https://developer.gocardless.com/pro/#complete-a-redirect-flow)
+  * an expired redirect flow.
   */
 class RedirectFlow
 {
@@ -53,6 +52,11 @@ class RedirectFlow
     private $data;
     private $response;
 
+  /**
+    * Creates a new Resource from a http response passing in the data.
+    * @param mixed $data Data coming into the resource.
+    * @param Response $response \<no value>\Core\Response object.
+    */
     public function __construct($data, $response = null)
     {
         if ($data === null) {
@@ -62,54 +66,109 @@ class RedirectFlow
         $this->data = $data;
     }
 
-    public function created_at()
+
+  /**
+    * Fixed
+    * [timestamp](https://developer.gocardless.com/pro/#overview-time-zones-dates),
+    * recording when this resource was created.
+    *
+    * @return string
+    */
+    public function createdAt()
     {
         return $this->data->created_at;
     }
 
+  /**
+    * A description of the item the customer is paying for
+    *
+    * @return string
+    */
     public function description()
     {
         return $this->data->description;
     }
 
+  /**
+    * Unique identifier, beginning with "RE"
+    *
+    * @return string
+    */
     public function id()
     {
         return $this->data->id;
     }
 
+  /**
+    * Referenced objects. Key values to stdClasses returned.
+    *
+    * @return array[string]string
+    */
     public function links()
     {
         return $this->data->links;
     }
 
-    public function redirect_url()
+  /**
+    * The URI to redirect the customer to to setup their mandate
+    *
+    * @return string
+    */
+    public function redirectUrl()
     {
         return $this->data->redirect_url;
     }
 
+  /**
+    * The Direct Debit scheme of the mandate. If specified, the payment pages
+    * will only allow the set-up of a mandate for the specified scheme.
+    * [bacs sepa_core]
+    * @return string
+    */
     public function scheme()
     {
         return $this->data->scheme;
     }
 
-    public function session_token()
+  /**
+    * The customer's session ID
+    *
+    * @return string
+    */
+    public function sessionToken()
     {
         return $this->data->session_token;
     }
 
-    public function success_redirect_url()
+  /**
+    * The URI to redirect to upon success mandate setup
+    *
+    * @return string
+    */
+    public function successRedirectUrl()
     {
         return $this->data->success_redirect_url;
     }
 
+
+
+  /**
+    * Get the response object.
+    * @return \GoCardless\Core\Response
+    */
     public function response()
     {
         return $this->response;
     }
+
+  /**
+    * Returns a string representation of the project.
+    * @return string 
+    */
     public function __toString()
     {
         $ret = 'RedirectFlow Class (';
-        $ret .= print_r($this->data, true) . ')';
+        $ret .= print_r($this->data, true);
         return $ret;
     }
 }

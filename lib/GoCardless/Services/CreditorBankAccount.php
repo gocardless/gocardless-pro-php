@@ -31,6 +31,7 @@ class CreditorBankAccount extends Base
     *  number) or [local details](#ui-compliance-local-bank-details).
     *
     *  Example URL: /creditor_bank_accounts
+    *  @return CreditorBankAccount
     **/
     public function create($options = array())
     {
@@ -43,6 +44,7 @@ class CreditorBankAccount extends Base
     *  list of your creditor bank accounts.
     *
     *  Example URL: /creditor_bank_accounts
+    *  @return ListResponse
     **/
     public function do_list($options = array())
     {
@@ -55,6 +57,7 @@ class CreditorBankAccount extends Base
     *  Example URL: /creditor_bank_accounts/:identity
     *
     *  @param identity:  Unique identifier, beginning with "BA"
+    *  @return CreditorBankAccount
     **/
     public function get($identity, $options = array())
     {
@@ -79,6 +82,7 @@ class CreditorBankAccount extends Base
     *  Example URL: /creditor_bank_accounts/:identity/actions/disable
     *
     *  @param identity:  Unique identifier, beginning with "BA"
+    *  @return CreditorBankAccount
     **/
     public function disable($identity, $options = array())
     {
@@ -96,7 +100,8 @@ class CreditorBankAccount extends Base
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your creditor bank accounts.
     *
-    *  Example URL: /creditor_bank_accounts
+    *  Example URL: /creditor_bank_accounts\
+    *  @return Paginator
     **/
     public function all($listMax, $options = array())
     {
@@ -104,21 +109,12 @@ class CreditorBankAccount extends Base
     }
 
 
-  /**
-    * Handles functions in the API that are normally PHP reserved words.
+   /**
+    * Get the resource loading class.
+    * Used internally to send http requests.
+    *
+    * @return string
     */
-    public function __call($name, $args)
-    {
-        $attemptName = 'do_' . $name;
-        if (method_exists($this, $attemptName)) {
-            return call_user_func_array(array($this, $attemptName), $args);
-        }
-        return false;
-    }
-
-  /**
-   * Get the resource loading class.
-   */
     protected function resourceClass()
     {
         return '\GoCardless\Resources\CreditorBankAccount';
@@ -126,6 +122,9 @@ class CreditorBankAccount extends Base
 
   /**
     *  Get the key the response object is enclosed in in JSON.
+    *  Used internally to wrap and unwrap http requests.
+    *
+    *  @return string
     */
     protected function envelopeKey()
     {

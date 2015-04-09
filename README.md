@@ -18,12 +18,12 @@ $ git clone git://github.com/<no value>.git
 #### Installing from the tarball
 
 ```console
-$ curl -L https://github.com/<no value>/tarball/master | tar xzv
+$ curl -L https://github.com/gocardless/pro-client-php/tarball/master | tar xzv
 ```
 
 #### Download the Zip
 
-[Click here](https://github.com/<no value>/zipball/master)
+[Click here](https://github.com/gocardless/pro-client-php/zipball/master)
 to download the zip file.
 
 #### Installing with Composer
@@ -33,12 +33,12 @@ Add this beta repo to the contents of your composer.json:
 ```javascript
 {
     "require": {
-        "<no value>": "dev-master"
+        "gocardless/pro-client-php": "dev-master"
     },
     "repositories": [
         {
             "type": "vcs",
-            "url":  "git@github.com:<no value>.git"
+            "url":  "git@github.com:gocardless/pro-client-php.git"
         }
     ]
 }

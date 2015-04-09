@@ -8,21 +8,21 @@
 namespace GoCardless\Resources;
 
 /**
-  *  Refund objects represent (partial) refunds of a
-  *  [payment](https://developer.gocardless.com/pro/#api-endpoints-payment) back
-  *  to the
-  *  [customer](https://developer.gocardless.com/pro/#api-endpoints-customers).
-
-  *   *  
-  *  The API allows you to create, show, list and update your
-  *  refunds.
-  *  
-  *  GoCardless will notify you via a
-  *  [webhook](https://developer.gocardless.com/pro/#webhooks) whenever a refund
-  *  is created.
-  *  
-  *  _Note:_ A payment that has been (partially) refunded
-  *  can still receive a late failure or chargeback from the banks.
+  * Refund objects represent (partial) refunds of a
+  * [payment](https://developer.gocardless.com/pro/#api-endpoints-payment) back
+  * to the
+  * [customer](https://developer.gocardless.com/pro/#api-endpoints-customers).
+ 
+  * * 
+  * The API allows you to create, show, list and update your refunds.
+  *
+  * 
+  * GoCardless will notify you via a
+  * [webhook](https://developer.gocardless.com/pro/#webhooks) whenever a refund
+  * is created.
+  * 
+  * _Note:_ A payment that has been (partially) refunded
+  * can still receive a late failure or chargeback from the banks.
   */
 class Refund
 {
@@ -30,6 +30,11 @@ class Refund
     private $data;
     private $response;
 
+  /**
+    * Creates a new Resource from a http response passing in the data.
+    * @param mixed $data Data coming into the resource.
+    * @param Response $response \<no value>\Core\Response object.
+    */
     public function __construct($data, $response = null)
     {
         if ($data === null) {
@@ -39,44 +44,91 @@ class Refund
         $this->data = $data;
     }
 
+
+  /**
+    * Amount in pence or cents.
+    *
+    * @return int
+    */
     public function amount()
     {
         return $this->data->amount;
     }
 
-    public function created_at()
+  /**
+    * Fixed
+    * [timestamp](https://developer.gocardless.com/pro/#overview-time-zones-dates),
+    * recording when this resource was created.
+    *
+    * @return string
+    */
+    public function createdAt()
     {
         return $this->data->created_at;
     }
 
+  /**
+    * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
+    * code. This is set to the currency of the refund's
+    * [payment](https://developer.gocardless.com/pro/#api-endpoints-payments).
+    *
+    * @return string
+    */
     public function currency()
     {
         return $this->data->currency;
     }
 
+  /**
+    * Unique identifier, beginning with "RF"
+    *
+    * @return string
+    */
     public function id()
     {
         return $this->data->id;
     }
 
+  /**
+    * Referenced objects. Key values to stdClasses returned.
+    *
+    * @return array[string]string
+    */
     public function links()
     {
         return $this->data->links;
     }
 
+  /**
+    * Key-value store of custom data. Up to 3 keys are permitted, with key names
+    * up to 50 characters and values up to 200 characters.
+    *
+    * @return array[string]string
+    */
     public function metadata()
     {
         return $this->data->metadata;
     }
 
+
+
+  /**
+    * Get the response object.
+    * @return \GoCardless\Core\Response
+    */
     public function response()
     {
         return $this->response;
     }
+
+  /**
+    * Returns a string representation of the project.
+    * @return string 
+    */
     public function __toString()
     {
         $ret = 'Refund Class (';
-        $ret .= print_r($this->data, true) . ')';
+        $ret .= print_r($this->data, true);
         return $ret;
     }
 }

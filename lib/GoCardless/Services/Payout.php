@@ -24,6 +24,7 @@ class Payout extends Base
     *  list of your payouts.
     *
     *  Example URL: /payouts
+    *  @return ListResponse
     **/
     public function do_list($options = array())
     {
@@ -36,6 +37,7 @@ class Payout extends Base
     *  Example URL: /payouts/:identity
     *
     *  @param identity:  Unique identifier, beginning with "PO"
+    *  @return Payout
     **/
     public function get($identity, $options = array())
     {
@@ -53,7 +55,8 @@ class Payout extends Base
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your payouts.
     *
-    *  Example URL: /payouts
+    *  Example URL: /payouts\
+    *  @return Paginator
     **/
     public function all($listMax, $options = array())
     {
@@ -61,21 +64,12 @@ class Payout extends Base
     }
 
 
-  /**
-    * Handles functions in the API that are normally PHP reserved words.
+   /**
+    * Get the resource loading class.
+    * Used internally to send http requests.
+    *
+    * @return string
     */
-    public function __call($name, $args)
-    {
-        $attemptName = 'do_' . $name;
-        if (method_exists($this, $attemptName)) {
-            return call_user_func_array(array($this, $attemptName), $args);
-        }
-        return false;
-    }
-
-  /**
-   * Get the resource loading class.
-   */
     protected function resourceClass()
     {
         return '\GoCardless\Resources\Payout';
@@ -83,6 +77,9 @@ class Payout extends Base
 
   /**
     *  Get the key the response object is enclosed in in JSON.
+    *  Used internally to wrap and unwrap http requests.
+    *
+    *  @return string
     */
     protected function envelopeKey()
     {

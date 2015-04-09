@@ -8,19 +8,19 @@
 namespace GoCardless\Resources;
 
 /**
-  *  Customer Bank Accounts hold the bank details of a
-  *  [customer](https://developer.gocardless.com/pro/#api-endpoints-customers).
-  *  They always belong to a
-  *  [customer](https://developer.gocardless.com/pro/#api-endpoints-customers),
-  *  and may be linked to several Direct Debit
-  *  [mandates](https://developer.gocardless.com/pro/#api-endpoints-mandates).
+  * Customer Bank Accounts hold the bank details of a
+  * [customer](https://developer.gocardless.com/pro/#api-endpoints-customers).
+  * They always belong to a
+  * [customer](https://developer.gocardless.com/pro/#api-endpoints-customers),
+  * and may be linked to several Direct Debit
+  * [mandates](https://developer.gocardless.com/pro/#api-endpoints-mandates).
  
-  *  *  
-  *  Note that customer bank accounts must be unique, and so you will
-  *  encounter a `bank_account_exists` error if you try to create a duplicate
-  *  bank account. You may wish to handle this by updating the existing record
-  *  instead, the ID of which will be provided as links[customer_bank_account]
-  *  in the error response.
+  * * 
+  * Note that customer bank accounts must be unique, and so you will
+  * encounter a `bank_account_exists` error if you try to create a duplicate
+  * bank account. You may wish to handle this by updating the existing record
+  * instead, the ID of which will be provided as links[customer_bank_account] in
+  * the error response.
   */
 class CustomerBankAccount
 {
@@ -28,6 +28,11 @@ class CustomerBankAccount
     private $data;
     private $response;
 
+  /**
+    * Creates a new Resource from a http response passing in the data.
+    * @param mixed $data Data coming into the resource.
+    * @param Response $response \<no value>\Core\Response object.
+    */
     public function __construct($data, $response = null)
     {
         if ($data === null) {
@@ -37,64 +42,136 @@ class CustomerBankAccount
         $this->data = $data;
     }
 
-    public function account_holder_name()
+
+  /**
+    * Name of the account holder, as known by the bank. Usually this matches the
+    * name of the linked
+    * [customer](https://developer.gocardless.com/pro/#api-endpoints-customers).
+    * This field cannot exceed 18 characters.
+    *
+    * @return string
+    */
+    public function accountHolderName()
     {
         return $this->data->account_holder_name;
     }
 
-    public function account_number_ending()
+  /**
+    * Last two digits of account number.
+    *
+    * @return string
+    */
+    public function accountNumberEnding()
     {
         return $this->data->account_number_ending;
     }
 
-    public function bank_name()
+  /**
+    * Name of bank, taken from sort code.
+    *
+    * @return string
+    */
+    public function bankName()
     {
         return $this->data->bank_name;
     }
 
-    public function country_code()
+  /**
+    * [ISO
+    * 3166-1](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
+    * alpha-2 code. Defaults to the country code of the `iban` if supplied,
+    * otherwise is required.
+    *
+    * @return string
+    */
+    public function countryCode()
     {
         return $this->data->country_code;
     }
 
-    public function created_at()
+  /**
+    * Fixed
+    * [timestamp](https://developer.gocardless.com/pro/#overview-time-zones-dates),
+    * recording when this resource was created.
+    *
+    * @return string
+    */
+    public function createdAt()
     {
         return $this->data->created_at;
     }
 
+  /**
+    * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
+    * code, defaults to national currency of `country_code`.
+    *
+    * @return string
+    */
     public function currency()
     {
         return $this->data->currency;
     }
 
+  /**
+    * Boolean value showing whether the bank account is enabled or disabled.
+    *
+    * @return bool
+    */
     public function enabled()
     {
         return $this->data->enabled;
     }
 
+  /**
+    * Unique identifier, beginning with "BA"
+    *
+    * @return string
+    */
     public function id()
     {
         return $this->data->id;
     }
 
+  /**
+    * Referenced objects. Key values to stdClasses returned.
+    *
+    * @return array[string]string
+    */
     public function links()
     {
         return $this->data->links;
     }
 
+  /**
+    * Key-value store of custom data. Up to 3 keys are permitted, with key names
+    * up to 50 characters and values up to 200 characters.
+    *
+    * @return array[string]string
+    */
     public function metadata()
     {
         return $this->data->metadata;
     }
 
+
+
+  /**
+    * Get the response object.
+    * @return \GoCardless\Core\Response
+    */
     public function response()
     {
         return $this->response;
     }
+
+  /**
+    * Returns a string representation of the project.
+    * @return string 
+    */
     public function __toString()
     {
         $ret = 'CustomerBankAccount Class (';
-        $ret .= print_r($this->data, true) . ')';
+        $ret .= print_r($this->data, true);
         return $ret;
     }
 }

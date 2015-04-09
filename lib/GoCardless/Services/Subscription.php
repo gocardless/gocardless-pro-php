@@ -84,6 +84,7 @@ class Subscription extends Base
     *  Creates a new subscription object
     *
     *  Example URL: /subscriptions
+    *  @return Subscription
     **/
     public function create($options = array())
     {
@@ -96,6 +97,7 @@ class Subscription extends Base
     *  list of your subscriptions.
     *
     *  Example URL: /subscriptions
+    *  @return ListResponse
     **/
     public function do_list($options = array())
     {
@@ -108,6 +110,7 @@ class Subscription extends Base
     *  Example URL: /subscriptions/:identity
     *
     *  @param identity:  Unique identifier, beginning with "SB"
+    *  @return Subscription
     **/
     public function get($identity, $options = array())
     {
@@ -124,6 +127,7 @@ class Subscription extends Base
     *  Example URL: /subscriptions/:identity
     *
     *  @param identity:  Unique identifier, beginning with "SB"
+    *  @return Subscription
     **/
     public function update($identity, $options = array())
     {
@@ -146,6 +150,7 @@ class Subscription extends Base
     *  Example URL: /subscriptions/:identity/actions/cancel
     *
     *  @param identity:  Unique identifier, beginning with "SB"
+    *  @return Subscription
     **/
     public function cancel($identity, $options = array())
     {
@@ -163,7 +168,8 @@ class Subscription extends Base
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your subscriptions.
     *
-    *  Example URL: /subscriptions
+    *  Example URL: /subscriptions\
+    *  @return Paginator
     **/
     public function all($listMax, $options = array())
     {
@@ -171,21 +177,12 @@ class Subscription extends Base
     }
 
 
-  /**
-    * Handles functions in the API that are normally PHP reserved words.
+   /**
+    * Get the resource loading class.
+    * Used internally to send http requests.
+    *
+    * @return string
     */
-    public function __call($name, $args)
-    {
-        $attemptName = 'do_' . $name;
-        if (method_exists($this, $attemptName)) {
-            return call_user_func_array(array($this, $attemptName), $args);
-        }
-        return false;
-    }
-
-  /**
-   * Get the resource loading class.
-   */
     protected function resourceClass()
     {
         return '\GoCardless\Resources\Subscription';
@@ -193,6 +190,9 @@ class Subscription extends Base
 
   /**
     *  Get the key the response object is enclosed in in JSON.
+    *  Used internally to wrap and unwrap http requests.
+    *
+    *  @return string
     */
     protected function envelopeKey()
     {

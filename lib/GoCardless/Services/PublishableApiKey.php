@@ -24,6 +24,7 @@ class PublishableApiKey extends Base
     *  Creates a publishable API key object.
     *
     *  Example URL: /publishable_api_keys
+    *  @return PublishableApiKey
     **/
     public function create($options = array())
     {
@@ -36,6 +37,7 @@ class PublishableApiKey extends Base
     *  list of your publishable API keys
     *
     *  Example URL: /publishable_api_keys
+    *  @return ListResponse
     **/
     public function do_list($options = array())
     {
@@ -48,6 +50,7 @@ class PublishableApiKey extends Base
     *  Example URL: /publishable_api_keys/:identity
     *
     *  @param identity:  Unique identifier, beginning with "PK"
+    *  @return PublishableApiKey
     **/
     public function get($identity, $options = array())
     {
@@ -65,6 +68,7 @@ class PublishableApiKey extends Base
     *  Example URL: /publishable_api_keys/:identity
     *
     *  @param identity:  Unique identifier, beginning with "PK"
+    *  @return PublishableApiKey
     **/
     public function update($identity, $options = array())
     {
@@ -82,6 +86,7 @@ class PublishableApiKey extends Base
     *  Example URL: /publishable_api_keys/:identity/actions/disable
     *
     *  @param identity:  Unique identifier, beginning with "PK"
+    *  @return PublishableApiKey
     **/
     public function disable($identity, $options = array())
     {
@@ -99,7 +104,8 @@ class PublishableApiKey extends Base
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your publishable API keys
     *
-    *  Example URL: /publishable_api_keys
+    *  Example URL: /publishable_api_keys\
+    *  @return Paginator
     **/
     public function all($listMax, $options = array())
     {
@@ -107,21 +113,12 @@ class PublishableApiKey extends Base
     }
 
 
-  /**
-    * Handles functions in the API that are normally PHP reserved words.
+   /**
+    * Get the resource loading class.
+    * Used internally to send http requests.
+    *
+    * @return string
     */
-    public function __call($name, $args)
-    {
-        $attemptName = 'do_' . $name;
-        if (method_exists($this, $attemptName)) {
-            return call_user_func_array(array($this, $attemptName), $args);
-        }
-        return false;
-    }
-
-  /**
-   * Get the resource loading class.
-   */
     protected function resourceClass()
     {
         return '\GoCardless\Resources\PublishableApiKey';
@@ -129,6 +126,9 @@ class PublishableApiKey extends Base
 
   /**
     *  Get the key the response object is enclosed in in JSON.
+    *  Used internally to wrap and unwrap http requests.
+    *
+    *  @return string
     */
     protected function envelopeKey()
     {

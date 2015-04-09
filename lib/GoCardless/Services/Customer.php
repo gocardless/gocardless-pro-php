@@ -21,6 +21,7 @@ class Customer extends Base
     *  Creates a new customer object.
     *
     *  Example URL: /customers
+    *  @return Customer
     **/
     public function create($options = array())
     {
@@ -33,6 +34,7 @@ class Customer extends Base
     *  list of your customers.
     *
     *  Example URL: /customers
+    *  @return ListResponse
     **/
     public function do_list($options = array())
     {
@@ -45,6 +47,7 @@ class Customer extends Base
     *  Example URL: /customers/:identity
     *
     *  @param identity:  Unique identifier, beginning with "CU".
+    *  @return Customer
     **/
     public function get($identity, $options = array())
     {
@@ -62,6 +65,7 @@ class Customer extends Base
     *  Example URL: /customers/:identity
     *
     *  @param identity:  Unique identifier, beginning with "CU".
+    *  @return Customer
     **/
     public function update($identity, $options = array())
     {
@@ -79,7 +83,8 @@ class Customer extends Base
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your customers.
     *
-    *  Example URL: /customers
+    *  Example URL: /customers\
+    *  @return Paginator
     **/
     public function all($listMax, $options = array())
     {
@@ -87,21 +92,12 @@ class Customer extends Base
     }
 
 
-  /**
-    * Handles functions in the API that are normally PHP reserved words.
+   /**
+    * Get the resource loading class.
+    * Used internally to send http requests.
+    *
+    * @return string
     */
-    public function __call($name, $args)
-    {
-        $attemptName = 'do_' . $name;
-        if (method_exists($this, $attemptName)) {
-            return call_user_func_array(array($this, $attemptName), $args);
-        }
-        return false;
-    }
-
-  /**
-   * Get the resource loading class.
-   */
     protected function resourceClass()
     {
         return '\GoCardless\Resources\Customer';
@@ -109,6 +105,9 @@ class Customer extends Base
 
   /**
     *  Get the key the response object is enclosed in in JSON.
+    *  Used internally to wrap and unwrap http requests.
+    *
+    *  @return string
     */
     protected function envelopeKey()
     {

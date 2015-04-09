@@ -8,7 +8,7 @@
 namespace GoCardless\Resources;
 
 /**
-  *  
+  * 
   */
 class User
 {
@@ -16,6 +16,11 @@ class User
     private $data;
     private $response;
 
+  /**
+    * Creates a new Resource from a http response passing in the data.
+    * @param mixed $data Data coming into the resource.
+    * @param Response $response \<no value>\Core\Response object.
+    */
     public function __construct($data, $response = null)
     {
         if ($data === null) {
@@ -25,49 +30,98 @@ class User
         $this->data = $data;
     }
 
-    public function created_at()
+
+  /**
+    * Fixed
+    * [timestamp](https://developer.gocardless.com/pro/#overview-time-zones-dates),
+    * recording when this resource was created.
+    *
+    * @return string
+    */
+    public function createdAt()
     {
         return $this->data->created_at;
     }
 
+  /**
+    * Unique email address, used as a username.
+    *
+    * @return string
+    */
     public function email()
     {
         return $this->data->email;
     }
 
+  /**
+    * Boolean value showing whether the user is enabled or disabled.
+    *
+    * @return bool
+    */
     public function enabled()
     {
         return $this->data->enabled;
     }
 
-    public function family_name()
+  /**
+    * User's surname. This field may not exceed 100 characters.
+    *
+    * @return string
+    */
+    public function familyName()
     {
         return $this->data->family_name;
     }
 
-    public function given_name()
+  /**
+    * User's given name. This field may not exceed 100 characters.
+    *
+    * @return string
+    */
+    public function givenName()
     {
         return $this->data->given_name;
     }
 
+  /**
+    * Unique identifier, beginning with "US"
+    *
+    * @return string
+    */
     public function id()
     {
         return $this->data->id;
     }
 
+  /**
+    * Referenced objects. Key values to stdClasses returned.
+    *
+    * @return array[string]string
+    */
     public function links()
     {
         return $this->data->links;
     }
 
+
+
+  /**
+    * Get the response object.
+    * @return \GoCardless\Core\Response
+    */
     public function response()
     {
         return $this->response;
     }
+
+  /**
+    * Returns a string representation of the project.
+    * @return string 
+    */
     public function __toString()
     {
         $ret = 'User Class (';
-        $ret .= print_r($this->data, true) . ')';
+        $ret .= print_r($this->data, true);
         return $ret;
     }
 }

@@ -55,6 +55,7 @@ class RedirectFlow extends Base
     *  customer to the GoCardless Pro hosted payment pages.
     *
     *  Example URL: /redirect_flows
+    *  @return RedirectFlow
     **/
     public function create($options = array())
     {
@@ -67,6 +68,7 @@ class RedirectFlow extends Base
     *  Example URL: /redirect_flows/:identity
     *
     *  @param identity:  Unique identifier, beginning with "RE"
+    *  @return RedirectFlow
     **/
     public function get($identity, $options = array())
     {
@@ -97,6 +99,7 @@ class RedirectFlow extends Base
     *  Example URL: /redirect_flows/:identity/actions/complete
     *
     *  @param identity:  Unique identifier, beginning with "RE"
+    *  @return RedirectFlow
     **/
     public function complete($identity, $options = array())
     {
@@ -110,21 +113,12 @@ class RedirectFlow extends Base
 
 
 
-  /**
-    * Handles functions in the API that are normally PHP reserved words.
+   /**
+    * Get the resource loading class.
+    * Used internally to send http requests.
+    *
+    * @return string
     */
-    public function __call($name, $args)
-    {
-        $attemptName = 'do_' . $name;
-        if (method_exists($this, $attemptName)) {
-            return call_user_func_array(array($this, $attemptName), $args);
-        }
-        return false;
-    }
-
-  /**
-   * Get the resource loading class.
-   */
     protected function resourceClass()
     {
         return '\GoCardless\Resources\RedirectFlow';
@@ -132,6 +126,9 @@ class RedirectFlow extends Base
 
   /**
     *  Get the key the response object is enclosed in in JSON.
+    *  Used internally to wrap and unwrap http requests.
+    *
+    *  @return string
     */
     protected function envelopeKey()
     {

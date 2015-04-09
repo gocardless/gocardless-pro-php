@@ -26,6 +26,7 @@ class Creditor extends Base
     *  Creates a new creditor.
     *
     *  Example URL: /creditors
+    *  @return Creditor
     **/
     public function create($options = array())
     {
@@ -38,6 +39,7 @@ class Creditor extends Base
     *  list of your creditors.
     *
     *  Example URL: /creditors
+    *  @return ListResponse
     **/
     public function do_list($options = array())
     {
@@ -50,6 +52,7 @@ class Creditor extends Base
     *  Example URL: /creditors/:identity
     *
     *  @param identity:  Unique identifier, beginning with "CR".
+    *  @return Creditor
     **/
     public function get($identity, $options = array())
     {
@@ -67,6 +70,7 @@ class Creditor extends Base
     *  Example URL: /creditors/:identity
     *
     *  @param identity:  Unique identifier, beginning with "CR".
+    *  @return Creditor
     **/
     public function update($identity, $options = array())
     {
@@ -84,7 +88,8 @@ class Creditor extends Base
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your creditors.
     *
-    *  Example URL: /creditors
+    *  Example URL: /creditors\
+    *  @return Paginator
     **/
     public function all($listMax, $options = array())
     {
@@ -92,21 +97,12 @@ class Creditor extends Base
     }
 
 
-  /**
-    * Handles functions in the API that are normally PHP reserved words.
+   /**
+    * Get the resource loading class.
+    * Used internally to send http requests.
+    *
+    * @return string
     */
-    public function __call($name, $args)
-    {
-        $attemptName = 'do_' . $name;
-        if (method_exists($this, $attemptName)) {
-            return call_user_func_array(array($this, $attemptName), $args);
-        }
-        return false;
-    }
-
-  /**
-   * Get the resource loading class.
-   */
     protected function resourceClass()
     {
         return '\GoCardless\Resources\Creditor';
@@ -114,6 +110,9 @@ class Creditor extends Base
 
   /**
     *  Get the key the response object is enclosed in in JSON.
+    *  Used internally to wrap and unwrap http requests.
+    *
+    *  @return string
     */
     protected function envelopeKey()
     {

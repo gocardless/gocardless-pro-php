@@ -8,10 +8,10 @@
 namespace GoCardless\Resources;
 
 /**
-  *  <a name="api_key_not_active"></a>API keys are designed to be used by any
-  *  integrations you build. You should generate a key and then use it to make
-  *  requests to the API and set the webhook URL for that integration. They do
-  *  not expire, but can be disabled.
+  * <a name="api_key_not_active"></a>API keys are designed to be used by any
+  * integrations you build. You should generate a key and then use it to make
+  * requests to the API and set the webhook URL for that integration. They do
+  * not expire, but can be disabled.
   */
 class ApiKey
 {
@@ -19,6 +19,11 @@ class ApiKey
     private $data;
     private $response;
 
+  /**
+    * Creates a new Resource from a http response passing in the data.
+    * @param mixed $data Data coming into the resource.
+    * @param Response $response \<no value>\Core\Response object.
+    */
     public function __construct($data, $response = null)
     {
         if ($data === null) {
@@ -28,49 +33,102 @@ class ApiKey
         $this->data = $data;
     }
 
-    public function created_at()
+
+  /**
+    * Fixed
+    * [timestamp](https://developer.gocardless.com/pro/#overview-time-zones-dates),
+    * recording when this record was created.
+    *
+    * @return string
+    */
+    public function createdAt()
     {
         return $this->data->created_at;
     }
 
+  /**
+    * Boolean value showing whether the API key is enabled or disabled.
+    *
+    * @return bool
+    */
     public function enabled()
     {
         return $this->data->enabled;
     }
 
+  /**
+    * Unique identifier, beginning with "AK"
+    *
+    * @return string
+    */
     public function id()
     {
         return $this->data->id;
     }
 
+  /**
+    * Secret key.
+    *
+    * @return string
+    */
     public function key()
     {
         return $this->data->key;
     }
 
+  /**
+    * Referenced objects. Key values to stdClasses returned.
+    *
+    * @return array[string]string
+    */
     public function links()
     {
         return $this->data->links;
     }
 
+  /**
+    * Human readable name for the key. This field cannot exceed 75 characters.
+    *
+    * @return string
+    */
     public function name()
     {
         return $this->data->name;
     }
 
-    public function webhook_url()
+  /**
+    * Optional https url, to which all webhooks will be sent. Note that if this
+    * is set on multiple API keys, each event will be sent to each
+    * `webhook_url`; for example, if you have two keys with `webhook_url` set to
+    * `https://example.com/webhooks`, then we will send two requests to that url
+    * for each event that occurs.
+    *
+    * @return string
+    */
+    public function webhookUrl()
     {
         return $this->data->webhook_url;
     }
 
+
+
+  /**
+    * Get the response object.
+    * @return \GoCardless\Core\Response
+    */
     public function response()
     {
         return $this->response;
     }
+
+  /**
+    * Returns a string representation of the project.
+    * @return string 
+    */
     public function __toString()
     {
         $ret = 'ApiKey Class (';
-        $ret .= print_r($this->data, true) . ')';
+        $ret .= print_r($this->data, true);
         return $ret;
     }
 }

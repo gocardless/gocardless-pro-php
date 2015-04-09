@@ -8,15 +8,20 @@
 namespace GoCardless\Resources;
 
 /**
-  *  
+  * 
   */
 class Helper
 {
 
+
+  /**
+    * Returns a string representation of the project.
+    * @return string 
+    */
     public function __toString()
     {
         $ret = 'Helper Class (';
-        $ret .= print_r($this->data, true) . ')';
+        $ret .= print_r($this->data, true);
         return $ret;
     }
 }

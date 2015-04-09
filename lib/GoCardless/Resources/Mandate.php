@@ -8,13 +8,13 @@
 namespace GoCardless\Resources;
 
 /**
-  *  Mandates represent the Direct Debit mandate with a
-  *  [customer](https://developer.gocardless.com/pro/#api-endpoints-customers).
-
-  *   *  
-  *  GoCardless will notify you via a
-  *  [webhook](https://developer.gocardless.com/pro/#webhooks) whenever the
-  *  status of a mandate changes.
+  * Mandates represent the Direct Debit mandate with a
+  * [customer](https://developer.gocardless.com/pro/#api-endpoints-customers).
+ 
+  * * 
+  * GoCardless will notify you via a
+  * [webhook](https://developer.gocardless.com/pro/#webhooks) whenever the
+  * status of a mandate changes.
   */
 class Mandate
 {
@@ -22,6 +22,11 @@ class Mandate
     private $data;
     private $response;
 
+  /**
+    * Creates a new Resource from a http response passing in the data.
+    * @param mixed $data Data coming into the resource.
+    * @param Response $response \<no value>\Core\Response object.
+    */
     public function __construct($data, $response = null)
     {
         if ($data === null) {
@@ -31,54 +36,127 @@ class Mandate
         $this->data = $data;
     }
 
-    public function created_at()
+
+  /**
+    * Fixed
+    * [timestamp](https://developer.gocardless.com/pro/#overview-time-zones-dates),
+    * recording when this resource was created.
+    *
+    * @return string
+    */
+    public function createdAt()
     {
         return $this->data->created_at;
     }
 
+  /**
+    * Unique identifier, beginning with "MD"
+    *
+    * @return string
+    */
     public function id()
     {
         return $this->data->id;
     }
 
+  /**
+    * Referenced objects. Key values to stdClasses returned.
+    *
+    * @return array[string]string
+    */
     public function links()
     {
         return $this->data->links;
     }
 
+  /**
+    * Key-value store of custom data. Up to 3 keys are permitted, with key names
+    * up to 50 characters and values up to 200 characters.
+    *
+    * @return array[string]string
+    */
     public function metadata()
     {
         return $this->data->metadata;
     }
 
-    public function next_possible_charge_date()
+  /**
+    * The earliest date a newly created payment for this mandate could be
+    * charged
+    *
+    * @return string
+    */
+    public function nextPossibleChargeDate()
     {
         return $this->data->next_possible_charge_date;
     }
 
+  /**
+    * Unique 6 to 18 character reference. Can be supplied or auto-generated.
+    *
+    * @return string
+    */
     public function reference()
     {
         return $this->data->reference;
     }
 
+  /**
+    * Direct Debit scheme to which this mandate and associated payments are
+    * submitted. Can be supplied or automatically detected from the customer's
+    * bank account. Currently only "bacs" and "sepa_core" are supported.
+    *
+    * @return string
+    */
     public function scheme()
     {
         return $this->data->scheme;
     }
 
+  /**
+    * One of:
+    * <ul>
+    * <li>`pending_submission`: the mandate has not yet
+    * been submitted to the customer's bank</li>
+    * <li>`submitted`: the
+    * mandate has been submitted to the customer's bank but has not been
+    * processed yet</li>
+    * <li>`active`: the mandate has been successfully
+    * set up by the customer's bank</li>
+    * <li>`failed`: the mandate could
+    * not be created</li>
+    * <li>`cancelled`: the mandate has been
+    * cancelled</li>
+    * <li>`expired`: the mandate has expired due to
+    * dormancy</li>
+    * </ul>
+    * [pending_submission submitted active failed cancelled expired]
+    * @return string
+    */
     public function status()
     {
         return $this->data->status;
     }
 
+
+
+  /**
+    * Get the response object.
+    * @return \GoCardless\Core\Response
+    */
     public function response()
     {
         return $this->response;
     }
+
+  /**
+    * Returns a string representation of the project.
+    * @return string 
+    */
     public function __toString()
     {
         $ret = 'Mandate Class (';
-        $ret .= print_r($this->data, true) . ')';
+        $ret .= print_r($this->data, true);
         return $ret;
     }
 }

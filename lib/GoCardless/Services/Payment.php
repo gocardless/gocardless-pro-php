@@ -34,6 +34,7 @@ class Payment extends Base
     *  active.
     *
     *  Example URL: /payments
+    *  @return Payment
     **/
     public function create($options = array())
     {
@@ -46,6 +47,7 @@ class Payment extends Base
     *  list of your payments.
     *
     *  Example URL: /payments
+    *  @return ListResponse
     **/
     public function do_list($options = array())
     {
@@ -58,6 +60,7 @@ class Payment extends Base
     *  Example URL: /payments/:identity
     *
     *  @param identity:  Unique identifier, beginning with "PM"
+    *  @return Payment
     **/
     public function get($identity, $options = array())
     {
@@ -74,6 +77,7 @@ class Payment extends Base
     *  Example URL: /payments/:identity
     *
     *  @param identity:  Unique identifier, beginning with "PM"
+    *  @return Payment
     **/
     public function update($identity, $options = array())
     {
@@ -96,6 +100,7 @@ class Payment extends Base
     *  Example URL: /payments/:identity/actions/cancel
     *
     *  @param identity:  Unique identifier, beginning with "PM"
+    *  @return Payment
     **/
     public function cancel($identity, $options = array())
     {
@@ -121,6 +126,7 @@ class Payment extends Base
     *  Example URL: /payments/:identity/actions/retry
     *
     *  @param identity:  Unique identifier, beginning with "PM"
+    *  @return Payment
     **/
     public function retry($identity, $options = array())
     {
@@ -138,7 +144,8 @@ class Payment extends Base
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your payments.
     *
-    *  Example URL: /payments
+    *  Example URL: /payments\
+    *  @return Paginator
     **/
     public function all($listMax, $options = array())
     {
@@ -146,21 +153,12 @@ class Payment extends Base
     }
 
 
-  /**
-    * Handles functions in the API that are normally PHP reserved words.
+   /**
+    * Get the resource loading class.
+    * Used internally to send http requests.
+    *
+    * @return string
     */
-    public function __call($name, $args)
-    {
-        $attemptName = 'do_' . $name;
-        if (method_exists($this, $attemptName)) {
-            return call_user_func_array(array($this, $attemptName), $args);
-        }
-        return false;
-    }
-
-  /**
-   * Get the resource loading class.
-   */
     protected function resourceClass()
     {
         return '\GoCardless\Resources\Payment';
@@ -168,6 +166,9 @@ class Payment extends Base
 
   /**
     *  Get the key the response object is enclosed in in JSON.
+    *  Used internally to wrap and unwrap http requests.
+    *
+    *  @return string
     */
     protected function envelopeKey()
     {

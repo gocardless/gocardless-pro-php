@@ -8,11 +8,11 @@
 namespace GoCardless\Resources;
 
 /**
-  *  Customer objects hold the contact details for a customer. A customer can
-  *  have several [customer bank
-  *  accounts](https://developer.gocardless.com/pro/#api-endpoints-customer-bank-accounts),
-  *  which in turn can have several Direct Debit
-  *  [mandates](https://developer.gocardless.com/pro/#api-endpoints-mandates).
+  * Customer objects hold the contact details for a customer. A customer can
+  * have several [customer bank
+  * accounts](https://developer.gocardless.com/pro/#api-endpoints-customer-bank-accounts),
+  * which in turn can have several Direct Debit
+  * [mandates](https://developer.gocardless.com/pro/#api-endpoints-mandates).
   */
 class Customer
 {
@@ -20,6 +20,11 @@ class Customer
     private $data;
     private $response;
 
+  /**
+    * Creates a new Resource from a http response passing in the data.
+    * @param mixed $data Data coming into the resource.
+    * @param Response $response \<no value>\Core\Response object.
+    */
     public function __construct($data, $response = null)
     {
         if ($data === null) {
@@ -29,79 +34,161 @@ class Customer
         $this->data = $data;
     }
 
-    public function address_line1()
+
+  /**
+    * The first line of the customer's address.
+    *
+    * @return string
+    */
+    public function addressLine1()
     {
         return $this->data->address_line1;
     }
 
-    public function address_line2()
+  /**
+    * The second line of the customer's address.
+    *
+    * @return string
+    */
+    public function addressLine2()
     {
         return $this->data->address_line2;
     }
 
-    public function address_line3()
+  /**
+    * The third line of the customer's address.
+    *
+    * @return string
+    */
+    public function addressLine3()
     {
         return $this->data->address_line3;
     }
 
+  /**
+    * The city of the customer's address.
+    *
+    * @return string
+    */
     public function city()
     {
         return $this->data->city;
     }
 
-    public function country_code()
+  /**
+    * [ISO
+    * 3166-1](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
+    * alpha-2 code.
+    *
+    * @return string
+    */
+    public function countryCode()
     {
         return $this->data->country_code;
     }
 
-    public function created_at()
+  /**
+    * Fixed
+    * [timestamp](https://developer.gocardless.com/pro/#overview-time-zones-dates),
+    * recording when this resource was created.
+    *
+    * @return string
+    */
+    public function createdAt()
     {
         return $this->data->created_at;
     }
 
+  /**
+    * Customer's email address.
+    *
+    * @return string
+    */
     public function email()
     {
         return $this->data->email;
     }
 
-    public function family_name()
+  /**
+    * Customer's surname.
+    *
+    * @return string
+    */
+    public function familyName()
     {
         return $this->data->family_name;
     }
 
-    public function given_name()
+  /**
+    * Customer's first name.
+    *
+    * @return string
+    */
+    public function givenName()
     {
         return $this->data->given_name;
     }
 
+  /**
+    * Unique identifier, beginning with "CU".
+    *
+    * @return string
+    */
     public function id()
     {
         return $this->data->id;
     }
 
+  /**
+    * Key-value store of custom data. Up to 3 keys are permitted, with key names
+    * up to 50 characters and values up to 200 characters.
+    *
+    * @return array[string]string
+    */
     public function metadata()
     {
         return $this->data->metadata;
     }
 
-    public function postal_code()
+  /**
+    * The customer's postal code.
+    *
+    * @return string
+    */
+    public function postalCode()
     {
         return $this->data->postal_code;
     }
 
+  /**
+    * The customer's address region, county or department.
+    *
+    * @return string
+    */
     public function region()
     {
         return $this->data->region;
     }
 
+
+
+  /**
+    * Get the response object.
+    * @return \GoCardless\Core\Response
+    */
     public function response()
     {
         return $this->response;
     }
+
+  /**
+    * Returns a string representation of the project.
+    * @return string 
+    */
     public function __toString()
     {
         $ret = 'Customer Class (';
-        $ret .= print_r($this->data, true) . ')';
+        $ret .= print_r($this->data, true);
         return $ret;
     }
 }

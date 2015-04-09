@@ -8,65 +8,64 @@
 namespace GoCardless\Resources;
 
 /**
-  *  <a name="insufficient_permissions"></a>Roles represent a set of permissions
-  *  that may be granted to a user. The permissions are specified at the
-  *  resource-type level, and can be `full_access` or `read_only`. If a
-  *  resource-type is not included that role's users will have no access to
-  *  resources of that type, and will receive an `insufficient_permissions`
-  *  error when trying to use those endpoints.
-  *  
-  *  A role's `permissions`
-  *  attribute is used to set/show the permissions for a role and it's key/value
-  *  pairs are restricted to the below:
-  *  
-  *  <dl>
-  *   
-  *  <dt><p><code>resource</code></p></dt>
-  *    <dd><p>One of:</p>
-  *     
-  *  <ul>
-  *        <li><code>customers</code></li>
-  *       
-  *  <li><code>customer_bank_accounts</code></li>
-  *       
-  *  <li><code>mandates</code></li>
-  *        <li><code>payments</code></li>
- 
-  *  *        <li><code>payouts</code></li>
-  *       
-  *  <li><code>creditors</code></li>
-  *       
-  *  <li><code>creditor_bank_accounts</code></li>
-  *       
-  *  <li><code>roles</code></li>
-  *        <li><code>users</code></li>
-  *     
-  *    <li><code>events</code></li>
-  *        <li><code>api_keys</code></li>
- 
-  *  *        <li><code>subscriptions</code></li>
-  *       
-  *  <li><code>redirect_flows</code></li>
-  *      </ul>
-  *    </dd>
+  * <a name="insufficient_permissions"></a>Roles represent a set of permissions
+  * that may be granted to a user. The permissions are specified at the
+  * resource-type level, and can be `full_access` or `read_only`. If a
+  * resource-type is not included that role's users will have no access to
+  * resources of that type, and will receive an `insufficient_permissions` error
+  * when trying to use those endpoints.
   * 
-  *  </dl>
-  *  
-  *  <dl>
-  *    <dt><p><code>access</code></p></dt>
-  *   
-  *  <dd><p>One of:</p>
-  *      <ul>
-  *        <li><code>full_access</code>:
-  *  read and write all records of this type</li>
-  *       
-  *  <li><code>read_only</code>: list and show endpoints available, but not
-  *  create, update, delete, or actions</li>
-  *      </ul>
-  *    </dd>
+  * A role's `permissions`
+  * attribute is used to set/show the permissions for a role and it's key/value
+  * pairs are restricted to the below:
   * 
-  *  </dl>
+  * <dl>
   *  
+  * <dt><p><code>resource</code></p></dt>
+  *   <dd><p>One of:</p>
+  *     <ul>
+
+  *  *       <li><code>customers</code></li>
+  *      
+  * <li><code>customer_bank_accounts</code></li>
+  *      
+  * <li><code>mandates</code></li>
+  *       <li><code>payments</code></li>
+  * 
+  *      <li><code>payouts</code></li>
+  *      
+  * <li><code>creditors</code></li>
+  *      
+  * <li><code>creditor_bank_accounts</code></li>
+  *      
+  * <li><code>roles</code></li>
+  *       <li><code>users</code></li>
+  *      
+  * <li><code>events</code></li>
+  *       <li><code>api_keys</code></li>
+  *   
+  *    <li><code>subscriptions</code></li>
+  *      
+  * <li><code>redirect_flows</code></li>
+  *     </ul>
+  *   </dd>
+  * </dl>
+  *
+  * 
+  * <dl>
+  *   <dt><p><code>access</code></p></dt>
+  *   <dd><p>One
+  * of:</p>
+  *     <ul>
+  *       <li><code>full_access</code>: read and write
+  * all records of this type</li>
+  *       <li><code>read_only</code>: list and
+  * show endpoints available, but not create, update, delete, or actions</li>
+ 
+  * *     </ul>
+  *   </dd>
+  * </dl>
+  * 
   */
 class Role
 {
@@ -74,6 +73,11 @@ class Role
     private $data;
     private $response;
 
+  /**
+    * Creates a new Resource from a http response passing in the data.
+    * @param mixed $data Data coming into the resource.
+    * @param Response $response \<no value>\Core\Response object.
+    */
     public function __construct($data, $response = null)
     {
         if ($data === null) {
@@ -83,39 +87,86 @@ class Role
         $this->data = $data;
     }
 
-    public function created_at()
+
+  /**
+    * Fixed
+    * [timestamp](https://developer.gocardless.com/pro/#overview-time-zones-dates),
+    * recording when this resource was created.
+    *
+    * @return string
+    */
+    public function createdAt()
     {
         return $this->data->created_at;
     }
 
+  /**
+    * Boolean value showing whether the role is enabled or disabled.
+    *
+    * @return bool
+    */
     public function enabled()
     {
         return $this->data->enabled;
     }
 
+  /**
+    * Unique identifier, beginning with "RO"
+    *
+    * @return string
+    */
     public function id()
     {
         return $this->data->id;
     }
 
+  /**
+    * Human-readable name for the role.
+    *
+    * @return string
+    */
     public function name()
     {
         return $this->data->name;
     }
 
+  /**
+    * An array of key-value pairs that define the permissions the role has. Each
+    * element of the array contains the following keys:
+    * <ul>
+    *
+    * <li>`resource`: the relevant, pluralised API resource, e.g.
+    * `customers`</li>
+    * <li>`access`: the access level. One of
+    * `full_access` or `read_only`</li>
+    * </ul>
+    *
+    * @return object
+    */
     public function permissions()
     {
         return $this->data->permissions;
     }
 
+
+
+  /**
+    * Get the response object.
+    * @return \GoCardless\Core\Response
+    */
     public function response()
     {
         return $this->response;
     }
+
+  /**
+    * Returns a string representation of the project.
+    * @return string 
+    */
     public function __toString()
     {
         $ret = 'Role Class (';
-        $ret .= print_r($this->data, true) . ')';
+        $ret .= print_r($this->data, true);
         return $ret;
     }
 }

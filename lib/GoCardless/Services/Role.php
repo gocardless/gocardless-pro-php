@@ -75,6 +75,7 @@ class Role extends Base
     *  Create a role with set access permissions
     *
     *  Example URL: /roles
+    *  @return Role
     **/
     public function create($options = array())
     {
@@ -85,6 +86,7 @@ class Role extends Base
     *  List all existing roles
     *
     *  Example URL: /roles
+    *  @return ListResponse
     **/
     public function do_list($options = array())
     {
@@ -97,6 +99,7 @@ class Role extends Base
     *  Example URL: /roles/:identity
     *
     *  @param identity:  Unique identifier, beginning with "RO"
+    *  @return Role
     **/
     public function get($identity, $options = array())
     {
@@ -114,6 +117,7 @@ class Role extends Base
     *  Example URL: /roles/:identity
     *
     *  @param identity:  Unique identifier, beginning with "RO"
+    *  @return Role
     **/
     public function update($identity, $options = array())
     {
@@ -130,6 +134,7 @@ class Role extends Base
     *  Example URL: /roles/:identity/actions/disable
     *
     *  @param identity:  Unique identifier, beginning with "RO"
+    *  @return Role
     **/
     public function disable($identity, $options = array())
     {
@@ -145,7 +150,8 @@ class Role extends Base
   /**
     *  List all existing roles
     *
-    *  Example URL: /roles
+    *  Example URL: /roles\
+    *  @return Paginator
     **/
     public function all($listMax, $options = array())
     {
@@ -153,21 +159,12 @@ class Role extends Base
     }
 
 
-  /**
-    * Handles functions in the API that are normally PHP reserved words.
+   /**
+    * Get the resource loading class.
+    * Used internally to send http requests.
+    *
+    * @return string
     */
-    public function __call($name, $args)
-    {
-        $attemptName = 'do_' . $name;
-        if (method_exists($this, $attemptName)) {
-            return call_user_func_array(array($this, $attemptName), $args);
-        }
-        return false;
-    }
-
-  /**
-   * Get the resource loading class.
-   */
     protected function resourceClass()
     {
         return '\GoCardless\Resources\Role';
@@ -175,6 +172,9 @@ class Role extends Base
 
   /**
     *  Get the key the response object is enclosed in in JSON.
+    *  Used internally to wrap and unwrap http requests.
+    *
+    *  @return string
     */
     protected function envelopeKey()
     {

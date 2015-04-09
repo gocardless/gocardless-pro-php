@@ -8,16 +8,15 @@
 namespace GoCardless\Resources;
 
 /**
-  *  Each
-  *  [payment](https://developer.gocardless.com/pro/#api-endpoints-payments)
-  *  taken through the API is linked to a "creditor", to whom the payment is
-  *  then paid out. In most cases your organisation will have a single
-  *  "creditor", but the API also supports collecting payments on behalf of
-  *  others.
-  *  
-  *  Please get in touch if you wish to use this endpoint.
-  *  Currently, for Anti Money Laundering reasons, any creditors you add must be
-  *  directly related to your organisation.
+  * Each [payment](https://developer.gocardless.com/pro/#api-endpoints-payments)
+  * taken through the API is linked to a "creditor", to whom the payment is then
+  * paid out. In most cases your organisation will have a single "creditor", but
+  * the API also supports collecting payments on behalf of others.
+  * 
+  *
+  * Please get in touch if you wish to use this endpoint. Currently, for Anti
+  * Money Laundering reasons, any creditors you add must be directly related to
+  * your organisation.
   */
 class Creditor
 {
@@ -25,6 +24,11 @@ class Creditor
     private $data;
     private $response;
 
+  /**
+    * Creates a new Resource from a http response passing in the data.
+    * @param mixed $data Data coming into the resource.
+    * @param Response $response \<no value>\Core\Response object.
+    */
     public function __construct($data, $response = null)
     {
         if ($data === null) {
@@ -34,69 +38,140 @@ class Creditor
         $this->data = $data;
     }
 
-    public function address_line1()
+
+  /**
+    * The first line of the creditor's address.
+    *
+    * @return string
+    */
+    public function addressLine1()
     {
         return $this->data->address_line1;
     }
 
-    public function address_line2()
+  /**
+    * The second line of the creditor's address.
+    *
+    * @return string
+    */
+    public function addressLine2()
     {
         return $this->data->address_line2;
     }
 
-    public function address_line3()
+  /**
+    * The third line of the creditor's address.
+    *
+    * @return string
+    */
+    public function addressLine3()
     {
         return $this->data->address_line3;
     }
 
+  /**
+    * The city of the creditor's address.
+    *
+    * @return string
+    */
     public function city()
     {
         return $this->data->city;
     }
 
-    public function country_code()
+  /**
+    * [ISO
+    * 3166-1](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
+    * alpha-2 code, currently only "GB" is supported.
+    *
+    * @return string
+    */
+    public function countryCode()
     {
         return $this->data->country_code;
     }
 
-    public function created_at()
+  /**
+    * Fixed
+    * [timestamp](https://developer.gocardless.com/pro/#overview-time-zones-dates),
+    * recording when this resource was created.
+    *
+    * @return string
+    */
+    public function createdAt()
     {
         return $this->data->created_at;
     }
 
+  /**
+    * Unique identifier, beginning with "CR".
+    *
+    * @return string
+    */
     public function id()
     {
         return $this->data->id;
     }
 
+  /**
+    * Referenced objects. Key values to stdClasses returned.
+    *
+    * @return array[string]string
+    */
     public function links()
     {
         return $this->data->links;
     }
 
+  /**
+    * The creditor's name.
+    *
+    * @return string
+    */
     public function name()
     {
         return $this->data->name;
     }
 
-    public function postal_code()
+  /**
+    * The creditor's postal code.
+    *
+    * @return string
+    */
+    public function postalCode()
     {
         return $this->data->postal_code;
     }
 
+  /**
+    * The creditor's address region, county or department.
+    *
+    * @return string
+    */
     public function region()
     {
         return $this->data->region;
     }
 
+
+
+  /**
+    * Get the response object.
+    * @return \GoCardless\Core\Response
+    */
     public function response()
     {
         return $this->response;
     }
+
+  /**
+    * Returns a string representation of the project.
+    * @return string 
+    */
     public function __toString()
     {
         $ret = 'Creditor Class (';
-        $ret .= print_r($this->data, true) . ')';
+        $ret .= print_r($this->data, true);
         return $ret;
     }
 }

@@ -23,6 +23,7 @@ class Mandate extends Base
     *  Creates a new mandate object
     *
     *  Example URL: /mandates
+    *  @return Mandate
     **/
     public function create($options = array())
     {
@@ -36,6 +37,7 @@ class Mandate extends Base
     *  used one at a time.
     *
     *  Example URL: /mandates
+    *  @return ListResponse
     **/
     public function do_list($options = array())
     {
@@ -59,6 +61,7 @@ class Mandate extends Base
     *  Example URL: /mandates/:identity
     *
     *  @param identity:  Unique identifier, beginning with "MD"
+    *  @return Mandate
     **/
     public function get($identity, $options = array())
     {
@@ -75,6 +78,7 @@ class Mandate extends Base
     *  Example URL: /mandates/:identity
     *
     *  @param identity:  Unique identifier, beginning with "MD"
+    *  @return Mandate
     **/
     public function update($identity, $options = array())
     {
@@ -96,6 +100,7 @@ class Mandate extends Base
     *  Example URL: /mandates/:identity/actions/cancel
     *
     *  @param identity:  Unique identifier, beginning with "MD"
+    *  @return Mandate
     **/
     public function cancel($identity, $options = array())
     {
@@ -122,6 +127,7 @@ class Mandate extends Base
     *  Example URL: /mandates/:identity/actions/reinstate
     *
     *  @param identity:  Unique identifier, beginning with "MD"
+    *  @return Mandate
     **/
     public function reinstate($identity, $options = array())
     {
@@ -140,7 +146,8 @@ class Mandate extends Base
     *  list of your mandates. Except where stated, these filters can only be
     *  used one at a time.
     *
-    *  Example URL: /mandates
+    *  Example URL: /mandates\
+    *  @return Paginator
     **/
     public function all($listMax, $options = array())
     {
@@ -148,21 +155,12 @@ class Mandate extends Base
     }
 
 
-  /**
-    * Handles functions in the API that are normally PHP reserved words.
+   /**
+    * Get the resource loading class.
+    * Used internally to send http requests.
+    *
+    * @return string
     */
-    public function __call($name, $args)
-    {
-        $attemptName = 'do_' . $name;
-        if (method_exists($this, $attemptName)) {
-            return call_user_func_array(array($this, $attemptName), $args);
-        }
-        return false;
-    }
-
-  /**
-   * Get the resource loading class.
-   */
     protected function resourceClass()
     {
         return '\GoCardless\Resources\Mandate';
@@ -170,6 +168,9 @@ class Mandate extends Base
 
   /**
     *  Get the key the response object is enclosed in in JSON.
+    *  Used internally to wrap and unwrap http requests.
+    *
+    *  @return string
     */
     protected function envelopeKey()
     {
