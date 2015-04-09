@@ -1,6 +1,6 @@
 <?php
 /**
- * GoCardless psr-4 autoloader
+ * Client psr-4 autoloader
  *
  * After registering this autoload function with SPL, the following line
  * would cause the function to attempt to load the \Foo\Bar\Baz\Qux class
@@ -17,7 +17,7 @@ spl_autoload_register(function ($class) {
     $prefix = 'GoCardless\\';
 
     // base directory for the namespace prefix
-    $base_dir = __DIR__ . '/lib/GoCardless/';
+    $base_dir = __DIR__ . '/GoCardless/';
 
     // does the class use the namespace prefix?
     $len = strlen($prefix);
