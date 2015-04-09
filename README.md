@@ -7,12 +7,12 @@ Do NOT create changes or pull requests for individual changes to the client code
 ### Installation
 
 The files you need to use the GoCardless API are in the `/lib` folder, however, you should use the loader.php file in the lib folder to load the library.
-To load the library, you only need to require the `lib/loader.php` folder.
+To load the library, you only need to require the `lib/loader.php` folder, if you're using composer, you should use the composer loader for this library.
 
 #### Install from source
 
 ```console
-$ git clone git://github.com/<no value>.git
+$ git clone git://github.com/gocardless/pro-client-php.git
 ```
 
 #### Installing from the tarball
@@ -80,8 +80,13 @@ $client->resource()->list(array(limit => 400));
 In the case where url parameters are needed, the method signature will contain required arguments:
 
 ```
-$client->resource()->show(resource_id);
+$customer = $client->customers()->show('CUXXXX');
+echo $customer->givenName();
+
 ```
+
+The resource returned contains camelCased getter methods.
+
 
 As with list, the last argument can be an options hash:
 
@@ -138,8 +143,8 @@ Crank will return an `\GoCardless\Core\Error\GoCardlessError`-based error. The p
 
 
 ## Supporting PHP < 5.3.3
-Crank only supports PHP >= 5.3.3 (possibly 5.0) out of the box due to its extensive
-use of OOP operators and namespaces in PHP for code cleanliness.
+Crank only supports PHP >= 5.3.3 out of the box due to its extensive
+use of OOP operators and namespaces.
 
 ## Contributing
 
