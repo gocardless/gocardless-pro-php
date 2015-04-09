@@ -73,7 +73,7 @@ class Paginator implements \Iterator
 
     public function items()
     {
-      return $this->currentResponse;
+        return $this->currentResponse;
     }
 
     public function previousPage()

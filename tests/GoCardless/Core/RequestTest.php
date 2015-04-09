@@ -7,7 +7,8 @@ use \GoCardless\Core\Helpers\StaticStorage as StaticStorage;
 class RequestTest extends \PHPUnit_Framework_TestCase
 {
     private $client;
-    public function __construct() {
+    public function __construct()
+    {
         StaticStorage::setup();
         parent::__construct();
     }

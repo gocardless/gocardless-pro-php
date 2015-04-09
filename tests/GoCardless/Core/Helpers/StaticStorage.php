@@ -7,10 +7,10 @@ class StaticStorage
     public static $calls = array();
     public static $opts  = array();
     public static $ret   = array();
-	public static function setup()
-	{
-		require_once(__DIR__ . '/CurlMocks.php');
-	}
+    public static function setup()
+    {
+        require_once(__DIR__ . '/CurlMocks.php');
+    }
     public static function setOpt($key, $val)
     {
         self::$opts[$key] = $val;
