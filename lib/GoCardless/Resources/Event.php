@@ -67,7 +67,7 @@ class Event
   /**
     * 
     *
-    * @return array[string]string
+    * @return 
     */
     public function details()
     {
@@ -75,7 +75,8 @@ class Event
         if (!property_exists($this->data, $field)) {
           return null;
         }
-        return $this->data->{$field};
+        return new Wrapper\NestedObject($field, $this->data->{$field});
+
     }
 
   /**
@@ -95,7 +96,7 @@ class Event
   /**
     * Referenced objects. Key values to stdClasses returned.
     *
-    * @return array[string]string
+    * @return 
     */
     public function links()
     {
@@ -103,7 +104,8 @@ class Event
         if (!property_exists($this->data, $field)) {
           return null;
         }
-        return $this->data->{$field};
+        return new Wrapper\NestedObject($field, $this->data->{$field});
+
     }
 
   /**
@@ -111,7 +113,7 @@ class Event
     * specified when triggering this event. In other cases it will be an empty
     * object.
     *
-    * @return array[string]string
+    * @return 
     */
     public function metadata()
     {
@@ -119,7 +121,8 @@ class Event
         if (!property_exists($this->data, $field)) {
           return null;
         }
-        return $this->data->{$field};
+        return new Wrapper\NestedObject($field, $this->data->{$field});
+
     }
 
   /**

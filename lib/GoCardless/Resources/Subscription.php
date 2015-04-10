@@ -238,7 +238,7 @@ class Subscription
   /**
     * Referenced objects. Key values to stdClasses returned.
     *
-    * @return array[string]string
+    * @return 
     */
     public function links()
     {
@@ -246,14 +246,15 @@ class Subscription
         if (!property_exists($this->data, $field)) {
           return null;
         }
-        return $this->data->{$field};
+        return new Wrapper\NestedObject($field, $this->data->{$field});
+
     }
 
   /**
     * Key-value store of custom data. Up to 3 keys are permitted, with key names
     * up to 50 characters and values up to 200 characters.
     *
-    * @return array[string]string
+    * @return 
     */
     public function metadata()
     {
@@ -261,7 +262,8 @@ class Subscription
         if (!property_exists($this->data, $field)) {
           return null;
         }
-        return $this->data->{$field};
+        return new Wrapper\NestedObject($field, $this->data->{$field});
+
     }
 
   /**

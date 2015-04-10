@@ -145,7 +145,7 @@ class Creditor
   /**
     * Referenced objects. Key values to stdClasses returned.
     *
-    * @return array[string]string
+    * @return 
     */
     public function links()
     {
@@ -153,7 +153,8 @@ class Creditor
         if (!property_exists($this->data, $field)) {
           return null;
         }
-        return $this->data->{$field};
+        return new Wrapper\NestedObject($field, $this->data->{$field});
+
     }
 
   /**
