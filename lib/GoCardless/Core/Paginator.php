@@ -83,7 +83,7 @@ class Paginator implements \Iterator
             return false;
         }
         $options = $this->options;
-        $options['before'] = $this->meta->cursors->before;
+        $options['before'] = $this->meta->cursors()->before();
         if (empty($options['before'])) {
             $this->currentResponse = array();
             return false;
@@ -103,7 +103,7 @@ class Paginator implements \Iterator
             return false;
         }
         $options = $this->options;
-        $options['after'] = $this->meta->cursors->after;
+        $options['after'] = $this->meta->cursors()->after();
         if (empty($options['after'])) {
             $this->currentResponse = array();
             return false;

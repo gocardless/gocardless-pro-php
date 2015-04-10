@@ -84,13 +84,14 @@ class Subscription
 
   /**
     * Creates a new Resource from a http response passing in the data.
-    * @param mixed $data Data coming into the resource.
+    * @param stdClass $data Data coming into the resource.
     * @param Response $response \<no value>\Core\Response object.
     */
     public function __construct($data, $response = null)
     {
+        // Don't blow up with blank data anymore for raw responses.
         if ($data === null) {
-            throw new \Exception('Data cannot be null');
+            $data = new \stdClass();
         }
         $this->response = $response;
         $this->data = $data;
@@ -104,7 +105,11 @@ class Subscription
     */
     public function amount()
     {
-        return $this->data->amount;
+        $field = 'amount';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -116,7 +121,11 @@ class Subscription
     */
     public function count()
     {
-        return $this->data->count;
+        $field = 'count';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -128,7 +137,11 @@ class Subscription
     */
     public function created_at()
     {
-        return $this->data->created_at;
+        $field = 'created_at';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -139,7 +152,11 @@ class Subscription
     */
     public function currency()
     {
-        return $this->data->currency;
+        $field = 'currency';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -150,7 +167,11 @@ class Subscription
     */
     public function day_of_month()
     {
-        return $this->data->day_of_month;
+        $field = 'day_of_month';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -163,7 +184,11 @@ class Subscription
     */
     public function end_at()
     {
-        return $this->data->end_at;
+        $field = 'end_at';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -173,7 +198,11 @@ class Subscription
     */
     public function id()
     {
-        return $this->data->id;
+        $field = 'id';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -184,7 +213,11 @@ class Subscription
     */
     public function interval()
     {
-        return $this->data->interval;
+        $field = 'interval';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -195,7 +228,11 @@ class Subscription
     */
     public function interval_unit()
     {
-        return $this->data->interval_unit;
+        $field = 'interval_unit';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -205,7 +242,11 @@ class Subscription
     */
     public function links()
     {
-        return $this->data->links;
+        $field = 'links';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -216,7 +257,11 @@ class Subscription
     */
     public function metadata()
     {
-        return $this->data->metadata;
+        $field = 'metadata';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -226,7 +271,12 @@ class Subscription
     */
     public function month()
     {
-        return $this->data->month;
+        $field = 'month';
+        if (!property_exists($this->data, $field)) {
+            echo 'no prop!', $field;
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -237,7 +287,11 @@ class Subscription
     */
     public function name()
     {
-        return $this->data->name;
+        $field = 'name';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -251,7 +305,11 @@ class Subscription
     */
     public function start_at()
     {
-        return $this->data->start_at;
+        $field = 'start_at';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -270,7 +328,11 @@ class Subscription
     */
     public function status()
     {
-        return $this->data->status;
+        $field = 'status';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -281,7 +343,11 @@ class Subscription
     */
     public function upcoming_payments()
     {
-        return $this->data->upcoming_payments;
+        $field = 'upcoming_payments';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
 

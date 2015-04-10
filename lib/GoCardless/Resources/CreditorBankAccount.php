@@ -28,13 +28,14 @@ class CreditorBankAccount
 
   /**
     * Creates a new Resource from a http response passing in the data.
-    * @param mixed $data Data coming into the resource.
+    * @param stdClass $data Data coming into the resource.
     * @param Response $response \<no value>\Core\Response object.
     */
     public function __construct($data, $response = null)
     {
+        // Don't blow up with blank data anymore for raw responses.
         if ($data === null) {
-            throw new \Exception('Data cannot be null');
+            $data = new \stdClass();
         }
         $this->response = $response;
         $this->data = $data;
@@ -51,7 +52,11 @@ class CreditorBankAccount
     */
     public function account_holder_name()
     {
-        return $this->data->account_holder_name;
+        $field = 'account_holder_name';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -61,7 +66,11 @@ class CreditorBankAccount
     */
     public function account_number_ending()
     {
-        return $this->data->account_number_ending;
+        $field = 'account_number_ending';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -71,7 +80,11 @@ class CreditorBankAccount
     */
     public function bank_name()
     {
-        return $this->data->bank_name;
+        $field = 'bank_name';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -83,7 +96,11 @@ class CreditorBankAccount
     */
     public function country_code()
     {
-        return $this->data->country_code;
+        $field = 'country_code';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -95,7 +112,11 @@ class CreditorBankAccount
     */
     public function created_at()
     {
-        return $this->data->created_at;
+        $field = 'created_at';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -106,7 +127,11 @@ class CreditorBankAccount
     */
     public function currency()
     {
-        return $this->data->currency;
+        $field = 'currency';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -116,7 +141,11 @@ class CreditorBankAccount
     */
     public function enabled()
     {
-        return $this->data->enabled;
+        $field = 'enabled';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -126,7 +155,11 @@ class CreditorBankAccount
     */
     public function id()
     {
-        return $this->data->id;
+        $field = 'id';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -136,7 +169,11 @@ class CreditorBankAccount
     */
     public function links()
     {
-        return $this->data->links;
+        $field = 'links';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -147,7 +184,11 @@ class CreditorBankAccount
     */
     public function metadata()
     {
-        return $this->data->metadata;
+        $field = 'metadata';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
 

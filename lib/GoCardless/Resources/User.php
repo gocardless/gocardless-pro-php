@@ -18,13 +18,14 @@ class User
 
   /**
     * Creates a new Resource from a http response passing in the data.
-    * @param mixed $data Data coming into the resource.
+    * @param stdClass $data Data coming into the resource.
     * @param Response $response \<no value>\Core\Response object.
     */
     public function __construct($data, $response = null)
     {
+        // Don't blow up with blank data anymore for raw responses.
         if ($data === null) {
-            throw new \Exception('Data cannot be null');
+            $data = new \stdClass();
         }
         $this->response = $response;
         $this->data = $data;
@@ -40,7 +41,11 @@ class User
     */
     public function created_at()
     {
-        return $this->data->created_at;
+        $field = 'created_at';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -50,7 +55,11 @@ class User
     */
     public function email()
     {
-        return $this->data->email;
+        $field = 'email';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -60,7 +69,11 @@ class User
     */
     public function enabled()
     {
-        return $this->data->enabled;
+        $field = 'enabled';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -70,7 +83,11 @@ class User
     */
     public function family_name()
     {
-        return $this->data->family_name;
+        $field = 'family_name';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -80,7 +97,11 @@ class User
     */
     public function given_name()
     {
-        return $this->data->given_name;
+        $field = 'given_name';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -90,7 +111,11 @@ class User
     */
     public function id()
     {
-        return $this->data->id;
+        $field = 'id';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -100,7 +125,11 @@ class User
     */
     public function links()
     {
-        return $this->data->links;
+        $field = 'links';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
 

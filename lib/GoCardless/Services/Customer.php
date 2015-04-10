@@ -23,9 +23,9 @@ class Customer extends Base
     *  Example URL: /customers
     *  @return Customer
     **/
-    public function create($options = array())
+    public function create($params = array(), $headers = array())
     {
-        return $this->makeRequest('post', '/customers', $options);
+        return $this->makeRequest('post', '/customers', $params);
     }
 
   /**
@@ -36,9 +36,9 @@ class Customer extends Base
     *  Example URL: /customers
     *  @return ListResponse
     **/
-    public function do_list($options = array())
+    public function do_list($params = array(), $headers = array())
     {
-        return $this->makeRequest('get', '/customers', $options);
+        return $this->makeRequest('get', '/customers', $params);
     }
 
   /**
@@ -49,13 +49,13 @@ class Customer extends Base
     *  @param identity:  Unique identifier, beginning with "CU".
     *  @return Customer
     **/
-    public function get($identity, $options = array())
+    public function get($identity, $params = array(), $headers = array())
     {
         $path = $this->subUrl('/customers/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('get', $path, $options);
+        return $this->makeRequest('get', $path, $params, $headers);
     }
 
   /**
@@ -67,13 +67,13 @@ class Customer extends Base
     *  @param identity:  Unique identifier, beginning with "CU".
     *  @return Customer
     **/
-    public function update($identity, $options = array())
+    public function update($identity, $params = array(), $headers = array())
     {
         $path = $this->subUrl('/customers/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('put', $path, $options);
+        return $this->makeRequest('put', $path, $params, $headers);
     }
 
 

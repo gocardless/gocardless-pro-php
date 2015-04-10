@@ -141,7 +141,7 @@ class Response
     */
     public function meta()
     {
-        return $this->json_body()->meta;
+        return new \GoCardless\Resources\Wrapper\NestedObject('meta', $this->json_body()->meta);
     }
 
   /**
@@ -154,13 +154,13 @@ class Response
     }
 
   /**
-    * Returns the decoded ful json body
+    * Returns the decoded full json body
     * @return stdClass
     */
     public function json_body()
     {
         if (!isset($this->json_body_data)) {
-            $this->json_body_data = json_decode($this->body);
+            $this->json_body_data = json_decode($this->body, false);
         }
         return $this->json_body_data;
     }

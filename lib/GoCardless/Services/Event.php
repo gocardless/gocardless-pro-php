@@ -23,9 +23,9 @@ class Event extends Base
     *  Example URL: /events
     *  @return ListResponse
     **/
-    public function do_list($options = array())
+    public function do_list($params = array(), $headers = array())
     {
-        return $this->makeRequest('get', '/events', $options);
+        return $this->makeRequest('get', '/events', $params);
     }
 
   /**
@@ -36,13 +36,13 @@ class Event extends Base
     *  @param identity:  Unique identifier, beginning with "EV"
     *  @return Event
     **/
-    public function get($identity, $options = array())
+    public function get($identity, $params = array(), $headers = array())
     {
         $path = $this->subUrl('/events/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('get', $path, $options);
+        return $this->makeRequest('get', $path, $params, $headers);
     }
 
 

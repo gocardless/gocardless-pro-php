@@ -43,9 +43,9 @@ class Helper extends Base
     *  Example URL: /helpers/mandate
     *  @return Helper
     **/
-    public function mandate($options = array())
+    public function mandate($params = array(), $headers = array())
     {
-        return $this->makeRequest('post', '/helpers/mandate', $options);
+        return $this->makeRequest('post', '/helpers/mandate', $params);
     }
 
   /**
@@ -63,9 +63,9 @@ class Helper extends Base
     *  Example URL: /helpers/modulus_check
     *  @return Helper
     **/
-    public function modulus_check($options = array())
+    public function modulus_check($params = array(), $headers = array())
     {
-        return $this->makeRequest('post', '/helpers/modulus_check', $options);
+        return $this->makeRequest('post', '/helpers/modulus_check', $params);
     }
 
 

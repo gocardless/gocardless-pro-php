@@ -22,15 +22,14 @@ class NestedObject
 		$this->data = $data;
 	}
 
-	function __call($name)
+	function __call($name, $arguments)
 	{
-		if (isset($this->data->{$name}))
-		{
+		if (count($arguments) === 0 && property_exists($this->data, $name)) {
 			$value = $this->data->{$name};
 			if (is_object($value)) {
-				return new NestedObject($name, $value)
+				return new NestedObject($name, $value);
 			} else {
-				return $value;	
+				return $value;
 			}
 		}
 		return false;

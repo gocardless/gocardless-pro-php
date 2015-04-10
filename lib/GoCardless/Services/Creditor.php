@@ -28,9 +28,9 @@ class Creditor extends Base
     *  Example URL: /creditors
     *  @return Creditor
     **/
-    public function create($options = array())
+    public function create($params = array(), $headers = array())
     {
-        return $this->makeRequest('post', '/creditors', $options);
+        return $this->makeRequest('post', '/creditors', $params);
     }
 
   /**
@@ -41,9 +41,9 @@ class Creditor extends Base
     *  Example URL: /creditors
     *  @return ListResponse
     **/
-    public function do_list($options = array())
+    public function do_list($params = array(), $headers = array())
     {
-        return $this->makeRequest('get', '/creditors', $options);
+        return $this->makeRequest('get', '/creditors', $params);
     }
 
   /**
@@ -54,13 +54,13 @@ class Creditor extends Base
     *  @param identity:  Unique identifier, beginning with "CR".
     *  @return Creditor
     **/
-    public function get($identity, $options = array())
+    public function get($identity, $params = array(), $headers = array())
     {
         $path = $this->subUrl('/creditors/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('get', $path, $options);
+        return $this->makeRequest('get', $path, $params, $headers);
     }
 
   /**
@@ -72,13 +72,13 @@ class Creditor extends Base
     *  @param identity:  Unique identifier, beginning with "CR".
     *  @return Creditor
     **/
-    public function update($identity, $options = array())
+    public function update($identity, $params = array(), $headers = array())
     {
         $path = $this->subUrl('/creditors/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('put', $path, $options);
+        return $this->makeRequest('put', $path, $params, $headers);
     }
 
 

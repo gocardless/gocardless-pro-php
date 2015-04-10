@@ -57,9 +57,9 @@ class RedirectFlow extends Base
     *  Example URL: /redirect_flows
     *  @return RedirectFlow
     **/
-    public function create($options = array())
+    public function create($params = array(), $headers = array())
     {
-        return $this->makeRequest('post', '/redirect_flows', $options);
+        return $this->makeRequest('post', '/redirect_flows', $params);
     }
 
   /**
@@ -70,13 +70,13 @@ class RedirectFlow extends Base
     *  @param identity:  Unique identifier, beginning with "RE"
     *  @return RedirectFlow
     **/
-    public function get($identity, $options = array())
+    public function get($identity, $params = array(), $headers = array())
     {
         $path = $this->subUrl('/redirect_flows/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('get', $path, $options);
+        return $this->makeRequest('get', $path, $params, $headers);
     }
 
   /**
@@ -101,13 +101,13 @@ class RedirectFlow extends Base
     *  @param identity:  Unique identifier, beginning with "RE"
     *  @return RedirectFlow
     **/
-    public function complete($identity, $options = array())
+    public function complete($identity, $params = array(), $headers = array())
     {
         $path = $this->subUrl('/redirect_flows/:identity/actions/complete', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('post', $path, $options);
+        return $this->makeRequest('post', $path, $params, $headers);
     }
 
 

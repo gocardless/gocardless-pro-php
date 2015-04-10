@@ -25,9 +25,9 @@ class Mandate extends Base
     *  Example URL: /mandates
     *  @return Mandate
     **/
-    public function create($options = array())
+    public function create($params = array(), $headers = array())
     {
-        return $this->makeRequest('post', '/mandates', $options);
+        return $this->makeRequest('post', '/mandates', $params);
     }
 
   /**
@@ -39,9 +39,9 @@ class Mandate extends Base
     *  Example URL: /mandates
     *  @return ListResponse
     **/
-    public function do_list($options = array())
+    public function do_list($params = array(), $headers = array())
     {
-        return $this->makeRequest('get', '/mandates', $options);
+        return $this->makeRequest('get', '/mandates', $params);
     }
 
   /**
@@ -63,13 +63,13 @@ class Mandate extends Base
     *  @param identity:  Unique identifier, beginning with "MD"
     *  @return Mandate
     **/
-    public function get($identity, $options = array())
+    public function get($identity, $params = array(), $headers = array())
     {
         $path = $this->subUrl('/mandates/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('get', $path, $options);
+        return $this->makeRequest('get', $path, $params, $headers);
     }
 
   /**
@@ -80,13 +80,13 @@ class Mandate extends Base
     *  @param identity:  Unique identifier, beginning with "MD"
     *  @return Mandate
     **/
-    public function update($identity, $options = array())
+    public function update($identity, $params = array(), $headers = array())
     {
         $path = $this->subUrl('/mandates/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('put', $path, $options);
+        return $this->makeRequest('put', $path, $params, $headers);
     }
 
   /**
@@ -102,13 +102,13 @@ class Mandate extends Base
     *  @param identity:  Unique identifier, beginning with "MD"
     *  @return Mandate
     **/
-    public function cancel($identity, $options = array())
+    public function cancel($identity, $params = array(), $headers = array())
     {
         $path = $this->subUrl('/mandates/:identity/actions/cancel', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('post', $path, $options);
+        return $this->makeRequest('post', $path, $params, $headers);
     }
 
   /**
@@ -129,13 +129,13 @@ class Mandate extends Base
     *  @param identity:  Unique identifier, beginning with "MD"
     *  @return Mandate
     **/
-    public function reinstate($identity, $options = array())
+    public function reinstate($identity, $params = array(), $headers = array())
     {
         $path = $this->subUrl('/mandates/:identity/actions/reinstate', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('post', $path, $options);
+        return $this->makeRequest('post', $path, $params, $headers);
     }
 
 

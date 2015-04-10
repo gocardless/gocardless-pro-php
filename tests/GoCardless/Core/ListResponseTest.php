@@ -40,6 +40,6 @@ class ListResponseTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals($this->raw_response, $this->response->response());
         $this->assertEquals($this->raw_response->meta(), $this->response->meta());
-        $this->assertEquals($this->raw_response->limit(), $this->response->meta()->limit);
+        $this->assertEquals($this->raw_response->limit(), $this->response->meta()->limit());
     }
 }

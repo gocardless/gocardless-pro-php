@@ -22,13 +22,14 @@ class Customer
 
   /**
     * Creates a new Resource from a http response passing in the data.
-    * @param mixed $data Data coming into the resource.
+    * @param stdClass $data Data coming into the resource.
     * @param Response $response \<no value>\Core\Response object.
     */
     public function __construct($data, $response = null)
     {
+        // Don't blow up with blank data anymore for raw responses.
         if ($data === null) {
-            throw new \Exception('Data cannot be null');
+            $data = new \stdClass();
         }
         $this->response = $response;
         $this->data = $data;
@@ -42,7 +43,11 @@ class Customer
     */
     public function address_line1()
     {
-        return $this->data->address_line1;
+        $field = 'address_line1';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -52,7 +57,11 @@ class Customer
     */
     public function address_line2()
     {
-        return $this->data->address_line2;
+        $field = 'address_line2';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -62,7 +71,11 @@ class Customer
     */
     public function address_line3()
     {
-        return $this->data->address_line3;
+        $field = 'address_line3';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -72,7 +85,11 @@ class Customer
     */
     public function city()
     {
-        return $this->data->city;
+        $field = 'city';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -84,7 +101,11 @@ class Customer
     */
     public function country_code()
     {
-        return $this->data->country_code;
+        $field = 'country_code';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -96,7 +117,11 @@ class Customer
     */
     public function created_at()
     {
-        return $this->data->created_at;
+        $field = 'created_at';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -106,7 +131,11 @@ class Customer
     */
     public function email()
     {
-        return $this->data->email;
+        $field = 'email';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -116,7 +145,11 @@ class Customer
     */
     public function family_name()
     {
-        return $this->data->family_name;
+        $field = 'family_name';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -126,7 +159,11 @@ class Customer
     */
     public function given_name()
     {
-        return $this->data->given_name;
+        $field = 'given_name';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -136,7 +173,11 @@ class Customer
     */
     public function id()
     {
-        return $this->data->id;
+        $field = 'id';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -147,7 +188,11 @@ class Customer
     */
     public function metadata()
     {
-        return $this->data->metadata;
+        $field = 'metadata';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -157,7 +202,11 @@ class Customer
     */
     public function postal_code()
     {
-        return $this->data->postal_code;
+        $field = 'postal_code';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -167,7 +216,11 @@ class Customer
     */
     public function region()
     {
-        return $this->data->region;
+        $field = 'region';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
 

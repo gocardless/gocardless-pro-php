@@ -26,9 +26,9 @@ class Payout extends Base
     *  Example URL: /payouts
     *  @return ListResponse
     **/
-    public function do_list($options = array())
+    public function do_list($params = array(), $headers = array())
     {
-        return $this->makeRequest('get', '/payouts', $options);
+        return $this->makeRequest('get', '/payouts', $params);
     }
 
   /**
@@ -39,13 +39,13 @@ class Payout extends Base
     *  @param identity:  Unique identifier, beginning with "PO"
     *  @return Payout
     **/
-    public function get($identity, $options = array())
+    public function get($identity, $params = array(), $headers = array())
     {
         $path = $this->subUrl('/payouts/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('get', $path, $options);
+        return $this->makeRequest('get', $path, $params, $headers);
     }
 
 

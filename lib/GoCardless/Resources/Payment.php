@@ -27,13 +27,14 @@ class Payment
 
   /**
     * Creates a new Resource from a http response passing in the data.
-    * @param mixed $data Data coming into the resource.
+    * @param stdClass $data Data coming into the resource.
     * @param Response $response \<no value>\Core\Response object.
     */
     public function __construct($data, $response = null)
     {
+        // Don't blow up with blank data anymore for raw responses.
         if ($data === null) {
-            throw new \Exception('Data cannot be null');
+            $data = new \stdClass();
         }
         $this->response = $response;
         $this->data = $data;
@@ -47,7 +48,11 @@ class Payment
     */
     public function amount()
     {
-        return $this->data->amount;
+        $field = 'amount';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -57,7 +62,11 @@ class Payment
     */
     public function amount_refunded()
     {
-        return $this->data->amount_refunded;
+        $field = 'amount_refunded';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -72,7 +81,11 @@ class Payment
     */
     public function charge_date()
     {
-        return $this->data->charge_date;
+        $field = 'charge_date';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -84,7 +97,11 @@ class Payment
     */
     public function created_at()
     {
-        return $this->data->created_at;
+        $field = 'created_at';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -95,7 +112,11 @@ class Payment
     */
     public function currency()
     {
-        return $this->data->currency;
+        $field = 'currency';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -105,7 +126,11 @@ class Payment
     */
     public function description()
     {
-        return $this->data->description;
+        $field = 'description';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -115,7 +140,11 @@ class Payment
     */
     public function id()
     {
-        return $this->data->id;
+        $field = 'id';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -125,7 +154,11 @@ class Payment
     */
     public function links()
     {
-        return $this->data->links;
+        $field = 'links';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -136,7 +169,11 @@ class Payment
     */
     public function metadata()
     {
-        return $this->data->metadata;
+        $field = 'metadata';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -148,7 +185,11 @@ class Payment
     */
     public function reference()
     {
-        return $this->data->reference;
+        $field = 'reference';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -175,7 +216,11 @@ class Payment
     */
     public function status()
     {
-        return $this->data->status;
+        $field = 'status';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
 

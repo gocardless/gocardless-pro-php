@@ -24,13 +24,14 @@ class Mandate
 
   /**
     * Creates a new Resource from a http response passing in the data.
-    * @param mixed $data Data coming into the resource.
+    * @param stdClass $data Data coming into the resource.
     * @param Response $response \<no value>\Core\Response object.
     */
     public function __construct($data, $response = null)
     {
+        // Don't blow up with blank data anymore for raw responses.
         if ($data === null) {
-            throw new \Exception('Data cannot be null');
+            $data = new \stdClass();
         }
         $this->response = $response;
         $this->data = $data;
@@ -46,7 +47,11 @@ class Mandate
     */
     public function created_at()
     {
-        return $this->data->created_at;
+        $field = 'created_at';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -56,7 +61,11 @@ class Mandate
     */
     public function id()
     {
-        return $this->data->id;
+        $field = 'id';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -66,7 +75,11 @@ class Mandate
     */
     public function links()
     {
-        return $this->data->links;
+        $field = 'links';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -77,7 +90,11 @@ class Mandate
     */
     public function metadata()
     {
-        return $this->data->metadata;
+        $field = 'metadata';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -88,7 +105,11 @@ class Mandate
     */
     public function next_possible_charge_date()
     {
-        return $this->data->next_possible_charge_date;
+        $field = 'next_possible_charge_date';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -98,7 +119,11 @@ class Mandate
     */
     public function reference()
     {
-        return $this->data->reference;
+        $field = 'reference';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -110,7 +135,11 @@ class Mandate
     */
     public function scheme()
     {
-        return $this->data->scheme;
+        $field = 'scheme';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -135,7 +164,12 @@ class Mandate
     */
     public function status()
     {
-        return $this->data->status;
+        $field = 'status';
+        if (!property_exists($this->data, $field)) {
+            echo 'no prop!', $field;
+          return null;
+        }
+        return $this->data->{$field};
     }
 
 

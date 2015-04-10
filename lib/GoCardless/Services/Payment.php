@@ -36,9 +36,9 @@ class Payment extends Base
     *  Example URL: /payments
     *  @return Payment
     **/
-    public function create($options = array())
+    public function create($params = array(), $headers = array())
     {
-        return $this->makeRequest('post', '/payments', $options);
+        return $this->makeRequest('post', '/payments', $params);
     }
 
   /**
@@ -49,9 +49,9 @@ class Payment extends Base
     *  Example URL: /payments
     *  @return ListResponse
     **/
-    public function do_list($options = array())
+    public function do_list($params = array(), $headers = array())
     {
-        return $this->makeRequest('get', '/payments', $options);
+        return $this->makeRequest('get', '/payments', $params);
     }
 
   /**
@@ -62,13 +62,13 @@ class Payment extends Base
     *  @param identity:  Unique identifier, beginning with "PM"
     *  @return Payment
     **/
-    public function get($identity, $options = array())
+    public function get($identity, $params = array(), $headers = array())
     {
         $path = $this->subUrl('/payments/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('get', $path, $options);
+        return $this->makeRequest('get', $path, $params, $headers);
     }
 
   /**
@@ -79,13 +79,13 @@ class Payment extends Base
     *  @param identity:  Unique identifier, beginning with "PM"
     *  @return Payment
     **/
-    public function update($identity, $options = array())
+    public function update($identity, $params = array(), $headers = array())
     {
         $path = $this->subUrl('/payments/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('put', $path, $options);
+        return $this->makeRequest('put', $path, $params, $headers);
     }
 
   /**
@@ -102,13 +102,13 @@ class Payment extends Base
     *  @param identity:  Unique identifier, beginning with "PM"
     *  @return Payment
     **/
-    public function cancel($identity, $options = array())
+    public function cancel($identity, $params = array(), $headers = array())
     {
         $path = $this->subUrl('/payments/:identity/actions/cancel', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('post', $path, $options);
+        return $this->makeRequest('post', $path, $params, $headers);
     }
 
   /**
@@ -128,13 +128,13 @@ class Payment extends Base
     *  @param identity:  Unique identifier, beginning with "PM"
     *  @return Payment
     **/
-    public function retry($identity, $options = array())
+    public function retry($identity, $params = array(), $headers = array())
     {
         $path = $this->subUrl('/payments/:identity/actions/retry', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('post', $path, $options);
+        return $this->makeRequest('post', $path, $params, $headers);
     }
 
 

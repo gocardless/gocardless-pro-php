@@ -20,9 +20,9 @@ class User extends Base
     *  Example URL: /users
     *  @return User
     **/
-    public function create($options = array())
+    public function create($params = array(), $headers = array())
     {
-        return $this->makeRequest('post', '/users', $options);
+        return $this->makeRequest('post', '/users', $params);
     }
 
   /**
@@ -33,9 +33,9 @@ class User extends Base
     *  Example URL: /users
     *  @return ListResponse
     **/
-    public function do_list($options = array())
+    public function do_list($params = array(), $headers = array())
     {
-        return $this->makeRequest('get', '/users', $options);
+        return $this->makeRequest('get', '/users', $params);
     }
 
   /**
@@ -47,13 +47,13 @@ class User extends Base
     *  @param identity:  Unique identifier, beginning with "US"
     *  @return User
     **/
-    public function get($identity, $options = array())
+    public function get($identity, $params = array(), $headers = array())
     {
         $path = $this->subUrl('/users/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('get', $path, $options);
+        return $this->makeRequest('get', $path, $params, $headers);
     }
 
   /**
@@ -65,13 +65,13 @@ class User extends Base
     *  @param identity:  Unique identifier, beginning with "US"
     *  @return User
     **/
-    public function update($identity, $options = array())
+    public function update($identity, $params = array(), $headers = array())
     {
         $path = $this->subUrl('/users/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('put', $path, $options);
+        return $this->makeRequest('put', $path, $params, $headers);
     }
 
   /**
@@ -82,13 +82,13 @@ class User extends Base
     *  @param identity:  Unique identifier, beginning with "US"
     *  @return User
     **/
-    public function enable($identity, $options = array())
+    public function enable($identity, $params = array(), $headers = array())
     {
         $path = $this->subUrl('/users/:identity/actions/enable', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('post', $path, $options);
+        return $this->makeRequest('post', $path, $params, $headers);
     }
 
   /**
@@ -99,13 +99,13 @@ class User extends Base
     *  @param identity:  Unique identifier, beginning with "US"
     *  @return User
     **/
-    public function disable($identity, $options = array())
+    public function disable($identity, $params = array(), $headers = array())
     {
         $path = $this->subUrl('/users/:identity/actions/disable', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('post', $path, $options);
+        return $this->makeRequest('post', $path, $params, $headers);
     }
 
 

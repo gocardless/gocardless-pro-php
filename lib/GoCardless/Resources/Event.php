@@ -20,13 +20,14 @@ class Event
 
   /**
     * Creates a new Resource from a http response passing in the data.
-    * @param mixed $data Data coming into the resource.
+    * @param stdClass $data Data coming into the resource.
     * @param Response $response \<no value>\Core\Response object.
     */
     public function __construct($data, $response = null)
     {
+        // Don't blow up with blank data anymore for raw responses.
         if ($data === null) {
-            throw new \Exception('Data cannot be null');
+            $data = new \stdClass();
         }
         $this->response = $response;
         $this->data = $data;
@@ -40,7 +41,11 @@ class Event
     */
     public function action()
     {
-        return $this->data->action;
+        $field = 'action';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -52,7 +57,11 @@ class Event
     */
     public function created_at()
     {
-        return $this->data->created_at;
+        $field = 'created_at';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -62,7 +71,11 @@ class Event
     */
     public function details()
     {
-        return $this->data->details;
+        $field = 'details';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -72,7 +85,11 @@ class Event
     */
     public function id()
     {
-        return $this->data->id;
+        $field = 'id';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -82,7 +99,11 @@ class Event
     */
     public function links()
     {
-        return $this->data->links;
+        $field = 'links';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -94,7 +115,11 @@ class Event
     */
     public function metadata()
     {
-        return $this->data->metadata;
+        $field = 'metadata';
+        if (!property_exists($this->data, $field)) {
+          return null;
+        }
+        return $this->data->{$field};
     }
 
   /**
@@ -113,7 +138,12 @@ class Event
     */
     public function resource_type()
     {
-        return $this->data->resource_type;
+        $field = 'resource_type';
+        if (!property_exists($this->data, $field)) {
+            echo 'no prop!', $field;
+          return null;
+        }
+        return $this->data->{$field};
     }
 
 

@@ -28,7 +28,7 @@ class PaginatorTest extends \PHPUnit_Framework_TestCase
 
     public function testSinglePage()
     {
-        $this->assertEquals('.co.uk', $this->paginator->items()->response()->response()[0]->domain);
+        $this->assertEquals('.co.uk', $this->paginator->items()[0]->data()->domain);
         $this->assertTrue($this->paginator->nextPage());
         $this->assertTrue($this->paginator->previousPage());
         $this->assertFalse($this->paginator->previousPage());

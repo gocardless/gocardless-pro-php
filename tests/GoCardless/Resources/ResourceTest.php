@@ -16,9 +16,8 @@ class ResourceTest extends \PHPUnit_Framework_TestCase
 
     public function testRequiredData()
     {
-        $this->setExpectedException('Exception', 'Data cannot be null');
-
         $resource = new Customer(null);
+        $this->assertNull($resource->family_name());
     }
 
     public function testInvalidGetter()
