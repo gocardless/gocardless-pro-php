@@ -80,6 +80,15 @@ class HttpClient
         return new Request($this, $envelopeKey);
     }
 
+    private function requestHeaders($headers)
+    {
+        $request_headers = $this->headers;
+        foreach ($headers as $key => $val) {
+            $request_headers[strtolower($key)] = $val; 
+        }
+        return $request_headers;
+    }
+
   /**
     * Sets up a request using the curl wrapper passing in the current baseUrl, headers, and auth.
     * @param string $method HTTP MEthod
@@ -93,8 +102,7 @@ class HttpClient
         $httpRequest = new CurlWrapper($method, $this->baseUrl . substr($path, 1));
 
         $httpRequest->setAuth($this->auth);
-        $requestHeaders = array_merge($this->headers, $headers);
-        $httpRequest->setHeaders($this->headers);
+        $httpRequest->setHeaders($this->requestHeaders($headers));
 
         if (isset($postBody)) {
             $httpRequest->setPostBody($postBody, 'application/json');
