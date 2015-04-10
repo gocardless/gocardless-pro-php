@@ -44,7 +44,7 @@ class Mandate
     *
     * @return string
     */
-    public function createdAt()
+    public function created_at()
     {
         return $this->data->created_at;
     }
@@ -86,7 +86,7 @@ class Mandate
     *
     * @return string
     */
-    public function nextPossibleChargeDate()
+    public function next_possible_charge_date()
     {
         return $this->data->next_possible_charge_date;
     }

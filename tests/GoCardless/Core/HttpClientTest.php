@@ -51,11 +51,11 @@ class HttpClientTest extends \PHPUnit_Framework_TestCase
         StaticStorage::setRetVal(CURLINFO_CONTENT_TYPE, 'application/json');
 
         $request = $this->httpClient->makeRequest('thiskey');
-        $response = $request->run('get', '/');
+        $response = $request->run('get', '/', array());
 
         $this->assertEquals('hi!', $response->response());
         $this->assertEquals(200, $response->status());
-        $this->assertEquals('application/json', $response->contentType());
+        $this->assertEquals('application/json', $response->content_type());
     }
 
     public function testHandlesProperQueryParameters()

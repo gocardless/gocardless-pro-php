@@ -40,7 +40,7 @@ class Customer
     *
     * @return string
     */
-    public function addressLine1()
+    public function address_line1()
     {
         return $this->data->address_line1;
     }
@@ -50,7 +50,7 @@ class Customer
     *
     * @return string
     */
-    public function addressLine2()
+    public function address_line2()
     {
         return $this->data->address_line2;
     }
@@ -60,7 +60,7 @@ class Customer
     *
     * @return string
     */
-    public function addressLine3()
+    public function address_line3()
     {
         return $this->data->address_line3;
     }
@@ -82,7 +82,7 @@ class Customer
     *
     * @return string
     */
-    public function countryCode()
+    public function country_code()
     {
         return $this->data->country_code;
     }
@@ -94,7 +94,7 @@ class Customer
     *
     * @return string
     */
-    public function createdAt()
+    public function created_at()
     {
         return $this->data->created_at;
     }
@@ -114,7 +114,7 @@ class Customer
     *
     * @return string
     */
-    public function familyName()
+    public function family_name()
     {
         return $this->data->family_name;
     }
@@ -124,7 +124,7 @@ class Customer
     *
     * @return string
     */
-    public function givenName()
+    public function given_name()
     {
         return $this->data->given_name;
     }
@@ -155,7 +155,7 @@ class Customer
     *
     * @return string
     */
-    public function postalCode()
+    public function postal_code()
     {
         return $this->data->postal_code;
     }

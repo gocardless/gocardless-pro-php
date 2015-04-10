@@ -74,7 +74,7 @@ class RedirectFlow
     *
     * @return string
     */
-    public function createdAt()
+    public function created_at()
     {
         return $this->data->created_at;
     }
@@ -114,7 +114,7 @@ class RedirectFlow
     *
     * @return string
     */
-    public function redirectUrl()
+    public function redirect_url()
     {
         return $this->data->redirect_url;
     }
@@ -135,7 +135,7 @@ class RedirectFlow
     *
     * @return string
     */
-    public function sessionToken()
+    public function session_token()
     {
         return $this->data->session_token;
     }
@@ -145,7 +145,7 @@ class RedirectFlow
     *
     * @return string
     */
-    public function successRedirectUrl()
+    public function success_redirect_url()
     {
         return $this->data->success_redirect_url;
     }

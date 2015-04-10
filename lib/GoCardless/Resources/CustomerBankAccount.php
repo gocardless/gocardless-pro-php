@@ -51,7 +51,7 @@ class CustomerBankAccount
     *
     * @return string
     */
-    public function accountHolderName()
+    public function account_holder_name()
     {
         return $this->data->account_holder_name;
     }
@@ -61,7 +61,7 @@ class CustomerBankAccount
     *
     * @return string
     */
-    public function accountNumberEnding()
+    public function account_number_ending()
     {
         return $this->data->account_number_ending;
     }
@@ -71,7 +71,7 @@ class CustomerBankAccount
     *
     * @return string
     */
-    public function bankName()
+    public function bank_name()
     {
         return $this->data->bank_name;
     }
@@ -84,7 +84,7 @@ class CustomerBankAccount
     *
     * @return string
     */
-    public function countryCode()
+    public function country_code()
     {
         return $this->data->country_code;
     }
@@ -96,7 +96,7 @@ class CustomerBankAccount
     *
     * @return string
     */
-    public function createdAt()
+    public function created_at()
     {
         return $this->data->created_at;
     }

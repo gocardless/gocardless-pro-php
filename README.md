@@ -33,7 +33,7 @@ Add this beta repo to the contents of your composer.json:
 ```javascript
 {
     "require": {
-        "gocardless/pro-client-php": "dev-master"
+        "gocardless/pro-client-php": "0.0.1"
     },
     "repositories": [
         {
@@ -152,7 +152,7 @@ Assuming the error response form the server is in JSON format, like:
 }
 ```
 
-Crank will return an `\GoCardless\Core\Error\GoCardlessError`-based error. The possible errors vary on the exception internally but are `InvalidApiUsageError`, `InvalidStateError`, and `ValidationFailedError`, all other errors use the `GoCardlessError` class. If the error is an http transport layer error (cannot connect, empty response from server, etc.), the client will throw an `HttpError`. You can access the raw hash (unenveloped) via the `->error()` method, and a list of all the errors via the `->allErrors()` method. By default the error message will contain the error's message and a link to the documentation if it exists.
+Crank will return an `\GoCardless\Core\Error\GoCardlessError`-based error. The possible errors vary on the exception internally but are `InvalidApiUsageError`, `InvalidStateError`, and `ValidationFailedError`, all other errors use the `GoCardlessError` class. If the error is an http transport layer error (cannot connect, empty response from server, etc.), the client will throw an `HttpError` based off of the php_curl errors. You can access the raw hash (unenveloped) via the `->error()` method, and a list of all the errors via the `->allErrors()` method. By default the error message will contain the error's message and a link to the documentation if it exists.
 
 
 ## Supporting PHP < 5.3.3

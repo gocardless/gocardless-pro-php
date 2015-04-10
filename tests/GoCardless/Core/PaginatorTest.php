@@ -12,14 +12,14 @@ class PaginatorTest extends \PHPUnit_Framework_TestCase
             200,
             'application/json'
         );
-        $response->setUnwrapJson('data');
+        $response->set_unwrap_json('data');
         $responsePage2 = new Response(
             '{"data": [{"domain": ".com"}, {"age": "40"}],
 			 "meta": {"cursors": {"before": "10", "after": null}}, "limit": 40}',
             200,
             'application/json'
         );
-        $responsePage2->setUnwrapJson('data');
+        $responsePage2->set_unwrap_json('data');
         $this->paginator = new Paginator(new Mocks\TestResource(array(
             '20' => new ListResponse('\GoCardless\Core\Mocks\ResourceHolder', $responsePage2),
             '10' => new ListResponse('\GoCardless\Core\Mocks\ResourceHolder', $response)

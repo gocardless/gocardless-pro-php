@@ -55,7 +55,7 @@ class Payment
     *
     * @return int
     */
-    public function amountRefunded()
+    public function amount_refunded()
     {
         return $this->data->amount_refunded;
     }
@@ -70,7 +70,7 @@ class Payment
     *
     * @return string
     */
-    public function chargeDate()
+    public function charge_date()
     {
         return $this->data->charge_date;
     }
@@ -82,7 +82,7 @@ class Payment
     *
     * @return string
     */
-    public function createdAt()
+    public function created_at()
     {
         return $this->data->created_at;
     }

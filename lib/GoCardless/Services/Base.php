@@ -6,7 +6,7 @@ namespace GoCardless\Services;
   * Service Base class for all service models.
   * Facilitates calling normally reserved methods, creating http requests, and building urls.
   * Also defines an abstract envelopeKey and resourceClass methods.
-  * @author Iain Nash
+  * @author <no value>
   * @version 1.0
   * @package GoCardless
   * @subpackage Services
@@ -31,10 +31,10 @@ abstract class Base
     * @param array[string]string The array of uri parameters (GET/DELETE requests)
     *     or json body (POST/PUT) to send.
     */
-    public function makeRequest($method, $uri, $opts)
+    public function makeRequest($method, $uri, $opts, $headers = array())
     {
         $req = $this->client->makeRequest($this->envelopeKey());
-        $response = $req->run($method, $uri, $opts);
+        $response = $req->run($method, $uri, $opts, $headers);
         $resourceClass = $this->resourceClass();
         if (is_array($response->response())) {
             return new \GoCardless\Core\ListResponse($resourceClass, $response);

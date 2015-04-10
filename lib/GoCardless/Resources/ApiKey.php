@@ -41,7 +41,7 @@ class ApiKey
     *
     * @return string
     */
-    public function createdAt()
+    public function created_at()
     {
         return $this->data->created_at;
     }
@@ -105,7 +105,7 @@ class ApiKey
     *
     * @return string
     */
-    public function webhookUrl()
+    public function webhook_url()
     {
         return $this->data->webhook_url;
     }

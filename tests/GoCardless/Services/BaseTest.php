@@ -69,7 +69,7 @@ class BaseTest extends \PHPUnit_Framework_TestCase
         $emptyResponse = new \GoCardless\Core\Response(
             '{"envelopeKey": {"name": "iain"}}', 200, 'application/json; utf-8'
         );
-        $emptyResponse->setUnwrapJson('envelopeKey');
+        $emptyResponse->set_unwrap_json('envelopeKey');
 
         $mockRequest->expects($this->once())
                 ->method('run')

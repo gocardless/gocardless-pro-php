@@ -29,7 +29,7 @@
   "version": "0.0.1",
   "autoload": {
     "psr-4": {
-      "GoCardless\\" : "lib/"
+      "GoCardless\\" : "lib/GoCardless"
     }
   },
   "autoload-dev": {

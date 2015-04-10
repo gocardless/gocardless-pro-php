@@ -38,7 +38,7 @@ class User
     *
     * @return string
     */
-    public function createdAt()
+    public function created_at()
     {
         return $this->data->created_at;
     }
@@ -68,7 +68,7 @@ class User
     *
     * @return string
     */
-    public function familyName()
+    public function family_name()
     {
         return $this->data->family_name;
     }
@@ -78,7 +78,7 @@ class User
     *
     * @return string
     */
-    public function givenName()
+    public function given_name()
     {
         return $this->data->given_name;
     }

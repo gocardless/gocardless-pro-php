@@ -126,7 +126,7 @@ class Subscription
     *
     * @return string
     */
-    public function createdAt()
+    public function created_at()
     {
         return $this->data->created_at;
     }
@@ -148,7 +148,7 @@ class Subscription
     *
     * @return int
     */
-    public function dayOfMonth()
+    public function day_of_month()
     {
         return $this->data->day_of_month;
     }
@@ -161,7 +161,7 @@ class Subscription
     *
     * @return string
     */
-    public function endAt()
+    public function end_at()
     {
         return $this->data->end_at;
     }
@@ -193,7 +193,7 @@ class Subscription
     *
     * @return string
     */
-    public function intervalUnit()
+    public function interval_unit()
     {
         return $this->data->interval_unit;
     }
@@ -249,7 +249,7 @@ class Subscription
     *
     * @return string
     */
-    public function startAt()
+    public function start_at()
     {
         return $this->data->start_at;
     }
@@ -279,7 +279,7 @@ class Subscription
     *
     * @return object
     */
-    public function upcomingPayments()
+    public function upcoming_payments()
     {
         return $this->data->upcoming_payments;
     }

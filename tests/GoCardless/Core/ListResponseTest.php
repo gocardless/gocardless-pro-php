@@ -11,7 +11,7 @@ class ListResponseTest extends \PHPUnit_Framework_TestCase
             200,
             'text/html'
         );
-        $this->raw_response->setUnwrapJson('test');
+        $this->raw_response->set_unwrap_json('test');
         $this->response = new ListResponse('\GoCardless\Core\Mocks\ResourceHolder', $this->raw_response);
     }
     public function testModelsUnwrap()

@@ -2,86 +2,175 @@
 
 namespace GoCardless\Core;
 
+/**
+  * HTTP Response Object
+  * Allows determining JSON/raw content type and unwrapping JSON responses
+  * Additionally, gives you the ability to get more detailed http response information.
+  * @author Iain Nash
+  * @package GoCardless
+  * @subpackage Core
+  */
 class Response
 {
-    private $responseBody;
-    private $responseContentType;
-    private $responseStatus;
+    private $body;
+    private $content_type;
+    private $status;
 
-    public function __construct($responseBody, $responseStatus, $responseContentType)
+  /**
+    * @param string $body
+    * @param integer $status
+    * @param string $content_type
+    * @param array[string]string $headers Will be downcased when copied
+    */
+    public function __construct($body, $status, $content_type, $headers = array())
     {
-        $this->responseBody = $responseBody;
-        $this->responseContentType = $responseContentType;
-        $this->responseStatus = $responseStatus;
-        if ($this->isError()) {
-            $this->handleError();
+        $this->body = $body;
+        $this->content_type = $content_type;
+        $this->status = $status;
+
+        // Downcase header keys for consistency.
+        foreach ($headers as $key => $value) {
+            $this->headers[strtolower($key)] = $value;
+        }
+
+        if ($this->is_error()) {
+            $this->handle_error();
         }
     }
 
-    public function handleError()
+  /**
+    * If there is an error in the http headers, decode the json body into an 
+    * error object and throw it.
+    * @throws Error\GoCardlessError
+    */
+    public function handle_error()
     {
-        $error = $this->isJson() ? $this->jsonBody() : $this->rawBody();
+        $error = $this->is_json() ? $this->json_body() : $this->raw_body();
         throw Error\GoCardlessError::makeApiError($error, $this->status());
     }
 
-    public function setUnwrapJson($key)
+  /**
+    * Sets the unwrap json value. Required for json responses.
+    * @param string $key the unwrap key.
+    */
+    public function set_unwrap_json($key)
     {
-        $this->unwrapJson = $key;
+        $this->unwrap_json = $key;
     }
 
-    public function contentType()
+  /**
+    * Gets the response content-type
+    * @return string
+    */
+    public function content_type()
     {
-        return $this->responseContentType;
+        return $this->content_type;
     }
 
+  /**
+    * Gets all the HTTP headers with lowercased keys
+    * @return array[string]string
+    */
+    public function headers()
+    {
+        return $this->headers;
+    }
+
+  /**
+    * Get a single HTTP header (case-insensitive)
+    * @return string
+    */
+    public function header($name)
+    {
+        $key = strtolower($name);
+        if (isset($this->headers[$key])) {
+            return $this->headers[$key];
+        }
+        return null;
+    }
+
+  /**
+    * Get the HTTP status of the response
+    * @return int
+    */
     public function status()
     {
-        return $this->responseStatus;
+        return $this->status;
     }
 
+  /**
+    * Returns either the full decoded json body or the raw body of the reponse.
+    */
     public function body()
     {
-        return ($this->isJson() ? $this->jsonBody() : $this->rawBody());
+        return ($this->is_json() ? $this->json_body() : $this->raw_body());
     }
 
-    public function isJson()
+  /**
+    * Checks the content_type to see if the response is json.
+    * @return bool
+    */
+    public function is_json()
     {
-        return (strpos($this->responseContentType, 'application/json') === 0);
+        return (strpos($this->content_type, 'application/json') === 0);
     }
 
-    public function isError()
+  /**
+    * Checks if this response is an error response
+    * @return bool
+    */
+    public function is_error()
     {
-        return ($this->responseStatus >= 400);
+        return ($this->status >= 400);
     }
 
+  /**
+    * Get the unwrapped json body response, only works for json responses.
+    */
     public function response()
     {
-        if (!isset($this->unwrapJson)) {
+        if (!isset($this->unwrap_json)) {
             throw new \Exception("UnwrapJSON needs to be set before getting response body");
         }
-        return $this->jsonBody()->{$this->unwrapJson};
+        return $this->json_body()->{$this->unwrap_json};
     }
 
+  /**
+    * Gets the meta information in wrapped json responses
+    * @return stdClass
+    */
     public function meta()
     {
-        return $this->jsonBody()->meta;
+        return $this->json_body()->meta;
     }
 
+  /**
+    * Gets the limit in json body responses.
+    * @return int
+    */
     public function limit()
     {
-        return $this->jsonBody()->meta->limit;
+        return $this->json_body()->meta->limit;
     }
 
-    public function jsonBody()
+  /**
+    * Returns the decoded ful json body
+    * @return stdClass
+    */
+    public function json_body()
     {
-        if (!isset($this->jsonBodyData)) {
-            $this->jsonBodyData = json_decode($this->responseBody);
+        if (!isset($this->json_body_data)) {
+            $this->json_body_data = json_decode($this->body);
         }
-        return $this->jsonBodyData;
+        return $this->json_body_data;
     }
 
-    public function rawBody()
+  /**
+    * Gets the raw body string in all cases.
+    * @return string
+    */
+    public function raw_body()
     {
-        return $this->responseBody;
+        return $this->body;
     }
 }

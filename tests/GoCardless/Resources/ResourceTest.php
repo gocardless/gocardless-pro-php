@@ -11,7 +11,7 @@ class ResourceTest extends \PHPUnit_Framework_TestCase
     {
         $resource = new Customer((object) array('given_name' => 'iain'));
 
-        $this->assertEquals('iain', $resource->givenName());
+        $this->assertEquals('iain', $resource->given_name());
     }
 
     public function testRequiredData()
@@ -32,7 +32,7 @@ class ResourceTest extends \PHPUnit_Framework_TestCase
     {
         $resource = new Customer((object) array('given_name' => 'notbad'));
 
-        $this->assertEquals('notbad', $resource->givenName());
+        $this->assertEquals('notbad', $resource->given_name());
     }
 
     public function testRequestNotOverridden()

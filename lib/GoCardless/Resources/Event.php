@@ -50,7 +50,7 @@ class Event
     *
     * @return string
     */
-    public function createdAt()
+    public function created_at()
     {
         return $this->data->created_at;
     }
@@ -111,7 +111,7 @@ class Event
     * [payments mandates payouts refunds subscriptions]
     * @return string
     */
-    public function resourceType()
+    public function resource_type()
     {
         return $this->data->resource_type;
     }

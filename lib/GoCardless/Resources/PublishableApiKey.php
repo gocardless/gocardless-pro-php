@@ -45,7 +45,7 @@ class PublishableApiKey
     *
     * @return string
     */
-    public function createdAt()
+    public function created_at()
     {
         return $this->data->created_at;
     }

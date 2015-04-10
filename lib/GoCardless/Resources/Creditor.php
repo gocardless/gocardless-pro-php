@@ -44,7 +44,7 @@ class Creditor
     *
     * @return string
     */
-    public function addressLine1()
+    public function address_line1()
     {
         return $this->data->address_line1;
     }
@@ -54,7 +54,7 @@ class Creditor
     *
     * @return string
     */
-    public function addressLine2()
+    public function address_line2()
     {
         return $this->data->address_line2;
     }
@@ -64,7 +64,7 @@ class Creditor
     *
     * @return string
     */
-    public function addressLine3()
+    public function address_line3()
     {
         return $this->data->address_line3;
     }
@@ -86,7 +86,7 @@ class Creditor
     *
     * @return string
     */
-    public function countryCode()
+    public function country_code()
     {
         return $this->data->country_code;
     }
@@ -98,7 +98,7 @@ class Creditor
     *
     * @return string
     */
-    public function createdAt()
+    public function created_at()
     {
         return $this->data->created_at;
     }
@@ -138,7 +138,7 @@ class Creditor
     *
     * @return string
     */
-    public function postalCode()
+    public function postal_code()
     {
         return $this->data->postal_code;
     }
