@@ -8,6 +8,10 @@
 namespace GoCardless\Services;
 
 /**
+  *  Customers
+  *
+  * @method \GoCardless\Core\ListResponse list() list(array $options = array(), array $headers = array()) gets a non-paginated list of models given finder options.
+  *
   *  Customer objects hold the contact details for a customer. A customer can
   *  have several [customer bank
   *  accounts](https://developer.gocardless.com/pro/#api-endpoints-customer-bank-accounts),
@@ -18,47 +22,61 @@ class Customer extends Base
 {
   
   /**
+    *  Create a customer
+    *
     *  Creates a new customer object.
     *
     *  Example URL: /customers
     *  @return Customer
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->makeRequest('post', '/customers', $params);
+        return $this->make_request('post', '/customers', $params);
     }
 
   /**
+    *  List customers
+    *
     *  Returns a
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your customers.
     *
     *  Example URL: /customers
-    *  @return ListResponse
+    *  @return \GoCardless\Core\ListResponse
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->makeRequest('get', '/customers', $params);
+        return $this->make_request('get', '/customers', $params);
     }
 
   /**
+    *  Get a single customer
+    *
     *  Retrieves the details of an existing customer.
     *
     *  Example URL: /customers/:identity
     *
     *  @param identity:  Unique identifier, beginning with "CU".
     *  @return Customer
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function get($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/customers/:identity', array(
+        $path = $this->sub_url('/customers/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('get', $path, $params, $headers);
+        return $this->make_request('get', $path, $params, $headers);
     }
 
   /**
+    *  Update a customer
+    *
     *  Updates a customer object. Supports all of the fields supported when
     *  creating a customer.
     *
@@ -66,29 +84,33 @@ class Customer extends Base
     *
     *  @param identity:  Unique identifier, beginning with "CU".
     *  @return Customer
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function update($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/customers/:identity', array(
+        $path = $this->sub_url('/customers/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('put', $path, $params, $headers);
+        return $this->make_request('put', $path, $params, $headers);
     }
 
 
 
   /**
+    *  List customers
+    *
     *  Returns a
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your customers.
     *
     *  Example URL: /customers\
-    *  @return Paginator
+    *  @return \GoCardless\Core\Paginator
     **/
-    public function all($listMax, $options = array())
+    public function all($list_max, $options = array(), $headers = array())
     {
-        return new Paginator($this, $listMax, $this->do_list($options), $options);
+        return new \GoCardless\Core\Paginator($this, $list_max, $this->do_list($options), $options, $headers);
     }
 
 

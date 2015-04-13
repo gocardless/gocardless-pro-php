@@ -18,26 +18,9 @@ namespace GoCardless\Resources;
   * Money Laundering reasons, any creditors you add must be directly related to
   * your organisation.
   */
-class Creditor
+class Creditor extends Base
 {
 
-    private $data;
-    private $response;
-
-  /**
-    * Creates a new Resource from a http response passing in the data.
-    * @param stdClass $data Data coming into the resource.
-    * @param Response $response \<no value>\Core\Response object.
-    */
-    public function __construct($data, $response = null)
-    {
-        // Don't blow up with blank data anymore for raw responses.
-        if ($data === null) {
-            $data = new \stdClass();
-        }
-        $this->response = $response;
-        $this->data = $data;
-    }
 
 
   /**
@@ -145,7 +128,7 @@ class Creditor
   /**
     * Referenced objects. Key values to stdClasses returned.
     *
-    * @return 
+    * @return Wrapper\NestedObject
     */
     public function links()
     {
@@ -200,18 +183,9 @@ class Creditor
     }
 
 
-
-  /**
-    * Get the response object.
-    * @return \GoCardless\Core\Response
-    */
-    public function response()
-    {
-        return $this->response;
-    }
-
   /**
     * Returns a string representation of the project.
+    *
     * @return string 
     */
     public function __toString()

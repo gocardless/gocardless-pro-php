@@ -2,14 +2,29 @@
 
 namespace GoCardless\Core\Error;
 
+/**
+  * Core GoCardless Error
+  *
+  * @package GoCardless\Core
+  * @subpackage Error
+  */
 class GoCardlessError extends \Exception
 {
+    /**
+      * @var \Exception $error raw error object
+      * @var int $http_status The http status response number.
+      */
     private $error;
-    private $httpStatus;
-    public function __construct($error, $httpStatus)
+    private $http_status;
+
+    /**
+      * @param \Exception $error we just were talking about yesterday.
+      * @param int $http_status The status response from the http server.
+      */
+    public function __construct($error, $http_status)
     {
         $this->error = $error;
-        $this->httpStatus = $httpStatus;
+        $this->http_status = $http_status;
     
         if (is_object($error)) {
             $message = $error->error->message;
@@ -22,6 +37,10 @@ class GoCardlessError extends \Exception
         parent::__construct($message);
     }
 
+    /**
+      * Factory for GoCardlessError and it's subclasses.
+      * @return GoCardlessError|InvalidApiUsageError|InvalidStateError|ValidationFailedError
+      */
     public static function makeApiError($error, $status)
     {
         if ($error->error->type) {
@@ -39,25 +58,45 @@ class GoCardlessError extends \Exception
         return new GoCardlessError($error, $status);
     }
 
+    /** @see GoCardlessError::$error */
     public function error()
     {
         return $this->error;
     }
 
+    /**
+      * Get all http errors (includes a list of objects with a required 
+      * reason and message, and optional links properties).
+      *
+      * @return array[mixed] List of validation errors from the api
+      * @see https://developer.gocardless.com/pro/#errors-invalid-api-usage-errors
+      */
     public function errors()
     {
         return $this->error->error->errors;
     }
 
-    public function documentationUrl()
+    /**
+      * Gets the error's documentation url if it exists.
+      *
+      * @return string|null
+      */
+    public function documentation_url()
     {
       if (isset($this->error->documentation_url)) {
         return $this->error->documentation_url;
       }
+      return null;
     }
 
-    public function httpStatus()
+    /**
+      * Gets the server's http status.
+      *
+      * @see GoCardlessError::$http_status
+      * @return int
+      */
+    public function http_status()
     {
-        return $this->httpStatus;
+        return $this->http_status;
     }
 }

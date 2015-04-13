@@ -16,26 +16,9 @@ namespace GoCardless\Resources;
   * [webhook](https://developer.gocardless.com/pro/#webhooks) whenever the
   * status of a mandate changes.
   */
-class Mandate
+class Mandate extends Base
 {
 
-    private $data;
-    private $response;
-
-  /**
-    * Creates a new Resource from a http response passing in the data.
-    * @param stdClass $data Data coming into the resource.
-    * @param Response $response \<no value>\Core\Response object.
-    */
-    public function __construct($data, $response = null)
-    {
-        // Don't blow up with blank data anymore for raw responses.
-        if ($data === null) {
-            $data = new \stdClass();
-        }
-        $this->response = $response;
-        $this->data = $data;
-    }
 
 
   /**
@@ -71,7 +54,7 @@ class Mandate
   /**
     * Referenced objects. Key values to stdClasses returned.
     *
-    * @return 
+    * @return Wrapper\NestedObject
     */
     public function links()
     {
@@ -87,7 +70,7 @@ class Mandate
     * Key-value store of custom data. Up to 3 keys are permitted, with key names
     * up to 50 characters and values up to 200 characters.
     *
-    * @return 
+    * @return Wrapper\NestedObject
     */
     public function metadata()
     {
@@ -168,25 +151,15 @@ class Mandate
     {
         $field = 'status';
         if (!property_exists($this->data, $field)) {
-            echo 'no prop!', $field;
           return null;
         }
         return $this->data->{$field};
     }
 
 
-
-  /**
-    * Get the response object.
-    * @return \GoCardless\Core\Response
-    */
-    public function response()
-    {
-        return $this->response;
-    }
-
   /**
     * Returns a string representation of the project.
+    *
     * @return string 
     */
     public function __toString()

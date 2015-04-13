@@ -85,7 +85,7 @@ In the case where url parameters are needed, the method signature will contain r
 
 ```
 $customer = $client->customers()->show('CUXXXX');
-echo $customer->givenName();
+echo $customer->given_name();
 
 ```
 
@@ -110,7 +110,7 @@ try {
     ));
 } catch (\GoCardless\Core\Error\GoCardlessError $e) {
   // Server validation failed / record couldn't be created.
-  echo $e->documentationUrl();
+  echo $e->documentation_url();
   echo count($e->errors());
   // => $e is an ValidationFailedError.
 } catch (\GoCardless\Core\Error\HttpError $e) {
@@ -122,7 +122,7 @@ This returns a response object as the new created resource
 As with GET requests, if url params are required they come first.
 
 ```
-$client->resource()->update(resource_id, array(...));
+$client->resource()->update('RSIDXXXXX', array('key' => 'value'));
 ```
 
 ### Handling failures

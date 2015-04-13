@@ -10,6 +10,12 @@ build: crank
 test: vendor/
 	./vendor/bin/phpunit
 
+docs:
+	phpdoc -d ./lib -t docs/api
+
+clean_docs:
+	rm -r ./docs/api
+
 syntax: vendor/
 	./vendor/bin/phpcs --standard=phpcs-ruleset.xml $(CODE_PATHS)
 

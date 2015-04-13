@@ -17,12 +17,12 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function testClientSetsProductionDefaultEnvironment()
     {
         $client = new Client(array('api_key' => '', 'api_secret' => ''));
-        $this->assertEquals(Environment::PRODUCTION, $client->httpClient()->getBaseUrl());
+        $this->assertEquals(Environment::PRODUCTION, $client->http_client()->base_url());
     }
     public function testClientSetsProperEnvironment()
     {
         $client = new Client(array('api_key' => '', 'api_secret' => '', 'environment' => Environment::SANDBOX));
-        $this->assertEquals(Environment::SANDBOX, $client->httpClient()->getBaseUrl());
+        $this->assertEquals(Environment::SANDBOX, $client->http_client()->base_url());
     }
     public function testNoApiSecretCreationFails()
     {
@@ -38,8 +38,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client(array('api_key' => 'testing', 'api_secret' => 'foo', 'environment' => 'blah'));
         $this->assertNotNull($client);
-        $this->assertNotNull($client->httpClient());
-        $this->assertInstanceOf('\GoCardless\Core\HttpClient', $client->httpClient());
+        $this->assertNotNull($client->http_client());
+        $this->assertInstanceOf('\GoCardless\Core\HttpClient', $client->http_client());
         $this->assertInstanceOf('\GoCardless\Services\Customer', $client->customers());
     }
 }

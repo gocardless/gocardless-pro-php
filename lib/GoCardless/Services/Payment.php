@@ -8,6 +8,10 @@
 namespace GoCardless\Services;
 
 /**
+  *  Payments
+  *
+  * @method \GoCardless\Core\ListResponse list() list(array $options = array(), array $headers = array()) gets a non-paginated list of models given finder options.
+  *
   *  Payment objects represent payments from a
   *  [customer](https://developer.gocardless.com/pro/#api-endpoints-customers)
   *  to a
@@ -24,6 +28,8 @@ class Payment extends Base
 {
   
   /**
+    *  Create a payment
+    *
     *  <a name="mandate_is_inactive"></a>Creates a new payment object.
     *  
  
@@ -35,60 +41,76 @@ class Payment extends Base
     *
     *  Example URL: /payments
     *  @return Payment
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->makeRequest('post', '/payments', $params);
+        return $this->make_request('post', '/payments', $params);
     }
 
   /**
+    *  List payments
+    *
     *  Returns a
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your payments.
     *
     *  Example URL: /payments
-    *  @return ListResponse
+    *  @return \GoCardless\Core\ListResponse
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->makeRequest('get', '/payments', $params);
+        return $this->make_request('get', '/payments', $params);
     }
 
   /**
+    *  Get a single payment
+    *
     *  Retrieves the details of a single existing payment.
     *
     *  Example URL: /payments/:identity
     *
     *  @param identity:  Unique identifier, beginning with "PM"
     *  @return Payment
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function get($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/payments/:identity', array(
+        $path = $this->sub_url('/payments/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('get', $path, $params, $headers);
+        return $this->make_request('get', $path, $params, $headers);
     }
 
   /**
+    *  Update a payment
+    *
     *  Updates a payment object. This accepts only the metadata parameter.
     *
     *  Example URL: /payments/:identity
     *
     *  @param identity:  Unique identifier, beginning with "PM"
     *  @return Payment
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function update($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/payments/:identity', array(
+        $path = $this->sub_url('/payments/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('put', $path, $params, $headers);
+        return $this->make_request('put', $path, $params, $headers);
     }
 
   /**
+    *  Cancel a payment
+    *
     *  Cancels the payment if it has not already been submitted to the banks.
     *  Any metadata supplied to this endpoint will be stored on the payment
     *  cancellation event it causes.
@@ -101,17 +123,21 @@ class Payment extends Base
     *
     *  @param identity:  Unique identifier, beginning with "PM"
     *  @return Payment
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function cancel($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/payments/:identity/actions/cancel', array(
+        $path = $this->sub_url('/payments/:identity/actions/cancel', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('post', $path, $params, $headers);
+        return $this->make_request('post', $path, $params, $headers);
     }
 
   /**
+    *  Retry a payment
+    *
     *  <a name="retry_failed"></a>Retries a failed payment if the underlying
     *  mandate is active. You will receive a `resubmission_requested` webhook,
     *  but after that retrying the payment follows the same process as its
@@ -127,29 +153,33 @@ class Payment extends Base
     *
     *  @param identity:  Unique identifier, beginning with "PM"
     *  @return Payment
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function retry($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/payments/:identity/actions/retry', array(
+        $path = $this->sub_url('/payments/:identity/actions/retry', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('post', $path, $params, $headers);
+        return $this->make_request('post', $path, $params, $headers);
     }
 
 
 
   /**
+    *  List payments
+    *
     *  Returns a
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your payments.
     *
     *  Example URL: /payments\
-    *  @return Paginator
+    *  @return \GoCardless\Core\Paginator
     **/
-    public function all($listMax, $options = array())
+    public function all($list_max, $options = array(), $headers = array())
     {
-        return new Paginator($this, $listMax, $this->do_list($options), $options);
+        return new \GoCardless\Core\Paginator($this, $list_max, $this->do_list($options), $options, $headers);
     }
 
 

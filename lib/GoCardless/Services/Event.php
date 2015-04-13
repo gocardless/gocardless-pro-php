@@ -8,6 +8,10 @@
 namespace GoCardless\Services;
 
 /**
+  *  Events
+  *
+  * @method \GoCardless\Core\ListResponse list() list(array $options = array(), array $headers = array()) gets a non-paginated list of models given finder options.
+  *
   *  Events are stored for all webhooks. An event refers to a resource which has
   *  been updated, for example a payment which has been collected, or a mandate
   *  which has been transferred.
@@ -16,48 +20,58 @@ class Event extends Base
 {
   
   /**
+    *  List events
+    *
     *  Returns a
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your events.
     *
     *  Example URL: /events
-    *  @return ListResponse
+    *  @return \GoCardless\Core\ListResponse
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->makeRequest('get', '/events', $params);
+        return $this->make_request('get', '/events', $params);
     }
 
   /**
+    *  Get a single event
+    *
     *  Retrieves the details of a single event.
     *
     *  Example URL: /events/:identity
     *
     *  @param identity:  Unique identifier, beginning with "EV"
     *  @return Event
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function get($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/events/:identity', array(
+        $path = $this->sub_url('/events/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('get', $path, $params, $headers);
+        return $this->make_request('get', $path, $params, $headers);
     }
 
 
 
   /**
+    *  List events
+    *
     *  Returns a
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your events.
     *
     *  Example URL: /events\
-    *  @return Paginator
+    *  @return \GoCardless\Core\Paginator
     **/
-    public function all($listMax, $options = array())
+    public function all($list_max, $options = array(), $headers = array())
     {
-        return new Paginator($this, $listMax, $this->do_list($options), $options);
+        return new \GoCardless\Core\Paginator($this, $list_max, $this->do_list($options), $options, $headers);
     }
 
 

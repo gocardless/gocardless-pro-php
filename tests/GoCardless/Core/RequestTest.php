@@ -23,11 +23,11 @@ class RequestTest extends \PHPUnit_Framework_TestCase
           'api_secret' => 'ssssh',
           'environment' => 'https://example.com/'
         ));
-        $this->httpClient = $this->client->httpClient();
+        $this->http_client = $this->client->http_client();
         StaticStorage::setRetVal('exec', '{"thiskey": "hi!"}');
         StaticStorage::setRetVal(CURLINFO_HTTP_CODE, 200);
         StaticStorage::setRetVal(CURLINFO_CONTENT_TYPE, 'application/json');
-        $this->request = $this->httpClient->makeRequest('thiskey');
+        $this->request = $this->http_client->make_request('thiskey');
     }
 
     public function testHandlesProperQueryParameters()

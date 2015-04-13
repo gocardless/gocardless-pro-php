@@ -10,7 +10,7 @@ class OpenCurlWrapper extends \GoCardless\Core\CurlWrapper
     }
     public function testSetupRequest()
     {
-        $this->setupRequest();
+        $this->setup_request();
     }
     public function doSetOpt($opta, $optb)
     {

@@ -46,26 +46,9 @@ namespace GoCardless\Resources;
   * [complete](https://developer.gocardless.com/pro/#complete-a-redirect-flow)
   * an expired redirect flow.
   */
-class RedirectFlow
+class RedirectFlow extends Base
 {
 
-    private $data;
-    private $response;
-
-  /**
-    * Creates a new Resource from a http response passing in the data.
-    * @param stdClass $data Data coming into the resource.
-    * @param Response $response \<no value>\Core\Response object.
-    */
-    public function __construct($data, $response = null)
-    {
-        // Don't blow up with blank data anymore for raw responses.
-        if ($data === null) {
-            $data = new \stdClass();
-        }
-        $this->response = $response;
-        $this->data = $data;
-    }
 
 
   /**
@@ -115,7 +98,7 @@ class RedirectFlow
   /**
     * Referenced objects. Key values to stdClasses returned.
     *
-    * @return 
+    * @return Wrapper\NestedObject
     */
     public function links()
     {
@@ -151,7 +134,6 @@ class RedirectFlow
     {
         $field = 'scheme';
         if (!property_exists($this->data, $field)) {
-            echo 'no prop!', $field;
           return null;
         }
         return $this->data->{$field};
@@ -186,18 +168,9 @@ class RedirectFlow
     }
 
 
-
-  /**
-    * Get the response object.
-    * @return \GoCardless\Core\Response
-    */
-    public function response()
-    {
-        return $this->response;
-    }
-
   /**
     * Returns a string representation of the project.
+    *
     * @return string 
     */
     public function __toString()

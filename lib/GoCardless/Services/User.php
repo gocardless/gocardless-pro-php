@@ -8,37 +8,51 @@
 namespace GoCardless\Services;
 
 /**
+  *  Users
+  *
+  * @method \GoCardless\Core\ListResponse list() list(array $options = array(), array $headers = array()) gets a non-paginated list of models given finder options.
+  *
   *  
   */
 class User extends Base
 {
   
   /**
+    *  Create a user
+    *
     *  <a name="user_exists"></a>Creates a new user object. Email addresses must
     *  be unique.
     *
     *  Example URL: /users
     *  @return User
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->makeRequest('post', '/users', $params);
+        return $this->make_request('post', '/users', $params);
     }
 
   /**
+    *  List users
+    *
     *  Returns a
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your users.
     *
     *  Example URL: /users
-    *  @return ListResponse
+    *  @return \GoCardless\Core\ListResponse
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->makeRequest('get', '/users', $params);
+        return $this->make_request('get', '/users', $params);
     }
 
   /**
+    *  Get a single user
+    *
     *  Retrieves the details of an existing user. In addition to the usual
     *  permissions based access rules, any user can access their own record.
     *
@@ -46,17 +60,21 @@ class User extends Base
     *
     *  @param identity:  Unique identifier, beginning with "US"
     *  @return User
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function get($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/users/:identity', array(
+        $path = $this->sub_url('/users/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('get', $path, $params, $headers);
+        return $this->make_request('get', $path, $params, $headers);
     }
 
   /**
+    *  Update a user
+    *
     *  Updates a user object. Supports all of the fields supported when creating
     *  a user.
     *
@@ -64,63 +82,75 @@ class User extends Base
     *
     *  @param identity:  Unique identifier, beginning with "US"
     *  @return User
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function update($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/users/:identity', array(
+        $path = $this->sub_url('/users/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('put', $path, $params, $headers);
+        return $this->make_request('put', $path, $params, $headers);
     }
 
   /**
+    *  Enable a user
+    *
     *  Enables a user
     *
     *  Example URL: /users/:identity/actions/enable
     *
     *  @param identity:  Unique identifier, beginning with "US"
     *  @return User
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function enable($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/users/:identity/actions/enable', array(
+        $path = $this->sub_url('/users/:identity/actions/enable', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('post', $path, $params, $headers);
+        return $this->make_request('post', $path, $params, $headers);
     }
 
   /**
+    *  Disable a user
+    *
     *  Disables a user
     *
     *  Example URL: /users/:identity/actions/disable
     *
     *  @param identity:  Unique identifier, beginning with "US"
     *  @return User
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function disable($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/users/:identity/actions/disable', array(
+        $path = $this->sub_url('/users/:identity/actions/disable', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('post', $path, $params, $headers);
+        return $this->make_request('post', $path, $params, $headers);
     }
 
 
 
   /**
+    *  List users
+    *
     *  Returns a
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your users.
     *
     *  Example URL: /users\
-    *  @return Paginator
+    *  @return \GoCardless\Core\Paginator
     **/
-    public function all($listMax, $options = array())
+    public function all($list_max, $options = array(), $headers = array())
     {
-        return new Paginator($this, $listMax, $this->do_list($options), $options);
+        return new \GoCardless\Core\Paginator($this, $list_max, $this->do_list($options), $options, $headers);
     }
 
 

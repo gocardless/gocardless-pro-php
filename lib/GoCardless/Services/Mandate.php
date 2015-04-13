@@ -8,6 +8,10 @@
 namespace GoCardless\Services;
 
 /**
+  *  Mandates
+  *
+  * @method \GoCardless\Core\ListResponse list() list(array $options = array(), array $headers = array()) gets a non-paginated list of models given finder options.
+  *
   *  Mandates represent the Direct Debit mandate with a
   *  [customer](https://developer.gocardless.com/pro/#api-endpoints-customers).
 
@@ -20,31 +24,41 @@ class Mandate extends Base
 {
   
   /**
+    *  Create a mandate
+    *
     *  Creates a new mandate object
     *
     *  Example URL: /mandates
     *  @return Mandate
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->makeRequest('post', '/mandates', $params);
+        return $this->make_request('post', '/mandates', $params);
     }
 
   /**
+    *  List mandates
+    *
     *  Returns a
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your mandates. Except where stated, these filters can only be
     *  used one at a time.
     *
     *  Example URL: /mandates
-    *  @return ListResponse
+    *  @return \GoCardless\Core\ListResponse
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->makeRequest('get', '/mandates', $params);
+        return $this->make_request('get', '/mandates', $params);
     }
 
   /**
+    *  Get a single mandate
+    *
     *  Retrieves the details of an existing mandate.
     *  
     *  If you
@@ -62,34 +76,42 @@ class Mandate extends Base
     *
     *  @param identity:  Unique identifier, beginning with "MD"
     *  @return Mandate
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function get($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/mandates/:identity', array(
+        $path = $this->sub_url('/mandates/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('get', $path, $params, $headers);
+        return $this->make_request('get', $path, $params, $headers);
     }
 
   /**
+    *  Update a mandate
+    *
     *  Updates a mandate object. This accepts only the metadata parameter.
     *
     *  Example URL: /mandates/:identity
     *
     *  @param identity:  Unique identifier, beginning with "MD"
     *  @return Mandate
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function update($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/mandates/:identity', array(
+        $path = $this->sub_url('/mandates/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('put', $path, $params, $headers);
+        return $this->make_request('put', $path, $params, $headers);
     }
 
   /**
+    *  Cancel a mandate
+    *
     *  Immediately cancels a mandate and all associated cancellable payments.
     *  Any metadata supplied to this endpoint will be stored on the mandate
     *  cancellation event it causes.
@@ -101,17 +123,21 @@ class Mandate extends Base
     *
     *  @param identity:  Unique identifier, beginning with "MD"
     *  @return Mandate
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function cancel($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/mandates/:identity/actions/cancel', array(
+        $path = $this->sub_url('/mandates/:identity/actions/cancel', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('post', $path, $params, $headers);
+        return $this->make_request('post', $path, $params, $headers);
     }
 
   /**
+    *  Reinstate a mandate
+    *
     *  <a name="mandate_not_inactive"></a>Reinstates a cancelled or expired
     *  mandate to the banks. You will receive a `resubmission_requested`
     *  webhook, but after that reinstating the mandate follows the same process
@@ -128,30 +154,34 @@ class Mandate extends Base
     *
     *  @param identity:  Unique identifier, beginning with "MD"
     *  @return Mandate
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function reinstate($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/mandates/:identity/actions/reinstate', array(
+        $path = $this->sub_url('/mandates/:identity/actions/reinstate', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('post', $path, $params, $headers);
+        return $this->make_request('post', $path, $params, $headers);
     }
 
 
 
   /**
+    *  List mandates
+    *
     *  Returns a
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your mandates. Except where stated, these filters can only be
     *  used one at a time.
     *
     *  Example URL: /mandates\
-    *  @return Paginator
+    *  @return \GoCardless\Core\Paginator
     **/
-    public function all($listMax, $options = array())
+    public function all($list_max, $options = array(), $headers = array())
     {
-        return new Paginator($this, $listMax, $this->do_list($options), $options);
+        return new \GoCardless\Core\Paginator($this, $list_max, $this->do_list($options), $options, $headers);
     }
 
 

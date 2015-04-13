@@ -12,26 +12,9 @@ namespace GoCardless\Resources;
   * been updated, for example a payment which has been collected, or a mandate
   * which has been transferred.
   */
-class Event
+class Event extends Base
 {
 
-    private $data;
-    private $response;
-
-  /**
-    * Creates a new Resource from a http response passing in the data.
-    * @param stdClass $data Data coming into the resource.
-    * @param Response $response \<no value>\Core\Response object.
-    */
-    public function __construct($data, $response = null)
-    {
-        // Don't blow up with blank data anymore for raw responses.
-        if ($data === null) {
-            $data = new \stdClass();
-        }
-        $this->response = $response;
-        $this->data = $data;
-    }
 
 
   /**
@@ -67,7 +50,7 @@ class Event
   /**
     * 
     *
-    * @return 
+    * @return Wrapper\NestedObject
     */
     public function details()
     {
@@ -96,7 +79,7 @@ class Event
   /**
     * Referenced objects. Key values to stdClasses returned.
     *
-    * @return 
+    * @return Wrapper\NestedObject
     */
     public function links()
     {
@@ -113,7 +96,7 @@ class Event
     * specified when triggering this event. In other cases it will be an empty
     * object.
     *
-    * @return 
+    * @return Wrapper\NestedObject
     */
     public function metadata()
     {
@@ -143,25 +126,15 @@ class Event
     {
         $field = 'resource_type';
         if (!property_exists($this->data, $field)) {
-            echo 'no prop!', $field;
           return null;
         }
         return $this->data->{$field};
     }
 
 
-
-  /**
-    * Get the response object.
-    * @return \GoCardless\Core\Response
-    */
-    public function response()
-    {
-        return $this->response;
-    }
-
   /**
     * Returns a string representation of the project.
+    *
     * @return string 
     */
     public function __toString()

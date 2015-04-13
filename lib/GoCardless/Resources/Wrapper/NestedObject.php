@@ -16,13 +16,27 @@ namespace GoCardless\Resources\Wrapper;
   */
 class NestedObject
 {
-	function __construct($name, $data)
+	/** @var string Property name the nested object encloses */
+	private $name;
+	/** @var array[mixed] Property values the nested object encloses */
+	private $data;
+
+	/**
+	  * @param string $name The property name that this object describes.
+	  * @param mixed $data The data contained in this object.
+	  */
+	public function __construct($name, $data)
 	{
 		$this->name = $name;
 		$this->data = $data;
 	}
 
-	function __call($name, $arguments)
+    /**
+      * If the data exists matching this method, return it's value otherwise, return false
+      * If the data is a nested object, return a new NestedObject class to wrap that data predictably.
+      * @return NestedObject|mixed|false
+      */
+	public function __call($name, $arguments)
 	{
 		if (count($arguments) === 0 && property_exists($this->data, $name)) {
 			$value = $this->data->{$name};
@@ -35,7 +49,11 @@ class NestedObject
 		return false;
 	}
 
-	function __toString()
+	/**
+	  * Returns a string representation of the data contained within the getter method.
+	  * @return string
+	  */
+	public function __toString()
 	{
 		return $this->name . ' ' . print_r($this->data, true);
 	}

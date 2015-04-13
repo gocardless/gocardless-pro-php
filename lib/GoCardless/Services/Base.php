@@ -13,6 +13,7 @@ namespace GoCardless\Services;
   */
 abstract class Base
 {
+    /** HTTP Client reference used to make requests. */
     private $client;
 
   /**
@@ -30,10 +31,12 @@ abstract class Base
     * @param string $uri The relative uri to call in the api.
     * @param array[string]string The array of uri parameters (GET/DELETE requests)
     *     or json body (POST/PUT) to send.
+    * @uses Base::$client to make the HTTP Request
+    * @return \GoCardless\Resources\Base|\GoCardless\Core\ListResponse
     */
-    public function makeRequest($method, $uri, $opts, $headers = array())
+    protected function make_request($method, $uri, $opts, $headers = array())
     {
-        $req = $this->client->makeRequest($this->envelopeKey());
+        $req = $this->client->make_request($this->envelopeKey());
         $response = $req->run($method, $uri, $opts, $headers);
         $resourceClass = $this->resourceClass();
         if (is_array($response->response())) {
@@ -48,6 +51,7 @@ abstract class Base
     * @return string
     */
     abstract protected function envelopeKey();
+
   /**
     * The classname of the returned resource, used to resolve decoding JSON responses.
     * @return string
@@ -67,13 +71,13 @@ abstract class Base
     }
 
   /**
-    * SubUrl replaces colon tokens with the array->value associations
+    * sub_url replaces colon tokens with the array->value associations
     * in the subs array to generate urls.
     * @param string $url Url to substitute
     * @param array[string]string $subs Substitutions to make
     * @return string 
     */
-    protected function subUrl($url, $subs)
+    protected function sub_url($url, $subs)
     {
         foreach ($subs as $sub_key => $sub_val) {
             if (!is_string($sub_val)) {

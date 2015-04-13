@@ -8,6 +8,10 @@
 namespace GoCardless\Services;
 
 /**
+  *  Refunds
+  *
+  * @method \GoCardless\Core\ListResponse list() list(array $options = array(), array $headers = array()) gets a non-paginated list of models given finder options.
+  *
   *  Refund objects represent (partial) refunds of a
   *  [payment](https://developer.gocardless.com/pro/#api-endpoints-payment) back
   *  to the
@@ -28,6 +32,8 @@ class Refund extends Base
 {
   
   /**
+    *  Create a refund
+    *
     *  Creates a new refund object.
     *  
     *  This fails with:<a
@@ -48,72 +54,88 @@ class Refund extends Base
     *
     *  Example URL: /refunds
     *  @return Refund
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->makeRequest('post', '/refunds', $params);
+        return $this->make_request('post', '/refunds', $params);
     }
 
   /**
+    *  List refunds
+    *
     *  Returns a
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your refunds.
     *
     *  Example URL: /refunds
-    *  @return ListResponse
+    *  @return \GoCardless\Core\ListResponse
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->makeRequest('get', '/refunds', $params);
+        return $this->make_request('get', '/refunds', $params);
     }
 
   /**
+    *  Get a single refund
+    *
     *  Retrieves all details for a single refund
     *
     *  Example URL: /refunds/:identity
     *
     *  @param identity:  Unique identifier, beginning with "RF"
     *  @return Refund
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function get($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/refunds/:identity', array(
+        $path = $this->sub_url('/refunds/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('get', $path, $params, $headers);
+        return $this->make_request('get', $path, $params, $headers);
     }
 
   /**
+    *  Update a refund
+    *
     *  Updates a refund object.
     *
     *  Example URL: /refunds/:identity
     *
     *  @param identity:  Unique identifier, beginning with "RF"
     *  @return Refund
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function update($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/refunds/:identity', array(
+        $path = $this->sub_url('/refunds/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('put', $path, $params, $headers);
+        return $this->make_request('put', $path, $params, $headers);
     }
 
 
 
   /**
+    *  List refunds
+    *
     *  Returns a
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your refunds.
     *
     *  Example URL: /refunds\
-    *  @return Paginator
+    *  @return \GoCardless\Core\Paginator
     **/
-    public function all($listMax, $options = array())
+    public function all($list_max, $options = array(), $headers = array())
     {
-        return new Paginator($this, $listMax, $this->do_list($options), $options);
+        return new \GoCardless\Core\Paginator($this, $list_max, $this->do_list($options), $options, $headers);
     }
 
 

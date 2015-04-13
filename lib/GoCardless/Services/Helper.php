@@ -8,12 +8,18 @@
 namespace GoCardless\Services;
 
 /**
+  *  Helpers
+  *
+
+  *
   *  
   */
 class Helper extends Base
 {
   
   /**
+    *  Mandate PDF
+    *
     *  Returns a PDF mandate form with a signature field, ready to be signed by
     *  your customer. May be fully or partially pre-filled.
     *  
@@ -42,13 +48,17 @@ class Helper extends Base
     *
     *  Example URL: /helpers/mandate
     *  @return Helper
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function mandate($params = array(), $headers = array())
     {
-        return $this->makeRequest('post', '/helpers/mandate', $params);
+        return $this->make_request('post', '/helpers/mandate', $params);
     }
 
   /**
+    *  Modulus checking
+    *
     *  Check whether an account number and bank / branch code combination are
     *  compatible.
     *  
@@ -62,10 +72,12 @@ class Helper extends Base
     *
     *  Example URL: /helpers/modulus_check
     *  @return Helper
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function modulus_check($params = array(), $headers = array())
     {
-        return $this->makeRequest('post', '/helpers/modulus_check', $params);
+        return $this->make_request('post', '/helpers/modulus_check', $params);
     }
 
 

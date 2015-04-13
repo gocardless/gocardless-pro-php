@@ -8,6 +8,10 @@
 namespace GoCardless\Services;
 
 /**
+  *  Customer Bank Accounts
+  *
+  * @method \GoCardless\Core\ListResponse list() list(array $options = array(), array $headers = array()) gets a non-paginated list of models given finder options.
+  *
   *  Customer Bank Accounts hold the bank details of a
   *  [customer](https://developer.gocardless.com/pro/#api-endpoints-customers).
   *  They always belong to a
@@ -26,6 +30,8 @@ class CustomerBankAccount extends Base
 {
   
   /**
+    *  Create a customer bank account
+    *
     *  Creates a new bank account object associated to a customer id.
     *  
   
@@ -48,43 +54,55 @@ class CustomerBankAccount extends Base
     *
     *  Example URL: /customer_bank_accounts
     *  @return CustomerBankAccount
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->makeRequest('post', '/customer_bank_accounts', $params);
+        return $this->make_request('post', '/customer_bank_accounts', $params);
     }
 
   /**
+    *  List customer bank accounts
+    *
     *  Returns a
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your bank accounts.
     *
     *  Example URL: /customer_bank_accounts
-    *  @return ListResponse
+    *  @return \GoCardless\Core\ListResponse
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->makeRequest('get', '/customer_bank_accounts', $params);
+        return $this->make_request('get', '/customer_bank_accounts', $params);
     }
 
   /**
+    *  Get a single customer bank account
+    *
     *  Retrieves the details of an existing bank account.
     *
     *  Example URL: /customer_bank_accounts/:identity
     *
     *  @param identity:  Unique identifier, beginning with "BA"
     *  @return CustomerBankAccount
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function get($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/customer_bank_accounts/:identity', array(
+        $path = $this->sub_url('/customer_bank_accounts/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('get', $path, $params, $headers);
+        return $this->make_request('get', $path, $params, $headers);
     }
 
   /**
+    *  Update a customer bank account
+    *
     *  Updates a customer bank account object. Only the metadata parameter is
     *  allowed.
     *
@@ -92,17 +110,21 @@ class CustomerBankAccount extends Base
     *
     *  @param identity:  Unique identifier, beginning with "BA"
     *  @return CustomerBankAccount
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function update($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/customer_bank_accounts/:identity', array(
+        $path = $this->sub_url('/customer_bank_accounts/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('put', $path, $params, $headers);
+        return $this->make_request('put', $path, $params, $headers);
     }
 
   /**
+    *  Disable a customer bank account
+    *
     *  Immediately cancels all associated mandates and cancellable payments.
    
     *  *  
@@ -116,29 +138,33 @@ class CustomerBankAccount extends Base
     *
     *  @param identity:  Unique identifier, beginning with "BA"
     *  @return CustomerBankAccount
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function disable($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/customer_bank_accounts/:identity/actions/disable', array(
+        $path = $this->sub_url('/customer_bank_accounts/:identity/actions/disable', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('post', $path, $params, $headers);
+        return $this->make_request('post', $path, $params, $headers);
     }
 
 
 
   /**
+    *  List customer bank accounts
+    *
     *  Returns a
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your bank accounts.
     *
     *  Example URL: /customer_bank_accounts\
-    *  @return Paginator
+    *  @return \GoCardless\Core\Paginator
     **/
-    public function all($listMax, $options = array())
+    public function all($list_max, $options = array(), $headers = array())
     {
-        return new Paginator($this, $listMax, $this->do_list($options), $options);
+        return new \GoCardless\Core\Paginator($this, $list_max, $this->do_list($options), $options, $headers);
     }
 
 

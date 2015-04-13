@@ -7,17 +7,47 @@
 
 namespace GoCardless\Core;
 
+/**
+  * Curl Wrapper class to wrap the curl procedural api with an object api.
+  * @package GoCardless
+  * @subpackage Core
+  * @version 0.0.2
+  */
 class CurlWrapper
 {
+    /** @var array[string]string Associative array of request headers */
+    private $headers;
+
+    /** @var array[string]string Associative array of response headers */
+    private $response_headers;
+
+    /** @var int Raw curl handle reference */
+    private $curl;
+
+    /** @var array[int]mixed Curl options hash */
+    private $opts;
+
+  /**
+    * Creates a new curl request to a given url
+    *
+    * @param string $method HTTP Method
+    * @param string $url HTTP url
+    */
     public function __construct($method, $url)
     {
         $this->headers = array();
-        $this->responseHeaders = array();
+        $this->response_headers = array();
         $this->curl = curl_init();
-        $this->setupCurl($method, $url);
+        $this->setup_curl($method, $url);
     }
 
-    private function setupCurl($method, $url)
+  /**
+    * Internal function delegated from the constructor to init the curl handle.
+    *
+    * @param string $method HTTP Method
+    * @param string $url HTTP url
+    */
+    private function setup_curl($method, $url)
     {
         $this->opts = array(
             CURLOPT_URL => $url,
@@ -31,6 +61,11 @@ class CurlWrapper
         );
     }
 
+  /**
+    * Gets the client's user agent for calling to the api.
+    *
+    * @return string
+    */
     private function getUserAgent()
     {
         $curlinfo = curl_version();
@@ -41,6 +76,11 @@ class CurlWrapper
         return $uagent;
     }
 
+  /**
+    * Get a curl option previously set.
+    *
+    * @param integer $opt Curl option constant
+    */
     public function getOpt($opt)
     {
         if (!isset($this->opts[$opt])) {
@@ -49,27 +89,51 @@ class CurlWrapper
         return $this->opts[$opt];
     }
 
+  /**
+    * Get a header set (case-insensitive)
+    *
+    * @param string $name header name
+    * @return string
+    */
     public function getHeader($name)
     {
         return $this->headers[strtolower($name)];
     }
 
-    private function setOpt($optName, $optValue)
+  /**
+    * Set option header for CURL
+    * @param integer $key curl option key
+    * @param mixed $val curl option value
+    */
+    private function setOpt($key, $val)
     {
-        $this->opts[$optName] = $optValue;
+        $this->opts[$key] = $val;
     }
 
-    public function setPostBody($postBody, $contentType)
+  /**
+    * Sets a post body
+    * @param string $post_body The post body data
+    * @param string $content_type content type of the post body
+    */
+    public function setPostBody($post_body, $content_type)
     {
-        $this->setHeaders(array('content-type' => $contentType));
-        $this->setOpt(CURLOPT_POSTFIELDS, $postBody);
+        $this->setHeaders(array('content-type' => $content_type));
+        $this->setOpt(CURLOPT_POSTFIELDS, $post_body);
     }
 
+  /**
+    * Sets the curl authorization header
+    * @param string $auth Authorisation header to set
+    */
     public function setAuth($auth)
     {
         $this->setOpt(CURLOPT_USERPWD, $auth);
     }
 
+  /**
+    * Sets request headers from an associative array. Case insensitive.
+    * @param array[string]string $headers Keys need to be strings, values need to be strings.
+    */
     public function setHeaders($headers)
     {
         foreach ($headers as $key => $val) {
@@ -80,42 +144,54 @@ class CurlWrapper
         }
     }
 
+  /**
+    * Internal function called by curl to set a response header as a callback.
+    * @param unused
+    * @param string $header Full header line from response
+    */
     public function setResponseHeader($_, $header)
     {
         $pos = strpos($header, ':');
         if ($pos > 0) {
-            $this->responseHeaders[substr($header, 0, $pos)] = rtrim(substr($header, $pos + 2));
+            $this->response_headers[substr($header, 0, $pos)] = rtrim(substr($header, $pos + 2));
         }
         return strlen($header);
     }
 
-    protected function setupRequest()
+  /**
+    * Setup the http request headers.
+    */
+    protected function setup_request()
     {
-        $curlHeaders = array();
-        foreach ($this->headers as $headerKey => $headerVal) {
-            $curlHeaders[] = $headerKey . ': ' . $headerVal;
+        $curl_headers = array();
+        foreach ($this->headers as $key => $val) {
+            $curl_headers[] = $key . ': ' . $val;
         }
-        $this->opts[CURLOPT_HTTPHEADER] = $curlHeaders;
-        foreach ($this->opts as $optKey => $optVal) {
-            curl_setopt($this->curl, $optKey, $optVal);
+        $this->opts[CURLOPT_HTTPHEADER] = $curl_headers;
+        foreach ($this->opts as $key => $val) {
+            curl_setopt($this->curl, $key, $val);
         }
     }
 
+  /**
+    * Run the prepared http request
+    * @return Response HTTP response object.
+    */
     public function run()
     {
-        $this->setupRequest();
-        $responseBody = curl_exec($this->curl);
-        if ($responseBody === false) {
+        $this->setup_request();
+        $body = curl_exec($this->curl);
+        if ($body === false) {
             throw new Error\HttpError(curl_errno($this->curl), curl_error($this->curl));
         }
-        $responseContentType = curl_getinfo($this->curl, CURLINFO_CONTENT_TYPE);
-        $responseStatus = curl_getinfo($this->curl, CURLINFO_HTTP_CODE);
+        $content_type = curl_getinfo($this->curl, CURLINFO_CONTENT_TYPE);
+        $status = curl_getinfo($this->curl, CURLINFO_HTTP_CODE);
         curl_close($this->curl);
-        return array(
-            'body' => $responseBody,
-            'status' => $responseStatus,
-            'content-type' => $responseContentType,
-            'headers' => $this->responseHeaders
+        return new Response(
+            $body,
+            $status,
+            $content_type,
+            $this->response_headers
         );
     }
 }

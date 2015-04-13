@@ -56,7 +56,7 @@ class HttpClient
     * Gets the list of default headers the library is using. For debug purposes.
     * @return array[string]string
     */
-    public function getHeaders()
+    public function headers()
     {
         return $this->headers;
     }
@@ -65,7 +65,7 @@ class HttpClient
     * Gets the base url being used by the library. Primarily for debug purposes.
     * @return string
     */
-    public function getBaseUrl()
+    public function base_url()
     {
         return $this->baseUrl;
     }
@@ -75,12 +75,12 @@ class HttpClient
     * @param string $envelopeKey The key enveloping the request and response in json
     * @return Request
     */
-    public function makeRequest($envelopeKey)
+    public function make_request($envelopeKey)
     {
         return new Request($this, $envelopeKey);
     }
 
-    private function requestHeaders($headers)
+    private function combine_request_headers($headers)
     {
         $request_headers = $this->headers;
         foreach ($headers as $key => $val) {
@@ -95,14 +95,14 @@ class HttpClient
     * @param string $path Resource relative path (starts with a /)
     * @param string $postBody (Can be null), the post body sent with the request
     * @param array[string]string $headers Optional HTTP Override headers.
-    * @return array[string]mixed
+    * @return Response
     */
-    public function runCurlRequest($method, $path, $postBody = null, $headers = array())
+    public function run_curl_request($method, $path, $postBody = null, $headers = array())
     {
         $httpRequest = new CurlWrapper($method, $this->baseUrl . substr($path, 1));
 
         $httpRequest->setAuth($this->auth);
-        $httpRequest->setHeaders($this->requestHeaders($headers));
+        $httpRequest->setHeaders($this->combine_request_headers($headers));
 
         if (isset($postBody)) {
             $httpRequest->setPostBody($postBody, 'application/json');

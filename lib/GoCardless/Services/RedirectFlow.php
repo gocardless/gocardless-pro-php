@@ -8,6 +8,10 @@
 namespace GoCardless\Services;
 
 /**
+  *  Redirect Flows
+  *
+
+  *
   *  Redirect flows enable you to use GoCardless Pro's secure payment pages to
   *  set up mandates with your customers.
   *  
@@ -51,35 +55,45 @@ class RedirectFlow extends Base
 {
   
   /**
+    *  Create a redirect flow
+    *
     *  Creates a redirect flow object which can then be used to redirect your
     *  customer to the GoCardless Pro hosted payment pages.
     *
     *  Example URL: /redirect_flows
     *  @return RedirectFlow
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->makeRequest('post', '/redirect_flows', $params);
+        return $this->make_request('post', '/redirect_flows', $params);
     }
 
   /**
+    *  Get a single redirect flow
+    *
     *  Returns all details about a single redirect flow
     *
     *  Example URL: /redirect_flows/:identity
     *
     *  @param identity:  Unique identifier, beginning with "RE"
     *  @return RedirectFlow
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function get($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/redirect_flows/:identity', array(
+        $path = $this->sub_url('/redirect_flows/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('get', $path, $params, $headers);
+        return $this->make_request('get', $path, $params, $headers);
     }
 
   /**
+    *  Complete a redirect flow
+    *
     *  This creates a
     *  [customer](https://developer.gocardless.com/pro/#api-endpoints-customers),
     *  [customer bank
@@ -100,14 +114,16 @@ class RedirectFlow extends Base
     *
     *  @param identity:  Unique identifier, beginning with "RE"
     *  @return RedirectFlow
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function complete($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/redirect_flows/:identity/actions/complete', array(
+        $path = $this->sub_url('/redirect_flows/:identity/actions/complete', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('post', $path, $params, $headers);
+        return $this->make_request('post', $path, $params, $headers);
     }
 
 

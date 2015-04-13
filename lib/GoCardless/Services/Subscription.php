@@ -8,6 +8,10 @@
 namespace GoCardless\Services;
 
 /**
+  *  Subscriptions
+  *
+  * @method \GoCardless\Core\ListResponse list() list(array $options = array(), array $headers = array()) gets a non-paginated list of models given finder options.
+  *
   *  Subscriptions create
   *  [payments](https://developer.gocardless.com/pro/#api-endpoints-payments)
   *  according to a schedule.
@@ -81,64 +85,82 @@ class Subscription extends Base
 {
   
   /**
+    *  Create a subscription
+    *
     *  Creates a new subscription object
     *
     *  Example URL: /subscriptions
     *  @return Subscription
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->makeRequest('post', '/subscriptions', $params);
+        return $this->make_request('post', '/subscriptions', $params);
     }
 
   /**
+    *  List subscriptions
+    *
     *  Returns a
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your subscriptions.
     *
     *  Example URL: /subscriptions
-    *  @return ListResponse
+    *  @return \GoCardless\Core\ListResponse
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->makeRequest('get', '/subscriptions', $params);
+        return $this->make_request('get', '/subscriptions', $params);
     }
 
   /**
+    *  Get a single subscription
+    *
     *  Retrieves the details of a single subscription.
     *
     *  Example URL: /subscriptions/:identity
     *
     *  @param identity:  Unique identifier, beginning with "SB"
     *  @return Subscription
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function get($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/subscriptions/:identity', array(
+        $path = $this->sub_url('/subscriptions/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('get', $path, $params, $headers);
+        return $this->make_request('get', $path, $params, $headers);
     }
 
   /**
+    *  Update a subscription
+    *
     *  Updates a subscription object.
     *
     *  Example URL: /subscriptions/:identity
     *
     *  @param identity:  Unique identifier, beginning with "SB"
     *  @return Subscription
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function update($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/subscriptions/:identity', array(
+        $path = $this->sub_url('/subscriptions/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('put', $path, $params, $headers);
+        return $this->make_request('put', $path, $params, $headers);
     }
 
   /**
+    *  Cancel a subscription
+    *
     *  Immediately cancels a subscription; no more payments will be created
     *  under it. Any metadata supplied to this endpoint will be stored on the
     *  payment cancellation event it causes.
@@ -151,29 +173,33 @@ class Subscription extends Base
     *
     *  @param identity:  Unique identifier, beginning with "SB"
     *  @return Subscription
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function cancel($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/subscriptions/:identity/actions/cancel', array(
+        $path = $this->sub_url('/subscriptions/:identity/actions/cancel', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('post', $path, $params, $headers);
+        return $this->make_request('post', $path, $params, $headers);
     }
 
 
 
   /**
+    *  List subscriptions
+    *
     *  Returns a
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your subscriptions.
     *
     *  Example URL: /subscriptions\
-    *  @return Paginator
+    *  @return \GoCardless\Core\Paginator
     **/
-    public function all($listMax, $options = array())
+    public function all($list_max, $options = array(), $headers = array())
     {
-        return new Paginator($this, $listMax, $this->do_list($options), $options);
+        return new \GoCardless\Core\Paginator($this, $list_max, $this->do_list($options), $options, $headers);
     }
 
 

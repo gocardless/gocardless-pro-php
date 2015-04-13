@@ -12,8 +12,11 @@ namespace GoCardless\Core;
   */
 class Response
 {
+    /** @var string Response Body */
     private $body;
+    /** @var string Response Content Type */
     private $content_type;
+    /** @var int Response HTTP Status */
     private $status;
 
   /**

@@ -10,12 +10,13 @@ namespace GoCardless\Resources;
 /**
   * 
   */
-class Helper
+class Helper extends Base
 {
 
 
   /**
     * Returns a string representation of the project.
+    *
     * @return string 
     */
     public function __toString()

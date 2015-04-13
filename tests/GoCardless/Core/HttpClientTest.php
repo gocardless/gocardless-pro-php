@@ -28,12 +28,12 @@ class HttpClientTest extends \PHPUnit_Framework_TestCase
                 'environment' => 'https://example.com/'
             )
         );
-        $this->httpClient = $this->client->httpClient();
+        $this->http_client = $this->client->http_client();
     }
 
     public function testIncludedDefaultHeaders()
     {
-        $defaultHeaders = $this->httpClient->getHeaders();
+        $defaultHeaders = $this->http_client->headers();
         // Config Headers
         $this->assertEquals('2014-11-03', $defaultHeaders['GoCardless-Version']);
         
@@ -41,7 +41,7 @@ class HttpClientTest extends \PHPUnit_Framework_TestCase
 
     public function testUrlBaseSet()
     {
-        $this->assertEquals('https://example.com/', $this->httpClient->getBaseUrl());
+        $this->assertEquals('https://example.com/', $this->http_client->base_url());
     }
 
     public function testMakesProperCurlRequest()
@@ -50,7 +50,7 @@ class HttpClientTest extends \PHPUnit_Framework_TestCase
         StaticStorage::setRetVal(CURLINFO_HTTP_CODE, 200);
         StaticStorage::setRetVal(CURLINFO_CONTENT_TYPE, 'application/json');
 
-        $request = $this->httpClient->makeRequest('thiskey');
+        $request = $this->http_client->make_request('thiskey');
         $response = $request->run('get', '/', array());
 
         $this->assertEquals('hi!', $response->response());
@@ -64,7 +64,7 @@ class HttpClientTest extends \PHPUnit_Framework_TestCase
         StaticStorage::setRetVal(CURLINFO_HTTP_CODE, 200);
         StaticStorage::setRetVal(CURLINFO_CONTENT_TYPE, 'application/json');
 
-        $request = $this->httpClient->makeRequest('thiskey');
+        $request = $this->http_client->make_request('thiskey');
         $response = $request->run('get', '/hi', array('age' => '23'));
 
         $this->assertEquals('https://example.com/hi?age=23', StaticStorage::getOpt(CURLOPT_URL));
@@ -76,7 +76,7 @@ class HttpClientTest extends \PHPUnit_Framework_TestCase
         StaticStorage::setRetVal(CURLINFO_HTTP_CODE, 200);
         StaticStorage::setRetVal(CURLINFO_CONTENT_TYPE, 'application/json');
 
-        $request = $this->httpClient->makeRequest('thiskey');
+        $request = $this->http_client->make_request('thiskey');
         $response = $request->run('get', '/hi?name=jane', array('age' => '23'));
 
         $this->assertEquals('https://example.com/hi?name=jane&age=23', StaticStorage::getOpt(CURLOPT_URL));
@@ -87,7 +87,7 @@ class HttpClientTest extends \PHPUnit_Framework_TestCase
         StaticStorage::setRetVal(CURLINFO_HTTP_CODE, 200);
         StaticStorage::setRetVal(CURLINFO_CONTENT_TYPE, 'application/json');
 
-        $request = $this->httpClient->makeRequest('thiskey');
+        $request = $this->http_client->make_request('thiskey');
         $response = $request->run('get', '/hi?name=jane', array('age' => '23'));
 
         $this->assertEquals('https://example.com/hi?name=jane&age=23', StaticStorage::getOpt(CURLOPT_URL));

@@ -8,6 +8,10 @@
 namespace GoCardless\Services;
 
 /**
+  *  Publishable API Keys
+  *
+  * @method \GoCardless\Core\ListResponse list() list(array $options = array(), array $headers = array()) gets a non-paginated list of models given finder options.
+  *
   *  Publishable API keys are designed to be used by the [js
   *  flow](https://developer.gocardless.com/pro/#api-endpoints-customer-bank-account-tokens).
   *  You should generate a key and then use it to make requests to the API. They
@@ -21,47 +25,61 @@ class PublishableApiKey extends Base
 {
   
   /**
+    *  Create a publishable API key
+    *
     *  Creates a publishable API key object.
     *
     *  Example URL: /publishable_api_keys
     *  @return PublishableApiKey
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->makeRequest('post', '/publishable_api_keys', $params);
+        return $this->make_request('post', '/publishable_api_keys', $params);
     }
 
   /**
+    *  List publishable API keys
+    *
     *  Returns a
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your publishable API keys
     *
     *  Example URL: /publishable_api_keys
-    *  @return ListResponse
+    *  @return \GoCardless\Core\ListResponse
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->makeRequest('get', '/publishable_api_keys', $params);
+        return $this->make_request('get', '/publishable_api_keys', $params);
     }
 
   /**
+    *  Get a single publishable API key
+    *
     *  Returns all details about a single publishable API key
     *
     *  Example URL: /publishable_api_keys/:identity
     *
     *  @param identity:  Unique identifier, beginning with "PK"
     *  @return PublishableApiKey
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function get($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/publishable_api_keys/:identity', array(
+        $path = $this->sub_url('/publishable_api_keys/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('get', $path, $params, $headers);
+        return $this->make_request('get', $path, $params, $headers);
     }
 
   /**
+    *  Update a publishable API key
+    *
     *  Updates a publishable API key. Only the `name` fields are supported. Any
     *  other fields passed will be ignored.
     *
@@ -69,17 +87,21 @@ class PublishableApiKey extends Base
     *
     *  @param identity:  Unique identifier, beginning with "PK"
     *  @return PublishableApiKey
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function update($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/publishable_api_keys/:identity', array(
+        $path = $this->sub_url('/publishable_api_keys/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('put', $path, $params, $headers);
+        return $this->make_request('put', $path, $params, $headers);
     }
 
   /**
+    *  Disable a publishable API key
+    *
     *  Disables a publishable API key. Once disabled, the publishable API key
     *  will not be usable to authenticate any requests.
     *
@@ -87,29 +109,33 @@ class PublishableApiKey extends Base
     *
     *  @param identity:  Unique identifier, beginning with "PK"
     *  @return PublishableApiKey
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function disable($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/publishable_api_keys/:identity/actions/disable', array(
+        $path = $this->sub_url('/publishable_api_keys/:identity/actions/disable', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('post', $path, $params, $headers);
+        return $this->make_request('post', $path, $params, $headers);
     }
 
 
 
   /**
+    *  List publishable API keys
+    *
     *  Returns a
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your publishable API keys
     *
     *  Example URL: /publishable_api_keys\
-    *  @return Paginator
+    *  @return \GoCardless\Core\Paginator
     **/
-    public function all($listMax, $options = array())
+    public function all($list_max, $options = array(), $headers = array())
     {
-        return new Paginator($this, $listMax, $this->do_list($options), $options);
+        return new \GoCardless\Core\Paginator($this, $list_max, $this->do_list($options), $options, $headers);
     }
 
 

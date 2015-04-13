@@ -8,6 +8,10 @@
 namespace GoCardless\Services;
 
 /**
+  *  Payouts
+  *
+  * @method \GoCardless\Core\ListResponse list() list(array $options = array(), array $headers = array()) gets a non-paginated list of models given finder options.
+  *
   *  Payouts represent transfers from GoCardless to a
   *  [creditor](https://developer.gocardless.com/pro/#api-endpoints-creditors).
   *  Each payout contains the funds collected from one or many
@@ -19,48 +23,58 @@ class Payout extends Base
 {
   
   /**
+    *  List payouts
+    *
     *  Returns a
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your payouts.
     *
     *  Example URL: /payouts
-    *  @return ListResponse
+    *  @return \GoCardless\Core\ListResponse
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->makeRequest('get', '/payouts', $params);
+        return $this->make_request('get', '/payouts', $params);
     }
 
   /**
+    *  Get a single payout
+    *
     *  Retrieves the details of a single payout.
     *
     *  Example URL: /payouts/:identity
     *
     *  @param identity:  Unique identifier, beginning with "PO"
     *  @return Payout
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function get($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/payouts/:identity', array(
+        $path = $this->sub_url('/payouts/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('get', $path, $params, $headers);
+        return $this->make_request('get', $path, $params, $headers);
     }
 
 
 
   /**
+    *  List payouts
+    *
     *  Returns a
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your payouts.
     *
     *  Example URL: /payouts\
-    *  @return Paginator
+    *  @return \GoCardless\Core\Paginator
     **/
-    public function all($listMax, $options = array())
+    public function all($list_max, $options = array(), $headers = array())
     {
-        return new Paginator($this, $listMax, $this->do_list($options), $options);
+        return new \GoCardless\Core\Paginator($this, $list_max, $this->do_list($options), $options, $headers);
     }
 
 

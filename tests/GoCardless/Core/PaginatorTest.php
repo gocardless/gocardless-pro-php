@@ -23,23 +23,23 @@ class PaginatorTest extends \PHPUnit_Framework_TestCase
         $this->paginator = new Paginator(new Mocks\TestResource(array(
             '20' => new ListResponse('\GoCardless\Core\Mocks\ResourceHolder', $responsePage2),
             '10' => new ListResponse('\GoCardless\Core\Mocks\ResourceHolder', $response)
-        )), 10, new ListResponse('\GoCardless\Core\Mocks\ResourceHolder', $response), array());
+        )), 10, new ListResponse('\GoCardless\Core\Mocks\ResourceHolder', $response), array(), array());
     }
 
     public function testSinglePage()
     {
         $this->assertEquals('.co.uk', $this->paginator->items()[0]->data()->domain);
-        $this->assertTrue($this->paginator->nextPage());
-        $this->assertTrue($this->paginator->previousPage());
-        $this->assertFalse($this->paginator->previousPage());
+        $this->assertTrue($this->paginator->next_page());
+        $this->assertTrue($this->paginator->previous_page());
+        $this->assertFalse($this->paginator->previous_page());
     }
 
     public function testTwoPages()
     {
         $this->assertEquals('.co.uk', $this->paginator->items()[0]->data()->domain);
-        $this->assertTrue($this->paginator->nextPage());
+        $this->assertTrue($this->paginator->next_page());
         $this->assertEquals('.com', $this->paginator->items()[0]->data()->domain);
-        $this->assertFalse($this->paginator->nextPage());
+        $this->assertFalse($this->paginator->next_page());
         $this->assertEmpty($this->paginator->items());
     }
 
@@ -49,8 +49,8 @@ class PaginatorTest extends \PHPUnit_Framework_TestCase
         foreach ($this->paginator as $item) {
             $results[] = $item;
         }
-        $this->assertFalse($this->paginator->nextPage());
-        $this->assertTrue($this->paginator->previousPage());
+        $this->assertFalse($this->paginator->next_page());
+        $this->assertTrue($this->paginator->previous_page());
 
         $this->assertEquals('.co.uk', $results[0]->data()->domain);
         $this->assertEquals('.com', $results[3]->data()->domain);
@@ -72,16 +72,16 @@ class PaginatorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('.com', $results[3]->data()->domain);
         $this->assertEquals('gocardless', $results[2]->data()->name);
 
-        $this->assertFalse($this->paginator->nextPage());
-        $this->assertTrue($this->paginator->previousPage());
+        $this->assertFalse($this->paginator->next_page());
+        $this->assertTrue($this->paginator->previous_page());
     }
 
     public function testForwardsBackwards()
     {
-        $this->paginator->nextPage();
+        $this->paginator->next_page();
         $this->assertEquals(2, count($this->paginator->items()));
         $this->assertEquals('.com', $this->paginator->items()[0]->data()->domain);
-        $this->paginator->previousPage();
+        $this->paginator->previous_page();
         $this->assertEquals(3, count($this->paginator->items()));
         $this->assertEquals('.co.uk', $this->paginator->items()[0]->data()->domain);
 

@@ -8,6 +8,10 @@
 namespace GoCardless\Services;
 
 /**
+  *  Roles
+  *
+  * @method \GoCardless\Core\ListResponse list() list(array $options = array(), array $headers = array()) gets a non-paginated list of models given finder options.
+  *
   *  <a name="insufficient_permissions"></a>Roles represent a set of permissions
   *  that may be granted to a user. The permissions are specified at the
   *  resource-type level, and can be `full_access` or `read_only`. If a
@@ -72,45 +76,59 @@ class Role extends Base
 {
   
   /**
+    *  Create a role
+    *
     *  Create a role with set access permissions
     *
     *  Example URL: /roles
     *  @return Role
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->makeRequest('post', '/roles', $params);
+        return $this->make_request('post', '/roles', $params);
     }
 
   /**
+    *  List roles
+    *
     *  List all existing roles
     *
     *  Example URL: /roles
-    *  @return ListResponse
+    *  @return \GoCardless\Core\ListResponse
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->makeRequest('get', '/roles', $params);
+        return $this->make_request('get', '/roles', $params);
     }
 
   /**
+    *  Get a single role
+    *
     *  Retrieve all details for a single role
     *
     *  Example URL: /roles/:identity
     *
     *  @param identity:  Unique identifier, beginning with "RO"
     *  @return Role
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function get($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/roles/:identity', array(
+        $path = $this->sub_url('/roles/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('get', $path, $params, $headers);
+        return $this->make_request('get', $path, $params, $headers);
     }
 
   /**
+    *  Update a role
+    *
     *  Updates a role object. Supports all of the fields supported when creating
     *  a role.
     *
@@ -118,44 +136,52 @@ class Role extends Base
     *
     *  @param identity:  Unique identifier, beginning with "RO"
     *  @return Role
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function update($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/roles/:identity', array(
+        $path = $this->sub_url('/roles/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('put', $path, $params, $headers);
+        return $this->make_request('put', $path, $params, $headers);
     }
 
   /**
+    *  Disable a role
+    *
     *  Disables a role
     *
     *  Example URL: /roles/:identity/actions/disable
     *
     *  @param identity:  Unique identifier, beginning with "RO"
     *  @return Role
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function disable($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/roles/:identity/actions/disable', array(
+        $path = $this->sub_url('/roles/:identity/actions/disable', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('post', $path, $params, $headers);
+        return $this->make_request('post', $path, $params, $headers);
     }
 
 
 
   /**
+    *  List roles
+    *
     *  List all existing roles
     *
     *  Example URL: /roles\
-    *  @return Paginator
+    *  @return \GoCardless\Core\Paginator
     **/
-    public function all($listMax, $options = array())
+    public function all($list_max, $options = array(), $headers = array())
     {
-        return new Paginator($this, $listMax, $this->do_list($options), $options);
+        return new \GoCardless\Core\Paginator($this, $list_max, $this->do_list($options), $options, $headers);
     }
 
 

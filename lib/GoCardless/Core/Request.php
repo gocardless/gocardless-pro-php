@@ -7,35 +7,38 @@ namespace GoCardless\Core;
   */
 class Request
 {
-    private $httpClient;
-    private $envelopeKey;
 
-  /**
-    * Valid methods to send url parameters for 
-    */
-    private static $paramsMethods = array('get', 'delete');
-  /**
-    * Valid method to send a json-encoded postbody for
-    */
-    private static $bodyMethods   = array('post', 'put');
+    private $http_client;
+    private $envelope_key;
+
+  /** @const string[] Valid methods to send url parameters for */
+    private static $params_methods = array('get', 'delete');
+
+  /** @const string[] Valid method to send a json-encoded postbody for */
+    private static $body_methods   = array('post', 'put');
 
   /**
     * Constructor for a request class to wrap a request
-    * @param HttpClient $client HTTP Client Reference
-    * @param string $envelopeKey Envelope Key
+    *
+    * @param HttpClient $http_client HTTP Client Reference
+    * @param string $envelope_key Envelope Key
     */
-    public function __construct($httpClient, $envelopeKey)
+    public function __construct($http_client, $envelope_key)
     {
-        $this->httpClient = $httpClient;
-        $this->envelopeKey = $envelopeKey;
+        $this->http_client = $http_client;
+        $this->envelope_key = $envelope_key;
     }
 
   /**
-    * 
+    * Runs a raw HTTP request
+    *
     * @param string $method HTTP Method
     * @param string $path Relative Path for Request
     * @param array[string]string $options URL parameter or post body options
-    * @param array[string]string $headers Additionall request headers
+    * @param array[string]string $headers Additional request headers
+    *
+    * @uses Request::$envelope_key
+    * @uses Request::$http_client
     * @return Response
     */
     public function run($method, $path, $options, $headers = array())
@@ -43,7 +46,7 @@ class Request
         $method = strtolower($method);
         $postBody = null;
 
-        if (in_array($method, self::$paramsMethods)) {
+        if (in_array($method, self::$params_methods)) {
             $urlParams = http_build_query($options);
             if (substr($path, -1) === '?' || substr($path, -1) === '&') {
                 $path = $path . $urlParams;
@@ -52,19 +55,16 @@ class Request
             } else {
                 $path = $path . '?' . $urlParams;
             }
-        } elseif (in_array($method, self::$bodyMethods)) {
-            $postBody = json_encode(array($this->envelopeKey => $options));
+        } elseif (in_array($method, self::$body_methods)) {
+            $postBody = json_encode(array($this->envelope_key => $options));
         } else {
             throw new ClientUsageError('Unsupported HTTP Method');
         }
 
-        $responseData = $this->httpClient->runCurlRequest($method, $path, $postBody, $headers);
-
-        // Passes in keys ['body', 'status', 'content-type', 'headers'].
-        $response = new Response($responseData['body'], $responseData['status'], $responseData['content-type'], $responseData['headers']);
+        $response = $this->http_client->run_curl_request($method, $path, $postBody, $headers);
 
         // Required for JSON response types.
-        $response->set_unwrap_json($this->envelopeKey);
+        $response->set_unwrap_json($this->envelope_key);
         return $response;
     }
 }

@@ -4,7 +4,7 @@ namespace GoCardless\Core;
 
 use \GoCardless\Core\Helpers\StaticStorage as StaticStorage;
 
-class CurlWrapperRest extends \PHPUnit_Framework_TestCase
+class CurlWrapperTest extends \PHPUnit_Framework_TestCase
 {
     public function __construct()
     {
@@ -51,10 +51,8 @@ class CurlWrapperRest extends \PHPUnit_Framework_TestCase
         $wrapper = new Helpers\OpenCurlWrapper('post', 'http://example.com/');
         $wrapper->setHeaders(array('blahHeader' => 'testing'));
         $wrapper->setPostBody('{"company": "gc"}', 'application/json');
-        $wrapper->doSetOpt('thisisFoo', 'blah');
         $wrapper->doSetOpt('21', 'blah');
         $wrapper->testSetupRequest();
-        $this->assertEquals('blah', StaticStorage::getKey('thisisFoo'));
         $this->assertEquals('POST', StaticStorage::getKey(CURLOPT_CUSTOMREQUEST));
         $headers = StaticStorage::getKey(CURLOPT_HTTPHEADER);
         $this->assertContains('content-type: application/json', $headers);

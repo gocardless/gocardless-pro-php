@@ -8,6 +8,10 @@
 namespace GoCardless\Services;
 
 /**
+  *  API Keys
+  *
+  * @method \GoCardless\Core\ListResponse list() list(array $options = array(), array $headers = array()) gets a non-paginated list of models given finder options.
+  *
   *  <a name="api_key_not_active"></a>API keys are designed to be used by any
   *  integrations you build. You should generate a key and then use it to make
   *  requests to the API and set the webhook URL for that integration. They do
@@ -17,47 +21,61 @@ class ApiKey extends Base
 {
   
   /**
+    *  Create an API key
+    *
     *  Creates a new API key.
     *
     *  Example URL: /api_keys
     *  @return ApiKey
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->makeRequest('post', '/api_keys', $params);
+        return $this->make_request('post', '/api_keys', $params);
     }
 
   /**
+    *  List API keys
+    *
     *  Returns a
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your API keys.
     *
     *  Example URL: /api_keys
-    *  @return ListResponse
+    *  @return \GoCardless\Core\ListResponse
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->makeRequest('get', '/api_keys', $params);
+        return $this->make_request('get', '/api_keys', $params);
     }
 
   /**
+    *  Get a single API key
+    *
     *  Retrieves the details of an existing API key.
     *
     *  Example URL: /api_keys/:identity
     *
     *  @param identity:  Unique identifier, beginning with "AK"
     *  @return ApiKey
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function get($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/api_keys/:identity', array(
+        $path = $this->sub_url('/api_keys/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('get', $path, $params, $headers);
+        return $this->make_request('get', $path, $params, $headers);
     }
 
   /**
+    *  Update an API key
+    *
     *  Updates an API key. Only the `name` and `webhook_url` fields are
     *  supported.
     *
@@ -65,17 +83,21 @@ class ApiKey extends Base
     *
     *  @param identity:  Unique identifier, beginning with "AK"
     *  @return ApiKey
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function update($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/api_keys/:identity', array(
+        $path = $this->sub_url('/api_keys/:identity', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('put', $path, $params, $headers);
+        return $this->make_request('put', $path, $params, $headers);
     }
 
   /**
+    *  Disable an API key
+    *
     *  Disables an API key. Once disabled, the API key will not be usable to
     *  authenticate any requests, and its `webhook_url` will not receive any
     *  more events.
@@ -84,29 +106,33 @@ class ApiKey extends Base
     *
     *  @param identity:  Unique identifier, beginning with "AK"
     *  @return ApiKey
+    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function disable($identity, $params = array(), $headers = array())
     {
-        $path = $this->subUrl('/api_keys/:identity/actions/disable', array(
+        $path = $this->sub_url('/api_keys/:identity/actions/disable', array(
             'identity' => $identity
         ));
 
-        return $this->makeRequest('post', $path, $params, $headers);
+        return $this->make_request('post', $path, $params, $headers);
     }
 
 
 
   /**
+    *  List API keys
+    *
     *  Returns a
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your API keys.
     *
     *  Example URL: /api_keys\
-    *  @return Paginator
+    *  @return \GoCardless\Core\Paginator
     **/
-    public function all($listMax, $options = array())
+    public function all($list_max, $options = array(), $headers = array())
     {
-        return new Paginator($this, $listMax, $this->do_list($options), $options);
+        return new \GoCardless\Core\Paginator($this, $list_max, $this->do_list($options), $options, $headers);
     }
 
 

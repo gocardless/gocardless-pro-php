@@ -56,7 +56,7 @@ class BaseTest extends \PHPUnit_Framework_TestCase
     public function testMakeRequest()
     {
         $mockClient = $this->getMockBuilder('\GoCardless\Core\HttpClient')
-                       ->setMethods(array('makeRequest'))
+                       ->setMethods(array('make_request'))
                        ->disableOriginalConstructor()
                        ->getMock();
 
@@ -77,13 +77,13 @@ class BaseTest extends \PHPUnit_Framework_TestCase
                 ->willReturn($emptyResponse);
 
         $mockClient->expects($this->once())
-               ->method('makeRequest')
+               ->method('make_request')
                ->with($this->equalTo('envelopeKey'))
                ->willReturn($mockRequest);
 
         $base = new Mocks\BaseImpl($mockClient);
 
-        $response = $base->makeRequest('post', 'http://example.com/api', array());
+        $response = $base->proxyMakeRequest('post', 'http://example.com/api', array(), array());
 
         $this->assertInstanceOf('\GoCardless\Resources\Customer', $response);
         $this->assertEquals($response->response(), $emptyResponse);
