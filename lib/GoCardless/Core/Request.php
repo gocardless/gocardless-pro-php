@@ -7,14 +7,16 @@ namespace GoCardless\Core;
   */
 class Request
 {
-
+    /** @var HttpClient HTTP Client reference for requests */
     private $http_client;
+    
+    /** @var string JSON Envelope data key */
     private $envelope_key;
 
-  /** @const string[] Valid methods to send url parameters for */
+    /** @const string[] Valid methods to send url parameters for */
     private static $params_methods = array('get', 'delete');
 
-  /** @const string[] Valid method to send a json-encoded postbody for */
+    /** @const string[] Valid method to send a json-encoded postbody for */
     private static $body_methods   = array('post', 'put');
 
   /**
@@ -39,6 +41,7 @@ class Request
     *
     * @uses Request::$envelope_key
     * @uses Request::$http_client
+    *
     * @return Response
     */
     public function run($method, $path, $options, $headers = array())
@@ -65,6 +68,7 @@ class Request
 
         // Required for JSON response types.
         $response->set_unwrap_json($this->envelope_key);
+
         return $response;
     }
 }
