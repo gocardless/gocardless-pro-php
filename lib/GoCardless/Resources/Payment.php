@@ -196,7 +196,7 @@ class Payment extends Base
     * <li>`cancelled`:
     * the payment has been cancelled</li>
     * </ul>
-    *
+    * [pending_submission submitted confirmed failed charged_back paid_out cancelled]
     * @return string
     */
     public function status()

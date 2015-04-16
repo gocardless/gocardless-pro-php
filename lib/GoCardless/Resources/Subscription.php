@@ -206,7 +206,7 @@ class Subscription extends Base
   /**
     * The unit of time between customer charge dates. One of `weekly`, `monthly`
     * or `yearly`.
-    *
+    * [weekly monthly yearly]
     * @return string
     */
     public function interval_unit()

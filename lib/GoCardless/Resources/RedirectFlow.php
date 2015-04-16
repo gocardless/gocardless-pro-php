@@ -45,6 +45,10 @@ namespace GoCardless\Resources;
   * after they are first created. You cannot
   * [complete](https://developer.gocardless.com/pro/#complete-a-redirect-flow)
   * an expired redirect flow.
+  * 
+  * [View an example
+  * integration](https://pay-sandbox.gocardless.com/AL000000AKFPFF) that uses
+  * redirect flows.
   */
 class RedirectFlow extends Base
 {
