@@ -1,3 +1,23 @@
+dependencies:
+  cache_directories:
+    vendor/
+
 machine:
   php:
     version: 5.3.3
+
+deployment:
+  git:
+    branch: php-library
+    commands:
+      - make docs
+      - git config user.name "Circle CI"
+      - git config user.email "robot+circleci@gocardless.com"
+      - git checkout gh-pages
+      - rm -r ./tests
+      - rm -r composer.json
+      - rm -r vendor
+      - mv docs/api/* .
+      - git add .
+      - git commit -m "[ci skip] Generate Yard Doc"
+      - git push origin gh-pages

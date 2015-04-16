@@ -323,7 +323,7 @@ class Subscription extends Base
     * Up to 10 upcoming payments with the amount, in pence, and charge date for
     * each.
     *
-    * @return object
+    * @return Wrapper\NestedArray
     */
     public function upcoming_payments()
     {
@@ -331,7 +331,8 @@ class Subscription extends Base
         if (!property_exists($this->data, $field)) {
           return null;
         }
-        return $this->data->{$field};
+        return new Wrapper\NestedArray($field, $this->data->{$field});
+
     }
 
 

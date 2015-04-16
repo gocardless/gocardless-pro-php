@@ -61,7 +61,7 @@ class Request
         } elseif (in_array($method, self::$body_methods)) {
             $postBody = json_encode(array($this->envelope_key => $options));
         } else {
-            throw new ClientUsageError('Unsupported HTTP Method');
+            throw new \Exception('Unsupported HTTP Method');
         }
 
         $response = $this->http_client->run_curl_request($method, $path, $postBody, $headers);

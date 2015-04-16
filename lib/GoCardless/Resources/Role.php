@@ -141,7 +141,7 @@ class Role extends Base
     * `full_access` or `read_only`</li>
     * </ul>
     *
-    * @return object
+    * @return Wrapper\NestedArray
     */
     public function permissions()
     {
@@ -149,7 +149,8 @@ class Role extends Base
         if (!property_exists($this->data, $field)) {
           return null;
         }
-        return $this->data->{$field};
+        return new Wrapper\NestedArray($field, $this->data->{$field});
+
     }
 
 

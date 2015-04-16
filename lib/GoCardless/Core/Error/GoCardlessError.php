@@ -43,7 +43,7 @@ class GoCardlessError extends \Exception
       */
     public static function makeApiError($error, $status)
     {
-        if ($error->error->type) {
+        if (is_object($error) && isset($error->error) && isset($error->error->type)) {
             switch ($error->error->type) {
                 case 'invalid_api_usage':
                     return new InvalidApiUsageError($error, $status);
@@ -61,7 +61,7 @@ class GoCardlessError extends \Exception
     /** @see GoCardlessError::$error */
     public function error()
     {
-        return $this->error;
+        return $this->error->error;
     }
 
     /**
@@ -83,8 +83,8 @@ class GoCardlessError extends \Exception
       */
     public function documentation_url()
     {
-      if (isset($this->error->documentation_url)) {
-        return $this->error->documentation_url;
+      if (isset($this->error()->documentation_url)) {
+        return $this->error()->documentation_url;
       }
       return null;
     }

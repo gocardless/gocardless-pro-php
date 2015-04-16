@@ -14,7 +14,7 @@ namespace GoCardless\Resources\Wrapper;
   * @package GoCardless
   * @subpackage \Resources\Wrapper
   */
-class NestedObject
+class NestedArray extends \ArrayObject
 {
 	/** @var string Property name the nested object encloses */
 	private $name;
@@ -27,26 +27,16 @@ class NestedObject
 	  */
 	public function __construct($name, $data)
 	{
-		$this->name = $name;
-		$this->data = $data;
-	}
-
-    /**
-      * If the data exists matching this method, return it's value otherwise, return false
-      * If the data is a nested object, return a new NestedObject class to wrap that data predictably.
-      * @return NestedObject|mixed|false
-      */
-	public function __call($name, $arguments)
-	{
-		if (count($arguments) === 0 && property_exists($this->data, $name)) {
-			$value = $this->data->{$name};
-			if (is_object($value)) {
-				return new NestedObject($name, $value);
-			} else {
-				return $value;
+		foreach ($data as $key => $data_element) {
+			if (is_array($data_element)) {
+				$data[$key] = new NestedArray($name, $data_element);
+			} else if (is_object($data_element)) {
+				$data[$key] = new NestedObject($name, $data_element);
 			}
 		}
-		return false;
+		$this->name = $name;
+		$this->data = $data;
+		parent::__construct($this->data);
 	}
 
 	/**

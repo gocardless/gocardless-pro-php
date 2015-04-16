@@ -48,7 +48,8 @@ Add this beta repo to the contents of your composer.json:
 
 - In the case of singular responses, Crank will return you an response object with getters matching the json descriptions and an attached response().
 - In the case of list responses, Crank returns an list response object that is read-only. Raw array data can be retrieved from the items() function of the object.
-- In the case of non JSON responses, Crank will return the raw response (PDFs etc.)
+- In the case of non JSON responses, Crank will return the raw response (PDFs etc.) (through resource->response()->raw())
+- To access data elements, use getter methods with underscores (given_name) matching the JSON response for consistency. 
 
 ### Client Initialisation
 ```php
@@ -77,7 +78,7 @@ If you need to pass any options, the last (or in the absence of URL params, the 
 $resources = $client->resource()->list(array('limit' => 400));
 echo count($resources);
 foreach ($resources as $resource) {
-  $resource->propertyName();
+  $resource->property_name();
 }
 ```
 
@@ -88,9 +89,6 @@ $customer = $client->customers()->show('CUXXXX');
 echo $customer->given_name();
 
 ```
-
-The resource returned contains camelCased getter methods.
-
 
 As with list, the last argument can be an options hash:
 
