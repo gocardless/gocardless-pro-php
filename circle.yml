@@ -1,6 +1,6 @@
 dependencies:
   cache_directories:
-    vendor/
+    - vendor/
 
 machine:
   php:
