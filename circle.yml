@@ -8,7 +8,7 @@ machine:
 
 deployment:
   git:
-    branch: php-library
+    branch: dev
     commands:
       - make docs
       - git config user.name "Circle CI"
@@ -19,5 +19,5 @@ deployment:
       - rm -r vendor
       - mv docs/api/* .
       - git add .
-      - git commit -m "[ci skip] Generate Yard Doc"
+      - git commit -m "[ci skip] Generate PHP Doc"
       - git push origin gh-pages
