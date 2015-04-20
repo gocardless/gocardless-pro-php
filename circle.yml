@@ -4,7 +4,7 @@ dependencies:
 
 machine:
   php:
-    version: 5.3.3
+    version: 5.4.5
 
 deployment:
   git:
