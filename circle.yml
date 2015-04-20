@@ -16,7 +16,8 @@ deployment:
       - rm -rf ./tests ./vendor
       - rm -f composer.json composer.lock docs/api/.htaccess
       - git checkout gh-pages
-      - mv docs/api/* .
+      - cp -r docs/api/* .
+      - rm -rf docs/
       - touch .nojekyll
       - git add .
       - git commit -m "[ci skip] Generate PHP Doc"

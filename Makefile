@@ -11,7 +11,7 @@ test: vendor/
 	./vendor/bin/phpunit
 
 docs:
-	phpdoc -d ./lib -t docs/api
+	phpdoc -d ./lib -t docs/api --cache-folder docs/cache
 
 clean_docs:
 	rm -r ./docs/api
