@@ -27,9 +27,14 @@ class Customer extends Base
     *  Creates a new customer object.
     *
     *  Example URL: /customers
-    *  @return Customer
-    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
-    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
+    *
+    *
+    * @param array $params POST/URL parameters for the argument. Automatically wrapped.
+    * @param array $headers String to string associative array of custom headers to add to the requestion.
+    *
+    * @return Customer
+    * @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    * @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function create($params = array(), $headers = array())
     {
@@ -44,9 +49,14 @@ class Customer extends Base
     *  list of your customers.
     *
     *  Example URL: /customers
-    *  @return \GoCardless\Core\ListResponse
-    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
-    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
+    *
+    *
+    * @param array $params POST/URL parameters for the argument. Automatically wrapped.
+    * @param array $headers String to string associative array of custom headers to add to the requestion.
+    *
+    * @return \GoCardless\Core\ListResponse
+    * @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    * @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function do_list($params = array(), $headers = array())
     {
@@ -60,10 +70,14 @@ class Customer extends Base
     *
     *  Example URL: /customers/:identity
     *
-    *  @param identity:  Unique identifier, beginning with "CU".
-    *  @return Customer
-    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
-    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
+    *
+    * @param string $identity Unique identifier, beginning with "CU".
+    * @param array $params POST/URL parameters for the argument. Automatically wrapped.
+    * @param array $headers String to string associative array of custom headers to add to the requestion.
+    *
+    * @return Customer
+    * @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    * @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function get($identity, $params = array(), $headers = array())
     {
@@ -82,10 +96,14 @@ class Customer extends Base
     *
     *  Example URL: /customers/:identity
     *
-    *  @param identity:  Unique identifier, beginning with "CU".
-    *  @return Customer
-    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
-    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
+    *
+    * @param string $identity Unique identifier, beginning with "CU".
+    * @param array $params POST/URL parameters for the argument. Automatically wrapped.
+    * @param array $headers String to string associative array of custom headers to add to the requestion.
+    *
+    * @return Customer
+    * @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    * @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function update($identity, $params = array(), $headers = array())
     {
@@ -105,12 +123,17 @@ class Customer extends Base
     *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
     *  list of your customers.
     *
-    *  Example URL: /customers\
-    *  @return \GoCardless\Core\Paginator
+    * Example URL: /customers
+    *
+    * @param int $list_max The maximum number of records to return while paginating.
+    * @param string[mixed] $params POST/URL parameters for the argument. Automatically wrapped.
+    * @param string[string] $headers String to string associative array of custom headers to add to the requestion.
+    *
+    * @return \GoCardless\Core\Paginator
     **/
-    public function all($list_max, $options = array(), $headers = array())
+    public function all($list_max, $params = array(), $headers = array())
     {
-        return new \GoCardless\Core\Paginator($this, $list_max, $this->do_list($options), $options, $headers);
+        return new \GoCardless\Core\Paginator($this, $list_max, $this->do_list($params), $params, $headers);
     }
 
 

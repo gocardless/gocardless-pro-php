@@ -2,7 +2,7 @@
 
 - [PHP Doc API Doc](http://gocardless.github.io/gocardless-pro-php/)
 - [GoCardless Pro API Docs](https://developer.gocardless.com/pro/)
-- [Composer Package](https://packagist.org/packages/)
+- [Composer Package](https://packagist.org/packages/gocardless/gocardless-pro-php)
 
 ### Installation
 
@@ -34,13 +34,7 @@ Add this beta repo to the contents of your composer.json:
 {
     "require": {
         "gocardless/gocardless-pro-php": "0.0.1"
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url":  "git@github.com:gocardless/gocardless-pro-php.git"
-        }
-    ]
+    }
 }
 ```
 
@@ -62,6 +56,8 @@ $client = new \GoCardless\Client(array(
 The api_key and api_secret can be found under the organisation tab, the environment can either be `\GoCardless\Environment::SANDBOX` or `\GoCardless\Environment::PRODUCTION`.
 
 Given the client object, resource objects can be accessed then methods on each resource can be called to either fetch or manipulate the resource's members.
+
+The resource objects and returned services can be found in the [PHP API Doc for Client](http://gocardless.github.io/gocardless-pro-php/classes/GoCardless.Client.html).
 
 ### GET requests
 

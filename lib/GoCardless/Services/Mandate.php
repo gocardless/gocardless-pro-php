@@ -29,9 +29,14 @@ class Mandate extends Base
     *  Creates a new mandate object
     *
     *  Example URL: /mandates
-    *  @return Mandate
-    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
-    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
+    *
+    *
+    * @param array $params POST/URL parameters for the argument. Automatically wrapped.
+    * @param array $headers String to string associative array of custom headers to add to the requestion.
+    *
+    * @return Mandate
+    * @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    * @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function create($params = array(), $headers = array())
     {
@@ -47,9 +52,14 @@ class Mandate extends Base
     *  used one at a time.
     *
     *  Example URL: /mandates
-    *  @return \GoCardless\Core\ListResponse
-    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
-    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
+    *
+    *
+    * @param array $params POST/URL parameters for the argument. Automatically wrapped.
+    * @param array $headers String to string associative array of custom headers to add to the requestion.
+    *
+    * @return \GoCardless\Core\ListResponse
+    * @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    * @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function do_list($params = array(), $headers = array())
     {
@@ -74,10 +84,14 @@ class Mandate extends Base
     *
     *  Example URL: /mandates/:identity
     *
-    *  @param identity:  Unique identifier, beginning with "MD"
-    *  @return Mandate
-    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
-    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
+    *
+    * @param string $identity Unique identifier, beginning with "MD"
+    * @param array $params POST/URL parameters for the argument. Automatically wrapped.
+    * @param array $headers String to string associative array of custom headers to add to the requestion.
+    *
+    * @return Mandate
+    * @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    * @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function get($identity, $params = array(), $headers = array())
     {
@@ -95,10 +109,14 @@ class Mandate extends Base
     *
     *  Example URL: /mandates/:identity
     *
-    *  @param identity:  Unique identifier, beginning with "MD"
-    *  @return Mandate
-    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
-    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
+    *
+    * @param string $identity Unique identifier, beginning with "MD"
+    * @param array $params POST/URL parameters for the argument. Automatically wrapped.
+    * @param array $headers String to string associative array of custom headers to add to the requestion.
+    *
+    * @return Mandate
+    * @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    * @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function update($identity, $params = array(), $headers = array())
     {
@@ -121,10 +139,14 @@ class Mandate extends Base
     *
     *  Example URL: /mandates/:identity/actions/cancel
     *
-    *  @param identity:  Unique identifier, beginning with "MD"
-    *  @return Mandate
-    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
-    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
+    *
+    * @param string $identity Unique identifier, beginning with "MD"
+    * @param array $params POST/URL parameters for the argument. Automatically wrapped.
+    * @param array $headers String to string associative array of custom headers to add to the requestion.
+    *
+    * @return Mandate
+    * @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    * @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function cancel($identity, $params = array(), $headers = array())
     {
@@ -152,10 +174,14 @@ class Mandate extends Base
     *
     *  Example URL: /mandates/:identity/actions/reinstate
     *
-    *  @param identity:  Unique identifier, beginning with "MD"
-    *  @return Mandate
-    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
-    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
+    *
+    * @param string $identity Unique identifier, beginning with "MD"
+    * @param array $params POST/URL parameters for the argument. Automatically wrapped.
+    * @param array $headers String to string associative array of custom headers to add to the requestion.
+    *
+    * @return Mandate
+    * @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    * @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function reinstate($identity, $params = array(), $headers = array())
     {
@@ -176,12 +202,17 @@ class Mandate extends Base
     *  list of your mandates. Except where stated, these filters can only be
     *  used one at a time.
     *
-    *  Example URL: /mandates\
-    *  @return \GoCardless\Core\Paginator
+    * Example URL: /mandates
+    *
+    * @param int $list_max The maximum number of records to return while paginating.
+    * @param string[mixed] $params POST/URL parameters for the argument. Automatically wrapped.
+    * @param string[string] $headers String to string associative array of custom headers to add to the requestion.
+    *
+    * @return \GoCardless\Core\Paginator
     **/
-    public function all($list_max, $options = array(), $headers = array())
+    public function all($list_max, $params = array(), $headers = array())
     {
-        return new \GoCardless\Core\Paginator($this, $list_max, $this->do_list($options), $options, $headers);
+        return new \GoCardless\Core\Paginator($this, $list_max, $this->do_list($params), $params, $headers);
     }
 
 

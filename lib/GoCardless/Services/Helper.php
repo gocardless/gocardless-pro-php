@@ -47,9 +47,14 @@ class Helper extends Base
     *  endpoint](https://developer.gocardless.com/pro/#mandates-get-a-single-mandate).
     *
     *  Example URL: /helpers/mandate
-    *  @return Helper
-    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
-    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
+    *
+    *
+    * @param array $params POST/URL parameters for the argument. Automatically wrapped.
+    * @param array $headers String to string associative array of custom headers to add to the requestion.
+    *
+    * @return Helper
+    * @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    * @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function mandate($params = array(), $headers = array())
     {
@@ -71,9 +76,14 @@ class Helper extends Base
     *  section.
     *
     *  Example URL: /helpers/modulus_check
-    *  @return Helper
-    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
-    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
+    *
+    *
+    * @param array $params POST/URL parameters for the argument. Automatically wrapped.
+    * @param array $headers String to string associative array of custom headers to add to the requestion.
+    *
+    * @return Helper
+    * @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    * @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function modulus_check($params = array(), $headers = array())
     {

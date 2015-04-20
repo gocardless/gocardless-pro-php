@@ -65,9 +65,14 @@ class RedirectFlow extends Base
     *  customer to the GoCardless Pro hosted payment pages.
     *
     *  Example URL: /redirect_flows
-    *  @return RedirectFlow
-    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
-    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
+    *
+    *
+    * @param array $params POST/URL parameters for the argument. Automatically wrapped.
+    * @param array $headers String to string associative array of custom headers to add to the requestion.
+    *
+    * @return RedirectFlow
+    * @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    * @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function create($params = array(), $headers = array())
     {
@@ -81,10 +86,14 @@ class RedirectFlow extends Base
     *
     *  Example URL: /redirect_flows/:identity
     *
-    *  @param identity:  Unique identifier, beginning with "RE"
-    *  @return RedirectFlow
-    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
-    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
+    *
+    * @param string $identity Unique identifier, beginning with "RE"
+    * @param array $params POST/URL parameters for the argument. Automatically wrapped.
+    * @param array $headers String to string associative array of custom headers to add to the requestion.
+    *
+    * @return RedirectFlow
+    * @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    * @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function get($identity, $params = array(), $headers = array())
     {
@@ -116,10 +125,14 @@ class RedirectFlow extends Base
     *
     *  Example URL: /redirect_flows/:identity/actions/complete
     *
-    *  @param identity:  Unique identifier, beginning with "RE"
-    *  @return RedirectFlow
-    *  @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
-    *  @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
+    *
+    * @param string $identity Unique identifier, beginning with "RE"
+    * @param array $params POST/URL parameters for the argument. Automatically wrapped.
+    * @param array $headers String to string associative array of custom headers to add to the requestion.
+    *
+    * @return RedirectFlow
+    * @throws \GoCardless\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
+    * @throws \GoCardless\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function complete($identity, $params = array(), $headers = array())
     {
