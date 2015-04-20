@@ -1,8 +1,8 @@
 # PHP Client for GoCardless Enterprise API
 
-- [PHP Doc API Doc](http://gocardless.github.io/gocardless/gocardless-pro-php/)
+- [PHP Doc API Doc](http://gocardless.github.io/gocardless-pro-php/)
 - [GoCardless Pro API Docs](https://developer.gocardless.com/pro/)
-- [Composer Package](https://rubygems.org/gems/gocardless-pro)
+- [Composer Package](https://packagist.org/packages/)
 
 ### Installation
 
