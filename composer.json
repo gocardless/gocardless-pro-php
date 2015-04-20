@@ -1,5 +1,5 @@
 {
-  "name": "gocardless/pro-client-php",
+  "name": "gocardless/gocardless-pro-php",
   "description": "GoCardless Pro PHP Client Library",
   "keywords": [
     "gocardless",
@@ -11,11 +11,11 @@
   "authors": [
     {
       "name": "GoCardless and contributors",
-      "homepage": "https://github.com/gocardless/pro-client-php/contributors"
+      "homepage": "https://github.com/gocardless/gocardless-pro-php/contributors"
     }
   ],
   "require": {
-    "php": ">=5.2.0",
+    "php": ">=5.3.3",
     "ext-curl": "*",
     "ext-json": "*",
     "ext-mbstring": "*"

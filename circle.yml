@@ -14,9 +14,7 @@ deployment:
       - git config user.name "Circle CI"
       - git config user.email "robot+circleci@gocardless.com"
       - git checkout gh-pages
-      - rm -fr ./tests
-      - rm -fr composer.json
-      - rm -fr vendor
+      - rm -fr ./tests composer.json vendor/ composer.lock docs/api/.htaccess
       - mv docs/api/* .
       - touch .nojekyll
       - git add .
