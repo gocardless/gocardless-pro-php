@@ -102,9 +102,9 @@ class GoCardlessErrorTest extends \PHPUnit_Framework_TestCase
         try {
             throw GoCardlessError::makeApiError($this->getFixture('invalid_api_usage'), 400);
         } catch (InvalidApiUsageError $e) {
-            $this->assertEquals('invalid_api_usage', $e->error()->type);
+            $this->assertEquals('invalid_api_usage', $e->error()->type());
             $errors = $e->errors();
-            $this->assertEquals('invalid_document_structure', $errors[0]->reason);
+            $this->assertEquals('invalid_document_structure', $errors[0]->reason());
             $this->assertEquals(400, $e->http_status());
             $this->assertEquals('https://developer.gocardless.com/pro#invalid_document_structure', $e->documentation_url());
             }
@@ -117,9 +117,9 @@ class GoCardlessErrorTest extends \PHPUnit_Framework_TestCase
         try {
             throw GoCardlessError::makeApiError($this->getFixture('other'), 400);
         } catch (GoCardlessError $e) {
-            $this->assertEquals('backend_failure', $e->error()->type);
+            $this->assertEquals('backend_failure', $e->error()->type());
             $errors = $e->errors();
-            $this->assertEquals('backend_failure', $errors[0]->reason);
+            $this->assertEquals('backend_failure', $errors[0]->reason());
             $this->assertEquals(400, $e->http_status());
             $this->assertEquals('https://developer.gocardless.com/pro#internal_error', $e->documentation_url());
             }
@@ -132,9 +132,9 @@ class GoCardlessErrorTest extends \PHPUnit_Framework_TestCase
         try {
             throw GoCardlessError::makeApiError($this->getFixture('invalid_state'), 410);
         } catch (InvalidStateError $e) {
-            $this->assertEquals('invalid_state', $e->error()->type);
+            $this->assertEquals('invalid_state', $e->error()->type());
             $errors = $e->errors();
-            $this->assertEquals('bank_account_cannot_delete', $errors[0]->reason);
+            $this->assertEquals('bank_account_cannot_delete', $errors[0]->reason());
             $this->assertEquals(410, $e->http_status());
             $this->assertEquals('https://developer.gocardless.com/pro#invalid_state_error', $e->documentation_url());
             }
@@ -147,9 +147,9 @@ class GoCardlessErrorTest extends \PHPUnit_Framework_TestCase
         try {
             throw GoCardlessError::makeApiError($this->getFixture('validation_failed'), 400);
         } catch (ValidationFailedError $e) {
-            $this->assertEquals('validation_failed', $e->error()->type);
+            $this->assertEquals('validation_failed', $e->error()->type());
             $errors = $e->errors();
-            $this->assertEquals('bank_account_exists', $errors[0]->reason);
+            $this->assertEquals('bank_account_exists', $errors[0]->reason());
             $this->assertEquals(400, $e->http_status());
             $this->assertEquals('https://developer.gocardless.com/pro#bank_account_exists', $e->documentation_url());
             }

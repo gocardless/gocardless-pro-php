@@ -61,7 +61,7 @@ class GoCardlessError extends \Exception
     /** @see GoCardlessError::$error */
     public function error()
     {
-        return $this->error->error;
+        return new \GoCardless\Resources\Wrapper\NestedObject('error', $this->error->error);
     }
 
     /**
@@ -73,7 +73,7 @@ class GoCardlessError extends \Exception
       */
     public function errors()
     {
-        return $this->error->error->errors;
+        return new \GoCardless\Resources\Wrapper\NestedArray('errors', $this->error->error->errors);
     }
 
     /**
@@ -83,8 +83,8 @@ class GoCardlessError extends \Exception
       */
     public function documentation_url()
     {
-      if (isset($this->error()->documentation_url)) {
-        return $this->error()->documentation_url;
+      if (isset($this->error) && isset($this->error->error->documentation_url)) {
+        return $this->error->error->documentation_url;
       }
       return null;
     }
