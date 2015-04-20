@@ -18,6 +18,7 @@ deployment:
       - rm -r composer.json
       - rm -r vendor
       - mv docs/api/* .
+      - touch .nojekyll
       - git add .
       - git commit -m "[ci skip] Generate PHP Doc"
       - git push origin gh-pages

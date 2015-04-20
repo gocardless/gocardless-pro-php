@@ -28,7 +28,8 @@ class PaginatorTest extends \PHPUnit_Framework_TestCase
 
     public function testSinglePage()
     {
-        $this->assertEquals('.co.uk', $this->paginator->items()[0]->data()->domain);
+        $items = $this->paginator->items();
+        $this->assertEquals('.co.uk', $items[0]->data()->domain);
         $this->assertTrue($this->paginator->next_page());
         $this->assertTrue($this->paginator->previous_page());
         $this->assertFalse($this->paginator->previous_page());
@@ -36,9 +37,11 @@ class PaginatorTest extends \PHPUnit_Framework_TestCase
 
     public function testTwoPages()
     {
-        $this->assertEquals('.co.uk', $this->paginator->items()[0]->data()->domain);
+        $items = $this->paginator->items();
+        $this->assertEquals('.co.uk', $items[0]->data()->domain);
         $this->assertTrue($this->paginator->next_page());
-        $this->assertEquals('.com', $this->paginator->items()[0]->data()->domain);
+        $items = $this->paginator->items();
+        $this->assertEquals('.com', $items[0]->data()->domain);
         $this->assertFalse($this->paginator->next_page());
         $this->assertEmpty($this->paginator->items());
     }
@@ -79,11 +82,13 @@ class PaginatorTest extends \PHPUnit_Framework_TestCase
     public function testForwardsBackwards()
     {
         $this->paginator->next_page();
+        $items = $this->paginator->items();
         $this->assertEquals(2, count($this->paginator->items()));
-        $this->assertEquals('.com', $this->paginator->items()[0]->data()->domain);
+        $this->assertEquals('.com', $items[0]->data()->domain);
         $this->paginator->previous_page();
         $this->assertEquals(3, count($this->paginator->items()));
-        $this->assertEquals('.co.uk', $this->paginator->items()[0]->data()->domain);
+        $items = $this->paginator->items();
+        $this->assertEquals('.co.uk', $items[0]->data()->domain);
 
     }
 }
