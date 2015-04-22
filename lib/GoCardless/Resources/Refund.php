@@ -19,10 +19,11 @@ namespace GoCardless\Resources;
   * 
   * GoCardless will notify you via a
   * [webhook](https://developer.gocardless.com/pro/#webhooks) whenever a refund
-  * is created.
-  * 
-  * _Note:_ A payment that has been (partially) refunded
-  * can still receive a late failure or chargeback from the banks.
+  * is created, and will update the `amount_refunded` property of the payment.
+ 
+  * * 
+  * _Note:_ A payment that has been (partially) refunded can still
+  * receive a late failure or chargeback from the banks.
   */
 class Refund extends Base
 {
