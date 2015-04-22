@@ -32,6 +32,18 @@ class Request
     }
 
   /**
+    * Gets the request envelope key.
+    * @param string $type request type to match
+    */
+    private function getReqEnvelopeKey($type)
+    {
+        if ($type !== 'create' && $type !== 'update') {
+            return 'data';
+        }
+        return $this->envelope_key;
+    }
+
+  /**
     * Runs a raw HTTP request
     *
     * @param string $method HTTP Method
@@ -44,10 +56,16 @@ class Request
     *
     * @return Response
     */
-    public function run($method, $path, $options, $headers = array())
+    public function run($type, $method, $path, $options, $headers = array())
     {
         $method = strtolower($method);
         $postBody = null;
+
+        $req_envelope_key = $this->envelope_key;
+        // Envelope key fix: data on all actions that are not create or update with a post body.
+        if ($type !== 'create' && $type !== 'update') {
+            $req_envelope_key = 'data';
+        }
 
         if (in_array($method, self::$params_methods)) {
             $urlParams = http_build_query($options);
@@ -59,7 +77,7 @@ class Request
                 $path = $path . '?' . $urlParams;
             }
         } elseif (in_array($method, self::$body_methods)) {
-            $postBody = json_encode(array($this->envelope_key => $options));
+            $postBody = json_encode(array($this->getReqEnvelopeKey($type) => $options));
         } else {
             throw new \Exception('Unsupported HTTP Method');
         }

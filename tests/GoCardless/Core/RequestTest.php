@@ -32,22 +32,22 @@ class RequestTest extends \PHPUnit_Framework_TestCase
 
     public function testHandlesProperQueryParameters()
     {
-        $this->request->run('get', '/hi', array('age' => '23'));
+        $this->request->run('hi', 'get', '/hi', array('age' => '23'));
         $this->assertEquals('https://example.com/hi?age=23', StaticStorage::getOpt(CURLOPT_URL));
     }
     public function testHandlesJoinedQueryParameters()
     {
-        $this->request->run('get', '/hi?name=jane', array('age' => '23'));
+        $this->request->run('hi', 'get', '/hi?name=jane', array('age' => '23'));
         $this->assertEquals('https://example.com/hi?name=jane&age=23', StaticStorage::getOpt(CURLOPT_URL));
     }
     public function testHandlesMultipleQueryParams()
     {
-        $this->request->run('get', '/hi?name=jane&', array('age' => '23'));
+        $this->request->run('hi', 'get', '/hi?name=jane&', array('age' => '23'));
         $this->assertEquals('https://example.com/hi?name=jane&age=23', StaticStorage::getOpt(CURLOPT_URL));
     }
     public function testHandlesAdjacentQueryParams()
     {
-        $this->request->run('get', '/hi?', array('age' => '23'));
+        $this->request->run('hi', 'get', '/hi?', array('age' => '23'));
         $this->assertEquals('https://example.com/hi?age=23', StaticStorage::getOpt(CURLOPT_URL));
     }
 }

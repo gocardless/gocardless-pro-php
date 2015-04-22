@@ -51,7 +51,7 @@ class Payment extends Base
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->make_request('post', '/payments', $params);
+        return $this->make_request('create', 'post', '/payments', $params);
     }
 
   /**
@@ -73,7 +73,7 @@ class Payment extends Base
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->make_request('get', '/payments', $params);
+        return $this->make_request('list', 'get', '/payments', $params);
     }
 
   /**

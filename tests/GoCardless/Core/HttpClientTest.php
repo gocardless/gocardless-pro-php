@@ -51,7 +51,7 @@ class HttpClientTest extends \PHPUnit_Framework_TestCase
         StaticStorage::setRetVal(CURLINFO_CONTENT_TYPE, 'application/json');
 
         $request = $this->http_client->make_request('thiskey');
-        $response = $request->run('get', '/', array());
+        $response = $request->run('index', 'get', '/', array());
 
         $this->assertEquals('hi!', $response->response());
         $this->assertEquals(200, $response->status());
@@ -65,7 +65,7 @@ class HttpClientTest extends \PHPUnit_Framework_TestCase
         StaticStorage::setRetVal(CURLINFO_CONTENT_TYPE, 'application/json');
 
         $request = $this->http_client->make_request('thiskey');
-        $response = $request->run('get', '/hi', array('age' => '23'));
+        $response = $request->run('hi', 'get', '/hi', array('age' => '23'));
 
         $this->assertEquals('https://example.com/hi?age=23', StaticStorage::getOpt(CURLOPT_URL));
     }
@@ -77,7 +77,7 @@ class HttpClientTest extends \PHPUnit_Framework_TestCase
         StaticStorage::setRetVal(CURLINFO_CONTENT_TYPE, 'application/json');
 
         $request = $this->http_client->make_request('thiskey');
-        $response = $request->run('get', '/hi?name=jane', array('age' => '23'));
+        $response = $request->run('hi_name', 'get', '/hi?name=jane', array('age' => '23'));
 
         $this->assertEquals('https://example.com/hi?name=jane&age=23', StaticStorage::getOpt(CURLOPT_URL));
     }
@@ -88,7 +88,7 @@ class HttpClientTest extends \PHPUnit_Framework_TestCase
         StaticStorage::setRetVal(CURLINFO_CONTENT_TYPE, 'application/json');
 
         $request = $this->http_client->make_request('thiskey');
-        $response = $request->run('get', '/hi?name=jane', array('age' => '23'));
+        $response = $request->run('hi_name', 'get', '/hi?name=jane', array('age' => '23'));
 
         $this->assertEquals('https://example.com/hi?name=jane&age=23', StaticStorage::getOpt(CURLOPT_URL));
     }

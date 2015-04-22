@@ -41,7 +41,7 @@ class Payout extends Base
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->make_request('get', '/payouts', $params);
+        return $this->make_request('list', 'get', '/payouts', $params);
     }
 
   /**

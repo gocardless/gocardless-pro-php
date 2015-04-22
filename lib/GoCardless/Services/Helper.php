@@ -58,7 +58,7 @@ class Helper extends Base
     **/
     public function mandate($params = array(), $headers = array())
     {
-        return $this->make_request('post', '/helpers/mandate', $params);
+        return $this->make_request('mandate', 'post', '/helpers/mandate', $params);
     }
 
   /**
@@ -87,7 +87,7 @@ class Helper extends Base
     **/
     public function modulus_check($params = array(), $headers = array())
     {
-        return $this->make_request('post', '/helpers/modulus_check', $params);
+        return $this->make_request('modulus_check', 'post', '/helpers/modulus_check', $params);
     }
 
 

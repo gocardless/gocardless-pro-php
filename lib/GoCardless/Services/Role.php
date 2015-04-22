@@ -92,7 +92,7 @@ class Role extends Base
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->make_request('post', '/roles', $params);
+        return $this->make_request('create', 'post', '/roles', $params);
     }
 
   /**
@@ -112,7 +112,7 @@ class Role extends Base
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->make_request('get', '/roles', $params);
+        return $this->make_request('list', 'get', '/roles', $params);
     }
 
   /**

@@ -43,7 +43,7 @@ class Creditor extends Base
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->make_request('post', '/creditors', $params);
+        return $this->make_request('create', 'post', '/creditors', $params);
     }
 
   /**
@@ -65,7 +65,7 @@ class Creditor extends Base
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->make_request('get', '/creditors', $params);
+        return $this->make_request('list', 'get', '/creditors', $params);
     }
 
   /**

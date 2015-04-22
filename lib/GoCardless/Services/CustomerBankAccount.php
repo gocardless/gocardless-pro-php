@@ -64,7 +64,7 @@ class CustomerBankAccount extends Base
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->make_request('post', '/customer_bank_accounts', $params);
+        return $this->make_request('create', 'post', '/customer_bank_accounts', $params);
     }
 
   /**
@@ -86,7 +86,7 @@ class CustomerBankAccount extends Base
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->make_request('get', '/customer_bank_accounts', $params);
+        return $this->make_request('list', 'get', '/customer_bank_accounts', $params);
     }
 
   /**

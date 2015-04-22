@@ -64,7 +64,7 @@ class Refund extends Base
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->make_request('post', '/refunds', $params);
+        return $this->make_request('create', 'post', '/refunds', $params);
     }
 
   /**
@@ -86,7 +86,7 @@ class Refund extends Base
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->make_request('get', '/refunds', $params);
+        return $this->make_request('list', 'get', '/refunds', $params);
     }
 
   /**

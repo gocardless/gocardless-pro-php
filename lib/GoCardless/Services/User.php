@@ -35,7 +35,7 @@ class User extends Base
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->make_request('post', '/users', $params);
+        return $this->make_request('create', 'post', '/users', $params);
     }
 
   /**
@@ -57,7 +57,7 @@ class User extends Base
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->make_request('get', '/users', $params);
+        return $this->make_request('list', 'get', '/users', $params);
     }
 
   /**

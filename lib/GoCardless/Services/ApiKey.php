@@ -37,7 +37,7 @@ class ApiKey extends Base
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->make_request('post', '/api_keys', $params);
+        return $this->make_request('create', 'post', '/api_keys', $params);
     }
 
   /**
@@ -59,7 +59,7 @@ class ApiKey extends Base
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->make_request('get', '/api_keys', $params);
+        return $this->make_request('list', 'get', '/api_keys', $params);
     }
 
   /**
