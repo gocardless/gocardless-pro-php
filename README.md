@@ -33,7 +33,7 @@ Add this beta repo to the contents of your composer.json:
 ```javascript
 {
     "require": {
-        "gocardless/gocardless-pro-php": "0.0.1"
+        "gocardless/gocardless-pro-php": "0.0.2"
     }
 }
 ```

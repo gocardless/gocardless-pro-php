@@ -69,7 +69,7 @@ class CurlWrapper
     private function getUserAgent()
     {
         $curlinfo = curl_version();
-        $uagent = 'GoCardless Client v0.0.1; ';
+        $uagent = 'GoCardless Client v0.0.2; ';
         $uagent .= 'OS ' . $curlinfo['host'] . '; ';
         $uagent .= 'Curl ' . $curlinfo['version'] . '; ';
         $uagent .= 'PHP ' . phpversion() . ';';
