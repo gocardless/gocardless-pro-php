@@ -101,7 +101,7 @@ class RedirectFlow extends Base
             'identity' => $identity
         ));
 
-        return $this->make_request('get', $path, $params, $headers);
+        return $this->make_request('get', 'get', $path, $params, $headers);
     }
 
   /**
@@ -140,7 +140,7 @@ class RedirectFlow extends Base
             'identity' => $identity
         ));
 
-        return $this->make_request('post', $path, $params, $headers);
+        return $this->make_request('complete', 'post', $path, $params, $headers);
     }
 
 

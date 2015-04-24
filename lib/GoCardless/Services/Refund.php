@@ -112,7 +112,7 @@ class Refund extends Base
             'identity' => $identity
         ));
 
-        return $this->make_request('get', $path, $params, $headers);
+        return $this->make_request('get', 'get', $path, $params, $headers);
     }
 
   /**
@@ -137,7 +137,7 @@ class Refund extends Base
             'identity' => $identity
         ));
 
-        return $this->make_request('put', $path, $params, $headers);
+        return $this->make_request('update', 'put', $path, $params, $headers);
     }
 
 

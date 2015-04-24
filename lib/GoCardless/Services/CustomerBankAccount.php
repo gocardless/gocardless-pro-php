@@ -111,7 +111,7 @@ class CustomerBankAccount extends Base
             'identity' => $identity
         ));
 
-        return $this->make_request('get', $path, $params, $headers);
+        return $this->make_request('get', 'get', $path, $params, $headers);
     }
 
   /**
@@ -137,7 +137,7 @@ class CustomerBankAccount extends Base
             'identity' => $identity
         ));
 
-        return $this->make_request('put', $path, $params, $headers);
+        return $this->make_request('update', 'put', $path, $params, $headers);
     }
 
   /**
@@ -169,7 +169,7 @@ class CustomerBankAccount extends Base
             'identity' => $identity
         ));
 
-        return $this->make_request('post', $path, $params, $headers);
+        return $this->make_request('disable', 'post', $path, $params, $headers);
     }
 
 

@@ -34,10 +34,10 @@ abstract class Base
     * @uses Base::$client to make the HTTP Request
     * @return \GoCardless\Resources\Base|\GoCardless\Core\ListResponse
     */
-    protected function make_request($method, $uri, $opts, $headers = array())
+    protected function make_request($action, $method, $uri, $opts, $headers = array())
     {
         $req = $this->client->make_request($this->envelopeKey());
-        $response = $req->run($method, $uri, $opts, $headers);
+        $response = $req->run($action, $method, $uri, $opts, $headers);
         $resourceClass = $this->resourceClass();
         if (is_array($response->response())) {
             return new \GoCardless\Core\ListResponse($resourceClass, $response);
