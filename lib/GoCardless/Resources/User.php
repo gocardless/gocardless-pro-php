@@ -17,7 +17,7 @@ class User extends Base
 
   /**
     * Fixed
-    * [timestamp](https://developer.gocardless.com/pro/#overview-time-zones-dates),
+    * [timestamp](https://developer.gocardless.com/pro/2014-11-03/#overview-time-zones-dates),
     * recording when this resource was created.
     *
     * @return string

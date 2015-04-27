@@ -13,7 +13,7 @@ namespace GoCardless\Services;
   * @method \GoCardless\Core\ListResponse list() list(array $options = array(), array $headers = array()) gets a non-paginated list of models given finder options.
   *
   *  Each
-  *  [payment](https://developer.gocardless.com/pro/#api-endpoints-payments)
+  *  [payment](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-payments)
   *  taken through the API is linked to a "creditor", to whom the payment is
   *  then paid out. In most cases your organisation will have a single
   *  "creditor", but the API also supports collecting payments on behalf of
@@ -50,7 +50,7 @@ class Creditor extends Base
     *  List creditors
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
     *  list of your creditors.
     *
     *  Example URL: /creditors
@@ -125,7 +125,7 @@ class Creditor extends Base
     *  List creditors
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
     *  list of your creditors.
     *
     * Example URL: /creditors

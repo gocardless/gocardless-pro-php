@@ -15,26 +15,28 @@ namespace GoCardless\Resources;
   * 
   *
   * 1. You
-  * [create](https://developer.gocardless.com/pro/#create-a-redirect-flow) a
-  * redirect flow for your customer, and redirect them to the returned redirect
-  * url, e.g. `https://pay.gocardless.com/flow/RE123`.
+  * [create](https://developer.gocardless.com/pro/2014-11-03/#create-a-redirect-flow)
+  * a redirect flow for your customer, and redirect them to the returned
+  * redirect url, e.g. `https://pay.gocardless.com/flow/RE123`.
   * 
-  * 2. Your customer
-  * supplies their name, email, address, and bank account details, and submits
-  * the form. This securely stores their details, and redirects them back to
-  * your `success_redirect_url` with `redirect_flow_id=RE123` in the
+  * 2. Your
+  * customer supplies their name, email, address, and bank account details, and
+  * submits the form. This securely stores their details, and redirects them
+  * back to your `success_redirect_url` with `redirect_flow_id=RE123` in the
   * querystring.
   * 
   * 3. You
-  * [complete](https://developer.gocardless.com/pro/#complete-a-redirect-flow)
+  * [complete](https://developer.gocardless.com/pro/2014-11-03/#complete-a-redirect-flow)
   * the redirect flow, which creates a
-  * [customer](https://developer.gocardless.com/pro/#api-endpoints-customers),
+  * [customer](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customers),
   * [customer bank
-  * account](https://developer.gocardless.com/pro/#api-endpoints-customer-bank-accounts),
-  * and [mandate](https://developer.gocardless.com/pro/#api-endpoints-mandates),
+  * account](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customer-bank-accounts),
+  * and
+  * [mandate](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-mandates),
   * and returns the ID of the mandate. You may wish to create a
-  * [subscription](https://developer.gocardless.com/pro/#api-endpoints-subscriptions)
-  * or [payment](https://developer.gocardless.com/pro/#api-endpoints-payments)
+  * [subscription](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-subscriptions)
+  * or
+  * [payment](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-payments)
   * at this point.
   * 
   * It is recommended that you link the redirect flow to
@@ -43,7 +45,7 @@ namespace GoCardless\Resources;
   * 
   * Redirect flows expire 30 minutes
   * after they are first created. You cannot
-  * [complete](https://developer.gocardless.com/pro/#complete-a-redirect-flow)
+  * [complete](https://developer.gocardless.com/pro/2014-11-03/#complete-a-redirect-flow)
   * an expired redirect flow.
   * 
   * [View an example
@@ -57,7 +59,7 @@ class RedirectFlow extends Base
 
   /**
     * Fixed
-    * [timestamp](https://developer.gocardless.com/pro/#overview-time-zones-dates),
+    * [timestamp](https://developer.gocardless.com/pro/2014-11-03/#overview-time-zones-dates),
     * recording when this resource was created.
     *
     * @return string

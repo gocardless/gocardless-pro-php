@@ -13,16 +13,16 @@ namespace GoCardless\Services;
   * @method \GoCardless\Core\ListResponse list() list(array $options = array(), array $headers = array()) gets a non-paginated list of models given finder options.
   *
   *  Payment objects represent payments from a
-  *  [customer](https://developer.gocardless.com/pro/#api-endpoints-customers)
+  *  [customer](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customers)
   *  to a
-  *  [creditor](https://developer.gocardless.com/pro/#api-endpoints-creditors),
+  *  [creditor](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-creditors),
   *  taken against a Direct Debit
-  *  [mandate](https://developer.gocardless.com/pro/#api-endpoints-mandates).
- 
-  *  *  
+  *  [mandate](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-mandates).
+
+  *   *  
   *  GoCardless will notify you via a
-  *  [webhook](https://developer.gocardless.com/pro/#webhooks) whenever the
-  *  state of a payment changes.
+  *  [webhook](https://developer.gocardless.com/pro/2014-11-03/#webhooks)
+  *  whenever the state of a payment changes.
   */
 class Payment extends Base
 {
@@ -34,7 +34,7 @@ class Payment extends Base
     *  
  
     *    *  This fails with a `mandate_is_inactive` error if the linked
-    *  [mandate](https://developer.gocardless.com/pro/#api-endpoints-mandates)
+    *  [mandate](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-mandates)
     *  is cancelled. Payments can be created against `pending_submission`
     *  mandates, but they will not be submitted until the mandate becomes
     *  active.
@@ -58,7 +58,7 @@ class Payment extends Base
     *  List payments
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
     *  list of your payments.
     *
     *  Example URL: /payments
@@ -197,7 +197,7 @@ class Payment extends Base
     *  List payments
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
     *  list of your payments.
     *
     * Example URL: /payments

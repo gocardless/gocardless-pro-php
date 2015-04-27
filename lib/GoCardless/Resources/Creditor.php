@@ -8,7 +8,8 @@
 namespace GoCardless\Resources;
 
 /**
-  * Each [payment](https://developer.gocardless.com/pro/#api-endpoints-payments)
+  * Each
+  * [payment](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-payments)
   * taken through the API is linked to a "creditor", to whom the payment is then
   * paid out. In most cases your organisation will have a single "creditor", but
   * the API also supports collecting payments on behalf of others.
@@ -97,7 +98,7 @@ class Creditor extends Base
 
   /**
     * Fixed
-    * [timestamp](https://developer.gocardless.com/pro/#overview-time-zones-dates),
+    * [timestamp](https://developer.gocardless.com/pro/2014-11-03/#overview-time-zones-dates),
     * recording when this resource was created.
     *
     * @return string

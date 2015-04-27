@@ -44,7 +44,7 @@ class ApiKey extends Base
     *  List API keys
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
     *  list of your API keys.
     *
     *  Example URL: /api_keys
@@ -146,7 +146,7 @@ class ApiKey extends Base
     *  List API keys
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
     *  list of your API keys.
     *
     * Example URL: /api_keys

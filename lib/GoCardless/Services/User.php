@@ -42,7 +42,7 @@ class User extends Base
     *  List users
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
     *  list of your users.
     *
     *  Example URL: /users
@@ -168,7 +168,7 @@ class User extends Base
     *  List users
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
     *  list of your users.
     *
     * Example URL: /users

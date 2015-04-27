@@ -13,13 +13,13 @@ namespace GoCardless\Services;
   * @method \GoCardless\Core\ListResponse list() list(array $options = array(), array $headers = array()) gets a non-paginated list of models given finder options.
   *
   *  Publishable API keys are designed to be used by the [js
-  *  flow](https://developer.gocardless.com/pro/#api-endpoints-customer-bank-account-tokens).
+  *  flow](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customer-bank-account-tokens).
   *  You should generate a key and then use it to make requests to the API. They
   *  do not expire, but can be disabled.
   *  
   *  Publishable API keys only
   *  have permissions to create [customer bank account
-  *  tokens](https://developer.gocardless.com/pro/#api-endpoints-customer-bank-account-tokens).
+  *  tokens](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customer-bank-account-tokens).
   */
 class PublishableApiKey extends Base
 {
@@ -48,7 +48,7 @@ class PublishableApiKey extends Base
     *  List publishable API keys
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
     *  list of your publishable API keys
     *
     *  Example URL: /publishable_api_keys
@@ -149,7 +149,7 @@ class PublishableApiKey extends Base
     *  List publishable API keys
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
     *  list of your publishable API keys
     *
     * Example URL: /publishable_api_keys

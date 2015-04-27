@@ -9,21 +9,21 @@ namespace GoCardless\Resources;
 
 /**
   * Refund objects represent (partial) refunds of a
-  * [payment](https://developer.gocardless.com/pro/#api-endpoints-payment) back
-  * to the
-  * [customer](https://developer.gocardless.com/pro/#api-endpoints-customers).
- 
-  * * 
+  * [payment](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-payment)
+  * back to the
+  * [customer](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customers).
+
+  *  * 
   * The API allows you to create, show, list and update your refunds.
-  *
-  * 
-  * GoCardless will notify you via a
-  * [webhook](https://developer.gocardless.com/pro/#webhooks) whenever a refund
-  * is created, and will update the `amount_refunded` property of the payment.
  
   * * 
-  * _Note:_ A payment that has been (partially) refunded can still
-  * receive a late failure or chargeback from the banks.
+  * GoCardless will notify you via a
+  * [webhook](https://developer.gocardless.com/pro/2014-11-03/#webhooks)
+  * whenever a refund is created, and will update the `amount_refunded` property
+  * of the payment.
+  * 
+  * _Note:_ A payment that has been (partially)
+  * refunded can still receive a late failure or chargeback from the banks.
   */
 class Refund extends Base
 {
@@ -46,7 +46,7 @@ class Refund extends Base
 
   /**
     * Fixed
-    * [timestamp](https://developer.gocardless.com/pro/#overview-time-zones-dates),
+    * [timestamp](https://developer.gocardless.com/pro/2014-11-03/#overview-time-zones-dates),
     * recording when this resource was created.
     *
     * @return string
@@ -63,7 +63,7 @@ class Refund extends Base
   /**
     * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
     * code. This is set to the currency of the refund's
-    * [payment](https://developer.gocardless.com/pro/#api-endpoints-payments).
+    * [payment](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-payments).
     *
     * @return string
     */

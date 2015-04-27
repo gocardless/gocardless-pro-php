@@ -14,9 +14,9 @@ namespace GoCardless\Services;
   *
   *  Customer objects hold the contact details for a customer. A customer can
   *  have several [customer bank
-  *  accounts](https://developer.gocardless.com/pro/#api-endpoints-customer-bank-accounts),
+  *  accounts](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customer-bank-accounts),
   *  which in turn can have several Direct Debit
-  *  [mandates](https://developer.gocardless.com/pro/#api-endpoints-mandates).
+  *  [mandates](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-mandates).
   */
 class Customer extends Base
 {
@@ -45,7 +45,7 @@ class Customer extends Base
     *  List customers
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
     *  list of your customers.
     *
     *  Example URL: /customers
@@ -120,7 +120,7 @@ class Customer extends Base
     *  List customers
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
     *  list of your customers.
     *
     * Example URL: /customers
