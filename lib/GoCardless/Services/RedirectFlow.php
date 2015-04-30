@@ -111,7 +111,7 @@ class RedirectFlow extends Base
     *  This creates a
     *  [customer](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customers),
     *  [customer bank
-    *  account](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customer-bank-account),
+    *  account](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customer-bank-accounts),
     *  and
     *  [mandate](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-mandates)
     *  using the details supplied by your customer and returns the ID of the
