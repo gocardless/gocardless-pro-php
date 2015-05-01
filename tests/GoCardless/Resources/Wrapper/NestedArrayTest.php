@@ -3,8 +3,9 @@
 namespace GoCardless\Resources\Wrapper;
 
 /**
-  * Test Various Resources Classes
-  */
+ * Test Nested array behaviour that should
+ * only allow getters and will recursively return getters.
+ */
 class NestedArrayTest extends \PHPUnit_Framework_TestCase
 {
     function testObjectGet()

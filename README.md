@@ -79,7 +79,7 @@ If you need to pass any options, the last argument (or only argument, whether th
 $resources = $client->resource()->list(array('limit' => 400));
 echo count($resources);
 foreach ($resources as $resource) {
-  echo $resource->propertyName();
+  echo $resource->property_name();
 }
 ```
 
@@ -107,7 +107,7 @@ try {
   echo count($e->errors());
   // => $e is an ValidationFailedError.
 } catch (\GoCardless\Core\Error\HttpError $e) {
-  echo $e->getMessage();
+  echo $e;
 }
 ```
 

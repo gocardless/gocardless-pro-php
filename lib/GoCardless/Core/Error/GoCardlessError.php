@@ -38,12 +38,20 @@ class GoCardlessError extends \Exception
     }
 
     /**
+     * Ensures a given property exists on the error object.
+     */
+    private static function hasErrorObjectWith($error, $prop) {
+      return (is_object($error) && isset($error->error) 
+        && is_object($error->error) && isset($error->error->{$prop}));
+    }
+
+    /**
       * Factory for GoCardlessError and it's subclasses.
       * @return GoCardlessError|InvalidApiUsageError|InvalidStateError|ValidationFailedError
       */
     public static function makeApiError($error, $status)
     {
-        if (is_object($error) && isset($error->error) && isset($error->error->type)) {
+        if (self::hasErrorObjectWith($error, 'type')) {
             switch ($error->error->type) {
                 case 'invalid_api_usage':
                     return new InvalidApiUsageError($error, $status);
@@ -83,7 +91,7 @@ class GoCardlessError extends \Exception
       */
     public function documentation_url()
     {
-      if (isset($this->error) && isset($this->error->error->documentation_url)) {
+      if (self::hasErrorObjectWith($this->error, 'documentation_url')) {
         return $this->error->error->documentation_url;
       }
       return null;
