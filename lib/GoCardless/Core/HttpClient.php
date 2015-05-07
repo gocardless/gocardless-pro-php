@@ -48,7 +48,7 @@ class HttpClient
         $this->headers['accept'] = 'application/json';
 
         // Config Headers
-        $this->headers['GoCardless-Version'] = '2014-11-03';
+        $this->headers['GoCardless-Version'] = '2015-04-29';
         
     }
 

@@ -1,4 +1,4 @@
-Copyright (c) 2014 <no value>
+Copyright (c) 2014 Iain Nash
 
 MIT License
 
