@@ -13,9 +13,9 @@ namespace GoCardless\Services;
   * @method \GoCardless\Core\ListResponse list() list(array $options = array(), array $headers = array()) gets a non-paginated list of models given finder options.
   *
   *  Creditor Bank Accounts hold the bank details of a
-  *  [creditor](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-creditor).
+  *  [creditor](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-creditor).
   *  These are the bank accounts which your
-  *  [payouts](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-payouts)
+  *  [payouts](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payouts)
   *  will be sent to.
   *  
   *  Note that creditor bank accounts must be
@@ -55,7 +55,7 @@ class CreditorBankAccount extends Base
     *  List creditor bank accounts
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
     *  list of your creditor bank accounts.
     *
     *  Example URL: /creditor_bank_accounts
@@ -137,7 +137,7 @@ class CreditorBankAccount extends Base
     *  List creditor bank accounts
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
     *  list of your creditor bank accounts.
     *
     * Example URL: /creditor_bank_accounts

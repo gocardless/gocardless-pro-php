@@ -13,16 +13,16 @@ namespace GoCardless\Services;
   * @method \GoCardless\Core\ListResponse list() list(array $options = array(), array $headers = array()) gets a non-paginated list of models given finder options.
   *
   *  Refund objects represent (partial) refunds of a
-  *  [payment](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-payment)
+  *  [payment](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payment)
   *  back to the
-  *  [customer](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customers).
+  *  [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers).
 
   *   *  
   *  The API allows you to create, show, list and update your
   *  refunds.
   *  
   *  GoCardless will notify you via a
-  *  [webhook](https://developer.gocardless.com/pro/2014-11-03/#webhooks)
+  *  [webhook](https://developer.gocardless.com/pro/2015-04-29/#webhooks)
   *  whenever a refund is created, and will update the `amount_refunded`
   *  property of the payment.
   *  
@@ -44,7 +44,7 @@ class Refund extends Base
     *  
     *  -
     *  `refund_payment_invalid_state` error if the linked
-    *  [payment](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-payments)
+    *  [payment](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payments)
     *  isn't either `confirmed` or `paid_out`.
     *  
     *  -
@@ -73,7 +73,7 @@ class Refund extends Base
     *  List refunds
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
     *  list of your refunds.
     *
     *  Example URL: /refunds
@@ -147,7 +147,7 @@ class Refund extends Base
     *  List refunds
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
     *  list of your refunds.
     *
     * Example URL: /refunds

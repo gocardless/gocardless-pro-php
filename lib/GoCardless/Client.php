@@ -43,28 +43,10 @@ class Client
 
 
   /**
-    * API Keys
-    *
-    * <a name="api_key_not_active"></a>API keys are designed to be used by any
-    * integrations you build. You should generate a key and then use it to make
-    * requests to the API and set the webhook URL for that integration. They do
-    * not expire, but can be disabled.
-    *
-    * @return Services\ApiKey
-    */
-    public function api_keys()
-    {
-        if (!isset($this->api_keys)) {
-            $this->api_keys = new Services\ApiKey($this->http_client);
-        }
-        return $this->api_keys;
-    }
-
-  /**
     * Creditors
     *
     * Each
-    * [payment](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-payments)
+    * [payment](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payments)
     * taken through the API is linked to a "creditor", to whom the payment is
     * then paid out. In most cases your organisation will have a single
     * "creditor", but the API also supports collecting payments on behalf of
@@ -88,9 +70,9 @@ class Client
     * Creditor Bank Accounts
     *
     * Creditor Bank Accounts hold the bank details of a
-    * [creditor](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-creditor).
+    * [creditor](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-creditor).
     * These are the bank accounts which your
-    * [payouts](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-payouts)
+    * [payouts](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payouts)
     * will be sent to.
     * 
     * Note that creditor bank accounts must be
@@ -114,9 +96,9 @@ class Client
     *
     * Customer objects hold the contact details for a customer. A customer can
     * have several [customer bank
-    * accounts](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customer-bank-accounts),
+    * accounts](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customer-bank-accounts),
     * which in turn can have several Direct Debit
-    * [mandates](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-mandates).
+    * [mandates](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-mandates).
     *
     * @return Services\Customer
     */
@@ -132,11 +114,11 @@ class Client
     * Customer Bank Accounts
     *
     * Customer Bank Accounts hold the bank details of a
-    * [customer](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customers).
+    * [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers).
     * They always belong to a
-    * [customer](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customers),
+    * [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers),
     * and may be linked to several Direct Debit
-    * [mandates](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-mandates).
+    * [mandates](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-mandates).
 
     *    * 
     * Note that customer bank accounts must be unique, and so you
@@ -189,11 +171,11 @@ class Client
     * Mandates
     *
     * Mandates represent the Direct Debit mandate with a
-    * [customer](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customers).
+    * [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers).
 
     *    * 
     * GoCardless will notify you via a
-    * [webhook](https://developer.gocardless.com/pro/2014-11-03/#webhooks)
+    * [webhook](https://developer.gocardless.com/pro/2015-04-29/#webhooks)
     * whenever the status of a mandate changes.
     *
     * @return Services\Mandate
@@ -210,15 +192,15 @@ class Client
     * Payments
     *
     * Payment objects represent payments from a
-    * [customer](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customers)
+    * [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers)
     * to a
-    * [creditor](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-creditors),
+    * [creditor](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-creditors),
     * taken against a Direct Debit
-    * [mandate](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-mandates).
+    * [mandate](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-mandates).
 
     *    * 
     * GoCardless will notify you via a
-    * [webhook](https://developer.gocardless.com/pro/2014-11-03/#webhooks)
+    * [webhook](https://developer.gocardless.com/pro/2015-04-29/#webhooks)
     * whenever the state of a payment changes.
     *
     * @return Services\Payment
@@ -235,9 +217,9 @@ class Client
     * Payouts
     *
     * Payouts represent transfers from GoCardless to a
-    * [creditor](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-creditors).
+    * [creditor](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-creditors).
     * Each payout contains the funds collected from one or many
-    * [payments](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-payments).
+    * [payments](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payments).
     * Payouts are created automatically after a payment has been successfully
     * collected.
     *
@@ -252,28 +234,6 @@ class Client
     }
 
   /**
-    * Publishable API Keys
-    *
-    * Publishable API keys are designed to be used by the [js
-    * flow](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customer-bank-account-tokens).
-    * You should generate a key and then use it to make requests to the API.
-    * They do not expire, but can be disabled.
-    * 
-    * Publishable API keys
-    * only have permissions to create [customer bank account
-    * tokens](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customer-bank-account-tokens).
-    *
-    * @return Services\PublishableApiKey
-    */
-    public function publishable_api_keys()
-    {
-        if (!isset($this->publishable_api_keys)) {
-            $this->publishable_api_keys = new Services\PublishableApiKey($this->http_client);
-        }
-        return $this->publishable_api_keys;
-    }
-
-  /**
     * Redirect Flows
     *
     * Redirect flows enable you to use GoCardless Pro's secure payment pages to
@@ -283,7 +243,7 @@ class Client
    
     * * 
     * 1. You
-    * [create](https://developer.gocardless.com/pro/2014-11-03/#create-a-redirect-flow)
+    * [create](https://developer.gocardless.com/pro/2015-04-29/#create-a-redirect-flow)
     * a redirect flow for your customer, and redirect them to the returned
     * redirect url, e.g. `https://pay.gocardless.com/flow/RE123`.
     * 
@@ -294,17 +254,17 @@ class Client
     * `redirect_flow_id=RE123` in the querystring.
     * 
     * 3. You
-    * [complete](https://developer.gocardless.com/pro/2014-11-03/#complete-a-redirect-flow)
+    * [complete](https://developer.gocardless.com/pro/2015-04-29/#complete-a-redirect-flow)
     * the redirect flow, which creates a
-    * [customer](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customers),
+    * [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers),
     * [customer bank
-    * account](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customer-bank-accounts),
+    * account](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customer-bank-accounts),
     * and
-    * [mandate](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-mandates),
+    * [mandate](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-mandates),
     * and returns the ID of the mandate. You may wish to create a
-    * [subscription](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-subscriptions)
+    * [subscription](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-subscriptions)
     * or
-    * [payment](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-payments)
+    * [payment](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payments)
     * at this point.
     * 
     * It is recommended that you link the redirect
@@ -313,7 +273,7 @@ class Client
     * 
     * Redirect flows
     * expire 30 minutes after they are first created. You cannot
-    * [complete](https://developer.gocardless.com/pro/2014-11-03/#complete-a-redirect-flow)
+    * [complete](https://developer.gocardless.com/pro/2015-04-29/#complete-a-redirect-flow)
     * an expired redirect flow.
     * 
     * [View an example
@@ -334,16 +294,16 @@ class Client
     * Refunds
     *
     * Refund objects represent (partial) refunds of a
-    * [payment](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-payment)
+    * [payment](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payment)
     * back to the
-    * [customer](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customers).
+    * [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers).
 
     *    * 
     * The API allows you to create, show, list and update your
     * refunds.
     * 
     * GoCardless will notify you via a
-    * [webhook](https://developer.gocardless.com/pro/2014-11-03/#webhooks)
+    * [webhook](https://developer.gocardless.com/pro/2015-04-29/#webhooks)
     * whenever a refund is created, and will update the `amount_refunded`
     * property of the payment.
     * 
@@ -362,84 +322,10 @@ class Client
     }
 
   /**
-    * Roles
-    *
-    * <a name="insufficient_permissions"></a>Roles represent a set of
-    * permissions that may be granted to a user. The permissions are specified
-    * at the resource-type level, and can be `full_access` or `read_only`. If a
-    * resource-type is not included that role's users will have no access to
-    * resources of that type, and will receive an `insufficient_permissions`
-    * error when trying to use those endpoints.
-    * 
-    * A role's
-    * `permissions` attribute is used to set/show the permissions for a role and
-    * it's key/value pairs are restricted to the below:
-    * 
-    * <dl>
-    * 
-    *  <dt><p><code>resource</code></p></dt>
-    *   <dd><p>One of:</p>
-    *   
-    *  <ul>
-    *       <li><code>customers</code></li>
-    *      
-    * <li><code>customer_bank_accounts</code></li>
-    *      
-    * <li><code>mandates</code></li>
-    *       <li><code>payments</code></li>
-
-    *    *       <li><code>payouts</code></li>
-    *      
-    * <li><code>creditors</code></li>
-    *      
-    * <li><code>creditor_bank_accounts</code></li>
-    *      
-    * <li><code>roles</code></li>
-    *       <li><code>users</code></li>
-    * 
-    *      <li><code>events</code></li>
-    *      
-    * <li><code>api_keys</code></li>
-    *      
-    * <li><code>subscriptions</code></li>
-    *      
-    * <li><code>redirect_flows</code></li>
-    *     </ul>
-    *   </dd>
-    *
-    * </dl>
-    * 
-    * <dl>
-    *   <dt><p><code>access</code></p></dt>
-    * 
-    *  <dd><p>One of:</p>
-    *     <ul>
-    *      
-    * <li><code>full_access</code>: read and write all records of this
-    * type</li>
-    *       <li><code>read_only</code>: list and show endpoints
-    * available, but not create, update, delete, or actions</li>
-    *    
-    * </ul>
-    *   </dd>
-    * </dl>
-    * 
-    *
-    * @return Services\Role
-    */
-    public function roles()
-    {
-        if (!isset($this->roles)) {
-            $this->roles = new Services\Role($this->http_client);
-        }
-        return $this->roles;
-    }
-
-  /**
     * Subscriptions
     *
     * Subscriptions create
-    * [payments](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-payments)
+    * [payments](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payments)
     * according to a schedule.
     * 
     * #### Recurrence Rules
@@ -517,19 +403,6 @@ class Client
             $this->subscriptions = new Services\Subscription($this->http_client);
         }
         return $this->subscriptions;
-    }
-
-  /**
-    * Users
-    *
-    * @return Services\User
-    */
-    public function users()
-    {
-        if (!isset($this->users)) {
-            $this->users = new Services\User($this->http_client);
-        }
-        return $this->users;
     }
 
 

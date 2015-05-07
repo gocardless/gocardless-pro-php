@@ -9,7 +9,7 @@ namespace GoCardless\Resources;
 
 /**
   * Subscriptions create
-  * [payments](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-payments)
+  * [payments](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payments)
   * according to a schedule.
   * 
   * #### Recurrence Rules
@@ -113,7 +113,7 @@ class Subscription extends Base
 
   /**
     * Fixed
-    * [timestamp](https://developer.gocardless.com/pro/2014-11-03/#overview-time-zones-dates),
+    * [timestamp](https://developer.gocardless.com/pro/2015-04-29/#overview-time-zones-dates),
     * recording when this resource was created.
     *
     * @return string
@@ -281,7 +281,7 @@ class Subscription extends Base
   /**
     * The date on which the first payment should be charged. Must be within one
     * year of creation and on or after the
-    * [mandate](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-mandates)'s
+    * [mandate](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-mandates)'s
     * `next_possible_charge_date`. When blank, this will be set as the mandate's
     * `next_possible_charge_date`.
     *

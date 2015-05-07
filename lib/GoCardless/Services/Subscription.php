@@ -13,7 +13,7 @@ namespace GoCardless\Services;
   * @method \GoCardless\Core\ListResponse list() list(array $options = array(), array $headers = array()) gets a non-paginated list of models given finder options.
   *
   *  Subscriptions create
-  *  [payments](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-payments)
+  *  [payments](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payments)
   *  according to a schedule.
   *  
   *  #### Recurrence Rules
@@ -108,7 +108,7 @@ class Subscription extends Base
     *  List subscriptions
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
     *  list of your subscriptions.
     *
     *  Example URL: /subscriptions
@@ -213,7 +213,7 @@ class Subscription extends Base
     *  List subscriptions
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
     *  list of your subscriptions.
     *
     * Example URL: /subscriptions

@@ -3,10 +3,6 @@ CRANK_PATH =../bin/crank
 OUT_PATH=.out
 CODE_PATHS=./lib ./tests
 
-build: crank
-	$(CRANK_PATH) -c ../php.overrides.json -o $(OUT_PATH) -s $(SCHEMA_PATH) -t ./
-	mv .composer_vendor $(OUT_PATH)
-
 test: vendor/
 	./vendor/bin/phpunit
 

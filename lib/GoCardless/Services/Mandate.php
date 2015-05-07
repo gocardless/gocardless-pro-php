@@ -13,11 +13,11 @@ namespace GoCardless\Services;
   * @method \GoCardless\Core\ListResponse list() list(array $options = array(), array $headers = array()) gets a non-paginated list of models given finder options.
   *
   *  Mandates represent the Direct Debit mandate with a
-  *  [customer](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customers).
+  *  [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers).
 
   *   *  
   *  GoCardless will notify you via a
-  *  [webhook](https://developer.gocardless.com/pro/2014-11-03/#webhooks)
+  *  [webhook](https://developer.gocardless.com/pro/2015-04-29/#webhooks)
   *  whenever the status of a mandate changes.
   */
 class Mandate extends Base
@@ -47,7 +47,7 @@ class Mandate extends Base
     *  List mandates
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
     *  list of your mandates. Except where stated, these filters can only be
     *  used one at a time.
     *
@@ -198,7 +198,7 @@ class Mandate extends Base
     *  List mandates
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
     *  list of your mandates. Except where stated, these filters can only be
     *  used one at a time.
     *

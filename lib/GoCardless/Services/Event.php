@@ -23,7 +23,7 @@ class Event extends Base
     *  List events
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
     *  list of your events.
     *
     *  Example URL: /events
@@ -72,7 +72,7 @@ class Event extends Base
     *  List events
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
     *  list of your events.
     *
     * Example URL: /events

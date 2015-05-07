@@ -13,11 +13,11 @@ namespace GoCardless\Services;
   * @method \GoCardless\Core\ListResponse list() list(array $options = array(), array $headers = array()) gets a non-paginated list of models given finder options.
   *
   *  Customer Bank Accounts hold the bank details of a
-  *  [customer](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customers).
+  *  [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers).
   *  They always belong to a
-  *  [customer](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customers),
+  *  [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers),
   *  and may be linked to several Direct Debit
-  *  [mandates](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-mandates).
+  *  [mandates](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-mandates).
 
   *   *  
   *  Note that customer bank accounts must be unique, and so you will
@@ -39,18 +39,18 @@ class CustomerBankAccount extends Base
     * 
     *  
     *  - [Local
-    *  details](https://developer.gocardless.com/pro/2014-11-03/#ui-compliance-local-bank-details)
+    *  details](https://developer.gocardless.com/pro/2015-04-29/#ui-compliance-local-bank-details)
 
     *     *  
     *  - IBAN
     *  
     *  - [Customer Bank Account
-    *  Tokens](https://developer.gocardless.com/pro/2014-11-03/#js-flow-create-a-customer-bank-account-token)
+    *  Tokens](https://developer.gocardless.com/pro/2015-04-29/#js-flow-create-a-customer-bank-account-token)
 
     *     *  
     *  For more information on the different fields required in
     *  each country, see [local bank
-    *  details](https://developer.gocardless.com/pro/2014-11-03/#ui-compliance-local-bank-details).
+    *  details](https://developer.gocardless.com/pro/2015-04-29/#ui-compliance-local-bank-details).
     *
     *  Example URL: /customer_bank_accounts
     *
@@ -71,7 +71,7 @@ class CustomerBankAccount extends Base
     *  List customer bank accounts
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
     *  list of your bank accounts.
     *
     *  Example URL: /customer_bank_accounts
@@ -178,7 +178,7 @@ class CustomerBankAccount extends Base
     *  List customer bank accounts
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
     *  list of your bank accounts.
     *
     * Example URL: /customer_bank_accounts

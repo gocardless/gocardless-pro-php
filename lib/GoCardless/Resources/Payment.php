@@ -9,15 +9,15 @@ namespace GoCardless\Resources;
 
 /**
   * Payment objects represent payments from a
-  * [customer](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-customers)
+  * [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers)
   * to a
-  * [creditor](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-creditors),
+  * [creditor](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-creditors),
   * taken against a Direct Debit
-  * [mandate](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-mandates).
+  * [mandate](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-mandates).
 
   *  * 
   * GoCardless will notify you via a
-  * [webhook](https://developer.gocardless.com/pro/2014-11-03/#webhooks)
+  * [webhook](https://developer.gocardless.com/pro/2015-04-29/#webhooks)
   * whenever the state of a payment changes.
   */
 class Payment extends Base
@@ -41,7 +41,7 @@ class Payment extends Base
 
   /**
     * Amount
-    * [refunded](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-refunds)
+    * [refunded](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-refunds)
     * in pence or cents.
     *
     * @return int
@@ -59,7 +59,7 @@ class Payment extends Base
     * A future date on which the payment should be collected. If not specified,
     * the payment will be collected as soon as possible. This must be on or
     * after the
-    * [mandate](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-mandates)'s
+    * [mandate](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-mandates)'s
     * `next_possible_charge_date`, and will be rolled-forwards by GoCardless if
     * it is not a working day.
     *
@@ -76,7 +76,7 @@ class Payment extends Base
 
   /**
     * Fixed
-    * [timestamp](https://developer.gocardless.com/pro/2014-11-03/#overview-time-zones-dates),
+    * [timestamp](https://developer.gocardless.com/pro/2015-04-29/#overview-time-zones-dates),
     * recording when this resource was created.
     *
     * @return string

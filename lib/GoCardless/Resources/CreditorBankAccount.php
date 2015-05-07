@@ -9,9 +9,9 @@ namespace GoCardless\Resources;
 
 /**
   * Creditor Bank Accounts hold the bank details of a
-  * [creditor](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-creditor).
+  * [creditor](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-creditor).
   * These are the bank accounts which your
-  * [payouts](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-payouts)
+  * [payouts](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payouts)
   * will be sent to.
   * 
   * Note that creditor bank accounts must be unique,
@@ -28,7 +28,7 @@ class CreditorBankAccount extends Base
   /**
     * Name of the account holder, as known by the bank. Usually this is the same
     * as the name stored with the linked
-    * [creditor](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-creditors).
+    * [creditor](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-creditors).
     * This field cannot exceed 18 characters.
     *
     * @return string
@@ -88,7 +88,7 @@ class CreditorBankAccount extends Base
 
   /**
     * Fixed
-    * [timestamp](https://developer.gocardless.com/pro/2014-11-03/#overview-time-zones-dates),
+    * [timestamp](https://developer.gocardless.com/pro/2015-04-29/#overview-time-zones-dates),
     * recording when this resource was created.
     *
     * @return string

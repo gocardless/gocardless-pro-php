@@ -13,9 +13,9 @@ namespace GoCardless\Services;
   * @method \GoCardless\Core\ListResponse list() list(array $options = array(), array $headers = array()) gets a non-paginated list of models given finder options.
   *
   *  Payouts represent transfers from GoCardless to a
-  *  [creditor](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-creditors).
+  *  [creditor](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-creditors).
   *  Each payout contains the funds collected from one or many
-  *  [payments](https://developer.gocardless.com/pro/2014-11-03/#api-endpoints-payments).
+  *  [payments](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payments).
   *  Payouts are created automatically after a payment has been successfully
   *  collected.
   */
@@ -26,7 +26,7 @@ class Payout extends Base
     *  List payouts
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
     *  list of your payouts.
     *
     *  Example URL: /payouts
@@ -75,7 +75,7 @@ class Payout extends Base
     *  List payouts
     *
     *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2014-11-03/#overview-cursor-pagination)
+    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
     *  list of your payouts.
     *
     * Example URL: /payouts
