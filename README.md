@@ -50,15 +50,15 @@ matching the keys in the JSON response - see the [GoCardless Pro API Docs](https
 ### Client Initialisation
 
 ```php
-$client = new \<no value>\Client(array(
+$client = new \GoCardlessPro\Client(array(
   'access_token' => 'YOUR API TOKEN',
-  'environment'  => \<no value>\Environment::SANDBOX
+  'environment'  => \GoCardlessPro\Environment::SANDBOX
 ));
 ```
 
 The `api_key` and `api_secret` can be found under the "Organisation" tab in your GoCardless dashboard.
 
-The environment can either be `\<no value>\Environment::SANDBOX` or `\<no value>\Environment::PRODUCTION`, depending on whether you want to use the sandbox or production API.
+The environment can either be `\GoCardlessPro\Environment::SANDBOX` or `\GoCardlessPro\Environment::PRODUCTION`, depending on whether you want to use the sandbox or production API.
 
 From the client object, resource objects can be accessed for each type of resource which can then be used to fetch or manipulate the resource's members. The available resources can be found in the [PHP library docs](http://gocardless.github.io/gocardless-pro-php/classes/GoCardless.Client.html).
 
@@ -100,12 +100,12 @@ try {
     $client->customer()->create(array(
         "invalid_name" => "Pete",
     ));
-} catch (\<no value>\Core\Error\GoCardlessError $e) {
+} catch (\GoCardlessPro\Core\Error\GoCardlessError $e) {
   // Server validation failed / record couldn't be created.
   echo $e->documentation_url();
   echo count($e->errors());
   // => $e is an ValidationFailedError.
-} catch (\<no value>\Core\Error\HttpError $e) {
+} catch (\GoCardlessPro\Core\Error\HttpError $e) {
   echo $e;
 }
 ```
