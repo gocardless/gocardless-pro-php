@@ -34,7 +34,7 @@ Add this repository to the contents of your `composer.json`:
 ```javascript
 {
     "require": {
-        "gocardless/gocardless-pro-php": "0.0.2"
+        "gocardless/gocardless-pro-php": "0.0.3"
     }
 }
 ```
@@ -42,7 +42,7 @@ Add this repository to the contents of your `composer.json`:
 ## Usage Examples
 
 - Where a request returns a single resource, the client will return an response object with getters matching the resource's attributes and an attached raw response, retrivable with the `response()` method.
-- Where a request returns multiple resources, the client will return an iterable read-only `ListResponse` object. The individual resources can be retrieved using the `items()` method of the returned object.
+- Where a request returns multiple resources, the client will return a read-only `ListResponse` object with a method `records()` to return the retrieved records as an array.
 - In case of non-JSON responses (PDFs, etc.), the library will return the raw response.
 - To access data elements, use getter methods (as opposed to properties)
 matching the keys in the JSON response - see the [GoCardless Pro API Docs](https://developer.gocardless.com/pro/) for details.
@@ -51,15 +51,14 @@ matching the keys in the JSON response - see the [GoCardless Pro API Docs](https
 
 ```php
 $client = new \<no value>\Client(array(
-  'api_key' => 'YOUR API KEY',
-  'api_secret' => 'YOUR API SECRET',
-  'environment' => \<no value>\Environment::SANDBOX
+  'access_token' => 'YOUR API TOKEN',
+  'environment'  => \<no value>\Environment::SANDBOX
 ));
 ```
 
 The `api_key` and `api_secret` can be found under the "Organisation" tab in your GoCardless dashboard.
 
-The environment can either be `\<no value>\Environment::SANDBOX` or `\GoCardless\Environment::PRODUCTION`, depending on whether you want to use the sandbox or production API.
+The environment can either be `\<no value>\Environment::SANDBOX` or `\<no value>\Environment::PRODUCTION`, depending on whether you want to use the sandbox or production API.
 
 From the client object, resource objects can be accessed for each type of resource which can then be used to fetch or manipulate the resource's members. The available resources can be found in the [PHP library docs](http://gocardless.github.io/gocardless-pro-php/classes/GoCardless.Client.html).
 
@@ -77,8 +76,8 @@ If you need to pass any options, the last argument (or only argument, whether th
 
 ```
 $resources = $client->resource()->list(array('limit' => 400));
-echo count($resources);
-foreach ($resources as $resource) {
+echo count($resources->records());
+foreach ($resources->records() as $resource) {
   echo $resource->property_name();
 }
 ```
@@ -121,7 +120,7 @@ $client->resource()->update('RSIDXXXXX', array('key' => 'value'));
 
 ### Handling failures
 
-When the API returns an error, the library will return a `\GoCardless\Core\Error\GoCardlessError`-based error - this may be a `GoCardlessError` or one of its subclasses, `InvalidApiUsageError`, `InvalidStateError`, and `ValidationFailedError` if appropriate.
+When the API returns an error, the library will return a `\GoCardlessPro\Core\Error\GoCardlessError`-based error - this may be a `GoCardlessError` or one of its subclasses, `InvalidApiUsageError`, `InvalidStateError`, and `ValidationFailedError` if appropriate.
 
 You can access the raw API error (unenveloped) via the `error()` method on the returned error, and a list of all the errors via the `errors()` method. By default the error's message will contain the error message from the API, plus a link to the documentation if available.
 

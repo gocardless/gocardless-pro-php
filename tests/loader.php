@@ -17,10 +17,10 @@ require(__DIR__ . '/../lib/loader.php');
 spl_autoload_register(function ($class) {
 
     // project-specific namespace prefix
-    $prefix = 'GoCardless\\';
+    $prefix = 'GoCardlessPro\\';
 
     // base directory for the namespace prefix
-    $base_dir = __DIR__ . '/GoCardless/';
+    $base_dir = __DIR__ . '/GoCardlessPro/';
 
     // does the class use the namespace prefix?
     $len = strlen($prefix);

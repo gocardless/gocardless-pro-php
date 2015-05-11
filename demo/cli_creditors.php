@@ -4,10 +4,9 @@ require('../lib/loader.php');
 
 error_reporting(E_ALL | E_STRICT);
 
-$client = new GoCardless\Client(array(
-    'api_key'     => '<no value>',
-    'api_secret'  => '<no value>',
-    'environment' => GoCardless\Environment::SANDBOX
+$client = new GoCardlessPro\Client(array(
+    'access_token' => '<no value>',
+    'environment'  => GoCardlessPro\Environment::SANDBOX
 ));
 
 
