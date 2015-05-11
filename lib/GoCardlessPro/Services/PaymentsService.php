@@ -171,6 +171,8 @@ class PaymentsService extends Base
   
     *   *  This will return a `retry_failed` error if the payment has not
     *  failed.
+    *  
+    *  Payments can be retried up to 3 times.
     *
     *  Example URL: /payments/:identity/actions/retry
     *
