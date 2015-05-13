@@ -279,6 +279,24 @@ class Subscription extends Base
     }
 
   /**
+    * An optional payment reference. This will be set as the reference on each
+    * payment created and will appear on your customer's bank statement. See the
+    * documentation for the [create payment
+    * endpoint](https://developer.gocardless.com/pro/2015-04-29/#payments-create-a-payment)
+    * for more details.
+    *
+    * @return string
+    */
+    public function payment_reference()
+    {
+        $field = 'payment_reference';
+        if (!property_exists($this->data, $field)) {
+            return null;
+        }
+        return $this->data->{$field};
+    }
+
+  /**
     * The date on which the first payment should be charged. Must be within one
     * year of creation and on or after the
     * [mandate](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-mandates)'s
