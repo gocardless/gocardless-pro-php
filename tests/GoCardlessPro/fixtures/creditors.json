@@ -3,25 +3,25 @@
     "method": "POST",
     "path_template": "/creditors",
     "url_params": {},
-    "body": {"creditors":{"address_line1":"338-346 Goswell Road","address_line2":null,"address_line3":null,"city":"London","country_code":"GB","created_at":"2014-01-01T12:00:00.000Z","id":"CR123","links":{"default_eur_payout_account":"BA456","default_gbp_payout_account":null,"logo":"LO123"},"name":"Nude Wines","postal_code":"EC1V 7LQ","region":null}}
+    "body": {"creditors":{"address_line1":"338-346 Goswell Road","address_line2":"Islington","address_line3":null,"city":"London","country_code":"GB","created_at":"2014-01-01T12:00:00.000Z","id":"CR123","links":{"default_eur_payout_account":"BA456","default_gbp_payout_account":null,"logo":null},"name":"Nude Wines","postal_code":null,"region":"example region 694"}}
   },
   "list": {
     "method": "GET",
     "path_template": "/creditors",
     "url_params": {},
-    "body": {"creditors":[{"address_line1":null,"address_line2":"Islington","address_line3":null,"city":null,"country_code":"GB","created_at":"2014-01-01T12:00:00.000Z","id":"CR123","links":{"default_eur_payout_account":"BA456","default_gbp_payout_account":"BA123","logo":"LO123"},"name":"Nude Wines","postal_code":"EC1V 7LQ","region":"example region 495"},{"address_line1":null,"address_line2":null,"address_line3":null,"city":null,"country_code":"GB","created_at":"2014-01-01T12:00:00.000Z","id":"CR123","links":{"default_eur_payout_account":"BA456","default_gbp_payout_account":null,"logo":"LO123"},"name":"Nude Wines","postal_code":"EC1V 7LQ","region":"example region 1528"}],"meta":{"cursors":{"after":null,"before":"example before 6831"},"limit":50}}
+    "body": {"creditors":[{"address_line1":null,"address_line2":"Islington","address_line3":"example address_line3 495","city":"London","country_code":null,"created_at":"2014-01-01T12:00:00.000Z","id":"CR123","links":{"default_eur_payout_account":"BA456","default_gbp_payout_account":"BA123","logo":"LO123"},"name":"Nude Wines","postal_code":null,"region":"example region 1445"},{"address_line1":null,"address_line2":"Islington","address_line3":null,"city":"London","country_code":null,"created_at":"2014-01-01T12:00:00.000Z","id":"CR123","links":{"default_eur_payout_account":null,"default_gbp_payout_account":"BA123","logo":"LO123"},"name":"Nude Wines","postal_code":"EC1V 7LQ","region":null}],"meta":{"cursors":{"after":null,"before":null},"limit":50}}
   },
   "get": {
     "method": "GET",
     "path_template": "/creditors/:identity",
     "url_params": {"identity": "CR123"},
-    "body": {"creditors":{"address_line1":"338-346 Goswell Road","address_line2":null,"address_line3":"example address_line3 6413","city":"London","country_code":null,"created_at":"2014-01-01T12:00:00.000Z","id":"CR123","links":{"default_eur_payout_account":null,"default_gbp_payout_account":null,"logo":"LO123"},"name":"Nude Wines","postal_code":"EC1V 7LQ","region":"example region 1737"}}
+    "body": {"creditors":{"address_line1":"338-346 Goswell Road","address_line2":"Islington","address_line3":"example address_line3 1485","city":"London","country_code":"GB","created_at":"2014-01-01T12:00:00.000Z","id":"CR123","links":{"default_eur_payout_account":null,"default_gbp_payout_account":"BA123","logo":null},"name":"Nude Wines","postal_code":null,"region":null}}
   },
   "update": {
     "method": "PUT",
     "path_template": "/creditors/:identity",
     "url_params": {"identity": "CR123"},
-    "body": {"creditors":{"address_line1":null,"address_line2":"Islington","address_line3":null,"city":"London","country_code":"GB","created_at":"2014-01-01T12:00:00.000Z","id":"CR123","links":{"default_eur_payout_account":null,"default_gbp_payout_account":"BA123","logo":"LO123"},"name":"Nude Wines","postal_code":"EC1V 7LQ","region":null}}
+    "body": {"creditors":{"address_line1":"338-346 Goswell Road","address_line2":null,"address_line3":null,"city":"London","country_code":"GB","created_at":"2014-01-01T12:00:00.000Z","id":"CR123","links":{"default_eur_payout_account":"BA456","default_gbp_payout_account":"BA123","logo":null},"name":"Nude Wines","postal_code":"EC1V 7LQ","region":null}}
   }
 }
 
