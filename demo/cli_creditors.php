@@ -15,7 +15,7 @@ function get_input()
     return trim(fgets(STDIN));
 }
 
-$creditors = $client->creditors()->list();
+$creditors = $client->creditors()->list()->records();
 
 foreach ($creditors as $num => $creditor) {
     echo '[' . $num . '] ' . $creditor->name() . "\n";
