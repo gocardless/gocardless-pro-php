@@ -107,10 +107,6 @@ class HttpClient
     {
         $httpRequest = new CurlWrapper($method, $this->baseUrl . substr($path, 1));
 
-        if (isset($this->stubFixture)) {
-            $httpRequest->stub($this->stubFixture);
-        }
-
         $httpRequest->setAuth($this->token);
         $httpRequest->setHeaders($this->combine_request_headers($headers));
 

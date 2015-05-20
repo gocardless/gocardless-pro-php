@@ -34,7 +34,7 @@ abstract class Base
     * @uses Base::$client to make the HTTP Request
     * @return \GoCardlessPro\Resources\Base|\GoCardlessPro\Core\ListResponse
     */
-    protected function make_request($action, $method, $uri, $opts, $headers = array())
+    protected function make_request($action, $method, $uri, $opts, $headers)
     {
         $req = $this->client->make_request($this->envelopeKey());
         $response = $req->run($action, $method, $uri, $opts, $headers);

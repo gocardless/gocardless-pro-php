@@ -61,11 +61,8 @@ class Request
         $method = strtolower($method);
         $postBody = null;
 
-        $req_envelope_key = $this->envelope_key;
         // Envelope key fix: data on all actions that are not create or update with a post body.
-        if ($type !== 'create' && $type !== 'update') {
-            $req_envelope_key = 'data';
-        }
+        $req_envelope_key = $this->getReqEnvelopeKey($type);
 
         if (in_array($method, self::$params_methods)) {
             $urlParams = http_build_query($options);

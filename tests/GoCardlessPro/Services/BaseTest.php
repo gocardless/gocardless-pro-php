@@ -85,7 +85,7 @@ class BaseTest extends \PHPUnit_Framework_TestCase
 
         $base = new Mocks\BaseImpl($mockClient);
 
-        $response = $base->proxyMakeRequest('post', 'http://example.com/api', array(), array());
+        $response = $base->proxyMakeRequest('post', 'http://example.com/api', array(), array(), array());
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Customer', $response);
         $this->assertEquals($response->response(), $emptyResponse);

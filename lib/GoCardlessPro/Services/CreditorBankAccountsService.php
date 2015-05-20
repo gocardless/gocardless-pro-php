@@ -49,7 +49,7 @@ class CreditorBankAccountsService extends Base
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->make_request('create', 'post', '/creditor_bank_accounts', $params);
+        return $this->make_request('create', 'post', '/creditor_bank_accounts', $params, $headers);
     }
 
   /**
@@ -71,7 +71,7 @@ class CreditorBankAccountsService extends Base
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->make_request('list', 'get', '/creditor_bank_accounts', $params);
+        return $this->make_request('list', 'get', '/creditor_bank_accounts', $params, $headers);
     }
 
   /**

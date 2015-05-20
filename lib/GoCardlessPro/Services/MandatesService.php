@@ -41,7 +41,7 @@ class MandatesService extends Base
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->make_request('create', 'post', '/mandates', $params);
+        return $this->make_request('create', 'post', '/mandates', $params, $headers);
     }
 
   /**
@@ -64,7 +64,7 @@ class MandatesService extends Base
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->make_request('list', 'get', '/mandates', $params);
+        return $this->make_request('list', 'get', '/mandates', $params, $headers);
     }
 
   /**

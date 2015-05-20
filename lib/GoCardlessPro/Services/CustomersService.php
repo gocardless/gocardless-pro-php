@@ -39,7 +39,7 @@ class CustomersService extends Base
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->make_request('create', 'post', '/customers', $params);
+        return $this->make_request('create', 'post', '/customers', $params, $headers);
     }
 
   /**
@@ -61,7 +61,7 @@ class CustomersService extends Base
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->make_request('list', 'get', '/customers', $params);
+        return $this->make_request('list', 'get', '/customers', $params, $headers);
     }
 
   /**

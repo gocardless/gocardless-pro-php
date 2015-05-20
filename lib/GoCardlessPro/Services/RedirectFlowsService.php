@@ -77,7 +77,7 @@ class RedirectFlowsService extends Base
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->make_request('create', 'post', '/redirect_flows', $params);
+        return $this->make_request('create', 'post', '/redirect_flows', $params, $headers);
     }
 
   /**

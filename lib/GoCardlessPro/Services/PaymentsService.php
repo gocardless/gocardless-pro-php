@@ -52,7 +52,7 @@ class PaymentsService extends Base
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->make_request('create', 'post', '/payments', $params);
+        return $this->make_request('create', 'post', '/payments', $params, $headers);
     }
 
   /**
@@ -74,7 +74,7 @@ class PaymentsService extends Base
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->make_request('list', 'get', '/payments', $params);
+        return $this->make_request('list', 'get', '/payments', $params, $headers);
     }
 
   /**

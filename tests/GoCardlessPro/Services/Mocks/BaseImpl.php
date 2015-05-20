@@ -18,8 +18,8 @@ class BaseImpl extends Base
     {
         return $this->sub_url($url, $subs);
     }
-    public function proxyMakeRequest($method, $uri, $options, $headers)
+    public function proxyMakeRequest($method, $uri, $options, $params, $headers)
     {
-        return $this->make_request($method, $uri, $options, $headers);
+        return $this->make_request($method, $uri, $options, $params, $headers);
     }
 }

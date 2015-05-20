@@ -102,7 +102,7 @@ class SubscriptionsService extends Base
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->make_request('create', 'post', '/subscriptions', $params);
+        return $this->make_request('create', 'post', '/subscriptions', $params, $headers);
     }
 
   /**
@@ -124,7 +124,7 @@ class SubscriptionsService extends Base
     **/
     public function do_list($params = array(), $headers = array())
     {
-        return $this->make_request('list', 'get', '/subscriptions', $params);
+        return $this->make_request('list', 'get', '/subscriptions', $params, $headers);
     }
 
   /**
