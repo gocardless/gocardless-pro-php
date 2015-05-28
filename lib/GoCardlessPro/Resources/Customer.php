@@ -76,6 +76,20 @@ class Customer extends Base
     }
 
   /**
+    * Company Name.
+    *
+    * @return string
+    */
+    public function company_name()
+    {
+        $field = 'company_name';
+        if (!property_exists($this->data, $field)) {
+            return null;
+        }
+        return $this->data->{$field};
+    }
+
+  /**
     * [ISO
     * 3166-1](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
     * alpha-2 code.

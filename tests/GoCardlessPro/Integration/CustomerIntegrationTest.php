@@ -36,6 +36,7 @@ class CustomersTest extends IntegrationTestBase
         $this->matchDeepResponse($body->address_line2, $response->address_line2());
         $this->matchDeepResponse($body->address_line3, $response->address_line3());
         $this->matchDeepResponse($body->city, $response->city());
+        $this->matchDeepResponse($body->company_name, $response->company_name());
         $this->matchDeepResponse($body->country_code, $response->country_code());
         $this->matchDeepResponse($body->created_at, $response->created_at());
         $this->matchDeepResponse($body->email, $response->email());
@@ -76,6 +77,7 @@ class CustomersTest extends IntegrationTestBase
             $this->matchDeepResponse($body[$num]->address_line2, $record->address_line2());
             $this->matchDeepResponse($body[$num]->address_line3, $record->address_line3());
             $this->matchDeepResponse($body[$num]->city, $record->city());
+            $this->matchDeepResponse($body[$num]->company_name, $record->company_name());
             $this->matchDeepResponse($body[$num]->country_code, $record->country_code());
             $this->matchDeepResponse($body[$num]->created_at, $record->created_at());
             $this->matchDeepResponse($body[$num]->email, $record->email());
@@ -108,6 +110,7 @@ class CustomersTest extends IntegrationTestBase
         $this->matchDeepResponse($body->address_line2, $response->address_line2());
         $this->matchDeepResponse($body->address_line3, $response->address_line3());
         $this->matchDeepResponse($body->city, $response->city());
+        $this->matchDeepResponse($body->company_name, $response->company_name());
         $this->matchDeepResponse($body->country_code, $response->country_code());
         $this->matchDeepResponse($body->created_at, $response->created_at());
         $this->matchDeepResponse($body->email, $response->email());
@@ -139,6 +142,7 @@ class CustomersTest extends IntegrationTestBase
         $this->matchDeepResponse($body->address_line2, $response->address_line2());
         $this->matchDeepResponse($body->address_line3, $response->address_line3());
         $this->matchDeepResponse($body->city, $response->city());
+        $this->matchDeepResponse($body->company_name, $response->company_name());
         $this->matchDeepResponse($body->country_code, $response->country_code());
         $this->matchDeepResponse($body->created_at, $response->created_at());
         $this->matchDeepResponse($body->email, $response->email());
