@@ -31,7 +31,7 @@ class CustomerBankAccount extends Base
     * Name of the account holder, as known by the bank. Usually this matches the
     * name of the linked
     * [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers).
-    * This field cannot exceed 18 characters.
+    * This field will be transliterated, upcased and truncated to 18 characters.
     *
     * @return string
     */
