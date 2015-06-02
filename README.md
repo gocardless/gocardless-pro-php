@@ -85,7 +85,7 @@ foreach ($resources->records() as $resource) {
 Where URL parameters are required, the method signature will include those required arguments:
 
 ```
-$customer = $client->customers()->show('CUXXXX');
+$customer = $client->customers()->get('CUXXXX');
 echo $customer->given_name();
 
 ```

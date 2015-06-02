@@ -10,7 +10,7 @@ namespace GoCardlessPro\Services;
 /**
   *  Events
   *
-  * @method \GoCardlessPro\Core\ListResponse 
+  * @method \GoCardlessPro\Core\ListResponse
   * list(array $options=array(), array $headers=array()) gets a non-paginated list of models given finder options.
   *
   *  Events are stored for all webhooks. An event refers to a resource which has

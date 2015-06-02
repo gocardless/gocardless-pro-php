@@ -10,7 +10,7 @@ namespace GoCardlessPro\Services;
 /**
   *  Mandates
   *
-  * @method \GoCardlessPro\Core\ListResponse 
+  * @method \GoCardlessPro\Core\ListResponse
   * list(array $options=array(), array $headers=array()) gets a non-paginated list of models given finder options.
   *
   *  Mandates represent the Direct Debit mandate with a

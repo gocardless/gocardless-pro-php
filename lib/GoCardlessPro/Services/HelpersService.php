@@ -112,6 +112,6 @@ class HelpersService extends Base
     */
     protected function envelopeKey()
     {
-        return 'helpers';
+        return 'data';
     }
 }

@@ -10,7 +10,7 @@ namespace GoCardlessPro\Services;
 /**
   *  Customers
   *
-  * @method \GoCardlessPro\Core\ListResponse 
+  * @method \GoCardlessPro\Core\ListResponse
   * list(array $options=array(), array $headers=array()) gets a non-paginated list of models given finder options.
   *
   *  Customer objects hold the contact details for a customer. A customer can
