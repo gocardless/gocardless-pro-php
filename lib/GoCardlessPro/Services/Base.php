@@ -6,7 +6,7 @@ namespace GoCardlessPro\Services;
   * Service Base class for all service models.
   * Facilitates calling normally reserved methods, creating http requests, and building urls.
   * Also defines an abstract envelopeKey and resourceClass methods.
-  * @author Iain Nash
+  * @author GoCardless
   * @version 1.0
   * @package GoCardlessPro
   * @subpackage Services

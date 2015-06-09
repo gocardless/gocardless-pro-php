@@ -1,4 +1,4 @@
-Copyright (c) 2014 Iain Nash
+Copyright (c) 2014 GoCardless
 
 MIT License
 
