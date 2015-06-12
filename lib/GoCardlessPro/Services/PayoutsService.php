@@ -48,7 +48,9 @@ class PayoutsService extends Base
   /**
     *  Get a single payout
     *
-    *  Retrieves the details of a single payout.
+    *  Retrieves the details of a single payout. For an example of how to
+    *  reconcile the transactions in a payout, see [this
+    *  guide](#events-fetching-events-for-a-payout).
     *
     *  Example URL: /payouts/:identity
     *
