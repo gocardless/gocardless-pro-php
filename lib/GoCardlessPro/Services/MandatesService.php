@@ -27,7 +27,7 @@ class MandatesService extends Base
   /**
     *  Create a mandate
     *
-    *  Creates a new mandate object
+    *  Creates a new mandate object.
     *
     *  Example URL: /mandates
     *
