@@ -1,4 +1,4 @@
-# PHP Client for GoCardless Enterprise API
+# PHP Client for GoCardless Pro API
 
 - [PHP Doc API Doc](http://gocardless.github.io/gocardless-pro-php/)
 - [GoCardless Pro API Docs](https://developer.gocardless.com/pro/)

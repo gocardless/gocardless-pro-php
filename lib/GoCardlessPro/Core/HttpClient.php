@@ -13,7 +13,7 @@ namespace GoCardlessPro\Core;
   */
 class HttpClient
 {
-  //  GoCardless Enterprise API
+  //  GoCardless Pro API
 
   /**
     * Authorisation header
