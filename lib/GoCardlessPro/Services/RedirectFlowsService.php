@@ -88,7 +88,7 @@ class RedirectFlowsService extends Base
     *  Example URL: /redirect_flows/:identity
     *
     *
-    * @param string $identity Unique identifier, beginning with "RE"
+    * @param string $identity Unique identifier, beginning with "RE".
     * @param array $params POST/URL parameters for the argument. Automatically wrapped.
     * @param array $headers String to string associative array of custom headers to add to the requestion.
     *
@@ -127,7 +127,7 @@ class RedirectFlowsService extends Base
     *  Example URL: /redirect_flows/:identity/actions/complete
     *
     *
-    * @param string $identity Unique identifier, beginning with "RE"
+    * @param string $identity Unique identifier, beginning with "RE".
     * @param array $params POST/URL parameters for the argument. Automatically wrapped.
     * @param array $headers String to string associative array of custom headers to add to the requestion.
     *
