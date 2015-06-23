@@ -76,7 +76,8 @@ class Customer extends Base
     }
 
   /**
-    * Company Name.
+    * Customer's company name. Required unless a `given_name` and `family_name`
+    * are provided.
     *
     * @return string
     */
@@ -136,7 +137,7 @@ class Customer extends Base
     }
 
   /**
-    * Customer's surname.
+    * Customer's surname. Required unless a `company_name` is provided.
     *
     * @return string
     */
@@ -150,7 +151,7 @@ class Customer extends Base
     }
 
   /**
-    * Customer's first name.
+    * Customer's first name. Required unless a `company_name` is provided.
     *
     * @return string
     */
