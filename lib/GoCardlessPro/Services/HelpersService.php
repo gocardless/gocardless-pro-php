@@ -29,22 +29,20 @@ class HelpersService extends Base
     *  *  
     *  Bank account details may either be supplied using the IBAN
     *  (international bank account number), or [local
-    *  details](https://developer.gocardless.com/pro/2015-04-29/#ui-local-bank-details).
-    *  For more information on the different fields required in each country,
-    *  please see the [local bank
-    *  details](https://developer.gocardless.com/pro/2015-04-29/#ui-local-bank-details)
-    *  section.
+    *  details](#ui-local-bank-details). For more information on the different
+    *  fields required in each country, please see the [local bank
+    *  details](#ui-local-bank-details) section.
     *  
-    *  To generate a mandate in a foreign language, set
-    *  your `Accept-Language` header to the relevant [ISO
+    *  To generate a
+    *  mandate in a foreign language, set your `Accept-Language` header to the
+    *  relevant [ISO
     *  639-1](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes#Partial_ISO_639_table)
     *  language code. Currently Dutch, English, French, German, Italian,
     *  Portuguese and Spanish are supported.
     *  
     *  _Note:_ If you want
     *  to render a PDF of an existing mandate you can also do so using the
-    *  [mandate show
-    *  endpoint](https://developer.gocardless.com/pro/2015-04-29/#mandates-get-a-single-mandate).
+    *  [mandate show endpoint](#mandates-get-a-single-mandate).
     *
     *  Example URL: /helpers/mandate
     *
@@ -69,11 +67,9 @@ class HelpersService extends Base
     *  
     *  Bank account details may either be supplied
     *  using the IBAN (international bank account number), or [local
-    *  details](https://developer.gocardless.com/pro/2015-04-29/#ui-local-bank-details).
-    *  For more information on the different fields required in each country,
-    *  please see the [local bank
-    *  details](https://developer.gocardless.com/pro/2015-04-29/#ui-local-bank-details)
-    *  section.
+    *  details](#ui-local-bank-details). For more information on the different
+    *  fields required in each country, please see the [local bank
+    *  details](#ui-local-bank-details) section.
     *
     *  Example URL: /helpers/modulus_check
     *

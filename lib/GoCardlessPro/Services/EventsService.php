@@ -23,9 +23,8 @@ class EventsService extends Base
   /**
     *  List events
     *
-    *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
-    *  list of your events.
+    *  Returns a [cursor-paginated](#overview-cursor-pagination) list of your
+    *  events.
     *
     *  Example URL: /events
     *
@@ -72,9 +71,8 @@ class EventsService extends Base
   /**
     *  List events
     *
-    *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
-    *  list of your events.
+    *  Returns a [cursor-paginated](#overview-cursor-pagination) list of your
+    *  events.
     *
     * Example URL: /events
     *

@@ -9,12 +9,10 @@ namespace GoCardlessPro\Resources;
 
 /**
   * Mandates represent the Direct Debit mandate with a
-  * [customer](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-customers).
-
-  *  * 
-  * GoCardless will notify you via a
-  * [webhook](https://developer.gocardless.com/pro/2015-04-29/#webhooks)
-  * whenever the status of a mandate changes.
+  * [customer](#core-endpoints-customers).
+  * 
+  * GoCardless will notify you
+  * via a [webhook](#webhooks) whenever the status of a mandate changes.
   */
 class Mandate extends Base
 {
@@ -22,9 +20,8 @@ class Mandate extends Base
 
 
   /**
-    * Fixed
-    * [timestamp](https://developer.gocardless.com/pro/2015-04-29/#overview-time-zones-dates),
-    * recording when this resource was created.
+    * Fixed [timestamp](#overview-time-zones-dates), recording when this
+    * resource was created.
     *
     * @return string
     */

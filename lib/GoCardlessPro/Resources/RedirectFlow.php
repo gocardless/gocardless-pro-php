@@ -14,39 +14,31 @@ namespace GoCardlessPro\Resources;
   * The overall flow is:
   * 
   *
-  * 1. You
-  * [create](https://developer.gocardless.com/pro/2015-04-29/#create-a-redirect-flow)
-  * a redirect flow for your customer, and redirect them to the returned
-  * redirect url, e.g. `https://pay.gocardless.com/flow/RE123`.
+  * 1. You [create](#create-a-redirect-flow) a redirect flow for your customer,
+  * and redirect them to the returned redirect url, e.g.
+  * `https://pay.gocardless.com/flow/RE123`.
   * 
-  * 2. Your
-  * customer supplies their name, email, address, and bank account details, and
-  * submits the form. This securely stores their details, and redirects them
-  * back to your `success_redirect_url` with `redirect_flow_id=RE123` in the
-  * querystring.
+  * 2. Your customer supplies
+  * their name, email, address, and bank account details, and submits the form.
+  * This securely stores their details, and redirects them back to your
+  * `success_redirect_url` with `redirect_flow_id=RE123` in the querystring.
+  *
   * 
-  * 3. You
-  * [complete](https://developer.gocardless.com/pro/2015-04-29/#complete-a-redirect-flow)
-  * the redirect flow, which creates a
-  * [customer](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-customers),
-  * [customer bank
-  * account](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-customer-bank-accounts),
-  * and
-  * [mandate](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-mandates),
-  * and returns the ID of the mandate. You may wish to create a
-  * [subscription](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-subscriptions)
-  * or
-  * [payment](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-payments)
-  * at this point.
+  * 3. You [complete](#complete-a-redirect-flow) the redirect flow, which
+  * creates a [customer](#core-endpoints-customers), [customer bank
+  * account](#core-endpoints-customer-bank-accounts), and
+  * [mandate](#core-endpoints-mandates), and returns the ID of the mandate. You
+  * may wish to create a [subscription](#core-endpoints-subscriptions) or
+  * [payment](#core-endpoints-payments) at this point.
   * 
-  * It is recommended that you link the redirect flow to
-  * your user object as soon as it is created, and attach the created resources
-  * to that user in the complete step.
+  * It is
+  * recommended that you link the redirect flow to your user object as soon as
+  * it is created, and attach the created resources to that user in the complete
+  * step.
   * 
-  * Redirect flows expire 30 minutes
-  * after they are first created. You cannot
-  * [complete](https://developer.gocardless.com/pro/2015-04-29/#complete-a-redirect-flow)
-  * an expired redirect flow.
+  * Redirect flows expire 30 minutes after they are first
+  * created. You cannot [complete](#complete-a-redirect-flow) an expired
+  * redirect flow.
   * 
   * [View an example
   * integration](https://pay-sandbox.gocardless.com/AL000000AKFPFF) that uses
@@ -58,9 +50,8 @@ class RedirectFlow extends Base
 
 
   /**
-    * Fixed
-    * [timestamp](https://developer.gocardless.com/pro/2015-04-29/#overview-time-zones-dates),
-    * recording when this resource was created.
+    * Fixed [timestamp](#overview-time-zones-dates), recording when this
+    * resource was created.
     *
     * @return string
     */

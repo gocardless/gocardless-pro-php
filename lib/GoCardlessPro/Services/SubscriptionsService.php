@@ -13,27 +13,26 @@ namespace GoCardlessPro\Services;
   * @method \GoCardlessPro\Core\ListResponse
   * list(array $options=array(), array $headers=array()) gets a non-paginated list of models given finder options.
   *
-  *  Subscriptions create
-  *  [payments](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-payments)
-  *  according to a schedule.
+  *  Subscriptions create [payments](#core-endpoints-payments) according to a
+  *  schedule.
   *  
   *  #### Recurrence Rules
   *  
-  *  The
-  *  following rules apply when specifying recurrence:
-  *  - The first payment
-  *  must be charged within 1 year.
-  *  - When neither `month` nor
-  *  `day_of_month` are present, the subscription will recur from the `start_at`
-  *  based on the `interval_unit`.
-  *  - If `month` or `day_of_month` are
-  *  present, the recurrence rules will be applied from the `start_at`, and the
-  *  following validations apply:
+  *  The following rules
+  *  apply when specifying recurrence:
+  *  - The first payment must be charged
+  *  within 1 year.
+  *  - When neither `month` nor `day_of_month` are present,
+  *  the subscription will recur from the `start_at` based on the
+  *  `interval_unit`.
+  *  - If `month` or `day_of_month` are present, the
+  *  recurrence rules will be applied from the `start_at`, and the following
+  *  validations apply:
   *  
-  *  | interval_unit   | month          
-  *                                 | day_of_month                            |
-
-  *   *  | :-------------- | :--------------------------------------------- |
+  *  | interval_unit   | month                    
+  *                       | day_of_month                            |
+  *  |
+  *  :-------------- | :--------------------------------------------- |
   *  :-------------------------------------- |
   *  | yearly          | optional
   *  (required if `day_of_month` provided) | optional (required if `month`
@@ -108,9 +107,8 @@ class SubscriptionsService extends Base
   /**
     *  List subscriptions
     *
-    *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
-    *  list of your subscriptions.
+    *  Returns a [cursor-paginated](#overview-cursor-pagination) list of your
+    *  subscriptions.
     *
     *  Example URL: /subscriptions
     *
@@ -213,9 +211,8 @@ class SubscriptionsService extends Base
   /**
     *  List subscriptions
     *
-    *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
-    *  list of your subscriptions.
+    *  Returns a [cursor-paginated](#overview-cursor-pagination) list of your
+    *  subscriptions.
     *
     * Example URL: /subscriptions
     *

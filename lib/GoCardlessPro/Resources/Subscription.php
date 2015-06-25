@@ -8,27 +8,26 @@
 namespace GoCardlessPro\Resources;
 
 /**
-  * Subscriptions create
-  * [payments](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-payments)
-  * according to a schedule.
+  * Subscriptions create [payments](#core-endpoints-payments) according to a
+  * schedule.
   * 
   * #### Recurrence Rules
   * 
-  * The
-  * following rules apply when specifying recurrence:
-  * - The first payment
-  * must be charged within 1 year.
-  * - When neither `month` nor `day_of_month`
-  * are present, the subscription will recur from the `start_at` based on the
-  * `interval_unit`.
-  * - If `month` or `day_of_month` are present, the
-  * recurrence rules will be applied from the `start_at`, and the following
-  * validations apply:
+  * The following rules apply
+  * when specifying recurrence:
+  * - The first payment must be charged within 1
+  * year.
+  * - When neither `month` nor `day_of_month` are present, the
+  * subscription will recur from the `start_at` based on the `interval_unit`.
+ 
+  * * - If `month` or `day_of_month` are present, the recurrence rules will be
+  * applied from the `start_at`, and the following validations apply:
   * 
-  * | interval_unit   | month                       
-  *                   | day_of_month                            |
   * |
-  * :-------------- | :--------------------------------------------- |
+  * interval_unit   | month                                          |
+  * day_of_month                            |
+  * | :-------------- |
+  * :--------------------------------------------- |
   * :-------------------------------------- |
   * | yearly          | optional
   * (required if `day_of_month` provided) | optional (required if `month`
@@ -112,9 +111,8 @@ class Subscription extends Base
     }
 
   /**
-    * Fixed
-    * [timestamp](https://developer.gocardless.com/pro/2015-04-29/#overview-time-zones-dates),
-    * recording when this resource was created.
+    * Fixed [timestamp](#overview-time-zones-dates), recording when this
+    * resource was created.
     *
     * @return string
     */
@@ -282,8 +280,7 @@ class Subscription extends Base
     * An optional payment reference. This will be set as the reference on each
     * payment created and will appear on your customer's bank statement. See the
     * documentation for the [create payment
-    * endpoint](https://developer.gocardless.com/pro/2015-04-29/#payments-create-a-payment)
-    * for more details.
+    * endpoint](#payments-create-a-payment) for more details.
     *
     * @return string
     */
@@ -298,8 +295,7 @@ class Subscription extends Base
 
   /**
     * The date on which the first payment should be charged. Must be within one
-    * year of creation and on or after the
-    * [mandate](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-mandates)'s
+    * year of creation and on or after the [mandate](#core-endpoints-mandates)'s
     * `next_possible_charge_date`. When blank, this will be set as the mandate's
     * `next_possible_charge_date`.
     *

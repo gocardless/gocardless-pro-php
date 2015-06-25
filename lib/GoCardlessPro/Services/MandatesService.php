@@ -14,12 +14,10 @@ namespace GoCardlessPro\Services;
   * list(array $options=array(), array $headers=array()) gets a non-paginated list of models given finder options.
   *
   *  Mandates represent the Direct Debit mandate with a
-  *  [customer](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-customers).
-
-  *   *  
-  *  GoCardless will notify you via a
-  *  [webhook](https://developer.gocardless.com/pro/2015-04-29/#webhooks)
-  *  whenever the status of a mandate changes.
+  *  [customer](#core-endpoints-customers).
+  *  
+  *  GoCardless will notify
+  *  you via a [webhook](#webhooks) whenever the status of a mandate changes.
   */
 class MandatesService extends Base
 {
@@ -47,10 +45,9 @@ class MandatesService extends Base
   /**
     *  List mandates
     *
-    *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
-    *  list of your mandates. Except where stated, these filters can only be
-    *  used one at a time.
+    *  Returns a [cursor-paginated](#overview-cursor-pagination) list of your
+    *  mandates. Except where stated, these filters can only be used one at a
+    *  time.
     *
     *  Example URL: /mandates
     *
@@ -201,10 +198,9 @@ class MandatesService extends Base
   /**
     *  List mandates
     *
-    *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
-    *  list of your mandates. Except where stated, these filters can only be
-    *  used one at a time.
+    *  Returns a [cursor-paginated](#overview-cursor-pagination) list of your
+    *  mandates. Except where stated, these filters can only be used one at a
+    *  time.
     *
     * Example URL: /mandates
     *

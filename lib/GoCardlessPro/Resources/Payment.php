@@ -9,16 +9,12 @@ namespace GoCardlessPro\Resources;
 
 /**
   * Payment objects represent payments from a
-  * [customer](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-customers)
-  * to a
-  * [creditor](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-creditors),
-  * taken against a Direct Debit
-  * [mandate](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-mandates).
-
-  *  * 
-  * GoCardless will notify you via a
-  * [webhook](https://developer.gocardless.com/pro/2015-04-29/#webhooks)
-  * whenever the state of a payment changes.
+  * [customer](#core-endpoints-customers) to a
+  * [creditor](#core-endpoints-creditors), taken against a Direct Debit
+  * [mandate](#core-endpoints-mandates).
+  * 
+  * GoCardless will notify you via
+  * a [webhook](#webhooks) whenever the state of a payment changes.
   */
 class Payment extends Base
 {
@@ -40,9 +36,7 @@ class Payment extends Base
     }
 
   /**
-    * Amount
-    * [refunded](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-refunds)
-    * in pence or cents.
+    * Amount [refunded](#core-endpoints-refunds) in pence or cents.
     *
     * @return int
     */
@@ -58,8 +52,7 @@ class Payment extends Base
   /**
     * A future date on which the payment should be collected. If not specified,
     * the payment will be collected as soon as possible. This must be on or
-    * after the
-    * [mandate](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-mandates)'s
+    * after the [mandate](#core-endpoints-mandates)'s
     * `next_possible_charge_date`, and will be rolled-forwards by GoCardless if
     * it is not a working day.
     *
@@ -75,9 +68,8 @@ class Payment extends Base
     }
 
   /**
-    * Fixed
-    * [timestamp](https://developer.gocardless.com/pro/2015-04-29/#overview-time-zones-dates),
-    * recording when this resource was created.
+    * Fixed [timestamp](#overview-time-zones-dates), recording when this
+    * resource was created.
     *
     * @return string
     */

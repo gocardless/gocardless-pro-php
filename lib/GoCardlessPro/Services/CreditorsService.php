@@ -13,16 +13,15 @@ namespace GoCardlessPro\Services;
   * @method \GoCardlessPro\Core\ListResponse
   * list(array $options=array(), array $headers=array()) gets a non-paginated list of models given finder options.
   *
-  *  Each
-  *  [payment](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-payments)
-  *  taken through the API is linked to a "creditor", to whom the payment is
-  *  then paid out. In most cases your organisation will have a single
-  *  "creditor", but the API also supports collecting payments on behalf of
-  *  others.
+  *  Each [payment](#core-endpoints-payments) taken through the API is linked to
+  *  a "creditor", to whom the payment is then paid out. In most cases your
+  *  organisation will have a single "creditor", but the API also supports
+  *  collecting payments on behalf of others.
   *  
-  *  Please get in touch if you wish to use this endpoint.
-  *  Currently, for Anti Money Laundering reasons, any creditors you add must be
-  *  directly related to your organisation.
+  *  Please get in touch if
+  *  you wish to use this endpoint. Currently, for Anti Money Laundering
+  *  reasons, any creditors you add must be directly related to your
+  *  organisation.
   */
 class CreditorsService extends Base
 {
@@ -50,9 +49,8 @@ class CreditorsService extends Base
   /**
     *  List creditors
     *
-    *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
-    *  list of your creditors.
+    *  Returns a [cursor-paginated](#overview-cursor-pagination) list of your
+    *  creditors.
     *
     *  Example URL: /creditors
     *
@@ -125,9 +123,8 @@ class CreditorsService extends Base
   /**
     *  List creditors
     *
-    *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
-    *  list of your creditors.
+    *  Returns a [cursor-paginated](#overview-cursor-pagination) list of your
+    *  creditors.
     *
     * Example URL: /creditors
     *

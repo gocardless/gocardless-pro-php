@@ -9,11 +9,9 @@ namespace GoCardlessPro\Resources;
 
 /**
   * Payouts represent transfers from GoCardless to a
-  * [creditor](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-creditors).
-  * Each payout contains the funds collected from one or many
-  * [payments](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-payments).
-  * Payouts are created automatically after a payment has been successfully
-  * collected.
+  * [creditor](#core-endpoints-creditors). Each payout contains the funds
+  * collected from one or many [payments](#core-endpoints-payments). Payouts are
+  * created automatically after a payment has been successfully collected.
   */
 class Payout extends Base
 {
@@ -35,9 +33,8 @@ class Payout extends Base
     }
 
   /**
-    * Fixed
-    * [timestamp](https://developer.gocardless.com/pro/2015-04-29/#overview-time-zones-dates),
-    * recording when this resource was created.
+    * Fixed [timestamp](#overview-time-zones-dates), recording when this
+    * resource was created.
     *
     * @return string
     */

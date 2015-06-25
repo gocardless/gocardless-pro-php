@@ -14,16 +14,12 @@ namespace GoCardlessPro\Services;
   * list(array $options=array(), array $headers=array()) gets a non-paginated list of models given finder options.
   *
   *  Payment objects represent payments from a
-  *  [customer](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-customers)
-  *  to a
-  *  [creditor](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-creditors),
-  *  taken against a Direct Debit
-  *  [mandate](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-mandates).
-
-  *   *  
-  *  GoCardless will notify you via a
-  *  [webhook](https://developer.gocardless.com/pro/2015-04-29/#webhooks)
-  *  whenever the state of a payment changes.
+  *  [customer](#core-endpoints-customers) to a
+  *  [creditor](#core-endpoints-creditors), taken against a Direct Debit
+  *  [mandate](#core-endpoints-mandates).
+  *  
+  *  GoCardless will notify you
+  *  via a [webhook](#webhooks) whenever the state of a payment changes.
   */
 class PaymentsService extends Base
 {
@@ -35,10 +31,9 @@ class PaymentsService extends Base
     *  
  
     *    *  This fails with a `mandate_is_inactive` error if the linked
-    *  [mandate](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-mandates)
-    *  is cancelled. Payments can be created against `pending_submission`
-    *  mandates, but they will not be submitted until the mandate becomes
-    *  active.
+    *  [mandate](#core-endpoints-mandates) is cancelled. Payments can be created
+    *  against `pending_submission` mandates, but they will not be submitted
+    *  until the mandate becomes active.
     *
     *  Example URL: /payments
     *
@@ -58,9 +53,8 @@ class PaymentsService extends Base
   /**
     *  List payments
     *
-    *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
-    *  list of your payments.
+    *  Returns a [cursor-paginated](#overview-cursor-pagination) list of your
+    *  payments.
     *
     *  Example URL: /payments
     *
@@ -199,9 +193,8 @@ class PaymentsService extends Base
   /**
     *  List payments
     *
-    *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
-    *  list of your payments.
+    *  Returns a [cursor-paginated](#overview-cursor-pagination) list of your
+    *  payments.
     *
     * Example URL: /payments
     *

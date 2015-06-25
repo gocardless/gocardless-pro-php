@@ -14,16 +14,15 @@ namespace GoCardlessPro\Services;
   * list(array $options=array(), array $headers=array()) gets a non-paginated list of models given finder options.
   *
   *  Creditor Bank Accounts hold the bank details of a
-  *  [creditor](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-creditor).
-  *  These are the bank accounts which your
-  *  [payouts](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-payouts)
-  *  will be sent to.
+  *  [creditor](#core-endpoints-creditor). These are the bank accounts which
+  *  your [payouts](#core-endpoints-payouts) will be sent to.
   *  
-  *  Note that creditor bank accounts must be
-  *  unique, and so you will encounter a `bank_account_exists` error if you try
-  *  to create a duplicate bank account. You may wish to handle this by updating
-  *  the existing record instead, the ID of which will be provided as
-  *  `links[creditor_bank_account]` in the error response.
+  *  Note
+  *  that creditor bank accounts must be unique, and so you will encounter a
+  *  `bank_account_exists` error if you try to create a duplicate bank account.
+  *  You may wish to handle this by updating the existing record instead, the ID
+  *  of which will be provided as `links[creditor_bank_account]` in the error
+  *  response.
   */
 class CreditorBankAccountsService extends Base
 {
@@ -51,9 +50,8 @@ class CreditorBankAccountsService extends Base
   /**
     *  List creditor bank accounts
     *
-    *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
-    *  list of your creditor bank accounts.
+    *  Returns a [cursor-paginated](#overview-cursor-pagination) list of your
+    *  creditor bank accounts.
     *
     *  Example URL: /creditor_bank_accounts
     *
@@ -133,9 +131,8 @@ class CreditorBankAccountsService extends Base
   /**
     *  List creditor bank accounts
     *
-    *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
-    *  list of your creditor bank accounts.
+    *  Returns a [cursor-paginated](#overview-cursor-pagination) list of your
+    *  creditor bank accounts.
     *
     * Example URL: /creditor_bank_accounts
     *

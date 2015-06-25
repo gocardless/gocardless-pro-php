@@ -14,22 +14,19 @@ namespace GoCardlessPro\Services;
   * list(array $options=array(), array $headers=array()) gets a non-paginated list of models given finder options.
   *
   *  Refund objects represent (partial) refunds of a
-  *  [payment](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-payment)
-  *  back to the
-  *  [customer](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-customers).
-
-  *   *  
-  *  The API allows you to create, show, list and update your
-  *  refunds.
+  *  [payment](#core-endpoints-payment) back to the
+  *  [customer](#core-endpoints-customers).
   *  
-  *  GoCardless will notify you via a
-  *  [webhook](https://developer.gocardless.com/pro/2015-04-29/#webhooks)
-  *  whenever a refund is created, and will update the `amount_refunded`
-  *  property of the payment.
+  *  The API allows you to
+  *  create, show, list and update your refunds.
   *  
-  *  _Note:_ A payment that has been
-  *  (partially) refunded can still receive a late failure or chargeback from
-  *  the banks.
+  *  GoCardless will
+  *  notify you via a [webhook](#webhooks) whenever a refund is created, and
+  *  will update the `amount_refunded` property of the payment.
+  *  
+  * 
+  *  _Note:_ A payment that has been (partially) refunded can still receive a
+  *  late failure or chargeback from the banks.
   */
 class RefundsService extends Base
 {
@@ -46,17 +43,17 @@ class RefundsService extends Base
     *  
     *  -
     *  `refund_payment_invalid_state` error if the linked
-    *  [payment](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-payments)
-    *  isn't either `confirmed` or `paid_out`.
+    *  [payment](#core-endpoints-payments) isn't either `confirmed` or
+    *  `paid_out`.
+    *  
+    *  - `total_amount_confirmation_invalid` if the
+    *  confirmation amount doesn't match the total amount refunded for the
+    *  payment. This safeguard is there to prevent two processes from creating
+    *  refunds without awareness of each other.
     *  
     *  -
-    *  `total_amount_confirmation_invalid` if the confirmation amount doesn't
-    *  match the total amount refunded for the payment. This safeguard is there
-    *  to prevent two processes from creating refunds without awareness of each
-    *  other.
-    *  
-    *  - `number_of_refunds_exceeded` if five or more
-    *  refunds have already been created against the payment.
+    *  `number_of_refunds_exceeded` if five or more refunds have already been
+    *  created against the payment.
     *  
     *
     *  Example URL: /refunds
@@ -77,9 +74,8 @@ class RefundsService extends Base
   /**
     *  List refunds
     *
-    *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
-    *  list of your refunds.
+    *  Returns a [cursor-paginated](#overview-cursor-pagination) list of your
+    *  refunds.
     *
     *  Example URL: /refunds
     *
@@ -151,9 +147,8 @@ class RefundsService extends Base
   /**
     *  List refunds
     *
-    *  Returns a
-    *  [cursor-paginated](https://developer.gocardless.com/pro/2015-04-29/#overview-cursor-pagination)
-    *  list of your refunds.
+    *  Returns a [cursor-paginated](#overview-cursor-pagination) list of your
+    *  refunds.
     *
     * Example URL: /refunds
     *

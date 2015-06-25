@@ -10,9 +10,8 @@ namespace GoCardlessPro\Resources;
 /**
   * Customer objects hold the contact details for a customer. A customer can
   * have several [customer bank
-  * accounts](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-customer-bank-accounts),
-  * which in turn can have several Direct Debit
-  * [mandates](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-mandates).
+  * accounts](#core-endpoints-customer-bank-accounts), which in turn can have
+  * several Direct Debit [mandates](#core-endpoints-mandates).
   */
 class Customer extends Base
 {
@@ -107,9 +106,8 @@ class Customer extends Base
     }
 
   /**
-    * Fixed
-    * [timestamp](https://developer.gocardless.com/pro/2015-04-29/#overview-time-zones-dates),
-    * recording when this resource was created.
+    * Fixed [timestamp](#overview-time-zones-dates), recording when this
+    * resource was created.
     *
     * @return string
     */
