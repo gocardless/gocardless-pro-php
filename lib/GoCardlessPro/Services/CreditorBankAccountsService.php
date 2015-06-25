@@ -14,9 +14,9 @@ namespace GoCardlessPro\Services;
   * list(array $options=array(), array $headers=array()) gets a non-paginated list of models given finder options.
   *
   *  Creditor Bank Accounts hold the bank details of a
-  *  [creditor](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-creditor).
+  *  [creditor](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-creditor).
   *  These are the bank accounts which your
-  *  [payouts](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payouts)
+  *  [payouts](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-payouts)
   *  will be sent to.
   *  
   *  Note that creditor bank accounts must be

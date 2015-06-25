@@ -9,11 +9,11 @@ namespace GoCardlessPro\Resources;
 
 /**
   * Customer Bank Accounts hold the bank details of a
-  * [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers).
+  * [customer](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-customers).
   * They always belong to a
-  * [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers),
+  * [customer](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-customers),
   * and may be linked to several Direct Debit
-  * [mandates](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-mandates).
+  * [mandates](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-mandates).
 
   *  * 
   * Note that customer bank accounts must be unique, and so you will
@@ -30,7 +30,7 @@ class CustomerBankAccount extends Base
   /**
     * Name of the account holder, as known by the bank. Usually this matches the
     * name of the linked
-    * [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers).
+    * [customer](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-customers).
     * This field will be transliterated, upcased and truncated to 18 characters.
     *
     * @return string

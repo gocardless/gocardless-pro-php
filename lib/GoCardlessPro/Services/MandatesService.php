@@ -14,7 +14,7 @@ namespace GoCardlessPro\Services;
   * list(array $options=array(), array $headers=array()) gets a non-paginated list of models given finder options.
   *
   *  Mandates represent the Direct Debit mandate with a
-  *  [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers).
+  *  [customer](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-customers).
 
   *   *  
   *  GoCardless will notify you via a

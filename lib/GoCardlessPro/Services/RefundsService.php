@@ -14,9 +14,9 @@ namespace GoCardlessPro\Services;
   * list(array $options=array(), array $headers=array()) gets a non-paginated list of models given finder options.
   *
   *  Refund objects represent (partial) refunds of a
-  *  [payment](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payment)
+  *  [payment](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-payment)
   *  back to the
-  *  [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers).
+  *  [customer](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-customers).
 
   *   *  
   *  The API allows you to create, show, list and update your
@@ -46,7 +46,7 @@ class RefundsService extends Base
     *  
     *  -
     *  `refund_payment_invalid_state` error if the linked
-    *  [payment](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payments)
+    *  [payment](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-payments)
     *  isn't either `confirmed` or `paid_out`.
     *  
     *  -

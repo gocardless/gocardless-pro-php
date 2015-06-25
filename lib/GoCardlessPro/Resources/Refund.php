@@ -9,9 +9,9 @@ namespace GoCardlessPro\Resources;
 
 /**
   * Refund objects represent (partial) refunds of a
-  * [payment](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payment)
+  * [payment](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-payment)
   * back to the
-  * [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers).
+  * [customer](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-customers).
 
   *  * 
   * The API allows you to create, show, list and update your refunds.
@@ -63,7 +63,7 @@ class Refund extends Base
   /**
     * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
     * code. This is set to the currency of the refund's
-    * [payment](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payments).
+    * [payment](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-payments).
     *
     * @return string
     */

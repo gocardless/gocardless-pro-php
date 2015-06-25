@@ -14,7 +14,7 @@ namespace GoCardlessPro\Services;
   * list(array $options=array(), array $headers=array()) gets a non-paginated list of models given finder options.
   *
   *  Each
-  *  [payment](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payments)
+  *  [payment](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-payments)
   *  taken through the API is linked to a "creditor", to whom the payment is
   *  then paid out. In most cases your organisation will have a single
   *  "creditor", but the API also supports collecting payments on behalf of

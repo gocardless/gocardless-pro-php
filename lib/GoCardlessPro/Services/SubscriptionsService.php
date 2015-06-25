@@ -14,7 +14,7 @@ namespace GoCardlessPro\Services;
   * list(array $options=array(), array $headers=array()) gets a non-paginated list of models given finder options.
   *
   *  Subscriptions create
-  *  [payments](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payments)
+  *  [payments](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-payments)
   *  according to a schedule.
   *  
   *  #### Recurrence Rules

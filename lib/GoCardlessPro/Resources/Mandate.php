@@ -9,7 +9,7 @@ namespace GoCardlessPro\Resources;
 
 /**
   * Mandates represent the Direct Debit mandate with a
-  * [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers).
+  * [customer](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-customers).
 
   *  * 
   * GoCardless will notify you via a

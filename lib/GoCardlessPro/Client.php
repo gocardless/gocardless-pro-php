@@ -45,7 +45,7 @@ class Client
     * Creditors
     *
     * Each
-    * [payment](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payments)
+    * [payment](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-payments)
     * taken through the API is linked to a "creditor", to whom the payment is
     * then paid out. In most cases your organisation will have a single
     * "creditor", but the API also supports collecting payments on behalf of
@@ -69,9 +69,9 @@ class Client
     * Creditor Bank Accounts
     *
     * Creditor Bank Accounts hold the bank details of a
-    * [creditor](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-creditor).
+    * [creditor](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-creditor).
     * These are the bank accounts which your
-    * [payouts](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payouts)
+    * [payouts](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-payouts)
     * will be sent to.
     * 
     * Note that creditor bank accounts must be
@@ -95,9 +95,9 @@ class Client
     *
     * Customer objects hold the contact details for a customer. A customer can
     * have several [customer bank
-    * accounts](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customer-bank-accounts),
+    * accounts](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-customer-bank-accounts),
     * which in turn can have several Direct Debit
-    * [mandates](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-mandates).
+    * [mandates](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-mandates).
     *
     * @return Services\Customer
     */
@@ -113,11 +113,11 @@ class Client
     * Customer Bank Accounts
     *
     * Customer Bank Accounts hold the bank details of a
-    * [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers).
+    * [customer](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-customers).
     * They always belong to a
-    * [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers),
+    * [customer](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-customers),
     * and may be linked to several Direct Debit
-    * [mandates](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-mandates).
+    * [mandates](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-mandates).
 
     *    * 
     * Note that customer bank accounts must be unique, and so you
@@ -170,7 +170,7 @@ class Client
     * Mandates
     *
     * Mandates represent the Direct Debit mandate with a
-    * [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers).
+    * [customer](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-customers).
 
     *    * 
     * GoCardless will notify you via a
@@ -191,11 +191,11 @@ class Client
     * Payments
     *
     * Payment objects represent payments from a
-    * [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers)
+    * [customer](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-customers)
     * to a
-    * [creditor](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-creditors),
+    * [creditor](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-creditors),
     * taken against a Direct Debit
-    * [mandate](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-mandates).
+    * [mandate](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-mandates).
 
     *    * 
     * GoCardless will notify you via a
@@ -216,9 +216,9 @@ class Client
     * Payouts
     *
     * Payouts represent transfers from GoCardless to a
-    * [creditor](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-creditors).
+    * [creditor](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-creditors).
     * Each payout contains the funds collected from one or many
-    * [payments](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payments).
+    * [payments](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-payments).
     * Payouts are created automatically after a payment has been successfully
     * collected.
     *
@@ -255,15 +255,15 @@ class Client
     * 3. You
     * [complete](https://developer.gocardless.com/pro/2015-04-29/#complete-a-redirect-flow)
     * the redirect flow, which creates a
-    * [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers),
+    * [customer](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-customers),
     * [customer bank
-    * account](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customer-bank-accounts),
+    * account](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-customer-bank-accounts),
     * and
-    * [mandate](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-mandates),
+    * [mandate](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-mandates),
     * and returns the ID of the mandate. You may wish to create a
-    * [subscription](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-subscriptions)
+    * [subscription](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-subscriptions)
     * or
-    * [payment](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payments)
+    * [payment](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-payments)
     * at this point.
     * 
     * It is recommended that you link the redirect
@@ -293,9 +293,9 @@ class Client
     * Refunds
     *
     * Refund objects represent (partial) refunds of a
-    * [payment](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payment)
+    * [payment](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-payment)
     * back to the
-    * [customer](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-customers).
+    * [customer](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-customers).
 
     *    * 
     * The API allows you to create, show, list and update your
@@ -324,7 +324,7 @@ class Client
     * Subscriptions
     *
     * Subscriptions create
-    * [payments](https://developer.gocardless.com/pro/2015-04-29/#api-endpoints-payments)
+    * [payments](https://developer.gocardless.com/pro/2015-04-29/#core-endpoints-payments)
     * according to a schedule.
     * 
     * #### Recurrence Rules
