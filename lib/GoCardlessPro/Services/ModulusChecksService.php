@@ -23,11 +23,8 @@ class ModulusChecksService extends Base
     *
     *  Performs a modulus check.
     *  
-    *  Bank account details may either
-    *  be supplied using the IBAN (international bank account number), or [local
-    *  details](#ui-compliance-local-bank-details). For more information on the
-    *  different fields required in each country, please see the [local bank
-    *  details](#ui-compliance-local-bank-details) section.
+    *  Bank account details may be
+    *  supplied using [local details](#ui-local-bank-details) or an IBAN.
     *
     *  Example URL: /modulus_checks
     *

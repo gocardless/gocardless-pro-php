@@ -51,7 +51,7 @@ class ModulusCheck extends Base
 
   /**
     * Whether the modulus check was successful (i.e. whether the bank account
-    * details provided were valid)
+    * details provided were valid).
     *
     * @return bool
     */
