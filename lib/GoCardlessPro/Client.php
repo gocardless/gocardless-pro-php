@@ -181,6 +181,22 @@ class Client
     }
 
   /**
+    * Modulus Checks
+    *
+    * Check whether an account number and bank / branch code combination are
+    * compatible.
+    *
+    * @return Services\ModulusCheck
+    */
+    public function modulus_checks()
+    {
+        if (!isset($this->modulus_checks)) {
+            $this->modulus_checks = new Services\ModulusChecksService($this->http_client);
+        }
+        return $this->modulus_checks;
+    }
+
+  /**
     * Payments
     *
     * Payment objects represent payments from a
