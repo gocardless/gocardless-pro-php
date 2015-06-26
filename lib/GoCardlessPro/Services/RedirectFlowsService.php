@@ -12,14 +12,17 @@ namespace GoCardlessPro\Services;
   *
 
   *
-  *  Redirect flows enable you to use GoCardless Pro's secure payment pages to
-  *  set up mandates with your customers.
-  *  
+  *  Redirect flows enable you to use GoCardless Pro's [hosted payment
+  *  pages](https://pay-sandbox.gocardless.com/AL000000AKFPFF) to set up
+  *  mandates with your customers. These pages are fully compliant and have been
+  *  translated into Dutch, French, German, Italian, Portuguese and Spanish.
+  *
+  *   
   *  The overall flow is:
   *  
-
-  *   *  1. You [create](#create-a-redirect-flow) a redirect flow for your
-  *  customer, and redirect them to the returned redirect url, e.g.
+  *  1. You
+  *  [create](#create-a-redirect-flow) a redirect flow for your customer, and
+  *  redirect them to the returned redirect url, e.g.
   *  `https://pay.gocardless.com/flow/RE123`.
   *  
   *  2. Your customer
@@ -41,12 +44,7 @@ namespace GoCardlessPro\Services;
   *  complete step.
   *  
   *  Redirect flows expire 30 minutes after they are
-  *  first created. You cannot [complete](#complete-a-redirect-flow) an expired
-  *  redirect flow.
-  *  
-  *  [View an example
-  *  integration](https://pay-sandbox.gocardless.com/AL000000AKFPFF) that uses
-  *  redirect flows.
+  *  first created. You cannot complete an expired redirect flow.
   */
 class RedirectFlowsService extends Base
 {
