@@ -130,7 +130,7 @@ class CreditorBankAccount extends Base
     }
 
   /**
-    * Unique identifier, beginning with "BA"
+    * Unique identifier, beginning with "BA".
     *
     * @return string
     */

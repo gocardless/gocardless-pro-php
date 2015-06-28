@@ -17,16 +17,13 @@ namespace GoCardlessPro\Services;
   *  [payment](#core-endpoints-payment) back to the
   *  [customer](#core-endpoints-customers).
   *  
-  *  The API allows you to
-  *  create, show, list and update your refunds.
+  *  GoCardless will notify
+  *  you via a [webhook](#webhooks) whenever a refund is created, and will
+  *  update the `amount_refunded` property of the payment.
   *  
-  *  GoCardless will
-  *  notify you via a [webhook](#webhooks) whenever a refund is created, and
-  *  will update the `amount_refunded` property of the payment.
-  *  
-  * 
-  *  _Note:_ A payment that has been (partially) refunded can still receive a
-  *  late failure or chargeback from the banks.
+  *  _Note:_ A
+  *  payment that has been (partially) refunded can still receive a late failure
+  *  or chargeback from the banks.
   */
 class RefundsService extends Base
 {
@@ -100,7 +97,7 @@ class RefundsService extends Base
     *  Example URL: /refunds/:identity
     *
     *
-    * @param string $identity Unique identifier, beginning with "RF"
+    * @param string $identity Unique identifier, beginning with "RF".
     * @param array $params POST/URL parameters for the argument. Automatically wrapped.
     * @param array $headers String to string associative array of custom headers to add to the requestion.
     *
@@ -125,7 +122,7 @@ class RefundsService extends Base
     *  Example URL: /refunds/:identity
     *
     *
-    * @param string $identity Unique identifier, beginning with "RF"
+    * @param string $identity Unique identifier, beginning with "RF".
     * @param array $params POST/URL parameters for the argument. Automatically wrapped.
     * @param array $headers String to string associative array of custom headers to add to the requestion.
     *

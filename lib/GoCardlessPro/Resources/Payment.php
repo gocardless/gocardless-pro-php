@@ -112,7 +112,7 @@ class Payment extends Base
     }
 
   /**
-    * Unique identifier, beginning with "PM"
+    * Unique identifier, beginning with "PM".
     *
     * @return string
     */

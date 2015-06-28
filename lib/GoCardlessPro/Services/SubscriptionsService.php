@@ -133,7 +133,7 @@ class SubscriptionsService extends Base
     *  Example URL: /subscriptions/:identity
     *
     *
-    * @param string $identity Unique identifier, beginning with "SB"
+    * @param string $identity Unique identifier, beginning with "SB".
     * @param array $params POST/URL parameters for the argument. Automatically wrapped.
     * @param array $headers String to string associative array of custom headers to add to the requestion.
     *
@@ -158,7 +158,7 @@ class SubscriptionsService extends Base
     *  Example URL: /subscriptions/:identity
     *
     *
-    * @param string $identity Unique identifier, beginning with "SB"
+    * @param string $identity Unique identifier, beginning with "SB".
     * @param array $params POST/URL parameters for the argument. Automatically wrapped.
     * @param array $headers String to string associative array of custom headers to add to the requestion.
     *
@@ -189,7 +189,7 @@ class SubscriptionsService extends Base
     *  Example URL: /subscriptions/:identity/actions/cancel
     *
     *
-    * @param string $identity Unique identifier, beginning with "SB"
+    * @param string $identity Unique identifier, beginning with "SB".
     * @param array $params POST/URL parameters for the argument. Automatically wrapped.
     * @param array $headers String to string associative array of custom headers to add to the requestion.
     *

@@ -76,7 +76,7 @@ class CreditorBankAccountsService extends Base
     *  Example URL: /creditor_bank_accounts/:identity
     *
     *
-    * @param string $identity Unique identifier, beginning with "BA"
+    * @param string $identity Unique identifier, beginning with "BA".
     * @param array $params POST/URL parameters for the argument. Automatically wrapped.
     * @param array $headers String to string associative array of custom headers to add to the requestion.
     *
@@ -109,7 +109,7 @@ class CreditorBankAccountsService extends Base
     *  Example URL: /creditor_bank_accounts/:identity/actions/disable
     *
     *
-    * @param string $identity Unique identifier, beginning with "BA"
+    * @param string $identity Unique identifier, beginning with "BA".
     * @param array $params POST/URL parameters for the argument. Automatically wrapped.
     * @param array $headers String to string associative array of custom headers to add to the requestion.
     *

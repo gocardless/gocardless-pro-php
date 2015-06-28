@@ -83,7 +83,7 @@ class MandatesService extends Base
     *  Example URL: /mandates/:identity
     *
     *
-    * @param string $identity Unique identifier, beginning with "MD"
+    * @param string $identity Unique identifier, beginning with "MD".
     * @param array $params POST/URL parameters for the argument. Automatically wrapped.
     * @param array $headers String to string associative array of custom headers to add to the requestion.
     *
@@ -108,7 +108,7 @@ class MandatesService extends Base
     *  Example URL: /mandates/:identity
     *
     *
-    * @param string $identity Unique identifier, beginning with "MD"
+    * @param string $identity Unique identifier, beginning with "MD".
     * @param array $params POST/URL parameters for the argument. Automatically wrapped.
     * @param array $headers String to string associative array of custom headers to add to the requestion.
     *
@@ -138,7 +138,7 @@ class MandatesService extends Base
     *  Example URL: /mandates/:identity/actions/cancel
     *
     *
-    * @param string $identity Unique identifier, beginning with "MD"
+    * @param string $identity Unique identifier, beginning with "MD".
     * @param array $params POST/URL parameters for the argument. Automatically wrapped.
     * @param array $headers String to string associative array of custom headers to add to the requestion.
     *
@@ -176,7 +176,7 @@ class MandatesService extends Base
     *  Example URL: /mandates/:identity/actions/reinstate
     *
     *
-    * @param string $identity Unique identifier, beginning with "MD"
+    * @param string $identity Unique identifier, beginning with "MD".
     * @param array $params POST/URL parameters for the argument. Automatically wrapped.
     * @param array $headers String to string associative array of custom headers to add to the requestion.
     *

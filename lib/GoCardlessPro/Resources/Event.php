@@ -62,7 +62,7 @@ class Event extends Base
     }
 
   /**
-    * Unique identifier, beginning with "EV"
+    * Unique identifier, beginning with "EV".
     *
     * @return string
     */

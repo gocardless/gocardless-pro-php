@@ -63,7 +63,7 @@ class Payout extends Base
     }
 
   /**
-    * Unique identifier, beginning with "PO"
+    * Unique identifier, beginning with "PO".
     *
     * @return string
     */

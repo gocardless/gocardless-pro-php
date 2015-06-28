@@ -49,7 +49,7 @@ class EventsService extends Base
     *  Example URL: /events/:identity
     *
     *
-    * @param string $identity Unique identifier, beginning with "EV"
+    * @param string $identity Unique identifier, beginning with "EV".
     * @param array $params POST/URL parameters for the argument. Automatically wrapped.
     * @param array $headers String to string associative array of custom headers to add to the requestion.
     *

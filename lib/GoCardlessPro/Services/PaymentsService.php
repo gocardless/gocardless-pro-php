@@ -79,7 +79,7 @@ class PaymentsService extends Base
     *  Example URL: /payments/:identity
     *
     *
-    * @param string $identity Unique identifier, beginning with "PM"
+    * @param string $identity Unique identifier, beginning with "PM".
     * @param array $params POST/URL parameters for the argument. Automatically wrapped.
     * @param array $headers String to string associative array of custom headers to add to the requestion.
     *
@@ -104,7 +104,7 @@ class PaymentsService extends Base
     *  Example URL: /payments/:identity
     *
     *
-    * @param string $identity Unique identifier, beginning with "PM"
+    * @param string $identity Unique identifier, beginning with "PM".
     * @param array $params POST/URL parameters for the argument. Automatically wrapped.
     * @param array $headers String to string associative array of custom headers to add to the requestion.
     *
@@ -135,7 +135,7 @@ class PaymentsService extends Base
     *  Example URL: /payments/:identity/actions/cancel
     *
     *
-    * @param string $identity Unique identifier, beginning with "PM"
+    * @param string $identity Unique identifier, beginning with "PM".
     * @param array $params POST/URL parameters for the argument. Automatically wrapped.
     * @param array $headers String to string associative array of custom headers to add to the requestion.
     *
@@ -171,7 +171,7 @@ class PaymentsService extends Base
     *  Example URL: /payments/:identity/actions/retry
     *
     *
-    * @param string $identity Unique identifier, beginning with "PM"
+    * @param string $identity Unique identifier, beginning with "PM".
     * @param array $params POST/URL parameters for the argument. Automatically wrapped.
     * @param array $headers String to string associative array of custom headers to add to the requestion.
     *

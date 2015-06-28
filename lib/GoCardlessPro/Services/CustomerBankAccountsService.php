@@ -93,7 +93,7 @@ class CustomerBankAccountsService extends Base
     *  Example URL: /customer_bank_accounts/:identity
     *
     *
-    * @param string $identity Unique identifier, beginning with "BA"
+    * @param string $identity Unique identifier, beginning with "BA".
     * @param array $params POST/URL parameters for the argument. Automatically wrapped.
     * @param array $headers String to string associative array of custom headers to add to the requestion.
     *
@@ -119,7 +119,7 @@ class CustomerBankAccountsService extends Base
     *  Example URL: /customer_bank_accounts/:identity
     *
     *
-    * @param string $identity Unique identifier, beginning with "BA"
+    * @param string $identity Unique identifier, beginning with "BA".
     * @param array $params POST/URL parameters for the argument. Automatically wrapped.
     * @param array $headers String to string associative array of custom headers to add to the requestion.
     *
@@ -151,7 +151,7 @@ class CustomerBankAccountsService extends Base
     *  Example URL: /customer_bank_accounts/:identity/actions/disable
     *
     *
-    * @param string $identity Unique identifier, beginning with "BA"
+    * @param string $identity Unique identifier, beginning with "BA".
     * @param array $params POST/URL parameters for the argument. Automatically wrapped.
     * @param array $headers String to string associative array of custom headers to add to the requestion.
     *

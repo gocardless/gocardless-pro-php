@@ -52,7 +52,7 @@ class PayoutsService extends Base
     *  Example URL: /payouts/:identity
     *
     *
-    * @param string $identity Unique identifier, beginning with "PO"
+    * @param string $identity Unique identifier, beginning with "PO".
     * @param array $params POST/URL parameters for the argument. Automatically wrapped.
     * @param array $headers String to string associative array of custom headers to add to the requestion.
     *

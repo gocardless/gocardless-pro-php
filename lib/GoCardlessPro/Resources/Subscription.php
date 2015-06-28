@@ -142,7 +142,7 @@ class Subscription extends Base
 
   /**
     * As per RFC 2445. The day of the month to charge customers on. `1`-`28` or
-    * `-1` to indicate the last day of the month
+    * `-1` to indicate the last day of the month.
     *
     * @return int
     */
@@ -173,7 +173,7 @@ class Subscription extends Base
     }
 
   /**
-    * Unique identifier, beginning with "SB"
+    * Unique identifier, beginning with "SB".
     *
     * @return string
     */

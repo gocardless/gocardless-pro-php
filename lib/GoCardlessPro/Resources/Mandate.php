@@ -35,7 +35,7 @@ class Mandate extends Base
     }
 
   /**
-    * Unique identifier, beginning with "MD"
+    * Unique identifier, beginning with "MD".
     *
     * @return string
     */
@@ -81,7 +81,7 @@ class Mandate extends Base
 
   /**
     * The earliest date a newly created payment for this mandate could be
-    * charged
+    * charged.
     *
     * @return string
     */
