@@ -262,8 +262,8 @@ class Subscription extends Base
     }
 
   /**
-    * Optional name for the subscription. This field must not exceed 255
-    * characters.
+    * Optional name for the subscription. This will be set as the description on
+    * each payment created. Must not exceed 255 characters.
     *
     * @return string
     */
