@@ -181,6 +181,22 @@ class Client
     }
 
   /**
+    * Mandate PDFs
+    *
+    * Construct a mandate PDF for a given set of bank details or an
+    * already-existing mandate.
+    *
+    * @return Services\MandatePdf
+    */
+    public function mandate_pdfs()
+    {
+        if (!isset($this->mandate_pdfs)) {
+            $this->mandate_pdfs = new Services\MandatePdfsService($this->http_client);
+        }
+        return $this->mandate_pdfs;
+    }
+
+  /**
     * Modulus Checks
     *
     * Check whether an account number and bank / branch code combination are
