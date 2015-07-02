@@ -34,7 +34,7 @@ Add this repository to the contents of your `composer.json`:
 ```javascript
 {
     "require": {
-        "gocardless/gocardless-pro-php": "0.1.1"
+        "gocardless/gocardless-pro-php": "0.2.0"
     }
 }
 ```
