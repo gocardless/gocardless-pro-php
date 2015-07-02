@@ -18,7 +18,7 @@ class MandatePdf extends Base
 
 
   /**
-    * The date and time at which the `url` will expire (30 minutes after the
+    * The date and time at which the `url` will expire (10 minutes after the
     * original request).
     *
     * @return string
