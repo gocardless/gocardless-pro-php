@@ -183,8 +183,9 @@ class Client
   /**
     * Mandate PDFs
     *
-    * Construct a mandate PDF for a given set of bank details or an
-    * already-existing mandate.
+    * Mandate PDFs allow you to easily display [scheme-rules
+    * compliant](#ui-compliance-requirements) Direct Debit mandates to your
+    * customers.
     *
     * @return Services\MandatePdf
     */

@@ -12,28 +12,29 @@ namespace GoCardlessPro\Services;
   *
 
   *
-  *  Construct a mandate PDF for a given set of bank details or an
-  *  already-existing mandate.
+  *  Mandate PDFs allow you to easily display [scheme-rules
+  *  compliant](#ui-compliance-requirements) Direct Debit mandates to your
+  *  customers.
   */
 class MandatePdfsService extends Base
 {
   
   /**
-    *  Generate a mandate PDF
+    *  Create a mandate PDF
     *
-    *  Generates a temporary URL for viewing a PDF mandate.
+    *  Generates a PDF mandate and returns its temporary URL.
     *  
-    *  Bank
-    *  account details may be supplied using an IBAN (international bank account
-    *  number), or [local details](#ui-local-bank-details), or alternatively you
-    *  can provide the ID of an existing [mandate](#core-endpoints-mandates) to
-    *  create a PDF of.
+    * 
+    *  Customer and bank account details can be left blank (for a blank
+    *  mandate), provided manually, or inferred from the ID of an existing
+    *  [mandate](#core-endpoints-mandates).
     *  
-    *  To generate a mandate in a foreign
-    *  language, set your `Accept-Language` header to the relevant [ISO
+    *  To generate a PDF
+    *  mandate in a foreign language, set your `Accept-Language` header to the
+    *  relevant [ISO
     *  639-1](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes#Partial_ISO_639_table)
-    *  language code. Currently Dutch, English, French, German, Italian,
-    *  Portuguese and Spanish are supported.
+    *  language code. Supported languages are Dutch, English, French, German,
+    *  Italian, Portuguese and Spanish.
     *
     *  Example URL: /mandate_pdfs
     *
