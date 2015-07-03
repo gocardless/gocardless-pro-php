@@ -6,16 +6,16 @@
 
 namespace GoCardlessPro\Integration;
 
-class ModulusChecksTest extends IntegrationTestBase
+class BankDetailsLookupsTest extends IntegrationTestBase
 {
     public function setUp()
     {
-        $this->clientAndFixtureSetup('modulus_checks');
+        $this->clientAndFixtureSetup('bank_details_lookups');
     }
 
     public function testResourceExists()
     {
-        $obj = new \GoCardlessPro\Resources\ModulusCheck(null);
+        $obj = new \GoCardlessPro\Resources\BankDetailsLookup(null);
         $this->assertNotNull($obj);
     }
 }

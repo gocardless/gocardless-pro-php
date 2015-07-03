@@ -42,6 +42,21 @@ class Client
 
 
   /**
+    * Bank Details Lookups
+    *
+    * Look up the name and reachability of a bank.
+    *
+    * @return Services\BankDetailsLookup
+    */
+    public function bank_details_lookups()
+    {
+        if (!isset($this->bank_details_lookups)) {
+            $this->bank_details_lookups = new Services\BankDetailsLookupsService($this->http_client);
+        }
+        return $this->bank_details_lookups;
+    }
+
+  /**
     * Creditors
     *
     * Each [payment](#core-endpoints-payments) taken through the API is linked
@@ -195,22 +210,6 @@ class Client
             $this->mandate_pdfs = new Services\MandatePdfsService($this->http_client);
         }
         return $this->mandate_pdfs;
-    }
-
-  /**
-    * Modulus Checks
-    *
-    * Check whether an account number and bank / branch code combination are
-    * compatible.
-    *
-    * @return Services\ModulusCheck
-    */
-    public function modulus_checks()
-    {
-        if (!isset($this->modulus_checks)) {
-            $this->modulus_checks = new Services\ModulusChecksService($this->http_client);
-        }
-        return $this->modulus_checks;
     }
 
   /**

@@ -8,17 +8,17 @@
 namespace GoCardlessPro\Resources;
 
 /**
-  * Check whether an account number and bank / branch code combination are
-  * compatible.
+  * Look up the name and reachability of a bank.
   */
-class ModulusCheck extends Base
+class BankDetailsLookup extends Base
 {
 
 
 
   /**
     * Array of [schemes](#mandates_scheme) supported for this bank account. This
-    * will be an empty array for an unsuccessful modulus check.
+    * will be an empty array if the bank account is not reachable by any
+    * schemes.
     *
     * @return Wrapper\NestedArray
     */
@@ -33,31 +33,13 @@ class ModulusCheck extends Base
     }
 
   /**
-    * Array of errors encountered during modulus checking, structured like the
-    * `errors` key in a `validation_failed` response - see
-    * [errors](#overview-errors).
+    * The name of the bank with which the account is held (if available).
     *
-    * @return Wrapper\NestedArray
+    * @return string
     */
-    public function errors()
+    public function bank_name()
     {
-        $field = 'errors';
-        if (!property_exists($this->data, $field)) {
-            return null;
-        }
-        return new Wrapper\NestedArray($field, $this->data->{$field});
-
-    }
-
-  /**
-    * Whether the modulus check was successful (i.e. whether the bank account
-    * details provided were valid).
-    *
-    * @return bool
-    */
-    public function succeeded()
-    {
-        $field = 'succeeded';
+        $field = 'bank_name';
         if (!property_exists($this->data, $field)) {
             return null;
         }
@@ -72,7 +54,7 @@ class ModulusCheck extends Base
     */
     public function __toString()
     {
-        $ret = 'ModulusCheck Class (';
+        $ret = 'BankDetailsLookup Class (';
         $ret .= print_r($this->data, true);
         return $ret;
     }

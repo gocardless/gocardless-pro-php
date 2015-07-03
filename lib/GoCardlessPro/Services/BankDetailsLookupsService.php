@@ -8,37 +8,36 @@
 namespace GoCardlessPro\Services;
 
 /**
-  *  Modulus Checks
+  *  Bank Details Lookups
   *
 
   *
-  *  Check whether an account number and bank / branch code combination are
-  *  compatible.
+  *  Look up the name and reachability of a bank.
   */
-class ModulusChecksService extends Base
+class BankDetailsLookupsService extends Base
 {
   
   /**
-    *  Perform a modulus check
+    *  Perform a bank details lookup
     *
-    *  Performs a modulus check.
+    *  Performs a bank details lookup.
     *  
-    *  Bank account details may be
-    *  supplied using [local details](#ui-local-bank-details) or an IBAN.
+    *  Bank account details may
+    *  be supplied using [local details](#ui-local-bank-details) or an IBAN.
     *
-    *  Example URL: /modulus_checks
+    *  Example URL: /bank_details_lookups
     *
     *
     * @param array $params POST/URL parameters for the argument. Automatically wrapped.
     * @param array $headers String to string associative array of custom headers to add to the requestion.
     *
-    * @return ModulusCheck
+    * @return BankDetailsLookup
     * @throws \GoCardlessPro\Core\Error\GoCardlessError GoCardless API or server error, subclasses thereof.
     * @throws \GoCardlessPro\Core\Error\HttpError PHP Curl transport layer-level errors.
     **/
     public function create($params = array(), $headers = array())
     {
-        return $this->make_request('create', 'post', '/modulus_checks', $params, $headers);
+        return $this->make_request('create', 'post', '/bank_details_lookups', $params, $headers);
     }
 
 
@@ -52,7 +51,7 @@ class ModulusChecksService extends Base
     */
     protected function resourceClass()
     {
-        return '\GoCardlessPro\Resources\ModulusCheck';
+        return '\GoCardlessPro\Resources\BankDetailsLookup';
     }
 
   /**
@@ -63,6 +62,6 @@ class ModulusChecksService extends Base
     */
     protected function envelopeKey()
     {
-        return 'modulus_checks';
+        return 'bank_details_lookups';
     }
 }
