@@ -22,9 +22,9 @@ class BankDetailsLookup extends Base
     *
     * @return Wrapper\NestedArray
     */
-    public function available_schemes()
+    public function available_debit_schemes()
     {
-        $field = 'available_schemes';
+        $field = 'available_debit_schemes';
         if (!property_exists($this->data, $field)) {
             return null;
         }
