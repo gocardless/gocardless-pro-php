@@ -23,10 +23,10 @@ namespace GoCardlessPro\Services;
   *  - The first payment must be charged
   *  within 1 year.
   *  - When neither `month` nor `day_of_month` are present,
-  *  the subscription will recur from the `start_at` based on the
+  *  the subscription will recur from the `start_date` based on the
   *  `interval_unit`.
   *  - If `month` or `day_of_month` are present, the
-  *  recurrence rules will be applied from the `start_at`, and the following
+  *  recurrence rules will be applied from the `start_date`, and the following
   *  validations apply:
   *  
   *  | interval_unit   | month                    

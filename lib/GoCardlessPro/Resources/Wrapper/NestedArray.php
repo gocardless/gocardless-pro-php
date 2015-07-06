@@ -62,7 +62,11 @@ class NestedArray extends \ArrayObject
     {
         $arrayOut = $this->data;
         foreach ($arrayOut as $key => $data_element) {
-            $arrayOut[$key] = $data_element->raw();
+            if (is_object($data_element) && (($data_element instanceof NestedArray) || ($data_element instanceof NestedObject))) {
+                $arrayOut[$key] = $data_element->raw();
+            } else {
+                $arrayOut[$key] = $data_element;
+            }
         }
         return $arrayOut;
     }

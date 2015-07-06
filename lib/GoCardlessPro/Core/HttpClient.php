@@ -48,8 +48,8 @@ class HttpClient
         $this->headers['accept'] = 'application/json';
 
         // Config Headers
-        $this->headers['GoCardless-Version'] = '2015-04-29';
-        $this->headers['GoCardless-Version'] = '2015-04-29';
+        $this->headers['GoCardless-Version'] = '2015-07-06';
+        $this->headers['GoCardless-Version'] = '2015-07-06';
         
     }
 

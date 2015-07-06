@@ -37,7 +37,7 @@ class SubscriptionsTest extends IntegrationTestBase
         $this->matchDeepResponse($body->created_at, $response->created_at());
         $this->matchDeepResponse($body->currency, $response->currency());
         $this->matchDeepResponse($body->day_of_month, $response->day_of_month());
-        $this->matchDeepResponse($body->end_at, $response->end_at());
+        $this->matchDeepResponse($body->end_date, $response->end_date());
         $this->matchDeepResponse($body->id, $response->id());
         $this->matchDeepResponse($body->interval, $response->interval());
         $this->matchDeepResponse($body->interval_unit, $response->interval_unit());
@@ -46,7 +46,7 @@ class SubscriptionsTest extends IntegrationTestBase
         $this->matchDeepResponse($body->month, $response->month());
         $this->matchDeepResponse($body->name, $response->name());
         $this->matchDeepResponse($body->payment_reference, $response->payment_reference());
-        $this->matchDeepResponse($body->start_at, $response->start_at());
+        $this->matchDeepResponse($body->start_date, $response->start_date());
         $this->matchDeepResponse($body->status, $response->status());
         $this->matchDeepResponse($body->upcoming_payments, $response->upcoming_payments());
     
@@ -81,7 +81,7 @@ class SubscriptionsTest extends IntegrationTestBase
             $this->matchDeepResponse($body[$num]->created_at, $record->created_at());
             $this->matchDeepResponse($body[$num]->currency, $record->currency());
             $this->matchDeepResponse($body[$num]->day_of_month, $record->day_of_month());
-            $this->matchDeepResponse($body[$num]->end_at, $record->end_at());
+            $this->matchDeepResponse($body[$num]->end_date, $record->end_date());
             $this->matchDeepResponse($body[$num]->id, $record->id());
             $this->matchDeepResponse($body[$num]->interval, $record->interval());
             $this->matchDeepResponse($body[$num]->interval_unit, $record->interval_unit());
@@ -90,7 +90,7 @@ class SubscriptionsTest extends IntegrationTestBase
             $this->matchDeepResponse($body[$num]->month, $record->month());
             $this->matchDeepResponse($body[$num]->name, $record->name());
             $this->matchDeepResponse($body[$num]->payment_reference, $record->payment_reference());
-            $this->matchDeepResponse($body[$num]->start_at, $record->start_at());
+            $this->matchDeepResponse($body[$num]->start_date, $record->start_date());
             $this->matchDeepResponse($body[$num]->status, $record->status());
             $this->matchDeepResponse($body[$num]->upcoming_payments, $record->upcoming_payments());
             
@@ -117,7 +117,7 @@ class SubscriptionsTest extends IntegrationTestBase
         $this->matchDeepResponse($body->created_at, $response->created_at());
         $this->matchDeepResponse($body->currency, $response->currency());
         $this->matchDeepResponse($body->day_of_month, $response->day_of_month());
-        $this->matchDeepResponse($body->end_at, $response->end_at());
+        $this->matchDeepResponse($body->end_date, $response->end_date());
         $this->matchDeepResponse($body->id, $response->id());
         $this->matchDeepResponse($body->interval, $response->interval());
         $this->matchDeepResponse($body->interval_unit, $response->interval_unit());
@@ -126,7 +126,7 @@ class SubscriptionsTest extends IntegrationTestBase
         $this->matchDeepResponse($body->month, $response->month());
         $this->matchDeepResponse($body->name, $response->name());
         $this->matchDeepResponse($body->payment_reference, $response->payment_reference());
-        $this->matchDeepResponse($body->start_at, $response->start_at());
+        $this->matchDeepResponse($body->start_date, $response->start_date());
         $this->matchDeepResponse($body->status, $response->status());
         $this->matchDeepResponse($body->upcoming_payments, $response->upcoming_payments());
     
@@ -152,7 +152,7 @@ class SubscriptionsTest extends IntegrationTestBase
         $this->matchDeepResponse($body->created_at, $response->created_at());
         $this->matchDeepResponse($body->currency, $response->currency());
         $this->matchDeepResponse($body->day_of_month, $response->day_of_month());
-        $this->matchDeepResponse($body->end_at, $response->end_at());
+        $this->matchDeepResponse($body->end_date, $response->end_date());
         $this->matchDeepResponse($body->id, $response->id());
         $this->matchDeepResponse($body->interval, $response->interval());
         $this->matchDeepResponse($body->interval_unit, $response->interval_unit());
@@ -161,7 +161,7 @@ class SubscriptionsTest extends IntegrationTestBase
         $this->matchDeepResponse($body->month, $response->month());
         $this->matchDeepResponse($body->name, $response->name());
         $this->matchDeepResponse($body->payment_reference, $response->payment_reference());
-        $this->matchDeepResponse($body->start_at, $response->start_at());
+        $this->matchDeepResponse($body->start_date, $response->start_date());
         $this->matchDeepResponse($body->status, $response->status());
         $this->matchDeepResponse($body->upcoming_payments, $response->upcoming_payments());
     
@@ -187,7 +187,7 @@ class SubscriptionsTest extends IntegrationTestBase
         $this->matchDeepResponse($body->created_at, $response->created_at());
         $this->matchDeepResponse($body->currency, $response->currency());
         $this->matchDeepResponse($body->day_of_month, $response->day_of_month());
-        $this->matchDeepResponse($body->end_at, $response->end_at());
+        $this->matchDeepResponse($body->end_date, $response->end_date());
         $this->matchDeepResponse($body->id, $response->id());
         $this->matchDeepResponse($body->interval, $response->interval());
         $this->matchDeepResponse($body->interval_unit, $response->interval_unit());
@@ -196,7 +196,7 @@ class SubscriptionsTest extends IntegrationTestBase
         $this->matchDeepResponse($body->month, $response->month());
         $this->matchDeepResponse($body->name, $response->name());
         $this->matchDeepResponse($body->payment_reference, $response->payment_reference());
-        $this->matchDeepResponse($body->start_at, $response->start_at());
+        $this->matchDeepResponse($body->start_date, $response->start_date());
         $this->matchDeepResponse($body->status, $response->status());
         $this->matchDeepResponse($body->upcoming_payments, $response->upcoming_payments());
     

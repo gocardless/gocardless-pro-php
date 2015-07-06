@@ -18,13 +18,13 @@ namespace GoCardlessPro\Resources;
   * - The first payment must be charged within 1
   * year.
   * - When neither `month` nor `day_of_month` are present, the
-  * subscription will recur from the `start_at` based on the `interval_unit`.
- 
-  * * - If `month` or `day_of_month` are present, the recurrence rules will be
-  * applied from the `start_at`, and the following validations apply:
+  * subscription will recur from the `start_date` based on the `interval_unit`.
+
+  *  * - If `month` or `day_of_month` are present, the recurrence rules will be
+  * applied from the `start_date`, and the following validations apply:
   * 
-  * |
-  * interval_unit   | month                                          |
+  *
+  * | interval_unit   | month                                          |
   * day_of_month                            |
   * | :-------------- |
   * :--------------------------------------------- |
@@ -95,8 +95,8 @@ class Subscription extends Base
     }
 
   /**
-    * An alternative way to set `end_at`. The total number of payments that
-    * should be taken by this subscription. This will set `end_at`
+    * An alternative way to set `end_date`. The total number of payments that
+    * should be taken by this subscription. This will set `end_date`
     * automatically.
     *
     * @return int
@@ -163,9 +163,9 @@ class Subscription extends Base
     *
     * @return string
     */
-    public function end_at()
+    public function end_date()
     {
-        $field = 'end_at';
+        $field = 'end_date';
         if (!property_exists($this->data, $field)) {
             return null;
         }
@@ -301,9 +301,9 @@ class Subscription extends Base
     *
     * @return string
     */
-    public function start_at()
+    public function start_date()
     {
-        $field = 'start_at';
+        $field = 'start_date';
         if (!property_exists($this->data, $field)) {
             return null;
         }

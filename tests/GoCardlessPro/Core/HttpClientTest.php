@@ -34,7 +34,7 @@ class HttpClientTest extends \PHPUnit_Framework_TestCase
     {
         $defaultHeaders = $this->http_client->headers();
         // Config Headers
-        $this->assertEquals('2015-04-29', $defaultHeaders['GoCardless-Version']);
+        $this->assertEquals('2015-07-06', $defaultHeaders['GoCardless-Version']);
         
     }
 

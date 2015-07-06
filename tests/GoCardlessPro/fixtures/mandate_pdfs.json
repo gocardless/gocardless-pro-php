@@ -1,3 +1,9 @@
 { 
+  "create": {
+    "method": "POST",
+    "path_template": "/mandate_pdfs",
+    "url_params": {},
+    "body": {"mandate_pdfs":{"expires_at":"2014-01-01T12:00:00.000Z","url":"https://api.gocardless.com/mandate_pdfs/wLJKzbG12uqcDly7t6L2"}}
+  }
 }
 

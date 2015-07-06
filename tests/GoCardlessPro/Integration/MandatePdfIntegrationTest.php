@@ -18,4 +18,24 @@ class MandatePdfsTest extends IntegrationTestBase
         $obj = new \GoCardlessPro\Resources\MandatePdf(null);
         $this->assertNotNull($obj);
     }
+
+    public function testMandatePdfsCreate()
+    {
+        $fixture = $this->stubResponse('create');
+
+        $func_array = array_values((array) $fixture->url_params);
+        $resourceService = $this->client->mandate_pdfs();
+        $response = call_user_func_array(array($resourceService, 'create'), $func_array);
+
+        $body = $fixture->body->mandate_pdfs;
+
+    
+        $this->assertInstanceOf('\GoCardlessPro\Resources\MandatePdf', $response);
+
+        $this->matchDeepResponse($body->expires_at, $response->expires_at());
+        $this->matchDeepResponse($body->url, $response->url());
+    
+
+        $this->assertTrue($this->hasCheckedCurl);
+    }
 }
