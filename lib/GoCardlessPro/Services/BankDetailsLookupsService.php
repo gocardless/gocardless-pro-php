@@ -23,7 +23,8 @@ class BankDetailsLookupsService extends Base
     *  Performs a bank details lookup.
     *  
     *  Bank account details may
-    *  be supplied using [local details](#ui-local-bank-details) or an IBAN.
+    *  be supplied using [local details](#appendix-local-bank-details) or an
+    *  IBAN.
     *
     *  Example URL: /bank_details_lookups
     *
