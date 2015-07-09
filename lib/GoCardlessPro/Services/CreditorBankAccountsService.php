@@ -14,7 +14,7 @@ namespace GoCardlessPro\Services;
   * list(array $options=array(), array $headers=array()) gets a non-paginated list of models given finder options.
   *
   *  Creditor Bank Accounts hold the bank details of a
-  *  [creditor](#whitelabel-partner-endpoints-creditor). These are the bank
+  *  [creditor](#whitelabel-partner-endpoints-creditors). These are the bank
   *  accounts which your [payouts](#core-endpoints-payouts) will be sent to.
   *
   *   
