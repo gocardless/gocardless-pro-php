@@ -15,11 +15,12 @@ namespace GoCardlessPro\Services;
   *
   *  Payment objects represent payments from a
   *  [customer](#core-endpoints-customers) to a
-  *  [creditor](#core-endpoints-creditors), taken against a Direct Debit
-  *  [mandate](#core-endpoints-mandates).
+  *  [creditor](#whitelabel-partner-endpoints-creditors), taken against a Direct
+  *  Debit [mandate](#core-endpoints-mandates).
   *  
-  *  GoCardless will notify you
-  *  via a [webhook](#webhooks) whenever the state of a payment changes.
+  *  GoCardless will
+  *  notify you via a [webhook](#webhooks) whenever the state of a payment
+  *  changes.
   */
 class PaymentsService extends Base
 {

@@ -14,9 +14,10 @@ namespace GoCardlessPro\Services;
   * list(array $options=array(), array $headers=array()) gets a non-paginated list of models given finder options.
   *
   *  Payouts represent transfers from GoCardless to a
-  *  [creditor](#core-endpoints-creditors). Each payout contains the funds
-  *  collected from one or many [payments](#core-endpoints-payments). Payouts
-  *  are created automatically after a payment has been successfully collected.
+  *  [creditor](#whitelabel-partner-endpoints-creditors). Each payout contains
+  *  the funds collected from one or many [payments](#core-endpoints-payments).
+  *  Payouts are created automatically after a payment has been successfully
+  *  collected.
   */
 class PayoutsService extends Base
 {

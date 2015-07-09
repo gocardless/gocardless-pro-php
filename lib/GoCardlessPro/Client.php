@@ -83,15 +83,15 @@ class Client
     * Creditor Bank Accounts
     *
     * Creditor Bank Accounts hold the bank details of a
-    * [creditor](#core-endpoints-creditor). These are the bank accounts which
-    * your [payouts](#core-endpoints-payouts) will be sent to.
-    * 
-    * Note
-    * that creditor bank accounts must be unique, and so you will encounter a
-    * `bank_account_exists` error if you try to create a duplicate bank account.
-    * You may wish to handle this by updating the existing record instead, the
-    * ID of which will be provided as `links[creditor_bank_account]` in the
-    * error response.
+    * [creditor](#whitelabel-partner-endpoints-creditor). These are the bank
+    * accounts which your [payouts](#core-endpoints-payouts) will be sent to.
+  
+    *  * 
+    * Note that creditor bank accounts must be unique, and so you will
+    * encounter a `bank_account_exists` error if you try to create a duplicate
+    * bank account. You may wish to handle this by updating the existing record
+    * instead, the ID of which will be provided as
+    * `links[creditor_bank_account]` in the error response.
     *
     * @return Services\CreditorBankAccount
     */
@@ -204,11 +204,12 @@ class Client
     *
     * Payment objects represent payments from a
     * [customer](#core-endpoints-customers) to a
-    * [creditor](#core-endpoints-creditors), taken against a Direct Debit
-    * [mandate](#core-endpoints-mandates).
+    * [creditor](#whitelabel-partner-endpoints-creditors), taken against a
+    * Direct Debit [mandate](#core-endpoints-mandates).
     * 
-    * GoCardless will notify
-    * you via a [webhook](#webhooks) whenever the state of a payment changes.
+    * GoCardless
+    * will notify you via a [webhook](#webhooks) whenever the state of a payment
+    * changes.
     *
     * @return Services\Payment
     */
@@ -224,9 +225,10 @@ class Client
     * Payouts
     *
     * Payouts represent transfers from GoCardless to a
-    * [creditor](#core-endpoints-creditors). Each payout contains the funds
-    * collected from one or many [payments](#core-endpoints-payments). Payouts
-    * are created automatically after a payment has been successfully collected.
+    * [creditor](#whitelabel-partner-endpoints-creditors). Each payout contains
+    * the funds collected from one or many [payments](#core-endpoints-payments).
+    * Payouts are created automatically after a payment has been successfully
+    * collected.
     *
     * @return Services\Payout
     */

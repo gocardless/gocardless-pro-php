@@ -14,15 +14,15 @@ namespace GoCardlessPro\Services;
   * list(array $options=array(), array $headers=array()) gets a non-paginated list of models given finder options.
   *
   *  Creditor Bank Accounts hold the bank details of a
-  *  [creditor](#core-endpoints-creditor). These are the bank accounts which
-  *  your [payouts](#core-endpoints-payouts) will be sent to.
-  *  
-  *  Note
-  *  that creditor bank accounts must be unique, and so you will encounter a
-  *  `bank_account_exists` error if you try to create a duplicate bank account.
-  *  You may wish to handle this by updating the existing record instead, the ID
-  *  of which will be provided as `links[creditor_bank_account]` in the error
-  *  response.
+  *  [creditor](#whitelabel-partner-endpoints-creditor). These are the bank
+  *  accounts which your [payouts](#core-endpoints-payouts) will be sent to.
+  *
+  *   
+  *  Note that creditor bank accounts must be unique, and so you will
+  *  encounter a `bank_account_exists` error if you try to create a duplicate
+  *  bank account. You may wish to handle this by updating the existing record
+  *  instead, the ID of which will be provided as `links[creditor_bank_account]`
+  *  in the error response.
   */
 class CreditorBankAccountsService extends Base
 {
