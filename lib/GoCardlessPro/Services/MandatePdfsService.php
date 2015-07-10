@@ -13,7 +13,7 @@ namespace GoCardlessPro\Services;
 
   *
   *  Mandate PDFs allow you to easily display [scheme-rules
-  *  compliant](#ui-compliance-requirements) Direct Debit mandates to your
+  *  compliant](#appendix-compliance-requirements) Direct Debit mandates to your
   *  customers.
   */
 class MandatePdfsService extends Base

@@ -186,8 +186,8 @@ class Client
     * Mandate PDFs
     *
     * Mandate PDFs allow you to easily display [scheme-rules
-    * compliant](#ui-compliance-requirements) Direct Debit mandates to your
-    * customers.
+    * compliant](#appendix-compliance-requirements) Direct Debit mandates to
+    * your customers.
     *
     * @return Services\MandatePdf
     */
