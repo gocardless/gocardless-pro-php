@@ -34,6 +34,7 @@ class BankDetailsLookupsTest extends IntegrationTestBase
 
         $this->matchDeepResponse($body->available_debit_schemes, $response->available_debit_schemes());
         $this->matchDeepResponse($body->bank_name, $response->bank_name());
+        $this->matchDeepResponse($body->bic, $response->bic());
     
 
         $this->assertTrue($this->hasCheckedCurl);

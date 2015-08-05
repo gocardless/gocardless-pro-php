@@ -74,7 +74,7 @@ class Request
                 $path = $path . '?' . $urlParams;
             }
         } elseif (in_array($method, self::$body_methods)) {
-            $postBody = json_encode(array($this->getReqEnvelopeKey($type) => $options));
+            $postBody = json_encode(array($this->getReqEnvelopeKey($type) => (object) $options));
         } else {
             throw new \Exception('Unsupported HTTP Method');
         }

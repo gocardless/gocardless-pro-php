@@ -15,6 +15,9 @@ namespace GoCardlessPro\Core;
   */
 class CurlWrapper
 {
+    /** The path to the CA cert bundle for use by Curl */
+    const CA_CERT_FILENAME = 'cacert.pem';
+
     /** @var array[string]string Associative array of request headers */
     private $headers;
 
@@ -57,6 +60,7 @@ class CurlWrapper
             CURLOPT_TIMEOUT => 30,
             CURLOPT_CUSTOMREQUEST => strtoupper($method),
             CURLOPT_VERBOSE => false,
+            CURLOPT_CAINFO => $this->getLibraryRootPath() . self::CA_CERT_FILENAME,
             CURLOPT_HEADERFUNCTION => array($this, 'setResponseHeader')
         );
     }
@@ -195,5 +199,14 @@ class CurlWrapper
             $content_type,
             $this->response_headers
         );
+    }
+
+ /**
+    * Internal function for finding the root path of the library, used to build the path to cacert.pem
+    * @return Path to the root of the library
+    */
+    private function getLibraryRootPath()
+    {
+        return dirname(__FILE__) . "/../../../";
     }
 }

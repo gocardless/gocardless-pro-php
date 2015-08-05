@@ -111,8 +111,8 @@ class Mandate extends Base
   /**
     * <a name="mandates_scheme"></a>Direct Debit scheme to which this mandate
     * and associated payments are submitted. Can be supplied or automatically
-    * detected from the customer's bank account. Currently only "bacs" and
-    * "sepa_core" are supported.
+    * detected from the customer's bank account. Currently only "bacs",
+    * "sepa_core", and "sepa_cor1" are supported.
     *
     * @return string
     */

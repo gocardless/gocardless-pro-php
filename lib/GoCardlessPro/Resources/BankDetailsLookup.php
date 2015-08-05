@@ -46,6 +46,20 @@ class BankDetailsLookup extends Base
         return $this->data->{$field};
     }
 
+  /**
+    * ISO 9362 SWIFT BIC of the bank with which the account is held.
+    *
+    * @return string
+    */
+    public function bic()
+    {
+        $field = 'bic';
+        if (!property_exists($this->data, $field)) {
+            return null;
+        }
+        return $this->data->{$field};
+    }
+
 
   /**
     * Returns a string representation of the project.
