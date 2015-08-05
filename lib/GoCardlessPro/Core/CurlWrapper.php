@@ -74,7 +74,7 @@ class CurlWrapper
     {
         $curlinfo = curl_version();
         $uagent = array();
-        $uagent[] = 'gocardless-pro-php/0.3.0';
+        $uagent[] = 'gocardless-pro-php/0.3.1';
         $uagent[] = 'php/' . phpversion();
         $uagent[] = 'curl/' . $curlinfo['version'];
         $uagent[] = 'os/' . $curlinfo['host'];
