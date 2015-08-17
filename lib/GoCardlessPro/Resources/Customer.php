@@ -177,6 +177,24 @@ class Customer extends Base
     }
 
   /**
+    * [ISO 639-1](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) code.
+    * Used as the language for notification emails sent by GoCardless if your
+    * organisation does not send its own (see [compliance
+    * requirements](#appendix-compliance-requirements)). Currently only "en",
+    * "fr", "de", "pt", "es", "it", "nl" are supported.
+    *
+    * @return string
+    */
+    public function language()
+    {
+        $field = 'language';
+        if (!property_exists($this->data, $field)) {
+            return null;
+        }
+        return $this->data->{$field};
+    }
+
+  /**
     * Key-value store of custom data. Up to 3 keys are permitted, with key names
     * up to 50 characters and values up to 200 characters.
     *

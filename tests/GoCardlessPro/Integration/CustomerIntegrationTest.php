@@ -43,6 +43,7 @@ class CustomersTest extends IntegrationTestBase
         $this->matchDeepResponse($body->family_name, $response->family_name());
         $this->matchDeepResponse($body->given_name, $response->given_name());
         $this->matchDeepResponse($body->id, $response->id());
+        $this->matchDeepResponse($body->language, $response->language());
         $this->matchDeepResponse($body->metadata, $response->metadata());
         $this->matchDeepResponse($body->postal_code, $response->postal_code());
         $this->matchDeepResponse($body->region, $response->region());
@@ -84,6 +85,7 @@ class CustomersTest extends IntegrationTestBase
             $this->matchDeepResponse($body[$num]->family_name, $record->family_name());
             $this->matchDeepResponse($body[$num]->given_name, $record->given_name());
             $this->matchDeepResponse($body[$num]->id, $record->id());
+            $this->matchDeepResponse($body[$num]->language, $record->language());
             $this->matchDeepResponse($body[$num]->metadata, $record->metadata());
             $this->matchDeepResponse($body[$num]->postal_code, $record->postal_code());
             $this->matchDeepResponse($body[$num]->region, $record->region());
@@ -117,6 +119,7 @@ class CustomersTest extends IntegrationTestBase
         $this->matchDeepResponse($body->family_name, $response->family_name());
         $this->matchDeepResponse($body->given_name, $response->given_name());
         $this->matchDeepResponse($body->id, $response->id());
+        $this->matchDeepResponse($body->language, $response->language());
         $this->matchDeepResponse($body->metadata, $response->metadata());
         $this->matchDeepResponse($body->postal_code, $response->postal_code());
         $this->matchDeepResponse($body->region, $response->region());
@@ -149,6 +152,7 @@ class CustomersTest extends IntegrationTestBase
         $this->matchDeepResponse($body->family_name, $response->family_name());
         $this->matchDeepResponse($body->given_name, $response->given_name());
         $this->matchDeepResponse($body->id, $response->id());
+        $this->matchDeepResponse($body->language, $response->language());
         $this->matchDeepResponse($body->metadata, $response->metadata());
         $this->matchDeepResponse($body->postal_code, $response->postal_code());
         $this->matchDeepResponse($body->region, $response->region());
