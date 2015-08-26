@@ -181,7 +181,9 @@ class Customer extends Base
     * Used as the language for notification emails sent by GoCardless if your
     * organisation does not send its own (see [compliance
     * requirements](#appendix-compliance-requirements)). Currently only "en",
-    * "fr", "de", "pt", "es", "it", "nl" are supported.
+    * "fr", "de", "pt", "es", "it", "nl" are supported. If this is not provided,
+    * the language will be chosen based on the `country_code` (if supplied) or
+    * default to "en".
     *
     * @return string
     */
