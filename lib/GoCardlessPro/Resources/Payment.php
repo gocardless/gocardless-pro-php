@@ -187,9 +187,10 @@ class Payment extends Base
     *
     * <li>`charged_back`: the payment has been charged back</li>
     *
-    * <li>`paid_out`:  the payment has been paid out</li>
-    * <li>`cancelled`:
-    * the payment has been cancelled</li>
+    * <li>`paid_out`:  the payment has been included in a
+    * [payout](#core-endpoints-payouts)</li>
+    * <li>`cancelled`: the payment
+    * has been cancelled</li>
     * </ul>
     * [pending_submission submitted confirmed failed charged_back paid_out cancelled]
     * @return string
