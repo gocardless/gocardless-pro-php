@@ -37,17 +37,17 @@ class CustomerBankAccountsService extends Base
     *  three different ways to supply bank account details:
     *  
     *  -
-    *  [Local details](#ui-local-bank-details)
+    *  [Local details](#appendix-local-bank-details)
     *  
     *  - IBAN
-    *  
-   
-    *  *  - [Customer Bank Account
+    *
+    *   
+    *  - [Customer Bank Account
     *  Tokens](#js-flow-create-a-customer-bank-account-token)
     *  
     *  For
     *  more information on the different fields required in each country, see
-    *  [local bank details](#ui-local-bank-details).
+    *  [local bank details](#appendix-local-bank-details).
     *
     *  Example URL: /customer_bank_accounts
     *
