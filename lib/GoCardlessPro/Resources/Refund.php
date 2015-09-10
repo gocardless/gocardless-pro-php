@@ -115,6 +115,23 @@ class Refund extends Base
 
     }
 
+  /**
+    * An optional refund reference, displayed on your customer's bank statement.
+    * This can be up to 18 characters long for Bacs payments, or 140 characters
+    * for SEPA payments. We recommend including some text by which your customer
+    * can identify the refund as coming from you.
+    *
+    * @return string
+    */
+    public function reference()
+    {
+        $field = 'reference';
+        if (!property_exists($this->data, $field)) {
+            return null;
+        }
+        return $this->data->{$field};
+    }
+
 
   /**
     * Returns a string representation of the project.

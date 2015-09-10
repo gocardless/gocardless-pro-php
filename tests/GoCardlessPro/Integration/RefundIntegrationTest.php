@@ -38,6 +38,7 @@ class RefundsTest extends IntegrationTestBase
         $this->matchDeepResponse($body->id, $response->id());
         $this->matchDeepResponse($body->links, $response->links());
         $this->matchDeepResponse($body->metadata, $response->metadata());
+        $this->matchDeepResponse($body->reference, $response->reference());
     
 
         $this->assertTrue($this->hasCheckedCurl);
@@ -71,6 +72,7 @@ class RefundsTest extends IntegrationTestBase
             $this->matchDeepResponse($body[$num]->id, $record->id());
             $this->matchDeepResponse($body[$num]->links, $record->links());
             $this->matchDeepResponse($body[$num]->metadata, $record->metadata());
+            $this->matchDeepResponse($body[$num]->reference, $record->reference());
             
         }
 
@@ -96,6 +98,7 @@ class RefundsTest extends IntegrationTestBase
         $this->matchDeepResponse($body->id, $response->id());
         $this->matchDeepResponse($body->links, $response->links());
         $this->matchDeepResponse($body->metadata, $response->metadata());
+        $this->matchDeepResponse($body->reference, $response->reference());
     
 
         $this->assertTrue($this->hasCheckedCurl);
@@ -120,6 +123,7 @@ class RefundsTest extends IntegrationTestBase
         $this->matchDeepResponse($body->id, $response->id());
         $this->matchDeepResponse($body->links, $response->links());
         $this->matchDeepResponse($body->metadata, $response->metadata());
+        $this->matchDeepResponse($body->reference, $response->reference());
     
 
         $this->assertTrue($this->hasCheckedCurl);
