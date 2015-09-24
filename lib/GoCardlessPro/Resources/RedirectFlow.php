@@ -123,7 +123,7 @@ class RedirectFlow extends Base
   /**
     * The Direct Debit scheme of the mandate. If specified, the payment pages
     * will only allow the set-up of a mandate for the specified scheme.
-    * [bacs sepa_core sepa_cor1 <nil>]
+    * [autogiro bacs sepa_core sepa_cor1 <nil>]
     * @return string
     */
     public function scheme()
