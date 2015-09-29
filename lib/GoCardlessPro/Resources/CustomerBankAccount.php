@@ -55,7 +55,7 @@ class CustomerBankAccount extends Base
     }
 
   /**
-    * Name of bank, taken from sort code.
+    * Name of bank, taken from the bank details.
     *
     * @return string
     */

@@ -26,7 +26,7 @@ class Refund extends Base
 
 
   /**
-    * Amount in pence or cents.
+    * Amount in pence/cents/öre.
     *
     * @return int
     */
@@ -117,9 +117,8 @@ class Refund extends Base
 
   /**
     * An optional refund reference, displayed on your customer's bank statement.
-    * This can be up to 18 characters long for Bacs payments, or 140 characters
-    * for SEPA payments. We recommend including some text by which your customer
-    * can identify the refund as coming from you.
+    * This can be up to 18 characters long for Bacs payments, 140 characters for
+    * SEPA payments, or 25 characters for Autogiro payments.
     *
     * @return string
     */

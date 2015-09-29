@@ -81,7 +81,7 @@ class Creditor extends Base
   /**
     * [ISO
     * 3166-1](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
-    * alpha-2 code, currently only "GB" is supported.
+    * alpha-2 code.
     *
     * @return string
     */

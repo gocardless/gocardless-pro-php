@@ -12,6 +12,11 @@ namespace GoCardlessPro\Resources;
   * have several [customer bank
   * accounts](#core-endpoints-customer-bank-accounts), which in turn can have
   * several Direct Debit [mandates](#core-endpoints-mandates).
+  * 
+  * Note:
+  * the `swedish_identity_number` field may only be supplied for Swedish
+  * customers, and must be supplied if you intend to set up an Autogiro mandate
+  * with the customer.
   */
 class Customer extends Base
 {
@@ -234,6 +239,23 @@ class Customer extends Base
     public function region()
     {
         $field = 'region';
+        if (!property_exists($this->data, $field)) {
+            return null;
+        }
+        return $this->data->{$field};
+    }
+
+  /**
+    * For Swedish customers only. The civic/company number (personnummer,
+    * samordningsnummer, or organisationsnummer) of the customer. Must be
+    * supplied if the customer's bank account is denominated in Swedish krona
+    * (SEK).
+    *
+    * @return string
+    */
+    public function swedish_identity_number()
+    {
+        $field = 'swedish_identity_number';
         if (!property_exists($this->data, $field)) {
             return null;
         }

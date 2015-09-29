@@ -17,6 +17,11 @@ namespace GoCardlessPro\Services;
   *  have several [customer bank
   *  accounts](#core-endpoints-customer-bank-accounts), which in turn can have
   *  several Direct Debit [mandates](#core-endpoints-mandates).
+  *  
+  *  Note:
+  *  the `swedish_identity_number` field may only be supplied for Swedish
+  *  customers, and must be supplied if you intend to set up an Autogiro mandate
+  *  with the customer.
   */
 class CustomersService extends Base
 {

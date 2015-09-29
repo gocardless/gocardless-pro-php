@@ -47,6 +47,7 @@ class CustomersTest extends IntegrationTestBase
         $this->matchDeepResponse($body->metadata, $response->metadata());
         $this->matchDeepResponse($body->postal_code, $response->postal_code());
         $this->matchDeepResponse($body->region, $response->region());
+        $this->matchDeepResponse($body->swedish_identity_number, $response->swedish_identity_number());
     
 
         $this->assertTrue($this->hasCheckedCurl);
@@ -89,6 +90,7 @@ class CustomersTest extends IntegrationTestBase
             $this->matchDeepResponse($body[$num]->metadata, $record->metadata());
             $this->matchDeepResponse($body[$num]->postal_code, $record->postal_code());
             $this->matchDeepResponse($body[$num]->region, $record->region());
+            $this->matchDeepResponse($body[$num]->swedish_identity_number, $record->swedish_identity_number());
             
         }
 
@@ -123,6 +125,7 @@ class CustomersTest extends IntegrationTestBase
         $this->matchDeepResponse($body->metadata, $response->metadata());
         $this->matchDeepResponse($body->postal_code, $response->postal_code());
         $this->matchDeepResponse($body->region, $response->region());
+        $this->matchDeepResponse($body->swedish_identity_number, $response->swedish_identity_number());
     
 
         $this->assertTrue($this->hasCheckedCurl);
@@ -156,6 +159,7 @@ class CustomersTest extends IntegrationTestBase
         $this->matchDeepResponse($body->metadata, $response->metadata());
         $this->matchDeepResponse($body->postal_code, $response->postal_code());
         $this->matchDeepResponse($body->region, $response->region());
+        $this->matchDeepResponse($body->swedish_identity_number, $response->swedish_identity_number());
     
 
         $this->assertTrue($this->hasCheckedCurl);

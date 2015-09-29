@@ -32,9 +32,8 @@ class PaymentsService extends Base
     *  
  
     *    *  This fails with a `mandate_is_inactive` error if the linked
-    *  [mandate](#core-endpoints-mandates) is cancelled. Payments can be created
-    *  against `pending_submission` mandates, but they will not be submitted
-    *  until the mandate becomes active.
+    *  [mandate](#core-endpoints-mandates) is cancelled or has failed. Payments
+    *  can be created against `pending_submission`  and `submitted` mandates.
     *
     *  Example URL: /payments
     *
