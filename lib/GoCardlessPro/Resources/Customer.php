@@ -249,7 +249,9 @@ class Customer extends Base
     * For Swedish customers only. The civic/company number (personnummer,
     * samordningsnummer, or organisationsnummer) of the customer. Must be
     * supplied if the customer's bank account is denominated in Swedish krona
-    * (SEK).
+    * (SEK). This field cannot be changed once it has been set. <p
+    * class="beta-notice"><strong>Beta</strong>: this field is only used for
+    * Autogiro, which is currently in beta.</p>
     *
     * @return string
     */
