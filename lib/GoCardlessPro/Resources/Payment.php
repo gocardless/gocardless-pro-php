@@ -50,23 +50,6 @@ class Payment extends Base
     }
 
   /**
-    * The amount to be deducted from the payment as the OAuth app's fee, in
-    * pence or cents. <p class="beta-notice"><strong>Beta</strong>: This field
-    * is part of the <a href='#guides-oauth'>OAuth API</a>, which is currently
-    * in beta.</p>
-    *
-    * @return int
-    */
-    public function app_fee()
-    {
-        $field = 'app_fee';
-        if (!property_exists($this->data, $field)) {
-            return null;
-        }
-        return $this->data->{$field};
-    }
-
-  /**
     * A future date on which the payment should be collected. If not specified,
     * the payment will be collected as soon as possible. This must be on or
     * after the [mandate](#core-endpoints-mandates)'s

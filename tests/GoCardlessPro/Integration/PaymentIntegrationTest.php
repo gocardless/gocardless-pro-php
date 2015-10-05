@@ -34,7 +34,6 @@ class PaymentsTest extends IntegrationTestBase
 
         $this->matchDeepResponse($body->amount, $response->amount());
         $this->matchDeepResponse($body->amount_refunded, $response->amount_refunded());
-        $this->matchDeepResponse($body->app_fee, $response->app_fee());
         $this->matchDeepResponse($body->charge_date, $response->charge_date());
         $this->matchDeepResponse($body->created_at, $response->created_at());
         $this->matchDeepResponse($body->currency, $response->currency());
@@ -73,7 +72,6 @@ class PaymentsTest extends IntegrationTestBase
             $record = $records[$num];
             $this->matchDeepResponse($body[$num]->amount, $record->amount());
             $this->matchDeepResponse($body[$num]->amount_refunded, $record->amount_refunded());
-            $this->matchDeepResponse($body[$num]->app_fee, $record->app_fee());
             $this->matchDeepResponse($body[$num]->charge_date, $record->charge_date());
             $this->matchDeepResponse($body[$num]->created_at, $record->created_at());
             $this->matchDeepResponse($body[$num]->currency, $record->currency());
@@ -104,7 +102,6 @@ class PaymentsTest extends IntegrationTestBase
 
         $this->matchDeepResponse($body->amount, $response->amount());
         $this->matchDeepResponse($body->amount_refunded, $response->amount_refunded());
-        $this->matchDeepResponse($body->app_fee, $response->app_fee());
         $this->matchDeepResponse($body->charge_date, $response->charge_date());
         $this->matchDeepResponse($body->created_at, $response->created_at());
         $this->matchDeepResponse($body->currency, $response->currency());
@@ -134,7 +131,6 @@ class PaymentsTest extends IntegrationTestBase
 
         $this->matchDeepResponse($body->amount, $response->amount());
         $this->matchDeepResponse($body->amount_refunded, $response->amount_refunded());
-        $this->matchDeepResponse($body->app_fee, $response->app_fee());
         $this->matchDeepResponse($body->charge_date, $response->charge_date());
         $this->matchDeepResponse($body->created_at, $response->created_at());
         $this->matchDeepResponse($body->currency, $response->currency());
@@ -164,7 +160,6 @@ class PaymentsTest extends IntegrationTestBase
 
         $this->matchDeepResponse($body->amount, $response->amount());
         $this->matchDeepResponse($body->amount_refunded, $response->amount_refunded());
-        $this->matchDeepResponse($body->app_fee, $response->app_fee());
         $this->matchDeepResponse($body->charge_date, $response->charge_date());
         $this->matchDeepResponse($body->created_at, $response->created_at());
         $this->matchDeepResponse($body->currency, $response->currency());
@@ -194,7 +189,6 @@ class PaymentsTest extends IntegrationTestBase
 
         $this->matchDeepResponse($body->amount, $response->amount());
         $this->matchDeepResponse($body->amount_refunded, $response->amount_refunded());
-        $this->matchDeepResponse($body->app_fee, $response->app_fee());
         $this->matchDeepResponse($body->charge_date, $response->charge_date());
         $this->matchDeepResponse($body->created_at, $response->created_at());
         $this->matchDeepResponse($body->currency, $response->currency());
