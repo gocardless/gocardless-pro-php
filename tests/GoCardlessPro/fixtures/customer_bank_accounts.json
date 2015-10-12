@@ -9,7 +9,7 @@
     "method": "GET",
     "path_template": "/customer_bank_accounts",
     "url_params": {},
-    "body": {"customer_bank_accounts":[{"account_holder_name":"Billy Jean","account_number_ending":"11","bank_name":"BARCLAYS BANK PLC","country_code":"GB","created_at":"2014-01-01T12:00:00.000Z","currency":"GBP","enabled":true,"id":"BA123","links":{"customer":"example customer 3612"},"metadata":{}},{"account_holder_name":"Billy Jean","account_number_ending":"11","bank_name":"BARCLAYS BANK PLC","country_code":"GB","created_at":"2014-01-01T12:00:00.000Z","currency":"GBP","enabled":true,"id":"BA123","links":{"customer":"example customer 3616"},"metadata":{}}],"meta":{"cursors":{"after":"example after 5786","before":"example before 540"},"limit":50}}
+    "body": {"customer_bank_accounts":[{"account_holder_name":"Billy Jean","account_number_ending":"11","bank_name":"BARCLAYS BANK PLC","country_code":"GB","created_at":"2014-01-01T12:00:00.000Z","currency":null,"enabled":true,"id":"BA123","links":{"customer":"example customer 3612"},"metadata":{}},{"account_holder_name":"Billy Jean","account_number_ending":"11","bank_name":"BARCLAYS BANK PLC","country_code":"GB","created_at":"2014-01-01T12:00:00.000Z","currency":"GBP","enabled":true,"id":"BA123","links":{"customer":"example customer 1532"},"metadata":{}}],"meta":{"cursors":{"after":"example after 7839","before":"example before 540"},"limit":50}}
   },
   "get": {
     "method": "GET",
@@ -27,7 +27,7 @@
     "method": "POST",
     "path_template": "/customer_bank_accounts/:identity/actions/disable",
     "url_params": {"identity": "BA123"},
-    "body": {"customer_bank_accounts":{"account_holder_name":"Billy Jean","account_number_ending":"11","bank_name":"BARCLAYS BANK PLC","country_code":"GB","created_at":"2014-01-01T12:00:00.000Z","currency":"GBP","enabled":true,"id":"BA123","links":{"customer":"example customer 364"},"metadata":{}}}
+    "body": {"customer_bank_accounts":{"account_holder_name":"Billy Jean","account_number_ending":"11","bank_name":"BARCLAYS BANK PLC","country_code":"GB","created_at":"2014-01-01T12:00:00.000Z","currency":null,"enabled":true,"id":"BA123","links":{"customer":"example customer 8844"},"metadata":{}}}
   }
 }
 
