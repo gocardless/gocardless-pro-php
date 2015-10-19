@@ -56,7 +56,7 @@ $client = new \GoCardlessPro\Client(array(
 ));
 ```
 
-The `api_key` and `api_secret` can be found under the "Organisation" tab in your GoCardless dashboard.
+Your `access_token` can be found under the "Developer" tab in your GoCardless dashboard.
 
 The environment can either be `\GoCardlessPro\Environment::SANDBOX` or `\GoCardlessPro\Environment::PRODUCTION`, depending on whether you want to use the sandbox or production API.
 

@@ -9,10 +9,10 @@ class Client
 {
     /** @var Core/HttpClient Internal reference to HTTP Client object */
     private $http_client;
-    
+
     /**
      * Constructor returning a new \GoCardless\Client class.
-     * @param array[string]string $options Options (required: api_secret, api_key, optional: environment).
+     * @param array[string]string $options Options (required: access_token, optional: environment).
      */
     public function __construct($options)
     {

@@ -29,8 +29,6 @@ class HttpClient
     private $headers = array();
 
   /**
-    * @param string $api_key Auth api key
-    * @param string $api_secret Auth api secret
     * @param string $baseUrl Base HTTP access url
     * @param array[string]string Options (only inludes default headers for now)
     */
