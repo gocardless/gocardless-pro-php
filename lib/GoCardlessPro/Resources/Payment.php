@@ -157,10 +157,10 @@ class Payment extends Base
     }
 
   /**
-    * An optional payment reference. This will be appended to the mandate
-    * reference on your customer's bank statement. For Bacs payments this can be
-    * up to 10 characters, for SEPA payments the limit is 140 characters, and
-    * for Autogiro payments the limit is 11 characters.
+    * An optional payment reference that will appear on your customer's bank
+    * statement. For Bacs payments this can be up to 10 characters, for SEPA
+    * payments the limit is 140 characters, and for Autogiro payments the limit
+    * is 11 characters.
     *
     * @return string
     */
