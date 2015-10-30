@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ruleset name="pcsb-gocardless-php-api-ruleset" 
-    xmlns="http://pmd.sf.net/ruleset/1.0.0" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<ruleset name="pcsb-gocardless-php-api-ruleset"
+    xmlns="http://pmd.sf.net/ruleset/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd"
     xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd">
-<description>GoCardless PHP Client Library Ruleset
+<description>GoCardlessPro PHP Client Library Ruleset
 </description>
-<rule ref="PSR2">
-	<!-- Exclude camel caps due to consistency with the JSON api for GoCardless -->
-    <exclude name="PSR1.Methods.CamelCapsMethodName.NotCamelCaps" />
-</rule>
 
 </ruleset>

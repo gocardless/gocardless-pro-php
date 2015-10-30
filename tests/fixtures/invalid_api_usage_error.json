@@ -1,0 +1,14 @@
+{
+  "error": {
+    "message": "Invalid document structure",
+    "documentation_url": "https://developer.gocardless.com/pro#invalid_document_structure",
+    "type": "invalid_api_usage",
+    "request_id": "bd271b37-a2f5-47c8-b461-040dfe0e9cb1",
+    "code": 400,
+    "errors": [
+      {
+        "message": "Root element must be an object."
+      }
+    ]
+  }
+}

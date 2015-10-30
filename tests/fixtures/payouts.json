@@ -1,0 +1,15 @@
+{ 
+  "list": {
+    "method": "GET",
+    "path_template": "/payouts",
+    "url_params": {},
+    "body": {"meta":{"cursors":{"after":"example after 1092","before":"example before 8831"},"limit":50},"payouts":[{"amount":"1000","created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","id":"PO123","links":{"creditor":"CR123","creditor_bank_account":"BA123"},"reference":"ref-1","status":"pending"},{"amount":"1000","created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","id":"PO123","links":{"creditor":"CR123","creditor_bank_account":"BA123"},"reference":"ref-1","status":"pending"}]}
+  },
+  "get": {
+    "method": "GET",
+    "path_template": "/payouts/:identity",
+    "url_params": {"identity": "PO123"},
+    "body": {"payouts":{"amount":"1000","created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","id":"PO123","links":{"creditor":"CR123","creditor_bank_account":"BA123"},"reference":"ref-1","status":"pending"}}
+  }
+}
+

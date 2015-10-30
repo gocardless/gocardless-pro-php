@@ -1,0 +1,9 @@
+{
+  "error": {
+    "message": "Uh-oh!",
+    "documentation_url": "https://developer.gocardless.com/pro#internal_error",
+    "type": "gocardless",
+    "request_id": "41a59cf8-ca4c-474c-9931-7f01fb547bc7",
+    "code": 500
+  }
+}

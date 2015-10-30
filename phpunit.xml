@@ -3,7 +3,7 @@
 <phpunit colors="true" stopOnFailure="false" bootstrap="tests/loader.php">
   <testsuites>
     <testsuite name="lib">
-      <directory>./tests</directory>
+      <directory>tests</directory>
     </testsuite>
   </testsuites>
 </phpunit>

@@ -1,24 +1,6 @@
-dependencies:
-  cache_directories:
-    - vendor/
-
 machine:
   php:
-    version: 5.4.5
-
-deployment:
-  git:
-    branch: dev
-    commands:
-      - make docs
-      - git config user.name "Circle CI"
-      - git config user.email "robot+circleci@gocardless.com"
-      - rm -rf ./tests ./vendor
-      - rm -f composer.json composer.lock docs/api/.htaccess
-      - git checkout gh-pages
-      - cp -r docs/api/* .
-      - rm -rf docs/
-      - touch .nojekyll
-      - git add .
-      - git commit -m "[ci skip] Generate PHP Doc"
-      - git push origin gh-pages
+    version: 5.5.0
+dependencies:
+  override:
+    - composer install --prefer-source --no-interaction

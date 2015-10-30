@@ -1,0 +1,15 @@
+{
+  "error": {
+    "code": 422,
+    "documentation_url": "https://developer.gocardless.com/pro#mandate_not_inactive",
+    "errors": [
+      {
+        "message": "Mandate is already active or being submitted",
+        "reason": "mandate_not_inactive"
+      }
+    ],
+    "message": "Mandate is already active or being submitted",
+    "request_id": "9aac0445-fd1e-4dc2-8854-a5a6afbaaeae",
+    "type": "invalid_state"
+  }
+}
