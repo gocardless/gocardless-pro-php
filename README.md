@@ -130,9 +130,9 @@ try {
 }
 ```
 
-## Supporting PHP < 5.3.3
+## Supporting PHP < 5.5
 
-This client library only supports PHP >= 5.3.3.
+This client library only supports PHP >= 5.5
 
 ## Contributing
 
