@@ -7,6 +7,9 @@ namespace GoCardlessPro;
  */
 class Client
 {
+
+    const CA_CERT_FILENAME = 'cacert.pem';
+
     /**
     * @var Core\ApiClient Internal reference to Api Client
     */
@@ -47,7 +50,8 @@ class Client
                 'Authorization' => "Bearer " . $access_token,
                 'User-Agent' => $this->getUserAgent()
                 ),
-                'http_errors' => false
+                'http_errors' => false,
+                'verify' => $this->getCACertPath()
                 ]
             );
         }
@@ -268,7 +272,7 @@ class Client
     {
         $curlinfo = curl_version();
         $uagent = array();
-        $uagent[] = 'gocardless-pro-php/0.9.0';
+        $uagent[] = 'gocardless-pro-php/0.9.1';
         $uagent[] = 'schema-version/2015-07-06';
         $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::VERSION;
         $uagent[] = 'php/' . phpversion();
@@ -277,5 +281,14 @@ class Client
             $uagent[] = 'curl/' . \curl_version()['host'];
         }
         return implode(' ', $uagent);
+    }
+
+    /**
+     * Internal function for finding the path to cacert.pem
+     * @return Path to the cacert.pem file
+     */
+    private function getCACertPath()
+    {
+        return dirname(__FILE__) . "/../" . self::CA_CERT_FILENAME;
     }
 }
