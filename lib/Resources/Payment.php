@@ -106,7 +106,11 @@ class Payment extends BaseResource
      * [payout](#core-endpoints-payouts)</li>
      * <li>`cancelled`: the
      * payment has been cancelled</li>
-     * </ul>
+     * <li>`pending_customer_approval`:
+     * we're waiting for the customer to approve this payment</li>
+     *
+     * <li>`customer_approval_denied`: the customer has denied approval for the
+     * payment. You should contact the customer directly</li></ul>
      */
     protected $status;
 
