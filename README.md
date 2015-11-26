@@ -39,7 +39,7 @@ $client = new \GoCardlessPro\Client(array(
 
 You can create an `access_token` from the "Developers" tab in your GoCardless dashboard.
 
-The environment can either be `\GoCardlessPro\Environment::SANDBOX` or `\GoCardlessPro\Environment::PRODUCTION`, depending on whether you want to use the sandbox or production API.
+The environment can either be `\GoCardlessPro\Environment::SANDBOX` or `\GoCardlessPro\Environment::LIVE`, depending on whether you want to use the sandbox or live API.
 
 For full documentation, see our [API docs](https://developer.gocardless.com/pro/2015-07-06).
 
