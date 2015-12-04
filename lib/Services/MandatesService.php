@@ -9,6 +9,8 @@ namespace GoCardlessPro\Services;
 
 use \GoCardlessPro\Core\Paginator;
 use \GoCardlessPro\Core\Util;
+use \GoCardlessPro\Core\ListResponse;
+use \GoCardlessPro\Resources\Mandate;
 
 
 /**
@@ -183,9 +185,8 @@ class MandatesService extends BaseService
     *
     * Example URL: /mandates
     *
-    * @param string[mixed] $params
-    *
-    * @return \GoCardlessPro\Core\Paginator
+    * @param  string[mixed] $params
+    * @return Paginator
     **/
     public function all($params = array())
     {

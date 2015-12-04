@@ -9,6 +9,8 @@ namespace GoCardlessPro\Services;
 
 use \GoCardlessPro\Core\Paginator;
 use \GoCardlessPro\Core\Util;
+use \GoCardlessPro\Core\ListResponse;
+use \GoCardlessPro\Resources\Customer;
 
 
 /**
@@ -125,9 +127,8 @@ class CustomersService extends BaseService
     *
     * Example URL: /customers
     *
-    * @param string[mixed] $params
-    *
-    * @return \GoCardlessPro\Core\Paginator
+    * @param  string[mixed] $params
+    * @return Paginator
     **/
     public function all($params = array())
     {

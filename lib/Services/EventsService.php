@@ -9,6 +9,8 @@ namespace GoCardlessPro\Services;
 
 use \GoCardlessPro\Core\Paginator;
 use \GoCardlessPro\Core\Util;
+use \GoCardlessPro\Core\ListResponse;
+use \GoCardlessPro\Resources\Event;
 
 
 /**
@@ -74,9 +76,8 @@ class EventsService extends BaseService
     *
     * Example URL: /events
     *
-    * @param string[mixed] $params
-    *
-    * @return \GoCardlessPro\Core\Paginator
+    * @param  string[mixed] $params
+    * @return Paginator
     **/
     public function all($params = array())
     {

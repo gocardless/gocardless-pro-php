@@ -9,6 +9,8 @@ namespace GoCardlessPro\Services;
 
 use \GoCardlessPro\Core\Paginator;
 use \GoCardlessPro\Core\Util;
+use \GoCardlessPro\Core\ListResponse;
+use \GoCardlessPro\Resources\CustomerBankAccount;
 
 
 /**
@@ -154,9 +156,8 @@ class CustomerBankAccountsService extends BaseService
     *
     * Example URL: /customer_bank_accounts
     *
-    * @param string[mixed] $params
-    *
-    * @return \GoCardlessPro\Core\Paginator
+    * @param  string[mixed] $params
+    * @return Paginator
     **/
     public function all($params = array())
     {
