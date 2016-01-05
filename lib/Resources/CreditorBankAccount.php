@@ -81,7 +81,7 @@ class CreditorBankAccount extends BaseResource
 
     /**
      * Key-value store of custom data. Up to 3 keys are permitted, with key
-     * names up to 50 characters and values up to 200 characters.
+     * names up to 50 characters and values up to 500 characters.
      */
     protected $metadata;
 
