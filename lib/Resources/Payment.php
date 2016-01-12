@@ -83,7 +83,9 @@ class Payment extends BaseResource
      * An optional payment reference that will appear on your customer's bank
      * statement. For Bacs payments this can be up to 10 characters, for SEPA
      * payments the limit is 140 characters, and for Autogiro payments the limit
-     * is 11 characters.
+     * is 11 characters. <p
+     * class='restricted-notice'><strong>Restricted</strong>: You need your own
+     * Service User Number to specify a payment reference for Bacs payments.</p>
      */
     protected $reference;
 
