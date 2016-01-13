@@ -59,7 +59,10 @@ class Payment extends BaseResource
     protected $currency;
 
     /**
-     * A human readable description of the payment.
+     * A human-readable description of the payment. This will be included in the
+     * notification email GoCardless sends to your customer if your organisation
+     * does not send its own notifications (see [compliance
+     * requirements](#appendix-compliance-requirements)).
      */
     protected $description;
 
