@@ -114,14 +114,13 @@ $client->customers()->update($customer_id, [
 
 When the API returns an error, the library will return a corresponding subclass of `ApiException`, one of:
 
-- `GoCardlessProException`
 - `InvalidApiUsageException`
 - `InvalidStateException`
 - `ValidationFailedException`
 
-These types of error are all covered in the [API documentation](https://developer.gocardless.com/pro/#overview-errors).
+These types of error are covered in the [API documentation](https://developer.gocardless.com/pro/#overview-errors).
 
-If the error is an HTTP transport layer error (e.g. cannot connect, empty response from server, etc.), the client will throw an `ApiConnectionException`. If it can't parse the response from GoCardless, it will throw a `MalformedResponseException
+If the error is an HTTP transport layer error (e.g. cannot connect, empty response from server, etc.), the client will throw an `ApiConnectionException`. If it can't parse the response from GoCardless, it will throw a `MalformedResponseException`.
 
 ```php
 try {
