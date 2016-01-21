@@ -42,6 +42,16 @@ class ErrorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @expectedException        GoCardlessPro\Core\Exception\ValidationFailedException
+     * @expectedExceptionMessage Validation failed (Bank account already exists)
+     */
+    public function testValidationFailedWithoutFieldMessage()
+    {
+        $fixture = $this->getFixture('validation_failed_error_without_field');
+        throw new ValidationFailedException($fixture->error);
+    }
+
+    /**
      * @expectedException        GoCardlessPro\Core\Exception\GoCardlessInternalException
      * @expectedExceptionMessage Uh-oh!
      */
