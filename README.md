@@ -110,6 +110,21 @@ $client->customers()->update($customer_id, [
 ]);
 ```
 
+
+If you wish to take advantage of [idempotency](https://developer.gocardless.com/pro/2015-07-06/#making-requests-idempotency-keys)
+in your requests, you can do so by passing an idempotency header. For example:
+
+```
+$client->customers()->create([
+  'params' => ["given_name" => "Pete", "family_name" => "Hamilton"]
+  "headers" => ["Idempotency-Key" => "ABC123"]
+]);
+```
+
+It you were to make this request again, the API would reject the request and
+the client would raise an InvalidStateException.
+
+
 ### Handling Failures
 
 When the API returns an error, the library will return a corresponding subclass of `ApiException`, one of:
