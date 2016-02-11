@@ -12,6 +12,7 @@ namespace GoCardlessPro\Resources;
  * attributes
  *
  * @property-read $amount
+ * @property-read $arrival_date
  * @property-read $created_at
  * @property-read $currency
  * @property-read $id
@@ -27,6 +28,21 @@ class Payout extends BaseResource
      * Amount in pence or cents.
      */
     protected $amount;
+
+    /**
+     * Date the payout is due to arrive in the creditor's bank account
+     *
+     * One of:
+     * <ul>
+     *   <li>`2014-01-01`: the payout has been paid
+     * and is due to arrive in the creditor's bank
+     *   account on this
+     * day</li>
+     *   <li>`null`: the payout hasn't been paid yet</li>
+     *
+     * </ul>
+     */
+    protected $arrival_date;
 
     /**
      * Fixed [timestamp](#overview-time-zones-dates), recording when this

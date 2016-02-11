@@ -36,6 +36,7 @@ class PayoutsIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             $this->assertEquals($body[$num]->amount, $record->amount);
+            $this->assertEquals($body[$num]->arrival_date, $record->arrival_date);
             $this->assertEquals($body[$num]->created_at, $record->created_at);
             $this->assertEquals($body[$num]->currency, $record->currency);
             $this->assertEquals($body[$num]->id, $record->id);
@@ -59,6 +60,7 @@ class PayoutsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\Payout', $response);
 
         $this->assertEquals($body->amount, $response->amount);
+        $this->assertEquals($body->arrival_date, $response->arrival_date);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->currency, $response->currency);
         $this->assertEquals($body->id, $response->id);
