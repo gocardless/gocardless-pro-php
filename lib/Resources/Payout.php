@@ -30,7 +30,7 @@ class Payout extends BaseResource
     protected $amount;
 
     /**
-     * Date the payout is due to arrive in the creditor's bank account
+     * Date the payout is due to arrive in the creditor's bank account.
      *
      * One of:
      * <ul>
