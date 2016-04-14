@@ -34,7 +34,7 @@ class Payout extends BaseResource
      *
      * One of:
      * <ul>
-     *   <li>`2014-01-01`: the payout has been paid
+     *   <li>`yyyy-mm-dd`: the payout has been paid
      * and is due to arrive in the creditor's bank
      *   account on this
      * day</li>
