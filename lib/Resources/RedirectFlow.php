@@ -67,7 +67,8 @@ class RedirectFlow extends BaseResource
     protected $session_token;
 
     /**
-     * The URL to redirect to upon successful mandate setup.
+     * The URL to redirect to upon successful mandate setup. You must use a URL
+     * beginning `https` in the live environment.
      */
     protected $success_redirect_url;
 
