@@ -39,6 +39,7 @@ class PayoutsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->arrival_date, $record->arrival_date);
             $this->assertEquals($body[$num]->created_at, $record->created_at);
             $this->assertEquals($body[$num]->currency, $record->currency);
+            $this->assertEquals($body[$num]->deducted_fees, $record->deducted_fees);
             $this->assertEquals($body[$num]->id, $record->id);
             $this->assertEquals($body[$num]->links, $record->links);
             $this->assertEquals($body[$num]->reference, $record->reference);
@@ -63,6 +64,7 @@ class PayoutsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->arrival_date, $response->arrival_date);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->currency, $response->currency);
+        $this->assertEquals($body->deducted_fees, $response->deducted_fees);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->reference, $response->reference);

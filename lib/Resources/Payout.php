@@ -15,6 +15,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $arrival_date
  * @property-read $created_at
  * @property-read $currency
+ * @property-read $deducted_fees
  * @property-read $id
  * @property-read $links
  * @property-read $reference
@@ -55,6 +56,21 @@ class Payout extends BaseResource
      * code.
      */
     protected $currency;
+
+    /**
+     * Fees that have already been deducted from the payout amount in pence or
+     * cents.
+     * 
+     * For each `late_failure_settled` or
+     * `chargeback_settled` action, we refund the transaction fees in a payout.
+     * This means that a payout can have a negative `deducted_fees`. This field
+     * is calculated as `GoCardless fees + app fees - refunded fees`
+     * 
+   
+     *  * If the merchant is invoiced for fees separately from the payout, then
+     * `deducted_fees` will be 0.
+     */
+    protected $deducted_fees;
 
     /**
      * Unique identifier, beginning with "PO".
