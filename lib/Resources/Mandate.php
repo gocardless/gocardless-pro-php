@@ -26,7 +26,7 @@ class Mandate extends BaseResource
     protected $model_name = "Mandate";
 
     /**
-     * Fixed [timestamp](#overview-time-zones-dates), recording when this
+     * Fixed [timestamp](#api-usage-time-zones--dates), recording when this
      * resource was created.
      */
     protected $created_at;
@@ -61,9 +61,9 @@ class Mandate extends BaseResource
 
     /**
      * Unique reference. Different schemes have different length and [character
-     * set](#character-sets) requirements. GoCardless will generate a unique
-     * reference satisfying the different scheme requirements if this field is
-     * left blank.
+     * set](#appendix-character-sets) requirements. GoCardless will generate a
+     * unique reference satisfying the different scheme requirements if this
+     * field is left blank.
      */
     protected $reference;
 

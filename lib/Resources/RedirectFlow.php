@@ -25,7 +25,7 @@ class RedirectFlow extends BaseResource
     protected $model_name = "RedirectFlow";
 
     /**
-     * Fixed [timestamp](#overview-time-zones-dates), recording when this
+     * Fixed [timestamp](#api-usage-time-zones--dates), recording when this
      * resource was created.
      */
     protected $created_at;
