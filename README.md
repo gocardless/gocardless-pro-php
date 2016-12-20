@@ -25,6 +25,14 @@ After installing, you need to require Composer's autoloader:
 require 'vendor/autoload.php';
 ```
 
+#### Manual installation
+
+We strongly recommend using [Composer](https://getcomposer.org/) - it'll make it easier to manage your dependencies and stay up to date. But if you don't want to, you can also install the library manually:
+
+* Make sure you have PHP's [cURL](http://php.net/manual/en/curl.installation.php), [JSON](http://php.net/manual/en/json.installation.php) and [mbstring](http://php.net/manual/en/mbstring.installation.php) extensions enabled (Composer checks these dependencies automatically)
+* Download the latest zipped release of [Guzzle](https://github.com/guzzle/guzzle/releases), which we use for making HTTP requests, and `require` the `autoloader.php` file
+* Grab the PHP library's [source](https://github.com/gocardless/gocardless-pro-php/archive/master.zip), and `require` the `lib/loader.php` file
+
 ### Initialising A Client
 
 Create a `GoCardlessPro\Client` instance, providing your access token and the environment you want to use.
