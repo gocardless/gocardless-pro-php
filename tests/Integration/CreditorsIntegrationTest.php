@@ -37,6 +37,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->name, $response->name);
         $this->assertEquals($body->postal_code, $response->postal_code);
         $this->assertEquals($body->region, $response->region);
+        $this->assertEquals($body->scheme_identifiers, $response->scheme_identifiers);
     
     }
     
@@ -72,6 +73,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->name, $record->name);
             $this->assertEquals($body[$num]->postal_code, $record->postal_code);
             $this->assertEquals($body[$num]->region, $record->region);
+            $this->assertEquals($body[$num]->scheme_identifiers, $record->scheme_identifiers);
             
         }
     }
@@ -99,6 +101,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->name, $response->name);
         $this->assertEquals($body->postal_code, $response->postal_code);
         $this->assertEquals($body->region, $response->region);
+        $this->assertEquals($body->scheme_identifiers, $response->scheme_identifiers);
     
     }
     
@@ -125,6 +128,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->name, $response->name);
         $this->assertEquals($body->postal_code, $response->postal_code);
         $this->assertEquals($body->region, $response->region);
+        $this->assertEquals($body->scheme_identifiers, $response->scheme_identifiers);
     
     }
     

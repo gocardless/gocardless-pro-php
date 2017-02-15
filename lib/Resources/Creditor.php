@@ -22,6 +22,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $name
  * @property-read $postal_code
  * @property-read $region
+ * @property-read $scheme_identifiers
  */
 class Creditor extends BaseResource
 {
@@ -84,5 +85,15 @@ class Creditor extends BaseResource
      * The creditor's address region, county or department.
      */
     protected $region;
+
+    /**
+     * The scheme identifiers this creditor can create mandates against.
+     * 
+     * The support address, `phone_number` and `email` fields are for
+     * customers to contact the merchant for support purposes. They must be
+     * displayed on the payment page, please see our [compliance
+     * requirements](#appendix-compliance-requirements) for more details.
+     */
+    protected $scheme_identifiers;
 
 }
