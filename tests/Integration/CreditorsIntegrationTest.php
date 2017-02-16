@@ -34,6 +34,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->logo_url, $response->logo_url);
         $this->assertEquals($body->name, $response->name);
         $this->assertEquals($body->postal_code, $response->postal_code);
         $this->assertEquals($body->region, $response->region);
@@ -70,6 +71,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->created_at, $record->created_at);
             $this->assertEquals($body[$num]->id, $record->id);
             $this->assertEquals($body[$num]->links, $record->links);
+            $this->assertEquals($body[$num]->logo_url, $record->logo_url);
             $this->assertEquals($body[$num]->name, $record->name);
             $this->assertEquals($body[$num]->postal_code, $record->postal_code);
             $this->assertEquals($body[$num]->region, $record->region);
@@ -98,6 +100,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->logo_url, $response->logo_url);
         $this->assertEquals($body->name, $response->name);
         $this->assertEquals($body->postal_code, $response->postal_code);
         $this->assertEquals($body->region, $response->region);
@@ -125,6 +128,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->logo_url, $response->logo_url);
         $this->assertEquals($body->name, $response->name);
         $this->assertEquals($body->postal_code, $response->postal_code);
         $this->assertEquals($body->region, $response->region);

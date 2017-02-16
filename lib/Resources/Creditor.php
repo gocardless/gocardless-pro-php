@@ -19,6 +19,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $created_at
  * @property-read $id
  * @property-read $links
+ * @property-read $logo_url
  * @property-read $name
  * @property-read $postal_code
  * @property-read $region
@@ -70,6 +71,11 @@ class Creditor extends BaseResource
      * 
      */
     protected $links;
+
+    /**
+     * URL for the creditor's logo, which may be shown on their payment pages.
+     */
+    protected $logo_url;
 
     /**
      * The creditor's name.
