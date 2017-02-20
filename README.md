@@ -3,7 +3,7 @@
 A PHP client for interacting with the GoCardless Pro API.
 
 - ["Getting started" guide](https://developer.gocardless.com/getting-started/api/introduction/?lang=php) with copy and paste PHP code samples
-- [API Reference](https://developer.gocardless.com/api-reference/2015-07-06)
+- [API Reference](https://developer.gocardless.com/pro/2015-07-06)
 - [Composer Package](https://packagist.org/packages/gocardless/gocardless-pro)
 
 ### Installation
@@ -50,7 +50,7 @@ You can create an `access_token` from the "Developers" tab in your GoCardless da
 
 The environment can either be `\GoCardlessPro\Environment::SANDBOX` or `\GoCardlessPro\Environment::LIVE`, depending on whether you want to use the sandbox or live API.
 
-For full documentation, see our [API docs](https://developer.gocardless.com/api-reference/2015-07-06).
+For full documentation, see our [API docs](https://developer.gocardless.com/pro/2015-07-06).
 
 ### GET requests
 

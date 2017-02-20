@@ -272,7 +272,7 @@ class Client
     {
         $curlinfo = curl_version();
         $uagent = array();
-        $uagent[] = 'gocardless-pro/0.9.4';
+        $uagent[] = 'gocardless-pro/0.10.1';
         $uagent[] = 'schema-version/2015-07-06';
         $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::VERSION;
         $uagent[] = 'php/' . phpversion();
