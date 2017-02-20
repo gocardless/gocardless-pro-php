@@ -18,6 +18,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $deducted_fees
  * @property-read $id
  * @property-read $links
+ * @property-read $payout_type
  * @property-read $reference
  * @property-read $status
  */
@@ -81,6 +82,11 @@ class Payout extends BaseResource
      * 
      */
     protected $links;
+
+    /**
+     * Whether a payout contains merchant revenue or partner fees.
+     */
+    protected $payout_type;
 
     /**
      * Reference which appears on the creditor's bank statement.

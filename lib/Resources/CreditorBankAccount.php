@@ -29,8 +29,8 @@ class CreditorBankAccount extends BaseResource
     /**
      * Name of the account holder, as known by the bank. Usually this is the
      * same as the name stored with the linked
-     * [creditor](#whitelabel-partner-endpoints-creditors). This field will be
-     * transliterated, upcased and truncated to 18 characters.
+     * [creditor](#core-endpoints-creditors). This field will be transliterated,
+     * upcased and truncated to 18 characters.
      */
     protected $account_holder_name;
 

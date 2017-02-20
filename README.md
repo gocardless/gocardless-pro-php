@@ -2,6 +2,10 @@
 
 A PHP client for interacting with the GoCardless Pro API.
 
+[![PHP version](https://badge.fury.io/ph/gocardless%2Fgocardless-pro.svg)](https://badge.fury.io/ph/gocardless%2Fgocardless-pro)
+[![CircleCI](https://circleci.com/gh/gocardless/gocardless-pro-php.svg?style=shield)](https://circleci.com/gh/gocardless/gocardless-pro-php)
+
+
 - ["Getting started" guide](https://developer.gocardless.com/getting-started/api/introduction/?lang=php) with copy and paste PHP code samples
 - [API Reference](https://developer.gocardless.com/api-reference)
 - [Composer Package](https://packagist.org/packages/gocardless/gocardless-pro)
@@ -123,7 +127,7 @@ $client->customers()->update($customer_id, [
 If you wish to take advantage of [idempotency](https://developer.gocardless.com/pro/2015-07-06/#making-requests-idempotency-keys)
 in your requests, you can do so by passing an idempotency header. For example:
 
-```
+```php
 $client->customers()->create([
   'params' => ["given_name" => "Pete", "family_name" => "Hamilton"]
   "headers" => ["Idempotency-Key" => "ABC123"]
