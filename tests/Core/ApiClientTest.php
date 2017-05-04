@@ -8,6 +8,9 @@ class ApiClientTest extends \PHPUnit_Framework_TestCase
     {
         $this->mock = new \GuzzleHttp\Handler\MockHandler();
         $handler = \GuzzleHttp\HandlerStack::create($this->mock);
+        $this->history = array();
+        $historyMiddleware = \GuzzleHttp\Middleware::history($this->history);
+        $handler->push($historyMiddleware);
         $this->mock_http_client = new \GuzzleHttp\Client([
             'handler' => $handler,
             'http_errors' => false
@@ -25,6 +28,57 @@ class ApiClientTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertEquals($body, $response->getBody());
+    }
+
+    public function testRandomIdempotencyKeyInjectionIntoPostRequests()
+    {
+        $data = array("payments" => array("amount" => "10"));
+        $body = json_encode($data);
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], $body));
+
+        $this->api_client->post('/payments', array('params' => array('customers' => array('amount' => '10'))));
+
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertTrue(array_key_exists('Idempotency-Key', $dispatchedRequest->getHeaders()));
+    }
+
+    public function testPreservationOfProvidedIdempotencyKeyForPostRequests()
+    {
+        $data = array("payments" => array("amount" => "10"));
+        $body = json_encode($data);
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], $body));
+
+        $this->api_client->post('/payments', array(
+            'params' => array(
+                'customers' => array('amount' => '10')
+            ),
+            'headers' => array(
+                'Idempotency-Key' => 'my-custom-idempotency-key'
+            )));
+
+        $dispatchedRequest = $this->history[0]['request'];
+        $requestIdempotencyKey = $dispatchedRequest->getHeaderLine('Idempotency-Key');
+        $this->assertEquals($requestIdempotencyKey, 'my-custom-idempotency-key');
+    }
+
+    public function testMergingOfRandomIdempotencyKeyIntoCustomHeadersForPostRequests()
+    {
+        $data = array("payments" => array("amount" => "10"));
+        $body = json_encode($data);
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], $body));
+
+        $this->api_client->post('/payments', array(
+            'params' => array(
+                'customers' => array('amount' => '10')
+            ),
+            'headers' => array(
+                'My-Custom-Header' => 'foo'
+            )));
+
+        $dispatchedRequest = $this->history[0]['request'];
+        $requestCustomHeaderValue = $dispatchedRequest->getHeaderLine('My-Custom-Header');
+        $this->assertEquals($requestCustomHeaderValue, 'foo');
+        $this->assertTrue(array_key_exists('Idempotency-Key', $dispatchedRequest->getHeaders()));
     }
 
     public function testMalformedResponse()

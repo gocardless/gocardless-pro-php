@@ -65,7 +65,12 @@ class ApiClient
      */
     public function post($path, $params)
     {
+        $idempotencyKey = uniqid("", true);
+        $paramsWithHeaders = array("headers" => array("Idempotency-Key" => $idempotencyKey));
+        $params = array_replace_recursive($paramsWithHeaders, $params);
+
         $response = $this->http_client->request('POST', $path, $params);
+
         $this->handleErrors($response);
         return $response;
     }

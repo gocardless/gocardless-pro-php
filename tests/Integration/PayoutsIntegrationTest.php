@@ -47,7 +47,12 @@ class PayoutsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->status, $record->status);
             
         }
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
+
     
     public function testPayoutsGet()
     {
@@ -72,6 +77,11 @@ class PayoutsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->reference, $response->reference);
         $this->assertEquals($body->status, $response->status);
     
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
+
     
 }

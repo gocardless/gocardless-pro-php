@@ -40,6 +40,53 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->region, $response->region);
         $this->assertEquals($body->scheme_identifiers, $response->scheme_identifiers);
     
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+    }
+
+    public function testCreditorsCreateWithIdempotencyConflict()
+    {
+        $fixture = $this->load_fixture('creditors')->create;
+
+        $idempotencyConflictFixturePath = 'tests/fixtures/idempotent_creation_conflict_invalid_state_error.json';
+        $idempotencyConflictResponseFixture = fread(fopen($idempotencyConflictFixturePath, "r"), filesize($idempotencyConflictFixturePath));
+
+        // The POST request responds with a 409 to our original POST, due to an idempotency conflict
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(409, [], $idempotencyConflictResponseFixture));
+
+        // The client makes a second request to fetch the resource that was already
+        // created using our idempotency key. It responds with the created resource,
+        // which looks just like the response for a successful POST request. 
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], json_encode($fixture->body)));
+
+        $service = $this->client->creditors();
+        $response = call_user_func_array(array($service, 'create'), (array)$fixture->url_params);
+        $body = $fixture->body->creditors;
+
+        $this->assertInstanceOf('\GoCardlessPro\Resources\Creditor', $response);
+
+        $this->assertEquals($body->address_line1, $response->address_line1);
+        $this->assertEquals($body->address_line2, $response->address_line2);
+        $this->assertEquals($body->address_line3, $response->address_line3);
+        $this->assertEquals($body->city, $response->city);
+        $this->assertEquals($body->country_code, $response->country_code);
+        $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->logo_url, $response->logo_url);
+        $this->assertEquals($body->name, $response->name);
+        $this->assertEquals($body->postal_code, $response->postal_code);
+        $this->assertEquals($body->region, $response->region);
+        $this->assertEquals($body->scheme_identifiers, $response->scheme_identifiers);
+        
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $conflictRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $conflictRequest->getUri()->getPath());
+        $getRequest = $this->history[1]['request'];
+        $this->assertEquals($getRequest->getUri()->getPath(), '/creditors/ID123');
     }
     
     public function testCreditorsList()
@@ -78,7 +125,12 @@ class CreditorsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->scheme_identifiers, $record->scheme_identifiers);
             
         }
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
+
     
     public function testCreditorsGet()
     {
@@ -106,7 +158,12 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->region, $response->region);
         $this->assertEquals($body->scheme_identifiers, $response->scheme_identifiers);
     
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
+
     
     public function testCreditorsUpdate()
     {
@@ -134,6 +191,11 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->region, $response->region);
         $this->assertEquals($body->scheme_identifiers, $response->scheme_identifiers);
     
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
+
     
 }

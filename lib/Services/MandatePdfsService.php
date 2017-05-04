@@ -11,6 +11,7 @@ use \GoCardlessPro\Core\Paginator;
 use \GoCardlessPro\Core\Util;
 use \GoCardlessPro\Core\ListResponse;
 use \GoCardlessPro\Resources\MandatePdf;
+use \GoCardlessPro\Core\Exception\InvalidStateException;
 
 
 /**
@@ -41,7 +42,9 @@ class MandatePdfsService extends BaseService
             unset($params['params']);
         }
 
+        
         $response = $this->api_client->post($path, $params);
+        
 
         return $this->getResourceForResponse($response);
     }

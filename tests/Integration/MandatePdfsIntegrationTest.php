@@ -29,6 +29,11 @@ class MandatePdfsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->expires_at, $response->expires_at);
         $this->assertEquals($body->url, $response->url);
     
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
+
     
 }

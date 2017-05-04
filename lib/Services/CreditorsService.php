@@ -11,6 +11,7 @@ use \GoCardlessPro\Core\Paginator;
 use \GoCardlessPro\Core\Util;
 use \GoCardlessPro\Core\ListResponse;
 use \GoCardlessPro\Resources\Creditor;
+use \GoCardlessPro\Core\Exception\InvalidStateException;
 
 
 /**
@@ -41,7 +42,17 @@ class CreditorsService extends BaseService
             unset($params['params']);
         }
 
-        $response = $this->api_client->post($path, $params);
+        
+        try {
+            $response = $this->api_client->post($path, $params);
+        } catch(InvalidStateException $e) {
+            if ($e->isIdempotentCreationConflict()) {
+                return $this->get($e->getConflictingResourceId());
+            }
+
+            throw $e;
+        }
+        
 
         return $this->getResourceForResponse($response);
     }
@@ -61,7 +72,9 @@ class CreditorsService extends BaseService
             unset($params['params']);
         }
 
+        
         $response = $this->api_client->get($path, $params);
+        
 
         return $this->getResourceForResponse($response);
     }
@@ -88,7 +101,9 @@ class CreditorsService extends BaseService
             unset($params['params']);
         }
 
+        
         $response = $this->api_client->get($path, $params);
+        
 
         return $this->getResourceForResponse($response);
     }
@@ -117,7 +132,9 @@ class CreditorsService extends BaseService
             unset($params['params']);
         }
 
+        
         $response = $this->api_client->put($path, $params);
+        
 
         return $this->getResourceForResponse($response);
     }

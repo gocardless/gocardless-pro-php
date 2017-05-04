@@ -40,6 +40,9 @@ class Client
         if (isset($config['http_client'])) {
             $http_client = $config['http_client'];
         } else {
+            $stack = \GuzzleHttp\HandlerStack::create();
+            $stack->push(RetryMiddlewareFactory::buildMiddleware());
+
             $http_client = new \GuzzleHttp\Client(
                 [
                 'base_uri' => $endpoint_url,
@@ -51,7 +54,8 @@ class Client
                 'User-Agent' => $this->getUserAgent()
                 ),
                 'http_errors' => false,
-                'verify' => $this->getCACertPath()
+                'verify' => $this->getCACertPath(),
+                'handler' => $stack
                 ]
             );
         }

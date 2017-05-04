@@ -43,6 +43,56 @@ class CustomersIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->region, $response->region);
         $this->assertEquals($body->swedish_identity_number, $response->swedish_identity_number);
     
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+    }
+
+    public function testCustomersCreateWithIdempotencyConflict()
+    {
+        $fixture = $this->load_fixture('customers')->create;
+
+        $idempotencyConflictFixturePath = 'tests/fixtures/idempotent_creation_conflict_invalid_state_error.json';
+        $idempotencyConflictResponseFixture = fread(fopen($idempotencyConflictFixturePath, "r"), filesize($idempotencyConflictFixturePath));
+
+        // The POST request responds with a 409 to our original POST, due to an idempotency conflict
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(409, [], $idempotencyConflictResponseFixture));
+
+        // The client makes a second request to fetch the resource that was already
+        // created using our idempotency key. It responds with the created resource,
+        // which looks just like the response for a successful POST request. 
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], json_encode($fixture->body)));
+
+        $service = $this->client->customers();
+        $response = call_user_func_array(array($service, 'create'), (array)$fixture->url_params);
+        $body = $fixture->body->customers;
+
+        $this->assertInstanceOf('\GoCardlessPro\Resources\Customer', $response);
+
+        $this->assertEquals($body->address_line1, $response->address_line1);
+        $this->assertEquals($body->address_line2, $response->address_line2);
+        $this->assertEquals($body->address_line3, $response->address_line3);
+        $this->assertEquals($body->city, $response->city);
+        $this->assertEquals($body->company_name, $response->company_name);
+        $this->assertEquals($body->country_code, $response->country_code);
+        $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->email, $response->email);
+        $this->assertEquals($body->family_name, $response->family_name);
+        $this->assertEquals($body->given_name, $response->given_name);
+        $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->language, $response->language);
+        $this->assertEquals($body->metadata, $response->metadata);
+        $this->assertEquals($body->postal_code, $response->postal_code);
+        $this->assertEquals($body->region, $response->region);
+        $this->assertEquals($body->swedish_identity_number, $response->swedish_identity_number);
+        
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $conflictRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $conflictRequest->getUri()->getPath());
+        $getRequest = $this->history[1]['request'];
+        $this->assertEquals($getRequest->getUri()->getPath(), '/customers/ID123');
     }
     
     public function testCustomersList()
@@ -84,7 +134,12 @@ class CustomersIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->swedish_identity_number, $record->swedish_identity_number);
             
         }
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
+
     
     public function testCustomersGet()
     {
@@ -115,7 +170,12 @@ class CustomersIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->region, $response->region);
         $this->assertEquals($body->swedish_identity_number, $response->swedish_identity_number);
     
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
+
     
     public function testCustomersUpdate()
     {
@@ -146,6 +206,11 @@ class CustomersIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->region, $response->region);
         $this->assertEquals($body->swedish_identity_number, $response->swedish_identity_number);
     
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
+
     
 }

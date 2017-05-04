@@ -44,7 +44,12 @@ class EventsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->resource_type, $record->resource_type);
             
         }
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
+
     
     public function testEventsGet()
     {
@@ -66,6 +71,11 @@ class EventsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->resource_type, $response->resource_type);
     
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
+
     
 }
