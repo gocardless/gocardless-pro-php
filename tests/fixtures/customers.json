@@ -3,25 +3,25 @@
     "method": "POST",
     "path_template": "/customers",
     "url_params": {},
-    "body": {"customers":{"address_line1":"221B Baker Street","address_line2":null,"address_line3":"City of Westminster","city":"London","company_name":"Hamilton Trading Ltd.","country_code":"GB","created_at":"2014-01-01T12:00:00.000Z","email":"user@example.com","family_name":null,"given_name":null,"id":"CU123","language":null,"metadata":{},"postal_code":null,"region":null,"swedish_identity_number":"556564-5404"}}
+    "body": {"customers":{"address_line1":"221B Baker Street","address_line2":null,"address_line3":null,"city":"London","company_name":"Hamilton Trading Ltd.","country_code":null,"created_at":"2014-01-01T12:00:00.000Z","email":null,"family_name":"Osborne","given_name":"Frank","id":"CU123","language":"en","metadata":{},"postal_code":null,"region":"Greater London","swedish_identity_number":null}}
   },
   "list": {
     "method": "GET",
     "path_template": "/customers",
     "url_params": {},
-    "body": {"customers":[{"address_line1":null,"address_line2":null,"address_line3":null,"city":null,"company_name":null,"country_code":null,"created_at":"2014-01-01T12:00:00.000Z","email":"user@example.com","family_name":"Osborne","given_name":"Frank","id":"CU123","language":"en","metadata":{},"postal_code":"NW1 6XE","region":null,"swedish_identity_number":null},{"address_line1":"221B Baker Street","address_line2":"Marylebone","address_line3":"City of Westminster","city":"London","company_name":null,"country_code":null,"created_at":"2014-01-01T12:00:00.000Z","email":null,"family_name":"Osborne","given_name":null,"id":"CU123","language":"en","metadata":{},"postal_code":null,"region":"Greater London","swedish_identity_number":null}],"meta":{"cursors":{"after":"example after 7839","before":"example before 3616"},"limit":50}}
+    "body": {"customers":[{"address_line1":null,"address_line2":null,"address_line3":"City of Westminster","city":null,"company_name":"Hamilton Trading Ltd.","country_code":null,"created_at":"2014-01-01T12:00:00.000Z","email":null,"family_name":null,"given_name":"Frank","id":"CU123","language":null,"metadata":{},"postal_code":"NW1 6XE","region":null,"swedish_identity_number":"556564-5404"},{"address_line1":null,"address_line2":null,"address_line3":"City of Westminster","city":"London","company_name":null,"country_code":"GB","created_at":"2014-01-01T12:00:00.000Z","email":"user@example.com","family_name":"Osborne","given_name":"Frank","id":"CU123","language":null,"metadata":{},"postal_code":"NW1 6XE","region":null,"swedish_identity_number":null}],"meta":{"cursors":{"after":"example after 7839","before":"example before 3616"},"limit":50}}
   },
   "get": {
     "method": "GET",
     "path_template": "/customers/:identity",
     "url_params": {"identity": "CU123"},
-    "body": {"customers":{"address_line1":null,"address_line2":null,"address_line3":null,"city":"London","company_name":"Hamilton Trading Ltd.","country_code":null,"created_at":"2014-01-01T12:00:00.000Z","email":null,"family_name":null,"given_name":null,"id":"CU123","language":"en","metadata":{},"postal_code":"NW1 6XE","region":"Greater London","swedish_identity_number":null}}
+    "body": {"customers":{"address_line1":"221B Baker Street","address_line2":"Marylebone","address_line3":null,"city":null,"company_name":null,"country_code":"GB","created_at":"2014-01-01T12:00:00.000Z","email":null,"family_name":null,"given_name":null,"id":"CU123","language":"en","metadata":{},"postal_code":null,"region":"Greater London","swedish_identity_number":null}}
   },
   "update": {
     "method": "PUT",
     "path_template": "/customers/:identity",
     "url_params": {"identity": "CU123"},
-    "body": {"customers":{"address_line1":null,"address_line2":null,"address_line3":"City of Westminster","city":"London","company_name":"Hamilton Trading Ltd.","country_code":"GB","created_at":"2014-01-01T12:00:00.000Z","email":"user@example.com","family_name":"Osborne","given_name":"Frank","id":"CU123","language":"en","metadata":{},"postal_code":"NW1 6XE","region":null,"swedish_identity_number":null}}
+    "body": {"customers":{"address_line1":"221B Baker Street","address_line2":"Marylebone","address_line3":"City of Westminster","city":"London","company_name":null,"country_code":"GB","created_at":"2014-01-01T12:00:00.000Z","email":null,"family_name":null,"given_name":"Frank","id":"CU123","language":"en","metadata":{},"postal_code":"NW1 6XE","region":null,"swedish_identity_number":"556564-5404"}}
   }
 }
 

@@ -3,13 +3,13 @@
     "method": "POST",
     "path_template": "/creditor_bank_accounts",
     "url_params": {},
-    "body": {"creditor_bank_accounts":{"account_holder_name":"Nude Wines","account_number_ending":"11","bank_name":"BARCLAYS BANK PLC","country_code":null,"created_at":"2014-01-01T12:00:00.000Z","currency":"GBP","enabled":true,"id":"BA123","links":{"creditor":"CR123"},"metadata":{}}}
+    "body": {"creditor_bank_accounts":{"account_holder_name":"Nude Wines","account_number_ending":"11","bank_name":"BARCLAYS BANK PLC","country_code":"GB","created_at":"2014-01-01T12:00:00.000Z","currency":null,"enabled":true,"id":"BA123","links":{"creditor":"CR123"},"metadata":{}}}
   },
   "list": {
     "method": "GET",
     "path_template": "/creditor_bank_accounts",
     "url_params": {},
-    "body": {"creditor_bank_accounts":[{"account_holder_name":"Nude Wines","account_number_ending":"11","bank_name":"BARCLAYS BANK PLC","country_code":"GB","created_at":"2014-01-01T12:00:00.000Z","currency":null,"enabled":true,"id":"BA123","links":{"creditor":"CR123"},"metadata":{}},{"account_holder_name":"Nude Wines","account_number_ending":"11","bank_name":"BARCLAYS BANK PLC","country_code":"GB","created_at":"2014-01-01T12:00:00.000Z","currency":"GBP","enabled":true,"id":"BA123","links":{"creditor":"CR123"},"metadata":{}}],"meta":{"cursors":{"after":"example after 1598","before":"example before 7425"},"limit":50}}
+    "body": {"creditor_bank_accounts":[{"account_holder_name":"Nude Wines","account_number_ending":"11","bank_name":"BARCLAYS BANK PLC","country_code":null,"created_at":"2014-01-01T12:00:00.000Z","currency":"GBP","enabled":true,"id":"BA123","links":{"creditor":"CR123"},"metadata":{}},{"account_holder_name":"Nude Wines","account_number_ending":"11","bank_name":"BARCLAYS BANK PLC","country_code":"GB","created_at":"2014-01-01T12:00:00.000Z","currency":"GBP","enabled":true,"id":"BA123","links":{"creditor":"CR123"},"metadata":{}}],"meta":{"cursors":{"after":"example after 1598","before":"example before 7425"},"limit":50}}
   },
   "get": {
     "method": "GET",
