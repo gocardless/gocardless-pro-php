@@ -9,7 +9,7 @@
     "method": "GET",
     "path_template": "/payments",
     "url_params": {},
-    "body": {"meta":{"cursors":{"after":"example after 2181","before":"example before 8675"},"limit":50},"payments":[{"amount":"1000","amount_refunded":"150","charge_date":"2014-05-21","created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","description":null,"id":"PM123","links":{"creditor":"CR123","mandate":"MD123","payout":"PO123","subscription":"SU123"},"metadata":{},"reference":"WINEBOX001","status":"submitted"},{"amount":"1000","amount_refunded":"150","charge_date":null,"created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","description":"One-off upgrade fee","id":"PM123","links":{"creditor":"CR123","mandate":"MD123","payout":"PO123","subscription":"SU123"},"metadata":{},"reference":null,"status":"submitted"}]}
+    "body": {"meta":{"cursors":{"after":"example after 2181","before":"example before 8675"},"limit":50},"payments":[{"amount":"1000","amount_refunded":"150","charge_date":"2014-05-21","created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","description":"One-off upgrade fee","id":"PM123","links":{"creditor":"CR123","mandate":"MD123","payout":"PO123","subscription":"SU123"},"metadata":{},"reference":null,"status":"submitted"},{"amount":"1000","amount_refunded":"150","charge_date":null,"created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","description":null,"id":"PM123","links":{"creditor":"CR123","mandate":"MD123","payout":"PO123","subscription":"SU123"},"metadata":{},"reference":"WINEBOX001","status":"submitted"}]}
   },
   "get": {
     "method": "GET",
@@ -21,13 +21,13 @@
     "method": "PUT",
     "path_template": "/payments/:identity",
     "url_params": {"identity": "PM123"},
-    "body": {"payments":{"amount":"1000","amount_refunded":"150","charge_date":null,"created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","description":"One-off upgrade fee","id":"PM123","links":{"creditor":"CR123","mandate":"MD123","payout":"PO123","subscription":"SU123"},"metadata":{},"reference":"WINEBOX001","status":"submitted"}}
+    "body": {"payments":{"amount":"1000","amount_refunded":"150","charge_date":"2014-05-21","created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","description":null,"id":"PM123","links":{"creditor":"CR123","mandate":"MD123","payout":"PO123","subscription":"SU123"},"metadata":{},"reference":"WINEBOX001","status":"submitted"}}
   },
   "cancel": {
     "method": "POST",
     "path_template": "/payments/:identity/actions/cancel",
     "url_params": {"identity": "PM123"},
-    "body": {"payments":{"amount":"1000","amount_refunded":"150","charge_date":"2014-05-21","created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","description":null,"id":"PM123","links":{"creditor":"CR123","mandate":"MD123","payout":"PO123","subscription":"SU123"},"metadata":{},"reference":"WINEBOX001","status":"submitted"}}
+    "body": {"payments":{"amount":"1000","amount_refunded":"150","charge_date":"2014-05-21","created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","description":"One-off upgrade fee","id":"PM123","links":{"creditor":"CR123","mandate":"MD123","payout":"PO123","subscription":"SU123"},"metadata":{},"reference":null,"status":"submitted"}}
   },
   "retry": {
     "method": "POST",

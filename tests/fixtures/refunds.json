@@ -9,7 +9,7 @@
     "method": "GET",
     "path_template": "/refunds",
     "url_params": {},
-    "body": {"meta":{"cursors":{"after":"example after 1181","before":"example before 1757"},"limit":50},"refunds":[{"amount":"150","created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","id":"RF123","links":{"payment":"PM123"},"metadata":{},"reference":"Nude Wines refund"},{"amount":"150","created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","id":"RF123","links":{"payment":"PM123"},"metadata":{},"reference":null}]}
+    "body": {"meta":{"cursors":{"after":"example after 1757","before":"example before 1181"},"limit":50},"refunds":[{"amount":"150","created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","id":"RF123","links":{"payment":"PM123"},"metadata":{},"reference":"Nude Wines refund"},{"amount":"150","created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","id":"RF123","links":{"payment":"PM123"},"metadata":{},"reference":null}]}
   },
   "get": {
     "method": "GET",
