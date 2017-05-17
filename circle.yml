@@ -1,6 +1,8 @@
 machine:
   php:
-    version: 5.5.0
+    version: 5.5.36
+test:
+  override: ./vendor/phpunit/phpunit/phpunit
 dependencies:
   override:
     - composer install --prefer-source --no-interaction
