@@ -39,6 +39,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->postal_code, $response->postal_code);
         $this->assertEquals($body->region, $response->region);
         $this->assertEquals($body->scheme_identifiers, $response->scheme_identifiers);
+        $this->assertEquals($body->verification_status, $response->verification_status);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -80,6 +81,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->postal_code, $response->postal_code);
         $this->assertEquals($body->region, $response->region);
         $this->assertEquals($body->scheme_identifiers, $response->scheme_identifiers);
+        $this->assertEquals($body->verification_status, $response->verification_status);
         
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -123,6 +125,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->postal_code, $record->postal_code);
             $this->assertEquals($body[$num]->region, $record->region);
             $this->assertEquals($body[$num]->scheme_identifiers, $record->scheme_identifiers);
+            $this->assertEquals($body[$num]->verification_status, $record->verification_status);
             
         }
 
@@ -157,6 +160,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->postal_code, $response->postal_code);
         $this->assertEquals($body->region, $response->region);
         $this->assertEquals($body->scheme_identifiers, $response->scheme_identifiers);
+        $this->assertEquals($body->verification_status, $response->verification_status);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -190,6 +194,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->postal_code, $response->postal_code);
         $this->assertEquals($body->region, $response->region);
         $this->assertEquals($body->scheme_identifiers, $response->scheme_identifiers);
+        $this->assertEquals($body->verification_status, $response->verification_status);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
