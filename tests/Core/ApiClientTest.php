@@ -19,6 +19,16 @@ class ApiClientTest extends \PHPUnit_Framework_TestCase
         $this->api_client = new ApiClient($this->mock_http_client);
     }
 
+    public function testGetQueryEncoding()
+    {
+        $query = array("enabled" => true, "customer" => "CU123", "flux_capacitors" => array("enabled" => false));
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], "{}"));
+        $this->api_client->get('/some_endpoint', ["query" => $query]);
+
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertEquals($dispatchedRequest->getUri()->getQuery(), "enabled=true&customer=CU123&flux_capacitors%5Benabled%5D=false");
+    }
+
     public function testSuccessfulResponse()
     {
         $data = array("payments" => array("amount" => "10"));

@@ -35,6 +35,10 @@ class ApiClient
      */
     public function get($path, $params = array())
     {
+        if (is_array($params) && array_key_exists("query", $params)) {
+            $params["query"] = $this->castBooleanValuesToStrings($params["query"]);
+        }
+
         $response = $this->http_client->request('GET', $path, $params);
         $this->handleErrors($response);
         return $response;
@@ -103,5 +107,32 @@ class ApiClient
         $exception_class = (string) ApiException::getErrorForType($error->type);
         $exception_class = 'GoCardlessPro\\Core\\Exception\\' . $exception_class;
         throw new $exception_class($error);
+    }
+
+    /**
+     * Recursively maps through an array, casting any booleans to strings, where
+     * true should be casted as "true", and false as "false". We use this to
+     * prepare query parameters to be sent to the API, since PHP's in-build
+     * http_build_query casts booleans as "1" and "" respectively, which is odd.
+     *
+     * @param array $query An array to map through, casting booleans to strings
+     *
+     * @return array The new array with booleans casted to strings
+     */
+    private function castBooleanValuesToStrings($query)
+    {
+        return array_map(
+            function ($value) {
+                if ($value === true) {
+                    return "true";
+                } elseif ($value === false) {
+                    return "false";
+                } elseif (is_array($value)) {
+                    return $this->castBooleanValuesToStrings($value);
+                } else {
+                    return $value;
+                }
+            }, $query
+        );
     }
 }
