@@ -17,4 +17,4 @@ class MalformedResponseException extends GoCardlessProException
     {
         return $this->response;
     }
-};
+}
