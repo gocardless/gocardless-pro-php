@@ -69,7 +69,14 @@ abstract class Util
     public static function subUrl($url, $substitutions)
     {
         foreach ($substitutions as $substitution_key => $substitution_value) {
-            if (!is_string($substitution_value)) {
+            // @note Eager version of the 'or' operator (|) is used
+            // intentionally in the condition below.
+            if (false === is_scalar($substitution_value)
+                | is_array($substitution_value)
+                | is_object($substitution_value)
+                | is_object($substitution_value) && false === method_exists($substitution_value, '__toString')
+                | is_resource($substitution_value)
+            ) {
                 $error_type = ' needs to be a string, not a '.gettype($substitution_value).'.';
                 throw new \Exception('URL value for ' . $substitution_key . $error_type);
             }
