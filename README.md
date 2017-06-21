@@ -176,7 +176,7 @@ Properties of the exception can be accessesed with the following methods:
 
 ## Supporting PHP < 5.5
 
-This client library only supports PHP >= 5.5. Earlier releases of PHP are now considered [end of life](http://php.net/supported-versions.php) and may be exposed to security vunerabilities.
+This client library only supports PHP >= 5.5. Earlier releases of PHP are now considered [end of life](http://php.net/supported-versions.php) and may be exposed to security vulnerabilities.
 
 ## Contributing
 
