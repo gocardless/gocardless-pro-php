@@ -11,6 +11,7 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a redirect_flow, providing access to it's
  * attributes
  *
+ * @property-read $confirmation_url
  * @property-read $created_at
  * @property-read $description
  * @property-read $id
@@ -23,6 +24,19 @@ namespace GoCardlessPro\Resources;
 class RedirectFlow extends BaseResource
 {
     protected $model_name = "RedirectFlow";
+
+    /**
+     * The URL of a confirmation page, which you may optionally redirect the
+     * customer to rather than use your own page, that confirms in their chosen
+     * language that their Direct Debit has been set up successfully. Only
+     * returned once the customer has set up their mandate via the payment pages
+     * and the redirect flow has been
+     * [completed](#redirect-flows-complete-a-redirect-flow), and only available
+     * for 15 minutes from when you complete the redirect flow. The structure of
+     * this URL may change at any time, so you should read it directly from the
+     * API response.
+     */
+    protected $confirmation_url;
 
     /**
      * Fixed [timestamp](#api-usage-time-zones--dates), recording when this

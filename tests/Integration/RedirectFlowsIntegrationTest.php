@@ -26,6 +26,7 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
     
         $this->assertInstanceOf('\GoCardlessPro\Resources\RedirectFlow', $response);
 
+        $this->assertEquals($body->confirmation_url, $response->confirmation_url);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->description, $response->description);
         $this->assertEquals($body->id, $response->id);
@@ -62,6 +63,7 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\RedirectFlow', $response);
 
+        $this->assertEquals($body->confirmation_url, $response->confirmation_url);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->description, $response->description);
         $this->assertEquals($body->id, $response->id);
@@ -91,6 +93,7 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
     
         $this->assertInstanceOf('\GoCardlessPro\Resources\RedirectFlow', $response);
 
+        $this->assertEquals($body->confirmation_url, $response->confirmation_url);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->description, $response->description);
         $this->assertEquals($body->id, $response->id);
@@ -119,6 +122,7 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
     
         $this->assertInstanceOf('\GoCardlessPro\Resources\RedirectFlow', $response);
 
+        $this->assertEquals($body->confirmation_url, $response->confirmation_url);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->description, $response->description);
         $this->assertEquals($body->id, $response->id);
@@ -155,6 +159,7 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\RedirectFlow', $response);
 
+        $this->assertEquals($body->confirmation_url, $response->confirmation_url);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->description, $response->description);
         $this->assertEquals($body->id, $response->id);
