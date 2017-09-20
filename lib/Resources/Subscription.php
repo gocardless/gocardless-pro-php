@@ -125,20 +125,17 @@ class Subscription extends BaseResource
     /**
      * One of:
      * <ul>
-     * <li>`pending_customer_approval`: the
-     * subscription is waiting for customer approval before becoming
-     * active</li>
-     * <li>`customer_approval_denied`: the customer did not
-     * approve the subscription</li>
-     * <li>`active`: the subscription is
-     * currently active and will continue to create payments</li>
-     *
+     * <li>`pending_customer_approval`: the subscription is waiting for customer
+     * approval before becoming active</li>
+     * <li>`customer_approval_denied`: the customer did not approve the
+     * subscription</li>
+     * <li>`active`: the subscription is currently active and will continue to
+     * create payments</li>
      * <li>`finished`: all of the payments scheduled for creation under this
      * subscription have been created</li>
-     * <li>`cancelled`: the
-     * subscription has been cancelled and will no longer create payments</li>
- 
-     *    * </ul>
+     * <li>`cancelled`: the subscription has been cancelled and will no longer
+     * create payments</li>
+     * </ul>
      */
     protected $status;
 

@@ -59,12 +59,10 @@ class Event extends BaseResource
     /**
      * The resource type for this event. One of:
      * <ul>
-     *
      * <li>`payments`</li>
      * <li>`mandates`</li>
      * <li>`payouts`</li>
-
-     *     * <li>`refunds`</li>
+     * <li>`refunds`</li>
      * <li>`subscriptions`</li>
      * </ul>
      */
