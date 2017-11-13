@@ -197,6 +197,19 @@ class Client
     }
     
     /**
+     * Service for interacting with payout items
+     * @return Services\PayoutItemsService
+     */
+    public function payoutItems()
+    {
+        if (!isset($this->payout_items)) {
+            $this->payout_items = new Services\PayoutItemsService($this->api_client);
+        }
+
+        return $this->payout_items;
+    }
+    
+    /**
      * Service for interacting with redirect flows
      * @return Services\RedirectFlowsService
      */
