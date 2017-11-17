@@ -8,7 +8,7 @@
 namespace GoCardlessPro\Resources;
 
 /**
- * A thin wrapper around a mandate_pdf, providing access to it's
+ * A thin wrapper around a mandate_pdf, providing access to its
  * attributes
  *
  * @property-read $expires_at

@@ -8,7 +8,7 @@
 namespace GoCardlessPro\Resources;
 
 /**
- * A thin wrapper around a subscription, providing access to it's
+ * A thin wrapper around a subscription, providing access to its
  * attributes
  *
  * @property-read $amount

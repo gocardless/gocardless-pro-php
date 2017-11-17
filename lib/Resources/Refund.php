@@ -8,7 +8,7 @@
 namespace GoCardlessPro\Resources;
 
 /**
- * A thin wrapper around a refund, providing access to it's
+ * A thin wrapper around a refund, providing access to its
  * attributes
  *
  * @property-read $amount

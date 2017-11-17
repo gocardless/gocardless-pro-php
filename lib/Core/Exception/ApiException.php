@@ -20,7 +20,7 @@ class ApiException extends GoCardlessProException
     }
 
     /**
-     * Factory for GoCardlessPro and it's subclasses.
+     * Factory for GoCardlessPro and its subclasses.
      * @return InvalidApiUsageException|InvalidStateException|ValidationFailedException
      */
     public static function getErrorForType($error_type)

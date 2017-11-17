@@ -8,7 +8,7 @@
 namespace GoCardlessPro\Resources;
 
 /**
- * A thin wrapper around a customer, providing access to it's
+ * A thin wrapper around a customer, providing access to its
  * attributes
  *
  * @property-read $address_line1

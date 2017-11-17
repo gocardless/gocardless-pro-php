@@ -8,7 +8,7 @@
 namespace GoCardlessPro\Resources;
 
 /**
- * A thin wrapper around a creditor_bank_account, providing access to it's
+ * A thin wrapper around a creditor_bank_account, providing access to its
  * attributes
  *
  * @property-read $account_holder_name
