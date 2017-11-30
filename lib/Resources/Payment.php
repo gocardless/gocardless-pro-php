@@ -28,12 +28,12 @@ class Payment extends BaseResource
     protected $model_name = "Payment";
 
     /**
-     * Amount in pence (GBP), cents (EUR), or öre (SEK).
+     * Amount in pence (GBP), cents (EUR), öre (SEK), or øre (DKK).
      */
     protected $amount;
 
     /**
-     * Amount [refunded](#core-endpoints-refunds) in pence/cents/öre.
+     * Amount [refunded](#core-endpoints-refunds) in pence/cents/öre/øre.
      */
     protected $amount_refunded;
 
@@ -54,7 +54,7 @@ class Payment extends BaseResource
 
     /**
      * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
-     * code. Currently only "GBP", "EUR", and "SEK" are supported.
+     * code. Currently "GBP", "EUR", "SEK" and "DKK" are supported.
      */
     protected $currency;
 
@@ -85,11 +85,11 @@ class Payment extends BaseResource
     /**
      * An optional payment reference that will appear on your customer's bank
      * statement. For Bacs payments this can be up to 10 characters, for SEPA
-     * payments the limit is 140 characters, and for Autogiro payments the limit
-     * is 11 characters. <p
-     * class='restricted-notice'><strong>Restricted</strong>: You can only
-     * specify a payment reference for Bacs payments (that is, when collecting
-     * from the UK) if you're on the <a
+     * payments the limit is 140 characters, for Betalingsservice payments the
+     * limit is 30 characters and for Autogiro payments the limit is 11
+     * characters. <p class='restricted-notice'><strong>Restricted</strong>: You
+     * can only specify a payment reference for Bacs payments (that is, when
+     * collecting from the UK) if you're on the <a
      * href='https://gocardless.com/pricing'>GoCardless Plus or Pro
      * packages</a>.</p>
      */
