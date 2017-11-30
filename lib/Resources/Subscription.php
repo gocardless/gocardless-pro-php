@@ -33,7 +33,7 @@ class Subscription extends BaseResource
     protected $model_name = "Subscription";
 
     /**
-     * Amount in pence (GBP), cents (EUR), or öre (SEK).
+     * Amount in pence (GBP), cents (EUR), öre (SEK), or øre (DKK).
      */
     protected $amount;
 
@@ -45,7 +45,7 @@ class Subscription extends BaseResource
 
     /**
      * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) currency code.
-     * Currently only `GBP`, `EUR`, and `SEK` are supported.
+     * Currently `GBP`, `EUR`, `SEK`, and `DKK` are supported.
      */
     protected $currency;
 
