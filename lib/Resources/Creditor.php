@@ -14,6 +14,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $address_line1
  * @property-read $address_line2
  * @property-read $address_line3
+ * @property-read $can_create_refunds
  * @property-read $city
  * @property-read $country_code
  * @property-read $created_at
@@ -44,6 +45,11 @@ class Creditor extends BaseResource
      * The third line of the creditor's address.
      */
     protected $address_line3;
+
+    /**
+     * Boolean indicating whether the creditor is permitted to create refunds
+     */
+    protected $can_create_refunds;
 
     /**
      * The city of the creditor's address.
