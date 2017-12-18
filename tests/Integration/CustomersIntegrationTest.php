@@ -33,6 +33,7 @@ class CustomersIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->company_name, $response->company_name);
         $this->assertEquals($body->country_code, $response->country_code);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->danish_identity_number, $response->danish_identity_number);
         $this->assertEquals($body->email, $response->email);
         $this->assertEquals($body->family_name, $response->family_name);
         $this->assertEquals($body->given_name, $response->given_name);
@@ -77,6 +78,7 @@ class CustomersIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->company_name, $response->company_name);
         $this->assertEquals($body->country_code, $response->country_code);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->danish_identity_number, $response->danish_identity_number);
         $this->assertEquals($body->email, $response->email);
         $this->assertEquals($body->family_name, $response->family_name);
         $this->assertEquals($body->given_name, $response->given_name);
@@ -123,6 +125,7 @@ class CustomersIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->company_name, $record->company_name);
             $this->assertEquals($body[$num]->country_code, $record->country_code);
             $this->assertEquals($body[$num]->created_at, $record->created_at);
+            $this->assertEquals($body[$num]->danish_identity_number, $record->danish_identity_number);
             $this->assertEquals($body[$num]->email, $record->email);
             $this->assertEquals($body[$num]->family_name, $record->family_name);
             $this->assertEquals($body[$num]->given_name, $record->given_name);
@@ -160,6 +163,7 @@ class CustomersIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->company_name, $response->company_name);
         $this->assertEquals($body->country_code, $response->country_code);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->danish_identity_number, $response->danish_identity_number);
         $this->assertEquals($body->email, $response->email);
         $this->assertEquals($body->family_name, $response->family_name);
         $this->assertEquals($body->given_name, $response->given_name);
@@ -196,6 +200,7 @@ class CustomersIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->company_name, $response->company_name);
         $this->assertEquals($body->country_code, $response->country_code);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->danish_identity_number, $response->danish_identity_number);
         $this->assertEquals($body->email, $response->email);
         $this->assertEquals($body->family_name, $response->family_name);
         $this->assertEquals($body->given_name, $response->given_name);

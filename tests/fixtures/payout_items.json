@@ -3,7 +3,7 @@
     "method": "GET",
     "path_template": "/payout_items",
     "url_params": {},
-    "body": {"meta":{"cursors":{"after":"example after 2060","before":"example before 9551"},"limit":10},"payout_items":[{"amount":"45.0","links":{"payment":"PM123"},"type":"payment_paid_out"},{"amount":"45.0","links":{"payment":"PM123"},"type":"payment_paid_out"}]}
+    "body": {"meta":{"cursors":{"after":"example after 7039","before":"example before 600"},"limit":10},"payout_items":[{"amount":"45.0","links":{"payment":"PM123"},"type":"payment_paid_out"},{"amount":"45.0","links":{"payment":"PM123"},"type":"payment_paid_out"}]}
   }
 }
 

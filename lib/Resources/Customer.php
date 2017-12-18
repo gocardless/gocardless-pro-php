@@ -18,6 +18,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $company_name
  * @property-read $country_code
  * @property-read $created_at
+ * @property-read $danish_identity_number
  * @property-read $email
  * @property-read $family_name
  * @property-read $given_name
@@ -70,6 +71,13 @@ class Customer extends BaseResource
      * resource was created.
      */
     protected $created_at;
+
+    /**
+     * For Danish customers only. The civic/company number (CPR or CVR) of the
+     * customer. Must be supplied if the customer's bank account is denominated
+     * in Danish krone (DKK).
+     */
+    protected $danish_identity_number;
 
     /**
      * Customer's email address.
