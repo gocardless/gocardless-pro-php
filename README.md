@@ -6,13 +6,15 @@ A PHP client for interacting with the GoCardless Pro API.
 [![CircleCI](https://circleci.com/gh/gocardless/gocardless-pro-php.svg?style=shield)](https://circleci.com/gh/gocardless/gocardless-pro-php)
 
 
-- ["Getting started" guide](https://developer.gocardless.com/getting-started/api/introduction/?lang=php) with copy and paste PHP code samples
+- ["Getting started" guide](https://developer.gocardless.com/getting-started/api/introduction/?lang=php)
+with copy and paste PHP code samples
 - [API Reference](https://developer.gocardless.com/api-reference)
 - [Composer Package](https://packagist.org/packages/gocardless/gocardless-pro)
 
 ### Installation
 
-The recommended way to install `gocardless-pro` is using [Composer](https://getcomposer.org/).
+The recommended way to install `gocardless-pro` is using
+[Composer](https://getcomposer.org/).
 
 ```bash
 # Install Composer
@@ -31,16 +33,28 @@ require 'vendor/autoload.php';
 
 #### Manual installation
 
-We strongly recommend using [Composer](https://getcomposer.org/) - it'll make it easier to manage your dependencies and stay up to date. But if you don't want to, you can also install the library manually:
+We strongly recommend using [Composer](https://getcomposer.org/) - it'll make it easier
+to manage your dependencies and stay up to date. But if you don't want to, you can also
+install the library manually:
 
-* Make sure you have PHP's [cURL](http://php.net/manual/en/curl.installation.php), [JSON](http://php.net/manual/en/json.installation.php) and [mbstring](http://php.net/manual/en/mbstring.installation.php) extensions enabled (Composer checks these dependencies automatically)
-* Download the latest zipped release of [Guzzle](https://github.com/guzzle/guzzle/releases), which we use for making HTTP requests, and `require` the `autoloader.php` file
-* Grab the PHP library's [source](https://github.com/gocardless/gocardless-pro-php/archive/master.zip), and `require` the `lib/loader.php` file
+* Make sure you have PHP's [cURL](http://php.net/manual/en/curl.installation.php),
+[JSON](http://php.net/manual/en/json.installation.php) and
+[mbstring](http://php.net/manual/en/mbstring.installation.php) extensions enabled
+(Composer checks these dependencies automatically)
+* Download the latest zipped release of
+[Guzzle](https://github.com/guzzle/guzzle/releases), which we use for making HTTP
+requests, and `require` the `autoloader.php` file
+* Grab the PHP library's
+[source](https://github.com/gocardless/gocardless-pro-php/archive/master.zip), and
+`require` the `lib/loader.php` file
 
 ### Initialising A Client
 
-Create a `GoCardlessPro\Client` instance, providing your access token and the environment you want to use.
-We strongly advise storing your access token as an environment variable, rather than directly in your code. you can easily load the environment variables from a `.env` file by using something like [phpdotenv](https://github.com/vlucas/phpdotenv), though keep it out of version control!
+Create a `GoCardlessPro\Client` instance, providing your access token and the environment
+you want to use. We strongly advise storing your access token as an environment variable,
+rather than directly in your code. you can easily load the environment variables from a
+`.env` file by using something like [phpdotenv](https://github.com/vlucas/phpdotenv),
+though keep it out of version control!
 
 ```php
 $access_token = getenv('GC_ACCESS_TOKEN');
@@ -52,7 +66,9 @@ $client = new \GoCardlessPro\Client(array(
 
 You can create an `access_token` from the "Developers" tab in your GoCardless dashboard.
 
-The environment can either be `\GoCardlessPro\Environment::SANDBOX` or `\GoCardlessPro\Environment::LIVE`, depending on whether you want to use the sandbox or live API.
+The environment can either be `\GoCardlessPro\Environment::SANDBOX` or
+`\GoCardlessPro\Environment::LIVE`, depending on whether you want to
+use the sandbox or live API.
 
 For full documentation, see our [API docs](https://developer.gocardless.com/api-reference).
 
@@ -64,15 +80,18 @@ You can make a request to get a list of resources using the `list` method.
 $client->customers()->list();
 ```
 
-*Note: This README will use customers throughout but each of the resources in the API is available in this library.*
+*Note: This README will use customers throughout but each of the resources in the API is
+available in this library.*
 
-If you need to pass any options, the last (or only, in the absence of URL params) argument to `list()` is an array of URL parameters:
+If you need to pass any options, the last (or only, in the absence of URL params)
+argument to `list()` is an array of URL parameters:
 
 ```php
 $customers = $client->customers()->list(['params' => ['limit' => 400]]);
 ```
 
-A call to `list()` returns an instance of `ListResponse`. You can use its `records` attribute to iterate through the results.
+A call to `list()` returns an instance of `ListResponse`. You can use its `records`
+attribute to iterate through the results.
 
 ```php
 echo count($customers->records);
@@ -81,7 +100,8 @@ foreach ($customers->records as $resource) {
 }
 ```
 
-In the case where a URL parameter is needed, the method signature will contain the required arguments:
+In the case where a URL parameter is needed, the method signature will contain the
+required arguments:
 
 ```php
 $customer = $client->customers()->get($customer_id);
@@ -94,7 +114,8 @@ As with list, the last argument can be an options array, with any URL parameters
 $client->customers()->get($customer_id, ['params' => ['some_flag' => true]]);
 ```
 
-Both individual resource and ListResponse instances have an `api_response` attribute, which lets you access the following properties of the request:
+Both individual resource and ListResponse instances have an `api_response` attribute,
+which lets you access the following properties of the request:
 
 - `status`
 - `headers`
@@ -107,7 +128,8 @@ echo $api_response->status_code;
 
 ### POST/PUT Requests
 
-For POST and PUT requests, you need to provide a body for your request by passing it in as the first argument.
+For POST and PUT requests, you need to provide a body for your request by passing it in
+as the first argument.
 
 ```php
 $client->customers()->create([
@@ -123,9 +145,15 @@ $client->customers()->update($customer_id, [
 ]);
 ```
 
+The GoCardless API includes [idempotency keys](https://developer.gocardless.com/api-reference/#making-requests-idempotency-keys).
+The library will automatically inject these into your request when you create a resource,
+preventing it from getting duplicated if something goes wrong with the API (e.g.
+networking issues or a timeout).
 
-If you wish to take advantage of [idempotency](https://developer.gocardless.com/pro/2015-07-06/#making-requests-idempotency-keys)
-in your requests, you can do so by passing an idempotency header. For example:
+You can also specify your own idempotency key - you
+could, for example, use IDs of records in your database, protecting yourself not only
+from network or API issues, but also mistakes on your side which could lead to
+double-creation:
 
 ```php
 $client->customers()->create([
@@ -134,21 +162,29 @@ $client->customers()->create([
 ]);
 ```
 
-It you were to make this request again, the API would reject the request and
-the client would raise an InvalidStateException.
-
+If the library hits an idempotency key conflict (that is, you try to create a resource
+with an idempotency key you've already used), it will automatically load and return the
+already-existing resource.
 
 ### Handling Failures
 
-When the API returns an error, the library will return a corresponding subclass of `ApiException`, one of:
+When the API returns an error, the library will return a corresponding subclass of
+`ApiException`, one of:
 
 - `InvalidApiUsageException`
 - `InvalidStateException`
 - `ValidationFailedException`
 
-These types of error are covered in the [API documentation](https://developer.gocardless.com/pro/#overview-errors).
+These types of error are covered in the
+[API documentation](https://developer.gocardless.com/pro/#overview-errors).
 
-If the error is an HTTP transport layer error (e.g. cannot connect, empty response from server, etc.), the client will throw an `ApiConnectionException`. If it can't parse the response from GoCardless, it will throw a `MalformedResponseException`.
+If the error is an HTTP transport layer error (e.g. timeouts or issues within
+GoCardless's infrastructure), requests will automatically be retried by the library up to
+3 times, with a 500ms delay between attempts, before a `ApiConnectionException` is
+raised.
+
+If the library can't parse the response from GoCardless, it will throw a
+`MalformedResponseException`.
 
 ```php
 try {
@@ -173,10 +209,11 @@ Properties of the exception can be accessesed with the following methods:
 - `$e->getRequestId();`
 
 
-
 ## Supporting PHP < 5.5
 
-This client library only supports PHP >= 5.5. Earlier releases of PHP are now considered [end of life](http://php.net/supported-versions.php) and may be exposed to security vulnerabilities.
+This client library only supports PHP >= 5.5. Earlier releases of PHP are now considered
+[end of life](http://php.net/supported-versions.php) and may be exposed to security
+vunerabilities.
 
 ## Contributing
 
