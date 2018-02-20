@@ -4,18 +4,16 @@ namespace GoCardlessPro\Core\Exception;
 
 class ApiException extends GoCardlessProException
 {
-    /**
-     * @var \Exception $error raw error object
-     * @var int $http_status The http status response number.
-     */
     public $api_error;
+    private $api_response;
 
     /**
-     * @param object $error JSON decoded GoCardless API error
+     * @param ApiResponse $api_response the response from the GoCardless API
      */
-    public function __construct($error)
+    public function __construct($api_response)
     {
-        $this->api_error = $error;
+        $this->api_response = $api_response;
+        $this->api_error = $api_response->body->error;
         parent::__construct($this->getErrorMessage(), $this->api_error->code);
     }
 
@@ -61,6 +59,11 @@ class ApiException extends GoCardlessProException
         return $this->api_error->request_id;
     }
 
+    public function getApiResponse()
+    {
+        return $this->api_response;
+    }
+
     protected function getErrorMessage()
     {
         if (!is_array($this->getErrors())) {
@@ -86,5 +89,4 @@ class ApiException extends GoCardlessProException
     {
         return $error->message;
     }
-
 }

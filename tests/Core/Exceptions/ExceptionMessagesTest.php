@@ -2,6 +2,8 @@
 
 namespace GoCardlessPro\Core\Exception;
 
+use GoCardlessPro\Core\ApiResponse;
+
 class ErrorTest extends \PHPUnit_Framework_TestCase
 {
 
@@ -18,7 +20,9 @@ class ErrorTest extends \PHPUnit_Framework_TestCase
     public function testInvalidStateExecptionMessage()
     {
         $fixture = $this->getFixture('invalid_state_error');
-        throw new InvalidStateException($fixture->error);
+        $raw_response = new \GuzzleHttp\Psr7\Response($fixture->error->code, [], json_encode($fixture));
+        $response = new ApiResponse($raw_response);
+        throw new InvalidStateException($response);
     }
 
     /**
@@ -28,7 +32,9 @@ class ErrorTest extends \PHPUnit_Framework_TestCase
     public function testInvalidApiUsageMessage()
     {
         $fixture = $this->getFixture('invalid_api_usage_error');
-        throw new InvalidApiUsageException($fixture->error);
+        $raw_response = new \GuzzleHttp\Psr7\Response($fixture->error->code, [], json_encode($fixture));
+        $response = new ApiResponse($raw_response);
+        throw new InvalidApiUsageException($response);
     }
 
     /**
@@ -38,7 +44,9 @@ class ErrorTest extends \PHPUnit_Framework_TestCase
     public function testValidationFailedMessage()
     {
         $fixture = $this->getFixture('validation_failed_error');
-        throw new ValidationFailedException($fixture->error);
+        $raw_response = new \GuzzleHttp\Psr7\Response($fixture->error->code, [], json_encode($fixture));
+        $response = new ApiResponse($raw_response);
+        throw new ValidationFailedException($response);
     }
 
     /**
@@ -48,7 +56,9 @@ class ErrorTest extends \PHPUnit_Framework_TestCase
     public function testValidationFailedWithoutFieldMessage()
     {
         $fixture = $this->getFixture('validation_failed_error_without_field');
-        throw new ValidationFailedException($fixture->error);
+        $raw_response = new \GuzzleHttp\Psr7\Response($fixture->error->code, [], json_encode($fixture));
+        $response = new ApiResponse($raw_response);
+        throw new ValidationFailedException($response);
     }
 
     /**
@@ -58,6 +68,8 @@ class ErrorTest extends \PHPUnit_Framework_TestCase
     public function testGoCardlessException()
     {
         $fixture = $this->getFixture('gocardless_error');
-        throw new GoCardlessInternalException($fixture->error);
+        $raw_response = new \GuzzleHttp\Psr7\Response($fixture->error->code, [], json_encode($fixture));
+        $response = new ApiResponse($raw_response);
+        throw new GoCardlessInternalException($response);
     }
 }

@@ -207,6 +207,7 @@ Properties of the exception can be accessesed with the following methods:
 - `$e->getDocumentationUrl();`
 - `$e->getMessage();`
 - `$e->getRequestId();`
+- `$e->getApiResponse();`
 
 
 ## Supporting PHP < 5.5

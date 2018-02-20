@@ -102,13 +102,21 @@ class ApiClientTest extends \PHPUnit_Framework_TestCase
         $this->api_client->get('/some_endpoint');
     }
 
-    public function testNon2XXresponse()
+    public function testNon2XXResponse()
     {
         $path = 'tests/fixtures/invalid_state_error.json';
         $body = fread(fopen($path, "r"), filesize($path));
         $this->setExpectedException('GoCardlessPro\Core\Exception\InvalidStateException');
 
-        $this->mock->append(new \GuzzleHttp\Psr7\Response(400, [], $body));
-        $this->api_client->get('/some_endpoint');
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(422, ['Content-Type' => 'application/json'], $body));
+
+        try {
+            $this->api_client->get('/some_endpoint');
+        } catch (\GoCardlessPro\Core\Exception\InvalidStateException $e) {
+            $this->assertEquals($e->getApiResponse()->status_code, '422');
+            $this->assertEquals($e->getApiResponse()->headers, ['Content-Type' => ['application/json']]);
+
+            throw $e;
+        }
     }
 }

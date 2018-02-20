@@ -2,6 +2,8 @@
 
 namespace GoCardlessPro\Core\Exception;
 
+use GoCardlessPro\Core\ApiResponse;
+
 class ApiExceptionTest extends \PHPUnit_Framework_TestCase
 {
     protected $error;
@@ -9,8 +11,13 @@ class ApiExceptionTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $path = 'tests/fixtures/invalid_state_error.json';
-        $fixture = json_decode(fread(fopen($path, "r"), filesize($path)));
-        $this->error = new InvalidStateException($fixture->error);
+        $fixture = fread(fopen($path, "r"), filesize($path));
+        $decodedFixture = json_decode($fixture);
+
+        $raw_response = new \GuzzleHttp\Psr7\Response($decodedFixture->error->code, [], $fixture);
+        $this->response = new ApiResponse($raw_response);
+
+        $this->error = new InvalidStateException($this->response);
     }
 
     public function testType()
@@ -22,6 +29,11 @@ class ApiExceptionTest extends \PHPUnit_Framework_TestCase
     public function testCode()
     {
         $this->assertEquals(422, $this->error->getCode());
+    }
+
+    public function testApiResponse()
+    {
+        $this->assertEquals($this->response, $this->error->getApiResponse());
     }
 
     public function testErrors()

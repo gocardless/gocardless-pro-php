@@ -106,7 +106,9 @@ class ApiClient
         $error = $json->error;
         $exception_class = (string) ApiException::getErrorForType($error->type);
         $exception_class = 'GoCardlessPro\\Core\\Exception\\' . $exception_class;
-        throw new $exception_class($error);
+
+        $api_response = new ApiResponse($response);
+        throw new $exception_class($api_response);
     }
 
     /**
