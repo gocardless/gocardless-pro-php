@@ -31,12 +31,11 @@ class ResourceTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(1, $resource->links->one);
     }
 
-    /**
-     * @expectedException        GoCardlessPro\Core\Exception\GoCardlessProException
-     * @expectedExceptionMessage unknown is not a valid FakeResource property
-     */
     public function testInvalidGetter()
     {
+        $this->setExpectedException('GoCardlessPro\Core\Exception\GoCardlessProException',
+                                    'unknown is not a valid FakeResource property');
+
         $resource = new FakeResource((object) array('foo' => 'bar'));
         $resource->unknown;
     }
