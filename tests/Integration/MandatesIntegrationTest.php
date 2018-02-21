@@ -16,7 +16,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
     
     public function testMandatesCreate()
     {
-        $fixture = $this->load_fixture('mandates')->create;
+        $fixture = $this->loadJsonFixture('mandates')->create;
         $this->stub_request($fixture);
 
         $service = $this->client->mandates();
@@ -44,17 +44,16 @@ class MandatesIntegrationTest extends IntegrationTestBase
 
     public function testMandatesCreateWithIdempotencyConflict()
     {
-        $fixture = $this->load_fixture('mandates')->create;
+        $fixture = $this->loadJsonFixture('mandates')->create;
 
-        $idempotencyConflictFixturePath = 'tests/fixtures/idempotent_creation_conflict_invalid_state_error.json';
-        $idempotencyConflictResponseFixture = fread(fopen($idempotencyConflictFixturePath, "r"), filesize($idempotencyConflictFixturePath));
+        $idempotencyConflictResponseFixture = $this->loadFixture('idempotent_creation_conflict_invalid_state_error');
 
         // The POST request responds with a 409 to our original POST, due to an idempotency conflict
         $this->mock->append(new \GuzzleHttp\Psr7\Response(409, [], $idempotencyConflictResponseFixture));
 
         // The client makes a second request to fetch the resource that was already
         // created using our idempotency key. It responds with the created resource,
-        // which looks just like the response for a successful POST request. 
+        // which looks just like the response for a successful POST request.
         $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], json_encode($fixture->body)));
 
         $service = $this->client->mandates();
@@ -83,7 +82,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
     
     public function testMandatesList()
     {
-        $fixture = $this->load_fixture('mandates')->list;
+        $fixture = $this->loadJsonFixture('mandates')->list;
         $this->stub_request($fixture);
 
         $service = $this->client->mandates();
@@ -122,7 +121,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
     
     public function testMandatesGet()
     {
-        $fixture = $this->load_fixture('mandates')->get;
+        $fixture = $this->loadJsonFixture('mandates')->get;
         $this->stub_request($fixture);
 
         $service = $this->client->mandates();
@@ -151,7 +150,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
     
     public function testMandatesUpdate()
     {
-        $fixture = $this->load_fixture('mandates')->update;
+        $fixture = $this->loadJsonFixture('mandates')->update;
         $this->stub_request($fixture);
 
         $service = $this->client->mandates();
@@ -180,7 +179,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
     
     public function testMandatesCancel()
     {
-        $fixture = $this->load_fixture('mandates')->cancel;
+        $fixture = $this->loadJsonFixture('mandates')->cancel;
         $this->stub_request($fixture);
 
         $service = $this->client->mandates();
@@ -208,17 +207,16 @@ class MandatesIntegrationTest extends IntegrationTestBase
 
     public function testMandatesCancelWithIdempotencyConflict()
     {
-        $fixture = $this->load_fixture('mandates')->cancel;
+        $fixture = $this->loadJsonFixture('mandates')->cancel;
 
-        $idempotencyConflictFixturePath = 'tests/fixtures/idempotent_creation_conflict_invalid_state_error.json';
-        $idempotencyConflictResponseFixture = fread(fopen($idempotencyConflictFixturePath, "r"), filesize($idempotencyConflictFixturePath));
+        $idempotencyConflictResponseFixture = $this->loadFixture('idempotent_creation_conflict_invalid_state_error');
 
         // The POST request responds with a 409 to our original POST, due to an idempotency conflict
         $this->mock->append(new \GuzzleHttp\Psr7\Response(409, [], $idempotencyConflictResponseFixture));
 
         // The client makes a second request to fetch the resource that was already
         // created using our idempotency key. It responds with the created resource,
-        // which looks just like the response for a successful POST request. 
+        // which looks just like the response for a successful POST request.
         $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], json_encode($fixture->body)));
 
         $service = $this->client->mandates();
@@ -247,7 +245,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
     
     public function testMandatesReinstate()
     {
-        $fixture = $this->load_fixture('mandates')->reinstate;
+        $fixture = $this->loadJsonFixture('mandates')->reinstate;
         $this->stub_request($fixture);
 
         $service = $this->client->mandates();
@@ -275,17 +273,16 @@ class MandatesIntegrationTest extends IntegrationTestBase
 
     public function testMandatesReinstateWithIdempotencyConflict()
     {
-        $fixture = $this->load_fixture('mandates')->reinstate;
+        $fixture = $this->loadJsonFixture('mandates')->reinstate;
 
-        $idempotencyConflictFixturePath = 'tests/fixtures/idempotent_creation_conflict_invalid_state_error.json';
-        $idempotencyConflictResponseFixture = fread(fopen($idempotencyConflictFixturePath, "r"), filesize($idempotencyConflictFixturePath));
+        $idempotencyConflictResponseFixture = $this->loadFixture('idempotent_creation_conflict_invalid_state_error');
 
         // The POST request responds with a 409 to our original POST, due to an idempotency conflict
         $this->mock->append(new \GuzzleHttp\Psr7\Response(409, [], $idempotencyConflictResponseFixture));
 
         // The client makes a second request to fetch the resource that was already
         // created using our idempotency key. It responds with the created resource,
-        // which looks just like the response for a successful POST request. 
+        // which looks just like the response for a successful POST request.
         $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], json_encode($fixture->body)));
 
         $service = $this->client->mandates();

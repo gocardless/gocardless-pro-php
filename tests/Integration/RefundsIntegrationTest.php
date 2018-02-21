@@ -16,7 +16,7 @@ class RefundsIntegrationTest extends IntegrationTestBase
     
     public function testRefundsCreate()
     {
-        $fixture = $this->load_fixture('refunds')->create;
+        $fixture = $this->loadJsonFixture('refunds')->create;
         $this->stub_request($fixture);
 
         $service = $this->client->refunds();
@@ -42,17 +42,16 @@ class RefundsIntegrationTest extends IntegrationTestBase
 
     public function testRefundsCreateWithIdempotencyConflict()
     {
-        $fixture = $this->load_fixture('refunds')->create;
+        $fixture = $this->loadJsonFixture('refunds')->create;
 
-        $idempotencyConflictFixturePath = 'tests/fixtures/idempotent_creation_conflict_invalid_state_error.json';
-        $idempotencyConflictResponseFixture = fread(fopen($idempotencyConflictFixturePath, "r"), filesize($idempotencyConflictFixturePath));
+        $idempotencyConflictResponseFixture = $this->loadFixture('idempotent_creation_conflict_invalid_state_error');
 
         // The POST request responds with a 409 to our original POST, due to an idempotency conflict
         $this->mock->append(new \GuzzleHttp\Psr7\Response(409, [], $idempotencyConflictResponseFixture));
 
         // The client makes a second request to fetch the resource that was already
         // created using our idempotency key. It responds with the created resource,
-        // which looks just like the response for a successful POST request. 
+        // which looks just like the response for a successful POST request.
         $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], json_encode($fixture->body)));
 
         $service = $this->client->refunds();
@@ -79,7 +78,7 @@ class RefundsIntegrationTest extends IntegrationTestBase
     
     public function testRefundsList()
     {
-        $fixture = $this->load_fixture('refunds')->list;
+        $fixture = $this->loadJsonFixture('refunds')->list;
         $this->stub_request($fixture);
 
         $service = $this->client->refunds();
@@ -116,7 +115,7 @@ class RefundsIntegrationTest extends IntegrationTestBase
     
     public function testRefundsGet()
     {
-        $fixture = $this->load_fixture('refunds')->get;
+        $fixture = $this->loadJsonFixture('refunds')->get;
         $this->stub_request($fixture);
 
         $service = $this->client->refunds();
@@ -143,7 +142,7 @@ class RefundsIntegrationTest extends IntegrationTestBase
     
     public function testRefundsUpdate()
     {
-        $fixture = $this->load_fixture('refunds')->update;
+        $fixture = $this->loadJsonFixture('refunds')->update;
         $this->stub_request($fixture);
 
         $service = $this->client->refunds();

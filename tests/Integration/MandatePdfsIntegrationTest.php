@@ -16,7 +16,7 @@ class MandatePdfsIntegrationTest extends IntegrationTestBase
     
     public function testMandatePdfsCreate()
     {
-        $fixture = $this->load_fixture('mandate_pdfs')->create;
+        $fixture = $this->loadJsonFixture('mandate_pdfs')->create;
         $this->stub_request($fixture);
 
         $service = $this->client->mandatePdfs();

@@ -7,9 +7,11 @@
 namespace GoCardlessPro\Integration;
 
 use GoCardlessPro\Environment;
+use GoCardlessPro\Support\TestFixtures;
 
 abstract class IntegrationTestBase extends \PHPUnit_Framework_TestCase
 {
+    use TestFixtures;
 
     public function setUp()
     {
@@ -34,12 +36,6 @@ abstract class IntegrationTestBase extends \PHPUnit_Framework_TestCase
 
     public function tearDown()
     {
-    }
-
-    public function load_fixture($filename)
-    {
-        $json_fixture_path = "./tests/fixtures/$filename.json";
-        return json_decode(file_get_contents($json_fixture_path));
     }
 
     public function stub_request($resource_fixture)

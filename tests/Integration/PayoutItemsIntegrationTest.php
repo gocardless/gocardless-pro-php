@@ -16,7 +16,7 @@ class PayoutItemsIntegrationTest extends IntegrationTestBase
     
     public function testPayoutItemsList()
     {
-        $fixture = $this->load_fixture('payout_items')->list;
+        $fixture = $this->loadJsonFixture('payout_items')->list;
         $this->stub_request($fixture);
 
         $service = $this->client->payoutItems();

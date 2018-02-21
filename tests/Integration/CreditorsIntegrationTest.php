@@ -16,7 +16,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
     
     public function testCreditorsCreate()
     {
-        $fixture = $this->load_fixture('creditors')->create;
+        $fixture = $this->loadJsonFixture('creditors')->create;
         $this->stub_request($fixture);
 
         $service = $this->client->creditors();
@@ -50,17 +50,16 @@ class CreditorsIntegrationTest extends IntegrationTestBase
 
     public function testCreditorsCreateWithIdempotencyConflict()
     {
-        $fixture = $this->load_fixture('creditors')->create;
+        $fixture = $this->loadJsonFixture('creditors')->create;
 
-        $idempotencyConflictFixturePath = 'tests/fixtures/idempotent_creation_conflict_invalid_state_error.json';
-        $idempotencyConflictResponseFixture = fread(fopen($idempotencyConflictFixturePath, "r"), filesize($idempotencyConflictFixturePath));
+        $idempotencyConflictResponseFixture = $this->loadFixture('idempotent_creation_conflict_invalid_state_error');
 
         // The POST request responds with a 409 to our original POST, due to an idempotency conflict
         $this->mock->append(new \GuzzleHttp\Psr7\Response(409, [], $idempotencyConflictResponseFixture));
 
         // The client makes a second request to fetch the resource that was already
         // created using our idempotency key. It responds with the created resource,
-        // which looks just like the response for a successful POST request. 
+        // which looks just like the response for a successful POST request.
         $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], json_encode($fixture->body)));
 
         $service = $this->client->creditors();
@@ -95,7 +94,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
     
     public function testCreditorsList()
     {
-        $fixture = $this->load_fixture('creditors')->list;
+        $fixture = $this->loadJsonFixture('creditors')->list;
         $this->stub_request($fixture);
 
         $service = $this->client->creditors();
@@ -140,7 +139,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
     
     public function testCreditorsGet()
     {
-        $fixture = $this->load_fixture('creditors')->get;
+        $fixture = $this->loadJsonFixture('creditors')->get;
         $this->stub_request($fixture);
 
         $service = $this->client->creditors();
@@ -175,7 +174,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
     
     public function testCreditorsUpdate()
     {
-        $fixture = $this->load_fixture('creditors')->update;
+        $fixture = $this->loadJsonFixture('creditors')->update;
         $this->stub_request($fixture);
 
         $service = $this->client->creditors();

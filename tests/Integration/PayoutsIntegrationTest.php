@@ -16,7 +16,7 @@ class PayoutsIntegrationTest extends IntegrationTestBase
     
     public function testPayoutsList()
     {
-        $fixture = $this->load_fixture('payouts')->list;
+        $fixture = $this->loadJsonFixture('payouts')->list;
         $this->stub_request($fixture);
 
         $service = $this->client->payouts();
@@ -56,7 +56,7 @@ class PayoutsIntegrationTest extends IntegrationTestBase
     
     public function testPayoutsGet()
     {
-        $fixture = $this->load_fixture('payouts')->get;
+        $fixture = $this->loadJsonFixture('payouts')->get;
         $this->stub_request($fixture);
 
         $service = $this->client->payouts();

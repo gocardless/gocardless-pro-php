@@ -16,7 +16,7 @@ class BankDetailsLookupsIntegrationTest extends IntegrationTestBase
     
     public function testBankDetailsLookupsCreate()
     {
-        $fixture = $this->load_fixture('bank_details_lookups')->create;
+        $fixture = $this->loadJsonFixture('bank_details_lookups')->create;
         $this->stub_request($fixture);
 
         $service = $this->client->bankDetailsLookups();

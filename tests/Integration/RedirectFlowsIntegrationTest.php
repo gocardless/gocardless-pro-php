@@ -16,7 +16,7 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
     
     public function testRedirectFlowsCreate()
     {
-        $fixture = $this->load_fixture('redirect_flows')->create;
+        $fixture = $this->loadJsonFixture('redirect_flows')->create;
         $this->stub_request($fixture);
 
         $service = $this->client->redirectFlows();
@@ -44,17 +44,16 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
 
     public function testRedirectFlowsCreateWithIdempotencyConflict()
     {
-        $fixture = $this->load_fixture('redirect_flows')->create;
+        $fixture = $this->loadJsonFixture('redirect_flows')->create;
 
-        $idempotencyConflictFixturePath = 'tests/fixtures/idempotent_creation_conflict_invalid_state_error.json';
-        $idempotencyConflictResponseFixture = fread(fopen($idempotencyConflictFixturePath, "r"), filesize($idempotencyConflictFixturePath));
+        $idempotencyConflictResponseFixture = $this->loadFixture('idempotent_creation_conflict_invalid_state_error');
 
         // The POST request responds with a 409 to our original POST, due to an idempotency conflict
         $this->mock->append(new \GuzzleHttp\Psr7\Response(409, [], $idempotencyConflictResponseFixture));
 
         // The client makes a second request to fetch the resource that was already
         // created using our idempotency key. It responds with the created resource,
-        // which looks just like the response for a successful POST request. 
+        // which looks just like the response for a successful POST request.
         $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], json_encode($fixture->body)));
 
         $service = $this->client->redirectFlows();
@@ -83,7 +82,7 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
     
     public function testRedirectFlowsGet()
     {
-        $fixture = $this->load_fixture('redirect_flows')->get;
+        $fixture = $this->loadJsonFixture('redirect_flows')->get;
         $this->stub_request($fixture);
 
         $service = $this->client->redirectFlows();
@@ -112,7 +111,7 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
     
     public function testRedirectFlowsComplete()
     {
-        $fixture = $this->load_fixture('redirect_flows')->complete;
+        $fixture = $this->loadJsonFixture('redirect_flows')->complete;
         $this->stub_request($fixture);
 
         $service = $this->client->redirectFlows();
@@ -140,17 +139,16 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
 
     public function testRedirectFlowsCompleteWithIdempotencyConflict()
     {
-        $fixture = $this->load_fixture('redirect_flows')->complete;
+        $fixture = $this->loadJsonFixture('redirect_flows')->complete;
 
-        $idempotencyConflictFixturePath = 'tests/fixtures/idempotent_creation_conflict_invalid_state_error.json';
-        $idempotencyConflictResponseFixture = fread(fopen($idempotencyConflictFixturePath, "r"), filesize($idempotencyConflictFixturePath));
+        $idempotencyConflictResponseFixture = $this->loadFixture('idempotent_creation_conflict_invalid_state_error');
 
         // The POST request responds with a 409 to our original POST, due to an idempotency conflict
         $this->mock->append(new \GuzzleHttp\Psr7\Response(409, [], $idempotencyConflictResponseFixture));
 
         // The client makes a second request to fetch the resource that was already
         // created using our idempotency key. It responds with the created resource,
-        // which looks just like the response for a successful POST request. 
+        // which looks just like the response for a successful POST request.
         $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], json_encode($fixture->body)));
 
         $service = $this->client->redirectFlows();

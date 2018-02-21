@@ -16,7 +16,7 @@ class EventsIntegrationTest extends IntegrationTestBase
     
     public function testEventsList()
     {
-        $fixture = $this->load_fixture('events')->list;
+        $fixture = $this->loadJsonFixture('events')->list;
         $this->stub_request($fixture);
 
         $service = $this->client->events();
@@ -53,7 +53,7 @@ class EventsIntegrationTest extends IntegrationTestBase
     
     public function testEventsGet()
     {
-        $fixture = $this->load_fixture('events')->get;
+        $fixture = $this->loadJsonFixture('events')->get;
         $this->stub_request($fixture);
 
         $service = $this->client->events();

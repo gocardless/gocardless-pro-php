@@ -16,7 +16,7 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
     
     public function testCreditorBankAccountsCreate()
     {
-        $fixture = $this->load_fixture('creditor_bank_accounts')->create;
+        $fixture = $this->loadJsonFixture('creditor_bank_accounts')->create;
         $this->stub_request($fixture);
 
         $service = $this->client->creditorBankAccounts();
@@ -45,17 +45,16 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
 
     public function testCreditorBankAccountsCreateWithIdempotencyConflict()
     {
-        $fixture = $this->load_fixture('creditor_bank_accounts')->create;
+        $fixture = $this->loadJsonFixture('creditor_bank_accounts')->create;
 
-        $idempotencyConflictFixturePath = 'tests/fixtures/idempotent_creation_conflict_invalid_state_error.json';
-        $idempotencyConflictResponseFixture = fread(fopen($idempotencyConflictFixturePath, "r"), filesize($idempotencyConflictFixturePath));
+        $idempotencyConflictResponseFixture = $this->loadFixture('idempotent_creation_conflict_invalid_state_error');
 
         // The POST request responds with a 409 to our original POST, due to an idempotency conflict
         $this->mock->append(new \GuzzleHttp\Psr7\Response(409, [], $idempotencyConflictResponseFixture));
 
         // The client makes a second request to fetch the resource that was already
         // created using our idempotency key. It responds with the created resource,
-        // which looks just like the response for a successful POST request. 
+        // which looks just like the response for a successful POST request.
         $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], json_encode($fixture->body)));
 
         $service = $this->client->creditorBankAccounts();
@@ -85,7 +84,7 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
     
     public function testCreditorBankAccountsList()
     {
-        $fixture = $this->load_fixture('creditor_bank_accounts')->list;
+        $fixture = $this->loadJsonFixture('creditor_bank_accounts')->list;
         $this->stub_request($fixture);
 
         $service = $this->client->creditorBankAccounts();
@@ -125,7 +124,7 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
     
     public function testCreditorBankAccountsGet()
     {
-        $fixture = $this->load_fixture('creditor_bank_accounts')->get;
+        $fixture = $this->loadJsonFixture('creditor_bank_accounts')->get;
         $this->stub_request($fixture);
 
         $service = $this->client->creditorBankAccounts();
@@ -155,7 +154,7 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
     
     public function testCreditorBankAccountsDisable()
     {
-        $fixture = $this->load_fixture('creditor_bank_accounts')->disable;
+        $fixture = $this->loadJsonFixture('creditor_bank_accounts')->disable;
         $this->stub_request($fixture);
 
         $service = $this->client->creditorBankAccounts();
@@ -184,17 +183,16 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
 
     public function testCreditorBankAccountsDisableWithIdempotencyConflict()
     {
-        $fixture = $this->load_fixture('creditor_bank_accounts')->disable;
+        $fixture = $this->loadJsonFixture('creditor_bank_accounts')->disable;
 
-        $idempotencyConflictFixturePath = 'tests/fixtures/idempotent_creation_conflict_invalid_state_error.json';
-        $idempotencyConflictResponseFixture = fread(fopen($idempotencyConflictFixturePath, "r"), filesize($idempotencyConflictFixturePath));
+        $idempotencyConflictResponseFixture = $this->loadFixture('idempotent_creation_conflict_invalid_state_error');
 
         // The POST request responds with a 409 to our original POST, due to an idempotency conflict
         $this->mock->append(new \GuzzleHttp\Psr7\Response(409, [], $idempotencyConflictResponseFixture));
 
         // The client makes a second request to fetch the resource that was already
         // created using our idempotency key. It responds with the created resource,
-        // which looks just like the response for a successful POST request. 
+        // which looks just like the response for a successful POST request.
         $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], json_encode($fixture->body)));
 
         $service = $this->client->creditorBankAccounts();

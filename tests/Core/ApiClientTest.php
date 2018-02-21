@@ -2,8 +2,12 @@
 
 namespace GoCardlessPro\Core;
 
+use GoCardlessPro\Support\TestFixtures;
+
 class ApiClientTest extends \PHPUnit_Framework_TestCase
 {
+    use TestFixtures;
+
     public function setUp()
     {
         $this->mock = new \GuzzleHttp\Handler\MockHandler();
@@ -104,11 +108,10 @@ class ApiClientTest extends \PHPUnit_Framework_TestCase
 
     public function testNon2XXResponse()
     {
-        $path = 'tests/fixtures/invalid_state_error.json';
-        $body = fread(fopen($path, "r"), filesize($path));
+        $fixture = $this->loadFixture('invalid_state_error');
         $this->setExpectedException('GoCardlessPro\Core\Exception\InvalidStateException');
 
-        $this->mock->append(new \GuzzleHttp\Psr7\Response(422, ['Content-Type' => 'application/json'], $body));
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(422, ['Content-Type' => 'application/json'], $fixture));
 
         try {
             $this->api_client->get('/some_endpoint');
