@@ -48,7 +48,10 @@ class PayoutItem extends BaseResource
      * <li>`payment_failed` (debit): The payment failed to be processed.</li>
      * <li>`payment_charged_back` (debit): The payment has been charged
      * back.</li>
-     * <li>`payment_refunded` (debit)</li>
+     * <li>`payment_refunded` (debit): The payment has been refunded to the
+     * customer.</li>
+     * <li>`refund` (debit): <em>private beta</em> A refund sent to a customer,
+     * not linked to a payment.</li>
      * <li>`gocardless_fee` (credit/debit): The fees that GoCardless charged for
      * a payment. In the case of a payment failure or chargeback, these will
      * appear as credits.</li>
