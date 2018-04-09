@@ -10,6 +10,7 @@ A PHP client for interacting with the GoCardless Pro API.
 with copy and paste PHP code samples
 - [API Reference](https://developer.gocardless.com/api-reference)
 - [Composer Package](https://packagist.org/packages/gocardless/gocardless-pro)
+- [Changelog](https://github.com/gocardless/gocardless-pro-php/releases)
 
 ### Installation
 
