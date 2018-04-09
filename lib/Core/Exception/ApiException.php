@@ -18,12 +18,14 @@ class ApiException extends GoCardlessProException
     }
 
     /**
-     * Factory for GoCardlessPro and its subclasses.
-     * @return InvalidApiUsageException|InvalidStateException|ValidationFailedException
+     * @param string $error_type the error type returned by the GoCardless API
+     * @return ApiException the exception corresponding to the supplied error type
      */
     public static function getErrorForType($error_type)
     {
         switch($error_type) {
+        case 'gocardless':
+            return 'GoCardlessInternalException';
         case 'invalid_api_usage':
             return 'InvalidApiUsageException';
         case 'invalid_state':

@@ -106,7 +106,7 @@ class ApiClientTest extends \PHPUnit_Framework_TestCase
         $this->api_client->get('/some_endpoint');
     }
 
-    public function testNon2XXResponse()
+    public function testInvalidStateErrorResponse()
     {
         $fixture = $this->loadFixture('invalid_state_error');
         $this->setExpectedException('GoCardlessPro\Core\Exception\InvalidStateException');
@@ -117,6 +117,57 @@ class ApiClientTest extends \PHPUnit_Framework_TestCase
             $this->api_client->get('/some_endpoint');
         } catch (\GoCardlessPro\Core\Exception\InvalidStateException $e) {
             $this->assertEquals($e->getApiResponse()->status_code, '422');
+            $this->assertEquals($e->getApiResponse()->headers, ['Content-Type' => ['application/json']]);
+
+            throw $e;
+        }
+    }
+
+    public function testInvalidApiUsageErrorResponse()
+    {
+        $fixture = $this->loadFixture('invalid_api_usage_error');
+        $this->setExpectedException('GoCardlessPro\Core\Exception\InvalidApiUsageException');
+
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(400, ['Content-Type' => 'application/json'], $fixture));
+
+        try {
+            $this->api_client->get('/some_endpoint');
+        } catch (\GoCardlessPro\Core\Exception\InvalidApiUsageException $e) {
+            $this->assertEquals($e->getApiResponse()->status_code, '400');
+            $this->assertEquals($e->getApiResponse()->headers, ['Content-Type' => ['application/json']]);
+
+            throw $e;
+        }
+    }
+
+    public function testValidationFailedErrorResponse()
+    {
+        $fixture = $this->loadFixture('validation_failed_error');
+        $this->setExpectedException('GoCardlessPro\Core\Exception\ValidationFailedException');
+
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(422, ['Content-Type' => 'application/json'], $fixture));
+
+        try {
+            $this->api_client->get('/some_endpoint');
+        } catch (\GoCardlessPro\Core\Exception\ValidationFailedException $e) {
+            $this->assertEquals($e->getApiResponse()->status_code, '422');
+            $this->assertEquals($e->getApiResponse()->headers, ['Content-Type' => ['application/json']]);
+
+            throw $e;
+        }
+    }
+
+    public function testGoCardlessErrorResponse()
+    {
+        $fixture = $this->loadFixture('gocardless_error');
+        $this->setExpectedException('GoCardlessPro\Core\Exception\GoCardlessInternalException');
+
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(500, ['Content-Type' => 'application/json'], $fixture));
+
+        try {
+            $this->api_client->get('/some_endpoint');
+        } catch (\GoCardlessPro\Core\Exception\GoCardlessInternalException $e) {
+            $this->assertEquals($e->getApiResponse()->status_code, '500');
             $this->assertEquals($e->getApiResponse()->headers, ['Content-Type' => ['application/json']]);
 
             throw $e;
