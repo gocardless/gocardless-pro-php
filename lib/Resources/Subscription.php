@@ -33,7 +33,7 @@ class Subscription extends BaseResource
     protected $model_name = "Subscription";
 
     /**
-     * Amount in pence (GBP), cents (EUR), öre (SEK), or øre (DKK).
+     * Amount in pence (GBP), cents (AUD/EUR), öre (SEK), or øre (DKK).
      */
     protected $amount;
 
