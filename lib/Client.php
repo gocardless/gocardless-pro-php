@@ -52,7 +52,7 @@ class Client
                 'Content-Type' => 'application/json',
                 'Authorization' => "Bearer " . $access_token,
                 'GoCardless-Client-Library' => 'gocardless-pro-php',
-                'GoCardless-Client-Version' => '1.5.3',
+                'GoCardless-Client-Version' => '1.6.0',
                 'User-Agent' => $this->getUserAgent()
                 ),
                 'http_errors' => false,
@@ -155,6 +155,32 @@ class Client
         }
 
         return $this->mandates;
+    }
+    
+    /**
+     * Service for interacting with mandate imports
+     * @return Services\MandateImportsService
+     */
+    public function mandateImports()
+    {
+        if (!isset($this->mandate_imports)) {
+            $this->mandate_imports = new Services\MandateImportsService($this->api_client);
+        }
+
+        return $this->mandate_imports;
+    }
+    
+    /**
+     * Service for interacting with mandate import entries
+     * @return Services\MandateImportEntriesService
+     */
+    public function mandateImportEntries()
+    {
+        if (!isset($this->mandate_import_entries)) {
+            $this->mandate_import_entries = new Services\MandateImportEntriesService($this->api_client);
+        }
+
+        return $this->mandate_import_entries;
     }
     
     /**
@@ -291,7 +317,7 @@ class Client
     {
         $curlinfo = curl_version();
         $uagent = array();
-        $uagent[] = 'gocardless-pro-php/1.5.3';
+        $uagent[] = 'gocardless-pro-php/1.6.0';
         $uagent[] = 'schema-version/2015-07-06';
         $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::VERSION;
         $uagent[] = 'php/' . phpversion();
