@@ -3,25 +3,25 @@
     "method": "POST",
     "path_template": "/mandate_imports",
     "url_params": {},
-    "body": {"mandate_imports":{"created_at":"2014-01-01T12:00:00.000Z","id":"IM000010790WX1","scheme":"example scheme 8675","status":"created"}}
+    "body": {"mandate_imports":{"created_at":"2014-01-01T12:00:00.000Z","id":"IM000010790WX1","scheme":"example scheme 2181","status":"created"}}
   },
   "get": {
     "method": "GET",
     "path_template": "/mandate_imports/:identity",
     "url_params": {"identity": "IM000010790WX1"},
-    "body": {"mandate_imports":{"created_at":"2014-01-01T12:00:00.000Z","id":"IM000010790WX1","scheme":"example scheme 2181","status":"created"}}
+    "body": {"mandate_imports":{"created_at":"2014-01-01T12:00:00.000Z","id":"IM000010790WX1","scheme":"example scheme 1853","status":"created"}}
   },
   "submit": {
     "method": "POST",
     "path_template": "/mandate_imports/:identity/actions/submit",
     "url_params": {"identity": "IM000010790WX1"},
-    "body": {"mandate_imports":{"created_at":"2014-01-01T12:00:00.000Z","id":"IM000010790WX1","scheme":"example scheme 1853","status":"created"}}
+    "body": {"mandate_imports":{"created_at":"2014-01-01T12:00:00.000Z","id":"IM000010790WX1","scheme":"example scheme 8795","status":"created"}}
   },
   "cancel": {
     "method": "POST",
     "path_template": "/mandate_imports/:identity/actions/cancel",
     "url_params": {"identity": "IM000010790WX1"},
-    "body": {"mandate_imports":{"created_at":"2014-01-01T12:00:00.000Z","id":"IM000010790WX1","scheme":"example scheme 8795","status":"created"}}
+    "body": {"mandate_imports":{"created_at":"2014-01-01T12:00:00.000Z","id":"IM000010790WX1","scheme":"example scheme 417","status":"created"}}
   }
 }
 

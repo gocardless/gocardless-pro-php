@@ -59,8 +59,9 @@ class Refund extends BaseResource
 
     /**
      * An optional refund reference, displayed on your customer's bank
-     * statement. This can be up to 18 characters long for Bacs payments, 140
-     * characters for SEPA payments, or 25 characters for Autogiro payments.
+     * statement. This can be up to 18 characters long for Bacs or BECS
+     * payments, 140 characters for SEPA payments, or 25 characters for Autogiro
+     * payments.
      */
     protected $reference;
 
