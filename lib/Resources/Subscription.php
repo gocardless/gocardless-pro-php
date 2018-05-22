@@ -12,6 +12,7 @@ namespace GoCardlessPro\Resources;
  * attributes
  *
  * @property-read $amount
+ * @property-read $app_fee
  * @property-read $created_at
  * @property-read $currency
  * @property-read $day_of_month
@@ -36,6 +37,13 @@ class Subscription extends BaseResource
      * Amount in pence (GBP), cents (AUD/EUR), öre (SEK), or øre (DKK).
      */
     protected $amount;
+
+    /**
+     * The amount to be deducted from each payment as an app fee, to be paid to
+     * the partner integration which created the subscription, in pence (GBP),
+     * cents (AUD/EUR), öre (SEK), or øre (DKK).
+     */
+    protected $app_fee;
 
     /**
      * Fixed [timestamp](#api-usage-time-zones--dates), recording when this

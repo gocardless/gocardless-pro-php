@@ -27,6 +27,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\Subscription', $response);
 
         $this->assertEquals($body->amount, $response->amount);
+        $this->assertEquals($body->app_fee, $response->app_fee);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->currency, $response->currency);
         $this->assertEquals($body->day_of_month, $response->day_of_month);
@@ -70,6 +71,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\Subscription', $response);
 
         $this->assertEquals($body->amount, $response->amount);
+        $this->assertEquals($body->app_fee, $response->app_fee);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->currency, $response->currency);
         $this->assertEquals($body->day_of_month, $response->day_of_month);
@@ -116,6 +118,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             $this->assertEquals($body[$num]->amount, $record->amount);
+            $this->assertEquals($body[$num]->app_fee, $record->app_fee);
             $this->assertEquals($body[$num]->created_at, $record->created_at);
             $this->assertEquals($body[$num]->currency, $record->currency);
             $this->assertEquals($body[$num]->day_of_month, $record->day_of_month);
@@ -153,6 +156,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\Subscription', $response);
 
         $this->assertEquals($body->amount, $response->amount);
+        $this->assertEquals($body->app_fee, $response->app_fee);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->currency, $response->currency);
         $this->assertEquals($body->day_of_month, $response->day_of_month);
@@ -189,6 +193,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\Subscription', $response);
 
         $this->assertEquals($body->amount, $response->amount);
+        $this->assertEquals($body->app_fee, $response->app_fee);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->currency, $response->currency);
         $this->assertEquals($body->day_of_month, $response->day_of_month);
@@ -225,6 +230,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\Subscription', $response);
 
         $this->assertEquals($body->amount, $response->amount);
+        $this->assertEquals($body->app_fee, $response->app_fee);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->currency, $response->currency);
         $this->assertEquals($body->day_of_month, $response->day_of_month);
@@ -268,6 +274,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\Subscription', $response);
 
         $this->assertEquals($body->amount, $response->amount);
+        $this->assertEquals($body->app_fee, $response->app_fee);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->currency, $response->currency);
         $this->assertEquals($body->day_of_month, $response->day_of_month);
