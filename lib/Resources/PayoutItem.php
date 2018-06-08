@@ -58,7 +58,10 @@ class PayoutItem extends BaseResource
      * <li>`app_fee` (credit/debit): The optional fees that a partner may have
      * taken for a payment. In the case of a payment failure or chargeback,
      * these will appear as credits.</li>
-     * <li>`revenue_share` (credit): Only shown in partner payouts.</li>
+     * <li>`revenue_share` (credit/debit): A share of the fees that GoCardless
+     * collected which some partner integrations receive when their users take
+     * payments. Only shown in partner payouts. In the case of a payment failure
+     * or chargeback, these will appear as credits.</li>
      * </ul>
      */
     protected $type;
