@@ -210,10 +210,54 @@ Properties of the exception can be accessesed with the following methods:
 - `$e->getRequestId();`
 - `$e->getApiResponse();`
 
+### Handling webhooks
 
-## Supporting PHP < 5.5
+GoCardless supports webhooks, allowing you to receive real-time notifications when things happen in your account, so you can take automatic actions in response, for example:
 
-This client library only supports PHP >= 5.5. Earlier releases of PHP are now considered
+* When a customer cancels their mandate with the bank, suspend their club membership
+* When a payment fails due to lack of funds, mark their invoice as unpaid
+* When a customer’s subscription generates a new payment, log it in their “past payments” list
+
+The client allows you to validate that a webhook you receive is genuinely from GoCardless, and to parse it into `GoCardlessPro\Resources\Event` objects which are easy to work with:
+
+```ruby
+<?php
+// When you create a webhook endpoint, you can specify a secret. When GoCardless sends
+// you a webhook, it'll sign the body using that secret. Since only you and GoCardless
+// know the secret, you can check the signature and ensure that the webhook is truly
+// from GoCardless.
+//
+// We recommend storing your webhook endpoint secret in an environment variable
+// for security, but you could include it as a string directly in your code
+$webhook_endpoint_secret = getenv("GOCARDLESS_WEBHOOK_ENDPOINT_SECRET");
+
+$request_body = file_get_contents('php://input');
+
+$headers = getallheaders();
+$signature_header = $headers["Webhook-Signature"];
+
+try {
+     $events = GoCardlessPro\Webhook::parse($request_body, $signature_header, $webhook_endpoint_secret);
+
+     foreach ($events as $event) {
+         // You can access each event in the webhook.
+         echo($event->id);
+     }
+
+     header("HTTP/1.1 200 OK");
+} catch (GoCardlessPro\Core\Exception\InvalidSignatureException) {
+     // The webhook doesn't appear to be genuinely from GoCardless, as the signature
+     // included in the `Webhook-Signature` header doesn't match one computed with your
+     // webhook endpoint secret and the body
+     header("HTTP/1.1 498 Invalid Token");
+}
+```
+
+For more details on working with webhooks, see our ["Getting started" guide](https://developer.gocardless.com/getting-started/api/introduction/?lang=php).
+
+## Supporting PHP >= 5.6
+
+This client library only supports PHP >= 5.6. Earlier releases of PHP are now considered
 [end of life](http://php.net/supported-versions.php) and may be exposed to security
 vunerabilities.
 
