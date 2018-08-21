@@ -13,6 +13,7 @@ namespace GoCardlessPro\Resources;
  *
  * @property-read $action
  * @property-read $created_at
+ * @property-read $customer_notifications
  * @property-read $details
  * @property-read $id
  * @property-read $links
@@ -33,6 +34,15 @@ class Event extends BaseResource
      * resource was created.
      */
     protected $created_at;
+
+    /**
+     * Present only in webhooks when an integrator is authorised to send their
+     * own
+     * notifications. See
+     * [here](/getting-started/api/handling-customer-notifications/)
+     * for further information.
+     */
+    protected $customer_notifications;
 
     /**
      * 

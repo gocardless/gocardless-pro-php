@@ -132,6 +132,19 @@ class Client
     }
     
     /**
+     * Service for interacting with customer notifications
+     * @return Services\CustomerNotificationsService
+     */
+    public function customerNotifications()
+    {
+        if (!isset($this->customer_notifications)) {
+            $this->customer_notifications = new Services\CustomerNotificationsService($this->api_client);
+        }
+
+        return $this->customer_notifications;
+    }
+    
+    /**
      * Service for interacting with events
      * @return Services\EventsService
      */

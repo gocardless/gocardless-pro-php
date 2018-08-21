@@ -37,6 +37,7 @@ class EventsIntegrationTest extends IntegrationTestBase
             $record = $records[$num];
             $this->assertEquals($body[$num]->action, $record->action);
             $this->assertEquals($body[$num]->created_at, $record->created_at);
+            $this->assertEquals($body[$num]->customer_notifications, $record->customer_notifications);
             $this->assertEquals($body[$num]->details, $record->details);
             $this->assertEquals($body[$num]->id, $record->id);
             $this->assertEquals($body[$num]->links, $record->links);
@@ -65,6 +66,7 @@ class EventsIntegrationTest extends IntegrationTestBase
 
         $this->assertEquals($body->action, $response->action);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->customer_notifications, $response->customer_notifications);
         $this->assertEquals($body->details, $response->details);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
