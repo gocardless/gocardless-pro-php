@@ -80,7 +80,8 @@ class Customer extends BaseResource
     protected $danish_identity_number;
 
     /**
-     * Customer's email address.
+     * Customer's email address. Required in most cases, as this allows
+     * GoCardless to send notifications to this customer.
      */
     protected $email;
 
