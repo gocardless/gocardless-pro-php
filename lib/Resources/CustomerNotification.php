@@ -23,11 +23,9 @@ class CustomerNotification extends BaseResource
     protected $model_name = "CustomerNotification";
 
     /**
-     * The action that was taken on the notification:
-     * <ul>
-     *   <li>`handled` means the integrator sent the notification
-     * themselves</li>
-     * </ul>
+     * The action that was taken on the notification. Currently this can only be
+     * `handled`,
+     * which means the integrator sent the notification themselves.
      */
     protected $action_taken;
 
