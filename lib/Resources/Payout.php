@@ -51,7 +51,8 @@ class Payout extends BaseResource
 
     /**
      * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
-     * code. Currently "AUD", "DKK", GBP", "EUR", and "SEK" are supported.
+     * code. Currently "AUD", "DKK", "EUR", "GBP", "NZD" and "SEK" are
+     * supported.
      */
     protected $currency;
 
