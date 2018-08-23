@@ -33,8 +33,10 @@ class ResourceTest extends \PHPUnit_Framework_TestCase
 
     public function testInvalidGetter()
     {
-        $this->setExpectedException('GoCardlessPro\Core\Exception\GoCardlessProException',
-                                    'unknown is not a valid FakeResource property');
+        $this->setExpectedException(
+            'GoCardlessPro\Core\Exception\GoCardlessProException',
+            'unknown is not a valid FakeResource property'
+        );
 
         $resource = new FakeResource((object) array('foo' => 'bar'));
         $resource->unknown;
