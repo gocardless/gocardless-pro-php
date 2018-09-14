@@ -40,6 +40,7 @@ class CustomersIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->language, $response->language);
         $this->assertEquals($body->metadata, $response->metadata);
+        $this->assertEquals($body->phone_number, $response->phone_number);
         $this->assertEquals($body->postal_code, $response->postal_code);
         $this->assertEquals($body->region, $response->region);
         $this->assertEquals($body->swedish_identity_number, $response->swedish_identity_number);
@@ -84,6 +85,7 @@ class CustomersIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->language, $response->language);
         $this->assertEquals($body->metadata, $response->metadata);
+        $this->assertEquals($body->phone_number, $response->phone_number);
         $this->assertEquals($body->postal_code, $response->postal_code);
         $this->assertEquals($body->region, $response->region);
         $this->assertEquals($body->swedish_identity_number, $response->swedish_identity_number);
@@ -131,6 +133,7 @@ class CustomersIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->id, $record->id);
             $this->assertEquals($body[$num]->language, $record->language);
             $this->assertEquals($body[$num]->metadata, $record->metadata);
+            $this->assertEquals($body[$num]->phone_number, $record->phone_number);
             $this->assertEquals($body[$num]->postal_code, $record->postal_code);
             $this->assertEquals($body[$num]->region, $record->region);
             $this->assertEquals($body[$num]->swedish_identity_number, $record->swedish_identity_number);
@@ -169,6 +172,7 @@ class CustomersIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->language, $response->language);
         $this->assertEquals($body->metadata, $response->metadata);
+        $this->assertEquals($body->phone_number, $response->phone_number);
         $this->assertEquals($body->postal_code, $response->postal_code);
         $this->assertEquals($body->region, $response->region);
         $this->assertEquals($body->swedish_identity_number, $response->swedish_identity_number);
@@ -206,6 +210,7 @@ class CustomersIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->language, $response->language);
         $this->assertEquals($body->metadata, $response->metadata);
+        $this->assertEquals($body->phone_number, $response->phone_number);
         $this->assertEquals($body->postal_code, $response->postal_code);
         $this->assertEquals($body->region, $response->region);
         $this->assertEquals($body->swedish_identity_number, $response->swedish_identity_number);
