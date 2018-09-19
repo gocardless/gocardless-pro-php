@@ -19,21 +19,21 @@ class WebhookTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($events[0]->created_at, "2018-07-05T09:13:51.404Z");
         $this->assertEquals($events[0]->resource_type, "subscriptions");
         $this->assertEquals($events[0]->action, "created");
-        $this->assertEquals($events[0]->links["subscription"], "SB0003JJQ2MR06");
-        $this->assertEquals($events[0]->details["origin"], "api");
-        $this->assertEquals($events[0]->details["cause"], "subscription_created");
-        $this->assertEquals($events[0]->details["description"], "Subscription created via the API.");
-        $this->assertEquals($events[0]->metadata, array());
+        $this->assertEquals($events[0]->links->subscription, "SB0003JJQ2MR06");
+        $this->assertEquals($events[0]->details->origin, "api");
+        $this->assertEquals($events[0]->details->cause, "subscription_created");
+        $this->assertEquals($events[0]->details->description, "Subscription created via the API.");
+        $this->assertEquals($events[0]->metadata, new \stdClass());
 
         $this->assertEquals($events[1]->id, "EV00BD05TB8K63");
         $this->assertEquals($events[1]->created_at, "2018-07-05T09:13:56.893Z");
         $this->assertEquals($events[1]->resource_type, "mandates");
         $this->assertEquals($events[1]->action, "created");
-        $this->assertEquals($events[1]->links["mandate"], "MD000AMA19XGEC");
-        $this->assertEquals($events[1]->details["origin"], "api");
-        $this->assertEquals($events[1]->details["cause"], "mandate_created");
-        $this->assertEquals($events[1]->details["description"], "Mandate created via the API.");
-        $this->assertEquals($events[1]->metadata, array());
+        $this->assertEquals($events[1]->links->mandate, "MD000AMA19XGEC");
+        $this->assertEquals($events[1]->details->origin, "api");
+        $this->assertEquals($events[1]->details->cause, "mandate_created");
+        $this->assertEquals($events[1]->details->description, "Mandate created via the API.");
+        $this->assertEquals($events[1]->metadata, new \stdClass());
     }
 
     public function testParseWithInvalidSignature()

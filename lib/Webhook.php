@@ -31,16 +31,8 @@ class Webhook
     public static function parse($request_body, $signature_header, $webhook_endpoint_secret)
     {
         if (self::isSignatureValid($request_body, $signature_header, $webhook_endpoint_secret)) {
-            $parsed_request_body = json_decode($request_body, true);
-
-            $events = array();
-
-            foreach ($parsed_request_body["events"] as $event) {
-                $event = new Resources\Event($event);
-                array_push($events, $event);
-            }
-
-            return $events;
+            $events = json_decode($request_body)->events;
+            return array_map('self::buildEvent', $events);
         } else {
             throw new Core\Exception\InvalidSignatureException(self::INVALID_SIGNATURE_MESSAGE);
         }
@@ -62,5 +54,13 @@ class Webhook
     {
         $computed_signature = hash_hmac("sha256", $request_body, $webhook_endpoint_secret);
         return hash_equals($computed_signature, $signature_header);
+    }
+
+    /**
+     * Internal function for converting a parsed stdObject into an event resource
+     */
+    private static function buildEvent($event) 
+    {
+        return new Resources\Event($event);
     }
 }
