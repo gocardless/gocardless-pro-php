@@ -25,6 +25,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $id
  * @property-read $language
  * @property-read $metadata
+ * @property-read $phone_number
  * @property-read $postal_code
  * @property-read $region
  * @property-read $swedish_identity_number
@@ -116,6 +117,12 @@ class Customer extends BaseResource
      * names up to 50 characters and values up to 500 characters.
      */
     protected $metadata;
+
+    /**
+     * Required for New Zealand customers only. Must be supplied if the
+     * customer's bank account is denominated in New Zealand Dollars (NZD).
+     */
+    protected $phone_number;
 
     /**
      * The customer's postal code.
