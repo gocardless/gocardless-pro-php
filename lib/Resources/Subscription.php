@@ -34,14 +34,15 @@ class Subscription extends BaseResource
     protected $model_name = "Subscription";
 
     /**
-     * Amount in pence (GBP), cents (AUD/EUR), öre (SEK), or øre (DKK).
+     * Amount in the lowest denomination for the currency (e.g. pence in GBP,
+     * cents in EUR).
      */
     protected $amount;
 
     /**
      * The amount to be deducted from each payment as an app fee, to be paid to
-     * the partner integration which created the subscription, in pence (GBP),
-     * cents (AUD/EUR), öre (SEK), or øre (DKK).
+     * the partner integration which created the subscription, in the lowest
+     * denomination for the currency (e.g. pence in GBP, cents in EUR).
      */
     protected $app_fee;
 
