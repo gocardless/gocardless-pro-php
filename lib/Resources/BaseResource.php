@@ -64,4 +64,12 @@ abstract class BaseResource
         $ret .= print_r($this->data, true);
         return $ret;
     }
+    
+    /**
+     * Returns the data
+     * @return \stdClass
+     */
+    public function toArray(){
+        return $this->data;
+    }
 }
