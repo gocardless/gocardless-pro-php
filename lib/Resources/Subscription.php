@@ -53,8 +53,9 @@ class Subscription extends BaseResource
     protected $created_at;
 
     /**
-     * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) currency code.
-     * Currently `GBP`, `EUR`, `SEK`, and `DKK` are supported.
+     * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
+     * code. Currently "AUD", "CAD", "DKK", "EUR", "GBP", "NZD" and "SEK" are
+     * supported.
      */
     protected $currency;
 
