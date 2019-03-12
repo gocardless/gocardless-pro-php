@@ -85,7 +85,7 @@ class RetryMiddlewareFactory
      * Timeout)
      * @return boolean
      */
-    private static function isRetryableServerError(\GuzzleHttp\Psr7\Response $response)
+    private static function isRetryableServerError(\GuzzleHttp\Psr7\Response $response = null)
     {
         if ($response) {
             $statusCode = $response->getStatusCode();
