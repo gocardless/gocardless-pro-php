@@ -3,13 +3,13 @@
     "method": "POST",
     "path_template": "/refunds",
     "url_params": {},
-    "body": {"refunds":{"amount":"150","created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","id":"RF123","links":{"mandate":"MD123","payment":"PM123"},"metadata":{},"reference":null}}
+    "body": {"refunds":{"amount":"150","created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","id":"RF123","links":{"mandate":"MD123","payment":"PM123"},"metadata":{},"reference":"Nude Wines refund"}}
   },
   "list": {
     "method": "GET",
     "path_template": "/refunds",
     "url_params": {},
-    "body": {"meta":{"cursors":{"after":"example after 7420","before":"example before 3352"},"limit":50},"refunds":[{"amount":"150","created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","id":"RF123","links":{"mandate":"MD123","payment":"PM123"},"metadata":{},"reference":"Nude Wines refund"},{"amount":"150","created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","id":"RF123","links":{"mandate":"MD123","payment":"PM123"},"metadata":{},"reference":"Nude Wines refund"}]}
+    "body": {"meta":{"cursors":{"after":"example after 5265","before":"example before 8151"},"limit":50},"refunds":[{"amount":"150","created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","id":"RF123","links":{"mandate":"MD123","payment":"PM123"},"metadata":{},"reference":"Nude Wines refund"},{"amount":"150","created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","id":"RF123","links":{"mandate":"MD123","payment":"PM123"},"metadata":{},"reference":null}]}
   },
   "get": {
     "method": "GET",
