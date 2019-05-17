@@ -54,7 +54,8 @@ class Subscription extends BaseResource
 
     /**
      * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) currency code.
-     * Currently `GBP`, `EUR`, `SEK`, and `DKK` are supported.
+     * Currently `GBP`, `EUR`, `SEK`, `DKK`, `AUD`, `NZD` and `CAD` are
+     * supported.
      */
     protected $currency;
 
@@ -125,10 +126,10 @@ class Subscription extends BaseResource
     protected $payment_reference;
 
     /**
-     * The date on which the first payment should be charged. Must be within one
-     * year of creation and on or after the
-     * [mandate](#core-endpoints-mandates)'s `next_possible_charge_date`. When
-     * blank, this will be set as the mandate's `next_possible_charge_date`.
+     * The date on which the first payment should be charged. Must be on or
+     * after the [mandate](#core-endpoints-mandates)'s
+     * `next_possible_charge_date`. When blank, this will be set as the
+     * mandate's `next_possible_charge_date`.
      */
     protected $start_date;
 
