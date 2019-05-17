@@ -37,7 +37,7 @@ abstract class BaseResource
     }
 
     /**
-     * Magic getter. If you try and access an unkn own property, we
+     * Magic getter. If you try and access an unknown property, we
      * throw an exception. The default in PHP would be to return null, but
      * explicitly knowing when this is happening is more useful.
      *
@@ -51,6 +51,17 @@ abstract class BaseResource
             throw new GoCardlessProException($field . ' is not a valid ' . $this->model_name . ' property');
         }
         return $this->{$field};
+    }
+
+    /**
+     * Companion to the Magic getter.
+     *
+     * @param  string $field the name of the field we're accessing
+     * @return bool
+     */
+    public function __isset( $field )
+    {
+        return property_exists(get_class($this), $field);
     }
 
     /**
