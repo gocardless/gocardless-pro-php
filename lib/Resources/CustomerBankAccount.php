@@ -13,6 +13,7 @@ namespace GoCardlessPro\Resources;
  *
  * @property-read $account_holder_name
  * @property-read $account_number_ending
+ * @property-read $account_type
  * @property-read $bank_name
  * @property-read $country_code
  * @property-read $created_at
@@ -37,6 +38,13 @@ class CustomerBankAccount extends BaseResource
      * Last two digits of account number.
      */
     protected $account_number_ending;
+
+    /**
+     * Bank account type. Required for USD-denominated bank accounts. Must not
+     * be provided for bank accounts in other currencies. See [local
+     * details](#local-bank-details-united-states) for more information.
+     */
+    protected $account_type;
 
     /**
      * Name of bank, taken from the bank details.

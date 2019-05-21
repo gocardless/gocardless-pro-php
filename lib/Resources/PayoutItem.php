@@ -53,6 +53,8 @@ class PayoutItem extends BaseResource
      * customer.</li>
      * <li>`refund` (debit): <em>private beta</em> A refund sent to a customer,
      * not linked to a payment.</li>
+     * <li>`refund_funds_returned` (credit): The refund could not be sent to the
+     * customer, and the funds have been returned to you.</li>
      * <li>`gocardless_fee` (credit/debit): The fees that GoCardless charged for
      * a payment. In the case of a payment failure or chargeback, these will
      * appear as credits.</li>

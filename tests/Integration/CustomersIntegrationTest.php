@@ -222,4 +222,42 @@ class CustomersIntegrationTest extends IntegrationTestBase
     }
 
     
+    public function testCustomersRemove()
+    {
+        $fixture = $this->loadJsonFixture('customers')->remove;
+        $this->stub_request($fixture);
+
+        $service = $this->client->customers();
+        $response = call_user_func_array(array($service, 'remove'), (array)$fixture->url_params);
+
+        $body = $fixture->body->customers;
+    
+        $this->assertInstanceOf('\GoCardlessPro\Resources\Customer', $response);
+
+        $this->assertEquals($body->address_line1, $response->address_line1);
+        $this->assertEquals($body->address_line2, $response->address_line2);
+        $this->assertEquals($body->address_line3, $response->address_line3);
+        $this->assertEquals($body->city, $response->city);
+        $this->assertEquals($body->company_name, $response->company_name);
+        $this->assertEquals($body->country_code, $response->country_code);
+        $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->danish_identity_number, $response->danish_identity_number);
+        $this->assertEquals($body->email, $response->email);
+        $this->assertEquals($body->family_name, $response->family_name);
+        $this->assertEquals($body->given_name, $response->given_name);
+        $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->language, $response->language);
+        $this->assertEquals($body->metadata, $response->metadata);
+        $this->assertEquals($body->phone_number, $response->phone_number);
+        $this->assertEquals($body->postal_code, $response->postal_code);
+        $this->assertEquals($body->region, $response->region);
+        $this->assertEquals($body->swedish_identity_number, $response->swedish_identity_number);
+    
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+    }
+
+    
 }
