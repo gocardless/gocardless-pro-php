@@ -32,7 +32,8 @@ class Mandate extends BaseResource
     protected $created_at;
 
     /**
-     * Unique identifier, beginning with "MD".
+     * Unique identifier, beginning with "MD". Note that this prefix may not
+     * apply to mandates created before 2016.
      */
     protected $id;
 

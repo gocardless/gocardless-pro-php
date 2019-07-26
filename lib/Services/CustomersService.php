@@ -140,6 +140,35 @@ class CustomersService extends BaseService
     }
 
     /**
+    * Remove a customer
+    *
+    * Example URL: /customers/:identity
+    *
+    * @param  string        $identity Unique identifier, beginning with "CU".
+    * @param  string[mixed] $params   An associative array for any params
+    * @return Customer
+    **/
+    public function remove($identity, $params = array())
+    {
+        $path = Util::subUrl(
+            '/customers/:identity',
+            array(
+                
+                'identity' => $identity
+            )
+        );
+        if(isset($params['params'])) { $params['query'] = $params['params'];
+            unset($params['params']);
+        }
+
+        
+        $response = $this->api_client->delete($path, $params);
+        
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
     * List customers
     *
     * Example URL: /customers

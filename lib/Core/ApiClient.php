@@ -80,6 +80,26 @@ class ApiClient
     }
 
     /**
+     * Make a DELETE request to the API
+     *
+     * @param string $path   The relative path for the API request. e.g. /records
+     * @param array  $params Body of the request, will be serialized to JSON
+     *
+     * @return array The raw response
+     */
+    public function delete($path, $params)
+    {
+        $idempotencyKey = uniqid("", true);
+        $paramsWithHeaders = array("headers" => array("Idempotency-Key" => $idempotencyKey));
+        $params = array_replace_recursive($paramsWithHeaders, $params);
+
+        $response = $this->http_client->request('DELETE', $path, $params);
+
+        $this->handleErrors($response);
+        return $response;
+    }
+
+    /**
      * Handle any errors in the API response
      *
      * If the response doesn't contain JSON, we will fail to decode and throw a
