@@ -17,6 +17,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $created_at
  * @property-read $currency
  * @property-read $description
+ * @property-read $fx
  * @property-read $id
  * @property-read $links
  * @property-read $metadata
@@ -70,6 +71,11 @@ class Payment extends BaseResource
     protected $description;
 
     /**
+     * 
+     */
+    protected $fx;
+
+    /**
      * Unique identifier, beginning with "PM".
      */
     protected $id;
@@ -86,14 +92,16 @@ class Payment extends BaseResource
     protected $metadata;
 
     /**
-     * An optional payment reference that will appear on your customer's bank
-     * statement. For Bacs payments this can be up to 10 characters, for SEPA
-     * payments the limit is 140 characters, for Autogiro payments the limit is
-     * 11 characters, for Betalingsservice or BECS payments the limit is 30
-     * characters and for BECS NZ or PAD the limit is 12 characters. <p
-     * class='restricted-notice'><strong>Restricted</strong>: You can only
-     * specify a payment reference for Bacs payments (that is, when collecting
-     * from the UK) if you're on the <a
+     * An optional reference that will appear on your customer's bank statement.
+     * The character limit for this reference is dependent on the scheme.<br />
+     * <strong>ACH</strong> - 10 characters<br /> <strong>Autogiro</strong> - 11
+     * characters<br /> <strong>Bacs</strong> - 10 characters<br />
+     * <strong>BECS</strong> - 30 characters<br /> <strong>BECS NZ</strong> - 12
+     * characters<br /> <strong>Betalingsservice</strong> - 30 characters<br />
+     * <strong>PAD</strong> - 12 characters<br /> <strong>SEPA</strong> - 140
+     * characters <p class='restricted-notice'><strong>Restricted</strong>: You
+     * can only specify a payment reference for Bacs payments (that is, when
+     * collecting from the UK) if you're on the <a
      * href='https://gocardless.com/pricing'>GoCardless Plus or Pro
      * packages</a>.</p>
      */

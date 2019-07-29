@@ -33,6 +33,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->city, $response->city);
         $this->assertEquals($body->country_code, $response->country_code);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->fx_payout_currency, $response->fx_payout_currency);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->logo_url, $response->logo_url);
@@ -75,6 +76,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->city, $response->city);
         $this->assertEquals($body->country_code, $response->country_code);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->fx_payout_currency, $response->fx_payout_currency);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->logo_url, $response->logo_url);
@@ -120,6 +122,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->city, $record->city);
             $this->assertEquals($body[$num]->country_code, $record->country_code);
             $this->assertEquals($body[$num]->created_at, $record->created_at);
+            $this->assertEquals($body[$num]->fx_payout_currency, $record->fx_payout_currency);
             $this->assertEquals($body[$num]->id, $record->id);
             $this->assertEquals($body[$num]->links, $record->links);
             $this->assertEquals($body[$num]->logo_url, $record->logo_url);
@@ -156,6 +159,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->city, $response->city);
         $this->assertEquals($body->country_code, $response->country_code);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->fx_payout_currency, $response->fx_payout_currency);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->logo_url, $response->logo_url);
@@ -191,6 +195,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->city, $response->city);
         $this->assertEquals($body->country_code, $response->country_code);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->fx_payout_currency, $response->fx_payout_currency);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->logo_url, $response->logo_url);
