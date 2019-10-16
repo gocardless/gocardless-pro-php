@@ -16,6 +16,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $created_at
  * @property-read $currency
  * @property-read $deducted_fees
+ * @property-read $fx
  * @property-read $id
  * @property-read $links
  * @property-read $payout_type
@@ -27,7 +28,7 @@ class Payout extends BaseResource
     protected $model_name = "Payout";
 
     /**
-     * Amount in pence or cents.
+     * Amount in minor unit (e.g. pence in GBP, cents in EUR).
      */
     protected $amount;
 
@@ -57,8 +58,8 @@ class Payout extends BaseResource
     protected $currency;
 
     /**
-     * Fees that have already been deducted from the payout amount in pence or
-     * cents.
+     * Fees that have already been deducted from the payout amount in minor unit
+     * (e.g. pence in GBP, cents in EUR).
      * 
      * For each `late_failure_settled` or `chargeback_settled` action, we refund
      * the transaction fees in a payout. This means that a payout can have a
@@ -69,6 +70,11 @@ class Payout extends BaseResource
      * `deducted_fees` will be 0.
      */
     protected $deducted_fees;
+
+    /**
+     * 
+     */
+    protected $fx;
 
     /**
      * Unique identifier, beginning with "PO".

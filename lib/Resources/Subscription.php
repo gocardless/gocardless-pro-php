@@ -105,7 +105,9 @@ class Subscription extends BaseResource
     protected $metadata;
 
     /**
-     * Name of the month on which to charge a customer. Must be lowercase.
+     * Name of the month on which to charge a customer. Must be lowercase. Only
+     * applies
+     * when the interval_unit is `yearly`.
      */
     protected $month;
 
@@ -151,8 +153,7 @@ class Subscription extends BaseResource
     protected $status;
 
     /**
-     * Up to 10 upcoming payments with the amount, in pence, and charge date for
-     * each.
+     * Up to 10 upcoming payments with their amounts and charge dates.
      */
     protected $upcoming_payments;
 

@@ -85,7 +85,7 @@ class MandatesService extends BaseService
     * Example URL: /mandates/:identity
     *
     * @param  string        $identity Unique identifier, beginning with "MD". Note that this
-    *                       prefix may not apply to mandates created before 2016.
+ prefix may not apply to mandates created before 2016.
     * @param  string[mixed] $params   An associative array for any params
     * @return Mandate
     **/
@@ -115,7 +115,7 @@ class MandatesService extends BaseService
     * Example URL: /mandates/:identity
     *
     * @param  string        $identity Unique identifier, beginning with "MD". Note that this
-    *                       prefix may not apply to mandates created before 2016.
+ prefix may not apply to mandates created before 2016.
     * @param  string[mixed] $params   An associative array for any params
     * @return Mandate
     **/
@@ -147,7 +147,7 @@ class MandatesService extends BaseService
     * Example URL: /mandates/:identity/actions/cancel
     *
     * @param  string        $identity Unique identifier, beginning with "MD". Note that this
-    *                       prefix may not apply to mandates created before 2016.
+ prefix may not apply to mandates created before 2016.
     * @param  string[mixed] $params   An associative array for any params
     * @return Mandate
     **/
@@ -187,7 +187,7 @@ class MandatesService extends BaseService
     * Example URL: /mandates/:identity/actions/reinstate
     *
     * @param  string        $identity Unique identifier, beginning with "MD". Note that this
-    *                       prefix may not apply to mandates created before 2016.
+ prefix may not apply to mandates created before 2016.
     * @param  string[mixed] $params   An associative array for any params
     * @return Mandate
     **/

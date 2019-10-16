@@ -29,6 +29,7 @@ class RefundsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->amount, $response->amount);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->currency, $response->currency);
+        $this->assertEquals($body->fx, $response->fx);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -63,6 +64,7 @@ class RefundsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->amount, $response->amount);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->currency, $response->currency);
+        $this->assertEquals($body->fx, $response->fx);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -100,6 +102,7 @@ class RefundsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->amount, $record->amount);
             $this->assertEquals($body[$num]->created_at, $record->created_at);
             $this->assertEquals($body[$num]->currency, $record->currency);
+            $this->assertEquals($body[$num]->fx, $record->fx);
             $this->assertEquals($body[$num]->id, $record->id);
             $this->assertEquals($body[$num]->links, $record->links);
             $this->assertEquals($body[$num]->metadata, $record->metadata);
@@ -128,6 +131,7 @@ class RefundsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->amount, $response->amount);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->currency, $response->currency);
+        $this->assertEquals($body->fx, $response->fx);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -155,6 +159,7 @@ class RefundsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->amount, $response->amount);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->currency, $response->currency);
+        $this->assertEquals($body->fx, $response->fx);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
