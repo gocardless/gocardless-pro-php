@@ -49,8 +49,8 @@ class Mandate extends BaseResource
     protected $metadata;
 
     /**
-     * The earliest date a newly created payment for this mandate could be
-     * charged.
+     * The earliest date that can be used as a `charge_date` on any newly
+     * created payment for this mandate. This value will change over time.
      */
     protected $next_possible_charge_date;
 

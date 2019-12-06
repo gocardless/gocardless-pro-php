@@ -34,6 +34,7 @@ class RefundsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->reference, $response->reference);
+        $this->assertEquals($body->status, $response->status);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -69,6 +70,7 @@ class RefundsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->reference, $response->reference);
+        $this->assertEquals($body->status, $response->status);
         
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -107,6 +109,7 @@ class RefundsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->links, $record->links);
             $this->assertEquals($body[$num]->metadata, $record->metadata);
             $this->assertEquals($body[$num]->reference, $record->reference);
+            $this->assertEquals($body[$num]->status, $record->status);
             
         }
 
@@ -136,6 +139,7 @@ class RefundsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->reference, $response->reference);
+        $this->assertEquals($body->status, $response->status);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -164,6 +168,7 @@ class RefundsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->reference, $response->reference);
+        $this->assertEquals($body->status, $response->status);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
