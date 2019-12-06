@@ -21,6 +21,7 @@ class Client
      *
      *     @type string $environment
      *     @type string $access_token
+     *     @type float $timeout
      *     @type string $http_client
      */
     public function __construct($config)
@@ -43,16 +44,22 @@ class Client
             $stack = \GuzzleHttp\HandlerStack::create();
             $stack->push(RetryMiddlewareFactory::buildMiddleware());
 
+            $timeout = 0;
+            if(isset($config['timeout'])) {
+                $timeout = $config['timeout'];
+            }
+
             $http_client = new \GuzzleHttp\Client(
                 [
                 'base_uri' => $endpoint_url,
+                'timeout' => $timeout,
                 'headers' => array(
                 'GoCardless-Version' => '2015-07-06',
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
                 'Authorization' => "Bearer " . $access_token,
                 'GoCardless-Client-Library' => 'gocardless-pro-php',
-                'GoCardless-Client-Version' => '3.2.0',
+                'GoCardless-Client-Version' => '3.2.1',
                 'User-Agent' => $this->getUserAgent()
                 ),
                 'http_errors' => false,
@@ -330,7 +337,7 @@ class Client
     {
         $curlinfo = curl_version();
         $uagent = array();
-        $uagent[] = 'gocardless-pro-php/3.2.0';
+        $uagent[] = 'gocardless-pro-php/3.2.1';
         $uagent[] = 'schema-version/2015-07-06';
         $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::VERSION;
         $uagent[] = 'php/' . phpversion();

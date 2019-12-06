@@ -65,6 +65,9 @@ class PayoutItem extends BaseResource
      * collected which some partner integrations receive when their users take
      * payments. Only shown in partner payouts. In the case of a payment failure
      * or chargeback, these will appear as credits.</li>
+     * <li>`surcharge_fee` (credit/debit): GoCardless deducted a surcharge fee
+     * as the payment failed or was charged back, or refunded a surcharge fee as
+     * the bank or customer cancelled the chargeback.</li>
      * </ul>
      */
     protected $type;
