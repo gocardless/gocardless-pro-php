@@ -81,7 +81,7 @@ class ApiException extends GoCardlessProException
         );
 
         if (count($error_messages) > 0) {
-            return $this->api_error->message . ' (' . implode($error_messages, ", ") . ')';
+            return $this->api_error->message . ' (' . implode(", ", $error_messages) . ')';
         } else {
             return $this->api_error->message;
         }
