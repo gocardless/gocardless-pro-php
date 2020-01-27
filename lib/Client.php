@@ -165,6 +165,19 @@ class Client
     }
     
     /**
+     * Service for interacting with instalment schedule
+     * @return Services\InstalmentSchedulesService
+     */
+    public function instalmentSchedules()
+    {
+        if (!isset($this->instalment_schedules)) {
+            $this->instalment_schedules = new Services\InstalmentSchedulesService($this->api_client);
+        }
+
+        return $this->instalment_schedules;
+    }
+    
+    /**
      * Service for interacting with mandates
      * @return Services\MandatesService
      */
