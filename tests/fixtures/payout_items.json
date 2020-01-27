@@ -3,7 +3,7 @@
     "method": "GET",
     "path_template": "/payout_items",
     "url_params": {},
-    "body": {"meta":{"cursors":{"after":"example after 1509","before":"example before 7276"},"limit":10},"payout_items":[{"amount":"45.0","links":{"mandate":"MD123","payment":"PM123"},"type":"payment_paid_out"},{"amount":"45.0","links":{"mandate":"MD123","payment":"PM123"},"type":"payment_paid_out"}]}
+    "body": {"meta":{"cursors":{"after":"example after 9081","before":"example before 2120"},"limit":10},"payout_items":[{"amount":"45.0","links":{"mandate":"MD123","payment":"PM123"},"type":"payment_paid_out"},{"amount":"45.0","links":{"mandate":"MD123","payment":"PM123"},"type":"payment_paid_out"}]}
   }
 }
 
