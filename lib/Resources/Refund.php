@@ -19,6 +19,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $links
  * @property-read $metadata
  * @property-read $reference
+ * @property-read $status
  */
 class Refund extends BaseResource
 {
@@ -74,9 +75,25 @@ class Refund extends BaseResource
      * characters <p class='restricted-notice'><strong>Restricted</strong>: You
      * can only specify a payment reference for Bacs payments (that is, when
      * collecting from the UK) if you're on the <a
-     * href='https://gocardless.com/pricing'>GoCardless Plus or Pro
+     * href='https://gocardless.com/pricing'>GoCardless Plus, Pro or Enterprise
      * packages</a>.</p>
      */
     protected $reference;
+
+    /**
+     * One of:
+     * <ul>
+     * <li>`created`: the refund has been created</li>
+     * <li>`pending_submission`: the refund has been created, but not yet
+     * submitted to the banks</li>
+     * <li>`submitted`: the refund has been submitted to the banks</li>
+     * <li>`paid`:  the refund has been included in a
+     * [payout](#core-endpoints-payouts)</li>
+     * <li>`cancelled`: the refund has been cancelled</li>
+     * <li>`bounced`: the refund has failed to be paid</li>
+     * <li>`funds_returned`: the refund has had its funds returned</li>
+     * </ul>
+     */
+    protected $status;
 
 }

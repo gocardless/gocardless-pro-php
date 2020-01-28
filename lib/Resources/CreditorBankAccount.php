@@ -36,7 +36,8 @@ class CreditorBankAccount extends BaseResource
     protected $account_holder_name;
 
     /**
-     * Last two digits of account number.
+     * The last few digits of the account number. Currently 4 digits for NZD
+     * bank accounts and 2 digits for other currencies.
      */
     protected $account_number_ending;
 

@@ -59,7 +59,7 @@ class Client
                 'Content-Type' => 'application/json',
                 'Authorization' => "Bearer " . $access_token,
                 'GoCardless-Client-Library' => 'gocardless-pro-php',
-                'GoCardless-Client-Version' => '3.2.1',
+                'GoCardless-Client-Version' => '3.3.0',
                 'User-Agent' => $this->getUserAgent()
                 ),
                 'http_errors' => false,
@@ -162,6 +162,19 @@ class Client
         }
 
         return $this->events;
+    }
+    
+    /**
+     * Service for interacting with instalment schedule
+     * @return Services\InstalmentSchedulesService
+     */
+    public function instalmentSchedules()
+    {
+        if (!isset($this->instalment_schedules)) {
+            $this->instalment_schedules = new Services\InstalmentSchedulesService($this->api_client);
+        }
+
+        return $this->instalment_schedules;
     }
     
     /**
@@ -337,7 +350,7 @@ class Client
     {
         $curlinfo = curl_version();
         $uagent = array();
-        $uagent[] = 'gocardless-pro-php/3.2.1';
+        $uagent[] = 'gocardless-pro-php/3.3.0';
         $uagent[] = 'schema-version/2015-07-06';
         $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::VERSION;
         $uagent[] = 'php/' . phpversion();

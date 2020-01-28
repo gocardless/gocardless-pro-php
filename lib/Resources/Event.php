@@ -74,6 +74,7 @@ class Event extends BaseResource
      * <li>`payouts`</li>
      * <li>`refunds`</li>
      * <li>`subscriptions`</li>
+     * <li>`instalment_schedules`</li>
      * </ul>
      */
     protected $resource_type;
