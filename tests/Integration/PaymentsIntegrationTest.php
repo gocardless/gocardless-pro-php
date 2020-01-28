@@ -37,6 +37,7 @@ class PaymentsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->reference, $response->reference);
+        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
         $this->assertEquals($body->status, $response->status);
     
 
@@ -76,6 +77,7 @@ class PaymentsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->reference, $response->reference);
+        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
         $this->assertEquals($body->status, $response->status);
         
 
@@ -118,6 +120,7 @@ class PaymentsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->links, $record->links);
             $this->assertEquals($body[$num]->metadata, $record->metadata);
             $this->assertEquals($body[$num]->reference, $record->reference);
+            $this->assertEquals($body[$num]->retry_if_possible, $record->retry_if_possible);
             $this->assertEquals($body[$num]->status, $record->status);
             
         }
@@ -151,6 +154,7 @@ class PaymentsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->reference, $response->reference);
+        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
         $this->assertEquals($body->status, $response->status);
     
 
@@ -183,6 +187,7 @@ class PaymentsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->reference, $response->reference);
+        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
         $this->assertEquals($body->status, $response->status);
     
 
@@ -215,6 +220,7 @@ class PaymentsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->reference, $response->reference);
+        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
         $this->assertEquals($body->status, $response->status);
     
 
@@ -254,6 +260,7 @@ class PaymentsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->reference, $response->reference);
+        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
         $this->assertEquals($body->status, $response->status);
         
 
@@ -287,6 +294,7 @@ class PaymentsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->reference, $response->reference);
+        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
         $this->assertEquals($body->status, $response->status);
     
 
@@ -326,6 +334,7 @@ class PaymentsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->reference, $response->reference);
+        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
         $this->assertEquals($body->status, $response->status);
         
 

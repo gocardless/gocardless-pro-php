@@ -25,6 +25,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $month
  * @property-read $name
  * @property-read $payment_reference
+ * @property-read $retry_if_possible
  * @property-read $start_date
  * @property-read $status
  * @property-read $upcoming_payments
@@ -126,6 +127,12 @@ class Subscription extends BaseResource
      * Service User Number to specify a payment reference for Bacs payments.</p>
      */
     protected $payment_reference;
+
+    /**
+     * On failure, automatically retry payments using [Optimise Smart Payment
+     * Retries](#optimise-smart-payment-retries). Default is `false`.
+     */
+    protected $retry_if_possible;
 
     /**
      * The date on which the first payment should be charged. Must be on or

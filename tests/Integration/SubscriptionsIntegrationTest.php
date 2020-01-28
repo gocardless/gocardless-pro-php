@@ -40,6 +40,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->month, $response->month);
         $this->assertEquals($body->name, $response->name);
         $this->assertEquals($body->payment_reference, $response->payment_reference);
+        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
         $this->assertEquals($body->start_date, $response->start_date);
         $this->assertEquals($body->status, $response->status);
         $this->assertEquals($body->upcoming_payments, $response->upcoming_payments);
@@ -84,6 +85,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->month, $response->month);
         $this->assertEquals($body->name, $response->name);
         $this->assertEquals($body->payment_reference, $response->payment_reference);
+        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
         $this->assertEquals($body->start_date, $response->start_date);
         $this->assertEquals($body->status, $response->status);
         $this->assertEquals($body->upcoming_payments, $response->upcoming_payments);
@@ -131,6 +133,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->month, $record->month);
             $this->assertEquals($body[$num]->name, $record->name);
             $this->assertEquals($body[$num]->payment_reference, $record->payment_reference);
+            $this->assertEquals($body[$num]->retry_if_possible, $record->retry_if_possible);
             $this->assertEquals($body[$num]->start_date, $record->start_date);
             $this->assertEquals($body[$num]->status, $record->status);
             $this->assertEquals($body[$num]->upcoming_payments, $record->upcoming_payments);
@@ -169,6 +172,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->month, $response->month);
         $this->assertEquals($body->name, $response->name);
         $this->assertEquals($body->payment_reference, $response->payment_reference);
+        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
         $this->assertEquals($body->start_date, $response->start_date);
         $this->assertEquals($body->status, $response->status);
         $this->assertEquals($body->upcoming_payments, $response->upcoming_payments);
@@ -206,6 +210,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->month, $response->month);
         $this->assertEquals($body->name, $response->name);
         $this->assertEquals($body->payment_reference, $response->payment_reference);
+        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
         $this->assertEquals($body->start_date, $response->start_date);
         $this->assertEquals($body->status, $response->status);
         $this->assertEquals($body->upcoming_payments, $response->upcoming_payments);
@@ -243,6 +248,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->month, $response->month);
         $this->assertEquals($body->name, $response->name);
         $this->assertEquals($body->payment_reference, $response->payment_reference);
+        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
         $this->assertEquals($body->start_date, $response->start_date);
         $this->assertEquals($body->status, $response->status);
         $this->assertEquals($body->upcoming_payments, $response->upcoming_payments);
@@ -287,6 +293,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->month, $response->month);
         $this->assertEquals($body->name, $response->name);
         $this->assertEquals($body->payment_reference, $response->payment_reference);
+        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
         $this->assertEquals($body->start_date, $response->start_date);
         $this->assertEquals($body->status, $response->status);
         $this->assertEquals($body->upcoming_payments, $response->upcoming_payments);
