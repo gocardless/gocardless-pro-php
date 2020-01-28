@@ -18,10 +18,13 @@ namespace GoCardlessPro\Resources;
  * @property-read $city
  * @property-read $country_code
  * @property-read $created_at
+ * @property-read $custom_payment_pages_enabled
  * @property-read $fx_payout_currency
  * @property-read $id
  * @property-read $links
  * @property-read $logo_url
+ * @property-read $mandate_imports_enabled
+ * @property-read $merchant_responsible_for_notifications
  * @property-read $name
  * @property-read $postal_code
  * @property-read $region
@@ -70,6 +73,13 @@ class Creditor extends BaseResource
     protected $created_at;
 
     /**
+     * Boolean value indicating whether creditor has the [Custom Payment
+     * Pages](https://support.gocardless.com/hc/en-gb/articles/115003734705-Custom-payment-pages)
+     * functionality enabled.
+     */
+    protected $custom_payment_pages_enabled;
+
+    /**
      * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) code for
      * the currency in which amounts will be paid out (after foreign exchange).
      * Currently "AUD", "CAD", "DKK", "EUR", "GBP", "NZD", "SEK" and "USD" are
@@ -92,6 +102,22 @@ class Creditor extends BaseResource
      * URL for the creditor's logo, which may be shown on their payment pages.
      */
     protected $logo_url;
+
+    /**
+     * Boolean value indicating whether creditor has the [Mandate
+     * Imports](#core-endpoints-mandate-imports) functionality enabled.
+     */
+    protected $mandate_imports_enabled;
+
+    /**
+     * Boolean value indicating whether the organisation is responsible for
+     * sending all customer notifications (note this is separate from the
+     * functionality described
+     * [here](https://developer.gocardless.com/getting-started/api/handling-customer-notifications/).
+     * If you are a partner app, and this value is true, you should not send
+     * notifications on behalf of this organisation.
+     */
+    protected $merchant_responsible_for_notifications;
 
     /**
      * The creditor's name.
