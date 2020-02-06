@@ -22,6 +22,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $links
  * @property-read $metadata
  * @property-read $reference
+ * @property-read $retry_if_possible
  * @property-read $status
  */
 class Payment extends BaseResource
@@ -106,6 +107,12 @@ class Payment extends BaseResource
      * packages</a>.</p>
      */
     protected $reference;
+
+    /**
+     * On failure, automatically retry the payment using [Optimise Smart Payment
+     * Retries](#optimise-smart-payment-retries). Default is `false`.
+     */
+    protected $retry_if_possible;
 
     /**
      * One of:
