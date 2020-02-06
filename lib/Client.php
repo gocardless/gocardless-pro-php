@@ -59,7 +59,7 @@ class Client
                 'Content-Type' => 'application/json',
                 'Authorization' => "Bearer " . $access_token,
                 'GoCardless-Client-Library' => 'gocardless-pro-php',
-                'GoCardless-Client-Version' => '3.3.1',
+                'GoCardless-Client-Version' => '3.4.0',
                 'User-Agent' => $this->getUserAgent()
                 ),
                 'http_errors' => false,
@@ -350,7 +350,7 @@ class Client
     {
         $curlinfo = curl_version();
         $uagent = array();
-        $uagent[] = 'gocardless-pro-php/3.3.1';
+        $uagent[] = 'gocardless-pro-php/3.4.0';
         $uagent[] = 'schema-version/2015-07-06';
         $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::VERSION;
         $uagent[] = 'php/' . phpversion();
