@@ -3,13 +3,13 @@
     "method": "GET",
     "path_template": "/payouts",
     "url_params": {},
-    "body": {"meta":{"cursors":{"after":"example after 4405","before":"example before 7276"},"limit":50},"payouts":[{"amount":"1000","arrival_date":null,"created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","deducted_fees":"20","fx":{"estimated_exchange_rate":null,"exchange_rate":null,"fx_amount":"1150","fx_currency":"EUR"},"id":"PO123","links":{"creditor":"CR123","creditor_bank_account":"BA123"},"payout_type":"merchant","reference":"ref-1","status":"pending"},{"amount":"1000","arrival_date":"2014-01-01","created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","deducted_fees":"20","fx":{"estimated_exchange_rate":"1.1234567890","exchange_rate":null,"fx_amount":null,"fx_currency":"EUR"},"id":"PO123","links":{"creditor":"CR123","creditor_bank_account":"BA123"},"payout_type":"merchant","reference":"ref-1","status":"pending"}]}
+    "body": {"meta":{"cursors":{"after":"example after 7276","before":"example before 1509"},"limit":50},"payouts":[{"amount":"1000","arrival_date":null,"created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","deducted_fees":"20","fx":{"estimated_exchange_rate":null,"exchange_rate":null,"fx_amount":"1150","fx_currency":"EUR"},"id":"PO123","links":{"creditor":"CR123","creditor_bank_account":"BA123"},"payout_type":"merchant","reference":"ref-1","status":"pending"},{"amount":"1000","arrival_date":null,"created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","deducted_fees":"20","fx":{"estimated_exchange_rate":"1.1234567890","exchange_rate":"1.1234567890","fx_amount":"1150","fx_currency":"EUR"},"id":"PO123","links":{"creditor":"CR123","creditor_bank_account":"BA123"},"payout_type":"merchant","reference":"ref-1","status":"pending"}]}
   },
   "get": {
     "method": "GET",
     "path_template": "/payouts/:identity",
     "url_params": {"identity": "PO123"},
-    "body": {"payouts":{"amount":"1000","arrival_date":"2014-01-01","created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","deducted_fees":"20","fx":{"estimated_exchange_rate":"1.1234567890","exchange_rate":"1.1234567890","fx_amount":"1150","fx_currency":"EUR"},"id":"PO123","links":{"creditor":"CR123","creditor_bank_account":"BA123"},"payout_type":"merchant","reference":"ref-1","status":"pending"}}
+    "body": {"payouts":{"amount":"1000","arrival_date":null,"created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","deducted_fees":"20","fx":{"estimated_exchange_rate":"1.1234567890","exchange_rate":"1.1234567890","fx_amount":"1150","fx_currency":"EUR"},"id":"PO123","links":{"creditor":"CR123","creditor_bank_account":"BA123"},"payout_type":"merchant","reference":"ref-1","status":"pending"}}
   }
 }
 
