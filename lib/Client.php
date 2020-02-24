@@ -59,7 +59,7 @@ class Client
                 'Content-Type' => 'application/json',
                 'Authorization' => "Bearer " . $access_token,
                 'GoCardless-Client-Library' => 'gocardless-pro-php',
-                'GoCardless-Client-Version' => '3.4.0',
+                'GoCardless-Client-Version' => '3.5.0',
                 'User-Agent' => $this->getUserAgent()
                 ),
                 'http_errors' => false,
@@ -69,7 +69,7 @@ class Client
             );
         }
 
-        $this->api_client = new \GoCardlessPro\Core\ApiClient($http_client);
+        $this->api_client = new \GoCardlessPro\Core\ApiClient($http_client, $config);
     }
 
     
@@ -339,6 +339,12 @@ class Client
                 throw new \Exception('Option `'. $required_option_key .'` can only be a string.');
             }
         }
+
+        if (!isset($config['error_on_idempotency_conflict'])) {
+            $config['error_on_idempotency_conflict'] = false;
+        } elseif (!is_bool($config['error_on_idempotency_conflict'])) {
+            throw new \Exception('Option `error_on_idempotency_conflict` can only be a bool.');
+        }
     }
 
     /**
@@ -350,7 +356,7 @@ class Client
     {
         $curlinfo = curl_version();
         $uagent = array();
-        $uagent[] = 'gocardless-pro-php/3.4.0';
+        $uagent[] = 'gocardless-pro-php/3.5.0';
         $uagent[] = 'schema-version/2015-07-06';
         $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::VERSION;
         $uagent[] = 'php/' . phpversion();

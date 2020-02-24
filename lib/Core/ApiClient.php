@@ -16,13 +16,13 @@ use GoCardlessPro\Core\Exception\ApiException;
 class ApiClient
 {
     /**
-     * @param string                     $access_token Auth api key
-     * @param string                     $endpoint_url API endpoint
-     * @param GuzzleHttp\ClientInterface $http_client  An HTTP client to make requests
+     * @param GuzzleHttp\ClientInterface $http_client An HTTP client to make requests
+     * @param array                      $config      configuration for the ApiClient
      */
-    public function __construct($http_client)
+    public function __construct($http_client, $config)
     {
         $this->http_client = $http_client;
+        $this->error_on_idempotency_conflict = $config['error_on_idempotency_conflict'];
     }
 
     /**
