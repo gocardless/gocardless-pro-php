@@ -69,7 +69,7 @@ class Client
             );
         }
 
-        $this->api_client = new \GoCardlessPro\Core\ApiClient($http_client, $config['error_on_idempotency_conflict']);
+        $this->api_client = new \GoCardlessPro\Core\ApiClient($http_client, $config);
     }
 
     
