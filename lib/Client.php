@@ -69,7 +69,7 @@ class Client
             );
         }
 
-        $this->api_client = new \GoCardlessPro\Core\ApiClient($http_client);
+        $this->api_client = new \GoCardlessPro\Core\ApiClient($http_client, $config['error_on_idempotency_conflict']);
     }
 
     
@@ -338,6 +338,12 @@ class Client
             if (!is_string($config[$required_option_key])) {
                 throw new \Exception('Option `'. $required_option_key .'` can only be a string.');
             }
+        }
+
+        if (!isset($config['error_on_idempotency_conflict'])) {
+            $config['error_on_idempotency_conflict'] = false;
+        } elseif (!is_bool($config['error_on_idempotency_conflict'])) {
+            throw new \Exception('Option `error_on_idempotency_conflict` can only be a bool.');
         }
     }
 

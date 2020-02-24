@@ -47,6 +47,9 @@ class PaymentsService extends BaseService
             $response = $this->api_client->post($path, $params);
         } catch(InvalidStateException $e) {
             if ($e->isIdempotentCreationConflict()) {
+                if ($this->api_client->error_on_idempotency_conflict) {
+                    throw $e;
+                }
                 return $this->get($e->getConflictingResourceId());
             }
 
@@ -168,6 +171,9 @@ class PaymentsService extends BaseService
             $response = $this->api_client->post($path, $params);
         } catch(InvalidStateException $e) {
             if ($e->isIdempotentCreationConflict()) {
+                if ($this->api_client->error_on_idempotency_conflict) {
+                    throw $e;
+                }
                 return $this->get($e->getConflictingResourceId());
             }
 
@@ -207,6 +213,9 @@ class PaymentsService extends BaseService
             $response = $this->api_client->post($path, $params);
         } catch(InvalidStateException $e) {
             if ($e->isIdempotentCreationConflict()) {
+                if ($this->api_client->error_on_idempotency_conflict) {
+                    throw $e;
+                }
                 return $this->get($e->getConflictingResourceId());
             }
 

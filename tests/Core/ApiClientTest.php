@@ -22,7 +22,7 @@ class ApiClientTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $this->api_client = new ApiClient($this->mock_http_client);
+        $this->api_client = new ApiClient($this->mock_http_client, false);
     }
 
     public function testGetQueryEncoding()
