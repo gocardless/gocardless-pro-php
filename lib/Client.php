@@ -113,6 +113,19 @@ class Client
     }
     
     /**
+     * Service for interacting with currency exchange rates
+     * @return Services\CurrencyExchangeRatesService
+     */
+    public function currencyExchangeRates()
+    {
+        if (!isset($this->currency_exchange_rates)) {
+            $this->currency_exchange_rates = new Services\CurrencyExchangeRatesService($this->api_client);
+        }
+
+        return $this->currency_exchange_rates;
+    }
+    
+    /**
      * Service for interacting with customers
      * @return Services\CustomersService
      */
