@@ -26,14 +26,49 @@ class InstalmentSchedulesService extends BaseService
 
 
     /**
-    * Create an instalment schedule
+    * Create (with dates)
     *
     * Example URL: /instalment_schedules
     *
     * @param  string[mixed] $params An associative array for any params
     * @return InstalmentSchedule
     **/
-    public function create($params = array())
+    public function createWithDates($params = array())
+    {
+        $path = "/instalment_schedules";
+        if(isset($params['params'])) { 
+            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+        
+            unset($params['params']);
+        }
+
+        
+        try {
+            $response = $this->api_client->post($path, $params);
+        } catch(InvalidStateException $e) {
+            if ($e->isIdempotentCreationConflict()) {
+                if ($this->api_client->error_on_idempotency_conflict) {
+                    throw $e;
+                }
+                return $this->get($e->getConflictingResourceId());
+            }
+
+            throw $e;
+        }
+        
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
+    * Create (with schedule)
+    *
+    * Example URL: /instalment_schedules
+    *
+    * @param  string[mixed] $params An associative array for any params
+    * @return InstalmentSchedule
+    **/
+    public function createWithSchedule($params = array())
     {
         $path = "/instalment_schedules";
         if(isset($params['params'])) { 

@@ -14,13 +14,13 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
         $this->assertNotNull($obj);
     }
     
-    public function testInstalmentSchedulesCreate()
+    public function testInstalmentSchedulesCreateWithDates()
     {
-        $fixture = $this->loadJsonFixture('instalment_schedules')->create;
+        $fixture = $this->loadJsonFixture('instalment_schedules')->create_with_dates;
         $this->stub_request($fixture);
 
         $service = $this->client->instalmentSchedules();
-        $response = call_user_func_array(array($service, 'create'), (array)$fixture->url_params);
+        $response = call_user_func_array(array($service, 'createWithDates'), (array)$fixture->url_params);
 
         $body = $fixture->body->instalment_schedules;
     
@@ -42,9 +42,9 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
         $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
-    public function testInstalmentSchedulesCreateWithIdempotencyConflict()
+    public function testInstalmentSchedulesCreateWithDatesWithIdempotencyConflict()
     {
-        $fixture = $this->loadJsonFixture('instalment_schedules')->create;
+        $fixture = $this->loadJsonFixture('instalment_schedules')->create_with_dates;
 
         $idempotencyConflictResponseFixture = $this->loadFixture('idempotent_creation_conflict_invalid_state_error');
 
@@ -57,7 +57,73 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
         $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], json_encode($fixture->body)));
 
         $service = $this->client->instalmentSchedules();
-        $response = call_user_func_array(array($service, 'create'), (array)$fixture->url_params);
+        $response = call_user_func_array(array($service, 'createWithDates'), (array)$fixture->url_params);
+        $body = $fixture->body->instalment_schedules;
+
+        $this->assertInstanceOf('\GoCardlessPro\Resources\InstalmentSchedule', $response);
+
+        $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->currency, $response->currency);
+        $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->metadata, $response->metadata);
+        $this->assertEquals($body->name, $response->name);
+        $this->assertEquals($body->payment_errors, $response->payment_errors);
+        $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->total_amount, $response->total_amount);
+        
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $conflictRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $conflictRequest->getUri()->getPath());
+        $getRequest = $this->history[1]['request'];
+        $this->assertEquals($getRequest->getUri()->getPath(), '/instalment_schedules/ID123');
+    }
+    
+    public function testInstalmentSchedulesCreateWithSchedule()
+    {
+        $fixture = $this->loadJsonFixture('instalment_schedules')->create_with_schedule;
+        $this->stub_request($fixture);
+
+        $service = $this->client->instalmentSchedules();
+        $response = call_user_func_array(array($service, 'createWithSchedule'), (array)$fixture->url_params);
+
+        $body = $fixture->body->instalment_schedules;
+    
+        $this->assertInstanceOf('\GoCardlessPro\Resources\InstalmentSchedule', $response);
+
+        $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->currency, $response->currency);
+        $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->metadata, $response->metadata);
+        $this->assertEquals($body->name, $response->name);
+        $this->assertEquals($body->payment_errors, $response->payment_errors);
+        $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->total_amount, $response->total_amount);
+    
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+    }
+
+    public function testInstalmentSchedulesCreateWithScheduleWithIdempotencyConflict()
+    {
+        $fixture = $this->loadJsonFixture('instalment_schedules')->create_with_schedule;
+
+        $idempotencyConflictResponseFixture = $this->loadFixture('idempotent_creation_conflict_invalid_state_error');
+
+        // The POST request responds with a 409 to our original POST, due to an idempotency conflict
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(409, [], $idempotencyConflictResponseFixture));
+
+        // The client makes a second request to fetch the resource that was already
+        // created using our idempotency key. It responds with the created resource,
+        // which looks just like the response for a successful POST request.
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], json_encode($fixture->body)));
+
+        $service = $this->client->instalmentSchedules();
+        $response = call_user_func_array(array($service, 'createWithSchedule'), (array)$fixture->url_params);
         $body = $fixture->body->instalment_schedules;
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\InstalmentSchedule', $response);
