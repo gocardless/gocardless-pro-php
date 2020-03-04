@@ -13,6 +13,7 @@ namespace GoCardlessPro\Resources;
  *
  * @property-read $amount
  * @property-read $app_fee
+ * @property-read $count
  * @property-read $created_at
  * @property-read $currency
  * @property-read $day_of_month
@@ -46,6 +47,11 @@ class Subscription extends BaseResource
      * denomination for the currency (e.g. pence in GBP, cents in EUR).
      */
     protected $app_fee;
+
+    /**
+     * The total number of payments that should be taken by this subscription.
+     */
+    protected $count;
 
     /**
      * Fixed [timestamp](#api-usage-time-zones--dates), recording when this

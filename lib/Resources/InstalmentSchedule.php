@@ -88,9 +88,11 @@ class InstalmentSchedule extends BaseResource
     /**
      * The total amount of the instalment schedule, defined as the sum of all
      * individual
-     * payments. If the requested payment amounts do not sum up correctly, a
-     * validation
-     * error will be returned.
+     * payments, in the lowest denomination for the currency (e.g. pence in GBP,
+     * cents in
+     * EUR). If the requested payment amounts do not sum up correctly, a
+     * validation error
+     * will be returned.
      */
     protected $total_amount;
 
