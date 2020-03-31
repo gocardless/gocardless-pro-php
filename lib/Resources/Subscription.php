@@ -73,12 +73,14 @@ class Subscription extends BaseResource
     protected $day_of_month;
 
     /**
-     * Date on or after which no further payments should be created. If this
-     * field is blank and `count` is not specified, the subscription will
-     * continue forever. <p
-     * class='deprecated-notice'><strong>Deprecated</strong>: This field will be
-     * removed in a future API version. Use `count` to specify a number of
-     * payments instead. </p>
+     * Date on or after which no further payments should be created.
+     * 
+     * If this field is blank and `count` is not specified, the subscription
+     * will continue forever.
+     * 
+     * <p class="deprecated-notice"><strong>Deprecated</strong>: This field will
+     * be removed in a future API version. Use `count` to specify a number of
+     * payments instead.</p>
      */
     protected $end_date;
 
@@ -126,11 +128,15 @@ class Subscription extends BaseResource
 
     /**
      * An optional payment reference. This will be set as the reference on each
-     * payment created and will appear on your customer's bank statement. See
-     * the documentation for the [create payment
-     * endpoint](#payments-create-a-payment) for more details. <p
-     * class='restricted-notice'><strong>Restricted</strong>: You need your own
-     * Service User Number to specify a payment reference for Bacs payments.</p>
+     * payment
+     * created and will appear on your customer's bank statement. See the
+     * documentation for
+     * the [create payment endpoint](#payments-create-a-payment) for more
+     * details.
+     * 
+     * <p class="restricted-notice"><strong>Restricted</strong>: You need your
+     * own Service User Number to specify a payment reference for Bacs
+     * payments.</p>
      */
     protected $payment_reference;
 
