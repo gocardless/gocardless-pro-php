@@ -17,6 +17,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $created_at
  * @property-read $currency
  * @property-read $day_of_month
+ * @property-read $earliest_charge_date_after_resume
  * @property-read $end_date
  * @property-read $id
  * @property-read $interval
@@ -71,6 +72,14 @@ class Subscription extends BaseResource
      * `-1` to indicate the last day of the month.
      */
     protected $day_of_month;
+
+    /**
+     * The earliest date that will be used as a `charge_date` on payments
+     * created for this subscription if it is resumed. Only present for `paused`
+     * subscriptions.
+     * This value will change over time.
+     */
+    protected $earliest_charge_date_after_resume;
 
     /**
      * Date on or after which no further payments should be created.
@@ -167,6 +176,8 @@ class Subscription extends BaseResource
      * subscription have been created</li>
      * <li>`cancelled`: the subscription has been cancelled and will no longer
      * create payments</li>
+     * <li>`paused`: the subscription has been paused and will not create
+     * payments</li>
      * </ul>
      */
     protected $status;
