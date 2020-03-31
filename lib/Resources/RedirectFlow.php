@@ -16,6 +16,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $description
  * @property-read $id
  * @property-read $links
+ * @property-read $metadata
  * @property-read $redirect_url
  * @property-read $scheme
  * @property-read $session_token
@@ -59,6 +60,12 @@ class RedirectFlow extends BaseResource
      * 
      */
     protected $links;
+
+    /**
+     * Key-value store of custom data. Up to 3 keys are permitted, with key
+     * names up to 50 characters and values up to 500 characters.
+     */
+    protected $metadata;
 
     /**
      * The URL of the hosted payment pages for this redirect flow. This is the
