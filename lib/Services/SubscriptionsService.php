@@ -143,6 +143,90 @@ class SubscriptionsService extends BaseService
     }
 
     /**
+    * Pause a subscription
+    *
+    * Example URL: /subscriptions/:identity/actions/pause
+    *
+    * @param  string        $identity Unique identifier, beginning with "SB".
+    * @param  string[mixed] $params   An associative array for any params
+    * @return Subscription
+    **/
+    public function pause($identity, $params = array())
+    {
+        $path = Util::subUrl(
+            '/subscriptions/:identity/actions/pause',
+            array(
+                
+                'identity' => $identity
+            )
+        );
+        if(isset($params['params'])) { 
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
+        
+            unset($params['params']);
+        }
+
+        
+        try {
+            $response = $this->api_client->post($path, $params);
+        } catch(InvalidStateException $e) {
+            if ($e->isIdempotentCreationConflict()) {
+                if ($this->api_client->error_on_idempotency_conflict) {
+                    throw $e;
+                }
+                return $this->get($e->getConflictingResourceId());
+            }
+
+            throw $e;
+        }
+        
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
+    * Resume a subscription
+    *
+    * Example URL: /subscriptions/:identity/actions/resume
+    *
+    * @param  string        $identity Unique identifier, beginning with "SB".
+    * @param  string[mixed] $params   An associative array for any params
+    * @return Subscription
+    **/
+    public function resume($identity, $params = array())
+    {
+        $path = Util::subUrl(
+            '/subscriptions/:identity/actions/resume',
+            array(
+                
+                'identity' => $identity
+            )
+        );
+        if(isset($params['params'])) { 
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
+        
+            unset($params['params']);
+        }
+
+        
+        try {
+            $response = $this->api_client->post($path, $params);
+        } catch(InvalidStateException $e) {
+            if ($e->isIdempotentCreationConflict()) {
+                if ($this->api_client->error_on_idempotency_conflict) {
+                    throw $e;
+                }
+                return $this->get($e->getConflictingResourceId());
+            }
+
+            throw $e;
+        }
+        
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
     * Cancel a subscription
     *
     * Example URL: /subscriptions/:identity/actions/cancel

@@ -17,6 +17,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $created_at
  * @property-read $currency
  * @property-read $day_of_month
+ * @property-read $earliest_charge_date_after_resume
  * @property-read $end_date
  * @property-read $id
  * @property-read $interval
@@ -73,12 +74,22 @@ class Subscription extends BaseResource
     protected $day_of_month;
 
     /**
-     * Date on or after which no further payments should be created. If this
-     * field is blank and `count` is not specified, the subscription will
-     * continue forever. <p
-     * class='deprecated-notice'><strong>Deprecated</strong>: This field will be
-     * removed in a future API version. Use `count` to specify a number of
-     * payments instead. </p>
+     * The earliest date that will be used as a `charge_date` on payments
+     * created for this subscription if it is resumed. Only present for `paused`
+     * subscriptions.
+     * This value will change over time.
+     */
+    protected $earliest_charge_date_after_resume;
+
+    /**
+     * Date on or after which no further payments should be created.
+     * 
+     * If this field is blank and `count` is not specified, the subscription
+     * will continue forever.
+     * 
+     * <p class="deprecated-notice"><strong>Deprecated</strong>: This field will
+     * be removed in a future API version. Use `count` to specify a number of
+     * payments instead.</p>
      */
     protected $end_date;
 
@@ -126,11 +137,15 @@ class Subscription extends BaseResource
 
     /**
      * An optional payment reference. This will be set as the reference on each
-     * payment created and will appear on your customer's bank statement. See
-     * the documentation for the [create payment
-     * endpoint](#payments-create-a-payment) for more details. <p
-     * class='restricted-notice'><strong>Restricted</strong>: You need your own
-     * Service User Number to specify a payment reference for Bacs payments.</p>
+     * payment
+     * created and will appear on your customer's bank statement. See the
+     * documentation for
+     * the [create payment endpoint](#payments-create-a-payment) for more
+     * details.
+     * 
+     * <p class="restricted-notice"><strong>Restricted</strong>: You need your
+     * own Service User Number to specify a payment reference for Bacs
+     * payments.</p>
      */
     protected $payment_reference;
 
@@ -161,6 +176,8 @@ class Subscription extends BaseResource
      * subscription have been created</li>
      * <li>`cancelled`: the subscription has been cancelled and will no longer
      * create payments</li>
+     * <li>`paused`: the subscription has been paused and will not create
+     * payments</li>
      * </ul>
      */
     protected $status;
