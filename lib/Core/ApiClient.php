@@ -101,6 +101,9 @@ class ApiClient
 
     /**
      * Handle any errors in the API response
+     * 
+     * If the response status is 204 - No Content, then we can skip response body
+     * JSON checks.
      *
      * If the response doesn't contain JSON, we will fail to decode and throw a
      * MalFormedResponseException.
@@ -112,6 +115,10 @@ class ApiClient
      */
     private function handleErrors($response)
     {
+        if ($response->getStatusCode() === 204) {
+            return null;
+        }
+
         $json = json_decode($response->getBody());
 
         if ($json === null) {
