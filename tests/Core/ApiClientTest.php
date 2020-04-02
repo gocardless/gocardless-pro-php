@@ -1,10 +1,11 @@
 <?php
 
 namespace GoCardlessPro\Core;
+use PHPUnit\Framework\TestCase;
 
 use GoCardlessPro\Support\TestFixtures;
 
-class ApiClientTest extends \PHPUnit_Framework_TestCase
+class ApiClientTest extends TestCase
 {
     use TestFixtures;
 
@@ -74,9 +75,9 @@ class ApiClientTest extends \PHPUnit_Framework_TestCase
             ))
         );
 
-            $dispatchedRequest = $this->history[0]['request'];
-            $requestIdempotencyKey = $dispatchedRequest->getHeaderLine('Idempotency-Key');
-            $this->assertEquals($requestIdempotencyKey, 'my-custom-idempotency-key');
+        $dispatchedRequest = $this->history[0]['request'];
+        $requestIdempotencyKey = $dispatchedRequest->getHeaderLine('Idempotency-Key');
+        $this->assertEquals($requestIdempotencyKey, 'my-custom-idempotency-key');
     }
 
     public function testMergingOfRandomIdempotencyKeyIntoCustomHeadersForPostRequests()
@@ -95,18 +96,17 @@ class ApiClientTest extends \PHPUnit_Framework_TestCase
             ))
         );
 
-            $dispatchedRequest = $this->history[0]['request'];
-            $requestCustomHeaderValue = $dispatchedRequest->getHeaderLine('My-Custom-Header');
-            $this->assertEquals($requestCustomHeaderValue, 'foo');
-            $this->assertTrue(array_key_exists('Idempotency-Key', $dispatchedRequest->getHeaders()));
+        $dispatchedRequest = $this->history[0]['request'];
+        $requestCustomHeaderValue = $dispatchedRequest->getHeaderLine('My-Custom-Header');
+        $this->assertEquals($requestCustomHeaderValue, 'foo');
+        $this->assertTrue(array_key_exists('Idempotency-Key', $dispatchedRequest->getHeaders()));
     }
 
     public function testMalformedResponse()
     {
-        $this->setExpectedException(
-            'GoCardlessPro\Core\Exception\MalformedResponseException',
-            'Malformed response received from server'
-        );
+        $this->expectException('\GoCardlessPro\Core\Exception\MalformedResponseException');
+        $this->expectExceptionMessage('Malformed response received from server');
+      
         $body = "rubbish non-json response";
         $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], $body));
         $this->api_client->get('/some_endpoint');
@@ -115,7 +115,7 @@ class ApiClientTest extends \PHPUnit_Framework_TestCase
     public function testInvalidStateErrorResponse()
     {
         $fixture = $this->loadFixture('invalid_state_error');
-        $this->setExpectedException('GoCardlessPro\Core\Exception\InvalidStateException');
+        $this->expectException('\GoCardlessPro\Core\Exception\InvalidStateException');
 
         $this->mock->append(new \GuzzleHttp\Psr7\Response(422, ['Content-Type' => 'application/json'], $fixture));
 
@@ -132,7 +132,7 @@ class ApiClientTest extends \PHPUnit_Framework_TestCase
     public function testInvalidApiUsageErrorResponse()
     {
         $fixture = $this->loadFixture('invalid_api_usage_error');
-        $this->setExpectedException('GoCardlessPro\Core\Exception\InvalidApiUsageException');
+        $this->expectException('\GoCardlessPro\Core\Exception\InvalidApiUsageException');
 
         $this->mock->append(new \GuzzleHttp\Psr7\Response(400, ['Content-Type' => 'application/json'], $fixture));
 
@@ -149,7 +149,7 @@ class ApiClientTest extends \PHPUnit_Framework_TestCase
     public function testValidationFailedErrorResponse()
     {
         $fixture = $this->loadFixture('validation_failed_error');
-        $this->setExpectedException('GoCardlessPro\Core\Exception\ValidationFailedException');
+        $this->expectException('\GoCardlessPro\Core\Exception\ValidationFailedException');
 
         $this->mock->append(new \GuzzleHttp\Psr7\Response(422, ['Content-Type' => 'application/json'], $fixture));
 
@@ -166,7 +166,7 @@ class ApiClientTest extends \PHPUnit_Framework_TestCase
     public function testGoCardlessErrorResponse()
     {
         $fixture = $this->loadFixture('gocardless_error');
-        $this->setExpectedException('GoCardlessPro\Core\Exception\GoCardlessInternalException');
+        $this->expectException('\GoCardlessPro\Core\Exception\GoCardlessInternalException');
 
         $this->mock->append(new \GuzzleHttp\Psr7\Response(500, ['Content-Type' => 'application/json'], $fixture));
 

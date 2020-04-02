@@ -6,12 +6,6 @@ CODE_PATHS=./lib ./tests
 test: vendor/
 	./vendor/bin/phpunit
 
-docs:
-	phpdoc -d ./lib -t docs/api --cache-folder docs/cache
-
-clean_docs:
-	rm -r ./docs/api
-
 syntax: vendor/
 	./vendor/bin/phpcs --standard=phpcs-ruleset.xml $(CODE_PATHS)
 

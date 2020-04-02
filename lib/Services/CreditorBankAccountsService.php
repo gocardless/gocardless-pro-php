@@ -26,13 +26,13 @@ class CreditorBankAccountsService extends BaseService
 
 
     /**
-    * Create a creditor bank account
-    *
-    * Example URL: /creditor_bank_accounts
-    *
-    * @param  string[mixed] $params An associative array for any params
-    * @return CreditorBankAccount
-    **/
+     * Create a creditor bank account
+     *
+     * Example URL: /creditor_bank_accounts
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return CreditorBankAccount
+     **/
     public function create($params = array())
     {
         $path = "/creditor_bank_accounts";
@@ -61,13 +61,13 @@ class CreditorBankAccountsService extends BaseService
     }
 
     /**
-    * List creditor bank accounts
-    *
-    * Example URL: /creditor_bank_accounts
-    *
-    * @param  string[mixed] $params An associative array for any params
-    * @return ListResponse
-    **/
+     * List creditor bank accounts
+     *
+     * Example URL: /creditor_bank_accounts
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return ListResponse
+     **/
     protected function _doList($params = array())
     {
         $path = "/creditor_bank_accounts";
@@ -83,14 +83,14 @@ class CreditorBankAccountsService extends BaseService
     }
 
     /**
-    * Get a single creditor bank account
-    *
-    * Example URL: /creditor_bank_accounts/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "BA".
-    * @param  string[mixed] $params   An associative array for any params
-    * @return CreditorBankAccount
-    **/
+     * Get a single creditor bank account
+     *
+     * Example URL: /creditor_bank_accounts/:identity
+     *
+     * @param  string        $identity Unique identifier, beginning with "BA".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return CreditorBankAccount
+     **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -112,14 +112,14 @@ class CreditorBankAccountsService extends BaseService
     }
 
     /**
-    * Disable a creditor bank account
-    *
-    * Example URL: /creditor_bank_accounts/:identity/actions/disable
-    *
-    * @param  string        $identity Unique identifier, beginning with "BA".
-    * @param  string[mixed] $params   An associative array for any params
-    * @return CreditorBankAccount
-    **/
+     * Disable a creditor bank account
+     *
+     * Example URL: /creditor_bank_accounts/:identity/actions/disable
+     *
+     * @param  string        $identity Unique identifier, beginning with "BA".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return CreditorBankAccount
+     **/
     public function disable($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -154,13 +154,13 @@ class CreditorBankAccountsService extends BaseService
     }
 
     /**
-    * List creditor bank accounts
-    *
-    * Example URL: /creditor_bank_accounts
-    *
-    * @param  string[mixed] $params
-    * @return Paginator
-    **/
+     * List creditor bank accounts
+     *
+     * Example URL: /creditor_bank_accounts
+     *
+     * @param  string[mixed] $params
+     * @return Paginator
+     **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

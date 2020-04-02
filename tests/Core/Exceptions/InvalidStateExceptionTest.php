@@ -2,10 +2,11 @@
 
 namespace GoCardlessPro\Core\Exception;
 
+use PHPUnit\Framework\TestCase;
 use GoCardlessPro\Core\ApiResponse;
 use GoCardlessPro\Support\TestFixtures;
 
-class InvalidStateExceptionTest extends \PHPUnit_Framework_TestCase
+class InvalidStateExceptionTest extends TestCase
 {
     use TestFixtures;
 

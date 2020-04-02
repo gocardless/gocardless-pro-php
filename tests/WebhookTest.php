@@ -1,8 +1,9 @@
 <?php
 
 namespace GoCardlessPro;
+use PHPUnit\Framework\TestCase;
 
-class WebhookTest extends \PHPUnit_Framework_TestCase
+class WebhookTest extends TestCase
 {
     private $request_body = '{"events":[{"id":"EV00BD05S5VM2T","created_at":"2018-07-05T09:13:51.404Z","resource_type":"subscriptions","action":"created","links":{"subscription":"SB0003JJQ2MR06"},"details":{"origin":"api","cause":"subscription_created","description":"Subscription created via the API."},"metadata":{}},{"id":"EV00BD05TB8K63","created_at":"2018-07-05T09:13:56.893Z","resource_type":"mandates","action":"created","links":{"mandate":"MD000AMA19XGEC"},"details":{"origin":"api","cause":"mandate_created","description":"Mandate created via the API."},"metadata":{}}]}';
     private $webhook_endpoint_secret = "ED7D658C-D8EB-4941-948B-3973214F2D49";
@@ -38,7 +39,8 @@ class WebhookTest extends \PHPUnit_Framework_TestCase
 
     public function testParseWithInvalidSignature()
     {
-        $this->setExpectedException('GoCardlessPro\Core\Exception\InvalidSignatureException');
+        
+        $this->expectException('\GoCardlessPro\Core\Exception\InvalidSignatureException');
 
         $signature_header = "not_correct";
         Webhook::parse($this->request_body, $signature_header, $this->webhook_endpoint_secret);

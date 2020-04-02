@@ -2,6 +2,8 @@
 
 namespace GoCardlessPro\Resources;
 
+use PHPUnit\Framework\TestCase;
+
 class FakeResource extends BaseResource
 {
     protected $model_name = "FakeResource";
@@ -14,7 +16,7 @@ class FakeResource extends BaseResource
 /**
  * Test Various Resources Classes
  */
-class ResourceTest extends \PHPUnit_Framework_TestCase
+class ResourceTest extends TestCase
 {
     public function testValidGetter()
     {
@@ -33,10 +35,8 @@ class ResourceTest extends \PHPUnit_Framework_TestCase
 
     public function testInvalidGetter()
     {
-        $this->setExpectedException(
-            'GoCardlessPro\Core\Exception\GoCardlessProException',
-            'unknown is not a valid FakeResource property'
-        );
+        $this->expectException('\GoCardlessPro\Core\Exception\GoCardlessProException');
+        $this->expectExceptionMessage('unknown is not a valid FakeResource property');
 
         $resource = new FakeResource((object) array('foo' => 'bar'));
         $resource->unknown;

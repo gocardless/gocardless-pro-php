@@ -1,8 +1,9 @@
 <?php
 
 namespace GoCardlessPro;
+use PHPUnit\Framework\TestCase;
 
-class RetryMiddlewarFactoryTest extends \PHPUnit_Framework_TestCase
+class RetryMiddlewarFactoryTest extends TestCase
 {
     public function testRetryMiddlewareRetriesGetRequestsWhichTimeout()
     {
@@ -90,7 +91,7 @@ class RetryMiddlewarFactoryTest extends \PHPUnit_Framework_TestCase
 
         $client = new \GuzzleHttp\Client(array('handler' => $handler));
 
-        $this->setExpectedException('\GuzzleHttp\Exception\ConnectException');
+        $this->expectException('\GuzzleHttp\Exception\ConnectException');
         $client->request('POST', '/payments/PM123/actions/cancel');
     }
 }

@@ -3,7 +3,7 @@
 namespace GoCardlessPro\Core;
 
 /**
- * @package GoCardlessPro
+ * @package    GoCardlessPro
  * @subpackage Core
  */
 class ApiResponse

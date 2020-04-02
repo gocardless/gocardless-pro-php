@@ -26,13 +26,13 @@ class PaymentsService extends BaseService
 
 
     /**
-    * Create a payment
-    *
-    * Example URL: /payments
-    *
-    * @param  string[mixed] $params An associative array for any params
-    * @return Payment
-    **/
+     * Create a payment
+     *
+     * Example URL: /payments
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return Payment
+     **/
     public function create($params = array())
     {
         $path = "/payments";
@@ -61,13 +61,13 @@ class PaymentsService extends BaseService
     }
 
     /**
-    * List payments
-    *
-    * Example URL: /payments
-    *
-    * @param  string[mixed] $params An associative array for any params
-    * @return ListResponse
-    **/
+     * List payments
+     *
+     * Example URL: /payments
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return ListResponse
+     **/
     protected function _doList($params = array())
     {
         $path = "/payments";
@@ -83,14 +83,14 @@ class PaymentsService extends BaseService
     }
 
     /**
-    * Get a single payment
-    *
-    * Example URL: /payments/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "PM".
-    * @param  string[mixed] $params   An associative array for any params
-    * @return Payment
-    **/
+     * Get a single payment
+     *
+     * Example URL: /payments/:identity
+     *
+     * @param  string        $identity Unique identifier, beginning with "PM".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return Payment
+     **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -112,14 +112,14 @@ class PaymentsService extends BaseService
     }
 
     /**
-    * Update a payment
-    *
-    * Example URL: /payments/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "PM".
-    * @param  string[mixed] $params   An associative array for any params
-    * @return Payment
-    **/
+     * Update a payment
+     *
+     * Example URL: /payments/:identity
+     *
+     * @param  string        $identity Unique identifier, beginning with "PM".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return Payment
+     **/
     public function update($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -143,14 +143,14 @@ class PaymentsService extends BaseService
     }
 
     /**
-    * Cancel a payment
-    *
-    * Example URL: /payments/:identity/actions/cancel
-    *
-    * @param  string        $identity Unique identifier, beginning with "PM".
-    * @param  string[mixed] $params   An associative array for any params
-    * @return Payment
-    **/
+     * Cancel a payment
+     *
+     * Example URL: /payments/:identity/actions/cancel
+     *
+     * @param  string        $identity Unique identifier, beginning with "PM".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return Payment
+     **/
     public function cancel($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -185,14 +185,14 @@ class PaymentsService extends BaseService
     }
 
     /**
-    * Retry a payment
-    *
-    * Example URL: /payments/:identity/actions/retry
-    *
-    * @param  string        $identity Unique identifier, beginning with "PM".
-    * @param  string[mixed] $params   An associative array for any params
-    * @return Payment
-    **/
+     * Retry a payment
+     *
+     * Example URL: /payments/:identity/actions/retry
+     *
+     * @param  string        $identity Unique identifier, beginning with "PM".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return Payment
+     **/
     public function retry($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -227,13 +227,13 @@ class PaymentsService extends BaseService
     }
 
     /**
-    * List payments
-    *
-    * Example URL: /payments
-    *
-    * @param  string[mixed] $params
-    * @return Paginator
-    **/
+     * List payments
+     *
+     * Example URL: /payments
+     *
+     * @param  string[mixed] $params
+     * @return Paginator
+     **/
     public function all($params = array())
     {
         return new Paginator($this, $params);
