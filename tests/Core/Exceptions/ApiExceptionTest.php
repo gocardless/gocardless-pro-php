@@ -2,10 +2,11 @@
 
 namespace GoCardlessPro\Core\Exception;
 
+use PHPUnit\Framework\TestCase;
 use GoCardlessPro\Core\ApiResponse;
 use GoCardlessPro\Support\TestFixtures;
 
-class ApiExceptionTest extends \PHPUnit_Framework_TestCase
+class ApiExceptionTest extends TestCase
 {
     use TestFixtures;
 

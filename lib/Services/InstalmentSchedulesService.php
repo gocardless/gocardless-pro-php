@@ -26,13 +26,13 @@ class InstalmentSchedulesService extends BaseService
 
 
     /**
-    * Create (with dates)
-    *
-    * Example URL: /instalment_schedules
-    *
-    * @param  string[mixed] $params An associative array for any params
-    * @return InstalmentSchedule
-    **/
+     * Create (with dates)
+     *
+     * Example URL: /instalment_schedules
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return InstalmentSchedule
+     **/
     public function createWithDates($params = array())
     {
         $path = "/instalment_schedules";
@@ -61,13 +61,13 @@ class InstalmentSchedulesService extends BaseService
     }
 
     /**
-    * Create (with schedule)
-    *
-    * Example URL: /instalment_schedules
-    *
-    * @param  string[mixed] $params An associative array for any params
-    * @return InstalmentSchedule
-    **/
+     * Create (with schedule)
+     *
+     * Example URL: /instalment_schedules
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return InstalmentSchedule
+     **/
     public function createWithSchedule($params = array())
     {
         $path = "/instalment_schedules";
@@ -96,13 +96,13 @@ class InstalmentSchedulesService extends BaseService
     }
 
     /**
-    * List instalment schedules
-    *
-    * Example URL: /instalment_schedules
-    *
-    * @param  string[mixed] $params An associative array for any params
-    * @return ListResponse
-    **/
+     * List instalment schedules
+     *
+     * Example URL: /instalment_schedules
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return ListResponse
+     **/
     protected function _doList($params = array())
     {
         $path = "/instalment_schedules";
@@ -118,14 +118,14 @@ class InstalmentSchedulesService extends BaseService
     }
 
     /**
-    * Get a single instalment schedule
-    *
-    * Example URL: /instalment_schedules/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "IS".
-    * @param  string[mixed] $params   An associative array for any params
-    * @return InstalmentSchedule
-    **/
+     * Get a single instalment schedule
+     *
+     * Example URL: /instalment_schedules/:identity
+     *
+     * @param  string        $identity Unique identifier, beginning with "IS".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return InstalmentSchedule
+     **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -147,14 +147,14 @@ class InstalmentSchedulesService extends BaseService
     }
 
     /**
-    * Cancel an instalment schedule
-    *
-    * Example URL: /instalment_schedules/:identity/actions/cancel
-    *
-    * @param  string        $identity Unique identifier, beginning with "IS".
-    * @param  string[mixed] $params   An associative array for any params
-    * @return InstalmentSchedule
-    **/
+     * Cancel an instalment schedule
+     *
+     * Example URL: /instalment_schedules/:identity/actions/cancel
+     *
+     * @param  string        $identity Unique identifier, beginning with "IS".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return InstalmentSchedule
+     **/
     public function cancel($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -189,13 +189,13 @@ class InstalmentSchedulesService extends BaseService
     }
 
     /**
-    * List instalment schedules
-    *
-    * Example URL: /instalment_schedules
-    *
-    * @param  string[mixed] $params
-    * @return Paginator
-    **/
+     * List instalment schedules
+     *
+     * Example URL: /instalment_schedules
+     *
+     * @param  string[mixed] $params
+     * @return Paginator
+     **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

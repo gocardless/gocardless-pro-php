@@ -255,9 +255,9 @@ try {
 
 For more details on working with webhooks, see our ["Getting started" guide](https://developer.gocardless.com/getting-started/api/introduction/?lang=php).
 
-## Supporting PHP >= 5.6
+## Supporting PHP >= 7.2
 
-This client library only supports PHP >= 5.6. Earlier releases of PHP are now considered
+This client library only supports PHP >= 7.2. Earlier releases of PHP are now considered
 [end of life](http://php.net/supported-versions.php) and may be exposed to security
 vunerabilities.
 

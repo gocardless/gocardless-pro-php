@@ -26,13 +26,13 @@ class RedirectFlowsService extends BaseService
 
 
     /**
-    * Create a redirect flow
-    *
-    * Example URL: /redirect_flows
-    *
-    * @param  string[mixed] $params An associative array for any params
-    * @return RedirectFlow
-    **/
+     * Create a redirect flow
+     *
+     * Example URL: /redirect_flows
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return RedirectFlow
+     **/
     public function create($params = array())
     {
         $path = "/redirect_flows";
@@ -61,14 +61,14 @@ class RedirectFlowsService extends BaseService
     }
 
     /**
-    * Get a single redirect flow
-    *
-    * Example URL: /redirect_flows/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "RE".
-    * @param  string[mixed] $params   An associative array for any params
-    * @return RedirectFlow
-    **/
+     * Get a single redirect flow
+     *
+     * Example URL: /redirect_flows/:identity
+     *
+     * @param  string        $identity Unique identifier, beginning with "RE".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return RedirectFlow
+     **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -90,14 +90,14 @@ class RedirectFlowsService extends BaseService
     }
 
     /**
-    * Complete a redirect flow
-    *
-    * Example URL: /redirect_flows/:identity/actions/complete
-    *
-    * @param  string        $identity Unique identifier, beginning with "RE".
-    * @param  string[mixed] $params   An associative array for any params
-    * @return RedirectFlow
-    **/
+     * Complete a redirect flow
+     *
+     * Example URL: /redirect_flows/:identity/actions/complete
+     *
+     * @param  string        $identity Unique identifier, beginning with "RE".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return RedirectFlow
+     **/
     public function complete($identity, $params = array())
     {
         $path = Util::subUrl(

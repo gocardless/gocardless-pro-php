@@ -2,19 +2,18 @@
 
 namespace GoCardlessPro\Core\Exception;
 
+use PHPUnit\Framework\TestCase;
 use GoCardlessPro\Core\ApiResponse;
 use GoCardlessPro\Support\TestFixtures;
 
-class ErrorTest extends \PHPUnit_Framework_TestCase
+class ErrorTest extends TestCase
 {
     use TestFixtures;
 
     public function testInvalidStateExecptionMessage()
     {
-        $this->setExpectedException(
-            'GoCardlessPro\Core\Exception\InvalidStateException',
-            'Mandate is already active or being submitted'
-        );
+        $this->expectException('\GoCardlessPro\Core\Exception\InvalidStateException');
+        $this->expectExceptionMessage('Mandate is already active or being submitted');
 
         $fixture = $this->loadJsonFixture('invalid_state_error');
         $raw_response = new \GuzzleHttp\Psr7\Response($fixture->error->code, [], json_encode($fixture));
@@ -24,10 +23,8 @@ class ErrorTest extends \PHPUnit_Framework_TestCase
 
     public function testInvalidApiUsageMessage()
     {
-        $this->setExpectedException(
-            'GoCardlessPro\Core\Exception\InvalidApiUsageException',
-            'Invalid document structure (Root element must be an object.)'
-        );
+        $this->expectException('\GoCardlessPro\Core\Exception\InvalidApiUsageException');
+        $this->expectExceptionMessage('Invalid document structure (Root element must be an object.)');
 
         $fixture = $this->loadJsonFixture('invalid_api_usage_error');
         $raw_response = new \GuzzleHttp\Psr7\Response($fixture->error->code, [], json_encode($fixture));
@@ -37,10 +34,8 @@ class ErrorTest extends \PHPUnit_Framework_TestCase
 
     public function testValidationFailedMessage()
     {
-        $this->setExpectedException(
-            'GoCardlessPro\Core\Exception\ValidationFailedException',
-            'Validation failed (branch_code must be a number, country_code is invalid)'
-        );
+        $this->expectException('\GoCardlessPro\Core\Exception\ValidationFailedException');
+        $this->expectExceptionMessage('Validation failed (branch_code must be a number, country_code is invalid)');
 
         $fixture = $this->loadJsonFixture('validation_failed_error');
         $raw_response = new \GuzzleHttp\Psr7\Response($fixture->error->code, [], json_encode($fixture));
@@ -50,10 +45,8 @@ class ErrorTest extends \PHPUnit_Framework_TestCase
 
     public function testValidationFailedWithoutFieldMessage()
     {
-        $this->setExpectedException(
-            'GoCardlessPro\Core\Exception\ValidationFailedException',
-            'Validation failed (Bank account already exists)'
-        );
+        $this->expectException('\GoCardlessPro\Core\Exception\ValidationFailedException');
+        $this->expectExceptionMessage('Validation failed (Bank account already exists)');
 
         $fixture = $this->loadJsonFixture('validation_failed_error_without_field');
         $raw_response = new \GuzzleHttp\Psr7\Response($fixture->error->code, [], json_encode($fixture));
@@ -63,10 +56,8 @@ class ErrorTest extends \PHPUnit_Framework_TestCase
 
     public function testGoCardlessException()
     {
-        $this->setExpectedException(
-            'GoCardlessPro\Core\Exception\GoCardlessInternalException',
-            'Uh-oh!'
-        );
+        $this->expectException('\GoCardlessPro\Core\Exception\GoCardlessInternalException');
+        $this->expectExceptionMessage('Uh-oh!');
 
         $fixture = $this->loadJsonFixture('gocardless_error');
         $raw_response = new \GuzzleHttp\Psr7\Response($fixture->error->code, [], json_encode($fixture));

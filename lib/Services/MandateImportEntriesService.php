@@ -26,13 +26,13 @@ class MandateImportEntriesService extends BaseService
 
 
     /**
-    * Add a mandate import entry
-    *
-    * Example URL: /mandate_import_entries
-    *
-    * @param  string[mixed] $params An associative array for any params
-    * @return MandateImportEntry
-    **/
+     * Add a mandate import entry
+     *
+     * Example URL: /mandate_import_entries
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return MandateImportEntry
+     **/
     public function create($params = array())
     {
         $path = "/mandate_import_entries";
@@ -50,13 +50,13 @@ class MandateImportEntriesService extends BaseService
     }
 
     /**
-    * List all mandate import entries
-    *
-    * Example URL: /mandate_import_entries
-    *
-    * @param  string[mixed] $params An associative array for any params
-    * @return ListResponse
-    **/
+     * List all mandate import entries
+     *
+     * Example URL: /mandate_import_entries
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return ListResponse
+     **/
     protected function _doList($params = array())
     {
         $path = "/mandate_import_entries";
@@ -72,13 +72,13 @@ class MandateImportEntriesService extends BaseService
     }
 
     /**
-    * List all mandate import entries
-    *
-    * Example URL: /mandate_import_entries
-    *
-    * @param  string[mixed] $params
-    * @return Paginator
-    **/
+     * List all mandate import entries
+     *
+     * Example URL: /mandate_import_entries
+     *
+     * @param  string[mixed] $params
+     * @return Paginator
+     **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

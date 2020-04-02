@@ -26,13 +26,13 @@ class SubscriptionsService extends BaseService
 
 
     /**
-    * Create a subscription
-    *
-    * Example URL: /subscriptions
-    *
-    * @param  string[mixed] $params An associative array for any params
-    * @return Subscription
-    **/
+     * Create a subscription
+     *
+     * Example URL: /subscriptions
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return Subscription
+     **/
     public function create($params = array())
     {
         $path = "/subscriptions";
@@ -61,13 +61,13 @@ class SubscriptionsService extends BaseService
     }
 
     /**
-    * List subscriptions
-    *
-    * Example URL: /subscriptions
-    *
-    * @param  string[mixed] $params An associative array for any params
-    * @return ListResponse
-    **/
+     * List subscriptions
+     *
+     * Example URL: /subscriptions
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return ListResponse
+     **/
     protected function _doList($params = array())
     {
         $path = "/subscriptions";
@@ -83,14 +83,14 @@ class SubscriptionsService extends BaseService
     }
 
     /**
-    * Get a single subscription
-    *
-    * Example URL: /subscriptions/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "SB".
-    * @param  string[mixed] $params   An associative array for any params
-    * @return Subscription
-    **/
+     * Get a single subscription
+     *
+     * Example URL: /subscriptions/:identity
+     *
+     * @param  string        $identity Unique identifier, beginning with "SB".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return Subscription
+     **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -112,14 +112,14 @@ class SubscriptionsService extends BaseService
     }
 
     /**
-    * Update a subscription
-    *
-    * Example URL: /subscriptions/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "SB".
-    * @param  string[mixed] $params   An associative array for any params
-    * @return Subscription
-    **/
+     * Update a subscription
+     *
+     * Example URL: /subscriptions/:identity
+     *
+     * @param  string        $identity Unique identifier, beginning with "SB".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return Subscription
+     **/
     public function update($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -143,14 +143,14 @@ class SubscriptionsService extends BaseService
     }
 
     /**
-    * Pause a subscription
-    *
-    * Example URL: /subscriptions/:identity/actions/pause
-    *
-    * @param  string        $identity Unique identifier, beginning with "SB".
-    * @param  string[mixed] $params   An associative array for any params
-    * @return Subscription
-    **/
+     * Pause a subscription
+     *
+     * Example URL: /subscriptions/:identity/actions/pause
+     *
+     * @param  string        $identity Unique identifier, beginning with "SB".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return Subscription
+     **/
     public function pause($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -185,14 +185,14 @@ class SubscriptionsService extends BaseService
     }
 
     /**
-    * Resume a subscription
-    *
-    * Example URL: /subscriptions/:identity/actions/resume
-    *
-    * @param  string        $identity Unique identifier, beginning with "SB".
-    * @param  string[mixed] $params   An associative array for any params
-    * @return Subscription
-    **/
+     * Resume a subscription
+     *
+     * Example URL: /subscriptions/:identity/actions/resume
+     *
+     * @param  string        $identity Unique identifier, beginning with "SB".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return Subscription
+     **/
     public function resume($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -227,14 +227,14 @@ class SubscriptionsService extends BaseService
     }
 
     /**
-    * Cancel a subscription
-    *
-    * Example URL: /subscriptions/:identity/actions/cancel
-    *
-    * @param  string        $identity Unique identifier, beginning with "SB".
-    * @param  string[mixed] $params   An associative array for any params
-    * @return Subscription
-    **/
+     * Cancel a subscription
+     *
+     * Example URL: /subscriptions/:identity/actions/cancel
+     *
+     * @param  string        $identity Unique identifier, beginning with "SB".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return Subscription
+     **/
     public function cancel($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -269,13 +269,13 @@ class SubscriptionsService extends BaseService
     }
 
     /**
-    * List subscriptions
-    *
-    * Example URL: /subscriptions
-    *
-    * @param  string[mixed] $params
-    * @return Paginator
-    **/
+     * List subscriptions
+     *
+     * Example URL: /subscriptions
+     *
+     * @param  string[mixed] $params
+     * @return Paginator
+     **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

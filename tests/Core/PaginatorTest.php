@@ -1,7 +1,7 @@
 <?php
 
 namespace GoCardlessPro\Core;
-
+use PHPUnit\Framework\TestCase;
 use GoCardlessPro\Resources\BaseResource;
 
 class FakePaginationResource extends BaseResource
@@ -11,7 +11,7 @@ class FakePaginationResource extends BaseResource
     protected $name;
 }
 
-class PaginatorTest extends \PHPUnit_Framework_TestCase
+class PaginatorTest extends TestCase
 {
     private function build_list_response($raw_body)
     {

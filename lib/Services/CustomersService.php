@@ -26,13 +26,13 @@ class CustomersService extends BaseService
 
 
     /**
-    * Create a customer
-    *
-    * Example URL: /customers
-    *
-    * @param  string[mixed] $params An associative array for any params
-    * @return Customer
-    **/
+     * Create a customer
+     *
+     * Example URL: /customers
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return Customer
+     **/
     public function create($params = array())
     {
         $path = "/customers";
@@ -61,13 +61,13 @@ class CustomersService extends BaseService
     }
 
     /**
-    * List customers
-    *
-    * Example URL: /customers
-    *
-    * @param  string[mixed] $params An associative array for any params
-    * @return ListResponse
-    **/
+     * List customers
+     *
+     * Example URL: /customers
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return ListResponse
+     **/
     protected function _doList($params = array())
     {
         $path = "/customers";
@@ -83,14 +83,14 @@ class CustomersService extends BaseService
     }
 
     /**
-    * Get a single customer
-    *
-    * Example URL: /customers/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "CU".
-    * @param  string[mixed] $params   An associative array for any params
-    * @return Customer
-    **/
+     * Get a single customer
+     *
+     * Example URL: /customers/:identity
+     *
+     * @param  string        $identity Unique identifier, beginning with "CU".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return Customer
+     **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -112,14 +112,14 @@ class CustomersService extends BaseService
     }
 
     /**
-    * Update a customer
-    *
-    * Example URL: /customers/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "CU".
-    * @param  string[mixed] $params   An associative array for any params
-    * @return Customer
-    **/
+     * Update a customer
+     *
+     * Example URL: /customers/:identity
+     *
+     * @param  string        $identity Unique identifier, beginning with "CU".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return Customer
+     **/
     public function update($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -143,14 +143,14 @@ class CustomersService extends BaseService
     }
 
     /**
-    * Remove a customer
-    *
-    * Example URL: /customers/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "CU".
-    * @param  string[mixed] $params   An associative array for any params
-    * @return Customer
-    **/
+     * Remove a customer
+     *
+     * Example URL: /customers/:identity
+     *
+     * @param  string        $identity Unique identifier, beginning with "CU".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return Customer
+     **/
     public function remove($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -172,13 +172,13 @@ class CustomersService extends BaseService
     }
 
     /**
-    * List customers
-    *
-    * Example URL: /customers
-    *
-    * @param  string[mixed] $params
-    * @return Paginator
-    **/
+     * List customers
+     *
+     * Example URL: /customers
+     *
+     * @param  string[mixed] $params
+     * @return Paginator
+     **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

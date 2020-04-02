@@ -26,13 +26,13 @@ class CurrencyExchangeRatesService extends BaseService
 
 
     /**
-    * List exchange rates
-    *
-    * Example URL: /currency_exchange_rates
-    *
-    * @param  string[mixed] $params An associative array for any params
-    * @return ListResponse
-    **/
+     * List exchange rates
+     *
+     * Example URL: /currency_exchange_rates
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return ListResponse
+     **/
     protected function _doList($params = array())
     {
         $path = "/currency_exchange_rates";
@@ -48,13 +48,13 @@ class CurrencyExchangeRatesService extends BaseService
     }
 
     /**
-    * List exchange rates
-    *
-    * Example URL: /currency_exchange_rates
-    *
-    * @param  string[mixed] $params
-    * @return Paginator
-    **/
+     * List exchange rates
+     *
+     * Example URL: /currency_exchange_rates
+     *
+     * @param  string[mixed] $params
+     * @return Paginator
+     **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

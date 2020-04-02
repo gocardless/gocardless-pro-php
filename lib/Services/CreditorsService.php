@@ -26,13 +26,13 @@ class CreditorsService extends BaseService
 
 
     /**
-    * Create a creditor
-    *
-    * Example URL: /creditors
-    *
-    * @param  string[mixed] $params An associative array for any params
-    * @return Creditor
-    **/
+     * Create a creditor
+     *
+     * Example URL: /creditors
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return Creditor
+     **/
     public function create($params = array())
     {
         $path = "/creditors";
@@ -61,13 +61,13 @@ class CreditorsService extends BaseService
     }
 
     /**
-    * List creditors
-    *
-    * Example URL: /creditors
-    *
-    * @param  string[mixed] $params An associative array for any params
-    * @return ListResponse
-    **/
+     * List creditors
+     *
+     * Example URL: /creditors
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return ListResponse
+     **/
     protected function _doList($params = array())
     {
         $path = "/creditors";
@@ -83,14 +83,14 @@ class CreditorsService extends BaseService
     }
 
     /**
-    * Get a single creditor
-    *
-    * Example URL: /creditors/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "CR".
-    * @param  string[mixed] $params   An associative array for any params
-    * @return Creditor
-    **/
+     * Get a single creditor
+     *
+     * Example URL: /creditors/:identity
+     *
+     * @param  string        $identity Unique identifier, beginning with "CR".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return Creditor
+     **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -112,14 +112,14 @@ class CreditorsService extends BaseService
     }
 
     /**
-    * Update a creditor
-    *
-    * Example URL: /creditors/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "CR".
-    * @param  string[mixed] $params   An associative array for any params
-    * @return Creditor
-    **/
+     * Update a creditor
+     *
+     * Example URL: /creditors/:identity
+     *
+     * @param  string        $identity Unique identifier, beginning with "CR".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return Creditor
+     **/
     public function update($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -143,13 +143,13 @@ class CreditorsService extends BaseService
     }
 
     /**
-    * List creditors
-    *
-    * Example URL: /creditors
-    *
-    * @param  string[mixed] $params
-    * @return Paginator
-    **/
+     * List creditors
+     *
+     * Example URL: /creditors
+     *
+     * @param  string[mixed] $params
+     * @return Paginator
+     **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

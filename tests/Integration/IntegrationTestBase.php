@@ -6,10 +6,11 @@
 
 namespace GoCardlessPro\Integration;
 
+use PHPUnit\Framework\TestCase;
 use GoCardlessPro\Environment;
 use GoCardlessPro\Support\TestFixtures;
 
-abstract class IntegrationTestBase extends \PHPUnit_Framework_TestCase
+abstract class IntegrationTestBase extends TestCase
 {
     use TestFixtures;
 

@@ -11,18 +11,18 @@ class Client
     const CA_CERT_FILENAME = 'cacert.pem';
 
     /**
-    * @var Core\ApiClient Internal reference to Api Client
-    */
+     * @var Core\ApiClient Internal reference to Api Client
+     */
     private $api_client;
 
     /**
      * @param array $config
      *     An array of config parameters
      *
-     *     @type string $environment
-     *     @type string $access_token
-     *     @type float $timeout
-     *     @type string $http_client
+     * @type string $environment
+     * @type string $access_token
+     * @type float $timeout
+     * @type string $http_client
      */
     public function __construct($config)
     {
@@ -59,7 +59,7 @@ class Client
                 'Content-Type' => 'application/json',
                 'Authorization' => "Bearer " . $access_token,
                 'GoCardless-Client-Library' => 'gocardless-pro-php',
-                'GoCardless-Client-Version' => '3.6.2',
+                'GoCardless-Client-Version' => '4.0.0',
                 'User-Agent' => $this->getUserAgent()
                 ),
                 'http_errors' => false,
@@ -75,6 +75,7 @@ class Client
     
     /**
      * Service for interacting with bank details lookups
+     *
      * @return Services\BankDetailsLookupsService
      */
     public function bankDetailsLookups()
@@ -88,6 +89,7 @@ class Client
     
     /**
      * Service for interacting with creditors
+     *
      * @return Services\CreditorsService
      */
     public function creditors()
@@ -101,6 +103,7 @@ class Client
     
     /**
      * Service for interacting with creditor bank accounts
+     *
      * @return Services\CreditorBankAccountsService
      */
     public function creditorBankAccounts()
@@ -114,6 +117,7 @@ class Client
     
     /**
      * Service for interacting with currency exchange rates
+     *
      * @return Services\CurrencyExchangeRatesService
      */
     public function currencyExchangeRates()
@@ -127,6 +131,7 @@ class Client
     
     /**
      * Service for interacting with customers
+     *
      * @return Services\CustomersService
      */
     public function customers()
@@ -140,6 +145,7 @@ class Client
     
     /**
      * Service for interacting with customer bank accounts
+     *
      * @return Services\CustomerBankAccountsService
      */
     public function customerBankAccounts()
@@ -153,6 +159,7 @@ class Client
     
     /**
      * Service for interacting with customer notifications
+     *
      * @return Services\CustomerNotificationsService
      */
     public function customerNotifications()
@@ -166,6 +173,7 @@ class Client
     
     /**
      * Service for interacting with events
+     *
      * @return Services\EventsService
      */
     public function events()
@@ -179,6 +187,7 @@ class Client
     
     /**
      * Service for interacting with instalment schedule
+     *
      * @return Services\InstalmentSchedulesService
      */
     public function instalmentSchedules()
@@ -192,6 +201,7 @@ class Client
     
     /**
      * Service for interacting with mandates
+     *
      * @return Services\MandatesService
      */
     public function mandates()
@@ -205,6 +215,7 @@ class Client
     
     /**
      * Service for interacting with mandate imports
+     *
      * @return Services\MandateImportsService
      */
     public function mandateImports()
@@ -218,6 +229,7 @@ class Client
     
     /**
      * Service for interacting with mandate import entries
+     *
      * @return Services\MandateImportEntriesService
      */
     public function mandateImportEntries()
@@ -231,6 +243,7 @@ class Client
     
     /**
      * Service for interacting with mandate pdfs
+     *
      * @return Services\MandatePdfsService
      */
     public function mandatePdfs()
@@ -244,6 +257,7 @@ class Client
     
     /**
      * Service for interacting with payments
+     *
      * @return Services\PaymentsService
      */
     public function payments()
@@ -257,6 +271,7 @@ class Client
     
     /**
      * Service for interacting with payouts
+     *
      * @return Services\PayoutsService
      */
     public function payouts()
@@ -270,6 +285,7 @@ class Client
     
     /**
      * Service for interacting with payout items
+     *
      * @return Services\PayoutItemsService
      */
     public function payoutItems()
@@ -283,6 +299,7 @@ class Client
     
     /**
      * Service for interacting with redirect flows
+     *
      * @return Services\RedirectFlowsService
      */
     public function redirectFlows()
@@ -296,6 +313,7 @@ class Client
     
     /**
      * Service for interacting with refunds
+     *
      * @return Services\RefundsService
      */
     public function refunds()
@@ -309,6 +327,7 @@ class Client
     
     /**
      * Service for interacting with subscriptions
+     *
      * @return Services\SubscriptionsService
      */
     public function subscriptions()
@@ -369,7 +388,7 @@ class Client
     {
         $curlinfo = curl_version();
         $uagent = array();
-        $uagent[] = 'gocardless-pro-php/3.6.2';
+        $uagent[] = 'gocardless-pro-php/4.0.0';
         $uagent[] = 'schema-version/2015-07-06';
         $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::VERSION;
         $uagent[] = 'php/' . phpversion();
@@ -382,6 +401,7 @@ class Client
 
     /**
      * Internal function for finding the path to cacert.pem
+     *
      * @return Path to the cacert.pem file
      */
     private function getCACertPath()

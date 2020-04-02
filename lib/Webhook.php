@@ -18,10 +18,10 @@ class Webhook
      * objects representing each event included in the webhook.
      *
      * @param  string $request_body            the request body
-     * @param  string $signature_header        the signature included in the request, found in the `Webhook-Signature` header
-     *     `Webhook-Signature` header
+     * @param  string $signature_header        the signature included in the request, found in the
+     *                                         `Webhook-Signature` header
      * @param  string $webhook_endpoint_secret the webhook endpoint secret for your webhook
-     *     endpoint, as configured in your GoCardless Dashboard
+     *                                         endpoint, as configured in your GoCardless Dashboard
      * @return GoCardlessPro\Resources\Event[] the events included in the
      *     webhook
      * @raises GoCardlessPro\Core\Exception\InvalidSignatureException if the
@@ -44,10 +44,10 @@ class Webhook
      * the signature included in the `Webhook-Signature` header.
      *
      * @param  string $request_body            the request body
-     * @param  string $signature_header        the signature included in the request, found in the `Webhook-Signature` header
-     *     `Webhook-Signature` header
+     * @param  string $signature_header        the signature included in the request, found in the
+     *                                         `Webhook-Signature` header
      * @param  string $webhook_endpoint_secret the webhook endpoint secret for your webhook
-     *     endpoint, as configured in your GoCardless Dashboard
+     *                                         endpoint, as configured in your GoCardless Dashboard
      * @return boolean whether the webhook's signature is valid
      */
     public static function isSignatureValid($request_body, $signature_header, $webhook_endpoint_secret)
@@ -59,7 +59,7 @@ class Webhook
     /**
      * Internal function for converting a parsed stdObject into an event resource
      */
-    private static function buildEvent($event) 
+    private static function buildEvent($event)
     {
         return new Resources\Event($event);
     }

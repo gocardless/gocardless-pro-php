@@ -26,13 +26,13 @@ class RefundsService extends BaseService
 
 
     /**
-    * Create a refund
-    *
-    * Example URL: /refunds
-    *
-    * @param  string[mixed] $params An associative array for any params
-    * @return Refund
-    **/
+     * Create a refund
+     *
+     * Example URL: /refunds
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return Refund
+     **/
     public function create($params = array())
     {
         $path = "/refunds";
@@ -61,13 +61,13 @@ class RefundsService extends BaseService
     }
 
     /**
-    * List refunds
-    *
-    * Example URL: /refunds
-    *
-    * @param  string[mixed] $params An associative array for any params
-    * @return ListResponse
-    **/
+     * List refunds
+     *
+     * Example URL: /refunds
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return ListResponse
+     **/
     protected function _doList($params = array())
     {
         $path = "/refunds";
@@ -83,14 +83,14 @@ class RefundsService extends BaseService
     }
 
     /**
-    * Get a single refund
-    *
-    * Example URL: /refunds/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "RF".
-    * @param  string[mixed] $params   An associative array for any params
-    * @return Refund
-    **/
+     * Get a single refund
+     *
+     * Example URL: /refunds/:identity
+     *
+     * @param  string        $identity Unique identifier, beginning with "RF".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return Refund
+     **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -112,14 +112,14 @@ class RefundsService extends BaseService
     }
 
     /**
-    * Update a refund
-    *
-    * Example URL: /refunds/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "RF".
-    * @param  string[mixed] $params   An associative array for any params
-    * @return Refund
-    **/
+     * Update a refund
+     *
+     * Example URL: /refunds/:identity
+     *
+     * @param  string        $identity Unique identifier, beginning with "RF".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return Refund
+     **/
     public function update($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -143,13 +143,13 @@ class RefundsService extends BaseService
     }
 
     /**
-    * List refunds
-    *
-    * Example URL: /refunds
-    *
-    * @param  string[mixed] $params
-    * @return Paginator
-    **/
+     * List refunds
+     *
+     * Example URL: /refunds
+     *
+     * @param  string[mixed] $params
+     * @return Paginator
+     **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

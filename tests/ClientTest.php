@@ -1,24 +1,28 @@
 <?php
 
 namespace GoCardlessPro;
+use PHPUnit\Framework\TestCase;
 
-class ClientTest extends \PHPUnit_Framework_TestCase
+class ClientTest extends TestCase
 {
     public function testNoEnvironmentCreationFails()
     {
-        $this->setExpectedException('Exception', 'Missing required option `environment`.');
+        $this->expectException('Exception');
+        $this->expectExceptionMessage('Missing required option `environment`.');
         $client = new Client(array('access_token' => 'foo'));
     }
 
     public function testNoAccessTokenCreationFails()
     {
-        $this->setExpectedException('Exception', 'Missing required option `access_token`.');
+        $this->expectException('Exception');
+        $this->expectExceptionMessage('Missing required option `access_token`.');
         $client = new Client(array('environment' => 'live'));
     }
 
     public function testOnlyStringArguments()
     {
-        $this->setExpectedException('Exception', 'Option `access_token` can only be a string.');
+        $this->expectException('Exception');
+        $this->expectExceptionMessage('Option `access_token` can only be a string.');
         $client = new Client(array('access_token' => array(), 'environment' => 'live'));
     }
 

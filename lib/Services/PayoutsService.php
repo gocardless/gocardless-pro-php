@@ -26,13 +26,13 @@ class PayoutsService extends BaseService
 
 
     /**
-    * List payouts
-    *
-    * Example URL: /payouts
-    *
-    * @param  string[mixed] $params An associative array for any params
-    * @return ListResponse
-    **/
+     * List payouts
+     *
+     * Example URL: /payouts
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return ListResponse
+     **/
     protected function _doList($params = array())
     {
         $path = "/payouts";
@@ -48,14 +48,14 @@ class PayoutsService extends BaseService
     }
 
     /**
-    * Get a single payout
-    *
-    * Example URL: /payouts/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "PO".
-    * @param  string[mixed] $params   An associative array for any params
-    * @return Payout
-    **/
+     * Get a single payout
+     *
+     * Example URL: /payouts/:identity
+     *
+     * @param  string        $identity Unique identifier, beginning with "PO".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return Payout
+     **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -77,13 +77,13 @@ class PayoutsService extends BaseService
     }
 
     /**
-    * List payouts
-    *
-    * Example URL: /payouts
-    *
-    * @param  string[mixed] $params
-    * @return Paginator
-    **/
+     * List payouts
+     *
+     * Example URL: /payouts
+     *
+     * @param  string[mixed] $params
+     * @return Paginator
+     **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

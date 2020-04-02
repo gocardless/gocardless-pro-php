@@ -10,6 +10,7 @@ namespace GoCardlessPro\Core;
 /**
  * Wrapper for a list of models in a response
  * Decodes from a Response
+ *
  * @subpackage Core
  */
 class ListResponse

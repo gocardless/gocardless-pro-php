@@ -2,6 +2,7 @@
 
 namespace GoCardlessPro\Core;
 
+use PHPUnit\Framework\TestCase;
 use GoCardlessPro\Core\Exceptions;
 use GoCardlessPro\Resources\BaseResource;
 
@@ -12,7 +13,7 @@ class FakeResource extends BaseResource
     protected $foo;
 }
 
-class ListResponseTest extends \PHPUnit_Framework_TestCase
+class ListResponseTest extends TestCase
 {
     protected $http_response;
 
