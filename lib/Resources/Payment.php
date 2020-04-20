@@ -109,8 +109,8 @@ class Payment extends BaseResource
     protected $reference;
 
     /**
-     * On failure, automatically retry the payment using [Optimise Smart Payment
-     * Retries](#optimise-smart-payment-retries). Default is `false`.
+     * On failure, automatically retry the payment using [intelligent
+     * retries](#success-intelligent-retries). Default is `false`.
      */
     protected $retry_if_possible;
 
