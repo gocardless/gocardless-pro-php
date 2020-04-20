@@ -77,6 +77,37 @@ class PayoutsService extends BaseService
     }
 
     /**
+     * Update a payout
+     *
+     * Example URL: /payouts/:identity
+     *
+     * @param  string        $identity Unique identifier, beginning with "PO".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return Payout
+     **/
+    public function update($identity, $params = array())
+    {
+        $path = Util::subUrl(
+            '/payouts/:identity',
+            array(
+                
+                'identity' => $identity
+            )
+        );
+        if(isset($params['params'])) { 
+            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+        
+            unset($params['params']);
+        }
+
+        
+        $response = $this->api_client->put($path, $params);
+        
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
      * List payouts
      *
      * Example URL: /payouts

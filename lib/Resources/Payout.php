@@ -19,6 +19,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $fx
  * @property-read $id
  * @property-read $links
+ * @property-read $metadata
  * @property-read $payout_type
  * @property-read $reference
  * @property-read $status
@@ -87,6 +88,12 @@ class Payout extends BaseResource
      * 
      */
     protected $links;
+
+    /**
+     * Key-value store of custom data. Up to 3 keys are permitted, with key
+     * names up to 50 characters and values up to 500 characters.
+     */
+    protected $metadata;
 
     /**
      * Whether a payout contains merchant revenue or partner fees.
