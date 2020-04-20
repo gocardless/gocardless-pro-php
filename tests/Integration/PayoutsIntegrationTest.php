@@ -43,6 +43,7 @@ class PayoutsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->fx, $record->fx);
             $this->assertEquals($body[$num]->id, $record->id);
             $this->assertEquals($body[$num]->links, $record->links);
+            $this->assertEquals($body[$num]->metadata, $record->metadata);
             $this->assertEquals($body[$num]->payout_type, $record->payout_type);
             $this->assertEquals($body[$num]->reference, $record->reference);
             $this->assertEquals($body[$num]->status, $record->status);
@@ -75,6 +76,39 @@ class PayoutsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->fx, $response->fx);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->metadata, $response->metadata);
+        $this->assertEquals($body->payout_type, $response->payout_type);
+        $this->assertEquals($body->reference, $response->reference);
+        $this->assertEquals($body->status, $response->status);
+    
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+    }
+
+    
+    public function testPayoutsUpdate()
+    {
+        $fixture = $this->loadJsonFixture('payouts')->update;
+        $this->stub_request($fixture);
+
+        $service = $this->client->payouts();
+        $response = call_user_func_array(array($service, 'update'), (array)$fixture->url_params);
+
+        $body = $fixture->body->payouts;
+    
+        $this->assertInstanceOf('\GoCardlessPro\Resources\Payout', $response);
+
+        $this->assertEquals($body->amount, $response->amount);
+        $this->assertEquals($body->arrival_date, $response->arrival_date);
+        $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->currency, $response->currency);
+        $this->assertEquals($body->deducted_fees, $response->deducted_fees);
+        $this->assertEquals($body->fx, $response->fx);
+        $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->payout_type, $response->payout_type);
         $this->assertEquals($body->reference, $response->reference);
         $this->assertEquals($body->status, $response->status);
