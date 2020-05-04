@@ -17,6 +17,11 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the CreditorBankAccount
  * endpoints of the API
+ *
+ * @method create()
+ * @method list()
+ * @method get()
+ * @method disable()
  */
 class CreditorBankAccountsService extends BaseService
 {

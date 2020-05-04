@@ -17,6 +17,14 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the Subscription
  * endpoints of the API
+ *
+ * @method create()
+ * @method list()
+ * @method get()
+ * @method update()
+ * @method pause()
+ * @method resume()
+ * @method cancel()
  */
 class SubscriptionsService extends BaseService
 {

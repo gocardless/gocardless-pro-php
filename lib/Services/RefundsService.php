@@ -17,6 +17,11 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the Refund
  * endpoints of the API
+ *
+ * @method create()
+ * @method list()
+ * @method get()
+ * @method update()
  */
 class RefundsService extends BaseService
 {

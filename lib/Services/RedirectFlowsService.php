@@ -17,6 +17,10 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the RedirectFlow
  * endpoints of the API
+ *
+ * @method create()
+ * @method get()
+ * @method complete()
  */
 class RedirectFlowsService extends BaseService
 {

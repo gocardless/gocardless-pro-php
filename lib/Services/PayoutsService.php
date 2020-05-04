@@ -17,6 +17,10 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the Payout
  * endpoints of the API
+ *
+ * @method list()
+ * @method get()
+ * @method update()
  */
 class PayoutsService extends BaseService
 {

@@ -17,6 +17,12 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the Customer
  * endpoints of the API
+ *
+ * @method create()
+ * @method list()
+ * @method get()
+ * @method update()
+ * @method remove()
  */
 class CustomersService extends BaseService
 {
