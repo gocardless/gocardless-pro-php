@@ -17,6 +17,11 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the MandateImport
  * endpoints of the API
+ *
+ * @method create()
+ * @method get()
+ * @method submit()
+ * @method cancel()
  */
 class MandateImportsService extends BaseService
 {

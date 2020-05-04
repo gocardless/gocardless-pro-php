@@ -17,6 +17,8 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the CustomerNotification
  * endpoints of the API
+ *
+ * @method handle()
  */
 class CustomerNotificationsService extends BaseService
 {

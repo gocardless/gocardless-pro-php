@@ -17,6 +17,9 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the Event
  * endpoints of the API
+ *
+ * @method list()
+ * @method get()
  */
 class EventsService extends BaseService
 {

@@ -17,6 +17,12 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the InstalmentSchedule
  * endpoints of the API
+ *
+ * @method createWithDates()
+ * @method createWithSchedule()
+ * @method list()
+ * @method get()
+ * @method cancel()
  */
 class InstalmentSchedulesService extends BaseService
 {

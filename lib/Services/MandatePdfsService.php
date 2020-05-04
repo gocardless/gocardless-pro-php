@@ -17,6 +17,8 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the MandatePdf
  * endpoints of the API
+ *
+ * @method create()
  */
 class MandatePdfsService extends BaseService
 {

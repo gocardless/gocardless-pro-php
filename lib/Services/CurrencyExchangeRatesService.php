@@ -17,6 +17,8 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the CurrencyExchangeRate
  * endpoints of the API
+ *
+ * @method list()
  */
 class CurrencyExchangeRatesService extends BaseService
 {
