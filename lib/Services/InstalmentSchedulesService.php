@@ -22,6 +22,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * @method createWithSchedule()
  * @method list()
  * @method get()
+ * @method update()
  * @method cancel()
  */
 class InstalmentSchedulesService extends BaseService
@@ -147,6 +148,37 @@ class InstalmentSchedulesService extends BaseService
 
         
         $response = $this->api_client->get($path, $params);
+        
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
+     * Update an instalment schedule
+     *
+     * Example URL: /instalment_schedules/:identity
+     *
+     * @param  string        $identity Unique identifier, beginning with "IS".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return InstalmentSchedule
+     **/
+    public function update($identity, $params = array())
+    {
+        $path = Util::subUrl(
+            '/instalment_schedules/:identity',
+            array(
+                
+                'identity' => $identity
+            )
+        );
+        if(isset($params['params'])) { 
+            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+        
+            unset($params['params']);
+        }
+
+        
+        $response = $this->api_client->put($path, $params);
         
 
         return $this->getResourceForResponse($response);

@@ -214,6 +214,35 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
     }
 
     
+    public function testInstalmentSchedulesUpdate()
+    {
+        $fixture = $this->loadJsonFixture('instalment_schedules')->update;
+        $this->stub_request($fixture);
+
+        $service = $this->client->instalmentSchedules();
+        $response = call_user_func_array(array($service, 'update'), (array)$fixture->url_params);
+
+        $body = $fixture->body->instalment_schedules;
+    
+        $this->assertInstanceOf('\GoCardlessPro\Resources\InstalmentSchedule', $response);
+
+        $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->currency, $response->currency);
+        $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->metadata, $response->metadata);
+        $this->assertEquals($body->name, $response->name);
+        $this->assertEquals($body->payment_errors, $response->payment_errors);
+        $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->total_amount, $response->total_amount);
+    
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+    }
+
+    
     public function testInstalmentSchedulesCancel()
     {
         $fixture = $this->loadJsonFixture('instalment_schedules')->cancel;
