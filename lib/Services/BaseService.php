@@ -61,6 +61,9 @@ abstract class BaseService
      */
     protected function getResourceForResponse($response)
     {
+        if ($response->getStatusCode() === 204) {
+            return null;
+        }
         $api_response = new \GoCardlessPro\Core\ApiResponse($response);
         $unenveloped_body = $this->getUnenvelopedBody($api_response->body);
 
