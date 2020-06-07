@@ -22,9 +22,9 @@ class Webhook
      *                                         `Webhook-Signature` header
      * @param  string $webhook_endpoint_secret the webhook endpoint secret for your webhook
      *                                         endpoint, as configured in your GoCardless Dashboard
-     * @return GoCardlessPro\Resources\Event[] the events included in the
+     * @return Resources\Event[] the events included in the
      *     webhook
-     * @raises GoCardlessPro\Core\Exception\InvalidSignatureException if the
+     * @throws Core\Exception\InvalidSignatureException if the
      *     signature header specified does not match the signature computed using the
      *     request body and webhook endpoint secret
      */
