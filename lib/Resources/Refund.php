@@ -72,8 +72,8 @@ class Refund extends BaseResource
      * <strong>BECS</strong> - 30 characters<br /> <strong>BECS NZ</strong> - 12
      * characters<br /> <strong>Betalingsservice</strong> - 30 characters<br />
      * <strong>PAD</strong> - 12 characters<br /> <strong>SEPA</strong> - 140
-     * characters Note that this reference must be unique (for each merchant)
-     * for the BECS scheme as it is a scheme requirement. <p
+     * characters<br /> Note that this reference must be unique (for each
+     * merchant) for the BECS scheme as it is a scheme requirement. <p
      * class='restricted-notice'><strong>Restricted</strong>: You can only
      * specify a payment reference for Bacs payments (that is, when collecting
      * from the UK) if you're on the <a
