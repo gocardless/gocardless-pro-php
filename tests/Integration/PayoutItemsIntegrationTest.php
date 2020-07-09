@@ -37,6 +37,7 @@ class PayoutItemsIntegrationTest extends IntegrationTestBase
             $record = $records[$num];
             $this->assertEquals($body[$num]->amount, $record->amount);
             $this->assertEquals($body[$num]->links, $record->links);
+            $this->assertEquals($body[$num]->taxes, $record->taxes);
             $this->assertEquals($body[$num]->type, $record->type);
             
         }

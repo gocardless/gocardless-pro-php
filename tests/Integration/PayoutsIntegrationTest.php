@@ -47,6 +47,7 @@ class PayoutsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->payout_type, $record->payout_type);
             $this->assertEquals($body[$num]->reference, $record->reference);
             $this->assertEquals($body[$num]->status, $record->status);
+            $this->assertEquals($body[$num]->tax_currency, $record->tax_currency);
             
         }
 
@@ -80,6 +81,7 @@ class PayoutsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->payout_type, $response->payout_type);
         $this->assertEquals($body->reference, $response->reference);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->tax_currency, $response->tax_currency);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -112,6 +114,7 @@ class PayoutsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->payout_type, $response->payout_type);
         $this->assertEquals($body->reference, $response->reference);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->tax_currency, $response->tax_currency);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
