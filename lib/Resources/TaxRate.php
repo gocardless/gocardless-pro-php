@@ -23,8 +23,8 @@ class TaxRate extends BaseResource
     protected $model_name = "TaxRate";
 
     /**
-     * End date at which the tax rate was applied to creditors in the
-     * Jurisdiction.
+     * Date at which GoCardless stopped applying the tax rate for the
+     * jurisdiction.
      */
     protected $end_date;
 
@@ -34,7 +34,7 @@ class TaxRate extends BaseResource
     protected $id;
 
     /**
-     * The jurisdiction this tax rate applies too
+     * The jurisdiction this tax rate applies to
      */
     protected $jurisdiction;
 
@@ -44,7 +44,8 @@ class TaxRate extends BaseResource
     protected $percentage;
 
     /**
-     * Time at which the rate was retrieved from the provider.
+     * Date at which GoCardless started applying the tax rate in the
+     * jurisdiction.
      */
     protected $start_date;
 
