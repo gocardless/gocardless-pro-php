@@ -339,6 +339,20 @@ class Client
         return $this->subscriptions;
     }
     
+    /**
+     * Service for interacting with tax rates
+     *
+     * @return Services\TaxRatesService
+     */
+    public function taxRates()
+    {
+        if (!isset($this->tax_rates)) {
+            $this->tax_rates = new Services\TaxRatesService($this->api_client);
+        }
+
+        return $this->tax_rates;
+    }
+    
     private function getUrlForEnvironment($environment)
     {
         $environment_urls = array(
