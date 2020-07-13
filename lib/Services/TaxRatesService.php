@@ -53,20 +53,20 @@ class TaxRatesService extends BaseService
     /**
      * Get a single tax rate
      *
-     * Example URL: /tax_rates/:id
+     * Example URL: /tax_rates/:identity
      *
-     * @param  string        $id     The unique identifier created by the jurisdiction, tax type
-     *                               and version
-     * @param  string[mixed] $params An associative array for any params
+     * @param  string        $identity The unique identifier created by the jurisdiction, tax type
+                                 and version
+     * @param  string[mixed] $params   An associative array for any params
      * @return TaxRate
      **/
-    public function get($id, $params = array())
+    public function get($identity, $params = array())
     {
         $path = Util::subUrl(
-            '/tax_rates/:id',
+            '/tax_rates/:identity',
             array(
                 
-                'id' => $id
+                'identity' => $identity
             )
         );
         if(isset($params['params'])) { $params['query'] = $params['params'];

@@ -7,8 +7,8 @@
   },
   "get": {
     "method": "GET",
-    "path_template": "/tax_rates/:id",
-    "url_params": {"id": "GB_VAT_1"},
+    "path_template": "/tax_rates/:identity",
+    "url_params": {"identity": "GB_VAT_1"},
     "body": {"tax_rates":{"end_date":"2014-01-01","id":"GB_VAT_1","jurisdiction":"GBP","percentage":"20.0","start_date":"2014-01-01","type":"VAT"}}
   }
 }
