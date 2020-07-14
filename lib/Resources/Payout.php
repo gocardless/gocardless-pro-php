@@ -23,6 +23,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $payout_type
  * @property-read $reference
  * @property-read $status
+ * @property-read $tax_currency
  */
 class Payout extends BaseResource
 {
@@ -60,7 +61,7 @@ class Payout extends BaseResource
 
     /**
      * Fees that have already been deducted from the payout amount in minor unit
-     * (e.g. pence in GBP, cents in EUR).
+     * (e.g. pence in GBP, cents in EUR), inclusive of tax if applicable.
      * 
      * For each `late_failure_settled` or `chargeback_settled` action, we refund
      * the transaction fees in a payout. This means that a payout can have a
@@ -116,5 +117,13 @@ class Payout extends BaseResource
      * </ul>
      */
     protected $status;
+
+    /**
+     * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) code for
+     * the currency in which tax is paid out to the tax authorities of your tax
+     * jurisdiction. Currently “EUR”, “GBP”, for French or British merchants,
+     * this will be `null` if tax is not applicable <em>beta</em>
+     */
+    protected $tax_currency;
 
 }

@@ -59,7 +59,7 @@ class Client
                 'Content-Type' => 'application/json',
                 'Authorization' => "Bearer " . $access_token,
                 'GoCardless-Client-Library' => 'gocardless-pro-php',
-                'GoCardless-Client-Version' => '4.3.0',
+                'GoCardless-Client-Version' => '4.4.0',
                 'User-Agent' => $this->getUserAgent()
                 ),
                 'http_errors' => false,
@@ -339,6 +339,20 @@ class Client
         return $this->subscriptions;
     }
     
+    /**
+     * Service for interacting with tax rates
+     *
+     * @return Services\TaxRatesService
+     */
+    public function taxRates()
+    {
+        if (!isset($this->tax_rates)) {
+            $this->tax_rates = new Services\TaxRatesService($this->api_client);
+        }
+
+        return $this->tax_rates;
+    }
+    
     private function getUrlForEnvironment($environment)
     {
         $environment_urls = array(
@@ -388,7 +402,7 @@ class Client
     {
         $curlinfo = curl_version();
         $uagent = array();
-        $uagent[] = 'gocardless-pro-php/4.3.0';
+        $uagent[] = 'gocardless-pro-php/4.4.0';
         $uagent[] = 'schema-version/2015-07-06';
         $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::VERSION;
         $uagent[] = 'php/' . phpversion();

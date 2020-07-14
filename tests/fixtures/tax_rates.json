@@ -1,0 +1,15 @@
+{ 
+  "list": {
+    "method": "GET",
+    "path_template": "/tax_rates",
+    "url_params": {},
+    "body": {"meta":{"cursors":{"after":"example after 5447","before":"example before 5094"},"limit":50},"tax_rates":[{"end_date":"2014-01-01","id":"GB_VAT_1","jurisdiction":"GBP","percentage":"20.0","start_date":"2014-01-01","type":"VAT"},{"end_date":"2014-01-01","id":"GB_VAT_1","jurisdiction":"GBP","percentage":"20.0","start_date":"2014-01-01","type":"VAT"}]}
+  },
+  "get": {
+    "method": "GET",
+    "path_template": "/tax_rates/:identity",
+    "url_params": {"identity": "GB_VAT_1"},
+    "body": {"tax_rates":{"end_date":"2014-01-01","id":"GB_VAT_1","jurisdiction":"GBP","percentage":"20.0","start_date":"2014-01-01","type":"VAT"}}
+  }
+}
+
