@@ -361,7 +361,7 @@ class Client
         );
 
         if(!array_key_exists($environment, $environment_urls)) {
-            throw new \InvalidArgumentException("$environment is not a valid environment, please use one of " . implode(array_keys($environment_urls), ", "));
+            throw new \InvalidArgumentException("$environment is not a valid environment, please use one of " . implode(", ", array_keys($environment_urls)));
         }
 
         return $environment_urls[$environment];
