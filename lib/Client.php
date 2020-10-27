@@ -59,7 +59,7 @@ class Client
                 'Content-Type' => 'application/json',
                 'Authorization' => "Bearer " . $access_token,
                 'GoCardless-Client-Library' => 'gocardless-pro-php',
-                'GoCardless-Client-Version' => '4.6.0',
+                'GoCardless-Client-Version' => '4.6.1',
                 'User-Agent' => $this->getUserAgent()
                 ),
                 'http_errors' => false,
@@ -361,7 +361,7 @@ class Client
         );
 
         if(!array_key_exists($environment, $environment_urls)) {
-            throw new \InvalidArgumentException("$environment is not a valid environment, please use one of " . implode(array_keys($environment_urls), ", "));
+            throw new \InvalidArgumentException("$environment is not a valid environment, please use one of " . implode(", ", array_keys($environment_urls)));
         }
 
         return $environment_urls[$environment];
@@ -402,7 +402,7 @@ class Client
     {
         $curlinfo = curl_version();
         $uagent = array();
-        $uagent[] = 'gocardless-pro-php/4.6.0';
+        $uagent[] = 'gocardless-pro-php/4.6.1';
         $uagent[] = 'schema-version/2015-07-06';
         $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::VERSION;
         $uagent[] = 'php/' . phpversion();
