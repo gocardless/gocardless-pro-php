@@ -256,6 +256,20 @@ class Client
     }
     
     /**
+     * Service for interacting with payer authorisations
+     *
+     * @return Services\PayerAuthorisationsService
+     */
+    public function payerAuthorisations()
+    {
+        if (!isset($this->payer_authorisations)) {
+            $this->payer_authorisations = new Services\PayerAuthorisationsService($this->api_client);
+        }
+
+        return $this->payer_authorisations;
+    }
+    
+    /**
      * Service for interacting with payments
      *
      * @return Services\PaymentsService
