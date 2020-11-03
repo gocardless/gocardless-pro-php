@@ -59,7 +59,7 @@ class Client
                 'Content-Type' => 'application/json',
                 'Authorization' => "Bearer " . $access_token,
                 'GoCardless-Client-Library' => 'gocardless-pro-php',
-                'GoCardless-Client-Version' => '4.6.1',
+                'GoCardless-Client-Version' => '4.7.0',
                 'User-Agent' => $this->getUserAgent()
                 ),
                 'http_errors' => false,
@@ -256,6 +256,20 @@ class Client
     }
     
     /**
+     * Service for interacting with payer authorisations
+     *
+     * @return Services\PayerAuthorisationsService
+     */
+    public function payerAuthorisations()
+    {
+        if (!isset($this->payer_authorisations)) {
+            $this->payer_authorisations = new Services\PayerAuthorisationsService($this->api_client);
+        }
+
+        return $this->payer_authorisations;
+    }
+    
+    /**
      * Service for interacting with payments
      *
      * @return Services\PaymentsService
@@ -402,7 +416,7 @@ class Client
     {
         $curlinfo = curl_version();
         $uagent = array();
-        $uagent[] = 'gocardless-pro-php/4.6.1';
+        $uagent[] = 'gocardless-pro-php/4.7.0';
         $uagent[] = 'schema-version/2015-07-06';
         $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::VERSION;
         $uagent[] = 'php/' . phpversion();
