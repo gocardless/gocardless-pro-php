@@ -43,13 +43,13 @@ class RetryMiddlewareFactory
                 return false;
             }
 
-            if ($request->getMethod() == "GET" || $request->getMethod() == "PUT") {
+            if ($request->getMethod() === "GET" || $request->getMethod() === "PUT") {
                 return true;
             }
 
             $path = $request->getUri()->getPath();
 
-            if ($request->getMethod() == "POST") {
+            if ($request->getMethod() === "POST") {
                 if (!preg_match(self::ACTIONS_PATH_REGEX, $path)) {
                     return true;
                 }

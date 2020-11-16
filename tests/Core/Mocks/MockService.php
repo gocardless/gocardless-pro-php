@@ -13,7 +13,7 @@ class MockService
 
     public function __call($name, $args)
     {
-        if ($name == 'list') {
+        if ($name === 'list') {
             return $this->_doList($args[0]);
         }
         return false;
