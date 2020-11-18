@@ -23,7 +23,10 @@ class ApiClientTest extends TestCase
             ]
         );
 
-        $this->api_client = new ApiClient($this->mock_http_client, false);
+        $this->api_client = new ApiClient(
+            $this->mock_http_client,
+            ["error_on_idempotency_conflict" => false]
+        );
     }
 
     public function testGetQueryEncoding()
@@ -106,7 +109,7 @@ class ApiClientTest extends TestCase
     {
         $this->expectException('\GoCardlessPro\Core\Exception\MalformedResponseException');
         $this->expectExceptionMessage('Malformed response received from server');
-      
+
         $body = "rubbish non-json response";
         $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], $body));
         $this->api_client->get('/some_endpoint');

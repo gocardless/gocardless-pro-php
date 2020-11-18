@@ -21,7 +21,7 @@ class InvalidStateException extends ApiException
     private function getIdempotentCreationConflictError()
     {
         foreach ($this->getErrors() as $error) {
-            if ($error->reason == 'idempotent_creation_conflict') {
+            if ($error->reason === 'idempotent_creation_conflict') {
                 return $error;
             }
         }
