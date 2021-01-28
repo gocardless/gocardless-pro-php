@@ -1,0 +1,21 @@
+{ 
+  "list": {
+    "method": "GET",
+    "path_template": "/webhooks",
+    "url_params": {},
+    "body": {"meta":{"cursors":{"after":"example after 8582","before":"example before 8591"},"limit":50},"webhooks":[{"created_at":"2014-01-01T12:00:00.000Z","id":"WB123","is_test":false,"request_body":"example request_body 9757","request_headers":{},"response_body":"example response_body 7425","response_body_truncated":false,"response_code":1598,"response_headers":{},"response_headers_content_truncated":true,"response_headers_count_truncated":true,"successful":true,"url":"https://example.com/webhooks"},{"created_at":"2014-01-01T12:00:00.000Z","id":"WB123","is_test":false,"request_body":"example request_body 8010","request_headers":{},"response_body":"example response_body 8590","response_body_truncated":false,"response_code":8553,"response_headers":{},"response_headers_content_truncated":true,"response_headers_count_truncated":true,"successful":true,"url":"https://example.com/webhooks"}]}
+  },
+  "get": {
+    "method": "GET",
+    "path_template": "/webhooks/:identity",
+    "url_params": {"identity": "WB123"},
+    "body": {"webhooks":{"created_at":"2014-01-01T12:00:00.000Z","id":"WB123","is_test":true,"request_body":"example request_body 1297","request_headers":{},"response_body":"example response_body 7726","response_body_truncated":true,"response_code":9271,"response_headers":{},"response_headers_content_truncated":false,"response_headers_count_truncated":true,"successful":true,"url":"https://example.com/webhooks"}}
+  },
+  "retry": {
+    "method": "POST",
+    "path_template": "/webhooks/:identity/actions/retry",
+    "url_params": {"identity": "WB123"},
+    "body": {"webhooks":{"created_at":"2014-01-01T12:00:00.000Z","id":"WB123","is_test":true,"request_body":"example request_body 2079","request_headers":{},"response_body":"example response_body 9819","response_body_truncated":false,"response_code":3086,"response_headers":{},"response_headers_content_truncated":true,"response_headers_count_truncated":false,"successful":false,"url":"https://example.com/webhooks"}}
+  }
+}
+

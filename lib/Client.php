@@ -367,6 +367,20 @@ class Client
         return $this->tax_rates;
     }
     
+    /**
+     * Service for interacting with webhooks
+     *
+     * @return Services\WebhooksService
+     */
+    public function webhooks()
+    {
+        if (!isset($this->webhooks)) {
+            $this->webhooks = new Services\WebhooksService($this->api_client);
+        }
+
+        return $this->webhooks;
+    }
+    
     private function getUrlForEnvironment($environment)
     {
         $environment_urls = array(
