@@ -1,0 +1,9 @@
+{ 
+  "list": {
+    "method": "GET",
+    "path_template": "/scenario_simulators",
+    "url_params": {},
+    "body": {"scenario_simulators":[{"description":"Transitions a payment through to `failed`.\nIt must start in the `pending_submission` state, and its mandate must be in the `activated` state\n(unless it is a payment for ACH, BECS, BECS_NZ or SEPA, in which cases the mandate may be `pending_submission`, since their mandates are submitted with their first payment)","id":"payment_failed","name":"Payment failed","resource_type":"payment"},{"description":"Transitions a payment through to `failed`.\nIt must start in the `pending_submission` state, and its mandate must be in the `activated` state\n(unless it is a payment for ACH, BECS, BECS_NZ or SEPA, in which cases the mandate may be `pending_submission`, since their mandates are submitted with their first payment)","id":"payment_failed","name":"Payment failed","resource_type":"payment"}]}
+  }
+}
+

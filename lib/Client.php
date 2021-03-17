@@ -340,6 +340,20 @@ class Client
     }
     
     /**
+     * Service for interacting with scenario simulators
+     *
+     * @return Services\ScenarioSimulatorsService
+     */
+    public function scenarioSimulators()
+    {
+        if (!isset($this->scenario_simulators)) {
+            $this->scenario_simulators = new Services\ScenarioSimulatorsService($this->api_client);
+        }
+
+        return $this->scenario_simulators;
+    }
+    
+    /**
      * Service for interacting with subscriptions
      *
      * @return Services\SubscriptionsService
