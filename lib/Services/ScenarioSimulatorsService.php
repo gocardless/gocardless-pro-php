@@ -17,7 +17,6 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the ScenarioSimulator
  * endpoints of the API
- *  @method list()
  *  @method run()
  */
 class ScenarioSimulatorsService extends BaseService
@@ -26,28 +25,6 @@ class ScenarioSimulatorsService extends BaseService
     protected $envelope_key   = 'scenario_simulators';
     protected $resource_class = '\GoCardlessPro\Resources\ScenarioSimulator';
 
-
-    /**
-    * List available scenario simulators
-    *
-    * Example URL: /scenario_simulators
-    *
-    * @param  string[mixed] $params An associative array for any params
-    * @return ListResponse
-    **/
-    protected function _doList($params = array())
-    {
-        $path = "/scenario_simulators";
-        if(isset($params['params'])) { $params['query'] = $params['params'];
-          unset($params['params']);
-        }
-
-        
-        $response = $this->api_client->get($path, $params);
-        
-
-        return $this->getResourceForResponse($response);
-    }
 
     /**
     * Simulate a scenario
@@ -96,19 +73,6 @@ class ScenarioSimulatorsService extends BaseService
         
 
         return $this->getResourceForResponse($response);
-    }
-
-    /**
-    * List available scenario simulators
-    *
-    * Example URL: /scenario_simulators
-    *
-    * @param string[mixed] $params
-    * @return Paginator
-    **/
-    public function all($params = array())
-    {
-        return new Paginator($this, $params);
     }
 
 }

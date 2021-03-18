@@ -11,20 +11,11 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a scenario_simulator, providing access to its
  * attributes
  *
- * @property-read $description
  * @property-read $id
- * @property-read $name
- * @property-read $resource_type
  */
 class ScenarioSimulator extends BaseResource
 {
     protected $model_name = "ScenarioSimulator";
-
-    /**
-     * A short description of what the simulator does and anything you should
-     * know about using it (e.g. what state the resource should be in).
-     */
-    protected $description;
 
     /**
      * The unique identifier of the simulator, used to initiate simulations. One
@@ -48,16 +39,5 @@ class ScenarioSimulator extends BaseResource
      * </ul>
      */
     protected $id;
-
-    /**
-     * The name of the simulator, suitable for displaying to the user,
-     * translated into their language
-     */
-    protected $name;
-
-    /**
-     * The type of resource which the simulator operates on
-     */
-    protected $resource_type;
 
 }

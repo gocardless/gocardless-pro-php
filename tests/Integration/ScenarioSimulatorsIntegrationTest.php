@@ -14,40 +14,6 @@ class ScenarioSimulatorsIntegrationTest extends IntegrationTestBase
         $this->assertNotNull($obj);
     }
     
-    public function testScenarioSimulatorsList()
-    {
-        $fixture = $this->loadJsonFixture('scenario_simulators')->list;
-        $this->stub_request($fixture);
-
-        $service = $this->client->scenarioSimulators();
-        $response = call_user_func_array(array($service, 'list'), (array)$fixture->url_params);
-
-        $body = $fixture->body->scenario_simulators;
-    
-        $records = $response->records;
-        $this->assertInstanceOf('\GoCardlessPro\Core\ListResponse', $response);
-        $this->assertInstanceOf('\GoCardlessPro\Resources\ScenarioSimulator', $records[0]);
-
-        $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
-        $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
-    
-
-    
-        foreach (range(0, count($body) - 1) as $num) {
-            $record = $records[$num];
-            $this->assertEquals($body[$num]->description, $record->description);
-            $this->assertEquals($body[$num]->id, $record->id);
-            $this->assertEquals($body[$num]->name, $record->name);
-            $this->assertEquals($body[$num]->resource_type, $record->resource_type);
-            
-        }
-
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
-        $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
-    }
-
-    
 
     
 }
