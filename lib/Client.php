@@ -88,6 +88,20 @@ class Client
     }
     
     /**
+     * Service for interacting with customer requests
+     *
+     * @return Services\BillingRequestsService
+     */
+    public function billingRequests()
+    {
+        if (!isset($this->billing_requests)) {
+            $this->billing_requests = new Services\BillingRequestsService($this->api_client);
+        }
+
+        return $this->billing_requests;
+    }
+    
+    /**
      * Service for interacting with creditors
      *
      * @return Services\CreditorsService
