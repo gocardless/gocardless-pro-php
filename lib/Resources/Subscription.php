@@ -83,10 +83,10 @@ class Subscription extends BaseResource
 
     /**
      * Date on or after which no further payments should be created.
-     * 
+     * <br />
      * If this field is blank and `count` is not specified, the subscription
      * will continue forever.
-     * 
+     * <br />
      * <p class="deprecated-notice"><strong>Deprecated</strong>: This field will
      * be removed in a future API version. Use `count` to specify a number of
      * payments instead.</p>

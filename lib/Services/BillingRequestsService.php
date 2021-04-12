@@ -35,7 +35,7 @@ class BillingRequestsService extends BaseService
 
 
     /**
-     * List Customer Requests
+     * List Billing Requests
      *
      * Example URL: /billing_requests
      *
@@ -331,7 +331,7 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-     * List Customer Requests
+     * List Billing Requests
      *
      * Example URL: /billing_requests
      *

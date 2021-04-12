@@ -74,6 +74,20 @@ class Client
 
     
     /**
+     * Service for interacting with bank authorisations
+     *
+     * @return Services\BankAuthorisationsService
+     */
+    public function bankAuthorisations()
+    {
+        if (!isset($this->bank_authorisations)) {
+            $this->bank_authorisations = new Services\BankAuthorisationsService($this->api_client);
+        }
+
+        return $this->bank_authorisations;
+    }
+    
+    /**
      * Service for interacting with bank details lookups
      *
      * @return Services\BankDetailsLookupsService
@@ -88,7 +102,7 @@ class Client
     }
     
     /**
-     * Service for interacting with customer requests
+     * Service for interacting with billing requests
      *
      * @return Services\BillingRequestsService
      */
@@ -99,6 +113,20 @@ class Client
         }
 
         return $this->billing_requests;
+    }
+    
+    /**
+     * Service for interacting with billing request flows
+     *
+     * @return Services\BillingRequestFlowsService
+     */
+    public function billingRequestFlows()
+    {
+        if (!isset($this->billing_request_flows)) {
+            $this->billing_request_flows = new Services\BillingRequestFlowsService($this->api_client);
+        }
+
+        return $this->billing_request_flows;
     }
     
     /**
@@ -211,6 +239,20 @@ class Client
         }
 
         return $this->instalment_schedules;
+    }
+    
+    /**
+     * Service for interacting with institutions
+     *
+     * @return Services\InstitutionsService
+     */
+    public function institutions()
+    {
+        if (!isset($this->institutions)) {
+            $this->institutions = new Services\InstitutionsService($this->api_client);
+        }
+
+        return $this->institutions;
     }
     
     /**

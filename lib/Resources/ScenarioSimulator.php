@@ -69,6 +69,20 @@ class ScenarioSimulator extends BaseResource
      * in the `pending_submission` state. Not compatible with ACH, BECS, BECS_NZ
      * and SEPA mandates, which are submitted and activated with their first
      * payment.</li>
+     * <li>`mandate_customer_approval_granted`: Transitions a mandate through to
+     * `pending_submission`, as if the customer approved the mandate creation.
+     * It must start in the `pending_customer_approval` state. Compatible only
+     * with Bacs and SEPA mandates, which support customer signatures on the
+     * mandate. All payments associated with the mandate will be transitioned to
+     * `pending_submission`. All subscriptions associated with the mandate will
+     * become `active`.</li>
+     * <li>`mandate_customer_approval_skipped`: Transitions a mandate through to
+     * `pending_submission`, as if the customer skipped the mandate approval
+     * during the mandate creation process. It must start in the
+     * `pending_customer_approval` state. Compatible only with Bacs and SEPA
+     * mandates, which support customer signatures on the mandate. All payments
+     * associated with the mandate will be transitioned to `pending_submission`.
+     * All subscriptions associated with the mandate will become `active`.</li>
      * <li>`mandate_failed`: Transitions a mandate through to `failed`, having
      * been submitted to the banks but found to be invalid (for example due to
      * invalid bank details). It must start in the `pending_submission` or
@@ -98,6 +112,10 @@ class ScenarioSimulator extends BaseResource
      * either the `pending_submission`, `submitted`, or `paid` state.</li>
      * <li>`payout_bounced`: Transitions a payout to `bounced`. It must start in
      * the `paid` state.</li>
+     * <li>`payout_create`: Creates a payout containing payments in `confirmed`,
+     * `failed` & `charged_back` states; refunds in `submitted` & `bounced`; and
+     * all related fees. Can only be used with a positive total payout balance
+     * and when some eligible items exist.</li>
      * </ul>
      */
     protected $id;

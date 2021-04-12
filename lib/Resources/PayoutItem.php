@@ -42,7 +42,7 @@ class PayoutItem extends BaseResource
     /**
      * An array of tax items <em>beta</em>
      * 
-     * Note: VAT applies to transaction and surcharge fees for merchants
+     * _Note_: VAT applies to transaction and surcharge fees for merchants
      * operating in the <a href="https://gocardless.com/legal/vat-faqs">UK</a>
      * and <a href="https://gocardless.com/fr-fr/legal/faq-tva">France</a>.
      */
@@ -58,8 +58,8 @@ class PayoutItem extends BaseResource
      * back.</li>
      * <li>`payment_refunded` (debit): The payment has been refunded to the
      * customer.</li>
-     * <li>`refund` (debit): <em>private beta</em> A refund sent to a customer,
-     * not linked to a payment.</li>
+     * <li>`refund` (debit): A refund sent to a customer, not linked to a
+     * payment.</li>
      * <li>`refund_funds_returned` (credit): The refund could not be sent to the
      * customer, and the funds have been returned to you.</li>
      * <li>`gocardless_fee` (credit/debit): The fees that GoCardless charged for
