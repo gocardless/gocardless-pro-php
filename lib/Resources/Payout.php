@@ -109,9 +109,10 @@ class Payout extends BaseResource
     /**
      * One of:
      * <ul>
-     * <li>`pending`: the payout has been created, but not yet sent to the
-     * banks</li>
-     * <li>`paid`: the payout has been sent to the banks</li>
+     * <li>`pending`: the payout has been created, but not yet sent to your bank
+     * or it is in the process of being exchanged through our FX provider.</li>
+     * <li>`paid`: the payout has been sent to the your bank. FX payouts will
+     * become `paid` after we emit the `fx_rate_confirmed` webhook.</li>
      * <li>`bounced`: the payout bounced when sent, the payout can be
      * retried.</li>
      * </ul>

@@ -83,10 +83,10 @@ class Subscription extends BaseResource
 
     /**
      * Date on or after which no further payments should be created.
-     * 
+     * <br />
      * If this field is blank and `count` is not specified, the subscription
      * will continue forever.
-     * 
+     * <br />
      * <p class="deprecated-notice"><strong>Deprecated</strong>: This field will
      * be removed in a future API version. Use `count` to specify a number of
      * payments instead.</p>
@@ -158,8 +158,10 @@ class Subscription extends BaseResource
     /**
      * The date on which the first payment should be charged. Must be on or
      * after the [mandate](#core-endpoints-mandates)'s
-     * `next_possible_charge_date`. When blank, this will be set as the
-     * mandate's `next_possible_charge_date`.
+     * `next_possible_charge_date`. When left blank and `month` or
+     * `day_of_month` are provided, this will be set to the date of the first
+     * payment. If created without `month` or `day_of_month` this will be set as
+     * the mandate's `next_possible_charge_date`
      */
     protected $start_date;
 

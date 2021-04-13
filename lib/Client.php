@@ -59,7 +59,7 @@ class Client
                 'Content-Type' => 'application/json',
                 'Authorization' => "Bearer " . $access_token,
                 'GoCardless-Client-Library' => 'gocardless-pro-php',
-                'GoCardless-Client-Version' => '4.10.0',
+                'GoCardless-Client-Version' => '4.11.0',
                 'User-Agent' => $this->getUserAgent()
                 ),
                 'http_errors' => false,
@@ -74,6 +74,20 @@ class Client
 
     
     /**
+     * Service for interacting with bank authorisations
+     *
+     * @return Services\BankAuthorisationsService
+     */
+    public function bankAuthorisations()
+    {
+        if (!isset($this->bank_authorisations)) {
+            $this->bank_authorisations = new Services\BankAuthorisationsService($this->api_client);
+        }
+
+        return $this->bank_authorisations;
+    }
+    
+    /**
      * Service for interacting with bank details lookups
      *
      * @return Services\BankDetailsLookupsService
@@ -85,6 +99,34 @@ class Client
         }
 
         return $this->bank_details_lookups;
+    }
+    
+    /**
+     * Service for interacting with billing requests
+     *
+     * @return Services\BillingRequestsService
+     */
+    public function billingRequests()
+    {
+        if (!isset($this->billing_requests)) {
+            $this->billing_requests = new Services\BillingRequestsService($this->api_client);
+        }
+
+        return $this->billing_requests;
+    }
+    
+    /**
+     * Service for interacting with billing request flows
+     *
+     * @return Services\BillingRequestFlowsService
+     */
+    public function billingRequestFlows()
+    {
+        if (!isset($this->billing_request_flows)) {
+            $this->billing_request_flows = new Services\BillingRequestFlowsService($this->api_client);
+        }
+
+        return $this->billing_request_flows;
     }
     
     /**
@@ -197,6 +239,20 @@ class Client
         }
 
         return $this->instalment_schedules;
+    }
+    
+    /**
+     * Service for interacting with institutions
+     *
+     * @return Services\InstitutionsService
+     */
+    public function institutions()
+    {
+        if (!isset($this->institutions)) {
+            $this->institutions = new Services\InstitutionsService($this->api_client);
+        }
+
+        return $this->institutions;
     }
     
     /**
@@ -340,6 +396,20 @@ class Client
     }
     
     /**
+     * Service for interacting with scenario simulators
+     *
+     * @return Services\ScenarioSimulatorsService
+     */
+    public function scenarioSimulators()
+    {
+        if (!isset($this->scenario_simulators)) {
+            $this->scenario_simulators = new Services\ScenarioSimulatorsService($this->api_client);
+        }
+
+        return $this->scenario_simulators;
+    }
+    
+    /**
      * Service for interacting with subscriptions
      *
      * @return Services\SubscriptionsService
@@ -430,7 +500,7 @@ class Client
     {
         $curlinfo = curl_version();
         $uagent = array();
-        $uagent[] = 'gocardless-pro-php/4.10.0';
+        $uagent[] = 'gocardless-pro-php/4.11.0';
         $uagent[] = 'schema-version/2015-07-06';
         if (defined('\GuzzleHttp\Client::MAJOR_VERSION')) {
             $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::MAJOR_VERSION;
