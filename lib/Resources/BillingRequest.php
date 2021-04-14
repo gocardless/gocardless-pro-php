@@ -33,7 +33,8 @@ class BillingRequest extends BaseResource
     protected $actions;
 
     /**
-     * Should the billing request be fulfilled as soon as it's ready
+     * Should the billing request be fulfilled as soon as it's ready (true by
+     * default)
      */
     protected $auto_fulfil;
 
