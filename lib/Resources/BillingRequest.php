@@ -44,7 +44,7 @@ class BillingRequest extends BaseResource
     protected $created_at;
 
     /**
-     * Unique identifier, beginning with "PY".
+     * Unique identifier, beginning with "BRQ".
      */
     protected $id;
 

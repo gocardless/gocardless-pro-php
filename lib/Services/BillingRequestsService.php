@@ -96,7 +96,7 @@ class BillingRequestsService extends BaseService
      *
      * Example URL: /billing_requests/:identity
      *
-     * @param  string        $identity Unique identifier, beginning with "PY".
+     * @param  string        $identity Unique identifier, beginning with "BRQ".
      * @param  string[mixed] $params   An associative array for any params
      * @return BillingRequest
      **/
@@ -125,7 +125,7 @@ class BillingRequestsService extends BaseService
      *
      * Example URL: /billing_requests/:identity/actions/collect_customer_details
      *
-     * @param  string        $identity Unique identifier, beginning with "PY".
+     * @param  string        $identity Unique identifier, beginning with "BRQ".
      * @param  string[mixed] $params   An associative array for any params
      * @return BillingRequest
      **/
@@ -167,7 +167,7 @@ class BillingRequestsService extends BaseService
      *
      * Example URL: /billing_requests/:identity/actions/collect_bank_account_details
      *
-     * @param  string        $identity Unique identifier, beginning with "PY".
+     * @param  string        $identity Unique identifier, beginning with "BRQ".
      * @param  string[mixed] $params   An associative array for any params
      * @return BillingRequest
      **/
@@ -209,7 +209,7 @@ class BillingRequestsService extends BaseService
      *
      * Example URL: /billing_requests/:identity/actions/fulfil
      *
-     * @param  string        $identity Unique identifier, beginning with "PY".
+     * @param  string        $identity Unique identifier, beginning with "BRQ".
      * @param  string[mixed] $params   An associative array for any params
      * @return BillingRequest
      **/
@@ -251,7 +251,7 @@ class BillingRequestsService extends BaseService
      *
      * Example URL: /billing_requests/:identity/actions/cancel
      *
-     * @param  string        $identity Unique identifier, beginning with "PY".
+     * @param  string        $identity Unique identifier, beginning with "BRQ".
      * @param  string[mixed] $params   An associative array for any params
      * @return BillingRequest
      **/
@@ -293,7 +293,7 @@ class BillingRequestsService extends BaseService
      *
      * Example URL: /billing_requests/:identity/actions/notify
      *
-     * @param  string        $identity Unique identifier, beginning with "PY".
+     * @param  string        $identity Unique identifier, beginning with "BRQ".
      * @param  string[mixed] $params   An associative array for any params
      * @return BillingRequest
      **/
