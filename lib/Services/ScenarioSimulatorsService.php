@@ -150,11 +150,6 @@ class ScenarioSimulatorsService extends BaseService
  or `paid` state.</li>
  <li>`payout_bounced`: Transitions a payout to `bounced`. It
  must start in the `paid` state.</li>
- <li>`payout_create`: Creates a payout containing payments
- in `confirmed`, `failed` & `charged_back` states; refunds
- in `submitted` & `bounced`; and all related fees. Can only
- be used with a positive total payout balance and when some
- eligible items exist.</li>
  <li>`billing_request_fulfilled`: Authorises the billing
  request, fulfils it, and moves the associated payment to
  `failed`. The billing request must be in the `pending`
