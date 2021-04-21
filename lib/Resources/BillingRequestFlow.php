@@ -14,8 +14,10 @@ namespace GoCardlessPro\Resources;
  * @property-read $authorisation_url
  * @property-read $created_at
  * @property-read $expires_at
+ * @property-read $id
  * @property-read $links
  * @property-read $redirect_uri
+ * @property-read $session_token
  */
 class BillingRequestFlow extends BaseResource
 {
@@ -39,6 +41,11 @@ class BillingRequestFlow extends BaseResource
     protected $expires_at;
 
     /**
+     * Unique identifier, beginning with "BRF".
+     */
+    protected $id;
+
+    /**
      * 
      */
     protected $links;
@@ -48,5 +55,10 @@ class BillingRequestFlow extends BaseResource
      * flow.
      */
     protected $redirect_uri;
+
+    /**
+     * Session token populated in response from the exchange token action
+     */
+    protected $session_token;
 
 }

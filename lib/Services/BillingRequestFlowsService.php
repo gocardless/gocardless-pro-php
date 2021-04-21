@@ -19,6 +19,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * endpoints of the API
  *
  * @method create()
+ * @method initialise()
  */
 class BillingRequestFlowsService extends BaseService
 {
@@ -40,6 +41,37 @@ class BillingRequestFlowsService extends BaseService
         $path = "/billing_request_flows";
         if(isset($params['params'])) { 
             $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+        
+            unset($params['params']);
+        }
+
+        
+        $response = $this->api_client->post($path, $params);
+        
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
+     * Initialise a billing request flow
+     *
+     * Example URL: /billing_request_flows/:identity/actions/initialise
+     *
+     * @param  string        $identity Unique identifier, beginning with "BRQ".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return BillingRequestFlow
+     **/
+    public function initialise($identity, $params = array())
+    {
+        $path = Util::subUrl(
+            '/billing_request_flows/:identity/actions/initialise',
+            array(
+                
+                'identity' => $identity
+            )
+        );
+        if(isset($params['params'])) { 
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
         
             unset($params['params']);
         }

@@ -29,8 +29,37 @@ class BillingRequestFlowsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->authorisation_url, $response->authorisation_url);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->expires_at, $response->expires_at);
+        $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->redirect_uri, $response->redirect_uri);
+        $this->assertEquals($body->session_token, $response->session_token);
+    
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+    }
+
+    
+    public function testBillingRequestFlowsInitialise()
+    {
+        $fixture = $this->loadJsonFixture('billing_request_flows')->initialise;
+        $this->stub_request($fixture);
+
+        $service = $this->client->billingRequestFlows();
+        $response = call_user_func_array(array($service, 'initialise'), (array)$fixture->url_params);
+
+        $body = $fixture->body->billing_request_flows;
+    
+        $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequestFlow', $response);
+
+        $this->assertEquals($body->authorisation_url, $response->authorisation_url);
+        $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->expires_at, $response->expires_at);
+        $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->redirect_uri, $response->redirect_uri);
+        $this->assertEquals($body->session_token, $response->session_token);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
