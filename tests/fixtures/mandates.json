@@ -9,7 +9,7 @@
     "method": "GET",
     "path_template": "/mandates",
     "url_params": {},
-    "body": {"mandates":[{"created_at":"2014-01-01T12:00:00.000Z","id":"MD123","links":{"creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","new_mandate":"MD123"},"metadata":{},"next_possible_charge_date":"2014-10-27","payments_require_approval":"false","reference":"REF-123","scheme":"bacs","status":"pending_submission"},{"created_at":"2014-01-01T12:00:00.000Z","id":"MD123","links":{"creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","new_mandate":"MD123"},"metadata":{},"next_possible_charge_date":"2014-10-27","payments_require_approval":"false","reference":"REF-123","scheme":"bacs","status":"pending_submission"}],"meta":{"cursors":{"after":"example after 8553","before":"example before 3098"},"limit":50}}
+    "body": {"mandates":[{"created_at":"2014-01-01T12:00:00.000Z","id":"MD123","links":{"creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","new_mandate":"MD123"},"metadata":{},"next_possible_charge_date":"2014-10-27","payments_require_approval":"false","reference":"REF-123","scheme":"bacs","status":"pending_submission"},{"created_at":"2014-01-01T12:00:00.000Z","id":"MD123","links":{"creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","new_mandate":"MD123"},"metadata":{},"next_possible_charge_date":"2014-10-27","payments_require_approval":"false","reference":"REF-123","scheme":"bacs","status":"pending_submission"}],"meta":{"cursors":{"after":"example after 9267","before":"example before 6137"},"limit":50}}
   },
   "get": {
     "method": "GET",

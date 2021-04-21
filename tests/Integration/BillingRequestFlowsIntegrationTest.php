@@ -27,10 +27,13 @@ class BillingRequestFlowsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequestFlow', $response);
 
         $this->assertEquals($body->authorisation_url, $response->authorisation_url);
+        $this->assertEquals($body->auto_fulfil, $response->auto_fulfil);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->expires_at, $response->expires_at);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->lock_bank_account_details, $response->lock_bank_account_details);
+        $this->assertEquals($body->lock_customer_details, $response->lock_customer_details);
         $this->assertEquals($body->redirect_uri, $response->redirect_uri);
         $this->assertEquals($body->session_token, $response->session_token);
     
@@ -54,10 +57,13 @@ class BillingRequestFlowsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequestFlow', $response);
 
         $this->assertEquals($body->authorisation_url, $response->authorisation_url);
+        $this->assertEquals($body->auto_fulfil, $response->auto_fulfil);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->expires_at, $response->expires_at);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->lock_bank_account_details, $response->lock_bank_account_details);
+        $this->assertEquals($body->lock_customer_details, $response->lock_customer_details);
         $this->assertEquals($body->redirect_uri, $response->redirect_uri);
         $this->assertEquals($body->session_token, $response->session_token);
     
