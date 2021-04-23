@@ -22,7 +22,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * @method create()
  * @method get()
  * @method collectCustomerDetails()
- * @method collectBankAccountDetails()
+ * @method collectBankAccount()
  * @method fulfil()
  * @method cancel()
  * @method notify()
@@ -165,16 +165,16 @@ class BillingRequestsService extends BaseService
     /**
      * Collect bank account details for the billing request
      *
-     * Example URL: /billing_requests/:identity/actions/collect_bank_account_details
+     * Example URL: /billing_requests/:identity/actions/collect_bank_account
      *
      * @param  string        $identity Unique identifier, beginning with "BRQ".
      * @param  string[mixed] $params   An associative array for any params
      * @return BillingRequest
      **/
-    public function collectBankAccountDetails($identity, $params = array())
+    public function collectBankAccount($identity, $params = array())
     {
         $path = Util::subUrl(
-            '/billing_requests/:identity/actions/collect_bank_account_details',
+            '/billing_requests/:identity/actions/collect_bank_account',
             array(
                 
                 'identity' => $identity

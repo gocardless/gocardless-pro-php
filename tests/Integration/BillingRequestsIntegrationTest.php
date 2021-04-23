@@ -214,13 +214,13 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($getRequest->getUri()->getPath(), '/billing_requests/ID123');
     }
     
-    public function testBillingRequestsCollectBankAccountDetails()
+    public function testBillingRequestsCollectBankAccount()
     {
-        $fixture = $this->loadJsonFixture('billing_requests')->collect_bank_account_details;
+        $fixture = $this->loadJsonFixture('billing_requests')->collect_bank_account;
         $this->stub_request($fixture);
 
         $service = $this->client->billingRequests();
-        $response = call_user_func_array(array($service, 'collectBankAccountDetails'), (array)$fixture->url_params);
+        $response = call_user_func_array(array($service, 'collectBankAccount'), (array)$fixture->url_params);
 
         $body = $fixture->body->billing_requests;
     
@@ -242,9 +242,9 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
-    public function testBillingRequestsCollectBankAccountDetailsWithIdempotencyConflict()
+    public function testBillingRequestsCollectBankAccountWithIdempotencyConflict()
     {
-        $fixture = $this->loadJsonFixture('billing_requests')->collect_bank_account_details;
+        $fixture = $this->loadJsonFixture('billing_requests')->collect_bank_account;
 
         $idempotencyConflictResponseFixture = $this->loadFixture('idempotent_creation_conflict_invalid_state_error');
 
@@ -257,7 +257,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], json_encode($fixture->body)));
 
         $service = $this->client->billingRequests();
-        $response = call_user_func_array(array($service, 'collectBankAccountDetails'), (array)$fixture->url_params);
+        $response = call_user_func_array(array($service, 'collectBankAccount'), (array)$fixture->url_params);
         $body = $fixture->body->billing_requests;
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
