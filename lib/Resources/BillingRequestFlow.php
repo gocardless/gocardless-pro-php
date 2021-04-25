@@ -17,7 +17,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $expires_at
  * @property-read $id
  * @property-read $links
- * @property-read $lock_bank_account_details
+ * @property-read $lock_bank_account
  * @property-read $lock_customer_details
  * @property-read $redirect_uri
  * @property-read $session_token
@@ -62,7 +62,7 @@ class BillingRequestFlow extends BaseResource
      * If true, the payer will not be able to change their bank account within
      * the flow
      */
-    protected $lock_bank_account_details;
+    protected $lock_bank_account;
 
     /**
      * If true, the payer will not be able to edit their customer details within
