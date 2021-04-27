@@ -114,6 +114,8 @@ class ScenarioSimulator extends BaseResource
      * `submitted` or `paid` states.</li>
      * <li>`refund_bounced`: Transitions a refund to `bounced`. It must start in
      * either the `pending_submission`, `submitted`, or `paid` state.</li>
+     * <li>`refund_returned`: Transitions a refund to `refund_returned`. The
+     * refund must start in `pending_submission`.</li>
      * <li>`payout_bounced`: Transitions a payout to `bounced`. It must start in
      * the `paid` state.</li>
      * <li>`billing_request_fulfilled`: Authorises the billing request, fulfils
