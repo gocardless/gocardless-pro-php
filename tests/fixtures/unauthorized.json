@@ -1,0 +1,15 @@
+{
+  "error": {
+    "documentation_url": "https://developer.gocardless.com/api-reference#unauthorized",
+    "message": "Unauthorized",
+    "type": "invalid_api_usage",
+    "errors": [
+      {
+        "reason": "unauthorized",
+        "message": "Unauthorized"
+      }
+    ],
+    "code": 401,
+    "request_id": "HARDCODED_REQUEST_ID"
+  }
+}

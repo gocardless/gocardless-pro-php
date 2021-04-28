@@ -126,12 +126,13 @@ class ApiClient
             throw new Exception\MalformedResponseException($msg, $response);
         }
 
-        if ($response->getStatusCode() < 400) {
+        $status_code = $response->getStatusCode();
+        if ($status_code < 400) {
             return null;
         }
 
         $error = $json->error;
-        $exception_class = (string) ApiException::getErrorForType($error->type);
+        $exception_class = (string) ApiException::getError($status_code, $error->type);
         $exception_class = 'GoCardlessPro\\Core\\Exception\\' . $exception_class;
 
         $api_response = new ApiResponse($response);

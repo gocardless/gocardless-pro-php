@@ -18,11 +18,21 @@ class ApiException extends GoCardlessProException
     }
 
     /**
-     * @param  string $error_type the error type returned by the GoCardless API
+     * @param  int    $status_code the status returned by the GoCardless API
+     * @param  string $error_type  the error type returned by the GoCardless API
      * @return ApiException the exception corresponding to the supplied error type
      */
-    public static function getErrorForType($error_type)
+    public static function getError($status_code, $error_type)
     {
+        switch($status_code) {
+        case 401:
+            return 'AuthenticationException';
+        case 403:
+            return 'PermissionsException';
+        case 429:
+            return 'RateLimitException';
+        }
+
         switch($error_type) {
         case 'gocardless':
             return 'GoCardlessInternalException';

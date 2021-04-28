@@ -132,6 +132,57 @@ class ApiClientTest extends TestCase
         }
     }
 
+    public function testPermissionsErrorResponse()
+    {
+        $fixture = $this->loadFixture('permission_error');
+        $this->expectException('\GoCardlessPro\Core\Exception\PermissionsException');
+
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(403, ['Content-Type' => 'application/json'], $fixture));
+
+        try {
+            $this->api_client->get('/some_endpoint');
+        } catch (\GoCardlessPro\Core\Exception\PermissionsException $e) {
+            $this->assertEquals($e->getApiResponse()->status_code, '403');
+            $this->assertEquals($e->getApiResponse()->headers, ['Content-Type' => ['application/json']]);
+
+            throw $e;
+        }
+    }
+
+    public function testRateLimitErrorResponse()
+    {
+        $fixture = $this->loadFixture('rate_limit_exceeded');
+        $this->expectException('\GoCardlessPro\Core\Exception\RateLimitException');
+
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(429, ['Content-Type' => 'application/json'], $fixture));
+
+        try {
+            $this->api_client->get('/some_endpoint');
+        } catch (\GoCardlessPro\Core\Exception\RateLimitException $e) {
+            $this->assertEquals($e->getApiResponse()->status_code, '429');
+            $this->assertEquals($e->getApiResponse()->headers, ['Content-Type' => ['application/json']]);
+
+            throw $e;
+        }
+    }
+
+    public function testAuthorisationErrorResponse()
+    {
+        $fixture = $this->loadFixture('unauthorized');
+        $this->expectException('\GoCardlessPro\Core\Exception\AuthenticationException');
+
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(401, ['Content-Type' => 'application/json'], $fixture));
+
+        try {
+            $this->api_client->get('/some_endpoint');
+        } catch (\GoCardlessPro\Core\Exception\AuthenticationException $e) {
+            $this->assertEquals($e->getApiResponse()->status_code, '401');
+            $this->assertEquals($e->getApiResponse()->headers, ['Content-Type' => ['application/json']]);
+
+            throw $e;
+        }
+    }
+
     public function testInvalidApiUsageErrorResponse()
     {
         $fixture = $this->loadFixture('invalid_api_usage_error');
