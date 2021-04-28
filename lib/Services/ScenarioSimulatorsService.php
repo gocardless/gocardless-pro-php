@@ -113,9 +113,8 @@ class ScenarioSimulatorsService extends BaseService
  `failed`, having been submitted to the banks but found to
  be invalid (for example due to invalid bank details). It
  must start in the `pending_submission` or `submitted`
- states. Not compatible with ACH, BECS, BECS_NZ and SEPA
- mandates, which are submitted with their first
- payment.</li>
+ states. Not compatible with SEPA mandates, which are
+ submitted with their first payment.</li>
  <li>`mandate_expired`: Transitions a mandate through to
  `expired`, having been submitted to the banks, set up
  successfully and then expired because no collection
