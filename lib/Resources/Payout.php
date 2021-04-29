@@ -62,14 +62,14 @@ class Payout extends BaseResource
     /**
      * Fees that have already been deducted from the payout amount in minor unit
      * (e.g. pence in GBP, cents in EUR), inclusive of tax if applicable.
-     * 
+     * <br />
      * For each `late_failure_settled` or `chargeback_settled` action, we refund
      * the transaction fees in a payout. This means that a payout can have a
      * negative `deducted_fees` value.
-     * 
+     * <br />
      * This field is calculated as `(GoCardless fees + app fees + surcharge
      * fees) - (refunded fees)`
-     * 
+     * <br />
      * If the merchant is invoiced for fees separately from the payout, then
      * `deducted_fees` will be 0.
      */

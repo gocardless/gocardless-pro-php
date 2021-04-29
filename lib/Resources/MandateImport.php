@@ -41,20 +41,16 @@ class MandateImport extends BaseResource
     /**
      * The status of the mandate import.
      * <ul>
-     * <li>New mandate imports report the `created` status.</li>
-     * <li>When the integrator has finished adding mandates and
-     * <a href="#mandate-imports-submit-a-mandate-import">submitted</a> the
-     * import, the status will report as `submitted`.</li>
-     * <li>If the integrator decided to
-     * <a href="#mandate-imports-cancel-a-mandate-import">cancel</a> the mandate
-     * import,
-     * the status will report `cancelled`.</li>
-     * <li>Once a mandate import has been approved by a GoCardless team member,
-     * the status will
-     * initially report as `processing` (whilst the mandates are being
-     * imported).</li>
-     * <li>When the mandates have all been imported successfully, the status
-     * will report as `processed`.</li>
+     * <li>`created`: A new mandate import.</li>
+     * <li>`submitted`: After the integrator has finished adding mandates and <a
+     * href="#mandate-imports-submit-a-mandate-import">submitted</a> the
+     * import.</li>
+     * <li>`cancelled`: If the integrator <a
+     * href="#mandate-imports-cancel-a-mandate-import">cancelled</a> the mandate
+     * import.</li>
+     * <li>`processing`: Once a mandate import has been approved by a GoCardless
+     * team member it will be in this state while mandates are imported.</li>
+     * <li>`processed`: When all mandates have been imported successfully.</li>
      * </ul>
      */
     protected $status;
