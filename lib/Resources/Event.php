@@ -70,14 +70,15 @@ class Event extends BaseResource
     /**
      * The resource type for this event. One of:
      * <ul>
-     * <li>`payments`</li>
+     * <li>`billing_requests`</li>
+     * <li>`creditors`</li>
+     * <li>`instalment_schedules`</li>
      * <li>`mandates`</li>
      * <li>`payer_authorisations`</li>
+     * <li>`payments`</li>
      * <li>`payouts`</li>
      * <li>`refunds`</li>
      * <li>`subscriptions`</li>
-     * <li>`instalment_schedules`</li>
-     * <li>`creditors`</li>
      * </ul>
      */
     protected $resource_type;
