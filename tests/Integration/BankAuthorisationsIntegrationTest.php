@@ -33,7 +33,6 @@ class BankAuthorisationsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->last_visited_at, $response->last_visited_at);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->redirect_uri, $response->redirect_uri);
-        $this->assertEquals($body->short_url, $response->short_url);
         $this->assertEquals($body->url, $response->url);
     
 
@@ -62,7 +61,6 @@ class BankAuthorisationsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->last_visited_at, $response->last_visited_at);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->redirect_uri, $response->redirect_uri);
-        $this->assertEquals($body->short_url, $response->short_url);
         $this->assertEquals($body->url, $response->url);
     
 
@@ -98,7 +96,6 @@ class BankAuthorisationsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->last_visited_at, $response->last_visited_at);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->redirect_uri, $response->redirect_uri);
-        $this->assertEquals($body->short_url, $response->short_url);
         $this->assertEquals($body->url, $response->url);
         
 
