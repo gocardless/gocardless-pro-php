@@ -32,6 +32,11 @@ class ScenarioSimulator extends BaseResource
      * <li>`creditor_verification_status_successful`: Sets a creditor's
      * `verification status` to `successful`, meaning that the creditor is fully
      * verified and can receive payouts.</li>
+     * <li>`payment_confirmed`: Transitions a payment through to `confirmed`. It
+     * must start in the `pending_submission` state, and its mandate must be in
+     * the `activated` state (unless it is a payment for ACH, BECS, BECS_NZ or
+     * SEPA, in which cases the mandate may be `pending_submission`, since their
+     * mandates are submitted with their first payment).</li>
      * <li>`payment_paid_out`: Transitions a payment through to `paid_out`,
      * having been collected successfully and paid out to you. It must start in
      * the `pending_submission` state, and its mandate must be in the
