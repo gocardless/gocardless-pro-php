@@ -3,13 +3,13 @@
     "method": "GET",
     "path_template": "/bank_authorisations/:identity",
     "url_params": {"identity": "BAU123"},
-    "body": {"bank_authorisations":{"authorisation_type":"example authorisation_type 8081","created_at":"2021-05-12T15:15:45.527Z","expires_at":"2021-05-12T15:15:45.527Z","id":"BAU123","last_visited_at":"2020-01-01T12:00:00.000Z","links":{"billing_request":"BRQ123","institution":"monzo","payment_request":"PRQ123"},"redirect_uri":"https://my-website.com/abc/callback","url":"https://pay.gocardless.com/obauth/BAU123"}}
+    "body": {"bank_authorisations":{"authorisation_type":"example authorisation_type 8081","created_at":"2021-05-17T09:01:05.785Z","expires_at":"2021-05-17T09:01:05.785Z","id":"BAU123","last_visited_at":"2020-01-01T12:00:00.000Z","links":{"billing_request":"BRQ123","institution":"monzo","payment_request":"PRQ123"},"redirect_uri":"https://my-website.com/abc/callback","url":"https://pay.gocardless.com/obauth/BAU123"}}
   },
   "create": {
     "method": "POST",
     "path_template": "/bank_authorisations",
     "url_params": {},
-    "body": {"bank_authorisations":{"authorisation_type":"example authorisation_type 7887","created_at":"2021-05-12T15:15:45.527Z","expires_at":"2021-05-12T15:15:45.527Z","id":"BAU123","last_visited_at":"2020-01-01T12:00:00.000Z","links":{"billing_request":"BRQ123","institution":"monzo","payment_request":"PRQ123"},"redirect_uri":"https://my-website.com/abc/callback","url":"https://pay.gocardless.com/obauth/BAU123"}}
+    "body": {"bank_authorisations":{"authorisation_type":"example authorisation_type 7887","created_at":"2021-05-17T09:01:05.785Z","expires_at":"2021-05-17T09:01:05.785Z","id":"BAU123","last_visited_at":"2020-01-01T12:00:00.000Z","links":{"billing_request":"BRQ123","institution":"monzo","payment_request":"PRQ123"},"redirect_uri":"https://my-website.com/abc/callback","url":"https://pay.gocardless.com/obauth/BAU123"}}
   }
 }
 
