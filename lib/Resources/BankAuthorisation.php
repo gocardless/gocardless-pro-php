@@ -12,6 +12,7 @@ namespace GoCardlessPro\Resources;
  * attributes
  *
  * @property-read $authorisation_type
+ * @property-read $authorised_at
  * @property-read $created_at
  * @property-read $expires_at
  * @property-read $id
@@ -28,6 +29,12 @@ class BankAuthorisation extends BaseResource
      * Type of authorisation, can be either 'mandate' or 'payment'.
      */
     protected $authorisation_type;
+
+    /**
+     * Fixed [timestamp](#api-usage-time-zones--dates), recording when the user
+     * has been authorised.
+     */
+    protected $authorised_at;
 
     /**
      * Timestamp when the flow was created

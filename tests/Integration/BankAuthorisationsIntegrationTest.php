@@ -27,6 +27,7 @@ class BankAuthorisationsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BankAuthorisation', $response);
 
         $this->assertEquals($body->authorisation_type, $response->authorisation_type);
+        $this->assertEquals($body->authorised_at, $response->authorised_at);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->expires_at, $response->expires_at);
         $this->assertEquals($body->id, $response->id);
@@ -55,6 +56,7 @@ class BankAuthorisationsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BankAuthorisation', $response);
 
         $this->assertEquals($body->authorisation_type, $response->authorisation_type);
+        $this->assertEquals($body->authorised_at, $response->authorised_at);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->expires_at, $response->expires_at);
         $this->assertEquals($body->id, $response->id);
@@ -90,6 +92,7 @@ class BankAuthorisationsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BankAuthorisation', $response);
 
         $this->assertEquals($body->authorisation_type, $response->authorisation_type);
+        $this->assertEquals($body->authorised_at, $response->authorised_at);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->expires_at, $response->expires_at);
         $this->assertEquals($body->id, $response->id);
