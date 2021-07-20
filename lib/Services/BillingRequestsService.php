@@ -24,6 +24,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * @method collectCustomerDetails()
  * @method collectBankAccount()
  * @method fulfil()
+ * @method confirmPayerDetails()
  * @method cancel()
  * @method notify()
  */
@@ -217,6 +218,48 @@ class BillingRequestsService extends BaseService
     {
         $path = Util::subUrl(
             '/billing_requests/:identity/actions/fulfil',
+            array(
+                
+                'identity' => $identity
+            )
+        );
+        if(isset($params['params'])) { 
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
+        
+            unset($params['params']);
+        }
+
+        
+        try {
+            $response = $this->api_client->post($path, $params);
+        } catch(InvalidStateException $e) {
+            if ($e->isIdempotentCreationConflict()) {
+                if ($this->api_client->error_on_idempotency_conflict) {
+                    throw $e;
+                }
+                return $this->get($e->getConflictingResourceId());
+            }
+
+            throw $e;
+        }
+        
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
+     * Confirm the customer and bank_account details
+     *
+     * Example URL: /billing_requests/:identity/actions/confirm_payer_details
+     *
+     * @param  string        $identity Unique identifier, beginning with "BRQ".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return BillingRequest
+     **/
+    public function confirmPayerDetails($identity, $params = array())
+    {
+        $path = Util::subUrl(
+            '/billing_requests/:identity/actions/confirm_payer_details',
             array(
                 
                 'identity' => $identity

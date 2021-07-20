@@ -346,6 +346,72 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($getRequest->getUri()->getPath(), '/billing_requests/ID123');
     }
     
+    public function testBillingRequestsConfirmPayerDetails()
+    {
+        $fixture = $this->loadJsonFixture('billing_requests')->confirm_payer_details;
+        $this->stub_request($fixture);
+
+        $service = $this->client->billingRequests();
+        $response = call_user_func_array(array($service, 'confirmPayerDetails'), (array)$fixture->url_params);
+
+        $body = $fixture->body->billing_requests;
+    
+        $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
+
+        $this->assertEquals($body->actions, $response->actions);
+        $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->mandate_request, $response->mandate_request);
+        $this->assertEquals($body->metadata, $response->metadata);
+        $this->assertEquals($body->payment_request, $response->payment_request);
+        $this->assertEquals($body->resources, $response->resources);
+        $this->assertEquals($body->status, $response->status);
+    
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+    }
+
+    public function testBillingRequestsConfirmPayerDetailsWithIdempotencyConflict()
+    {
+        $fixture = $this->loadJsonFixture('billing_requests')->confirm_payer_details;
+
+        $idempotencyConflictResponseFixture = $this->loadFixture('idempotent_creation_conflict_invalid_state_error');
+
+        // The POST request responds with a 409 to our original POST, due to an idempotency conflict
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(409, [], $idempotencyConflictResponseFixture));
+
+        // The client makes a second request to fetch the resource that was already
+        // created using our idempotency key. It responds with the created resource,
+        // which looks just like the response for a successful POST request.
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], json_encode($fixture->body)));
+
+        $service = $this->client->billingRequests();
+        $response = call_user_func_array(array($service, 'confirmPayerDetails'), (array)$fixture->url_params);
+        $body = $fixture->body->billing_requests;
+
+        $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
+
+        $this->assertEquals($body->actions, $response->actions);
+        $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->mandate_request, $response->mandate_request);
+        $this->assertEquals($body->metadata, $response->metadata);
+        $this->assertEquals($body->payment_request, $response->payment_request);
+        $this->assertEquals($body->resources, $response->resources);
+        $this->assertEquals($body->status, $response->status);
+        
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $conflictRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $conflictRequest->getUri()->getPath());
+        $getRequest = $this->history[1]['request'];
+        $this->assertEquals($getRequest->getUri()->getPath(), '/billing_requests/ID123');
+    }
+    
     public function testBillingRequestsCancel()
     {
         $fixture = $this->loadJsonFixture('billing_requests')->cancel;
