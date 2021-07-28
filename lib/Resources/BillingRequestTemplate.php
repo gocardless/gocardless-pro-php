@@ -57,7 +57,9 @@ class BillingRequestTemplate extends BaseResource
     protected $mandate_request_currency;
 
     /**
-     * 
+     * Key-value store of custom data that will be applied to the mandate
+     * created when this request is fulfilled. Up to 3 keys are permitted, with
+     * key names up to 50 characters and values up to 500 characters.
      */
     protected $mandate_request_metadata;
 
@@ -68,7 +70,19 @@ class BillingRequestTemplate extends BaseResource
     protected $mandate_request_scheme;
 
     /**
+     * Verification preference for the mandate. One of:
+     * <ul>
+     *   <li>`minimum`: only verify if absolutely required, such as when part of
+     * scheme rules</li>
+     *   <li>`recommended`: in addition to minimum, use the GoCardless risk
+     * engine to decide an appropriate level of verification</li>
+     *   <li>`when_available`: if verification mechanisms are available, use
+     * them</li>
+     *   <li>`always`: as `when_available`, but fail to create the Billing
+     * Request if a mechanism isn't available</li>
+     * </ul>
      * 
+     * If not provided, the `recommended` level is chosen.
      */
     protected $mandate_request_verify;
 
@@ -103,7 +117,9 @@ class BillingRequestTemplate extends BaseResource
     protected $payment_request_description;
 
     /**
-     * 
+     * Key-value store of custom data that will be applied to the payment
+     * created when this request is fulfilled. Up to 3 keys are permitted, with
+     * key names up to 50 characters and values up to 500 characters.
      */
     protected $payment_request_metadata;
 
