@@ -130,6 +130,20 @@ class Client
     }
     
     /**
+     * Service for interacting with billing request templates
+     *
+     * @return Services\BillingRequestTemplatesService
+     */
+    public function billingRequestTemplates()
+    {
+        if (!isset($this->billing_request_templates)) {
+            $this->billing_request_templates = new Services\BillingRequestTemplatesService($this->api_client);
+        }
+
+        return $this->billing_request_templates;
+    }
+    
+    /**
      * Service for interacting with creditors
      *
      * @return Services\CreditorsService
