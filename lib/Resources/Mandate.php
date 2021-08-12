@@ -91,6 +91,8 @@ class Mandate extends BaseResource
      * <li>`expired`: the mandate has expired due to dormancy</li>
      * <li>`consumed`: the mandate has been consumed and cannot be reused (note
      * that this only applies to schemes that are per-payment authorised)</li>
+     * <li>`blocked`: the mandate has been blocked and payments cannot be
+     * created</li>
      * </ul>
      */
     protected $status;

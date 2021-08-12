@@ -27,13 +27,13 @@ class BankAuthorisationsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BankAuthorisation', $response);
 
         $this->assertEquals($body->authorisation_type, $response->authorisation_type);
+        $this->assertEquals($body->authorised_at, $response->authorised_at);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->expires_at, $response->expires_at);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->last_visited_at, $response->last_visited_at);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->redirect_uri, $response->redirect_uri);
-        $this->assertEquals($body->short_url, $response->short_url);
         $this->assertEquals($body->url, $response->url);
     
 
@@ -56,13 +56,13 @@ class BankAuthorisationsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BankAuthorisation', $response);
 
         $this->assertEquals($body->authorisation_type, $response->authorisation_type);
+        $this->assertEquals($body->authorised_at, $response->authorised_at);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->expires_at, $response->expires_at);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->last_visited_at, $response->last_visited_at);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->redirect_uri, $response->redirect_uri);
-        $this->assertEquals($body->short_url, $response->short_url);
         $this->assertEquals($body->url, $response->url);
     
 
@@ -92,13 +92,13 @@ class BankAuthorisationsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BankAuthorisation', $response);
 
         $this->assertEquals($body->authorisation_type, $response->authorisation_type);
+        $this->assertEquals($body->authorised_at, $response->authorised_at);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->expires_at, $response->expires_at);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->last_visited_at, $response->last_visited_at);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->redirect_uri, $response->redirect_uri);
-        $this->assertEquals($body->short_url, $response->short_url);
         $this->assertEquals($body->url, $response->url);
         
 

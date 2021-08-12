@@ -32,6 +32,11 @@ class ScenarioSimulator extends BaseResource
      * <li>`creditor_verification_status_successful`: Sets a creditor's
      * `verification status` to `successful`, meaning that the creditor is fully
      * verified and can receive payouts.</li>
+     * <li>`payment_confirmed`: Transitions a payment through to `confirmed`. It
+     * must start in the `pending_submission` state, and its mandate must be in
+     * the `activated` state (unless it is a payment for ACH, BECS, BECS_NZ or
+     * SEPA, in which cases the mandate may be `pending_submission`, since their
+     * mandates are submitted with their first payment).</li>
      * <li>`payment_paid_out`: Transitions a payment through to `paid_out`,
      * having been collected successfully and paid out to you. It must start in
      * the `pending_submission` state, and its mandate must be in the
@@ -86,8 +91,8 @@ class ScenarioSimulator extends BaseResource
      * <li>`mandate_failed`: Transitions a mandate through to `failed`, having
      * been submitted to the banks but found to be invalid (for example due to
      * invalid bank details). It must start in the `pending_submission` or
-     * `submitted` states. Not compatible with ACH, BECS, BECS_NZ and SEPA
-     * mandates, which are submitted with their first payment.</li>
+     * `submitted` states. Not compatible with SEPA mandates, which are
+     * submitted with their first payment.</li>
      * <li>`mandate_expired`: Transitions a mandate through to `expired`, having
      * been submitted to the banks, set up successfully and then expired because
      * no collection attempts were made against it for longer than the scheme's
@@ -108,14 +113,31 @@ class ScenarioSimulator extends BaseResource
      * mandates.</li>
      * <li>`refund_paid`: Transitions a refund to `paid`. It must start in
      * either the `pending_submission` or `submitted` state.</li>
+     * <li>`refund_settled`: Transitions a refund to `paid`, if it's not
+     * already, then generates a payout that includes the refund, thereby
+     * settling the funds. It must start in one of `pending_submission`,
+     * `submitted` or `paid` states.</li>
      * <li>`refund_bounced`: Transitions a refund to `bounced`. It must start in
      * either the `pending_submission`, `submitted`, or `paid` state.</li>
+     * <li>`refund_returned`: Transitions a refund to `refund_returned`. The
+     * refund must start in `pending_submission`.</li>
      * <li>`payout_bounced`: Transitions a payout to `bounced`. It must start in
      * the `paid` state.</li>
-     * <li>`payout_create`: Creates a payout containing payments in `confirmed`,
-     * `failed` & `charged_back` states; refunds in `submitted` & `bounced`; and
-     * all related fees. Can only be used with a positive total payout balance
-     * and when some eligible items exist.</li>
+     * <li>`billing_request_fulfilled`: Authorises the billing request, fulfils
+     * it, and moves the associated payment to `failed`. The billing request
+     * must be in the `pending` state, with all actions completed except for
+     * `bank_authorisation`. Only billing requests with a `payment_request` are
+     * supported.</li>
+     * <li>`billing_request_fulfilled_and_payment_failed`: Authorises the
+     * billing request, fulfils it, and moves the associated payment to
+     * `failed`. The billing request must be in the `pending` state, with all
+     * actions completed except for `bank_authorisation`. Only billing requests
+     * with a `payment_request` are supported.</li>
+     * <li>`billing_request_fulfilled_and_payment_paid_out`: Authorises the
+     * billing request, fulfils it, and moves the associated payment to
+     * `paid_out`. The billing request must be in the `pending` state, with all
+     * actions completed except for `bank_authorisation`. Only billing requests
+     * with a `payment_request` are supported.</li>
      * </ul>
      */
     protected $id;

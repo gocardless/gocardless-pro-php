@@ -12,10 +12,15 @@ namespace GoCardlessPro\Resources;
  * attributes
  *
  * @property-read $authorisation_url
+ * @property-read $auto_fulfil
  * @property-read $created_at
  * @property-read $expires_at
+ * @property-read $id
  * @property-read $links
+ * @property-read $lock_bank_account
+ * @property-read $lock_customer_details
  * @property-read $redirect_uri
+ * @property-read $session_token
  */
 class BillingRequestFlow extends BaseResource
 {
@@ -26,6 +31,11 @@ class BillingRequestFlow extends BaseResource
      * billing request
      */
     protected $authorisation_url;
+
+    /**
+     * Fulfil the Billing Request on completion of the flow (true by default)
+     */
+    protected $auto_fulfil;
 
     /**
      * Timestamp when the flow was created
@@ -39,14 +49,36 @@ class BillingRequestFlow extends BaseResource
     protected $expires_at;
 
     /**
+     * Unique identifier, beginning with "BRF".
+     */
+    protected $id;
+
+    /**
      * 
      */
     protected $links;
+
+    /**
+     * If true, the payer will not be able to change their bank account within
+     * the flow
+     */
+    protected $lock_bank_account;
+
+    /**
+     * If true, the payer will not be able to edit their customer details within
+     * the flow
+     */
+    protected $lock_customer_details;
 
     /**
      * URL that the payer can be redirected to after completing the request
      * flow.
      */
     protected $redirect_uri;
+
+    /**
+     * Session token populated when responding to the initalise action
+     */
+    protected $session_token;
 
 }

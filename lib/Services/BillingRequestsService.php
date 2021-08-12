@@ -22,8 +22,9 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * @method create()
  * @method get()
  * @method collectCustomerDetails()
- * @method collectBankAccountDetails()
+ * @method collectBankAccount()
  * @method fulfil()
+ * @method confirmPayerDetails()
  * @method cancel()
  * @method notify()
  */
@@ -96,7 +97,7 @@ class BillingRequestsService extends BaseService
      *
      * Example URL: /billing_requests/:identity
      *
-     * @param  string        $identity Unique identifier, beginning with "PY".
+     * @param  string        $identity Unique identifier, beginning with "BRQ".
      * @param  string[mixed] $params   An associative array for any params
      * @return BillingRequest
      **/
@@ -125,7 +126,7 @@ class BillingRequestsService extends BaseService
      *
      * Example URL: /billing_requests/:identity/actions/collect_customer_details
      *
-     * @param  string        $identity Unique identifier, beginning with "PY".
+     * @param  string        $identity Unique identifier, beginning with "BRQ".
      * @param  string[mixed] $params   An associative array for any params
      * @return BillingRequest
      **/
@@ -165,16 +166,16 @@ class BillingRequestsService extends BaseService
     /**
      * Collect bank account details for the billing request
      *
-     * Example URL: /billing_requests/:identity/actions/collect_bank_account_details
+     * Example URL: /billing_requests/:identity/actions/collect_bank_account
      *
-     * @param  string        $identity Unique identifier, beginning with "PY".
+     * @param  string        $identity Unique identifier, beginning with "BRQ".
      * @param  string[mixed] $params   An associative array for any params
      * @return BillingRequest
      **/
-    public function collectBankAccountDetails($identity, $params = array())
+    public function collectBankAccount($identity, $params = array())
     {
         $path = Util::subUrl(
-            '/billing_requests/:identity/actions/collect_bank_account_details',
+            '/billing_requests/:identity/actions/collect_bank_account',
             array(
                 
                 'identity' => $identity
@@ -209,7 +210,7 @@ class BillingRequestsService extends BaseService
      *
      * Example URL: /billing_requests/:identity/actions/fulfil
      *
-     * @param  string        $identity Unique identifier, beginning with "PY".
+     * @param  string        $identity Unique identifier, beginning with "BRQ".
      * @param  string[mixed] $params   An associative array for any params
      * @return BillingRequest
      **/
@@ -247,11 +248,53 @@ class BillingRequestsService extends BaseService
     }
 
     /**
+     * Confirm the customer and bank_account details
+     *
+     * Example URL: /billing_requests/:identity/actions/confirm_payer_details
+     *
+     * @param  string        $identity Unique identifier, beginning with "BRQ".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return BillingRequest
+     **/
+    public function confirmPayerDetails($identity, $params = array())
+    {
+        $path = Util::subUrl(
+            '/billing_requests/:identity/actions/confirm_payer_details',
+            array(
+                
+                'identity' => $identity
+            )
+        );
+        if(isset($params['params'])) { 
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
+        
+            unset($params['params']);
+        }
+
+        
+        try {
+            $response = $this->api_client->post($path, $params);
+        } catch(InvalidStateException $e) {
+            if ($e->isIdempotentCreationConflict()) {
+                if ($this->api_client->error_on_idempotency_conflict) {
+                    throw $e;
+                }
+                return $this->get($e->getConflictingResourceId());
+            }
+
+            throw $e;
+        }
+        
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
      * Cancel a billing request
      *
      * Example URL: /billing_requests/:identity/actions/cancel
      *
-     * @param  string        $identity Unique identifier, beginning with "PY".
+     * @param  string        $identity Unique identifier, beginning with "BRQ".
      * @param  string[mixed] $params   An associative array for any params
      * @return BillingRequest
      **/
@@ -293,7 +336,7 @@ class BillingRequestsService extends BaseService
      *
      * Example URL: /billing_requests/:identity/actions/notify
      *
-     * @param  string        $identity Unique identifier, beginning with "PY".
+     * @param  string        $identity Unique identifier, beginning with "BRQ".
      * @param  string[mixed] $params   An associative array for any params
      * @return BillingRequest
      **/

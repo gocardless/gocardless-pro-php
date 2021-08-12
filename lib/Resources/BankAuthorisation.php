@@ -12,13 +12,13 @@ namespace GoCardlessPro\Resources;
  * attributes
  *
  * @property-read $authorisation_type
+ * @property-read $authorised_at
  * @property-read $created_at
  * @property-read $expires_at
  * @property-read $id
  * @property-read $last_visited_at
  * @property-read $links
  * @property-read $redirect_uri
- * @property-read $short_url
  * @property-read $url
  */
 class BankAuthorisation extends BaseResource
@@ -29,6 +29,12 @@ class BankAuthorisation extends BaseResource
      * Type of authorisation, can be either 'mandate' or 'payment'.
      */
     protected $authorisation_type;
+
+    /**
+     * Fixed [timestamp](#api-usage-time-zones--dates), recording when the user
+     * has been authorised.
+     */
+    protected $authorised_at;
 
     /**
      * Timestamp when the flow was created
@@ -61,12 +67,6 @@ class BankAuthorisation extends BaseResource
      * URL that the payer can be redirected to after authorising the payment.
      */
     protected $redirect_uri;
-
-    /**
-     * Short URL that redirects via GoCardless to the original URL, more
-     * suitable for encoding in a QR code
-     */
-    protected $short_url;
 
     /**
      * URL for an oauth flow that will allow the user to authorise the payment
