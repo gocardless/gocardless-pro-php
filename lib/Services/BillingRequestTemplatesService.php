@@ -21,6 +21,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * @method list()
  * @method get()
  * @method create()
+ * @method update()
  */
 class BillingRequestTemplatesService extends BaseService
 {
@@ -110,6 +111,37 @@ class BillingRequestTemplatesService extends BaseService
 
             throw $e;
         }
+        
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
+     * Update a Billing Request Template
+     *
+     * Example URL: /billing_request_templates/:identity
+     *
+     * @param  string        $identity Unique identifier, beginning with "BRQ".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return BillingRequestTemplate
+     **/
+    public function update($identity, $params = array())
+    {
+        $path = Util::subUrl(
+            '/billing_request_templates/:identity',
+            array(
+                
+                'identity' => $identity
+            )
+        );
+        if(isset($params['params'])) { 
+            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+        
+            unset($params['params']);
+        }
+
+        
+        $response = $this->api_client->put($path, $params);
         
 
         return $this->getResourceForResponse($response);

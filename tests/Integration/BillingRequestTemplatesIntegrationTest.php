@@ -176,4 +176,40 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
         $this->assertEquals($getRequest->getUri()->getPath(), '/billing_request_templates/ID123');
     }
     
+    public function testBillingRequestTemplatesUpdate()
+    {
+        $fixture = $this->loadJsonFixture('billing_request_templates')->update;
+        $this->stub_request($fixture);
+
+        $service = $this->client->billingRequestTemplates();
+        $response = call_user_func_array(array($service, 'update'), (array)$fixture->url_params);
+
+        $body = $fixture->body->billing_request_templates;
+    
+        $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequestTemplate', $response);
+
+        $this->assertEquals($body->authorisation_url, $response->authorisation_url);
+        $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->mandate_request_currency, $response->mandate_request_currency);
+        $this->assertEquals($body->mandate_request_metadata, $response->mandate_request_metadata);
+        $this->assertEquals($body->mandate_request_scheme, $response->mandate_request_scheme);
+        $this->assertEquals($body->mandate_request_verify, $response->mandate_request_verify);
+        $this->assertEquals($body->metadata, $response->metadata);
+        $this->assertEquals($body->name, $response->name);
+        $this->assertEquals($body->payment_request_amount, $response->payment_request_amount);
+        $this->assertEquals($body->payment_request_currency, $response->payment_request_currency);
+        $this->assertEquals($body->payment_request_description, $response->payment_request_description);
+        $this->assertEquals($body->payment_request_metadata, $response->payment_request_metadata);
+        $this->assertEquals($body->payment_request_scheme, $response->payment_request_scheme);
+        $this->assertEquals($body->redirect_uri, $response->redirect_uri);
+        $this->assertEquals($body->updated_at, $response->updated_at);
+    
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+    }
+
+    
 }
