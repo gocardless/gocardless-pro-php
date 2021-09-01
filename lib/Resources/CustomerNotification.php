@@ -58,6 +58,7 @@ class CustomerNotification extends BaseResource
      * <li>`payment_created`</li>
      * <li>`payment_cancelled`</li>
      * <li>`mandate_created`</li>
+     * <li>`mandate_blocked`</li>
      * <li>`subscription_created`</li>
      * <li>`subscription_cancelled`</li>
      * <li>`instalment_schedule_created`</li>
