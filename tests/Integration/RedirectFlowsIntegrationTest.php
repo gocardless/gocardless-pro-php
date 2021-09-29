@@ -31,6 +31,7 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->description, $response->description);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->mandate_reference, $response->mandate_reference);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->redirect_url, $response->redirect_url);
         $this->assertEquals($body->scheme, $response->scheme);
@@ -68,6 +69,7 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->description, $response->description);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->mandate_reference, $response->mandate_reference);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->redirect_url, $response->redirect_url);
         $this->assertEquals($body->scheme, $response->scheme);
@@ -99,6 +101,7 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->description, $response->description);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->mandate_reference, $response->mandate_reference);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->redirect_url, $response->redirect_url);
         $this->assertEquals($body->scheme, $response->scheme);
@@ -129,6 +132,7 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->description, $response->description);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->mandate_reference, $response->mandate_reference);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->redirect_url, $response->redirect_url);
         $this->assertEquals($body->scheme, $response->scheme);
@@ -166,6 +170,7 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->description, $response->description);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->mandate_reference, $response->mandate_reference);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->redirect_url, $response->redirect_url);
         $this->assertEquals($body->scheme, $response->scheme);

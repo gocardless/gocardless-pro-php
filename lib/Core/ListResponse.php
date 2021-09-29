@@ -31,9 +31,14 @@ class ListResponse
     public function __construct($unenveloped_body, $model_class, $api_response)
     {
         $this->api_response = $api_response;
-        $this->before = $this->api_response->body->meta->cursors->before;
-        $this->after = $this->api_response->body->meta->cursors->after;
-
+        if(!is_null($this->api_response->body->meta)) {
+            if(property_exists($this->api_response->body->meta->cursors, 'before')) {
+                $this->before = $this->api_response->body->meta->cursors->before;      
+            }
+            if(property_exists($this->api_response->body->meta->cursors, 'after')) {
+                $this->after = $this->api_response->body->meta->cursors->after;
+            }
+        }
         foreach ($unenveloped_body as $item) {
             $this->records[] = new $model_class($item);
         }
