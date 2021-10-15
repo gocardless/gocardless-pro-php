@@ -64,8 +64,8 @@ class BillingRequestTemplate extends BaseResource
     protected $mandate_request_metadata;
 
     /**
-     * A Direct Debit scheme. Currently "ach", "autogiro", "bacs", "becs",
-     * "becs_nz", "betalingsservice", "pad" and "sepa_core" are supported.
+     * A Direct Debit scheme. Currently "ach", "bacs", "becs", "becs_nz",
+     * "betalingsservice", "pad" and "sepa_core" are supported.
      */
     protected $mandate_request_scheme;
 
@@ -124,8 +124,8 @@ class BillingRequestTemplate extends BaseResource
     protected $payment_request_metadata;
 
     /**
-     * A Direct Debit scheme. Currently "ach", "autogiro", "bacs", "becs",
-     * "becs_nz", "betalingsservice", "pad" and "sepa_core" are supported.
+     * A Direct Debit scheme. Currently "ach", "bacs", "becs", "becs_nz",
+     * "betalingsservice", "pad" and "sepa_core" are supported.
      */
     protected $payment_request_scheme;
 
