@@ -51,8 +51,7 @@ class BillingRequestTemplate extends BaseResource
 
     /**
      * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
-     * code. Currently only "GBP" is supported as we only have one scheme that
-     * is per_payment_authorised.
+     * code.
      */
     protected $mandate_request_currency;
 
@@ -105,8 +104,7 @@ class BillingRequestTemplate extends BaseResource
 
     /**
      * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
-     * code. Currently only "GBP" is supported as we only have one scheme that
-     * is per_payment_authorised.
+     * code.
      */
     protected $payment_request_currency;
 
