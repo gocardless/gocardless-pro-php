@@ -3,7 +3,7 @@
     "method": "POST",
     "path_template": "/blocks",
     "url_params": {},
-    "body": {"blocks":{"active":true,"block_type":"example block_type 3098","created_at":"2014-01-01T12:00:00.000Z","id":"BLC123","reason_description":"example reason_description 8591","reason_type":"example reason_type 8553","resource_reference":"example@example.com","updated_at":"2014-01-01T12:00:00.000Z"}}
+    "body": {"blocks":{"active":true,"block_type":"example block_type 8553","created_at":"2014-01-01T12:00:00.000Z","id":"BLC123","reason_description":"example reason_description 3098","reason_type":"example reason_type 8591","resource_reference":"example@example.com","updated_at":"2014-01-01T12:00:00.000Z"}}
   },
   "get": {
     "method": "GET",
@@ -21,7 +21,7 @@
     "method": "POST",
     "path_template": "/blocks/:identity/actions/disable",
     "url_params": {"identity": "BLC123"},
-    "body": {"blocks":{"active":true,"block_type":"example block_type 1270","created_at":"2014-01-01T12:00:00.000Z","id":"BLC123","reason_description":"example reason_description 2066","reason_type":"example reason_type 493","resource_reference":"example@example.com","updated_at":"2014-01-01T12:00:00.000Z"}}
+    "body": {"blocks":{"active":true,"block_type":"example block_type 493","created_at":"2014-01-01T12:00:00.000Z","id":"BLC123","reason_description":"example reason_description 1270","reason_type":"example reason_type 2066","resource_reference":"example@example.com","updated_at":"2014-01-01T12:00:00.000Z"}}
   },
   "enable": {
     "method": "POST",
