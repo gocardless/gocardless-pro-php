@@ -142,6 +142,20 @@ class Client
     }
     
     /**
+     * Service for interacting with blocks
+     *
+     * @return Services\BlocksService
+     */
+    public function blocks()
+    {
+        if (!isset($this->blocks)) {
+            $this->blocks = new Services\BlocksService($this->api_client);
+        }
+
+        return $this->blocks;
+    }
+    
+    /**
      * Service for interacting with creditors
      *
      * @return Services\CreditorsService
