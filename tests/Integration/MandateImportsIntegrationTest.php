@@ -117,38 +117,6 @@ class MandateImportsIntegrationTest extends IntegrationTestBase
         $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
-    public function testMandateImportsSubmitWithIdempotencyConflict()
-    {
-        $fixture = $this->loadJsonFixture('mandate_imports')->submit;
-
-        $idempotencyConflictResponseFixture = $this->loadFixture('idempotent_creation_conflict_invalid_state_error');
-
-        // The POST request responds with a 409 to our original POST, due to an idempotency conflict
-        $this->mock->append(new \GuzzleHttp\Psr7\Response(409, [], $idempotencyConflictResponseFixture));
-
-        // The client makes a second request to fetch the resource that was already
-        // created using our idempotency key. It responds with the created resource,
-        // which looks just like the response for a successful POST request.
-        $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], json_encode($fixture->body)));
-
-        $service = $this->client->mandateImports();
-        $response = call_user_func_array(array($service, 'submit'), (array)$fixture->url_params);
-        $body = $fixture->body->mandate_imports;
-
-        $this->assertInstanceOf('\GoCardlessPro\Resources\MandateImport', $response);
-
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->scheme, $response->scheme);
-        $this->assertEquals($body->status, $response->status);
-        
-
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
-        $conflictRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $conflictRequest->getUri()->getPath());
-        $getRequest = $this->history[1]['request'];
-        $this->assertEquals($getRequest->getUri()->getPath(), '/mandate_imports/ID123');
-    }
     
     public function testMandateImportsCancel()
     {
@@ -173,37 +141,5 @@ class MandateImportsIntegrationTest extends IntegrationTestBase
         $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
-    public function testMandateImportsCancelWithIdempotencyConflict()
-    {
-        $fixture = $this->loadJsonFixture('mandate_imports')->cancel;
-
-        $idempotencyConflictResponseFixture = $this->loadFixture('idempotent_creation_conflict_invalid_state_error');
-
-        // The POST request responds with a 409 to our original POST, due to an idempotency conflict
-        $this->mock->append(new \GuzzleHttp\Psr7\Response(409, [], $idempotencyConflictResponseFixture));
-
-        // The client makes a second request to fetch the resource that was already
-        // created using our idempotency key. It responds with the created resource,
-        // which looks just like the response for a successful POST request.
-        $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], json_encode($fixture->body)));
-
-        $service = $this->client->mandateImports();
-        $response = call_user_func_array(array($service, 'cancel'), (array)$fixture->url_params);
-        $body = $fixture->body->mandate_imports;
-
-        $this->assertInstanceOf('\GoCardlessPro\Resources\MandateImport', $response);
-
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->scheme, $response->scheme);
-        $this->assertEquals($body->status, $response->status);
-        
-
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
-        $conflictRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $conflictRequest->getUri()->getPath());
-        $getRequest = $this->history[1]['request'];
-        $this->assertEquals($getRequest->getUri()->getPath(), '/mandate_imports/ID123');
-    }
     
 }

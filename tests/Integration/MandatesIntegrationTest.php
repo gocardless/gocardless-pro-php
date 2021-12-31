@@ -205,43 +205,6 @@ class MandatesIntegrationTest extends IntegrationTestBase
         $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
-    public function testMandatesCancelWithIdempotencyConflict()
-    {
-        $fixture = $this->loadJsonFixture('mandates')->cancel;
-
-        $idempotencyConflictResponseFixture = $this->loadFixture('idempotent_creation_conflict_invalid_state_error');
-
-        // The POST request responds with a 409 to our original POST, due to an idempotency conflict
-        $this->mock->append(new \GuzzleHttp\Psr7\Response(409, [], $idempotencyConflictResponseFixture));
-
-        // The client makes a second request to fetch the resource that was already
-        // created using our idempotency key. It responds with the created resource,
-        // which looks just like the response for a successful POST request.
-        $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], json_encode($fixture->body)));
-
-        $service = $this->client->mandates();
-        $response = call_user_func_array(array($service, 'cancel'), (array)$fixture->url_params);
-        $body = $fixture->body->mandates;
-
-        $this->assertInstanceOf('\GoCardlessPro\Resources\Mandate', $response);
-
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->next_possible_charge_date, $response->next_possible_charge_date);
-        $this->assertEquals($body->payments_require_approval, $response->payments_require_approval);
-        $this->assertEquals($body->reference, $response->reference);
-        $this->assertEquals($body->scheme, $response->scheme);
-        $this->assertEquals($body->status, $response->status);
-        
-
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
-        $conflictRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $conflictRequest->getUri()->getPath());
-        $getRequest = $this->history[1]['request'];
-        $this->assertEquals($getRequest->getUri()->getPath(), '/mandates/ID123');
-    }
     
     public function testMandatesReinstate()
     {
@@ -271,42 +234,5 @@ class MandatesIntegrationTest extends IntegrationTestBase
         $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
-    public function testMandatesReinstateWithIdempotencyConflict()
-    {
-        $fixture = $this->loadJsonFixture('mandates')->reinstate;
-
-        $idempotencyConflictResponseFixture = $this->loadFixture('idempotent_creation_conflict_invalid_state_error');
-
-        // The POST request responds with a 409 to our original POST, due to an idempotency conflict
-        $this->mock->append(new \GuzzleHttp\Psr7\Response(409, [], $idempotencyConflictResponseFixture));
-
-        // The client makes a second request to fetch the resource that was already
-        // created using our idempotency key. It responds with the created resource,
-        // which looks just like the response for a successful POST request.
-        $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], json_encode($fixture->body)));
-
-        $service = $this->client->mandates();
-        $response = call_user_func_array(array($service, 'reinstate'), (array)$fixture->url_params);
-        $body = $fixture->body->mandates;
-
-        $this->assertInstanceOf('\GoCardlessPro\Resources\Mandate', $response);
-
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->next_possible_charge_date, $response->next_possible_charge_date);
-        $this->assertEquals($body->payments_require_approval, $response->payments_require_approval);
-        $this->assertEquals($body->reference, $response->reference);
-        $this->assertEquals($body->scheme, $response->scheme);
-        $this->assertEquals($body->status, $response->status);
-        
-
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
-        $conflictRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $conflictRequest->getUri()->getPath());
-        $getRequest = $this->history[1]['request'];
-        $this->assertEquals($getRequest->getUri()->getPath(), '/mandates/ID123');
-    }
     
 }

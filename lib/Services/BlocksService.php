@@ -23,6 +23,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * @method list()
  * @method disable()
  * @method enable()
+ * @method blockByRef()
  */
 class BlocksService extends BaseService
 {
@@ -177,6 +178,41 @@ class BlocksService extends BaseService
                 'identity' => $identity
             )
         );
+        if(isset($params['params'])) { 
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
+        
+            unset($params['params']);
+        }
+
+        
+        try {
+            $response = $this->api_client->post($path, $params);
+        } catch(InvalidStateException $e) {
+            if ($e->isIdempotentCreationConflict()) {
+                if ($this->api_client->error_on_idempotency_conflict) {
+                    throw $e;
+                }
+                return $this->get($e->getConflictingResourceId());
+            }
+
+            throw $e;
+        }
+        
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
+     * Create blocks by reference
+     *
+     * Example URL: /block_by_ref
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return ListResponse
+     **/
+    public function blockByRef($params = array())
+    {
+        $path = "/block_by_ref";
         if(isset($params['params'])) { 
             $params['body'] = json_encode(array("data" => (object)$params['params']));
         
