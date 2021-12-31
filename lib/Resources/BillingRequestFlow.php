@@ -14,6 +14,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $authorisation_url
  * @property-read $auto_fulfil
  * @property-read $created_at
+ * @property-read $exit_uri
  * @property-read $expires_at
  * @property-read $id
  * @property-read $links
@@ -33,7 +34,9 @@ class BillingRequestFlow extends BaseResource
     protected $authorisation_url;
 
     /**
-     * Fulfil the Billing Request on completion of the flow (true by default)
+     * (Experimental feature) Fulfil the Billing Request on completion of the
+     * flow (true by default). Disabling the auto_fulfil is not allowed
+     * currently.
      */
     protected $auto_fulfil;
 
@@ -41,6 +44,12 @@ class BillingRequestFlow extends BaseResource
      * Timestamp when the flow was created
      */
     protected $created_at;
+
+    /**
+     * URL that the payer can be taken to if there isn't a way to progress ahead
+     * in flow.
+     */
+    protected $exit_uri;
 
     /**
      * Timestamp when the flow will expire. Each flow currently lasts for 7
@@ -60,13 +69,15 @@ class BillingRequestFlow extends BaseResource
 
     /**
      * If true, the payer will not be able to change their bank account within
-     * the flow
+     * the flow. If the bank_account details are collected as part of
+     * bank_authorisation then GC will set this value to true mid flow
      */
     protected $lock_bank_account;
 
     /**
      * If true, the payer will not be able to edit their customer details within
-     * the flow
+     * the flow. If the customer details are collected as part of
+     * bank_authorisation then GC will set this value to true mid flow
      */
     protected $lock_customer_details;
 

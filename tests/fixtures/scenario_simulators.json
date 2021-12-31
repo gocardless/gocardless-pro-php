@@ -1,3 +1,9 @@
 { 
+  "run": {
+    "method": "POST",
+    "path_template": "/scenario_simulators/:identity/actions/run",
+    "url_params": {"identity": "payment_failed"},
+    "body": {"scenario_simulators":{"id":"payment_failed"}}
+  }
 }
 

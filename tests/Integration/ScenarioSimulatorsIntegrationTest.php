@@ -14,6 +14,25 @@ class ScenarioSimulatorsIntegrationTest extends IntegrationTestBase
         $this->assertNotNull($obj);
     }
     
+    public function testScenarioSimulatorsRun()
+    {
+        $fixture = $this->loadJsonFixture('scenario_simulators')->run;
+        $this->stub_request($fixture);
+
+        $service = $this->client->scenarioSimulators();
+        $response = call_user_func_array(array($service, 'run'), (array)$fixture->url_params);
+
+        $body = $fixture->body->scenario_simulators;
+    
+        $this->assertInstanceOf('\GoCardlessPro\Resources\ScenarioSimulator', $response);
+
+        $this->assertEquals($body->id, $response->id);
+    
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+    }
 
     
 }
