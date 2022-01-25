@@ -3,19 +3,19 @@
     "method": "GET",
     "path_template": "/webhooks",
     "url_params": {},
-    "body": {"meta":{"cursors":{"after":"example after 1040","before":"example before 5014"},"limit":50},"webhooks":[{"created_at":"2014-01-01T12:00:00.000Z","id":"WB123","is_test":true,"request_body":"example request_body 7039","request_headers":{},"response_body":"example response_body 1757","response_body_truncated":true,"response_code":1181,"response_headers":{},"response_headers_content_truncated":true,"response_headers_count_truncated":false,"successful":true,"url":"https://example.com/webhooks"},{"created_at":"2014-01-01T12:00:00.000Z","id":"WB123","is_test":false,"request_body":"example request_body 1533","request_headers":{},"response_body":"example response_body 1215","response_body_truncated":true,"response_code":5561,"response_headers":{},"response_headers_content_truncated":true,"response_headers_count_truncated":false,"successful":true,"url":"https://example.com/webhooks"}]}
+    "body": {"meta":{"cursors":{"after":"example after 1040","before":"example before 5014"},"limit":50},"webhooks":[{"created_at":"2014-01-01T12:00:00.000Z","id":"WB123","is_test":false,"request_body":"example request_body 2060","request_headers":{},"response_body":"example response_body 600","response_body_truncated":true,"response_code":9516,"response_headers":{},"response_headers_content_truncated":true,"response_headers_count_truncated":true,"successful":true,"url":"https://example.com/webhooks"},{"created_at":"2014-01-01T12:00:00.000Z","id":"WB123","is_test":true,"request_body":"example request_body 2804","request_headers":{},"response_body":"example response_body 1509","response_body_truncated":true,"response_code":6685,"response_headers":{},"response_headers_content_truncated":false,"response_headers_count_truncated":false,"successful":true,"url":"https://example.com/webhooks"}]}
   },
   "get": {
     "method": "GET",
     "path_template": "/webhooks/:identity",
     "url_params": {"identity": "WB123"},
-    "body": {"webhooks":{"created_at":"2014-01-01T12:00:00.000Z","id":"WB123","is_test":true,"request_body":"example request_body 8662","request_headers":{},"response_body":"example response_body 6443","response_body_truncated":false,"response_code":3173,"response_headers":{},"response_headers_content_truncated":false,"response_headers_count_truncated":false,"successful":false,"url":"https://example.com/webhooks"}}
+    "body": {"webhooks":{"created_at":"2014-01-01T12:00:00.000Z","id":"WB123","is_test":false,"request_body":"example request_body 9284","request_headers":{},"response_body":"example response_body 235","response_body_truncated":true,"response_code":3173,"response_headers":{},"response_headers_content_truncated":true,"response_headers_count_truncated":false,"successful":false,"url":"https://example.com/webhooks"}}
   },
   "retry": {
     "method": "POST",
     "path_template": "/webhooks/:identity/actions/retry",
     "url_params": {"identity": "WB123"},
-    "body": {"webhooks":{"created_at":"2014-01-01T12:00:00.000Z","id":"WB123","is_test":true,"request_body":"example request_body 2869","request_headers":{},"response_body":"example response_body 3472","response_body_truncated":false,"response_code":8070,"response_headers":{},"response_headers_content_truncated":true,"response_headers_count_truncated":false,"successful":false,"url":"https://example.com/webhooks"}}
+    "body": {"webhooks":{"created_at":"2014-01-01T12:00:00.000Z","id":"WB123","is_test":false,"request_body":"example request_body 6336","request_headers":{},"response_body":"example response_body 2869","response_body_truncated":true,"response_code":574,"response_headers":{},"response_headers_content_truncated":true,"response_headers_count_truncated":true,"successful":false,"url":"https://example.com/webhooks"}}
   }
 }
 
