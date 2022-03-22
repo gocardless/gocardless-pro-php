@@ -28,7 +28,7 @@ class InstitutionsService extends BaseService
 
 
     /**
-     * List institutions
+     * List Institutions
      *
      * Example URL: /institutions
      *
@@ -50,7 +50,7 @@ class InstitutionsService extends BaseService
     }
 
     /**
-     * List institutions
+     * List Institutions
      *
      * Example URL: /institutions
      *

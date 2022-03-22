@@ -58,7 +58,7 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-     * Create a billing_request
+     * Create a Billing Request
      *
      * Example URL: /billing_requests
      *
@@ -93,7 +93,7 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-     * Get a single billing request
+     * Get a single Billing Request
      *
      * Example URL: /billing_requests/:identity
      *
@@ -122,7 +122,7 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-     * Collect customer details for the billing request
+     * Collect customer details for a Billing Request
      *
      * Example URL: /billing_requests/:identity/actions/collect_customer_details
      *
@@ -164,7 +164,7 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-     * Collect bank account details for the billing request
+     * Collect bank account details for a Billing Request
      *
      * Example URL: /billing_requests/:identity/actions/collect_bank_account
      *
@@ -206,7 +206,7 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-     * Fulfil a billing request
+     * Fulfil a Billing Request
      *
      * Example URL: /billing_requests/:identity/actions/fulfil
      *
@@ -248,7 +248,7 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-     * Confirm the customer and bank_account details
+     * Confirm the customer and bank account details
      *
      * Example URL: /billing_requests/:identity/actions/confirm_payer_details
      *
@@ -290,7 +290,7 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-     * Cancel a billing request
+     * Cancel a Billing Request
      *
      * Example URL: /billing_requests/:identity/actions/cancel
      *
@@ -332,7 +332,7 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-     * Notify the customer of a billing request
+     * Notify the customer of a Billing Request
      *
      * Example URL: /billing_requests/:identity/actions/notify
      *

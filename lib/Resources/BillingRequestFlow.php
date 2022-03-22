@@ -89,7 +89,7 @@ class BillingRequestFlow extends BaseResource
     protected $redirect_uri;
 
     /**
-     * Session token populated when responding to the initalise action
+     * Session token populated when responding to the initialise action
      */
     protected $session_token;
 

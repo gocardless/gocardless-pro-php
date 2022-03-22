@@ -29,7 +29,7 @@ class BillingRequestFlowsService extends BaseService
 
 
     /**
-     * Create a billing request flow
+     * Create a Billing Request Flow
      *
      * Example URL: /billing_request_flows
      *
@@ -53,7 +53,7 @@ class BillingRequestFlowsService extends BaseService
     }
 
     /**
-     * Initialise a billing request flow
+     * Initialise a Billing Request Flow
      *
      * Example URL: /billing_request_flows/:identity/actions/initialise
      *
