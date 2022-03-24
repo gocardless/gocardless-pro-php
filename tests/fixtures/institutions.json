@@ -3,7 +3,7 @@
     "method": "GET",
     "path_template": "/institutions",
     "url_params": {},
-    "body": {"institutions":[{"country_code":"GB","icon_url":"https://gocardless/assets/icons/monzo","id":"monzo","logo_url":"https://gocardless/assets/logos/monzo","name":"VAT","roles":["institutions_list","heartbeat","read_refund_account"]},{"country_code":"GB","icon_url":"https://gocardless/assets/icons/monzo","id":"monzo","logo_url":"https://gocardless/assets/logos/monzo","name":"VAT","roles":["institutions_list","heartbeat","read_refund_account"]}],"meta":{"cursors":{"after":"example after 783","before":"example before 870"},"limit":50}}
+    "body": {"institutions":[{"country_code":"GB","icon_url":"https://gocardless/assets/icons/monzo","id":"monzo","logo_url":"https://gocardless/assets/logos/monzo","name":"VAT","roles":["institutions_list","heartbeat","read_refund_account"]},{"country_code":"GB","icon_url":"https://gocardless/assets/icons/monzo","id":"monzo","logo_url":"https://gocardless/assets/logos/monzo","name":"VAT","roles":["institutions_list","heartbeat","read_refund_account"]}],"meta":{"cursors":{"after":"example after 870","before":"example before 783"},"limit":50}}
   }
 }
 
