@@ -40,7 +40,6 @@ class InstitutionsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->id, $record->id);
             $this->assertEquals($body[$num]->logo_url, $record->logo_url);
             $this->assertEquals($body[$num]->name, $record->name);
-            $this->assertEquals($body[$num]->roles, $record->roles);
             
         }
 

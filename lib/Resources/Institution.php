@@ -16,7 +16,6 @@ namespace GoCardlessPro\Resources;
  * @property-read $id
  * @property-read $logo_url
  * @property-read $name
- * @property-read $roles
  */
 class Institution extends BaseResource
 {
@@ -48,10 +47,5 @@ class Institution extends BaseResource
      * A human readable name for this institution
      */
     protected $name;
-
-    /**
-     * Assigned roles for an institution
-     */
-    protected $roles;
 
 }
