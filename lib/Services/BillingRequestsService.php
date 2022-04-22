@@ -27,6 +27,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * @method confirmPayerDetails()
  * @method cancel()
  * @method notify()
+ * @method fallback()
  */
 class BillingRequestsService extends BaseService
 {
@@ -344,6 +345,48 @@ class BillingRequestsService extends BaseService
     {
         $path = Util::subUrl(
             '/billing_requests/:identity/actions/notify',
+            array(
+                
+                'identity' => $identity
+            )
+        );
+        if(isset($params['params'])) { 
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
+        
+            unset($params['params']);
+        }
+
+        
+        try {
+            $response = $this->api_client->post($path, $params);
+        } catch(InvalidStateException $e) {
+            if ($e->isIdempotentCreationConflict()) {
+                if ($this->api_client->error_on_idempotency_conflict) {
+                    throw $e;
+                }
+                return $this->get($e->getConflictingResourceId());
+            }
+
+            throw $e;
+        }
+        
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
+     * Trigger fallback for a Billing Request
+     *
+     * Example URL: /billing_requests/:identity/actions/fallback
+     *
+     * @param  string        $identity Unique identifier, beginning with "BRQ".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return BillingRequest
+     **/
+    public function fallback($identity, $params = array())
+    {
+        $path = Util::subUrl(
+            '/billing_requests/:identity/actions/fallback',
             array(
                 
                 'identity' => $identity

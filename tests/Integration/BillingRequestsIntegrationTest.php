@@ -37,6 +37,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
             $record = $records[$num];
             $this->assertEquals($body[$num]->actions, $record->actions);
             $this->assertEquals($body[$num]->created_at, $record->created_at);
+            $this->assertEquals($body[$num]->fallback_enabled, $record->fallback_enabled);
             $this->assertEquals($body[$num]->id, $record->id);
             $this->assertEquals($body[$num]->links, $record->links);
             $this->assertEquals($body[$num]->mandate_request, $record->mandate_request);
@@ -67,6 +68,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertEquals($body->actions, $response->actions);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
@@ -103,6 +105,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertEquals($body->actions, $response->actions);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
@@ -133,6 +136,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertEquals($body->actions, $response->actions);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
@@ -162,6 +166,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertEquals($body->actions, $response->actions);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
@@ -191,6 +196,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertEquals($body->actions, $response->actions);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
@@ -220,6 +226,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertEquals($body->actions, $response->actions);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
@@ -249,6 +256,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertEquals($body->actions, $response->actions);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
@@ -278,6 +286,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertEquals($body->actions, $response->actions);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
@@ -307,6 +316,37 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertEquals($body->actions, $response->actions);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->mandate_request, $response->mandate_request);
+        $this->assertEquals($body->metadata, $response->metadata);
+        $this->assertEquals($body->payment_request, $response->payment_request);
+        $this->assertEquals($body->resources, $response->resources);
+        $this->assertEquals($body->status, $response->status);
+    
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+    }
+
+    
+    public function testBillingRequestsFallback()
+    {
+        $fixture = $this->loadJsonFixture('billing_requests')->fallback;
+        $this->stub_request($fixture);
+
+        $service = $this->client->billingRequests();
+        $response = call_user_func_array(array($service, 'fallback'), (array)$fixture->url_params);
+
+        $body = $fixture->body->billing_requests;
+    
+        $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
+
+        $this->assertEquals($body->actions, $response->actions);
+        $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
