@@ -22,6 +22,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $lock_customer_details
  * @property-read $redirect_uri
  * @property-read $session_token
+ * @property-read $show_redirect_buttons
  */
 class BillingRequestFlow extends BaseResource
 {
@@ -88,8 +89,18 @@ class BillingRequestFlow extends BaseResource
     protected $redirect_uri;
 
     /**
-     * Session token populated when responding to the initalise action
+     * Session token populated when responding to the initialise action
      */
     protected $session_token;
+
+    /**
+     * If true, the payer will be able to see redirect action buttons on Thank
+     * You page. These action buttons will provide a way to connect back to the
+     * billing request flow app if opened within a mobile app. For successful
+     * flow, the button will take the payer back the billing request flow where
+     * they will see the success screen. For failure, button will take the payer
+     * to url being provided against exit_uri field.
+     */
+    protected $show_redirect_buttons;
 
 }

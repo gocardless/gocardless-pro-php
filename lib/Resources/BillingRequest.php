@@ -13,6 +13,7 @@ namespace GoCardlessPro\Resources;
  *
  * @property-read $actions
  * @property-read $created_at
+ * @property-read $fallback_enabled
  * @property-read $id
  * @property-read $links
  * @property-read $mandate_request
@@ -36,6 +37,12 @@ class BillingRequest extends BaseResource
      * resource was created.
      */
     protected $created_at;
+
+    /**
+     * If true, this billing request can fallback from instant payment to direct
+     * debit.
+     */
+    protected $fallback_enabled;
 
     /**
      * Unique identifier, beginning with "BRQ".
@@ -71,11 +78,11 @@ class BillingRequest extends BaseResource
     /**
      * One of:
      * <ul>
-     * <li>`pending`: the billing_request is pending and can be used</li>
-     * <li>`ready_to_fulfil`: the billing_request is ready to fulfil</li>
-     * <li>`fulfilled`: the billing_request has been fulfilled and a payment
+     * <li>`pending`: the billing request is pending and can be used</li>
+     * <li>`ready_to_fulfil`: the billing request is ready to fulfil</li>
+     * <li>`fulfilled`: the billing request has been fulfilled and a payment
      * created</li>
-     * <li>`cancelled`: the billing_request has been cancelled and cannot be
+     * <li>`cancelled`: the billing request has been cancelled and cannot be
      * used</li>
      * </ul>
      */

@@ -29,7 +29,7 @@ class BillingRequestFlowsService extends BaseService
 
 
     /**
-     * Create a billing request flow
+     * Create a Billing Request Flow
      *
      * Example URL: /billing_request_flows
      *
@@ -53,11 +53,11 @@ class BillingRequestFlowsService extends BaseService
     }
 
     /**
-     * Initialise a billing request flow
+     * Initialise a Billing Request Flow
      *
      * Example URL: /billing_request_flows/:identity/actions/initialise
      *
-     * @param  string        $identity Unique identifier, beginning with "BRQ".
+     * @param  string        $identity Unique identifier, beginning with "BRF".
      * @param  string[mixed] $params   An associative array for any params
      * @return BillingRequestFlow
      **/

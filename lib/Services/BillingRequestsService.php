@@ -27,6 +27,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * @method confirmPayerDetails()
  * @method cancel()
  * @method notify()
+ * @method fallback()
  */
 class BillingRequestsService extends BaseService
 {
@@ -58,7 +59,7 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-     * Create a billing_request
+     * Create a Billing Request
      *
      * Example URL: /billing_requests
      *
@@ -93,7 +94,7 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-     * Get a single billing request
+     * Get a single Billing Request
      *
      * Example URL: /billing_requests/:identity
      *
@@ -122,7 +123,7 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-     * Collect customer details for the billing request
+     * Collect customer details for a Billing Request
      *
      * Example URL: /billing_requests/:identity/actions/collect_customer_details
      *
@@ -164,7 +165,7 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-     * Collect bank account details for the billing request
+     * Collect bank account details for a Billing Request
      *
      * Example URL: /billing_requests/:identity/actions/collect_bank_account
      *
@@ -206,7 +207,7 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-     * Fulfil a billing request
+     * Fulfil a Billing Request
      *
      * Example URL: /billing_requests/:identity/actions/fulfil
      *
@@ -248,7 +249,7 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-     * Confirm the customer and bank_account details
+     * Confirm the customer and bank account details
      *
      * Example URL: /billing_requests/:identity/actions/confirm_payer_details
      *
@@ -290,7 +291,7 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-     * Cancel a billing request
+     * Cancel a Billing Request
      *
      * Example URL: /billing_requests/:identity/actions/cancel
      *
@@ -332,7 +333,7 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-     * Notify the customer of a billing request
+     * Notify the customer of a Billing Request
      *
      * Example URL: /billing_requests/:identity/actions/notify
      *
@@ -344,6 +345,48 @@ class BillingRequestsService extends BaseService
     {
         $path = Util::subUrl(
             '/billing_requests/:identity/actions/notify',
+            array(
+                
+                'identity' => $identity
+            )
+        );
+        if(isset($params['params'])) { 
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
+        
+            unset($params['params']);
+        }
+
+        
+        try {
+            $response = $this->api_client->post($path, $params);
+        } catch(InvalidStateException $e) {
+            if ($e->isIdempotentCreationConflict()) {
+                if ($this->api_client->error_on_idempotency_conflict) {
+                    throw $e;
+                }
+                return $this->get($e->getConflictingResourceId());
+            }
+
+            throw $e;
+        }
+        
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
+     * Trigger fallback for a Billing Request
+     *
+     * Example URL: /billing_requests/:identity/actions/fallback
+     *
+     * @param  string        $identity Unique identifier, beginning with "BRQ".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return BillingRequest
+     **/
+    public function fallback($identity, $params = array())
+    {
+        $path = Util::subUrl(
+            '/billing_requests/:identity/actions/fallback',
             array(
                 
                 'identity' => $identity
