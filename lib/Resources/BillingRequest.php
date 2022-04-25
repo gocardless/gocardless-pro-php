@@ -39,8 +39,9 @@ class BillingRequest extends BaseResource
     protected $created_at;
 
     /**
-     * If true, this billing request can fallback from instant payment to direct
-     * debit.
+     * (Optional) If true, this billing request can fallback from instant
+     * payment to direct debit. Should not be set if GoCardless payment
+     * intelligence feature is used. 
      */
     protected $fallback_enabled;
 
