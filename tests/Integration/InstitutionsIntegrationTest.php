@@ -35,6 +35,7 @@ class InstitutionsIntegrationTest extends IntegrationTestBase
     
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
+            $this->assertEquals($body[$num]->bank_redirect, $record->bank_redirect);
             $this->assertEquals($body[$num]->country_code, $record->country_code);
             $this->assertEquals($body[$num]->icon_url, $record->icon_url);
             $this->assertEquals($body[$num]->id, $record->id);
