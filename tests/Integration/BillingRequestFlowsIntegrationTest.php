@@ -34,6 +34,7 @@ class BillingRequestFlowsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->lock_bank_account, $response->lock_bank_account);
+        $this->assertEquals($body->lock_currency, $response->lock_currency);
         $this->assertEquals($body->lock_customer_details, $response->lock_customer_details);
         $this->assertEquals($body->redirect_uri, $response->redirect_uri);
         $this->assertEquals($body->session_token, $response->session_token);
@@ -66,6 +67,7 @@ class BillingRequestFlowsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->lock_bank_account, $response->lock_bank_account);
+        $this->assertEquals($body->lock_currency, $response->lock_currency);
         $this->assertEquals($body->lock_customer_details, $response->lock_customer_details);
         $this->assertEquals($body->redirect_uri, $response->redirect_uri);
         $this->assertEquals($body->session_token, $response->session_token);
