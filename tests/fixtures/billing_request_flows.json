@@ -3,13 +3,13 @@
     "method": "POST",
     "path_template": "/billing_request_flows",
     "url_params": {},
-    "body": {"billing_request_flows":{"authorisation_url":"https://monzo.com/abc-123-things","auto_fulfil":false,"created_at":"2022-06-10T09:12:31.495Z","exit_uri":"https://my-website.com/abc/callback","expires_at":"2022-06-10T09:12:31.495Z","id":"BRF123","links":{"billing_request":"BRQ123"},"lock_bank_account":true,"lock_currency":false,"lock_customer_details":true,"redirect_uri":"https://my-website.com/abc/callback","session_token":"sesh_123","show_redirect_buttons":true}}
+    "body": {"billing_request_flows":{"authorisation_url":"https://monzo.com/abc-123-things","auto_fulfil":false,"created_at":"2022-06-14T08:47:34.592Z","exit_uri":"https://my-website.com/abc/callback","expires_at":"2022-06-14T08:47:34.592Z","id":"BRF123","links":{"billing_request":"BRQ123"},"lock_bank_account":true,"lock_currency":true,"lock_customer_details":true,"redirect_uri":"https://my-website.com/abc/callback","session_token":"sesh_123","show_redirect_buttons":false}}
   },
   "initialise": {
     "method": "POST",
     "path_template": "/billing_request_flows/:identity/actions/initialise",
     "url_params": {"identity": "BRF123"},
-    "body": {"billing_request_flows":{"authorisation_url":"https://monzo.com/abc-123-things","auto_fulfil":true,"created_at":"2022-06-10T09:12:31.495Z","exit_uri":"https://my-website.com/abc/callback","expires_at":"2022-06-10T09:12:31.495Z","id":"BRF123","links":{"billing_request":"BRQ123"},"lock_bank_account":false,"lock_currency":true,"lock_customer_details":true,"redirect_uri":"https://my-website.com/abc/callback","session_token":"sesh_123","show_redirect_buttons":false}}
+    "body": {"billing_request_flows":{"authorisation_url":"https://monzo.com/abc-123-things","auto_fulfil":false,"created_at":"2022-06-14T08:47:34.592Z","exit_uri":"https://my-website.com/abc/callback","expires_at":"2022-06-14T08:47:34.592Z","id":"BRF123","links":{"billing_request":"BRQ123"},"lock_bank_account":true,"lock_currency":false,"lock_customer_details":true,"redirect_uri":"https://my-website.com/abc/callback","session_token":"sesh_123","show_redirect_buttons":true}}
   }
 }
 
