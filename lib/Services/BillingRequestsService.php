@@ -25,6 +25,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * @method chooseCurrency()
  * @method collectBankAccount()
  * @method fulfil()
+ * @method chooseCurrency()
  * @method confirmPayerDetails()
  * @method cancel()
  * @method notify()
@@ -264,6 +265,48 @@ class BillingRequestsService extends BaseService
     {
         $path = Util::subUrl(
             '/billing_requests/:identity/actions/fulfil',
+            array(
+                
+                'identity' => $identity
+            )
+        );
+        if(isset($params['params'])) { 
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
+        
+            unset($params['params']);
+        }
+
+        
+        try {
+            $response = $this->api_client->post($path, $params);
+        } catch(InvalidStateException $e) {
+            if ($e->isIdempotentCreationConflict()) {
+                if ($this->api_client->error_on_idempotency_conflict) {
+                    throw $e;
+                }
+                return $this->get($e->getConflictingResourceId());
+            }
+
+            throw $e;
+        }
+        
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
+     * Change currency for a Billing Request
+     *
+     * Example URL: /billing_requests/:identity/actions/choose_currency
+     *
+     * @param  string        $identity Unique identifier, beginning with "BRQ".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return BillingRequest
+     **/
+    public function chooseCurrency($identity, $params = array())
+    {
+        $path = Util::subUrl(
+            '/billing_requests/:identity/actions/choose_currency',
             array(
                 
                 'identity' => $identity

@@ -19,6 +19,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $id
  * @property-read $links
  * @property-read $lock_bank_account
+ * @property-read $lock_currency
  * @property-read $lock_customer_details
  * @property-read $redirect_uri
  * @property-read $session_token
@@ -74,6 +75,12 @@ class BillingRequestFlow extends BaseResource
      * bank_authorisation then GC will set this value to true mid flow
      */
     protected $lock_bank_account;
+
+    /**
+     * If true, the payer will not be able to edit their currency after its been
+     * set for the flow.
+     */
+    protected $lock_currency;
 
     /**
      * If true, the payer will not be able to edit their customer details within
