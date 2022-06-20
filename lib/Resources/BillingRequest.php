@@ -39,8 +39,13 @@ class BillingRequest extends BaseResource
     protected $created_at;
 
     /**
-     * If true, this billing request can fallback from instant payment to direct
-     * debit.
+     * (Optional) If true, this billing request can fallback from instant
+     * payment to direct debit.
+     * Should not be set if GoCardless payment intelligence feature is used.
+     * 
+     * See [Billing Requests: Retain customers with
+     * Fallbacks](https://developer.gocardless.com/getting-started/billing-requests/retain-customers-with-fallbacks/)
+     * for more information.
      */
     protected $fallback_enabled;
 
@@ -80,6 +85,8 @@ class BillingRequest extends BaseResource
      * <ul>
      * <li>`pending`: the billing request is pending and can be used</li>
      * <li>`ready_to_fulfil`: the billing request is ready to fulfil</li>
+     * <li>`fulfilling`: the billing request is currently undergoing
+     * fulfilment</li>
      * <li>`fulfilled`: the billing request has been fulfilled and a payment
      * created</li>
      * <li>`cancelled`: the billing request has been cancelled and cannot be

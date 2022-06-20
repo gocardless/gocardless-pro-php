@@ -3,37 +3,37 @@
     "method": "POST",
     "path_template": "/blocks",
     "url_params": {},
-    "body": {"blocks":{"active":true,"block_type":"example block_type 4885","created_at":"2014-01-01T12:00:00.000Z","id":"BLC123","reason_description":"example reason_description 1387","reason_type":"example reason_type 5710","resource_reference":"example@example.com","updated_at":"2014-01-01T12:00:00.000Z"}}
+    "body": {"blocks":{"active":true,"block_type":"example block_type 4801","created_at":"2014-01-01T12:00:00.000Z","id":"BLC123","reason_description":"example reason_description 1602","reason_type":"example reason_type 90","resource_reference":"example@example.com","updated_at":"2014-01-01T12:00:00.000Z"}}
   },
   "get": {
     "method": "GET",
     "path_template": "/blocks/:identity",
     "url_params": {"identity": "BLC123"},
-    "body": {"blocks":{"active":true,"block_type":"example block_type 3749","created_at":"2014-01-01T12:00:00.000Z","id":"BLC123","reason_description":"example reason_description 2818","reason_type":"example reason_type 1528","resource_reference":"example@example.com","updated_at":"2014-01-01T12:00:00.000Z"}}
+    "body": {"blocks":{"active":true,"block_type":"example block_type 2258","created_at":"2014-01-01T12:00:00.000Z","id":"BLC123","reason_description":"example reason_description 3231","reason_type":"example reason_type 3767","resource_reference":"example@example.com","updated_at":"2014-01-01T12:00:00.000Z"}}
   },
   "list": {
     "method": "GET",
     "path_template": "/blocks",
     "url_params": {},
-    "body": {"blocks":[{"active":true,"block_type":"example block_type 4384","created_at":"2014-01-01T12:00:00.000Z","id":"BLC123","reason_description":"example reason_description 1224","reason_type":"example reason_type 7903","resource_reference":"example@example.com","updated_at":"2014-01-01T12:00:00.000Z"},{"active":true,"block_type":"example block_type 3612","created_at":"2014-01-01T12:00:00.000Z","id":"BLC123","reason_description":"example reason_description 4547","reason_type":"example reason_type 1532","resource_reference":"example@example.com","updated_at":"2014-01-01T12:00:00.000Z"}],"meta":{"cursors":{"after":"example after 3616","before":"example before 7839"},"limit":50}}
+    "body": {"blocks":[{"active":true,"block_type":"example block_type 7822","created_at":"2014-01-01T12:00:00.000Z","id":"BLC123","reason_description":"example reason_description 7342","reason_type":"example reason_type 1223","resource_reference":"example@example.com","updated_at":"2014-01-01T12:00:00.000Z"},{"active":true,"block_type":"example block_type 4208","created_at":"2014-01-01T12:00:00.000Z","id":"BLC123","reason_description":"example reason_description 1968","reason_type":"example reason_type 7743","resource_reference":"example@example.com","updated_at":"2014-01-01T12:00:00.000Z"}],"meta":{"cursors":{"after":"example after 7578","before":"example before 8154"},"limit":50}}
   },
   "disable": {
     "method": "POST",
     "path_template": "/blocks/:identity/actions/disable",
     "url_params": {"identity": "BLC123"},
-    "body": {"blocks":{"active":true,"block_type":"example block_type 540","created_at":"2014-01-01T12:00:00.000Z","id":"BLC123","reason_description":"example reason_description 7051","reason_type":"example reason_type 5786","resource_reference":"example@example.com","updated_at":"2014-01-01T12:00:00.000Z"}}
+    "body": {"blocks":{"active":true,"block_type":"example block_type 1166","created_at":"2014-01-01T12:00:00.000Z","id":"BLC123","reason_description":"example reason_description 4535","reason_type":"example reason_type 3710","resource_reference":"example@example.com","updated_at":"2014-01-01T12:00:00.000Z"}}
   },
   "enable": {
     "method": "POST",
     "path_template": "/blocks/:identity/actions/enable",
     "url_params": {"identity": "BLC123"},
-    "body": {"blocks":{"active":true,"block_type":"example block_type 8076","created_at":"2014-01-01T12:00:00.000Z","id":"BLC123","reason_description":"example reason_description 7351","reason_type":"example reason_type 3640","resource_reference":"example@example.com","updated_at":"2014-01-01T12:00:00.000Z"}}
+    "body": {"blocks":{"active":true,"block_type":"example block_type 440","created_at":"2014-01-01T12:00:00.000Z","id":"BLC123","reason_description":"example reason_description 3162","reason_type":"example reason_type 4904","resource_reference":"example@example.com","updated_at":"2014-01-01T12:00:00.000Z"}}
   },
   "block_by_ref": {
     "method": "POST",
     "path_template": "/block_by_ref",
     "url_params": {},
-    "body": {"blocks":[{"active":true,"block_type":"example block_type 2305","created_at":"2014-01-01T12:00:00.000Z","id":"BLC123","reason_description":"example reason_description 4801","reason_type":"example reason_type 9183","resource_reference":"example@example.com","updated_at":"2014-01-01T12:00:00.000Z"},{"active":true,"block_type":"example block_type 90","created_at":"2014-01-01T12:00:00.000Z","id":"BLC123","reason_description":"example reason_description 2258","reason_type":"example reason_type 1602","resource_reference":"example@example.com","updated_at":"2014-01-01T12:00:00.000Z"}],"meta":{"cursors":{"after":"example after 364","before":"example before 8844"},"limit":50}}
+    "body": {"blocks":[{"active":true,"block_type":"example block_type 4657","created_at":"2014-01-01T12:00:00.000Z","id":"BLC123","reason_description":"example reason_description 9371","reason_type":"example reason_type 4415","resource_reference":"example@example.com","updated_at":"2014-01-01T12:00:00.000Z"},{"active":true,"block_type":"example block_type 3039","created_at":"2014-01-01T12:00:00.000Z","id":"BLC123","reason_description":"example reason_description 9513","reason_type":"example reason_type 3430","resource_reference":"example@example.com","updated_at":"2014-01-01T12:00:00.000Z"}],"meta":{"cursors":{"after":"example after 1359","before":"example before 9700"},"limit":50}}
   }
 }
 

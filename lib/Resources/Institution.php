@@ -11,6 +11,7 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a institution, providing access to its
  * attributes
  *
+ * @property-read $bank_redirect
  * @property-read $country_code
  * @property-read $icon_url
  * @property-read $id
@@ -20,6 +21,13 @@ namespace GoCardlessPro\Resources;
 class Institution extends BaseResource
 {
     protected $model_name = "Institution";
+
+    /**
+     * Flag to show if the institution supports redirection to its authorisation
+     * flow or if a provider's one is being used. The bank authorisation screen
+     * on the UI is visible based on this property.
+     */
+    protected $bank_redirect;
 
     /**
      * [ISO
