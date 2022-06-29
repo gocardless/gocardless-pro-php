@@ -77,8 +77,10 @@ class BillingRequestFlow extends BaseResource
     protected $lock_bank_account;
 
     /**
-     * If true, the payer will not be able to edit their currency after its been
-     * set for the flow.
+     * If true, the payer will not be able to change their currency/scheme
+     * manually within the flow. Note that this only applies to the mandate only
+     * flows - currency/scheme can never be changed when there is a specified
+     * subscription or payment.
      */
     protected $lock_currency;
 
