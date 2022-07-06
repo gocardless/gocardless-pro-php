@@ -21,6 +21,8 @@ namespace GoCardlessPro\Resources;
  * @property-read $lock_bank_account
  * @property-read $lock_currency
  * @property-read $lock_customer_details
+ * @property-read $prefilled_bank_account
+ * @property-read $prefilled_customer
  * @property-read $redirect_uri
  * @property-read $session_token
  * @property-read $show_redirect_buttons
@@ -90,6 +92,22 @@ class BillingRequestFlow extends BaseResource
      * bank_authorisation then GC will set this value to true mid flow
      */
     protected $lock_customer_details;
+
+    /**
+     * Bank account information used to prefill the payment page so your
+     * customer doesn't have to re-type details you already hold about them. It
+     * will be stored unvalidated and the customer will be able to review and
+     * amend it before completing the form.
+     */
+    protected $prefilled_bank_account;
+
+    /**
+     * Customer information used to prefill the payment page so your customer
+     * doesn't have to re-type details you already hold about them. It will be
+     * stored unvalidated and the customer will be able to review and amend it
+     * before completing the form.
+     */
+    protected $prefilled_customer;
 
     /**
      * URL that the payer can be redirected to after completing the request
