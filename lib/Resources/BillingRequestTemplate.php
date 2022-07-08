@@ -64,7 +64,7 @@ class BillingRequestTemplate extends BaseResource
 
     /**
      * A Direct Debit scheme. Currently "ach", "bacs", "becs", "becs_nz",
-     * "betalingsservice", "pad" and "sepa_core" are supported.
+     * "betalingsservice", "pad", "pay_to" and "sepa_core" are supported.
      */
     protected $mandate_request_scheme;
 
