@@ -74,7 +74,7 @@ class Creditor extends BaseResource
 
     /**
      * Boolean value indicating whether creditor has the [Custom Payment
-     * Pages](https://support.gocardless.com/hc/en-gb/articles/115003734705-Custom-payment-pages)
+     * Pages](https://hub.gocardless.com/s/article/Custom-payment-pages)
      * functionality enabled.
      */
     protected $custom_payment_pages_enabled;
