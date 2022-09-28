@@ -11,6 +11,7 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a creditor, providing access to its
  * attributes
  *
+ * @property-read $activated
  * @property-read $address_line1
  * @property-read $address_line2
  * @property-read $address_line3
@@ -34,6 +35,12 @@ namespace GoCardlessPro\Resources;
 class Creditor extends BaseResource
 {
     protected $model_name = "Creditor";
+
+    /**
+     * Boolean value indicating whether the creditor is activated in the
+     * product.
+     */
+    protected $activated;
 
     /**
      * The first line of the creditor's address.
@@ -74,7 +81,7 @@ class Creditor extends BaseResource
 
     /**
      * Boolean value indicating whether creditor has the [Custom Payment
-     * Pages](https://support.gocardless.com/hc/en-gb/articles/115003734705-Custom-payment-pages)
+     * Pages](https://hub.gocardless.com/s/article/Custom-payment-pages)
      * functionality enabled.
      */
     protected $custom_payment_pages_enabled;
