@@ -11,6 +11,7 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a mandate, providing access to its
  * attributes
  *
+ * @property-read $consent_parameters
  * @property-read $created_at
  * @property-read $id
  * @property-read $links
@@ -24,6 +25,11 @@ namespace GoCardlessPro\Resources;
 class Mandate extends BaseResource
 {
     protected $model_name = "Mandate";
+
+    /**
+     * (Optional) Payto and VRP Scheme specific information
+     */
+    protected $consent_parameters;
 
     /**
      * Fixed [timestamp](#api-usage-time-zones--dates), recording when this
