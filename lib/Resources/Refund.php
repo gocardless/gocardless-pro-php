@@ -71,6 +71,7 @@ class Refund extends BaseResource
      * characters<br /> <strong>Bacs</strong> - 10 characters<br />
      * <strong>BECS</strong> - 30 characters<br /> <strong>BECS NZ</strong> - 12
      * characters<br /> <strong>Betalingsservice</strong> - 30 characters<br />
+     * <strong>Faster Payments</strong> - 18 characters<br />
      * <strong>PAD</strong> - scheme doesn't offer references<br />
      * <strong>PayTo</strong> - 18 characters<br /> <strong>SEPA</strong> - 140
      * characters<br /> Note that this reference must be unique (for each
