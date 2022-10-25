@@ -3,37 +3,37 @@
     "method": "POST",
     "path_template": "/mandates",
     "url_params": {},
-    "body": {"mandates":{"consent_parameters":{"end_date":"example end_date 6537","max_amount_per_payment":2286,"periods":[{"max_amount_per_period":4467,"max_payments_per_period":6114,"period":"year"}],"start_date":"example start_date 106"},"created_at":"2014-01-01T12:00:00.000Z","id":"MD123","links":{"creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","new_mandate":"MD123"},"metadata":{},"next_possible_charge_date":"2014-10-27","payments_require_approval":false,"reference":"REF-123","scheme":"bacs","status":"pending_submission"}}
+    "body": {"mandates":{"consent_parameters":{"end_date":"example end_date 6114","max_amount_per_payment":4658,"periods":[{"max_amount_per_period":2286,"max_payments_per_period":106,"period":"month"}],"start_date":"example start_date 4467"},"created_at":"2014-01-01T12:00:00.000Z","id":"MD123","links":{"creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","new_mandate":"MD123"},"metadata":{},"next_possible_charge_date":"2014-10-27","payments_require_approval":false,"reference":"REF-123","scheme":"bacs","status":"pending_submission"}}
   },
   "list": {
     "method": "GET",
     "path_template": "/mandates",
     "url_params": {},
-    "body": {"mandates":[{"consent_parameters":{"end_date":"example end_date 259","max_amount_per_payment":3546,"periods":[{"max_amount_per_period":6724,"max_payments_per_period":7587,"period":"year"}],"start_date":"example start_date 1657"},"created_at":"2014-01-01T12:00:00.000Z","id":"MD123","links":{"creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","new_mandate":"MD123"},"metadata":{},"next_possible_charge_date":"2014-10-27","payments_require_approval":false,"reference":"REF-123","scheme":"bacs","status":"pending_submission"},{"consent_parameters":{"end_date":"example end_date 928","max_amount_per_payment":3374,"periods":[{"max_amount_per_period":6039,"max_payments_per_period":6531,"period":"week"}],"start_date":"example start_date 4983"},"created_at":"2014-01-01T12:00:00.000Z","id":"MD123","links":{"creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","new_mandate":"MD123"},"metadata":{},"next_possible_charge_date":"2014-10-27","payments_require_approval":false,"reference":"REF-123","scheme":"bacs","status":"pending_submission"}],"meta":{"cursors":{"after":"example after 5516","before":"example before 4926"},"limit":50}}
+    "body": {"mandates":[{"consent_parameters":{"end_date":"example end_date 7587","max_amount_per_payment":1657,"periods":[{"max_amount_per_period":259,"max_payments_per_period":3546,"period":"year"}],"start_date":"example start_date 6724"},"created_at":"2014-01-01T12:00:00.000Z","id":"MD123","links":{"creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","new_mandate":"MD123"},"metadata":{},"next_possible_charge_date":"2014-10-27","payments_require_approval":false,"reference":"REF-123","scheme":"bacs","status":"pending_submission"},{"consent_parameters":{"end_date":"example end_date 3374","max_amount_per_payment":6039,"periods":[{"max_amount_per_period":8146,"max_payments_per_period":4983,"period":"week"}],"start_date":"example start_date 928"},"created_at":"2014-01-01T12:00:00.000Z","id":"MD123","links":{"creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","new_mandate":"MD123"},"metadata":{},"next_possible_charge_date":"2014-10-27","payments_require_approval":false,"reference":"REF-123","scheme":"bacs","status":"pending_submission"}],"meta":{"cursors":{"after":"example after 4926","before":"example before 5516"},"limit":50}}
   },
   "get": {
     "method": "GET",
     "path_template": "/mandates/:identity",
     "url_params": {"identity": "MD123"},
-    "body": {"mandates":{"consent_parameters":{"end_date":"example end_date 7762","max_amount_per_payment":7477,"periods":[{"max_amount_per_period":5036,"max_payments_per_period":6051,"period":"month"}],"start_date":"example start_date 9105"},"created_at":"2014-01-01T12:00:00.000Z","id":"MD123","links":{"creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","new_mandate":"MD123"},"metadata":{},"next_possible_charge_date":"2014-10-27","payments_require_approval":false,"reference":"REF-123","scheme":"bacs","status":"pending_submission"}}
+    "body": {"mandates":{"consent_parameters":{"end_date":"example end_date 7762","max_amount_per_payment":7477,"periods":[{"max_amount_per_period":6051,"max_payments_per_period":7412,"period":"week"}],"start_date":"example start_date 9105"},"created_at":"2014-01-01T12:00:00.000Z","id":"MD123","links":{"creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","new_mandate":"MD123"},"metadata":{},"next_possible_charge_date":"2014-10-27","payments_require_approval":false,"reference":"REF-123","scheme":"bacs","status":"pending_submission"}}
   },
   "update": {
     "method": "PUT",
     "path_template": "/mandates/:identity",
     "url_params": {"identity": "MD123"},
-    "body": {"mandates":{"consent_parameters":{"end_date":"example end_date 4698","max_amount_per_payment":2887,"periods":[{"max_amount_per_period":2409,"max_payments_per_period":1128,"period":"day"}],"start_date":"example start_date 6789"},"created_at":"2014-01-01T12:00:00.000Z","id":"MD123","links":{"creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","new_mandate":"MD123"},"metadata":{},"next_possible_charge_date":"2014-10-27","payments_require_approval":false,"reference":"REF-123","scheme":"bacs","status":"pending_submission"}}
+    "body": {"mandates":{"consent_parameters":{"end_date":"example end_date 1128","max_amount_per_payment":6789,"periods":[{"max_amount_per_period":2887,"max_payments_per_period":9430,"period":"year"}],"start_date":"example start_date 2409"},"created_at":"2014-01-01T12:00:00.000Z","id":"MD123","links":{"creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","new_mandate":"MD123"},"metadata":{},"next_possible_charge_date":"2014-10-27","payments_require_approval":false,"reference":"REF-123","scheme":"bacs","status":"pending_submission"}}
   },
   "cancel": {
     "method": "POST",
     "path_template": "/mandates/:identity/actions/cancel",
     "url_params": {"identity": "MD123"},
-    "body": {"mandates":{"consent_parameters":{"end_date":"example end_date 9159","max_amount_per_payment":6861,"periods":[{"max_amount_per_period":8602,"max_payments_per_period":7418,"period":"day"}],"start_date":"example start_date 7871"},"created_at":"2014-01-01T12:00:00.000Z","id":"MD123","links":{"creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","new_mandate":"MD123"},"metadata":{},"next_possible_charge_date":"2014-10-27","payments_require_approval":false,"reference":"REF-123","scheme":"bacs","status":"pending_submission"}}
+    "body": {"mandates":{"consent_parameters":{"end_date":"example end_date 7871","max_amount_per_payment":9159,"periods":[{"max_amount_per_period":8602,"max_payments_per_period":7418,"period":"week"}],"start_date":"example start_date 8345"},"created_at":"2014-01-01T12:00:00.000Z","id":"MD123","links":{"creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","new_mandate":"MD123"},"metadata":{},"next_possible_charge_date":"2014-10-27","payments_require_approval":false,"reference":"REF-123","scheme":"bacs","status":"pending_submission"}}
   },
   "reinstate": {
     "method": "POST",
     "path_template": "/mandates/:identity/actions/reinstate",
     "url_params": {"identity": "MD123"},
-    "body": {"mandates":{"consent_parameters":{"end_date":"example end_date 4405","max_amount_per_payment":7276,"periods":[{"max_amount_per_period":8240,"max_payments_per_period":2120,"period":"year"}],"start_date":"example start_date 9081"},"created_at":"2014-01-01T12:00:00.000Z","id":"MD123","links":{"creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","new_mandate":"MD123"},"metadata":{},"next_possible_charge_date":"2014-10-27","payments_require_approval":false,"reference":"REF-123","scheme":"bacs","status":"pending_submission"}}
+    "body": {"mandates":{"consent_parameters":{"end_date":"example end_date 8240","max_amount_per_payment":2120,"periods":[{"max_amount_per_period":4405,"max_payments_per_period":7276,"period":"week"}],"start_date":"example start_date 7653"},"created_at":"2014-01-01T12:00:00.000Z","id":"MD123","links":{"creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","new_mandate":"MD123"},"metadata":{},"next_possible_charge_date":"2014-10-27","payments_require_approval":false,"reference":"REF-123","scheme":"bacs","status":"pending_submission"}}
   }
 }
 
