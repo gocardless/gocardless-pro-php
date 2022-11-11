@@ -338,6 +338,20 @@ class Client
     }
     
     /**
+     * Service for interacting with mandate request constraints
+     *
+     * @return Services\MandateRequestConstraintsService
+     */
+    public function mandateRequestConstraints()
+    {
+        if (!isset($this->mandate_request_constraints)) {
+            $this->mandate_request_constraints = new Services\MandateRequestConstraintsService($this->api_client);
+        }
+
+        return $this->mandate_request_constraints;
+    }
+    
+    /**
      * Service for interacting with payer authorisations
      *
      * @return Services\PayerAuthorisationsService
