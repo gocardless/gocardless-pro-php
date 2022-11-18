@@ -15,6 +15,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $created_at
  * @property-read $id
  * @property-read $mandate_request_currency
+ * @property-read $mandate_request_description
  * @property-read $mandate_request_metadata
  * @property-read $mandate_request_scheme
  * @property-read $mandate_request_verify
@@ -54,6 +55,12 @@ class BillingRequestTemplate extends BaseResource
      * code.
      */
     protected $mandate_request_currency;
+
+    /**
+     * A human-readable description of the payment and/or mandate. This will be
+     * displayed to the payer when authorising the billing request.
+     */
+    protected $mandate_request_description;
 
     /**
      * Key-value store of custom data that will be applied to the mandate
