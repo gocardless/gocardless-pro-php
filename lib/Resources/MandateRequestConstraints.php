@@ -23,6 +23,12 @@ class MandateRequestConstraints extends BaseResource
     /**
      * The latest date at which payments can be taken, must occur after
      * start_date if present
+     * 
+     * This is an optional field and if it is not supplied the agreement will be
+     * considered open and
+     * will not have an end date. Keep in mind the end date must take into
+     * account how long it will
+     * take the user to set up this agreement via the BillingRequest.
      */
     protected $end_date;
 
@@ -37,7 +43,11 @@ class MandateRequestConstraints extends BaseResource
     protected $periodic_limits;
 
     /**
-     * The date from which payments can be taken
+     * The date from which payments can be taken.
+     * 
+     * This is an optional field and if it is not supplied the start date will
+     * be set to the day
+     * authorisation happens.
      */
     protected $start_date;
 
