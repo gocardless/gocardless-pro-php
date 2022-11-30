@@ -15,6 +15,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $created_at
  * @property-read $id
  * @property-read $mandate_request_currency
+ * @property-read $mandate_request_description
  * @property-read $mandate_request_metadata
  * @property-read $mandate_request_scheme
  * @property-read $mandate_request_verify
@@ -56,6 +57,12 @@ class BillingRequestTemplate extends BaseResource
     protected $mandate_request_currency;
 
     /**
+     * A human-readable description of the payment and/or mandate. This will be
+     * displayed to the payer when authorising the billing request.
+     */
+    protected $mandate_request_description;
+
+    /**
      * Key-value store of custom data that will be applied to the mandate
      * created when this request is fulfilled. Up to 3 keys are permitted, with
      * key names up to 50 characters and values up to 500 characters.
@@ -63,8 +70,11 @@ class BillingRequestTemplate extends BaseResource
     protected $mandate_request_metadata;
 
     /**
-     * A Direct Debit scheme. Currently "ach", "bacs", "becs", "becs_nz",
-     * "betalingsservice", "pad", "pay_to" and "sepa_core" are supported.
+     * A bank payment scheme. Currently "ach", "autogiro", "bacs", "becs",
+     * "becs_nz", "betalingsservice", "faster_payments", "pad", "pay_to" and
+     * "sepa_core" are supported. Optional for mandate only requests - if left
+     * blank, the payer will be able to select the currency/scheme to pay with
+     * from a list of your available schemes.
      */
     protected $mandate_request_scheme;
 
@@ -122,8 +132,8 @@ class BillingRequestTemplate extends BaseResource
     protected $payment_request_currency;
 
     /**
-     * A human-readable description of the payment. This will be displayed to
-     * the payer when authorising the billing request.
+     * A human-readable description of the payment and/or mandate. This will be
+     * displayed to the payer when authorising the billing request.
      */
     protected $payment_request_description;
 

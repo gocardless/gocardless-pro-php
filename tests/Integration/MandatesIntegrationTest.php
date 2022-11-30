@@ -26,6 +26,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
     
         $this->assertInstanceOf('\GoCardlessPro\Resources\Mandate', $response);
 
+        $this->assertEquals($body->consent_parameters, $response->consent_parameters);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
@@ -62,6 +63,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Mandate', $response);
 
+        $this->assertEquals($body->consent_parameters, $response->consent_parameters);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
@@ -101,6 +103,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
     
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
+            $this->assertEquals($body[$num]->consent_parameters, $record->consent_parameters);
             $this->assertEquals($body[$num]->created_at, $record->created_at);
             $this->assertEquals($body[$num]->id, $record->id);
             $this->assertEquals($body[$num]->links, $record->links);
@@ -131,6 +134,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
     
         $this->assertInstanceOf('\GoCardlessPro\Resources\Mandate', $response);
 
+        $this->assertEquals($body->consent_parameters, $response->consent_parameters);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
@@ -160,6 +164,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
     
         $this->assertInstanceOf('\GoCardlessPro\Resources\Mandate', $response);
 
+        $this->assertEquals($body->consent_parameters, $response->consent_parameters);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
@@ -189,6 +194,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
     
         $this->assertInstanceOf('\GoCardlessPro\Resources\Mandate', $response);
 
+        $this->assertEquals($body->consent_parameters, $response->consent_parameters);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
@@ -218,6 +224,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
     
         $this->assertInstanceOf('\GoCardlessPro\Resources\Mandate', $response);
 
+        $this->assertEquals($body->consent_parameters, $response->consent_parameters);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);

@@ -39,6 +39,7 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->created_at, $record->created_at);
             $this->assertEquals($body[$num]->id, $record->id);
             $this->assertEquals($body[$num]->mandate_request_currency, $record->mandate_request_currency);
+            $this->assertEquals($body[$num]->mandate_request_description, $record->mandate_request_description);
             $this->assertEquals($body[$num]->mandate_request_metadata, $record->mandate_request_metadata);
             $this->assertEquals($body[$num]->mandate_request_scheme, $record->mandate_request_scheme);
             $this->assertEquals($body[$num]->mandate_request_verify, $record->mandate_request_verify);
@@ -76,6 +77,7 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->mandate_request_currency, $response->mandate_request_currency);
+        $this->assertEquals($body->mandate_request_description, $response->mandate_request_description);
         $this->assertEquals($body->mandate_request_metadata, $response->mandate_request_metadata);
         $this->assertEquals($body->mandate_request_scheme, $response->mandate_request_scheme);
         $this->assertEquals($body->mandate_request_verify, $response->mandate_request_verify);
@@ -112,6 +114,7 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->mandate_request_currency, $response->mandate_request_currency);
+        $this->assertEquals($body->mandate_request_description, $response->mandate_request_description);
         $this->assertEquals($body->mandate_request_metadata, $response->mandate_request_metadata);
         $this->assertEquals($body->mandate_request_scheme, $response->mandate_request_scheme);
         $this->assertEquals($body->mandate_request_verify, $response->mandate_request_verify);
@@ -155,6 +158,7 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->mandate_request_currency, $response->mandate_request_currency);
+        $this->assertEquals($body->mandate_request_description, $response->mandate_request_description);
         $this->assertEquals($body->mandate_request_metadata, $response->mandate_request_metadata);
         $this->assertEquals($body->mandate_request_scheme, $response->mandate_request_scheme);
         $this->assertEquals($body->mandate_request_verify, $response->mandate_request_verify);
@@ -192,6 +196,7 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->mandate_request_currency, $response->mandate_request_currency);
+        $this->assertEquals($body->mandate_request_description, $response->mandate_request_description);
         $this->assertEquals($body->mandate_request_metadata, $response->mandate_request_metadata);
         $this->assertEquals($body->mandate_request_scheme, $response->mandate_request_scheme);
         $this->assertEquals($body->mandate_request_verify, $response->mandate_request_verify);
