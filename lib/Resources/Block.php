@@ -34,7 +34,8 @@ class Block extends BaseResource
     /**
      * Type of entity we will seek to match against when blocking the mandate.
      * This
-     * can currently be one of 'email', 'email_domain', or 'bank_account'.
+     * can currently be one of 'email', 'email_domain', 'bank_account', or
+     * 'bank_name'.
      */
     protected $block_type;
 
@@ -75,9 +76,11 @@ class Block extends BaseResource
      * raw value
      * (in the case of emails or email domains) or the ID of the resource (in
      * the case of
-     * bank accounts). This means in order to block a specific bank account it
-     * must already
-     * have been created as a resource.
+     * bank accounts and bank names). This means in order to block a specific
+     * bank account
+     * (even if you wish to block generically by name) it must already have been
+     * created as
+     * a resource.
      */
     protected $resource_reference;
 
