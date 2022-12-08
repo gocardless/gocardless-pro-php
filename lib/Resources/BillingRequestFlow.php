@@ -74,7 +74,10 @@ class BillingRequestFlow extends BaseResource
     /**
      * If true, the payer will not be able to change their bank account within
      * the flow. If the bank_account details are collected as part of
-     * bank_authorisation then GC will set this value to true mid flow
+     * bank_authorisation then GC will set this value to true mid flow.
+     * 
+     * You can only lock bank account if these have already been completed as a
+     * part of the billing request.
      */
     protected $lock_bank_account;
 
@@ -89,7 +92,10 @@ class BillingRequestFlow extends BaseResource
     /**
      * If true, the payer will not be able to edit their customer details within
      * the flow. If the customer details are collected as part of
-     * bank_authorisation then GC will set this value to true mid flow
+     * bank_authorisation then GC will set this value to true mid flow.
+     * 
+     * You can only lock customer details if these have already been completed
+     * as a part of the billing request.
      */
     protected $lock_customer_details;
 
