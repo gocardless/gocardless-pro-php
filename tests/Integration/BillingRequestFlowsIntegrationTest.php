@@ -32,6 +32,7 @@ class BillingRequestFlowsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->exit_uri, $response->exit_uri);
         $this->assertEquals($body->expires_at, $response->expires_at);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->language, $response->language);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->lock_bank_account, $response->lock_bank_account);
         $this->assertEquals($body->lock_currency, $response->lock_currency);
@@ -67,6 +68,7 @@ class BillingRequestFlowsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->exit_uri, $response->exit_uri);
         $this->assertEquals($body->expires_at, $response->expires_at);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->language, $response->language);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->lock_bank_account, $response->lock_bank_account);
         $this->assertEquals($body->lock_currency, $response->lock_currency);

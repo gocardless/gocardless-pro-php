@@ -17,6 +17,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $exit_uri
  * @property-read $expires_at
  * @property-read $id
+ * @property-read $language
  * @property-read $links
  * @property-read $lock_bank_account
  * @property-read $lock_currency
@@ -65,6 +66,12 @@ class BillingRequestFlow extends BaseResource
      * Unique identifier, beginning with "BRF".
      */
     protected $id;
+
+    /**
+     * Sets the default language of the Billing Request Flow and the customer.
+     * [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) code.
+     */
+    protected $language;
 
     /**
      * 
