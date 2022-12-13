@@ -57,7 +57,7 @@ class Client
                 'Content-Type' => 'application/json',
                 'Authorization' => "Bearer " . $access_token,
                 'GoCardless-Client-Library' => 'gocardless-pro-php',
-                'GoCardless-Client-Version' => '4.21.0',
+                'GoCardless-Client-Version' => '4.22.0',
                 'User-Agent' => $this->getUserAgent()
                 ),
                 'http_errors' => false,
@@ -338,20 +338,6 @@ class Client
     }
     
     /**
-     * Service for interacting with mandate request constraints
-     *
-     * @return Services\MandateRequestConstraintsService
-     */
-    public function mandateRequestConstraints()
-    {
-        if (!isset($this->mandate_request_constraints)) {
-            $this->mandate_request_constraints = new Services\MandateRequestConstraintsService($this->api_client);
-        }
-
-        return $this->mandate_request_constraints;
-    }
-    
-    /**
      * Service for interacting with payer authorisations
      *
      * @return Services\PayerAuthorisationsService
@@ -540,7 +526,7 @@ class Client
     {
         $curlinfo = curl_version();
         $uagent = array();
-        $uagent[] = 'gocardless-pro-php/4.21.0';
+        $uagent[] = 'gocardless-pro-php/4.22.0';
         $uagent[] = 'schema-version/2015-07-06';
         if (defined('\GuzzleHttp\Client::MAJOR_VERSION')) {
             $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::MAJOR_VERSION;

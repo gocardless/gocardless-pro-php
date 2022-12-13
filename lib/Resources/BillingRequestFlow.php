@@ -17,6 +17,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $exit_uri
  * @property-read $expires_at
  * @property-read $id
+ * @property-read $language
  * @property-read $links
  * @property-read $lock_bank_account
  * @property-read $lock_currency
@@ -67,6 +68,12 @@ class BillingRequestFlow extends BaseResource
     protected $id;
 
     /**
+     * Sets the default language of the Billing Request Flow and the customer.
+     * [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) code.
+     */
+    protected $language;
+
+    /**
      * 
      */
     protected $links;
@@ -74,7 +81,10 @@ class BillingRequestFlow extends BaseResource
     /**
      * If true, the payer will not be able to change their bank account within
      * the flow. If the bank_account details are collected as part of
-     * bank_authorisation then GC will set this value to true mid flow
+     * bank_authorisation then GC will set this value to true mid flow.
+     * 
+     * You can only lock bank account if these have already been completed as a
+     * part of the billing request.
      */
     protected $lock_bank_account;
 
@@ -89,7 +99,10 @@ class BillingRequestFlow extends BaseResource
     /**
      * If true, the payer will not be able to edit their customer details within
      * the flow. If the customer details are collected as part of
-     * bank_authorisation then GC will set this value to true mid flow
+     * bank_authorisation then GC will set this value to true mid flow.
+     * 
+     * You can only lock customer details if these have already been completed
+     * as a part of the billing request.
      */
     protected $lock_customer_details;
 

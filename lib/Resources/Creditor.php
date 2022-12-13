@@ -19,6 +19,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $city
  * @property-read $country_code
  * @property-read $created_at
+ * @property-read $creditor_type
  * @property-read $custom_payment_pages_enabled
  * @property-read $fx_payout_currency
  * @property-read $id
@@ -78,6 +79,12 @@ class Creditor extends BaseResource
      * resource was created.
      */
     protected $created_at;
+
+    /**
+     * The type of business of the creditor. Currently, `individual`, `company`,
+     * `charity`, `partnership`, and `trust` are supported.
+     */
+    protected $creditor_type;
 
     /**
      * Boolean value indicating whether creditor has the [Custom Payment
