@@ -81,7 +81,8 @@ class Creditor extends BaseResource
     protected $created_at;
 
     /**
-     * The type of business of the creditor
+     * The type of business of the creditor. Currently, `individual`, `company`,
+     * `charity`, `partnership`, and `trust` are supported.
      */
     protected $creditor_type;
 
