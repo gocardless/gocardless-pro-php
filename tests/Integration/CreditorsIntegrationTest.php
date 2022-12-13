@@ -34,6 +34,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->city, $response->city);
         $this->assertEquals($body->country_code, $response->country_code);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->creditor_type, $response->creditor_type);
         $this->assertEquals($body->custom_payment_pages_enabled, $response->custom_payment_pages_enabled);
         $this->assertEquals($body->fx_payout_currency, $response->fx_payout_currency);
         $this->assertEquals($body->id, $response->id);
@@ -81,6 +82,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->city, $response->city);
         $this->assertEquals($body->country_code, $response->country_code);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->creditor_type, $response->creditor_type);
         $this->assertEquals($body->custom_payment_pages_enabled, $response->custom_payment_pages_enabled);
         $this->assertEquals($body->fx_payout_currency, $response->fx_payout_currency);
         $this->assertEquals($body->id, $response->id);
@@ -131,6 +133,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->city, $record->city);
             $this->assertEquals($body[$num]->country_code, $record->country_code);
             $this->assertEquals($body[$num]->created_at, $record->created_at);
+            $this->assertEquals($body[$num]->creditor_type, $record->creditor_type);
             $this->assertEquals($body[$num]->custom_payment_pages_enabled, $record->custom_payment_pages_enabled);
             $this->assertEquals($body[$num]->fx_payout_currency, $record->fx_payout_currency);
             $this->assertEquals($body[$num]->id, $record->id);
@@ -172,6 +175,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->city, $response->city);
         $this->assertEquals($body->country_code, $response->country_code);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->creditor_type, $response->creditor_type);
         $this->assertEquals($body->custom_payment_pages_enabled, $response->custom_payment_pages_enabled);
         $this->assertEquals($body->fx_payout_currency, $response->fx_payout_currency);
         $this->assertEquals($body->id, $response->id);
@@ -212,6 +216,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->city, $response->city);
         $this->assertEquals($body->country_code, $response->country_code);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->creditor_type, $response->creditor_type);
         $this->assertEquals($body->custom_payment_pages_enabled, $response->custom_payment_pages_enabled);
         $this->assertEquals($body->fx_payout_currency, $response->fx_payout_currency);
         $this->assertEquals($body->id, $response->id);
