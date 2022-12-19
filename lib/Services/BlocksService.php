@@ -205,14 +205,14 @@ class BlocksService extends BaseService
     /**
      * Create blocks by reference
      *
-     * Example URL: /block_by_ref
+     * Example URL: /blocks/block_by_ref
      *
      * @param  string[mixed] $params An associative array for any params
      * @return ListResponse
      **/
     public function blockByRef($params = array())
     {
-        $path = "/block_by_ref";
+        $path = "/blocks/block_by_ref";
         if(isset($params['params'])) { 
             $params['body'] = json_encode(array("data" => (object)$params['params']));
         
