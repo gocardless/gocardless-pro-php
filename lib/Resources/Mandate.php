@@ -11,6 +11,7 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a mandate, providing access to its
  * attributes
  *
+ * @property-read $authorisation_source
  * @property-read $consent_parameters
  * @property-read $created_at
  * @property-read $id
@@ -25,6 +26,20 @@ namespace GoCardlessPro\Resources;
 class Mandate extends BaseResource
 {
     protected $model_name = "Mandate";
+
+    /**
+     * This field is ACH specific, sometimes referred to as [SEC
+     * code](https://www.moderntreasury.com/learn/sec-codes).
+     * 
+     * This is the way that the payer gives authorisation to the merchant.
+     *   web: Authorisation is Internet Initiated or via Mobile Entry (maps to
+     * SEC code: WEB)
+     *   telephone: Authorisation is provided orally over telephone (maps to SEC
+     * code: TEL)
+     *   paper: Authorisation is provided in writing and signed, or similarly
+     * authenticated (maps to SEC code: PPD)
+     */
+    protected $authorisation_source;
 
     /**
      * (Optional) Payto and VRP Scheme specific information
