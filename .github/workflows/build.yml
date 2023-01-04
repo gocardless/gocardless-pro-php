@@ -2,7 +2,7 @@ name: gocardless/gocardless-pro-php/build
 on:
   push:
     branches:
-    - CON-1437
+    - master
 jobs:
   test_library_7_2:
     runs-on: ubuntu-latest
