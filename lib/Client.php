@@ -436,6 +436,20 @@ class Client
     }
     
     /**
+     * Service for interacting with scheme identifiers
+     *
+     * @return Services\SchemeIdentifiersService
+     */
+    public function schemeIdentifiers()
+    {
+        if (!isset($this->scheme_identifiers)) {
+            $this->scheme_identifiers = new Services\SchemeIdentifiersService($this->api_client);
+        }
+
+        return $this->scheme_identifiers;
+    }
+    
+    /**
      * Service for interacting with subscriptions
      *
      * @return Services\SubscriptionsService
