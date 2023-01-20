@@ -134,7 +134,7 @@ class Creditor extends BaseResource
     protected $merchant_responsible_for_notifications;
 
     /**
-     * The creditor's name.
+     * The creditor's trading name.
      */
     protected $name;
 
