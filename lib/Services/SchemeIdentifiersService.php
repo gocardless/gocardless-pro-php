@@ -18,6 +18,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * Service that provides access to the SchemeIdentifier
  * endpoints of the API
  *
+ * @method create()
  * @method list()
  * @method get()
  */
@@ -29,7 +30,42 @@ class SchemeIdentifiersService extends BaseService
 
 
     /**
-     * List scheme_identifiers
+     * Create a scheme identifier
+     *
+     * Example URL: /scheme_identifiers
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return SchemeIdentifier
+     **/
+    public function create($params = array())
+    {
+        $path = "/scheme_identifiers";
+        if(isset($params['params'])) { 
+            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+        
+            unset($params['params']);
+        }
+
+        
+        try {
+            $response = $this->api_client->post($path, $params);
+        } catch(InvalidStateException $e) {
+            if ($e->isIdempotentCreationConflict()) {
+                if ($this->api_client->error_on_idempotency_conflict) {
+                    throw $e;
+                }
+                return $this->get($e->getConflictingResourceId());
+            }
+
+            throw $e;
+        }
+        
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
+     * List scheme identifiers
      *
      * Example URL: /scheme_identifiers
      *
@@ -51,7 +87,7 @@ class SchemeIdentifiersService extends BaseService
     }
 
     /**
-     * Get a single scheme_identifier
+     * Get a single scheme identifier
      *
      * Example URL: /scheme_identifiers/:identity
      *
@@ -80,7 +116,7 @@ class SchemeIdentifiersService extends BaseService
     }
 
     /**
-     * List scheme_identifiers
+     * List scheme identifiers
      *
      * Example URL: /scheme_identifiers
      *
