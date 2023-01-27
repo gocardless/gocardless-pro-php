@@ -17,7 +17,8 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the VerificationDetail
  * endpoints of the API
- *  @method create()
+ *
+ * @method create()
  */
 class VerificationDetailsService extends BaseService
 {
@@ -27,29 +28,20 @@ class VerificationDetailsService extends BaseService
 
 
     /**
-    * Create a verification detail
-    *
-    * Example URL: /verification_details/:identity
-    *
-    * @param  string        $identity Unique identifier of the creditor these details are being
- stored against,
- beginning with "CR".
-    * @param  string[mixed] $params An associative array for any params
-    * @return VerificationDetail
-    **/
-    public function create($identity, $params = array())
+     * Create a verification detail
+     *
+     * Example URL: /verification_details
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return VerificationDetail
+     **/
+    public function create($params = array())
     {
-        $path = Util::subUrl(
-            '/verification_details/:identity',
-            array(
-                
-                'identity' => $identity
-            )
-        );
+        $path = "/verification_details";
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
