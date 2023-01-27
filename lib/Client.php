@@ -478,6 +478,20 @@ class Client
     }
     
     /**
+     * Service for interacting with verification details
+     *
+     * @return Services\VerificationDetailsService
+     */
+    public function verificationDetails()
+    {
+        if (!isset($this->verification_details)) {
+            $this->verification_details = new Services\VerificationDetailsService($this->api_client);
+        }
+
+        return $this->verification_details;
+    }
+    
+    /**
      * Service for interacting with webhooks
      *
      * @return Services\WebhooksService
