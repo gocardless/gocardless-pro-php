@@ -22,6 +22,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * @method list()
  * @method get()
  * @method update()
+ * @method applySchemeIdentifier()
  */
 class CreditorsService extends BaseService
 {
@@ -142,6 +143,48 @@ class CreditorsService extends BaseService
 
         
         $response = $this->api_client->put($path, $params);
+        
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
+     * Apply a scheme identifier
+     *
+     * Example URL: /creditors/:identity/actions/apply_scheme_identifier
+     *
+     * @param  string        $identity Unique identifier, beginning with "CR".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return Creditor
+     **/
+    public function applySchemeIdentifier($identity, $params = array())
+    {
+        $path = Util::subUrl(
+            '/creditors/:identity/actions/apply_scheme_identifier',
+            array(
+                
+                'identity' => $identity
+            )
+        );
+        if(isset($params['params'])) { 
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
+        
+            unset($params['params']);
+        }
+
+        
+        try {
+            $response = $this->api_client->post($path, $params);
+        } catch(InvalidStateException $e) {
+            if ($e->isIdempotentCreationConflict()) {
+                if ($this->api_client->error_on_idempotency_conflict) {
+                    throw $e;
+                }
+                return $this->get($e->getConflictingResourceId());
+            }
+
+            throw $e;
+        }
         
 
         return $this->getResourceForResponse($response);

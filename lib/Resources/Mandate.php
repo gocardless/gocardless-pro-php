@@ -22,6 +22,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $reference
  * @property-read $scheme
  * @property-read $status
+ * @property-read $verified_at
  */
 class Mandate extends BaseResource
 {
@@ -118,5 +119,11 @@ class Mandate extends BaseResource
      * </ul>
      */
     protected $status;
+
+    /**
+     * [Timestamp](#api-usage-time-zones--dates) recording when this mandate was
+     * verified.
+     */
+    protected $verified_at;
 
 }

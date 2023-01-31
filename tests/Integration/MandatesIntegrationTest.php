@@ -37,6 +37,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->reference, $response->reference);
         $this->assertEquals($body->scheme, $response->scheme);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->verified_at, $response->verified_at);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -75,6 +76,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->reference, $response->reference);
         $this->assertEquals($body->scheme, $response->scheme);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->verified_at, $response->verified_at);
         
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -116,6 +118,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->reference, $record->reference);
             $this->assertEquals($body[$num]->scheme, $record->scheme);
             $this->assertEquals($body[$num]->status, $record->status);
+            $this->assertEquals($body[$num]->verified_at, $record->verified_at);
             
         }
 
@@ -148,6 +151,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->reference, $response->reference);
         $this->assertEquals($body->scheme, $response->scheme);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->verified_at, $response->verified_at);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -179,6 +183,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->reference, $response->reference);
         $this->assertEquals($body->scheme, $response->scheme);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->verified_at, $response->verified_at);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -210,6 +215,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->reference, $response->reference);
         $this->assertEquals($body->scheme, $response->scheme);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->verified_at, $response->verified_at);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -241,6 +247,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->reference, $response->reference);
         $this->assertEquals($body->scheme, $response->scheme);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->verified_at, $response->verified_at);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
