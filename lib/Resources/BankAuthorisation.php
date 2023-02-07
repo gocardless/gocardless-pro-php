@@ -65,6 +65,20 @@ class BankAuthorisation extends BaseResource
 
     /**
      * URL that the payer can be redirected to after authorising the payment.
+     * 
+     * On completion of bank authorisation, the query parameter of either
+     * `outcome=success` or `outcome=failure` will be
+     * appended to the `redirect_uri` to indicate the result of the bank
+     * authorisation. If the bank authorisation is
+     * expired, the query parameter `outcome=timeout` will be appended to the
+     * `redirect_uri`, in which case you should
+     * prompt the user to try the bank authorisation step again.
+     * 
+     * The `redirect_uri` you provide should handle the `outcome` query
+     * parameter for displaying the result of the
+     * bank authorisation as outlined above.
+     * 
+     * Defaults to `https://pay.gocardless.com/billing/static/thankyou`.
      */
     protected $redirect_uri;
 
