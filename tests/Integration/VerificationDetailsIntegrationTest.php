@@ -14,6 +14,45 @@ class VerificationDetailsIntegrationTest extends IntegrationTestBase
         $this->assertNotNull($obj);
     }
     
+    public function testVerificationDetailsList()
+    {
+        $fixture = $this->loadJsonFixture('verification_details')->list;
+        $this->stub_request($fixture);
+
+        $service = $this->client->verificationDetails();
+        $response = call_user_func_array(array($service, 'list'), (array)$fixture->url_params);
+
+        $body = $fixture->body->verification_details;
+    
+        $records = $response->records;
+        $this->assertInstanceOf('\GoCardlessPro\Core\ListResponse', $response);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\VerificationDetail', $records[0]);
+
+        $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
+        $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+    
+
+    
+        foreach (range(0, count($body) - 1) as $num) {
+            $record = $records[$num];
+            $this->assertEquals($body[$num]->address_line1, $record->address_line1);
+            $this->assertEquals($body[$num]->address_line2, $record->address_line2);
+            $this->assertEquals($body[$num]->address_line3, $record->address_line3);
+            $this->assertEquals($body[$num]->city, $record->city);
+            $this->assertEquals($body[$num]->company_number, $record->company_number);
+            $this->assertEquals($body[$num]->description, $record->description);
+            $this->assertEquals($body[$num]->directors, $record->directors);
+            $this->assertEquals($body[$num]->links, $record->links);
+            $this->assertEquals($body[$num]->postal_code, $record->postal_code);
+            
+        }
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+    }
+
+    
     public function testVerificationDetailsCreate()
     {
         $fixture = $this->loadJsonFixture('verification_details')->create;
