@@ -19,6 +19,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $mandate_request
  * @property-read $metadata
  * @property-read $payment_request
+ * @property-read $purpose_code
  * @property-read $resources
  * @property-read $status
  */
@@ -74,6 +75,13 @@ class BillingRequest extends BaseResource
      * Request for a one-off strongly authorised payment
      */
     protected $payment_request;
+
+    /**
+     * Specifies the high-level purpose of a mandate and/or payment using a set
+     * of pre-defined categories. Required for the PayTo scheme, optional for
+     * all others.
+     */
+    protected $purpose_code;
 
     /**
      * 

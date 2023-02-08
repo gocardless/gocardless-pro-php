@@ -3,13 +3,13 @@
     "method": "GET",
     "path_template": "/verification_details",
     "url_params": {},
-    "body": {"verification_details":[{"address_line1":"338-346 Goswell Road","address_line2":"Islington","address_line3":"example address_line3 9277","city":"London","company_number":"07495895","description":"Wine and cheese seller","directors":[{"city":"London","country_code":"GB","date_of_birth":"1986-02-19","family_name":"Jones","given_name":"Tom","postal_code":"EC1V 7LQ","street":"example street 5645"}],"links":{"creditor":"CR123"},"postal_code":"EC1V 7LQ"},{"address_line1":"338-346 Goswell Road","address_line2":"Islington","address_line3":"example address_line3 7208","city":"London","company_number":"07495895","description":"Wine and cheese seller","directors":[{"city":"London","country_code":"GB","date_of_birth":"1986-02-19","family_name":"Jones","given_name":"Tom","postal_code":"EC1V 7LQ","street":"example street 671"}],"links":{"creditor":"CR123"},"postal_code":"EC1V 7LQ"}]}
+    "body": {"verification_details":[{"address_line1":"338-346 Goswell Road","address_line2":"Islington","address_line3":"example address_line3 10","city":"London","company_number":"07495895","description":"Wine and cheese seller","directors":[{"city":"London","country_code":"GB","date_of_birth":"1986-02-19","family_name":"Jones","given_name":"Tom","postal_code":"EC1V 7LQ","street":"example street 9326"}],"links":{"creditor":"CR123"},"postal_code":"EC1V 7LQ"},{"address_line1":"338-346 Goswell Road","address_line2":"Islington","address_line3":"example address_line3 3921","city":"London","company_number":"07495895","description":"Wine and cheese seller","directors":[{"city":"London","country_code":"GB","date_of_birth":"1986-02-19","family_name":"Jones","given_name":"Tom","postal_code":"EC1V 7LQ","street":"example street 1267"}],"links":{"creditor":"CR123"},"postal_code":"EC1V 7LQ"}]}
   },
   "create": {
     "method": "POST",
     "path_template": "/verification_details",
     "url_params": {},
-    "body": {"verification_details":{"address_line1":"338-346 Goswell Road","address_line2":"Islington","address_line3":"example address_line3 8198","city":"London","company_number":"07495895","description":"Wine and cheese seller","directors":[{"city":"London","country_code":"GB","date_of_birth":"1986-02-19","family_name":"Jones","given_name":"Tom","postal_code":"EC1V 7LQ","street":"example street 2734"}],"links":{"creditor":"CR123"},"postal_code":"EC1V 7LQ"}}
+    "body": {"verification_details":{"address_line1":"338-346 Goswell Road","address_line2":"Islington","address_line3":"example address_line3 9301","city":"London","company_number":"07495895","description":"Wine and cheese seller","directors":[{"city":"London","country_code":"GB","date_of_birth":"1986-02-19","family_name":"Jones","given_name":"Tom","postal_code":"EC1V 7LQ","street":"example street 8849"}],"links":{"creditor":"CR123"},"postal_code":"EC1V 7LQ"}}
   }
 }
 
