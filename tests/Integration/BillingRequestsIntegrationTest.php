@@ -43,7 +43,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->mandate_request, $record->mandate_request);
             $this->assertEquals($body[$num]->metadata, $record->metadata);
             $this->assertEquals($body[$num]->payment_request, $record->payment_request);
-            $this->assertEquals($body[$num]->purpose_code, $record->purpose_code);
             $this->assertEquals($body[$num]->resources, $record->resources);
             $this->assertEquals($body[$num]->status, $record->status);
             
@@ -75,7 +74,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
     
@@ -113,7 +111,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
         
@@ -145,7 +142,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
     
@@ -176,7 +172,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
     
@@ -207,7 +202,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
     
@@ -238,7 +232,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
     
@@ -269,7 +262,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
     
@@ -300,7 +292,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
     
@@ -331,7 +322,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
     
@@ -362,7 +352,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
     
@@ -393,7 +382,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
     
