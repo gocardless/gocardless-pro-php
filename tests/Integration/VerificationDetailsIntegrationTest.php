@@ -43,6 +43,7 @@ class VerificationDetailsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->description, $record->description);
             $this->assertEquals($body[$num]->directors, $record->directors);
             $this->assertEquals($body[$num]->links, $record->links);
+            $this->assertEquals($body[$num]->name, $record->name);
             $this->assertEquals($body[$num]->postal_code, $record->postal_code);
             
         }
@@ -73,6 +74,7 @@ class VerificationDetailsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->description, $response->description);
         $this->assertEquals($body->directors, $response->directors);
         $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->name, $response->name);
         $this->assertEquals($body->postal_code, $response->postal_code);
     
 
