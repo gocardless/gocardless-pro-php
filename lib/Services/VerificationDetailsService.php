@@ -18,8 +18,8 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * Service that provides access to the VerificationDetail
  * endpoints of the API
  *
- * @method list()
  * @method create()
+ * @method list()
  */
 class VerificationDetailsService extends BaseService
 {
@@ -27,28 +27,6 @@ class VerificationDetailsService extends BaseService
     protected $envelope_key   = 'verification_details';
     protected $resource_class = '\GoCardlessPro\Resources\VerificationDetail';
 
-
-    /**
-     * List verification details
-     *
-     * Example URL: /verification_details
-     *
-     * @param  string[mixed] $params An associative array for any params
-     * @return ListResponse
-     **/
-    protected function _doList($params = array())
-    {
-        $path = "/verification_details";
-        if(isset($params['params'])) { $params['query'] = $params['params'];
-            unset($params['params']);
-        }
-
-        
-        $response = $this->api_client->get($path, $params);
-        
-
-        return $this->getResourceForResponse($response);
-    }
 
     /**
      * Create a verification detail
@@ -69,6 +47,28 @@ class VerificationDetailsService extends BaseService
 
         
         $response = $this->api_client->post($path, $params);
+        
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
+     * List verification details
+     *
+     * Example URL: /verification_details
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return ListResponse
+     **/
+    protected function _doList($params = array())
+    {
+        $path = "/verification_details";
+        if(isset($params['params'])) { $params['query'] = $params['params'];
+            unset($params['params']);
+        }
+
+        
+        $response = $this->api_client->get($path, $params);
         
 
         return $this->getResourceForResponse($response);

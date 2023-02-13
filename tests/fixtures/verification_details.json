@@ -1,15 +1,15 @@
 { 
-  "list": {
-    "method": "GET",
-    "path_template": "/verification_details",
-    "url_params": {},
-    "body": {"meta":{"cursors":{"after":"example after 10","before":"example before 9326"},"limit":50},"verification_details":[{"address_line1":"338-346 Goswell Road","address_line2":"Islington","address_line3":"example address_line3 3921","city":"London","company_number":"07495895","description":"Wine and cheese seller","directors":[{"city":"London","country_code":"GB","date_of_birth":"1986-02-19","family_name":"Jones","given_name":"Tom","postal_code":"EC1V 7LQ","street":"example street 1267"}],"links":{"creditor":"CR123"},"name":"Nude Wines Limited","postal_code":"EC1V 7LQ"},{"address_line1":"338-346 Goswell Road","address_line2":"Islington","address_line3":"example address_line3 8849","city":"London","company_number":"07495895","description":"Wine and cheese seller","directors":[{"city":"London","country_code":"GB","date_of_birth":"1986-02-19","family_name":"Jones","given_name":"Tom","postal_code":"EC1V 7LQ","street":"example street 9301"}],"links":{"creditor":"CR123"},"name":"Nude Wines Limited","postal_code":"EC1V 7LQ"}]}
-  },
   "create": {
     "method": "POST",
     "path_template": "/verification_details",
     "url_params": {},
-    "body": {"verification_details":{"address_line1":"338-346 Goswell Road","address_line2":"Islington","address_line3":"example address_line3 9488","city":"London","company_number":"07495895","description":"Wine and cheese seller","directors":[{"city":"London","country_code":"GB","date_of_birth":"1986-02-19","family_name":"Jones","given_name":"Tom","postal_code":"EC1V 7LQ","street":"example street 3920"}],"links":{"creditor":"CR123"},"name":"Nude Wines Limited","postal_code":"EC1V 7LQ"}}
+    "body": {"verification_details":{"address_line1":"338-346 Goswell Road","address_line2":"Islington","address_line3":"example address_line3 9326","city":"London","company_number":"07495895","description":"Wine and cheese seller","directors":[{"city":"London","country_code":"GB","date_of_birth":"1986-02-19","family_name":"Jones","given_name":"Tom","postal_code":"EC1V 7LQ","street":"example street 10"}],"links":{"creditor":"CR123"},"name":"Nude Wines Limited","postal_code":"EC1V 7LQ"}}
+  },
+  "list": {
+    "method": "GET",
+    "path_template": "/verification_details",
+    "url_params": {},
+    "body": {"meta":{"cursors":{"after":"example after 3920","before":"example before 9488"},"limit":50},"verification_details":[{"address_line1":"338-346 Goswell Road","address_line2":"Islington","address_line3":"example address_line3 3921","city":"London","company_number":"07495895","description":"Wine and cheese seller","directors":[{"city":"London","country_code":"GB","date_of_birth":"1986-02-19","family_name":"Jones","given_name":"Tom","postal_code":"EC1V 7LQ","street":"example street 1267"}],"links":{"creditor":"CR123"},"name":"Nude Wines Limited","postal_code":"EC1V 7LQ"},{"address_line1":"338-346 Goswell Road","address_line2":"Islington","address_line3":"example address_line3 8849","city":"London","company_number":"07495895","description":"Wine and cheese seller","directors":[{"city":"London","country_code":"GB","date_of_birth":"1986-02-19","family_name":"Jones","given_name":"Tom","postal_code":"EC1V 7LQ","street":"example street 9301"}],"links":{"creditor":"CR123"},"name":"Nude Wines Limited","postal_code":"EC1V 7LQ"}]}
   }
 }
 

@@ -14,6 +14,36 @@ class VerificationDetailsIntegrationTest extends IntegrationTestBase
         $this->assertNotNull($obj);
     }
     
+    public function testVerificationDetailsCreate()
+    {
+        $fixture = $this->loadJsonFixture('verification_details')->create;
+        $this->stub_request($fixture);
+
+        $service = $this->client->verificationDetails();
+        $response = call_user_func_array(array($service, 'create'), (array)$fixture->url_params);
+
+        $body = $fixture->body->verification_details;
+    
+        $this->assertInstanceOf('\GoCardlessPro\Resources\VerificationDetail', $response);
+
+        $this->assertEquals($body->address_line1, $response->address_line1);
+        $this->assertEquals($body->address_line2, $response->address_line2);
+        $this->assertEquals($body->address_line3, $response->address_line3);
+        $this->assertEquals($body->city, $response->city);
+        $this->assertEquals($body->company_number, $response->company_number);
+        $this->assertEquals($body->description, $response->description);
+        $this->assertEquals($body->directors, $response->directors);
+        $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->name, $response->name);
+        $this->assertEquals($body->postal_code, $response->postal_code);
+    
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+    }
+
+    
     public function testVerificationDetailsList()
     {
         $fixture = $this->loadJsonFixture('verification_details')->list;
@@ -47,36 +77,6 @@ class VerificationDetailsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body[$num]->postal_code, $record->postal_code);
             
         }
-
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
-        $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
-    }
-
-    
-    public function testVerificationDetailsCreate()
-    {
-        $fixture = $this->loadJsonFixture('verification_details')->create;
-        $this->stub_request($fixture);
-
-        $service = $this->client->verificationDetails();
-        $response = call_user_func_array(array($service, 'create'), (array)$fixture->url_params);
-
-        $body = $fixture->body->verification_details;
-    
-        $this->assertInstanceOf('\GoCardlessPro\Resources\VerificationDetail', $response);
-
-        $this->assertEquals($body->address_line1, $response->address_line1);
-        $this->assertEquals($body->address_line2, $response->address_line2);
-        $this->assertEquals($body->address_line3, $response->address_line3);
-        $this->assertEquals($body->city, $response->city);
-        $this->assertEquals($body->company_number, $response->company_number);
-        $this->assertEquals($body->description, $response->description);
-        $this->assertEquals($body->directors, $response->directors);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->postal_code, $response->postal_code);
-    
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
