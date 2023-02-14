@@ -19,6 +19,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $description
  * @property-read $directors
  * @property-read $links
+ * @property-read $name
  * @property-read $postal_code
  */
 class VerificationDetail extends BaseResource
@@ -64,6 +65,11 @@ class VerificationDetail extends BaseResource
      * 
      */
     protected $links;
+
+    /**
+     * The company's legal name.
+     */
+    protected $name;
 
     /**
      * The company's postal code.

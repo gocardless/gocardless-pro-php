@@ -19,6 +19,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * endpoints of the API
  *
  * @method create()
+ * @method list()
  */
 class VerificationDetailsService extends BaseService
 {
@@ -49,6 +50,41 @@ class VerificationDetailsService extends BaseService
         
 
         return $this->getResourceForResponse($response);
+    }
+
+    /**
+     * List verification details
+     *
+     * Example URL: /verification_details
+     *
+     * @param  string[mixed] $params An associative array for any params
+     * @return ListResponse
+     **/
+    protected function _doList($params = array())
+    {
+        $path = "/verification_details";
+        if(isset($params['params'])) { $params['query'] = $params['params'];
+            unset($params['params']);
+        }
+
+        
+        $response = $this->api_client->get($path, $params);
+        
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
+     * List verification details
+     *
+     * Example URL: /verification_details
+     *
+     * @param  string[mixed] $params
+     * @return Paginator
+     **/
+    public function all($params = array())
+    {
+        return new Paginator($this, $params);
     }
 
 }

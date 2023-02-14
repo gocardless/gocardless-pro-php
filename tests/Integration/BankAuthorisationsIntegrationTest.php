@@ -14,35 +14,6 @@ class BankAuthorisationsIntegrationTest extends IntegrationTestBase
         $this->assertNotNull($obj);
     }
     
-    public function testBankAuthorisationsGet()
-    {
-        $fixture = $this->loadJsonFixture('bank_authorisations')->get;
-        $this->stub_request($fixture);
-
-        $service = $this->client->bankAuthorisations();
-        $response = call_user_func_array(array($service, 'get'), (array)$fixture->url_params);
-
-        $body = $fixture->body->bank_authorisations;
-    
-        $this->assertInstanceOf('\GoCardlessPro\Resources\BankAuthorisation', $response);
-
-        $this->assertEquals($body->authorisation_type, $response->authorisation_type);
-        $this->assertEquals($body->authorised_at, $response->authorised_at);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->expires_at, $response->expires_at);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->last_visited_at, $response->last_visited_at);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->redirect_uri, $response->redirect_uri);
-        $this->assertEquals($body->url, $response->url);
-    
-
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
-        $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
-    }
-
-    
     public function testBankAuthorisationsCreate()
     {
         $fixture = $this->loadJsonFixture('bank_authorisations')->create;
@@ -108,5 +79,34 @@ class BankAuthorisationsIntegrationTest extends IntegrationTestBase
         $getRequest = $this->history[1]['request'];
         $this->assertEquals($getRequest->getUri()->getPath(), '/bank_authorisations/ID123');
     }
+    
+    public function testBankAuthorisationsGet()
+    {
+        $fixture = $this->loadJsonFixture('bank_authorisations')->get;
+        $this->stub_request($fixture);
+
+        $service = $this->client->bankAuthorisations();
+        $response = call_user_func_array(array($service, 'get'), (array)$fixture->url_params);
+
+        $body = $fixture->body->bank_authorisations;
+    
+        $this->assertInstanceOf('\GoCardlessPro\Resources\BankAuthorisation', $response);
+
+        $this->assertEquals($body->authorisation_type, $response->authorisation_type);
+        $this->assertEquals($body->authorised_at, $response->authorised_at);
+        $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->expires_at, $response->expires_at);
+        $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->last_visited_at, $response->last_visited_at);
+        $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->redirect_uri, $response->redirect_uri);
+        $this->assertEquals($body->url, $response->url);
+    
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+    }
+
     
 }

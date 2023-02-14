@@ -18,8 +18,8 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * Service that provides access to the BankAuthorisation
  * endpoints of the API
  *
- * @method get()
  * @method create()
+ * @method get()
  */
 class BankAuthorisationsService extends BaseService
 {
@@ -27,35 +27,6 @@ class BankAuthorisationsService extends BaseService
     protected $envelope_key   = 'bank_authorisations';
     protected $resource_class = '\GoCardlessPro\Resources\BankAuthorisation';
 
-
-    /**
-     * Get a Bank Authorisation.
-     *
-     * Example URL: /bank_authorisations/:identity
-     *
-     * @param  string        $identity Unique identifier, beginning with "BAU".
-     * @param  string[mixed] $params   An associative array for any params
-     * @return BankAuthorisation
-     **/
-    public function get($identity, $params = array())
-    {
-        $path = Util::subUrl(
-            '/bank_authorisations/:identity',
-            array(
-                
-                'identity' => $identity
-            )
-        );
-        if(isset($params['params'])) { $params['query'] = $params['params'];
-            unset($params['params']);
-        }
-
-        
-        $response = $this->api_client->get($path, $params);
-        
-
-        return $this->getResourceForResponse($response);
-    }
 
     /**
      * Create a Bank Authorisation
@@ -87,6 +58,35 @@ class BankAuthorisationsService extends BaseService
 
             throw $e;
         }
+        
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
+     * Get a Bank Authorisation
+     *
+     * Example URL: /bank_authorisations/:identity
+     *
+     * @param  string        $identity Unique identifier, beginning with "BAU".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return BankAuthorisation
+     **/
+    public function get($identity, $params = array())
+    {
+        $path = Util::subUrl(
+            '/bank_authorisations/:identity',
+            array(
+                
+                'identity' => $identity
+            )
+        );
+        if(isset($params['params'])) { $params['query'] = $params['params'];
+            unset($params['params']);
+        }
+
+        
+        $response = $this->api_client->get($path, $params);
         
 
         return $this->getResourceForResponse($response);

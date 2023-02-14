@@ -14,46 +14,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertNotNull($obj);
     }
     
-    public function testBillingRequestsList()
-    {
-        $fixture = $this->loadJsonFixture('billing_requests')->list;
-        $this->stub_request($fixture);
-
-        $service = $this->client->billingRequests();
-        $response = call_user_func_array(array($service, 'list'), (array)$fixture->url_params);
-
-        $body = $fixture->body->billing_requests;
-    
-        $records = $response->records;
-        $this->assertInstanceOf('\GoCardlessPro\Core\ListResponse', $response);
-        $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $records[0]);
-
-        $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
-        $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
-    
-
-    
-        foreach (range(0, count($body) - 1) as $num) {
-            $record = $records[$num];
-            $this->assertEquals($body[$num]->actions, $record->actions);
-            $this->assertEquals($body[$num]->created_at, $record->created_at);
-            $this->assertEquals($body[$num]->fallback_enabled, $record->fallback_enabled);
-            $this->assertEquals($body[$num]->id, $record->id);
-            $this->assertEquals($body[$num]->links, $record->links);
-            $this->assertEquals($body[$num]->mandate_request, $record->mandate_request);
-            $this->assertEquals($body[$num]->metadata, $record->metadata);
-            $this->assertEquals($body[$num]->payment_request, $record->payment_request);
-            $this->assertEquals($body[$num]->resources, $record->resources);
-            $this->assertEquals($body[$num]->status, $record->status);
-            
-        }
-
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
-        $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
-    }
-
-    
     public function testBillingRequestsCreate()
     {
         $fixture = $this->loadJsonFixture('billing_requests')->create;
@@ -74,6 +34,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->payment_request, $response->payment_request);
+        $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
     
@@ -111,6 +72,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->payment_request, $response->payment_request);
+        $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
         
@@ -121,36 +83,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $getRequest = $this->history[1]['request'];
         $this->assertEquals($getRequest->getUri()->getPath(), '/billing_requests/ID123');
     }
-    
-    public function testBillingRequestsGet()
-    {
-        $fixture = $this->loadJsonFixture('billing_requests')->get;
-        $this->stub_request($fixture);
-
-        $service = $this->client->billingRequests();
-        $response = call_user_func_array(array($service, 'get'), (array)$fixture->url_params);
-
-        $body = $fixture->body->billing_requests;
-    
-        $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
-
-        $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate_request, $response->mandate_request);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->resources, $response->resources);
-        $this->assertEquals($body->status, $response->status);
-    
-
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
-        $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
-    }
-
     
     public function testBillingRequestsCollectCustomerDetails()
     {
@@ -172,6 +104,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->payment_request, $response->payment_request);
+        $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
     
@@ -202,66 +135,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->resources, $response->resources);
-        $this->assertEquals($body->status, $response->status);
-    
-
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
-        $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
-    }
-
-    
-    public function testBillingRequestsFulfil()
-    {
-        $fixture = $this->loadJsonFixture('billing_requests')->fulfil;
-        $this->stub_request($fixture);
-
-        $service = $this->client->billingRequests();
-        $response = call_user_func_array(array($service, 'fulfil'), (array)$fixture->url_params);
-
-        $body = $fixture->body->billing_requests;
-    
-        $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
-
-        $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate_request, $response->mandate_request);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->resources, $response->resources);
-        $this->assertEquals($body->status, $response->status);
-    
-
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
-        $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
-    }
-
-    
-    public function testBillingRequestsChooseCurrency()
-    {
-        $fixture = $this->loadJsonFixture('billing_requests')->choose_currency;
-        $this->stub_request($fixture);
-
-        $service = $this->client->billingRequests();
-        $response = call_user_func_array(array($service, 'chooseCurrency'), (array)$fixture->url_params);
-
-        $body = $fixture->body->billing_requests;
-    
-        $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
-
-        $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate_request, $response->mandate_request);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->payment_request, $response->payment_request);
+        $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
     
@@ -292,6 +166,38 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->payment_request, $response->payment_request);
+        $this->assertEquals($body->purpose_code, $response->purpose_code);
+        $this->assertEquals($body->resources, $response->resources);
+        $this->assertEquals($body->status, $response->status);
+    
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+    }
+
+    
+    public function testBillingRequestsFulfil()
+    {
+        $fixture = $this->loadJsonFixture('billing_requests')->fulfil;
+        $this->stub_request($fixture);
+
+        $service = $this->client->billingRequests();
+        $response = call_user_func_array(array($service, 'fulfil'), (array)$fixture->url_params);
+
+        $body = $fixture->body->billing_requests;
+    
+        $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
+
+        $this->assertEquals($body->actions, $response->actions);
+        $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->mandate_request, $response->mandate_request);
+        $this->assertEquals($body->metadata, $response->metadata);
+        $this->assertEquals($body->payment_request, $response->payment_request);
+        $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
     
@@ -322,6 +228,79 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->payment_request, $response->payment_request);
+        $this->assertEquals($body->purpose_code, $response->purpose_code);
+        $this->assertEquals($body->resources, $response->resources);
+        $this->assertEquals($body->status, $response->status);
+    
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+    }
+
+    
+    public function testBillingRequestsList()
+    {
+        $fixture = $this->loadJsonFixture('billing_requests')->list;
+        $this->stub_request($fixture);
+
+        $service = $this->client->billingRequests();
+        $response = call_user_func_array(array($service, 'list'), (array)$fixture->url_params);
+
+        $body = $fixture->body->billing_requests;
+    
+        $records = $response->records;
+        $this->assertInstanceOf('\GoCardlessPro\Core\ListResponse', $response);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $records[0]);
+
+        $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
+        $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+    
+
+    
+        foreach (range(0, count($body) - 1) as $num) {
+            $record = $records[$num];
+            $this->assertEquals($body[$num]->actions, $record->actions);
+            $this->assertEquals($body[$num]->created_at, $record->created_at);
+            $this->assertEquals($body[$num]->fallback_enabled, $record->fallback_enabled);
+            $this->assertEquals($body[$num]->id, $record->id);
+            $this->assertEquals($body[$num]->links, $record->links);
+            $this->assertEquals($body[$num]->mandate_request, $record->mandate_request);
+            $this->assertEquals($body[$num]->metadata, $record->metadata);
+            $this->assertEquals($body[$num]->payment_request, $record->payment_request);
+            $this->assertEquals($body[$num]->purpose_code, $record->purpose_code);
+            $this->assertEquals($body[$num]->resources, $record->resources);
+            $this->assertEquals($body[$num]->status, $record->status);
+            
+        }
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+    }
+
+    
+    public function testBillingRequestsGet()
+    {
+        $fixture = $this->loadJsonFixture('billing_requests')->get;
+        $this->stub_request($fixture);
+
+        $service = $this->client->billingRequests();
+        $response = call_user_func_array(array($service, 'get'), (array)$fixture->url_params);
+
+        $body = $fixture->body->billing_requests;
+    
+        $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
+
+        $this->assertEquals($body->actions, $response->actions);
+        $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->mandate_request, $response->mandate_request);
+        $this->assertEquals($body->metadata, $response->metadata);
+        $this->assertEquals($body->payment_request, $response->payment_request);
+        $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
     
@@ -352,6 +331,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->payment_request, $response->payment_request);
+        $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
     
@@ -382,6 +362,38 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->payment_request, $response->payment_request);
+        $this->assertEquals($body->purpose_code, $response->purpose_code);
+        $this->assertEquals($body->resources, $response->resources);
+        $this->assertEquals($body->status, $response->status);
+    
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+    }
+
+    
+    public function testBillingRequestsChooseCurrency()
+    {
+        $fixture = $this->loadJsonFixture('billing_requests')->choose_currency;
+        $this->stub_request($fixture);
+
+        $service = $this->client->billingRequests();
+        $response = call_user_func_array(array($service, 'chooseCurrency'), (array)$fixture->url_params);
+
+        $body = $fixture->body->billing_requests;
+    
+        $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
+
+        $this->assertEquals($body->actions, $response->actions);
+        $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->mandate_request, $response->mandate_request);
+        $this->assertEquals($body->metadata, $response->metadata);
+        $this->assertEquals($body->payment_request, $response->payment_request);
+        $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
     
