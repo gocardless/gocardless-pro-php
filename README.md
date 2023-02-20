@@ -27,7 +27,7 @@ Next, run the Composer command to install the latest stable version of `gocardle
 php composer.phar require gocardless/gocardless-pro
 ```
 
-After installing, you need to require Composer's autoloader:
+After installing, You need to require Composer's autoloader:
 ```php
 require 'vendor/autoload.php';
 ```
@@ -42,10 +42,10 @@ though keep it out of version control!
 
 ```php
 $access_token = getenv('GC_ACCESS_TOKEN');
-$client = new \GoCardlessPro\Client(array(
+$client = new \GoCardlessPro\Client([
   'access_token' => $access_token,
   'environment'  => \GoCardlessPro\Environment::SANDBOX
-));
+]);
 ```
 
 You can create an `access_token` from the "Developers" tab in your GoCardless dashboard.
@@ -117,7 +117,7 @@ as the first argument.
 
 ```php
 $client->customers()->create([
-  'params' => ["given_name" => "Pete", "family_name" => "Hamilton"]
+  'params' => ['given_name' => 'Pete', 'family_name' => 'Hamilton']
 ]);
 ```
 
@@ -125,7 +125,7 @@ As with GET requests, if any parameters are required, these come first:
 
 ```php
 $client->customers()->update($customer_id, [
-  'params' => ["family_name" => "Smith"]
+  'params' => ['family_name' => 'Smith']
 ]);
 ```
 
@@ -141,8 +141,8 @@ double-creation:
 
 ```php
 $client->customers()->create([
-  'params' => ["given_name" => "Pete", "family_name" => "Hamilton"]
-  "headers" => ["Idempotency-Key" => "ABC123"]
+  'params' => ['given_name' => 'Pete', 'family_name' => 'Hamilton']
+  'headers' => ['Idempotency-Key' => 'ABC123']
 ]);
 ```
 
@@ -172,19 +172,19 @@ If the library can't parse the response from GoCardless, it will throw a
 
 ```php
 try {
-  $client->customer()->create(array(
-    "params" => array("invalid_name" => "Pete")
-  ));
+  $client->customer()->create([
+    'params' => array('invalid_name' => 'Pete')
+  ]);
 } catch (\GoCardlessPro\Core\Exception\ApiException $e) {
   // Api request failed / record couldn't be created.
 } catch (\GoCardlessPro\Core\Exception\MalformedResponseException $e) {
-  // Unexpected non-JSON response
+  // Unexpected non-JSON response.
 } catch (\GoCardlessPro\Core\Exception\ApiConnectionException $e) {
-  // Network error
+  // Network error.
 }
 ```
 
-Properties of the exception can be accessesed with the following methods:
+Properties of the exception can be accessed with the following methods:
 - `$e->getType();`
 - `$e->getCode();`
 - `$e->getErrors();`
@@ -199,7 +199,7 @@ GoCardless supports webhooks, allowing you to receive real-time notifications wh
 
 * When a customer cancels their mandate with the bank, suspend their club membership
 * When a payment fails due to lack of funds, mark their invoice as unpaid
-* When a customer’s subscription generates a new payment, log it in their “past payments” list
+* When a customer's subscription generates a new payment, log it in their "past payments" list
 
 The client allows you to validate that a webhook you receive is genuinely from GoCardless, and to parse it into `GoCardlessPro\Resources\Event` objects which are easy to work with:
 
@@ -212,27 +212,27 @@ The client allows you to validate that a webhook you receive is genuinely from G
 //
 // We recommend storing your webhook endpoint secret in an environment variable
 // for security, but you could include it as a string directly in your code
-$webhook_endpoint_secret = getenv("GOCARDLESS_WEBHOOK_ENDPOINT_SECRET");
+$webhook_endpoint_secret = getenv('GOCARDLESS_WEBHOOK_ENDPOINT_SECRET');
 
 $request_body = file_get_contents('php://input');
 
 $headers = getallheaders();
-$signature_header = $headers["Webhook-Signature"];
+$signature_header = $headers['Webhook-Signature'];
 
 try {
      $events = GoCardlessPro\Webhook::parse($request_body, $signature_header, $webhook_endpoint_secret);
 
      foreach ($events as $event) {
          // You can access each event in the webhook.
-         echo($event->id);
+         echo $event->id;
      }
 
-     header("HTTP/1.1 200 OK");
+     header('HTTP/1.1 200 OK');
 } catch (GoCardlessPro\Core\Exception\InvalidSignatureException) {
      // The webhook doesn't appear to be genuinely from GoCardless, as the signature
      // included in the `Webhook-Signature` header doesn't match the one computed with
-     // your webhook endpoint secret and the body
-     header("HTTP/1.1 498 Invalid Token");
+     // your webhook endpoint secret and the body.
+     header('HTTP/1.1 498 Invalid Token');
 }
 ```
 
@@ -242,11 +242,11 @@ For more details on working with webhooks, see our ["Getting started" guide](htt
 
 This client library only supports PHP >= 7.2. Earlier releases of PHP are now considered
 [end of life](http://php.net/supported-versions.php) and may be exposed to security
-vunerabilities.
+vulnerabilities.
 
 ## Contributing
 
 This client is auto-generated from Crank, a toolchain that we hope to soon open source.
 Issues should for now be reported on this repository.
 
-**Please do not modify the source code yourself, your changes will be overriden!**
+**Please do not modify the source code yourself, your changes will be overridden!**
