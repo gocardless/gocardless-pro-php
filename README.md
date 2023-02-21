@@ -27,7 +27,7 @@ Next, run the Composer command to install the latest stable version of `gocardle
 php composer.phar require gocardless/gocardless-pro
 ```
 
-After installing, You need to require Composer's autoloader:
+After installing, you need to require Composer's autoloader:
 ```php
 require 'vendor/autoload.php';
 ```
@@ -36,7 +36,7 @@ require 'vendor/autoload.php';
 
 Create a `GoCardlessPro\Client` instance, providing your access token and the environment
 you want to use. We strongly advise storing your access token as an environment variable,
-rather than directly in your code. you can easily load the environment variables from a
+rather than directly in your code. You can easily load the environment variables from a
 `.env` file by using something like [phpdotenv](https://github.com/vlucas/phpdotenv),
 though keep it out of version control!
 
@@ -141,7 +141,7 @@ double-creation:
 
 ```php
 $client->customers()->create([
-  'params' => ['given_name' => 'Pete', 'family_name' => 'Hamilton']
+  'params' =>  ['given_name' => 'Pete', 'family_name' => 'Hamilton']
   'headers' => ['Idempotency-Key' => 'ABC123']
 ]);
 ```
@@ -173,7 +173,7 @@ If the library can't parse the response from GoCardless, it will throw a
 ```php
 try {
   $client->customer()->create([
-    'params' => array('invalid_name' => 'Pete')
+    'params' => ['invalid_name' => 'Pete']
   ]);
 } catch (\GoCardlessPro\Core\Exception\ApiException $e) {
   // Api request failed / record couldn't be created.
