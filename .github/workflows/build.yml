@@ -37,3 +37,14 @@ jobs:
       run: |-
         composer install --prefer-source --no-interaction
         ./vendor/phpunit/phpunit/phpunit
+  test_library_8_0:
+    runs-on: ubuntu-latest
+    container:
+      image: circleci/php:8.0-apache-node-browsers
+      options: --user 1001 
+    steps:
+    - uses: actions/checkout@v2
+    - name: Test Library
+      run: |-
+        composer install --prefer-source --no-interaction
+        ./vendor/phpunit/phpunit/phpunit
