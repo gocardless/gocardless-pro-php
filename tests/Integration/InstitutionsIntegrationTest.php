@@ -50,4 +50,40 @@ class InstitutionsIntegrationTest extends IntegrationTestBase
     }
 
     
+    public function testInstitutionsListForBillingRequest()
+    {
+        $fixture = $this->loadJsonFixture('institutions')->list_for_billing_request;
+        $this->stub_request($fixture);
+
+        $service = $this->client->institutions();
+        $response = call_user_func_array(array($service, 'listForBillingRequest'), (array)$fixture->url_params);
+
+        $body = $fixture->body->institutions;
+    
+        $records = $response->records;
+        $this->assertInstanceOf('\GoCardlessPro\Core\ListResponse', $response);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\Institution', $records[0]);
+
+        $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
+        $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+    
+
+    
+        foreach (range(0, count($body) - 1) as $num) {
+            $record = $records[$num];
+            $this->assertEquals($body[$num]->bank_redirect, $record->bank_redirect);
+            $this->assertEquals($body[$num]->country_code, $record->country_code);
+            $this->assertEquals($body[$num]->icon_url, $record->icon_url);
+            $this->assertEquals($body[$num]->id, $record->id);
+            $this->assertEquals($body[$num]->logo_url, $record->logo_url);
+            $this->assertEquals($body[$num]->name, $record->name);
+            
+        }
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+    }
+
+    
 }

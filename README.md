@@ -141,7 +141,7 @@ double-creation:
 
 ```php
 $client->customers()->create([
-  'params'  => ['given_name' => 'Pete', 'family_name' => 'Hamilton'],
+  'params' =>  ['given_name' => 'Pete', 'family_name' => 'Hamilton']
   'headers' => ['Idempotency-Key' => 'ABC123']
 ]);
 ```
@@ -199,7 +199,7 @@ GoCardless supports webhooks, allowing you to receive real-time notifications wh
 
 * When a customer cancels their mandate with the bank, suspend their club membership
 * When a payment fails due to lack of funds, mark their invoice as unpaid
-* When a customer’s subscription generates a new payment, log it in their “past payments” list
+* When a customer's subscription generates a new payment, log it in their "past payments" list
 
 The client allows you to validate that a webhook you receive is genuinely from GoCardless, and to parse it into `GoCardlessPro\Resources\Event` objects which are easy to work with:
 
