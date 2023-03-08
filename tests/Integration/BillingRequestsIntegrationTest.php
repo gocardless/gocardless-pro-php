@@ -404,4 +404,35 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
     }
 
     
+    public function testBillingRequestsSelectInstitution()
+    {
+        $fixture = $this->loadJsonFixture('billing_requests')->select_institution;
+        $this->stub_request($fixture);
+
+        $service = $this->client->billingRequests();
+        $response = call_user_func_array(array($service, 'selectInstitution'), (array)$fixture->url_params);
+
+        $body = $fixture->body->billing_requests;
+    
+        $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
+
+        $this->assertEquals($body->actions, $response->actions);
+        $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->mandate_request, $response->mandate_request);
+        $this->assertEquals($body->metadata, $response->metadata);
+        $this->assertEquals($body->payment_request, $response->payment_request);
+        $this->assertEquals($body->purpose_code, $response->purpose_code);
+        $this->assertEquals($body->resources, $response->resources);
+        $this->assertEquals($body->status, $response->status);
+    
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+    }
+
+    
 }
