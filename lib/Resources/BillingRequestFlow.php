@@ -22,6 +22,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $lock_bank_account
  * @property-read $lock_currency
  * @property-read $lock_customer_details
+ * @property-read $options
  * @property-read $prefilled_bank_account
  * @property-read $prefilled_customer
  * @property-read $redirect_uri
@@ -105,6 +106,11 @@ class BillingRequestFlow extends BaseResource
      * as a part of the billing request.
      */
     protected $lock_customer_details;
+
+    /**
+     * Options used to pass configurational parameters to billing request flow
+     */
+    protected $options;
 
     /**
      * Bank account information used to prefill the payment page so your
