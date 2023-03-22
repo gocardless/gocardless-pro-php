@@ -22,12 +22,12 @@ namespace GoCardlessPro\Resources;
  * @property-read $lock_bank_account
  * @property-read $lock_currency
  * @property-read $lock_customer_details
- * @property-read $options
  * @property-read $prefilled_bank_account
  * @property-read $prefilled_customer
  * @property-read $redirect_uri
  * @property-read $session_token
  * @property-read $show_redirect_buttons
+ * @property-read $show_success_redirect_button
  */
 class BillingRequestFlow extends BaseResource
 {
@@ -108,11 +108,6 @@ class BillingRequestFlow extends BaseResource
     protected $lock_customer_details;
 
     /**
-     * Options used to pass configurational parameters to billing request flow
-     */
-    protected $options;
-
-    /**
      * Bank account information used to prefill the payment page so your
      * customer doesn't have to re-type details you already hold about them. It
      * will be stored unvalidated and the customer will be able to review and
@@ -148,5 +143,12 @@ class BillingRequestFlow extends BaseResource
      * to url being provided against exit_uri field.
      */
     protected $show_redirect_buttons;
+
+    /**
+     * If true, the payer will be able to see redirect action buttons on Success
+     * page. These action buttons will provide a way to redirect payer to the
+     * given redirect_uri.
+     */
+    protected $show_success_redirect_button;
 
 }

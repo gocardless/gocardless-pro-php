@@ -37,12 +37,12 @@ class BillingRequestFlowsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->lock_bank_account, $response->lock_bank_account);
         $this->assertEquals($body->lock_currency, $response->lock_currency);
         $this->assertEquals($body->lock_customer_details, $response->lock_customer_details);
-        $this->assertEquals($body->options, $response->options);
         $this->assertEquals($body->prefilled_bank_account, $response->prefilled_bank_account);
         $this->assertEquals($body->prefilled_customer, $response->prefilled_customer);
         $this->assertEquals($body->redirect_uri, $response->redirect_uri);
         $this->assertEquals($body->session_token, $response->session_token);
         $this->assertEquals($body->show_redirect_buttons, $response->show_redirect_buttons);
+        $this->assertEquals($body->show_success_redirect_button, $response->show_success_redirect_button);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -74,12 +74,12 @@ class BillingRequestFlowsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->lock_bank_account, $response->lock_bank_account);
         $this->assertEquals($body->lock_currency, $response->lock_currency);
         $this->assertEquals($body->lock_customer_details, $response->lock_customer_details);
-        $this->assertEquals($body->options, $response->options);
         $this->assertEquals($body->prefilled_bank_account, $response->prefilled_bank_account);
         $this->assertEquals($body->prefilled_customer, $response->prefilled_customer);
         $this->assertEquals($body->redirect_uri, $response->redirect_uri);
         $this->assertEquals($body->session_token, $response->session_token);
         $this->assertEquals($body->show_redirect_buttons, $response->show_redirect_buttons);
+        $this->assertEquals($body->show_success_redirect_button, $response->show_success_redirect_button);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
