@@ -26,7 +26,6 @@ class CreditorsIntegrationTest extends IntegrationTestBase
     
         $this->assertInstanceOf('\GoCardlessPro\Resources\Creditor', $response);
 
-        $this->assertEquals($body->activated, $response->activated);
         $this->assertEquals($body->address_line1, $response->address_line1);
         $this->assertEquals($body->address_line2, $response->address_line2);
         $this->assertEquals($body->address_line3, $response->address_line3);
@@ -74,7 +73,6 @@ class CreditorsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Creditor', $response);
 
-        $this->assertEquals($body->activated, $response->activated);
         $this->assertEquals($body->address_line1, $response->address_line1);
         $this->assertEquals($body->address_line2, $response->address_line2);
         $this->assertEquals($body->address_line3, $response->address_line3);
@@ -125,7 +123,6 @@ class CreditorsIntegrationTest extends IntegrationTestBase
     
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
-            $this->assertEquals($body[$num]->activated, $record->activated);
             $this->assertEquals($body[$num]->address_line1, $record->address_line1);
             $this->assertEquals($body[$num]->address_line2, $record->address_line2);
             $this->assertEquals($body[$num]->address_line3, $record->address_line3);
@@ -167,7 +164,6 @@ class CreditorsIntegrationTest extends IntegrationTestBase
     
         $this->assertInstanceOf('\GoCardlessPro\Resources\Creditor', $response);
 
-        $this->assertEquals($body->activated, $response->activated);
         $this->assertEquals($body->address_line1, $response->address_line1);
         $this->assertEquals($body->address_line2, $response->address_line2);
         $this->assertEquals($body->address_line3, $response->address_line3);
@@ -208,7 +204,6 @@ class CreditorsIntegrationTest extends IntegrationTestBase
     
         $this->assertInstanceOf('\GoCardlessPro\Resources\Creditor', $response);
 
-        $this->assertEquals($body->activated, $response->activated);
         $this->assertEquals($body->address_line1, $response->address_line1);
         $this->assertEquals($body->address_line2, $response->address_line2);
         $this->assertEquals($body->address_line3, $response->address_line3);
@@ -249,7 +244,6 @@ class CreditorsIntegrationTest extends IntegrationTestBase
     
         $this->assertInstanceOf('\GoCardlessPro\Resources\Creditor', $response);
 
-        $this->assertEquals($body->activated, $response->activated);
         $this->assertEquals($body->address_line1, $response->address_line1);
         $this->assertEquals($body->address_line2, $response->address_line2);
         $this->assertEquals($body->address_line3, $response->address_line3);
