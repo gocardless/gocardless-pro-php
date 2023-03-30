@@ -147,8 +147,9 @@ class BillingRequestFlow extends BaseResource
     /**
      * If true, the payer will be able to see a redirect action button on the
      * Success page. This action button will provide a way to redirect the payer
-     * to the given redirect_uri. This functionality is applicable only for
-     * Android users as automatic redirection is not possible in such cases.
+     * to the given redirect_uri. This functionality is helpful when merchants
+     * do not want payers to be automatically redirected or on Android devices,
+     * where automatic redirections are not possible.
      */
     protected $show_success_redirect_button;
 
