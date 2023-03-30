@@ -12,7 +12,6 @@ namespace GoCardlessPro\Resources;
  * attributes
  *
  * @property-read $actions
- * @property-read $auto_fulfil
  * @property-read $created_at
  * @property-read $fallback_enabled
  * @property-read $id
@@ -33,12 +32,6 @@ class BillingRequest extends BaseResource
      * fulfilled.
      */
     protected $actions;
-
-    /**
-     * Should the billing request be fulfilled as soon as it's ready (true by
-     * default)
-     */
-    protected $auto_fulfil;
 
     /**
      * Fixed [timestamp](#api-usage-time-zones--dates), recording when this

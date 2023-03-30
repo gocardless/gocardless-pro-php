@@ -27,7 +27,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
         $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->auto_fulfil, $response->auto_fulfil);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->id, $response->id);
@@ -66,7 +65,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
         $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->auto_fulfil, $response->auto_fulfil);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->id, $response->id);
@@ -99,7 +97,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
         $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->auto_fulfil, $response->auto_fulfil);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->id, $response->id);
@@ -131,7 +128,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
         $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->auto_fulfil, $response->auto_fulfil);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->id, $response->id);
@@ -163,7 +159,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
         $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->auto_fulfil, $response->auto_fulfil);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->id, $response->id);
@@ -195,7 +190,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
         $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->auto_fulfil, $response->auto_fulfil);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->id, $response->id);
@@ -227,7 +221,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
         $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->auto_fulfil, $response->auto_fulfil);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->id, $response->id);
@@ -268,7 +261,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             $this->assertEquals($body[$num]->actions, $record->actions);
-            $this->assertEquals($body[$num]->auto_fulfil, $record->auto_fulfil);
             $this->assertEquals($body[$num]->created_at, $record->created_at);
             $this->assertEquals($body[$num]->fallback_enabled, $record->fallback_enabled);
             $this->assertEquals($body[$num]->id, $record->id);
@@ -301,7 +293,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
         $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->auto_fulfil, $response->auto_fulfil);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->id, $response->id);
@@ -333,7 +324,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
         $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->auto_fulfil, $response->auto_fulfil);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->id, $response->id);
@@ -365,7 +355,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
         $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->auto_fulfil, $response->auto_fulfil);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->id, $response->id);
@@ -397,7 +386,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
         $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->auto_fulfil, $response->auto_fulfil);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->id, $response->id);
@@ -429,7 +417,6 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
         $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->auto_fulfil, $response->auto_fulfil);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->id, $response->id);
