@@ -11,7 +11,6 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a creditor, providing access to its
  * attributes
  *
- * @property-read $activated
  * @property-read $address_line1
  * @property-read $address_line2
  * @property-read $address_line3
@@ -36,12 +35,6 @@ namespace GoCardlessPro\Resources;
 class Creditor extends BaseResource
 {
     protected $model_name = "Creditor";
-
-    /**
-     * Boolean value indicating whether the creditor is activated in the
-     * product.
-     */
-    protected $activated;
 
     /**
      * The first line of the creditor's address.

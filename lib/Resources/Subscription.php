@@ -151,7 +151,10 @@ class Subscription extends BaseResource
 
     /**
      * On failure, automatically retry payments using [intelligent
-     * retries](#success-intelligent-retries). Default is `false`.
+     * retries](#success-intelligent-retries). Default is `false`. <p
+     * class="notice"><strong>Important</strong>: To be able to use intelligent
+     * retries, Success+ needs to be enabled in [GoCardless
+     * dashboard](https://manage.gocardless.com/success-plus). </p>
      */
     protected $retry_if_possible;
 

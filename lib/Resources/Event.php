@@ -78,6 +78,7 @@ class Event extends BaseResource
      * <li>`payments`</li>
      * <li>`payouts`</li>
      * <li>`refunds`</li>
+     * <li>`scheme_identifiers`</li>
      * <li>`subscriptions`</li>
      * </ul>
      */

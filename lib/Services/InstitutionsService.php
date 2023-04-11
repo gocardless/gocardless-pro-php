@@ -19,6 +19,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * endpoints of the API
  *
  * @method list()
+ * @method listForBillingRequest()
  */
 class InstitutionsService extends BaseService
 {
@@ -38,6 +39,35 @@ class InstitutionsService extends BaseService
     protected function _doList($params = array())
     {
         $path = "/institutions";
+        if(isset($params['params'])) { $params['query'] = $params['params'];
+            unset($params['params']);
+        }
+
+        
+        $response = $this->api_client->get($path, $params);
+        
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
+     * List institutions for Billing Request
+     *
+     * Example URL: /billing_requests/:identity/institutions
+     *
+     * @param  string        $identity Unique identifier, beginning with "BRQ".
+     * @param  string[mixed] $params   An associative array for any params
+     * @return ListResponse
+     **/
+    public function listForBillingRequest($identity, $params = array())
+    {
+        $path = Util::subUrl(
+            '/billing_requests/:identity/institutions',
+            array(
+                
+                'identity' => $identity
+            )
+        );
         if(isset($params['params'])) { $params['query'] = $params['params'];
             unset($params['params']);
         }

@@ -27,6 +27,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $redirect_uri
  * @property-read $session_token
  * @property-read $show_redirect_buttons
+ * @property-read $show_success_redirect_button
  */
 class BillingRequestFlow extends BaseResource
 {
@@ -142,5 +143,14 @@ class BillingRequestFlow extends BaseResource
      * to url being provided against exit_uri field.
      */
     protected $show_redirect_buttons;
+
+    /**
+     * If true, the payer will be able to see a redirect action button on the
+     * Success page. This action button will provide a way to redirect the payer
+     * to the given redirect_uri. This functionality is helpful when merchants
+     * do not want payers to be automatically redirected or on Android devices,
+     * where automatic redirections are not possible.
+     */
+    protected $show_success_redirect_button;
 
 }
