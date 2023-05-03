@@ -27,24 +27,37 @@ class PayoutItemsIntegrationTest extends IntegrationTestBase
         $records = $response->records;
         $this->assertInstanceOf('\GoCardlessPro\Core\ListResponse', $response);
         $this->assertInstanceOf('\GoCardlessPro\Resources\PayoutItem', $records[0]);
-
-        $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
-        $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+        if (!is_null($fixture->body) && property_exists($fixture->body, 'meta') && !is_null($fixture->body->meta)) {
+            $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
+            $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+        }
     
 
     
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
-            $this->assertEquals($body[$num]->amount, $record->amount);
-            $this->assertEquals($body[$num]->links, $record->links);
-            $this->assertEquals($body[$num]->taxes, $record->taxes);
-            $this->assertEquals($body[$num]->type, $record->type);
+            
+            if (isset($body[$num]->amount)) {
+                $this->assertEquals($body[$num]->amount, $record->amount);
+            }
+            
+            if (isset($body[$num]->links)) {
+                $this->assertEquals($body[$num]->links, $record->links);
+            }
+            
+            if (isset($body[$num]->taxes)) {
+                $this->assertEquals($body[$num]->taxes, $record->taxes);
+            }
+            
+            if (isset($body[$num]->type)) {
+                $this->assertEquals($body[$num]->type, $record->type);
+            }
             
         }
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     

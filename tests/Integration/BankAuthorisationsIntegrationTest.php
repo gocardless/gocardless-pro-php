@@ -39,7 +39,7 @@ class BankAuthorisationsIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     public function testBankAuthorisationsCreateWithIdempotencyConflict()
@@ -75,7 +75,7 @@ class BankAuthorisationsIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $conflictRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $conflictRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $conflictRequest->getUri()->getPath());
         $getRequest = $this->history[1]['request'];
         $this->assertEquals($getRequest->getUri()->getPath(), '/bank_authorisations/ID123');
     }
@@ -105,7 +105,7 @@ class BankAuthorisationsIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     

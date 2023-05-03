@@ -50,7 +50,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     public function testCreditorsCreateWithIdempotencyConflict()
@@ -97,7 +97,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $conflictRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $conflictRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $conflictRequest->getUri()->getPath());
         $getRequest = $this->history[1]['request'];
         $this->assertEquals($getRequest->getUri()->getPath(), '/creditors/ID123');
     }
@@ -115,40 +115,101 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $records = $response->records;
         $this->assertInstanceOf('\GoCardlessPro\Core\ListResponse', $response);
         $this->assertInstanceOf('\GoCardlessPro\Resources\Creditor', $records[0]);
-
-        $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
-        $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+        if (!is_null($fixture->body) && property_exists($fixture->body, 'meta') && !is_null($fixture->body->meta)) {
+            $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
+            $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+        }
     
 
     
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
-            $this->assertEquals($body[$num]->address_line1, $record->address_line1);
-            $this->assertEquals($body[$num]->address_line2, $record->address_line2);
-            $this->assertEquals($body[$num]->address_line3, $record->address_line3);
-            $this->assertEquals($body[$num]->can_create_refunds, $record->can_create_refunds);
-            $this->assertEquals($body[$num]->city, $record->city);
-            $this->assertEquals($body[$num]->country_code, $record->country_code);
-            $this->assertEquals($body[$num]->created_at, $record->created_at);
-            $this->assertEquals($body[$num]->creditor_type, $record->creditor_type);
-            $this->assertEquals($body[$num]->custom_payment_pages_enabled, $record->custom_payment_pages_enabled);
-            $this->assertEquals($body[$num]->fx_payout_currency, $record->fx_payout_currency);
-            $this->assertEquals($body[$num]->id, $record->id);
-            $this->assertEquals($body[$num]->links, $record->links);
-            $this->assertEquals($body[$num]->logo_url, $record->logo_url);
-            $this->assertEquals($body[$num]->mandate_imports_enabled, $record->mandate_imports_enabled);
-            $this->assertEquals($body[$num]->merchant_responsible_for_notifications, $record->merchant_responsible_for_notifications);
-            $this->assertEquals($body[$num]->name, $record->name);
-            $this->assertEquals($body[$num]->postal_code, $record->postal_code);
-            $this->assertEquals($body[$num]->region, $record->region);
-            $this->assertEquals($body[$num]->scheme_identifiers, $record->scheme_identifiers);
-            $this->assertEquals($body[$num]->verification_status, $record->verification_status);
+            
+            if (isset($body[$num]->address_line1)) {
+                $this->assertEquals($body[$num]->address_line1, $record->address_line1);
+            }
+            
+            if (isset($body[$num]->address_line2)) {
+                $this->assertEquals($body[$num]->address_line2, $record->address_line2);
+            }
+            
+            if (isset($body[$num]->address_line3)) {
+                $this->assertEquals($body[$num]->address_line3, $record->address_line3);
+            }
+            
+            if (isset($body[$num]->can_create_refunds)) {
+                $this->assertEquals($body[$num]->can_create_refunds, $record->can_create_refunds);
+            }
+            
+            if (isset($body[$num]->city)) {
+                $this->assertEquals($body[$num]->city, $record->city);
+            }
+            
+            if (isset($body[$num]->country_code)) {
+                $this->assertEquals($body[$num]->country_code, $record->country_code);
+            }
+            
+            if (isset($body[$num]->created_at)) {
+                $this->assertEquals($body[$num]->created_at, $record->created_at);
+            }
+            
+            if (isset($body[$num]->creditor_type)) {
+                $this->assertEquals($body[$num]->creditor_type, $record->creditor_type);
+            }
+            
+            if (isset($body[$num]->custom_payment_pages_enabled)) {
+                $this->assertEquals($body[$num]->custom_payment_pages_enabled, $record->custom_payment_pages_enabled);
+            }
+            
+            if (isset($body[$num]->fx_payout_currency)) {
+                $this->assertEquals($body[$num]->fx_payout_currency, $record->fx_payout_currency);
+            }
+            
+            if (isset($body[$num]->id)) {
+                $this->assertEquals($body[$num]->id, $record->id);
+            }
+            
+            if (isset($body[$num]->links)) {
+                $this->assertEquals($body[$num]->links, $record->links);
+            }
+            
+            if (isset($body[$num]->logo_url)) {
+                $this->assertEquals($body[$num]->logo_url, $record->logo_url);
+            }
+            
+            if (isset($body[$num]->mandate_imports_enabled)) {
+                $this->assertEquals($body[$num]->mandate_imports_enabled, $record->mandate_imports_enabled);
+            }
+            
+            if (isset($body[$num]->merchant_responsible_for_notifications)) {
+                $this->assertEquals($body[$num]->merchant_responsible_for_notifications, $record->merchant_responsible_for_notifications);
+            }
+            
+            if (isset($body[$num]->name)) {
+                $this->assertEquals($body[$num]->name, $record->name);
+            }
+            
+            if (isset($body[$num]->postal_code)) {
+                $this->assertEquals($body[$num]->postal_code, $record->postal_code);
+            }
+            
+            if (isset($body[$num]->region)) {
+                $this->assertEquals($body[$num]->region, $record->region);
+            }
+            
+            if (isset($body[$num]->scheme_identifiers)) {
+                $this->assertEquals($body[$num]->scheme_identifiers, $record->scheme_identifiers);
+            }
+            
+            if (isset($body[$num]->verification_status)) {
+                $this->assertEquals($body[$num]->verification_status, $record->verification_status);
+            }
             
         }
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     
@@ -188,7 +249,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     
@@ -228,7 +289,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     
@@ -268,7 +329,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     

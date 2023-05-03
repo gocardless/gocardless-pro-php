@@ -9,8 +9,9 @@ class ApiClientTest extends TestCase
 {
     use TestFixtures;
 
-    public function setUp()
+    public function setUp(): void
     {
+        parent::setUp();
         $this->mock = new \GuzzleHttp\Handler\MockHandler();
         $handler = \GuzzleHttp\HandlerStack::create($this->mock);
         $this->history = array();

@@ -17,8 +17,9 @@ class ListResponseTest extends TestCase
 {
     protected $http_response;
 
-    public function setUp()
+    public function setUp(): void
     {
+        parent::setUp();
         $body = '{"data": [{"id":"1", "foo":"hi"}, {"id": "2", "foo": "test"}], "meta": {"limit": 5, "cursors": {"before":"", "after": "3"}}}';
         $raw_response = new \GuzzleHttp\Psr7\Response(200, [], $body);
 

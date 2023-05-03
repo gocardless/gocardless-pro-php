@@ -27,33 +27,73 @@ class PayoutsIntegrationTest extends IntegrationTestBase
         $records = $response->records;
         $this->assertInstanceOf('\GoCardlessPro\Core\ListResponse', $response);
         $this->assertInstanceOf('\GoCardlessPro\Resources\Payout', $records[0]);
-
-        $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
-        $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+        if (!is_null($fixture->body) && property_exists($fixture->body, 'meta') && !is_null($fixture->body->meta)) {
+            $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
+            $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+        }
     
 
     
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
-            $this->assertEquals($body[$num]->amount, $record->amount);
-            $this->assertEquals($body[$num]->arrival_date, $record->arrival_date);
-            $this->assertEquals($body[$num]->created_at, $record->created_at);
-            $this->assertEquals($body[$num]->currency, $record->currency);
-            $this->assertEquals($body[$num]->deducted_fees, $record->deducted_fees);
-            $this->assertEquals($body[$num]->fx, $record->fx);
-            $this->assertEquals($body[$num]->id, $record->id);
-            $this->assertEquals($body[$num]->links, $record->links);
-            $this->assertEquals($body[$num]->metadata, $record->metadata);
-            $this->assertEquals($body[$num]->payout_type, $record->payout_type);
-            $this->assertEquals($body[$num]->reference, $record->reference);
-            $this->assertEquals($body[$num]->status, $record->status);
-            $this->assertEquals($body[$num]->tax_currency, $record->tax_currency);
+            
+            if (isset($body[$num]->amount)) {
+                $this->assertEquals($body[$num]->amount, $record->amount);
+            }
+            
+            if (isset($body[$num]->arrival_date)) {
+                $this->assertEquals($body[$num]->arrival_date, $record->arrival_date);
+            }
+            
+            if (isset($body[$num]->created_at)) {
+                $this->assertEquals($body[$num]->created_at, $record->created_at);
+            }
+            
+            if (isset($body[$num]->currency)) {
+                $this->assertEquals($body[$num]->currency, $record->currency);
+            }
+            
+            if (isset($body[$num]->deducted_fees)) {
+                $this->assertEquals($body[$num]->deducted_fees, $record->deducted_fees);
+            }
+            
+            if (isset($body[$num]->fx)) {
+                $this->assertEquals($body[$num]->fx, $record->fx);
+            }
+            
+            if (isset($body[$num]->id)) {
+                $this->assertEquals($body[$num]->id, $record->id);
+            }
+            
+            if (isset($body[$num]->links)) {
+                $this->assertEquals($body[$num]->links, $record->links);
+            }
+            
+            if (isset($body[$num]->metadata)) {
+                $this->assertEquals($body[$num]->metadata, $record->metadata);
+            }
+            
+            if (isset($body[$num]->payout_type)) {
+                $this->assertEquals($body[$num]->payout_type, $record->payout_type);
+            }
+            
+            if (isset($body[$num]->reference)) {
+                $this->assertEquals($body[$num]->reference, $record->reference);
+            }
+            
+            if (isset($body[$num]->status)) {
+                $this->assertEquals($body[$num]->status, $record->status);
+            }
+            
+            if (isset($body[$num]->tax_currency)) {
+                $this->assertEquals($body[$num]->tax_currency, $record->tax_currency);
+            }
             
         }
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     
@@ -86,7 +126,7 @@ class PayoutsIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     
@@ -119,7 +159,7 @@ class PayoutsIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     

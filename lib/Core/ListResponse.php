@@ -31,7 +31,7 @@ class ListResponse
     public function __construct($unenveloped_body, $model_class, $api_response)
     {
         $this->api_response = $api_response;
-        if(!is_null($this->api_response->body->meta)) {
+        if (!is_null($this->api_response->body) && property_exists($this->api_response->body, 'meta') && !is_null($this->api_response->body->meta)) {
             if(property_exists($this->api_response->body->meta->cursors, 'before')) {
                 $this->before = $this->api_response->body->meta->cursors->before;      
             }

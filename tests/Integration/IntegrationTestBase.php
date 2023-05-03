@@ -14,8 +14,9 @@ abstract class IntegrationTestBase extends TestCase
 {
     use TestFixtures;
 
-    public function setUp()
+    public function setUp(): void
     {
+        parent::setUp();
         $this->mock = new \GuzzleHttp\Handler\MockHandler([]);
         $this->history = array();
         $historyMiddleware = \GuzzleHttp\Middleware::history($this->history);
@@ -37,8 +38,9 @@ abstract class IntegrationTestBase extends TestCase
         );
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
+        parent::tearDown();
     }
 
     public function stub_request($resource_fixture)

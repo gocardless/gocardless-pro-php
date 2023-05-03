@@ -32,7 +32,7 @@ class Webhook
     {
         if (self::isSignatureValid($request_body, $signature_header, $webhook_endpoint_secret)) {
             $events = json_decode($request_body)->events;
-            return array_map('self::buildEvent', $events);
+            return array_map([Webhook::class, 'buildEvent'], $events);
         } else {
             throw new Core\Exception\InvalidSignatureException(self::INVALID_SIGNATURE_MESSAGE);
         }

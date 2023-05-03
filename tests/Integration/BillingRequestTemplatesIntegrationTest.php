@@ -27,37 +27,89 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
         $records = $response->records;
         $this->assertInstanceOf('\GoCardlessPro\Core\ListResponse', $response);
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequestTemplate', $records[0]);
-
-        $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
-        $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+        if (!is_null($fixture->body) && property_exists($fixture->body, 'meta') && !is_null($fixture->body->meta)) {
+            $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
+            $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+        }
     
 
     
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
-            $this->assertEquals($body[$num]->authorisation_url, $record->authorisation_url);
-            $this->assertEquals($body[$num]->created_at, $record->created_at);
-            $this->assertEquals($body[$num]->id, $record->id);
-            $this->assertEquals($body[$num]->mandate_request_currency, $record->mandate_request_currency);
-            $this->assertEquals($body[$num]->mandate_request_description, $record->mandate_request_description);
-            $this->assertEquals($body[$num]->mandate_request_metadata, $record->mandate_request_metadata);
-            $this->assertEquals($body[$num]->mandate_request_scheme, $record->mandate_request_scheme);
-            $this->assertEquals($body[$num]->mandate_request_verify, $record->mandate_request_verify);
-            $this->assertEquals($body[$num]->metadata, $record->metadata);
-            $this->assertEquals($body[$num]->name, $record->name);
-            $this->assertEquals($body[$num]->payment_request_amount, $record->payment_request_amount);
-            $this->assertEquals($body[$num]->payment_request_currency, $record->payment_request_currency);
-            $this->assertEquals($body[$num]->payment_request_description, $record->payment_request_description);
-            $this->assertEquals($body[$num]->payment_request_metadata, $record->payment_request_metadata);
-            $this->assertEquals($body[$num]->payment_request_scheme, $record->payment_request_scheme);
-            $this->assertEquals($body[$num]->redirect_uri, $record->redirect_uri);
-            $this->assertEquals($body[$num]->updated_at, $record->updated_at);
+            
+            if (isset($body[$num]->authorisation_url)) {
+                $this->assertEquals($body[$num]->authorisation_url, $record->authorisation_url);
+            }
+            
+            if (isset($body[$num]->created_at)) {
+                $this->assertEquals($body[$num]->created_at, $record->created_at);
+            }
+            
+            if (isset($body[$num]->id)) {
+                $this->assertEquals($body[$num]->id, $record->id);
+            }
+            
+            if (isset($body[$num]->mandate_request_currency)) {
+                $this->assertEquals($body[$num]->mandate_request_currency, $record->mandate_request_currency);
+            }
+            
+            if (isset($body[$num]->mandate_request_description)) {
+                $this->assertEquals($body[$num]->mandate_request_description, $record->mandate_request_description);
+            }
+            
+            if (isset($body[$num]->mandate_request_metadata)) {
+                $this->assertEquals($body[$num]->mandate_request_metadata, $record->mandate_request_metadata);
+            }
+            
+            if (isset($body[$num]->mandate_request_scheme)) {
+                $this->assertEquals($body[$num]->mandate_request_scheme, $record->mandate_request_scheme);
+            }
+            
+            if (isset($body[$num]->mandate_request_verify)) {
+                $this->assertEquals($body[$num]->mandate_request_verify, $record->mandate_request_verify);
+            }
+            
+            if (isset($body[$num]->metadata)) {
+                $this->assertEquals($body[$num]->metadata, $record->metadata);
+            }
+            
+            if (isset($body[$num]->name)) {
+                $this->assertEquals($body[$num]->name, $record->name);
+            }
+            
+            if (isset($body[$num]->payment_request_amount)) {
+                $this->assertEquals($body[$num]->payment_request_amount, $record->payment_request_amount);
+            }
+            
+            if (isset($body[$num]->payment_request_currency)) {
+                $this->assertEquals($body[$num]->payment_request_currency, $record->payment_request_currency);
+            }
+            
+            if (isset($body[$num]->payment_request_description)) {
+                $this->assertEquals($body[$num]->payment_request_description, $record->payment_request_description);
+            }
+            
+            if (isset($body[$num]->payment_request_metadata)) {
+                $this->assertEquals($body[$num]->payment_request_metadata, $record->payment_request_metadata);
+            }
+            
+            if (isset($body[$num]->payment_request_scheme)) {
+                $this->assertEquals($body[$num]->payment_request_scheme, $record->payment_request_scheme);
+            }
+            
+            if (isset($body[$num]->redirect_uri)) {
+                $this->assertEquals($body[$num]->redirect_uri, $record->redirect_uri);
+            }
+            
+            if (isset($body[$num]->updated_at)) {
+                $this->assertEquals($body[$num]->updated_at, $record->updated_at);
+            }
             
         }
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     
@@ -94,7 +146,7 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     
@@ -131,7 +183,7 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     public function testBillingRequestTemplatesCreateWithIdempotencyConflict()
@@ -175,7 +227,7 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $conflictRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $conflictRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $conflictRequest->getUri()->getPath());
         $getRequest = $this->history[1]['request'];
         $this->assertEquals($getRequest->getUri()->getPath(), '/billing_request_templates/ID123');
     }
@@ -213,7 +265,7 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     

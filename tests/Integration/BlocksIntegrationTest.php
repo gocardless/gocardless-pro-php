@@ -38,7 +38,7 @@ class BlocksIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     public function testBlocksCreateWithIdempotencyConflict()
@@ -73,7 +73,7 @@ class BlocksIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $conflictRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $conflictRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $conflictRequest->getUri()->getPath());
         $getRequest = $this->history[1]['request'];
         $this->assertEquals($getRequest->getUri()->getPath(), '/blocks/ID123');
     }
@@ -102,7 +102,7 @@ class BlocksIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     
@@ -119,28 +119,53 @@ class BlocksIntegrationTest extends IntegrationTestBase
         $records = $response->records;
         $this->assertInstanceOf('\GoCardlessPro\Core\ListResponse', $response);
         $this->assertInstanceOf('\GoCardlessPro\Resources\Block', $records[0]);
-
-        $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
-        $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+        if (!is_null($fixture->body) && property_exists($fixture->body, 'meta') && !is_null($fixture->body->meta)) {
+            $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
+            $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+        }
     
 
     
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
-            $this->assertEquals($body[$num]->active, $record->active);
-            $this->assertEquals($body[$num]->block_type, $record->block_type);
-            $this->assertEquals($body[$num]->created_at, $record->created_at);
-            $this->assertEquals($body[$num]->id, $record->id);
-            $this->assertEquals($body[$num]->reason_description, $record->reason_description);
-            $this->assertEquals($body[$num]->reason_type, $record->reason_type);
-            $this->assertEquals($body[$num]->resource_reference, $record->resource_reference);
-            $this->assertEquals($body[$num]->updated_at, $record->updated_at);
+            
+            if (isset($body[$num]->active)) {
+                $this->assertEquals($body[$num]->active, $record->active);
+            }
+            
+            if (isset($body[$num]->block_type)) {
+                $this->assertEquals($body[$num]->block_type, $record->block_type);
+            }
+            
+            if (isset($body[$num]->created_at)) {
+                $this->assertEquals($body[$num]->created_at, $record->created_at);
+            }
+            
+            if (isset($body[$num]->id)) {
+                $this->assertEquals($body[$num]->id, $record->id);
+            }
+            
+            if (isset($body[$num]->reason_description)) {
+                $this->assertEquals($body[$num]->reason_description, $record->reason_description);
+            }
+            
+            if (isset($body[$num]->reason_type)) {
+                $this->assertEquals($body[$num]->reason_type, $record->reason_type);
+            }
+            
+            if (isset($body[$num]->resource_reference)) {
+                $this->assertEquals($body[$num]->resource_reference, $record->resource_reference);
+            }
+            
+            if (isset($body[$num]->updated_at)) {
+                $this->assertEquals($body[$num]->updated_at, $record->updated_at);
+            }
             
         }
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     
@@ -168,7 +193,7 @@ class BlocksIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     
@@ -196,7 +221,7 @@ class BlocksIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     
@@ -213,28 +238,53 @@ class BlocksIntegrationTest extends IntegrationTestBase
         $records = $response->records;
         $this->assertInstanceOf('\GoCardlessPro\Core\ListResponse', $response);
         $this->assertInstanceOf('\GoCardlessPro\Resources\Block', $records[0]);
-
-        $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
-        $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+        if (!is_null($fixture->body) && property_exists($fixture->body, 'meta') && !is_null($fixture->body->meta)) {
+            $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
+            $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+        }
     
 
     
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
-            $this->assertEquals($body[$num]->active, $record->active);
-            $this->assertEquals($body[$num]->block_type, $record->block_type);
-            $this->assertEquals($body[$num]->created_at, $record->created_at);
-            $this->assertEquals($body[$num]->id, $record->id);
-            $this->assertEquals($body[$num]->reason_description, $record->reason_description);
-            $this->assertEquals($body[$num]->reason_type, $record->reason_type);
-            $this->assertEquals($body[$num]->resource_reference, $record->resource_reference);
-            $this->assertEquals($body[$num]->updated_at, $record->updated_at);
+            
+            if (isset($body[$num]->active)) {
+                $this->assertEquals($body[$num]->active, $record->active);
+            }
+            
+            if (isset($body[$num]->block_type)) {
+                $this->assertEquals($body[$num]->block_type, $record->block_type);
+            }
+            
+            if (isset($body[$num]->created_at)) {
+                $this->assertEquals($body[$num]->created_at, $record->created_at);
+            }
+            
+            if (isset($body[$num]->id)) {
+                $this->assertEquals($body[$num]->id, $record->id);
+            }
+            
+            if (isset($body[$num]->reason_description)) {
+                $this->assertEquals($body[$num]->reason_description, $record->reason_description);
+            }
+            
+            if (isset($body[$num]->reason_type)) {
+                $this->assertEquals($body[$num]->reason_type, $record->reason_type);
+            }
+            
+            if (isset($body[$num]->resource_reference)) {
+                $this->assertEquals($body[$num]->resource_reference, $record->resource_reference);
+            }
+            
+            if (isset($body[$num]->updated_at)) {
+                $this->assertEquals($body[$num]->updated_at, $record->updated_at);
+            }
             
         }
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     

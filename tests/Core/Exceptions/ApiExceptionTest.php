@@ -12,8 +12,9 @@ class ApiExceptionTest extends TestCase
 
     protected $error;
 
-    protected function setUp()
+    protected function setUp(): void
     {
+        parent::setUp();
         $fixture = $this->loadJsonFixture('invalid_state_error');
         $raw_response = new \GuzzleHttp\Psr7\Response($fixture->error->code, [], json_encode($fixture));
         $this->response = new ApiResponse($raw_response);
