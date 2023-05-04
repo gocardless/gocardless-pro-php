@@ -1,50 +1,22 @@
-name: gocardless/gocardless-pro-php/build
-on:
-  push:
-    branches:
-    - master
+name: build
+on: push
+
 jobs:
-  test_library_7_2:
+  test_library:
+    strategy:
+      fail-fast: false
+      matrix:
+        version: [8.0, 8.1, 8.2]
     runs-on: ubuntu-latest
-    container:
-      image: circleci/php:7.2-apache-node-browsers
-      options: --user 1001 
+    env:
+      OUT_DIR: built-library
     steps:
-    - uses: actions/checkout@v2
-    - name: Test Library
-      run: |-
-        composer install --prefer-source --no-interaction
-        ./vendor/phpunit/phpunit/phpunit
-  test_library_7_3:
-    runs-on: ubuntu-latest
-    container:
-      image: circleci/php:7.3-apache-node-browsers
-      options: --user 1001 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Test Library
-      run: |-
-        composer install --prefer-source --no-interaction
-        ./vendor/phpunit/phpunit/phpunit
-  test_library_7_4:
-    runs-on: ubuntu-latest
-    container:
-      image: circleci/php:7.4-apache-node-browsers
-      options: --user 1001 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Test Library
-      run: |-
-        composer install --prefer-source --no-interaction
-        ./vendor/phpunit/phpunit/phpunit
-  test_library_8_0:
-    runs-on: ubuntu-latest
-    container:
-      image: circleci/php:8.0-apache-node-browsers
-      options: --user 1001 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Test Library
-      run: |-
-        composer install --prefer-source --no-interaction
-        ./vendor/phpunit/phpunit/phpunit
+      - uses: actions/checkout@v3
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.version }}
+      - run: composer install --no-interaction
+        working-directory: ${{ env.OUT_DIR }}
+      - name: Test Library
+        run: ./vendor/phpunit/phpunit/phpunit
+        working-directory: ${{ env.OUT_DIR }}
