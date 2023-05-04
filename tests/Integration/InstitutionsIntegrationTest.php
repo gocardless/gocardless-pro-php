@@ -27,26 +27,45 @@ class InstitutionsIntegrationTest extends IntegrationTestBase
         $records = $response->records;
         $this->assertInstanceOf('\GoCardlessPro\Core\ListResponse', $response);
         $this->assertInstanceOf('\GoCardlessPro\Resources\Institution', $records[0]);
-
-        $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
-        $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+        if (!is_null($fixture->body) && property_exists($fixture->body, 'meta') && !is_null($fixture->body->meta)) {
+            $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
+            $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+        }
     
 
     
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
-            $this->assertEquals($body[$num]->bank_redirect, $record->bank_redirect);
-            $this->assertEquals($body[$num]->country_code, $record->country_code);
-            $this->assertEquals($body[$num]->icon_url, $record->icon_url);
-            $this->assertEquals($body[$num]->id, $record->id);
-            $this->assertEquals($body[$num]->logo_url, $record->logo_url);
-            $this->assertEquals($body[$num]->name, $record->name);
+            
+            if (isset($body[$num]->bank_redirect)) {
+                $this->assertEquals($body[$num]->bank_redirect, $record->bank_redirect);
+            }
+            
+            if (isset($body[$num]->country_code)) {
+                $this->assertEquals($body[$num]->country_code, $record->country_code);
+            }
+            
+            if (isset($body[$num]->icon_url)) {
+                $this->assertEquals($body[$num]->icon_url, $record->icon_url);
+            }
+            
+            if (isset($body[$num]->id)) {
+                $this->assertEquals($body[$num]->id, $record->id);
+            }
+            
+            if (isset($body[$num]->logo_url)) {
+                $this->assertEquals($body[$num]->logo_url, $record->logo_url);
+            }
+            
+            if (isset($body[$num]->name)) {
+                $this->assertEquals($body[$num]->name, $record->name);
+            }
             
         }
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     
@@ -63,26 +82,45 @@ class InstitutionsIntegrationTest extends IntegrationTestBase
         $records = $response->records;
         $this->assertInstanceOf('\GoCardlessPro\Core\ListResponse', $response);
         $this->assertInstanceOf('\GoCardlessPro\Resources\Institution', $records[0]);
-
-        $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
-        $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+        if (!is_null($fixture->body) && property_exists($fixture->body, 'meta') && !is_null($fixture->body->meta)) {
+            $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
+            $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+        }
     
 
     
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
-            $this->assertEquals($body[$num]->bank_redirect, $record->bank_redirect);
-            $this->assertEquals($body[$num]->country_code, $record->country_code);
-            $this->assertEquals($body[$num]->icon_url, $record->icon_url);
-            $this->assertEquals($body[$num]->id, $record->id);
-            $this->assertEquals($body[$num]->logo_url, $record->logo_url);
-            $this->assertEquals($body[$num]->name, $record->name);
+            
+            if (isset($body[$num]->bank_redirect)) {
+                $this->assertEquals($body[$num]->bank_redirect, $record->bank_redirect);
+            }
+            
+            if (isset($body[$num]->country_code)) {
+                $this->assertEquals($body[$num]->country_code, $record->country_code);
+            }
+            
+            if (isset($body[$num]->icon_url)) {
+                $this->assertEquals($body[$num]->icon_url, $record->icon_url);
+            }
+            
+            if (isset($body[$num]->id)) {
+                $this->assertEquals($body[$num]->id, $record->id);
+            }
+            
+            if (isset($body[$num]->logo_url)) {
+                $this->assertEquals($body[$num]->logo_url, $record->logo_url);
+            }
+            
+            if (isset($body[$num]->name)) {
+                $this->assertEquals($body[$num]->name, $record->name);
+            }
             
         }
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     

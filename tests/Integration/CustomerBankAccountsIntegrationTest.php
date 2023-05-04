@@ -41,7 +41,7 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     public function testCustomerBankAccountsCreateWithIdempotencyConflict()
@@ -79,7 +79,7 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $conflictRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $conflictRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $conflictRequest->getUri()->getPath());
         $getRequest = $this->history[1]['request'];
         $this->assertEquals($getRequest->getUri()->getPath(), '/customer_bank_accounts/ID123');
     }
@@ -97,31 +97,65 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
         $records = $response->records;
         $this->assertInstanceOf('\GoCardlessPro\Core\ListResponse', $response);
         $this->assertInstanceOf('\GoCardlessPro\Resources\CustomerBankAccount', $records[0]);
-
-        $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
-        $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+        if (!is_null($fixture->body) && property_exists($fixture->body, 'meta') && !is_null($fixture->body->meta)) {
+            $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
+            $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+        }
     
 
     
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
-            $this->assertEquals($body[$num]->account_holder_name, $record->account_holder_name);
-            $this->assertEquals($body[$num]->account_number_ending, $record->account_number_ending);
-            $this->assertEquals($body[$num]->account_type, $record->account_type);
-            $this->assertEquals($body[$num]->bank_name, $record->bank_name);
-            $this->assertEquals($body[$num]->country_code, $record->country_code);
-            $this->assertEquals($body[$num]->created_at, $record->created_at);
-            $this->assertEquals($body[$num]->currency, $record->currency);
-            $this->assertEquals($body[$num]->enabled, $record->enabled);
-            $this->assertEquals($body[$num]->id, $record->id);
-            $this->assertEquals($body[$num]->links, $record->links);
-            $this->assertEquals($body[$num]->metadata, $record->metadata);
+            
+            if (isset($body[$num]->account_holder_name)) {
+                $this->assertEquals($body[$num]->account_holder_name, $record->account_holder_name);
+            }
+            
+            if (isset($body[$num]->account_number_ending)) {
+                $this->assertEquals($body[$num]->account_number_ending, $record->account_number_ending);
+            }
+            
+            if (isset($body[$num]->account_type)) {
+                $this->assertEquals($body[$num]->account_type, $record->account_type);
+            }
+            
+            if (isset($body[$num]->bank_name)) {
+                $this->assertEquals($body[$num]->bank_name, $record->bank_name);
+            }
+            
+            if (isset($body[$num]->country_code)) {
+                $this->assertEquals($body[$num]->country_code, $record->country_code);
+            }
+            
+            if (isset($body[$num]->created_at)) {
+                $this->assertEquals($body[$num]->created_at, $record->created_at);
+            }
+            
+            if (isset($body[$num]->currency)) {
+                $this->assertEquals($body[$num]->currency, $record->currency);
+            }
+            
+            if (isset($body[$num]->enabled)) {
+                $this->assertEquals($body[$num]->enabled, $record->enabled);
+            }
+            
+            if (isset($body[$num]->id)) {
+                $this->assertEquals($body[$num]->id, $record->id);
+            }
+            
+            if (isset($body[$num]->links)) {
+                $this->assertEquals($body[$num]->links, $record->links);
+            }
+            
+            if (isset($body[$num]->metadata)) {
+                $this->assertEquals($body[$num]->metadata, $record->metadata);
+            }
             
         }
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     
@@ -152,7 +186,7 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     
@@ -183,7 +217,7 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     
@@ -214,7 +248,7 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     

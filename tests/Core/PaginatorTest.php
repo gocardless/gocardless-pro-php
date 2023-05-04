@@ -23,8 +23,9 @@ class PaginatorTest extends TestCase
         return new ListResponse($decoded_body->data, $model_class, $api_response);
     }
 
-    public function setUp()
+    public function setUp(): void
     {
+        parent::setUp();
         $body_1 = '{"data": [{"id": "1", "name": "foo"},{"id":"2", "name":"bar"}], "meta": {"cursors": {"before": null, "after": "3"}}, "limit": 2}';
         $body_2 = '{"data": [{"id": "3", "name": "baz"}], "meta": {"cursors": {"before": "2", "after": null}}, "limit": 2}';
 

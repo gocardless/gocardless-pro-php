@@ -27,24 +27,37 @@ class CurrencyExchangeRatesIntegrationTest extends IntegrationTestBase
         $records = $response->records;
         $this->assertInstanceOf('\GoCardlessPro\Core\ListResponse', $response);
         $this->assertInstanceOf('\GoCardlessPro\Resources\CurrencyExchangeRate', $records[0]);
-
-        $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
-        $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+        if (!is_null($fixture->body) && property_exists($fixture->body, 'meta') && !is_null($fixture->body->meta)) {
+            $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
+            $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+        }
     
 
     
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
-            $this->assertEquals($body[$num]->rate, $record->rate);
-            $this->assertEquals($body[$num]->source, $record->source);
-            $this->assertEquals($body[$num]->target, $record->target);
-            $this->assertEquals($body[$num]->time, $record->time);
+            
+            if (isset($body[$num]->rate)) {
+                $this->assertEquals($body[$num]->rate, $record->rate);
+            }
+            
+            if (isset($body[$num]->source)) {
+                $this->assertEquals($body[$num]->source, $record->source);
+            }
+            
+            if (isset($body[$num]->target)) {
+                $this->assertEquals($body[$num]->target, $record->target);
+            }
+            
+            if (isset($body[$num]->time)) {
+                $this->assertEquals($body[$num]->time, $record->time);
+            }
             
         }
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     

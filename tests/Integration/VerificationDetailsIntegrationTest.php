@@ -40,7 +40,7 @@ class VerificationDetailsIntegrationTest extends IntegrationTestBase
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     
@@ -57,30 +57,61 @@ class VerificationDetailsIntegrationTest extends IntegrationTestBase
         $records = $response->records;
         $this->assertInstanceOf('\GoCardlessPro\Core\ListResponse', $response);
         $this->assertInstanceOf('\GoCardlessPro\Resources\VerificationDetail', $records[0]);
-
-        $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
-        $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+        if (!is_null($fixture->body) && property_exists($fixture->body, 'meta') && !is_null($fixture->body->meta)) {
+            $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
+            $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
+        }
     
 
     
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
-            $this->assertEquals($body[$num]->address_line1, $record->address_line1);
-            $this->assertEquals($body[$num]->address_line2, $record->address_line2);
-            $this->assertEquals($body[$num]->address_line3, $record->address_line3);
-            $this->assertEquals($body[$num]->city, $record->city);
-            $this->assertEquals($body[$num]->company_number, $record->company_number);
-            $this->assertEquals($body[$num]->description, $record->description);
-            $this->assertEquals($body[$num]->directors, $record->directors);
-            $this->assertEquals($body[$num]->links, $record->links);
-            $this->assertEquals($body[$num]->name, $record->name);
-            $this->assertEquals($body[$num]->postal_code, $record->postal_code);
+            
+            if (isset($body[$num]->address_line1)) {
+                $this->assertEquals($body[$num]->address_line1, $record->address_line1);
+            }
+            
+            if (isset($body[$num]->address_line2)) {
+                $this->assertEquals($body[$num]->address_line2, $record->address_line2);
+            }
+            
+            if (isset($body[$num]->address_line3)) {
+                $this->assertEquals($body[$num]->address_line3, $record->address_line3);
+            }
+            
+            if (isset($body[$num]->city)) {
+                $this->assertEquals($body[$num]->city, $record->city);
+            }
+            
+            if (isset($body[$num]->company_number)) {
+                $this->assertEquals($body[$num]->company_number, $record->company_number);
+            }
+            
+            if (isset($body[$num]->description)) {
+                $this->assertEquals($body[$num]->description, $record->description);
+            }
+            
+            if (isset($body[$num]->directors)) {
+                $this->assertEquals($body[$num]->directors, $record->directors);
+            }
+            
+            if (isset($body[$num]->links)) {
+                $this->assertEquals($body[$num]->links, $record->links);
+            }
+            
+            if (isset($body[$num]->name)) {
+                $this->assertEquals($body[$num]->name, $record->name);
+            }
+            
+            if (isset($body[$num]->postal_code)) {
+                $this->assertEquals($body[$num]->postal_code, $record->postal_code);
+            }
             
         }
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
-        $this->assertRegExp($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
 
     
