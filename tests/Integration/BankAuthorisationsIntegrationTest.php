@@ -33,6 +33,7 @@ class BankAuthorisationsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->last_visited_at, $response->last_visited_at);
         $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->qr_code_url, $response->qr_code_url);
         $this->assertEquals($body->redirect_uri, $response->redirect_uri);
         $this->assertEquals($body->url, $response->url);
     
@@ -69,6 +70,7 @@ class BankAuthorisationsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->last_visited_at, $response->last_visited_at);
         $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->qr_code_url, $response->qr_code_url);
         $this->assertEquals($body->redirect_uri, $response->redirect_uri);
         $this->assertEquals($body->url, $response->url);
         
@@ -99,6 +101,7 @@ class BankAuthorisationsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->last_visited_at, $response->last_visited_at);
         $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->qr_code_url, $response->qr_code_url);
         $this->assertEquals($body->redirect_uri, $response->redirect_uri);
         $this->assertEquals($body->url, $response->url);
     

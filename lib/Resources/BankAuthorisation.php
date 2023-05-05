@@ -18,6 +18,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $id
  * @property-read $last_visited_at
  * @property-read $links
+ * @property-read $qr_code_url
  * @property-read $redirect_uri
  * @property-read $url
  */
@@ -62,6 +63,13 @@ class BankAuthorisation extends BaseResource
      * 
      */
     protected $links;
+
+    /**
+     * URL to a QR code PNG image of the bank authorisation url.
+     * This QR code can be used as an alternative to providing the `url` to the
+     * payer to allow them to authorise with their mobile devices.
+     */
+    protected $qr_code_url;
 
     /**
      * URL that the payer can be redirected to after authorising the payment.
