@@ -338,6 +338,20 @@ class Client
     }
     
     /**
+     * Service for interacting with negative balance limit
+     *
+     * @return Services\NegativeBalanceLimitsService
+     */
+    public function negativeBalanceLimits()
+    {
+        if (!isset($this->negative_balance_limits)) {
+            $this->negative_balance_limits = new Services\NegativeBalanceLimitsService($this->api_client);
+        }
+
+        return $this->negative_balance_limits;
+    }
+    
+    /**
      * Service for interacting with payer authorisations
      *
      * @return Services\PayerAuthorisationsService
