@@ -37,8 +37,8 @@ class InstitutionsIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-            if (isset($body[$num]->bank_redirect)) {
-                $this->assertEquals($body[$num]->bank_redirect, $record->bank_redirect);
+            if (isset($body[$num]->autocompletes_collect_bank_account)) {
+                $this->assertEquals($body[$num]->autocompletes_collect_bank_account, $record->autocompletes_collect_bank_account);
             }
             
             if (isset($body[$num]->country_code)) {
@@ -92,8 +92,8 @@ class InstitutionsIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-            if (isset($body[$num]->bank_redirect)) {
-                $this->assertEquals($body[$num]->bank_redirect, $record->bank_redirect);
+            if (isset($body[$num]->autocompletes_collect_bank_account)) {
+                $this->assertEquals($body[$num]->autocompletes_collect_bank_account, $record->autocompletes_collect_bank_account);
             }
             
             if (isset($body[$num]->country_code)) {
