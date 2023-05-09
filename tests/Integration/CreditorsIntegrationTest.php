@@ -29,6 +29,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->address_line1, $response->address_line1);
         $this->assertEquals($body->address_line2, $response->address_line2);
         $this->assertEquals($body->address_line3, $response->address_line3);
+        $this->assertEquals($body->bank_reference_prefix, $response->bank_reference_prefix);
         $this->assertEquals($body->can_create_refunds, $response->can_create_refunds);
         $this->assertEquals($body->city, $response->city);
         $this->assertEquals($body->country_code, $response->country_code);
@@ -76,6 +77,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->address_line1, $response->address_line1);
         $this->assertEquals($body->address_line2, $response->address_line2);
         $this->assertEquals($body->address_line3, $response->address_line3);
+        $this->assertEquals($body->bank_reference_prefix, $response->bank_reference_prefix);
         $this->assertEquals($body->can_create_refunds, $response->can_create_refunds);
         $this->assertEquals($body->city, $response->city);
         $this->assertEquals($body->country_code, $response->country_code);
@@ -135,6 +137,10 @@ class CreditorsIntegrationTest extends IntegrationTestBase
             
             if (isset($body[$num]->address_line3)) {
                 $this->assertEquals($body[$num]->address_line3, $record->address_line3);
+            }
+            
+            if (isset($body[$num]->bank_reference_prefix)) {
+                $this->assertEquals($body[$num]->bank_reference_prefix, $record->bank_reference_prefix);
             }
             
             if (isset($body[$num]->can_create_refunds)) {
@@ -228,6 +234,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->address_line1, $response->address_line1);
         $this->assertEquals($body->address_line2, $response->address_line2);
         $this->assertEquals($body->address_line3, $response->address_line3);
+        $this->assertEquals($body->bank_reference_prefix, $response->bank_reference_prefix);
         $this->assertEquals($body->can_create_refunds, $response->can_create_refunds);
         $this->assertEquals($body->city, $response->city);
         $this->assertEquals($body->country_code, $response->country_code);
@@ -268,6 +275,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->address_line1, $response->address_line1);
         $this->assertEquals($body->address_line2, $response->address_line2);
         $this->assertEquals($body->address_line3, $response->address_line3);
+        $this->assertEquals($body->bank_reference_prefix, $response->bank_reference_prefix);
         $this->assertEquals($body->can_create_refunds, $response->can_create_refunds);
         $this->assertEquals($body->city, $response->city);
         $this->assertEquals($body->country_code, $response->country_code);
@@ -308,6 +316,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->address_line1, $response->address_line1);
         $this->assertEquals($body->address_line2, $response->address_line2);
         $this->assertEquals($body->address_line3, $response->address_line3);
+        $this->assertEquals($body->bank_reference_prefix, $response->bank_reference_prefix);
         $this->assertEquals($body->can_create_refunds, $response->can_create_refunds);
         $this->assertEquals($body->city, $response->city);
         $this->assertEquals($body->country_code, $response->country_code);

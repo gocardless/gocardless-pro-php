@@ -14,6 +14,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $address_line1
  * @property-read $address_line2
  * @property-read $address_line3
+ * @property-read $bank_reference_prefix
  * @property-read $can_create_refunds
  * @property-read $city
  * @property-read $country_code
@@ -52,7 +53,18 @@ class Creditor extends BaseResource
     protected $address_line3;
 
     /**
-     * Boolean indicating whether the creditor is permitted to create refunds
+     * Prefix for the bank reference of payouts sent to this creditor. For
+     * instance, if
+     * the creditor's `bank_reference_prefix` was `ACME`, the bank reference of
+     * a payout
+     * sent to that creditor could be `ACME-8G7Q8`.
+     * 
+     * This prefix is also used for refunds in EUR and GBP.
+     */
+    protected $bank_reference_prefix;
+
+    /**
+     * Boolean indicating whether the creditor is permitted to create refunds.
      */
     protected $can_create_refunds;
 
