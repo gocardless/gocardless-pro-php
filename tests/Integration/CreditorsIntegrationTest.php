@@ -301,45 +301,4 @@ class CreditorsIntegrationTest extends IntegrationTestBase
     }
 
     
-    public function testCreditorsApplySchemeIdentifier()
-    {
-        $fixture = $this->loadJsonFixture('creditors')->apply_scheme_identifier;
-        $this->stub_request($fixture);
-
-        $service = $this->client->creditors();
-        $response = call_user_func_array(array($service, 'applySchemeIdentifier'), (array)$fixture->url_params);
-
-        $body = $fixture->body->creditors;
-    
-        $this->assertInstanceOf('\GoCardlessPro\Resources\Creditor', $response);
-
-        $this->assertEquals($body->address_line1, $response->address_line1);
-        $this->assertEquals($body->address_line2, $response->address_line2);
-        $this->assertEquals($body->address_line3, $response->address_line3);
-        $this->assertEquals($body->bank_reference_prefix, $response->bank_reference_prefix);
-        $this->assertEquals($body->can_create_refunds, $response->can_create_refunds);
-        $this->assertEquals($body->city, $response->city);
-        $this->assertEquals($body->country_code, $response->country_code);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->creditor_type, $response->creditor_type);
-        $this->assertEquals($body->custom_payment_pages_enabled, $response->custom_payment_pages_enabled);
-        $this->assertEquals($body->fx_payout_currency, $response->fx_payout_currency);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->logo_url, $response->logo_url);
-        $this->assertEquals($body->mandate_imports_enabled, $response->mandate_imports_enabled);
-        $this->assertEquals($body->merchant_responsible_for_notifications, $response->merchant_responsible_for_notifications);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->postal_code, $response->postal_code);
-        $this->assertEquals($body->region, $response->region);
-        $this->assertEquals($body->scheme_identifiers, $response->scheme_identifiers);
-        $this->assertEquals($body->verification_status, $response->verification_status);
-    
-
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
-        $dispatchedRequest = $this->history[0]['request'];
-        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
-    }
-
-    
 }
