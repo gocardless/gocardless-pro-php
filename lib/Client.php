@@ -57,7 +57,7 @@ class Client
                 'Content-Type' => 'application/json',
                 'Authorization' => "Bearer " . $access_token,
                 'GoCardless-Client-Library' => 'gocardless-pro-php',
-                'GoCardless-Client-Version' => '5.0.0-beta',
+                'GoCardless-Client-Version' => '5.1.0-beta',
                 'User-Agent' => $this->getUserAgent()
                 ),
                 'http_errors' => false,
@@ -338,6 +338,20 @@ class Client
     }
     
     /**
+     * Service for interacting with negative balance limit
+     *
+     * @return Services\NegativeBalanceLimitsService
+     */
+    public function negativeBalanceLimits()
+    {
+        if (!isset($this->negative_balance_limits)) {
+            $this->negative_balance_limits = new Services\NegativeBalanceLimitsService($this->api_client);
+        }
+
+        return $this->negative_balance_limits;
+    }
+    
+    /**
      * Service for interacting with payer authorisations
      *
      * @return Services\PayerAuthorisationsService
@@ -554,7 +568,7 @@ class Client
     {
         $curlinfo = curl_version();
         $uagent = array();
-        $uagent[] = 'gocardless-pro-php/5.0.0-beta';
+        $uagent[] = 'gocardless-pro-php/5.1.0-beta';
         $uagent[] = 'schema-version/2015-07-06';
         if (defined('\GuzzleHttp\Client::MAJOR_VERSION')) {
             $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::MAJOR_VERSION;
