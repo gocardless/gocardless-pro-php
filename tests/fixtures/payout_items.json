@@ -3,7 +3,7 @@
     "method": "GET",
     "path_template": "/payout_items",
     "url_params": {},
-    "body": {"meta":{"cursors":{"after":"example after 5275","before":"example before 4377"},"limit":10},"payout_items":[{"amount":"45.0","links":{"mandate":"MD123","payment":"PM123","refund":"RF123"},"taxes":[{"amount":"1.1","currency":"EUR","destination_amount":"1.1","destination_currency":"EUR","exchange_rate":"1.11205","tax_rate_id":"GB_VAT_1"}],"type":"payment_paid_out"},{"amount":"45.0","links":{"mandate":"MD123","payment":"PM123","refund":"RF123"},"taxes":[{"amount":"1.1","currency":"EUR","destination_amount":"1.1","destination_currency":"EUR","exchange_rate":"1.11205","tax_rate_id":"GB_VAT_1"}],"type":"payment_paid_out"}]}
+    "body": {"meta":{"cursors":{"after":"example after 9326","before":"example before 10"},"limit":50},"payout_items":[{"amount":"45.0","links":{"mandate":"MD123","payment":"PM123","refund":"RF123"},"taxes":[{"amount":"1.1","currency":"EUR","destination_amount":"1.1","destination_currency":"EUR","exchange_rate":"1.11205","tax_rate_id":"GB_VAT_1"}],"type":"payment_paid_out"},{"amount":"45.0","links":{"mandate":"MD123","payment":"PM123","refund":"RF123"},"taxes":[{"amount":"1.1","currency":"EUR","destination_amount":"1.1","destination_currency":"EUR","exchange_rate":"1.11205","tax_rate_id":"GB_VAT_1"}],"type":"payment_paid_out"}]}
   }
 }
 
