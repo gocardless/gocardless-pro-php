@@ -11,7 +11,6 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a negative_balance_limit, providing access to its
  * attributes
  *
- * @property-read $active
  * @property-read $balance_limit
  * @property-read $created_at
  * @property-read $currency
@@ -22,11 +21,6 @@ namespace GoCardlessPro\Resources;
 class NegativeBalanceLimit extends BaseResource
 {
     protected $model_name = "NegativeBalanceLimit";
-
-    /**
-     * Whether or not this limit is currently active
-     */
-    protected $active;
 
     /**
      * The limit amount in pence (e.g. 10000 for a -100 GBP limit).
