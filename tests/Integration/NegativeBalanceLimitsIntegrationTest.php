@@ -61,10 +61,6 @@ class NegativeBalanceLimitsIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->links, $record->links);
             }
             
-            if (isset($body[$num]->reason)) {
-                $this->assertEquals($body[$num]->reason, $record->reason);
-            }
-            
             if (isset($body[$num]->updated_at)) {
                 $this->assertEquals($body[$num]->updated_at, $record->updated_at);
             }
@@ -95,7 +91,6 @@ class NegativeBalanceLimitsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->currency, $response->currency);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->reason, $response->reason);
         $this->assertEquals($body->updated_at, $response->updated_at);
     
 

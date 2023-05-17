@@ -17,7 +17,6 @@ namespace GoCardlessPro\Resources;
  * @property-read $currency
  * @property-read $id
  * @property-read $links
- * @property-read $reason
  * @property-read $updated_at
  */
 class NegativeBalanceLimit extends BaseResource
@@ -56,11 +55,6 @@ class NegativeBalanceLimit extends BaseResource
      * 
      */
     protected $links;
-
-    /**
-     * the reason this limit was created
-     */
-    protected $reason;
 
     /**
      * Fixed [timestamp](#api-usage-time-zones--dates), recording when this
