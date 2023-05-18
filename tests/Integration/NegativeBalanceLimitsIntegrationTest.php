@@ -57,10 +57,6 @@ class NegativeBalanceLimitsIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->links, $record->links);
             }
             
-            if (isset($body[$num]->updated_at)) {
-                $this->assertEquals($body[$num]->updated_at, $record->updated_at);
-            }
-            
         }
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -86,7 +82,6 @@ class NegativeBalanceLimitsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->currency, $response->currency);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->updated_at, $response->updated_at);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
