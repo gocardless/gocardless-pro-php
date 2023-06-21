@@ -61,9 +61,11 @@ class Event extends BaseResource
     protected $links;
 
     /**
-     * If the `details[origin]` is `api`, this will contain any metadata you
-     * specified when triggering this event. In other cases it will be an empty
-     * object.
+     * The metadata that was passed when making the API request that triggered
+     * the event
+     * (for instance, cancelling a mandate). Note that this field will be an
+     * empty object,
+     * unless the event's `details[origin]` is `api`.
      */
     protected $metadata;
 
