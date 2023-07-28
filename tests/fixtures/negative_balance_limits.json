@@ -3,7 +3,7 @@
     "method": "GET",
     "path_template": "/negative_balance_limits",
     "url_params": {},
-    "body": {"meta":{"cursors":{"after":"example after 1262","before":"example before 4377"},"limit":50},"negative_balance_limits":[{"balance_limit":10000,"created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","id":"NBL123","links":{"creator_user":"US123","creditor":"CR123"}},{"balance_limit":10000,"created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","id":"NBL123","links":{"creator_user":"US123","creditor":"CR123"}}]}
+    "body": {"meta":{"cursors":{"after":"example after 1406","before":"example before 2205"},"limit":50},"negative_balance_limits":[{"balance_limit":10000,"created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","id":"NBL123","links":{"creator_user":"US123","creditor":"CR123"}},{"balance_limit":10000,"created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","id":"NBL123","links":{"creator_user":"US123","creditor":"CR123"}}]}
   },
   "create": {
     "method": "POST",

@@ -14,6 +14,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $authorisation_source
  * @property-read $consent_parameters
  * @property-read $created_at
+ * @property-read $funds_settlement
  * @property-read $id
  * @property-read $links
  * @property-read $metadata
@@ -52,6 +53,18 @@ class Mandate extends BaseResource
      * resource was created.
      */
     protected $created_at;
+
+    /**
+     * This field will decide how GoCardless handles settlement of funds from
+     * the customer.
+     * 
+     * - `managed` will be moved through GoCardless' account, batched, and payed
+     * out.
+     * - `direct` will be a direct transfer from the payer's account to the
+     * merchant where
+     *   invoicing will be handled separately.
+     */
+    protected $funds_settlement;
 
     /**
      * Unique identifier, beginning with "MD". Note that this prefix may not
