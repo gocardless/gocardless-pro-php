@@ -29,6 +29,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->authorisation_source, $response->authorisation_source);
         $this->assertEquals($body->consent_parameters, $response->consent_parameters);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->funds_settlement, $response->funds_settlement);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -68,6 +69,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->authorisation_source, $response->authorisation_source);
         $this->assertEquals($body->consent_parameters, $response->consent_parameters);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->funds_settlement, $response->funds_settlement);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -119,6 +121,10 @@ class MandatesIntegrationTest extends IntegrationTestBase
             
             if (isset($body[$num]->created_at)) {
                 $this->assertEquals($body[$num]->created_at, $record->created_at);
+            }
+            
+            if (isset($body[$num]->funds_settlement)) {
+                $this->assertEquals($body[$num]->funds_settlement, $record->funds_settlement);
             }
             
             if (isset($body[$num]->id)) {
@@ -180,6 +186,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->authorisation_source, $response->authorisation_source);
         $this->assertEquals($body->consent_parameters, $response->consent_parameters);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->funds_settlement, $response->funds_settlement);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -212,6 +219,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->authorisation_source, $response->authorisation_source);
         $this->assertEquals($body->consent_parameters, $response->consent_parameters);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->funds_settlement, $response->funds_settlement);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -244,6 +252,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->authorisation_source, $response->authorisation_source);
         $this->assertEquals($body->consent_parameters, $response->consent_parameters);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->funds_settlement, $response->funds_settlement);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -276,6 +285,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->authorisation_source, $response->authorisation_source);
         $this->assertEquals($body->consent_parameters, $response->consent_parameters);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->funds_settlement, $response->funds_settlement);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);

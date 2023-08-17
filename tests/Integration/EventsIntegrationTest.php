@@ -65,6 +65,10 @@ class EventsIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->metadata, $record->metadata);
             }
             
+            if (isset($body[$num]->resource_metadata)) {
+                $this->assertEquals($body[$num]->resource_metadata, $record->resource_metadata);
+            }
+            
             if (isset($body[$num]->resource_type)) {
                 $this->assertEquals($body[$num]->resource_type, $record->resource_type);
             }
@@ -96,6 +100,7 @@ class EventsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
+        $this->assertEquals($body->resource_metadata, $response->resource_metadata);
         $this->assertEquals($body->resource_type, $response->resource_type);
     
 

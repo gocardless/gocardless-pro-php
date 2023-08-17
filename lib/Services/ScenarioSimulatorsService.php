@@ -142,8 +142,8 @@ class ScenarioSimulatorsService extends BaseService
  banks, can be caused be the UK's Current Account Switching
  Service (CASS) or when a customer contacts GoCardless to
  change their bank details. It must start in the
- `pending_submission` state. Only compatible with Bacs, SEPA
- and Autogiro mandates.</li>
+ `pending_submission` state. Only compatible with Bacs
+ mandates.</li>
  <li>`mandate_suspended_by_payer`: Transitions a mandate to
  `suspended_by_payer`, as if payer has suspended the mandate
  after it has been setup successfully. It must start in the

@@ -37,10 +37,6 @@ class NegativeBalanceLimitsIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-            if (isset($body[$num]->active)) {
-                $this->assertEquals($body[$num]->active, $record->active);
-            }
-            
             if (isset($body[$num]->balance_limit)) {
                 $this->assertEquals($body[$num]->balance_limit, $record->balance_limit);
             }
@@ -59,14 +55,6 @@ class NegativeBalanceLimitsIntegrationTest extends IntegrationTestBase
             
             if (isset($body[$num]->links)) {
                 $this->assertEquals($body[$num]->links, $record->links);
-            }
-            
-            if (isset($body[$num]->reason)) {
-                $this->assertEquals($body[$num]->reason, $record->reason);
-            }
-            
-            if (isset($body[$num]->updated_at)) {
-                $this->assertEquals($body[$num]->updated_at, $record->updated_at);
             }
             
         }
@@ -89,14 +77,11 @@ class NegativeBalanceLimitsIntegrationTest extends IntegrationTestBase
     
         $this->assertInstanceOf('\GoCardlessPro\Resources\NegativeBalanceLimit', $response);
 
-        $this->assertEquals($body->active, $response->active);
         $this->assertEquals($body->balance_limit, $response->balance_limit);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->currency, $response->currency);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->reason, $response->reason);
-        $this->assertEquals($body->updated_at, $response->updated_at);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
