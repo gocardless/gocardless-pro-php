@@ -28,6 +28,7 @@ class MandateImportsIntegrationTest extends IntegrationTestBase
 
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->scheme, $response->scheme);
         $this->assertEquals($body->status, $response->status);
     
@@ -59,6 +60,7 @@ class MandateImportsIntegrationTest extends IntegrationTestBase
 
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->scheme, $response->scheme);
         $this->assertEquals($body->status, $response->status);
         
@@ -84,6 +86,7 @@ class MandateImportsIntegrationTest extends IntegrationTestBase
 
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->scheme, $response->scheme);
         $this->assertEquals($body->status, $response->status);
     
@@ -108,6 +111,7 @@ class MandateImportsIntegrationTest extends IntegrationTestBase
 
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->scheme, $response->scheme);
         $this->assertEquals($body->status, $response->status);
     
@@ -132,6 +136,7 @@ class MandateImportsIntegrationTest extends IntegrationTestBase
 
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->scheme, $response->scheme);
         $this->assertEquals($body->status, $response->status);
     

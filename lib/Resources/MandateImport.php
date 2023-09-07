@@ -13,6 +13,7 @@ namespace GoCardlessPro\Resources;
  *
  * @property-read $created_at
  * @property-read $id
+ * @property-read $links
  * @property-read $scheme
  * @property-read $status
  */
@@ -30,6 +31,11 @@ class MandateImport extends BaseResource
      * Unique identifier, beginning with "IM".
      */
     protected $id;
+
+    /**
+     * Related resources
+     */
+    protected $links;
 
     /**
      * The scheme of the mandates to be imported.<br>All mandates in a single
