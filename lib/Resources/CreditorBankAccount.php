@@ -22,6 +22,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $id
  * @property-read $links
  * @property-read $metadata
+ * @property-read $verification_status
  */
 class CreditorBankAccount extends BaseResource
 {
@@ -94,5 +95,11 @@ class CreditorBankAccount extends BaseResource
      * names up to 50 characters and values up to 500 characters.
      */
     protected $metadata;
+
+    /**
+     * Verification status of the Bank Account. Can be one of `pending`,
+     * `in_review` or `successful`
+     */
+    protected $verification_status;
 
 }

@@ -37,6 +37,7 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
+        $this->assertEquals($body->verification_status, $response->verification_status);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -75,6 +76,7 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
+        $this->assertEquals($body->verification_status, $response->verification_status);
         
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -151,6 +153,10 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->metadata, $record->metadata);
             }
             
+            if (isset($body[$num]->verification_status)) {
+                $this->assertEquals($body[$num]->verification_status, $record->verification_status);
+            }
+            
         }
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -182,6 +188,7 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
+        $this->assertEquals($body->verification_status, $response->verification_status);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -213,6 +220,7 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
+        $this->assertEquals($body->verification_status, $response->verification_status);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
