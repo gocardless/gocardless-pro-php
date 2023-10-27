@@ -15,6 +15,9 @@ use GoCardlessPro\Core\Exception\ApiException;
  */
 class ApiClient
 {
+    public $http_client;
+    public $error_on_idempotency_conflict;
+    
     /**
      * @param GuzzleHttp\ClientInterface $http_client An HTTP client to make requests
      * @param array                      $config      configuration for the ApiClient
