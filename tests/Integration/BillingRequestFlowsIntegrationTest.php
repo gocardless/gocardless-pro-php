@@ -29,6 +29,7 @@ class BillingRequestFlowsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->authorisation_url, $response->authorisation_url);
         $this->assertEquals($body->auto_fulfil, $response->auto_fulfil);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->customer_details_captured, $response->customer_details_captured);
         $this->assertEquals($body->exit_uri, $response->exit_uri);
         $this->assertEquals($body->expires_at, $response->expires_at);
         $this->assertEquals($body->id, $response->id);
@@ -66,6 +67,7 @@ class BillingRequestFlowsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->authorisation_url, $response->authorisation_url);
         $this->assertEquals($body->auto_fulfil, $response->auto_fulfil);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->customer_details_captured, $response->customer_details_captured);
         $this->assertEquals($body->exit_uri, $response->exit_uri);
         $this->assertEquals($body->expires_at, $response->expires_at);
         $this->assertEquals($body->id, $response->id);

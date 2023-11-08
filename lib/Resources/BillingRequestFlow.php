@@ -14,6 +14,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $authorisation_url
  * @property-read $auto_fulfil
  * @property-read $created_at
+ * @property-read $customer_details_captured
  * @property-read $exit_uri
  * @property-read $expires_at
  * @property-read $id
@@ -50,6 +51,11 @@ class BillingRequestFlow extends BaseResource
      * Timestamp when the flow was created
      */
     protected $created_at;
+
+    /**
+     * Identifies whether a Billing Request belongs to a specific customer
+     */
+    protected $customer_details_captured;
 
     /**
      * URL that the payer can be taken to if there isn't a way to progress ahead
