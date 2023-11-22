@@ -7,12 +7,15 @@
 
 namespace GoCardlessPro\Core;
 
+use \AllowDynamicProperties;
+
 use GoCardlessPro\Core\Exception\ApiException;
 
 /**
  * HTTP Client class wrapped by the Client class and
  * used internally to route http requests.
  */
+#[AllowDynamicProperties]
 class ApiClient
 {
     /**
