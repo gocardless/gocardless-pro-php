@@ -492,6 +492,20 @@ class Client
     }
     
     /**
+     * Service for interacting with transferred mandate
+     *
+     * @return Services\TransferredMandatesService
+     */
+    public function transferredMandates()
+    {
+        if (!isset($this->transferred_mandates)) {
+            $this->transferred_mandates = new Services\TransferredMandatesService($this->api_client);
+        }
+
+        return $this->transferred_mandates;
+    }
+    
+    /**
      * Service for interacting with verification details
      *
      * @return Services\VerificationDetailsService
