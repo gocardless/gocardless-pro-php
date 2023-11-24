@@ -57,7 +57,7 @@ class Client
                 'Content-Type' => 'application/json',
                 'Authorization' => "Bearer " . $access_token,
                 'GoCardless-Client-Library' => 'gocardless-pro-php',
-                'GoCardless-Client-Version' => '5.4.0',
+                'GoCardless-Client-Version' => '5.5.0',
                 'User-Agent' => $this->getUserAgent()
                 ),
                 'http_errors' => false,
@@ -492,6 +492,20 @@ class Client
     }
     
     /**
+     * Service for interacting with transferred mandate
+     *
+     * @return Services\TransferredMandatesService
+     */
+    public function transferredMandates()
+    {
+        if (!isset($this->transferred_mandates)) {
+            $this->transferred_mandates = new Services\TransferredMandatesService($this->api_client);
+        }
+
+        return $this->transferred_mandates;
+    }
+    
+    /**
      * Service for interacting with verification details
      *
      * @return Services\VerificationDetailsService
@@ -568,7 +582,7 @@ class Client
     {
         $curlinfo = curl_version();
         $uagent = array();
-        $uagent[] = 'gocardless-pro-php/5.4.0';
+        $uagent[] = 'gocardless-pro-php/5.5.0';
         $uagent[] = 'schema-version/2015-07-06';
         if (defined('\GuzzleHttp\Client::MAJOR_VERSION')) {
             $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::MAJOR_VERSION;
