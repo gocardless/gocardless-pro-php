@@ -12,6 +12,7 @@ class Client
      * @var Core\ApiClient Internal reference to Api Client
      */
     private $api_client;
+    private $services = [];
 
     /**
      * @param array $config
@@ -57,7 +58,7 @@ class Client
                 'Content-Type' => 'application/json',
                 'Authorization' => "Bearer " . $access_token,
                 'GoCardless-Client-Library' => 'gocardless-pro-php',
-                'GoCardless-Client-Version' => '5.5.0',
+                'GoCardless-Client-Version' => '5.5.1',
                 'User-Agent' => $this->getUserAgent()
                 ),
                 'http_errors' => false,
@@ -68,6 +69,75 @@ class Client
         }
 
         $this->api_client = new \GoCardlessPro\Core\ApiClient($http_client, $config);
+
+        // Instantiate the services for each property
+        
+        $this->services['bank_authorisations'] = new Services\BankAuthorisationsService($this->api_client);
+        
+        $this->services['bank_details_lookups'] = new Services\BankDetailsLookupsService($this->api_client);
+        
+        $this->services['billing_requests'] = new Services\BillingRequestsService($this->api_client);
+        
+        $this->services['billing_request_flows'] = new Services\BillingRequestFlowsService($this->api_client);
+        
+        $this->services['billing_request_templates'] = new Services\BillingRequestTemplatesService($this->api_client);
+        
+        $this->services['blocks'] = new Services\BlocksService($this->api_client);
+        
+        $this->services['creditors'] = new Services\CreditorsService($this->api_client);
+        
+        $this->services['creditor_bank_accounts'] = new Services\CreditorBankAccountsService($this->api_client);
+        
+        $this->services['currency_exchange_rates'] = new Services\CurrencyExchangeRatesService($this->api_client);
+        
+        $this->services['customers'] = new Services\CustomersService($this->api_client);
+        
+        $this->services['customer_bank_accounts'] = new Services\CustomerBankAccountsService($this->api_client);
+        
+        $this->services['customer_notifications'] = new Services\CustomerNotificationsService($this->api_client);
+        
+        $this->services['events'] = new Services\EventsService($this->api_client);
+        
+        $this->services['instalment_schedules'] = new Services\InstalmentSchedulesService($this->api_client);
+        
+        $this->services['institutions'] = new Services\InstitutionsService($this->api_client);
+        
+        $this->services['mandates'] = new Services\MandatesService($this->api_client);
+        
+        $this->services['mandate_imports'] = new Services\MandateImportsService($this->api_client);
+        
+        $this->services['mandate_import_entries'] = new Services\MandateImportEntriesService($this->api_client);
+        
+        $this->services['mandate_pdfs'] = new Services\MandatePdfsService($this->api_client);
+        
+        $this->services['negative_balance_limits'] = new Services\NegativeBalanceLimitsService($this->api_client);
+        
+        $this->services['payer_authorisations'] = new Services\PayerAuthorisationsService($this->api_client);
+        
+        $this->services['payments'] = new Services\PaymentsService($this->api_client);
+        
+        $this->services['payouts'] = new Services\PayoutsService($this->api_client);
+        
+        $this->services['payout_items'] = new Services\PayoutItemsService($this->api_client);
+        
+        $this->services['redirect_flows'] = new Services\RedirectFlowsService($this->api_client);
+        
+        $this->services['refunds'] = new Services\RefundsService($this->api_client);
+        
+        $this->services['scenario_simulators'] = new Services\ScenarioSimulatorsService($this->api_client);
+        
+        $this->services['scheme_identifiers'] = new Services\SchemeIdentifiersService($this->api_client);
+        
+        $this->services['subscriptions'] = new Services\SubscriptionsService($this->api_client);
+        
+        $this->services['tax_rates'] = new Services\TaxRatesService($this->api_client);
+        
+        $this->services['transferred_mandates'] = new Services\TransferredMandatesService($this->api_client);
+        
+        $this->services['verification_details'] = new Services\VerificationDetailsService($this->api_client);
+        
+        $this->services['webhooks'] = new Services\WebhooksService($this->api_client);
+        
     }
 
     
@@ -78,11 +148,10 @@ class Client
      */
     public function bankAuthorisations()
     {
-        if (!isset($this->bank_authorisations)) {
-            $this->bank_authorisations = new Services\BankAuthorisationsService($this->api_client);
+        if (!isset($this->services['bank_authorisations'])) {
+            throw new \Exception('Key bank_authorisations does not exist in services array');
         }
-
-        return $this->bank_authorisations;
+        return $this->services['bank_authorisations'];
     }
     
     /**
@@ -92,11 +161,10 @@ class Client
      */
     public function bankDetailsLookups()
     {
-        if (!isset($this->bank_details_lookups)) {
-            $this->bank_details_lookups = new Services\BankDetailsLookupsService($this->api_client);
+        if (!isset($this->services['bank_details_lookups'])) {
+            throw new \Exception('Key bank_details_lookups does not exist in services array');
         }
-
-        return $this->bank_details_lookups;
+        return $this->services['bank_details_lookups'];
     }
     
     /**
@@ -106,11 +174,10 @@ class Client
      */
     public function billingRequests()
     {
-        if (!isset($this->billing_requests)) {
-            $this->billing_requests = new Services\BillingRequestsService($this->api_client);
+        if (!isset($this->services['billing_requests'])) {
+            throw new \Exception('Key billing_requests does not exist in services array');
         }
-
-        return $this->billing_requests;
+        return $this->services['billing_requests'];
     }
     
     /**
@@ -120,11 +187,10 @@ class Client
      */
     public function billingRequestFlows()
     {
-        if (!isset($this->billing_request_flows)) {
-            $this->billing_request_flows = new Services\BillingRequestFlowsService($this->api_client);
+        if (!isset($this->services['billing_request_flows'])) {
+            throw new \Exception('Key billing_request_flows does not exist in services array');
         }
-
-        return $this->billing_request_flows;
+        return $this->services['billing_request_flows'];
     }
     
     /**
@@ -134,11 +200,10 @@ class Client
      */
     public function billingRequestTemplates()
     {
-        if (!isset($this->billing_request_templates)) {
-            $this->billing_request_templates = new Services\BillingRequestTemplatesService($this->api_client);
+        if (!isset($this->services['billing_request_templates'])) {
+            throw new \Exception('Key billing_request_templates does not exist in services array');
         }
-
-        return $this->billing_request_templates;
+        return $this->services['billing_request_templates'];
     }
     
     /**
@@ -148,11 +213,10 @@ class Client
      */
     public function blocks()
     {
-        if (!isset($this->blocks)) {
-            $this->blocks = new Services\BlocksService($this->api_client);
+        if (!isset($this->services['blocks'])) {
+            throw new \Exception('Key blocks does not exist in services array');
         }
-
-        return $this->blocks;
+        return $this->services['blocks'];
     }
     
     /**
@@ -162,11 +226,10 @@ class Client
      */
     public function creditors()
     {
-        if (!isset($this->creditors)) {
-            $this->creditors = new Services\CreditorsService($this->api_client);
+        if (!isset($this->services['creditors'])) {
+            throw new \Exception('Key creditors does not exist in services array');
         }
-
-        return $this->creditors;
+        return $this->services['creditors'];
     }
     
     /**
@@ -176,11 +239,10 @@ class Client
      */
     public function creditorBankAccounts()
     {
-        if (!isset($this->creditor_bank_accounts)) {
-            $this->creditor_bank_accounts = new Services\CreditorBankAccountsService($this->api_client);
+        if (!isset($this->services['creditor_bank_accounts'])) {
+            throw new \Exception('Key creditor_bank_accounts does not exist in services array');
         }
-
-        return $this->creditor_bank_accounts;
+        return $this->services['creditor_bank_accounts'];
     }
     
     /**
@@ -190,11 +252,10 @@ class Client
      */
     public function currencyExchangeRates()
     {
-        if (!isset($this->currency_exchange_rates)) {
-            $this->currency_exchange_rates = new Services\CurrencyExchangeRatesService($this->api_client);
+        if (!isset($this->services['currency_exchange_rates'])) {
+            throw new \Exception('Key currency_exchange_rates does not exist in services array');
         }
-
-        return $this->currency_exchange_rates;
+        return $this->services['currency_exchange_rates'];
     }
     
     /**
@@ -204,11 +265,10 @@ class Client
      */
     public function customers()
     {
-        if (!isset($this->customers)) {
-            $this->customers = new Services\CustomersService($this->api_client);
+        if (!isset($this->services['customers'])) {
+            throw new \Exception('Key customers does not exist in services array');
         }
-
-        return $this->customers;
+        return $this->services['customers'];
     }
     
     /**
@@ -218,11 +278,10 @@ class Client
      */
     public function customerBankAccounts()
     {
-        if (!isset($this->customer_bank_accounts)) {
-            $this->customer_bank_accounts = new Services\CustomerBankAccountsService($this->api_client);
+        if (!isset($this->services['customer_bank_accounts'])) {
+            throw new \Exception('Key customer_bank_accounts does not exist in services array');
         }
-
-        return $this->customer_bank_accounts;
+        return $this->services['customer_bank_accounts'];
     }
     
     /**
@@ -232,11 +291,10 @@ class Client
      */
     public function customerNotifications()
     {
-        if (!isset($this->customer_notifications)) {
-            $this->customer_notifications = new Services\CustomerNotificationsService($this->api_client);
+        if (!isset($this->services['customer_notifications'])) {
+            throw new \Exception('Key customer_notifications does not exist in services array');
         }
-
-        return $this->customer_notifications;
+        return $this->services['customer_notifications'];
     }
     
     /**
@@ -246,11 +304,10 @@ class Client
      */
     public function events()
     {
-        if (!isset($this->events)) {
-            $this->events = new Services\EventsService($this->api_client);
+        if (!isset($this->services['events'])) {
+            throw new \Exception('Key events does not exist in services array');
         }
-
-        return $this->events;
+        return $this->services['events'];
     }
     
     /**
@@ -260,11 +317,10 @@ class Client
      */
     public function instalmentSchedules()
     {
-        if (!isset($this->instalment_schedules)) {
-            $this->instalment_schedules = new Services\InstalmentSchedulesService($this->api_client);
+        if (!isset($this->services['instalment_schedules'])) {
+            throw new \Exception('Key instalment_schedules does not exist in services array');
         }
-
-        return $this->instalment_schedules;
+        return $this->services['instalment_schedules'];
     }
     
     /**
@@ -274,11 +330,10 @@ class Client
      */
     public function institutions()
     {
-        if (!isset($this->institutions)) {
-            $this->institutions = new Services\InstitutionsService($this->api_client);
+        if (!isset($this->services['institutions'])) {
+            throw new \Exception('Key institutions does not exist in services array');
         }
-
-        return $this->institutions;
+        return $this->services['institutions'];
     }
     
     /**
@@ -288,11 +343,10 @@ class Client
      */
     public function mandates()
     {
-        if (!isset($this->mandates)) {
-            $this->mandates = new Services\MandatesService($this->api_client);
+        if (!isset($this->services['mandates'])) {
+            throw new \Exception('Key mandates does not exist in services array');
         }
-
-        return $this->mandates;
+        return $this->services['mandates'];
     }
     
     /**
@@ -302,11 +356,10 @@ class Client
      */
     public function mandateImports()
     {
-        if (!isset($this->mandate_imports)) {
-            $this->mandate_imports = new Services\MandateImportsService($this->api_client);
+        if (!isset($this->services['mandate_imports'])) {
+            throw new \Exception('Key mandate_imports does not exist in services array');
         }
-
-        return $this->mandate_imports;
+        return $this->services['mandate_imports'];
     }
     
     /**
@@ -316,11 +369,10 @@ class Client
      */
     public function mandateImportEntries()
     {
-        if (!isset($this->mandate_import_entries)) {
-            $this->mandate_import_entries = new Services\MandateImportEntriesService($this->api_client);
+        if (!isset($this->services['mandate_import_entries'])) {
+            throw new \Exception('Key mandate_import_entries does not exist in services array');
         }
-
-        return $this->mandate_import_entries;
+        return $this->services['mandate_import_entries'];
     }
     
     /**
@@ -330,11 +382,10 @@ class Client
      */
     public function mandatePdfs()
     {
-        if (!isset($this->mandate_pdfs)) {
-            $this->mandate_pdfs = new Services\MandatePdfsService($this->api_client);
+        if (!isset($this->services['mandate_pdfs'])) {
+            throw new \Exception('Key mandate_pdfs does not exist in services array');
         }
-
-        return $this->mandate_pdfs;
+        return $this->services['mandate_pdfs'];
     }
     
     /**
@@ -344,11 +395,10 @@ class Client
      */
     public function negativeBalanceLimits()
     {
-        if (!isset($this->negative_balance_limits)) {
-            $this->negative_balance_limits = new Services\NegativeBalanceLimitsService($this->api_client);
+        if (!isset($this->services['negative_balance_limits'])) {
+            throw new \Exception('Key negative_balance_limits does not exist in services array');
         }
-
-        return $this->negative_balance_limits;
+        return $this->services['negative_balance_limits'];
     }
     
     /**
@@ -358,11 +408,10 @@ class Client
      */
     public function payerAuthorisations()
     {
-        if (!isset($this->payer_authorisations)) {
-            $this->payer_authorisations = new Services\PayerAuthorisationsService($this->api_client);
+        if (!isset($this->services['payer_authorisations'])) {
+            throw new \Exception('Key payer_authorisations does not exist in services array');
         }
-
-        return $this->payer_authorisations;
+        return $this->services['payer_authorisations'];
     }
     
     /**
@@ -372,11 +421,10 @@ class Client
      */
     public function payments()
     {
-        if (!isset($this->payments)) {
-            $this->payments = new Services\PaymentsService($this->api_client);
+        if (!isset($this->services['payments'])) {
+            throw new \Exception('Key payments does not exist in services array');
         }
-
-        return $this->payments;
+        return $this->services['payments'];
     }
     
     /**
@@ -386,11 +434,10 @@ class Client
      */
     public function payouts()
     {
-        if (!isset($this->payouts)) {
-            $this->payouts = new Services\PayoutsService($this->api_client);
+        if (!isset($this->services['payouts'])) {
+            throw new \Exception('Key payouts does not exist in services array');
         }
-
-        return $this->payouts;
+        return $this->services['payouts'];
     }
     
     /**
@@ -400,11 +447,10 @@ class Client
      */
     public function payoutItems()
     {
-        if (!isset($this->payout_items)) {
-            $this->payout_items = new Services\PayoutItemsService($this->api_client);
+        if (!isset($this->services['payout_items'])) {
+            throw new \Exception('Key payout_items does not exist in services array');
         }
-
-        return $this->payout_items;
+        return $this->services['payout_items'];
     }
     
     /**
@@ -414,11 +460,10 @@ class Client
      */
     public function redirectFlows()
     {
-        if (!isset($this->redirect_flows)) {
-            $this->redirect_flows = new Services\RedirectFlowsService($this->api_client);
+        if (!isset($this->services['redirect_flows'])) {
+            throw new \Exception('Key redirect_flows does not exist in services array');
         }
-
-        return $this->redirect_flows;
+        return $this->services['redirect_flows'];
     }
     
     /**
@@ -428,11 +473,10 @@ class Client
      */
     public function refunds()
     {
-        if (!isset($this->refunds)) {
-            $this->refunds = new Services\RefundsService($this->api_client);
+        if (!isset($this->services['refunds'])) {
+            throw new \Exception('Key refunds does not exist in services array');
         }
-
-        return $this->refunds;
+        return $this->services['refunds'];
     }
     
     /**
@@ -442,11 +486,10 @@ class Client
      */
     public function scenarioSimulators()
     {
-        if (!isset($this->scenario_simulators)) {
-            $this->scenario_simulators = new Services\ScenarioSimulatorsService($this->api_client);
+        if (!isset($this->services['scenario_simulators'])) {
+            throw new \Exception('Key scenario_simulators does not exist in services array');
         }
-
-        return $this->scenario_simulators;
+        return $this->services['scenario_simulators'];
     }
     
     /**
@@ -456,11 +499,10 @@ class Client
      */
     public function schemeIdentifiers()
     {
-        if (!isset($this->scheme_identifiers)) {
-            $this->scheme_identifiers = new Services\SchemeIdentifiersService($this->api_client);
+        if (!isset($this->services['scheme_identifiers'])) {
+            throw new \Exception('Key scheme_identifiers does not exist in services array');
         }
-
-        return $this->scheme_identifiers;
+        return $this->services['scheme_identifiers'];
     }
     
     /**
@@ -470,11 +512,10 @@ class Client
      */
     public function subscriptions()
     {
-        if (!isset($this->subscriptions)) {
-            $this->subscriptions = new Services\SubscriptionsService($this->api_client);
+        if (!isset($this->services['subscriptions'])) {
+            throw new \Exception('Key subscriptions does not exist in services array');
         }
-
-        return $this->subscriptions;
+        return $this->services['subscriptions'];
     }
     
     /**
@@ -484,11 +525,10 @@ class Client
      */
     public function taxRates()
     {
-        if (!isset($this->tax_rates)) {
-            $this->tax_rates = new Services\TaxRatesService($this->api_client);
+        if (!isset($this->services['tax_rates'])) {
+            throw new \Exception('Key tax_rates does not exist in services array');
         }
-
-        return $this->tax_rates;
+        return $this->services['tax_rates'];
     }
     
     /**
@@ -498,11 +538,10 @@ class Client
      */
     public function transferredMandates()
     {
-        if (!isset($this->transferred_mandates)) {
-            $this->transferred_mandates = new Services\TransferredMandatesService($this->api_client);
+        if (!isset($this->services['transferred_mandates'])) {
+            throw new \Exception('Key transferred_mandates does not exist in services array');
         }
-
-        return $this->transferred_mandates;
+        return $this->services['transferred_mandates'];
     }
     
     /**
@@ -512,11 +551,10 @@ class Client
      */
     public function verificationDetails()
     {
-        if (!isset($this->verification_details)) {
-            $this->verification_details = new Services\VerificationDetailsService($this->api_client);
+        if (!isset($this->services['verification_details'])) {
+            throw new \Exception('Key verification_details does not exist in services array');
         }
-
-        return $this->verification_details;
+        return $this->services['verification_details'];
     }
     
     /**
@@ -526,11 +564,10 @@ class Client
      */
     public function webhooks()
     {
-        if (!isset($this->webhooks)) {
-            $this->webhooks = new Services\WebhooksService($this->api_client);
+        if (!isset($this->services['webhooks'])) {
+            throw new \Exception('Key webhooks does not exist in services array');
         }
-
-        return $this->webhooks;
+        return $this->services['webhooks'];
     }
     
     private function getUrlForEnvironment($environment)
@@ -582,7 +619,7 @@ class Client
     {
         $curlinfo = curl_version();
         $uagent = array();
-        $uagent[] = 'gocardless-pro-php/5.5.0';
+        $uagent[] = 'gocardless-pro-php/5.5.1';
         $uagent[] = 'schema-version/2015-07-06';
         if (defined('\GuzzleHttp\Client::MAJOR_VERSION')) {
             $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::MAJOR_VERSION;

@@ -35,6 +35,11 @@ class Paginator implements \Iterator
     private $current_page_position;
 
     /**
+     * @var array The current response obtained from the pagination service.
+     */
+    private $current_response;
+
+    /**
      * Creates the paginator
      *
      * @param \GoCardlessPro\Services\BaseService $service Resource service used to fetch records
@@ -55,6 +60,7 @@ class Paginator implements \Iterator
     /**
      * Rewind to the first page for foreach iterators
      */
+    #[\ReturnTypeWillChange]
     public function rewind()
     {
         $this->current_position = 0;
@@ -67,6 +73,7 @@ class Paginator implements \Iterator
      *
      * @return \GoCardlessPro\Resources\BaseResource
      */
+    #[\ReturnTypeWillChange]
     public function current()
     {
         return $this->current_records()[$this->key()];
@@ -77,6 +84,7 @@ class Paginator implements \Iterator
      *
      * @return int
      */
+    #[\ReturnTypeWillChange]
     public function key()
     {
         return $this->current_position - $this->current_page_position;
@@ -86,6 +94,7 @@ class Paginator implements \Iterator
      * Increments the current index of the iterator and fetches the next
      * page if required
      */
+    #[\ReturnTypeWillChange]
     public function next()
     {
         ++$this->current_position;
@@ -101,6 +110,7 @@ class Paginator implements \Iterator
      *
      * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function valid()
     {
         return !is_null($this->current_response) &&

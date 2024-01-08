@@ -14,6 +14,11 @@ abstract class IntegrationTestBase extends TestCase
 {
     use TestFixtures;
 
+    protected $mock;
+    protected $history;
+    protected $mock_http_client;
+    protected $client;
+
     public function setUp(): void
     {
         parent::setUp();
@@ -45,8 +50,8 @@ abstract class IntegrationTestBase extends TestCase
 
     public function stub_request($resource_fixture)
     {
-        $path = preg_replace("/:(\w+)/", "\w+", $resource_fixture->path_template);
-        $path_regexp = "|" . str_replace("\\\\w\+", "\w+", preg_quote($path)) . "|";
+        $path = preg_replace("/:(\w+)/", "\\w+", $resource_fixture->path_template);
+        $path_regexp = "|" . str_replace("\\\\w\+", "\\w+", preg_quote($path)) . "|";
         $json_body = json_encode($resource_fixture->body);
         $response = new \GuzzleHttp\Psr7\Response(200, [], $json_body);
 
@@ -55,7 +60,7 @@ abstract class IntegrationTestBase extends TestCase
 
     public function extract_resource_fixture_path_regex($resource_fixture)
     {
-        $path = preg_replace("/:(\w+)/", "\w+", $resource_fixture->path_template);
-        return "|" . str_replace("\\\\w\+", "\w+", preg_quote($path)) . "|";
+        $path = preg_replace("/:(\w+)/", "\\w+", $resource_fixture->path_template);
+        return "|" . str_replace("\\\\w\+", "\\w+", preg_quote($path)) . "|";
     }
 }

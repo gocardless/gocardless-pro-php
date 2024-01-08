@@ -16,6 +16,7 @@ class FakeResource extends BaseResource
 class ListResponseTest extends TestCase
 {
     protected $http_response;
+    protected $list_response;
 
     public function setUp(): void
     {
