@@ -9,6 +9,11 @@ class ApiClientTest extends TestCase
 {
     use TestFixtures;
 
+    protected $mock;
+    protected $history;
+    protected $mock_http_client;
+    protected $api_client;
+
     public function setUp(): void
     {
         parent::setUp();

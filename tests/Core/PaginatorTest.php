@@ -13,6 +13,9 @@ class FakePaginationResource extends BaseResource
 
 class PaginatorTest extends TestCase
 {
+
+    private $paginator;
+
     private function build_list_response($raw_body)
     {
         $raw_response = new \GuzzleHttp\Psr7\Response(200, [], $raw_body);

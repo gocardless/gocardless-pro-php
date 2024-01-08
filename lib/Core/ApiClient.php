@@ -8,6 +8,8 @@
 namespace GoCardlessPro\Core;
 
 use GoCardlessPro\Core\Exception\ApiException;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Psr7\Response;
 
 /**
  * HTTP Client class wrapped by the Client class and
@@ -15,11 +17,14 @@ use GoCardlessPro\Core\Exception\ApiException;
  */
 class ApiClient
 {
+    private $http_client;
+    public $error_on_idempotency_conflict;
+
     /**
      * @param GuzzleHttp\ClientInterface $http_client An HTTP client to make requests
      * @param array                      $config      configuration for the ApiClient
      */
-    public function __construct($http_client, $config)
+    public function __construct(ClientInterface $http_client, array $config)
     {
         $this->http_client = $http_client;
         $this->error_on_idempotency_conflict = $config['error_on_idempotency_conflict'];
@@ -33,7 +38,7 @@ class ApiClient
      *
      * @return array The raw response
      */
-    public function get($path, $params = array())
+    public function get(string $path, array $params = []): Response
     {
         if (is_array($params) && array_key_exists("query", $params)) {
             $params["query"] = $this->castBooleanValuesToStrings($params["query"]);
@@ -52,7 +57,7 @@ class ApiClient
      *
      * @return array The raw response
      */
-    public function put($path, $params)
+    public function put(string $path, array $params): Response
     {
         $response = $this->http_client->request('PUT', $path, $params);
         $this->handleErrors($response);
@@ -67,7 +72,7 @@ class ApiClient
      *
      * @return array The raw response
      */
-    public function post($path, $params)
+    public function post(string $path, array $params): Response
     {
         $idempotencyKey = uniqid("", true);
         $paramsWithHeaders = array("headers" => array("Idempotency-Key" => $idempotencyKey));
@@ -87,7 +92,7 @@ class ApiClient
      *
      * @return array The raw response
      */
-    public function delete($path, $params)
+    public function delete(string $path, array $params): Response
     {
         $idempotencyKey = uniqid("", true);
         $paramsWithHeaders = array("headers" => array("Idempotency-Key" => $idempotencyKey));
@@ -113,7 +118,7 @@ class ApiClient
      *
      * @param GuzzleHttp\Psr7\Response $response The raw API response
      */
-    private function handleErrors($response)
+    private function handleErrors(Response $response)
     {
         if ($response->getStatusCode() === 204) {
             return null;
@@ -149,7 +154,7 @@ class ApiClient
      *
      * @return array The new array with booleans casted to strings
      */
-    private function castBooleanValuesToStrings($query)
+    private function castBooleanValuesToStrings(array $query): array
     {
         return array_map(
             function ($value) {

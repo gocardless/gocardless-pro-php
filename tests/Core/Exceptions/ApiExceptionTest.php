@@ -11,6 +11,7 @@ class ApiExceptionTest extends TestCase
     use TestFixtures;
 
     protected $error;
+    protected $response;
 
     protected function setUp(): void
     {
