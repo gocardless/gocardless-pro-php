@@ -32,6 +32,7 @@ class PaymentsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->currency, $response->currency);
         $this->assertEquals($body->description, $response->description);
+        $this->assertEquals($body->faster_ach, $response->faster_ach);
         $this->assertEquals($body->fx, $response->fx);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
@@ -72,6 +73,7 @@ class PaymentsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->currency, $response->currency);
         $this->assertEquals($body->description, $response->description);
+        $this->assertEquals($body->faster_ach, $response->faster_ach);
         $this->assertEquals($body->fx, $response->fx);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
@@ -135,6 +137,10 @@ class PaymentsIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->description, $record->description);
             }
             
+            if (isset($body[$num]->faster_ach)) {
+                $this->assertEquals($body[$num]->faster_ach, $record->faster_ach);
+            }
+            
             if (isset($body[$num]->fx)) {
                 $this->assertEquals($body[$num]->fx, $record->fx);
             }
@@ -189,6 +195,7 @@ class PaymentsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->currency, $response->currency);
         $this->assertEquals($body->description, $response->description);
+        $this->assertEquals($body->faster_ach, $response->faster_ach);
         $this->assertEquals($body->fx, $response->fx);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
@@ -222,6 +229,7 @@ class PaymentsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->currency, $response->currency);
         $this->assertEquals($body->description, $response->description);
+        $this->assertEquals($body->faster_ach, $response->faster_ach);
         $this->assertEquals($body->fx, $response->fx);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
@@ -255,6 +263,7 @@ class PaymentsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->currency, $response->currency);
         $this->assertEquals($body->description, $response->description);
+        $this->assertEquals($body->faster_ach, $response->faster_ach);
         $this->assertEquals($body->fx, $response->fx);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);
@@ -288,6 +297,7 @@ class PaymentsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->currency, $response->currency);
         $this->assertEquals($body->description, $response->description);
+        $this->assertEquals($body->faster_ach, $response->faster_ach);
         $this->assertEquals($body->fx, $response->fx);
         $this->assertEquals($body->id, $response->id);
         $this->assertEquals($body->links, $response->links);

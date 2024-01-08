@@ -17,6 +17,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $created_at
  * @property-read $currency
  * @property-read $description
+ * @property-read $faster_ach
  * @property-read $fx
  * @property-read $id
  * @property-read $links
@@ -70,6 +71,14 @@ class Payment extends BaseResource
      * requirements](#appendix-compliance-requirements)).
      */
     protected $description;
+
+    /**
+     * This field indicates whether the ACH payment is processed through Faster
+     * ACH or standard ACH.
+     * 
+     * It is only present in the API response for ACH payments.
+     */
+    protected $faster_ach;
 
     /**
      * 

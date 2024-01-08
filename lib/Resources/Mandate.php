@@ -19,6 +19,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $links
  * @property-read $metadata
  * @property-read $next_possible_charge_date
+ * @property-read $next_possible_standard_ach_charge_date
  * @property-read $payments_require_approval
  * @property-read $reference
  * @property-read $scheme
@@ -88,6 +89,15 @@ class Mandate extends BaseResource
      * created payment for this mandate. This value will change over time.
      */
     protected $next_possible_charge_date;
+
+    /**
+     * If this is an an ACH mandate, the earliest date that can be used as a
+     * `charge_date` on any newly created payment to be charged through standard
+     * ACH, rather than Faster ACH. This value will change over time.
+     * 
+     * It is only present in the API response for ACH mandates.
+     */
+    protected $next_possible_standard_ach_charge_date;
 
     /**
      * Boolean value showing whether payments and subscriptions under this
