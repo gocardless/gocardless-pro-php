@@ -34,6 +34,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->next_possible_charge_date, $response->next_possible_charge_date);
+        $this->assertEquals($body->next_possible_standard_ach_charge_date, $response->next_possible_standard_ach_charge_date);
         $this->assertEquals($body->payments_require_approval, $response->payments_require_approval);
         $this->assertEquals($body->reference, $response->reference);
         $this->assertEquals($body->scheme, $response->scheme);
@@ -74,6 +75,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->next_possible_charge_date, $response->next_possible_charge_date);
+        $this->assertEquals($body->next_possible_standard_ach_charge_date, $response->next_possible_standard_ach_charge_date);
         $this->assertEquals($body->payments_require_approval, $response->payments_require_approval);
         $this->assertEquals($body->reference, $response->reference);
         $this->assertEquals($body->scheme, $response->scheme);
@@ -143,6 +145,10 @@ class MandatesIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->next_possible_charge_date, $record->next_possible_charge_date);
             }
             
+            if (isset($body[$num]->next_possible_standard_ach_charge_date)) {
+                $this->assertEquals($body[$num]->next_possible_standard_ach_charge_date, $record->next_possible_standard_ach_charge_date);
+            }
+            
             if (isset($body[$num]->payments_require_approval)) {
                 $this->assertEquals($body[$num]->payments_require_approval, $record->payments_require_approval);
             }
@@ -191,6 +197,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->next_possible_charge_date, $response->next_possible_charge_date);
+        $this->assertEquals($body->next_possible_standard_ach_charge_date, $response->next_possible_standard_ach_charge_date);
         $this->assertEquals($body->payments_require_approval, $response->payments_require_approval);
         $this->assertEquals($body->reference, $response->reference);
         $this->assertEquals($body->scheme, $response->scheme);
@@ -224,6 +231,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->next_possible_charge_date, $response->next_possible_charge_date);
+        $this->assertEquals($body->next_possible_standard_ach_charge_date, $response->next_possible_standard_ach_charge_date);
         $this->assertEquals($body->payments_require_approval, $response->payments_require_approval);
         $this->assertEquals($body->reference, $response->reference);
         $this->assertEquals($body->scheme, $response->scheme);
@@ -257,6 +265,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->next_possible_charge_date, $response->next_possible_charge_date);
+        $this->assertEquals($body->next_possible_standard_ach_charge_date, $response->next_possible_standard_ach_charge_date);
         $this->assertEquals($body->payments_require_approval, $response->payments_require_approval);
         $this->assertEquals($body->reference, $response->reference);
         $this->assertEquals($body->scheme, $response->scheme);
@@ -290,6 +299,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->next_possible_charge_date, $response->next_possible_charge_date);
+        $this->assertEquals($body->next_possible_standard_ach_charge_date, $response->next_possible_standard_ach_charge_date);
         $this->assertEquals($body->payments_require_approval, $response->payments_require_approval);
         $this->assertEquals($body->reference, $response->reference);
         $this->assertEquals($body->scheme, $response->scheme);
