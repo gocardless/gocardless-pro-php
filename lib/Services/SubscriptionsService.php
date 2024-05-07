@@ -18,13 +18,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * Service that provides access to the Subscription
  * endpoints of the API
  *
- * @method create()
- * @method list()
- * @method get()
- * @method update()
- * @method pause()
- * @method resume()
- * @method cancel()
+ * @method ListResponse list(array $params)
  */
 class SubscriptionsService extends BaseService
 {
@@ -38,7 +32,7 @@ class SubscriptionsService extends BaseService
      *
      * Example URL: /subscriptions
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return Subscription
      **/
     public function create($params = array())
@@ -73,7 +67,7 @@ class SubscriptionsService extends BaseService
      *
      * Example URL: /subscriptions
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return ListResponse
      **/
     protected function _doList($params = array())
@@ -96,7 +90,7 @@ class SubscriptionsService extends BaseService
      * Example URL: /subscriptions/:identity
      *
      * @param  string        $identity Unique identifier, beginning with "SB".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Subscription
      **/
     public function get($identity, $params = array())
@@ -125,7 +119,7 @@ class SubscriptionsService extends BaseService
      * Example URL: /subscriptions/:identity
      *
      * @param  string        $identity Unique identifier, beginning with "SB".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Subscription
      **/
     public function update($identity, $params = array())
@@ -156,7 +150,7 @@ class SubscriptionsService extends BaseService
      * Example URL: /subscriptions/:identity/actions/pause
      *
      * @param  string        $identity Unique identifier, beginning with "SB".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Subscription
      **/
     public function pause($identity, $params = array())
@@ -198,7 +192,7 @@ class SubscriptionsService extends BaseService
      * Example URL: /subscriptions/:identity/actions/resume
      *
      * @param  string        $identity Unique identifier, beginning with "SB".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Subscription
      **/
     public function resume($identity, $params = array())
@@ -240,7 +234,7 @@ class SubscriptionsService extends BaseService
      * Example URL: /subscriptions/:identity/actions/cancel
      *
      * @param  string        $identity Unique identifier, beginning with "SB".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Subscription
      **/
     public function cancel($identity, $params = array())
@@ -281,7 +275,7 @@ class SubscriptionsService extends BaseService
      *
      * Example URL: /subscriptions
      *
-     * @param  string[mixed] $params
+     * @param  array<string, mixed> $params
      * @return Paginator
      **/
     public function all($params = array())

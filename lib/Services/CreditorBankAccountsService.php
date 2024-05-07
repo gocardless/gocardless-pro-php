@@ -18,10 +18,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * Service that provides access to the CreditorBankAccount
  * endpoints of the API
  *
- * @method create()
- * @method list()
- * @method get()
- * @method disable()
+ * @method ListResponse list(array $params)
  */
 class CreditorBankAccountsService extends BaseService
 {
@@ -35,7 +32,7 @@ class CreditorBankAccountsService extends BaseService
      *
      * Example URL: /creditor_bank_accounts
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return CreditorBankAccount
      **/
     public function create($params = array())
@@ -70,7 +67,7 @@ class CreditorBankAccountsService extends BaseService
      *
      * Example URL: /creditor_bank_accounts
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return ListResponse
      **/
     protected function _doList($params = array())
@@ -93,7 +90,7 @@ class CreditorBankAccountsService extends BaseService
      * Example URL: /creditor_bank_accounts/:identity
      *
      * @param  string        $identity Unique identifier, beginning with "BA".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return CreditorBankAccount
      **/
     public function get($identity, $params = array())
@@ -122,7 +119,7 @@ class CreditorBankAccountsService extends BaseService
      * Example URL: /creditor_bank_accounts/:identity/actions/disable
      *
      * @param  string        $identity Unique identifier, beginning with "BA".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return CreditorBankAccount
      **/
     public function disable($identity, $params = array())
@@ -163,7 +160,7 @@ class CreditorBankAccountsService extends BaseService
      *
      * Example URL: /creditor_bank_accounts
      *
-     * @param  string[mixed] $params
+     * @param  array<string, mixed> $params
      * @return Paginator
      **/
     public function all($params = array())

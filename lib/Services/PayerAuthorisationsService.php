@@ -17,12 +17,6 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the PayerAuthorisation
  * endpoints of the API
- *
- * @method get()
- * @method create()
- * @method update()
- * @method submit()
- * @method confirm()
  */
 class PayerAuthorisationsService extends BaseService
 {
@@ -37,7 +31,7 @@ class PayerAuthorisationsService extends BaseService
      * Example URL: /payer_authorisations/:identity
      *
      * @param  string        $identity Unique identifier, beginning with "PA".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return PayerAuthorisation
      **/
     public function get($identity, $params = array())
@@ -45,7 +39,7 @@ class PayerAuthorisationsService extends BaseService
         $path = Util::subUrl(
             '/payer_authorisations/:identity',
             array(
-                
+
                 'identity' => $identity
             )
         );
@@ -53,9 +47,9 @@ class PayerAuthorisationsService extends BaseService
             unset($params['params']);
         }
 
-        
+
         $response = $this->api_client->get($path, $params);
-        
+
 
         return $this->getResourceForResponse($response);
     }
@@ -65,19 +59,19 @@ class PayerAuthorisationsService extends BaseService
      *
      * Example URL: /payer_authorisations
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return PayerAuthorisation
      **/
     public function create($params = array())
     {
         $path = "/payer_authorisations";
-        if(isset($params['params'])) { 
+        if(isset($params['params'])) {
             $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
-        
+
             unset($params['params']);
         }
 
-        
+
         try {
             $response = $this->api_client->post($path, $params);
         } catch(InvalidStateException $e) {
@@ -90,7 +84,7 @@ class PayerAuthorisationsService extends BaseService
 
             throw $e;
         }
-        
+
 
         return $this->getResourceForResponse($response);
     }
@@ -101,7 +95,7 @@ class PayerAuthorisationsService extends BaseService
      * Example URL: /payer_authorisations/:identity
      *
      * @param  string        $identity Unique identifier, beginning with "PA".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return PayerAuthorisation
      **/
     public function update($identity, $params = array())
@@ -109,19 +103,19 @@ class PayerAuthorisationsService extends BaseService
         $path = Util::subUrl(
             '/payer_authorisations/:identity',
             array(
-                
+
                 'identity' => $identity
             )
         );
-        if(isset($params['params'])) { 
+        if(isset($params['params'])) {
             $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
-        
+
             unset($params['params']);
         }
 
-        
+
         $response = $this->api_client->put($path, $params);
-        
+
 
         return $this->getResourceForResponse($response);
     }
@@ -132,7 +126,7 @@ class PayerAuthorisationsService extends BaseService
      * Example URL: /payer_authorisations/:identity/actions/submit
      *
      * @param  string        $identity Unique identifier, beginning with "PA".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return PayerAuthorisation
      **/
     public function submit($identity, $params = array())
@@ -140,17 +134,17 @@ class PayerAuthorisationsService extends BaseService
         $path = Util::subUrl(
             '/payer_authorisations/:identity/actions/submit',
             array(
-                
+
                 'identity' => $identity
             )
         );
-        if(isset($params['params'])) { 
+        if(isset($params['params'])) {
             $params['body'] = json_encode(array("data" => (object)$params['params']));
-        
+
             unset($params['params']);
         }
 
-        
+
         try {
             $response = $this->api_client->post($path, $params);
         } catch(InvalidStateException $e) {
@@ -163,7 +157,7 @@ class PayerAuthorisationsService extends BaseService
 
             throw $e;
         }
-        
+
 
         return $this->getResourceForResponse($response);
     }
@@ -174,7 +168,7 @@ class PayerAuthorisationsService extends BaseService
      * Example URL: /payer_authorisations/:identity/actions/confirm
      *
      * @param  string        $identity Unique identifier, beginning with "PA".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return PayerAuthorisation
      **/
     public function confirm($identity, $params = array())
@@ -182,17 +176,17 @@ class PayerAuthorisationsService extends BaseService
         $path = Util::subUrl(
             '/payer_authorisations/:identity/actions/confirm',
             array(
-                
+
                 'identity' => $identity
             )
         );
-        if(isset($params['params'])) { 
+        if(isset($params['params'])) {
             $params['body'] = json_encode(array("data" => (object)$params['params']));
-        
+
             unset($params['params']);
         }
 
-        
+
         try {
             $response = $this->api_client->post($path, $params);
         } catch(InvalidStateException $e) {
@@ -205,7 +199,7 @@ class PayerAuthorisationsService extends BaseService
 
             throw $e;
         }
-        
+
 
         return $this->getResourceForResponse($response);
     }

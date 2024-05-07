@@ -17,8 +17,6 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the CustomerNotification
  * endpoints of the API
- *
- * @method handle()
  */
 class CustomerNotificationsService extends BaseService
 {
@@ -33,7 +31,7 @@ class CustomerNotificationsService extends BaseService
      * Example URL: /customer_notifications/:identity/actions/handle
      *
      * @param  string        $identity The id of the notification.
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return CustomerNotification
      **/
     public function handle($identity, $params = array())
@@ -41,19 +39,19 @@ class CustomerNotificationsService extends BaseService
         $path = Util::subUrl(
             '/customer_notifications/:identity/actions/handle',
             array(
-                
+
                 'identity' => $identity
             )
         );
-        if(isset($params['params'])) { 
+        if(isset($params['params'])) {
             $params['body'] = json_encode(array("data" => (object)$params['params']));
-        
+
             unset($params['params']);
         }
 
-        
+
         $response = $this->api_client->post($path, $params);
-        
+
 
         return $this->getResourceForResponse($response);
     }

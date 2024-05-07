@@ -17,9 +17,6 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the BankAuthorisation
  * endpoints of the API
- *
- * @method create()
- * @method get()
  */
 class BankAuthorisationsService extends BaseService
 {
@@ -33,19 +30,19 @@ class BankAuthorisationsService extends BaseService
      *
      * Example URL: /bank_authorisations
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return BankAuthorisation
      **/
     public function create($params = array())
     {
         $path = "/bank_authorisations";
-        if(isset($params['params'])) { 
+        if(isset($params['params'])) {
             $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
-        
+
             unset($params['params']);
         }
 
-        
+
         try {
             $response = $this->api_client->post($path, $params);
         } catch(InvalidStateException $e) {
@@ -58,7 +55,7 @@ class BankAuthorisationsService extends BaseService
 
             throw $e;
         }
-        
+
 
         return $this->getResourceForResponse($response);
     }
@@ -69,7 +66,7 @@ class BankAuthorisationsService extends BaseService
      * Example URL: /bank_authorisations/:identity
      *
      * @param  string        $identity Unique identifier, beginning with "BAU".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return BankAuthorisation
      **/
     public function get($identity, $params = array())
@@ -77,7 +74,7 @@ class BankAuthorisationsService extends BaseService
         $path = Util::subUrl(
             '/bank_authorisations/:identity',
             array(
-                
+
                 'identity' => $identity
             )
         );
@@ -85,9 +82,9 @@ class BankAuthorisationsService extends BaseService
             unset($params['params']);
         }
 
-        
+
         $response = $this->api_client->get($path, $params);
-        
+
 
         return $this->getResourceForResponse($response);
     }

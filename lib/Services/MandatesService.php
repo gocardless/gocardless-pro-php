@@ -18,12 +18,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * Service that provides access to the Mandate
  * endpoints of the API
  *
- * @method create()
- * @method list()
- * @method get()
- * @method update()
- * @method cancel()
- * @method reinstate()
+ * @method ListResponse list(array $params)
  */
 class MandatesService extends BaseService
 {
@@ -37,7 +32,7 @@ class MandatesService extends BaseService
      *
      * Example URL: /mandates
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return Mandate
      **/
     public function create($params = array())
@@ -72,7 +67,7 @@ class MandatesService extends BaseService
      *
      * Example URL: /mandates
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return ListResponse
      **/
     protected function _doList($params = array())
@@ -96,7 +91,7 @@ class MandatesService extends BaseService
      *
      * @param  string        $identity Unique identifier, beginning with "MD". Note that this
                                  prefix may not apply to mandates created before 2016.
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Mandate
      **/
     public function get($identity, $params = array())
@@ -126,7 +121,7 @@ class MandatesService extends BaseService
      *
      * @param  string        $identity Unique identifier, beginning with "MD". Note that this
                                  prefix may not apply to mandates created before 2016.
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Mandate
      **/
     public function update($identity, $params = array())
@@ -158,7 +153,7 @@ class MandatesService extends BaseService
      *
      * @param  string        $identity Unique identifier, beginning with "MD". Note that this
                                  prefix may not apply to mandates created before 2016.
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Mandate
      **/
     public function cancel($identity, $params = array())
@@ -201,7 +196,7 @@ class MandatesService extends BaseService
      *
      * @param  string        $identity Unique identifier, beginning with "MD". Note that this
                                  prefix may not apply to mandates created before 2016.
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Mandate
      **/
     public function reinstate($identity, $params = array())
@@ -242,7 +237,7 @@ class MandatesService extends BaseService
      *
      * Example URL: /mandates
      *
-     * @param  string[mixed] $params
+     * @param  array<string, mixed> $params
      * @return Paginator
      **/
     public function all($params = array())

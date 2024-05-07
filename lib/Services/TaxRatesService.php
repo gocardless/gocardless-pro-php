@@ -18,8 +18,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * Service that provides access to the TaxRate
  * endpoints of the API
  *
- * @method list()
- * @method get()
+ * @method ListResponse list(array $params)
  */
 class TaxRatesService extends BaseService
 {
@@ -33,7 +32,7 @@ class TaxRatesService extends BaseService
      *
      * Example URL: /tax_rates
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return ListResponse
      **/
     protected function _doList($params = array())
@@ -57,7 +56,7 @@ class TaxRatesService extends BaseService
      *
      * @param  string        $identity The unique identifier created by the jurisdiction, tax type
                                  and version
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return TaxRate
      **/
     public function get($identity, $params = array())
@@ -85,7 +84,7 @@ class TaxRatesService extends BaseService
      *
      * Example URL: /tax_rates
      *
-     * @param  string[mixed] $params
+     * @param  array<string, mixed> $params
      * @return Paginator
      **/
     public function all($params = array())

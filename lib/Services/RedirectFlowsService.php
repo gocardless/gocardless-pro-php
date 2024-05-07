@@ -17,10 +17,6 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the RedirectFlow
  * endpoints of the API
- *
- * @method create()
- * @method get()
- * @method complete()
  */
 class RedirectFlowsService extends BaseService
 {
@@ -34,19 +30,19 @@ class RedirectFlowsService extends BaseService
      *
      * Example URL: /redirect_flows
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return RedirectFlow
      **/
     public function create($params = array())
     {
         $path = "/redirect_flows";
-        if(isset($params['params'])) { 
+        if(isset($params['params'])) {
             $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
-        
+
             unset($params['params']);
         }
 
-        
+
         try {
             $response = $this->api_client->post($path, $params);
         } catch(InvalidStateException $e) {
@@ -59,7 +55,7 @@ class RedirectFlowsService extends BaseService
 
             throw $e;
         }
-        
+
 
         return $this->getResourceForResponse($response);
     }
@@ -70,7 +66,7 @@ class RedirectFlowsService extends BaseService
      * Example URL: /redirect_flows/:identity
      *
      * @param  string        $identity Unique identifier, beginning with "RE".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return RedirectFlow
      **/
     public function get($identity, $params = array())
@@ -78,7 +74,7 @@ class RedirectFlowsService extends BaseService
         $path = Util::subUrl(
             '/redirect_flows/:identity',
             array(
-                
+
                 'identity' => $identity
             )
         );
@@ -86,9 +82,9 @@ class RedirectFlowsService extends BaseService
             unset($params['params']);
         }
 
-        
+
         $response = $this->api_client->get($path, $params);
-        
+
 
         return $this->getResourceForResponse($response);
     }
@@ -99,7 +95,7 @@ class RedirectFlowsService extends BaseService
      * Example URL: /redirect_flows/:identity/actions/complete
      *
      * @param  string        $identity Unique identifier, beginning with "RE".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return RedirectFlow
      **/
     public function complete($identity, $params = array())
@@ -107,17 +103,17 @@ class RedirectFlowsService extends BaseService
         $path = Util::subUrl(
             '/redirect_flows/:identity/actions/complete',
             array(
-                
+
                 'identity' => $identity
             )
         );
-        if(isset($params['params'])) { 
+        if(isset($params['params'])) {
             $params['body'] = json_encode(array("data" => (object)$params['params']));
-        
+
             unset($params['params']);
         }
 
-        
+
         try {
             $response = $this->api_client->post($path, $params);
         } catch(InvalidStateException $e) {
@@ -130,7 +126,7 @@ class RedirectFlowsService extends BaseService
 
             throw $e;
         }
-        
+
 
         return $this->getResourceForResponse($response);
     }

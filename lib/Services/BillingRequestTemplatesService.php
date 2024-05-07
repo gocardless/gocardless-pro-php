@@ -18,10 +18,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * Service that provides access to the BillingRequestTemplate
  * endpoints of the API
  *
- * @method list()
- * @method get()
- * @method create()
- * @method update()
+ * @method ListResponse list(array $params)
  */
 class BillingRequestTemplatesService extends BaseService
 {
@@ -35,7 +32,7 @@ class BillingRequestTemplatesService extends BaseService
      *
      * Example URL: /billing_request_templates
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return ListResponse
      **/
     protected function _doList($params = array())
@@ -58,7 +55,7 @@ class BillingRequestTemplatesService extends BaseService
      * Example URL: /billing_request_templates/:identity
      *
      * @param  string        $identity Unique identifier, beginning with "BRT".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return BillingRequestTemplate
      **/
     public function get($identity, $params = array())
@@ -86,7 +83,7 @@ class BillingRequestTemplatesService extends BaseService
      *
      * Example URL: /billing_request_templates
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return BillingRequestTemplate
      **/
     public function create($params = array())
@@ -122,7 +119,7 @@ class BillingRequestTemplatesService extends BaseService
      * Example URL: /billing_request_templates/:identity
      *
      * @param  string        $identity Unique identifier, beginning with "BRQ".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return BillingRequestTemplate
      **/
     public function update($identity, $params = array())
@@ -152,7 +149,7 @@ class BillingRequestTemplatesService extends BaseService
      *
      * Example URL: /billing_request_templates
      *
-     * @param  string[mixed] $params
+     * @param  array<string, mixed> $params
      * @return Paginator
      **/
     public function all($params = array())

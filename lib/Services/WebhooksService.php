@@ -18,9 +18,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * Service that provides access to the Webhook
  * endpoints of the API
  *
- * @method list()
- * @method get()
- * @method retry()
+ * @method ListResponse list(array $params)
  */
 class WebhooksService extends BaseService
 {
@@ -34,7 +32,7 @@ class WebhooksService extends BaseService
      *
      * Example URL: /webhooks
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return ListResponse
      **/
     protected function _doList($params = array())
@@ -44,9 +42,9 @@ class WebhooksService extends BaseService
             unset($params['params']);
         }
 
-        
+
         $response = $this->api_client->get($path, $params);
-        
+
 
         return $this->getResourceForResponse($response);
     }
@@ -57,7 +55,7 @@ class WebhooksService extends BaseService
      * Example URL: /webhooks/:identity
      *
      * @param  string        $identity Unique identifier, beginning with "WB".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Webhook
      **/
     public function get($identity, $params = array())
@@ -65,7 +63,7 @@ class WebhooksService extends BaseService
         $path = Util::subUrl(
             '/webhooks/:identity',
             array(
-                
+
                 'identity' => $identity
             )
         );
@@ -73,9 +71,9 @@ class WebhooksService extends BaseService
             unset($params['params']);
         }
 
-        
+
         $response = $this->api_client->get($path, $params);
-        
+
 
         return $this->getResourceForResponse($response);
     }
@@ -86,7 +84,7 @@ class WebhooksService extends BaseService
      * Example URL: /webhooks/:identity/actions/retry
      *
      * @param  string        $identity Unique identifier, beginning with "WB".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Webhook
      **/
     public function retry($identity, $params = array())
@@ -94,17 +92,17 @@ class WebhooksService extends BaseService
         $path = Util::subUrl(
             '/webhooks/:identity/actions/retry',
             array(
-                
+
                 'identity' => $identity
             )
         );
-        if(isset($params['params'])) { 
+        if(isset($params['params'])) {
             $params['body'] = json_encode(array("data" => (object)$params['params']));
-        
+
             unset($params['params']);
         }
 
-        
+
         try {
             $response = $this->api_client->post($path, $params);
         } catch(InvalidStateException $e) {
@@ -117,7 +115,7 @@ class WebhooksService extends BaseService
 
             throw $e;
         }
-        
+
 
         return $this->getResourceForResponse($response);
     }
@@ -127,7 +125,7 @@ class WebhooksService extends BaseService
      *
      * Example URL: /webhooks
      *
-     * @param  string[mixed] $params
+     * @param  array<string, mixed> $params
      * @return Paginator
      **/
     public function all($params = array())

@@ -17,9 +17,6 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the BillingRequestFlow
  * endpoints of the API
- *
- * @method create()
- * @method initialise()
  */
 class BillingRequestFlowsService extends BaseService
 {
@@ -33,21 +30,21 @@ class BillingRequestFlowsService extends BaseService
      *
      * Example URL: /billing_request_flows
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return BillingRequestFlow
      **/
     public function create($params = array())
     {
         $path = "/billing_request_flows";
-        if(isset($params['params'])) { 
+        if(isset($params['params'])) {
             $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
-        
+
             unset($params['params']);
         }
 
-        
+
         $response = $this->api_client->post($path, $params);
-        
+
 
         return $this->getResourceForResponse($response);
     }
@@ -58,7 +55,7 @@ class BillingRequestFlowsService extends BaseService
      * Example URL: /billing_request_flows/:identity/actions/initialise
      *
      * @param  string        $identity Unique identifier, beginning with "BRF".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return BillingRequestFlow
      **/
     public function initialise($identity, $params = array())
@@ -66,19 +63,19 @@ class BillingRequestFlowsService extends BaseService
         $path = Util::subUrl(
             '/billing_request_flows/:identity/actions/initialise',
             array(
-                
+
                 'identity' => $identity
             )
         );
-        if(isset($params['params'])) { 
+        if(isset($params['params'])) {
             $params['body'] = json_encode(array("data" => (object)$params['params']));
-        
+
             unset($params['params']);
         }
 
-        
+
         $response = $this->api_client->post($path, $params);
-        
+
 
         return $this->getResourceForResponse($response);
     }

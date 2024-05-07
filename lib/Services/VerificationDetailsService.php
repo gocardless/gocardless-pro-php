@@ -18,8 +18,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * Service that provides access to the VerificationDetail
  * endpoints of the API
  *
- * @method create()
- * @method list()
+ * @method ListResponse list(array $params)
  */
 class VerificationDetailsService extends BaseService
 {
@@ -33,7 +32,7 @@ class VerificationDetailsService extends BaseService
      *
      * Example URL: /verification_details
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return VerificationDetail
      **/
     public function create($params = array())
@@ -57,7 +56,7 @@ class VerificationDetailsService extends BaseService
      *
      * Example URL: /verification_details
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return ListResponse
      **/
     protected function _doList($params = array())
@@ -79,7 +78,7 @@ class VerificationDetailsService extends BaseService
      *
      * Example URL: /verification_details
      *
-     * @param  string[mixed] $params
+     * @param  array<string, mixed> $params
      * @return Paginator
      **/
     public function all($params = array())

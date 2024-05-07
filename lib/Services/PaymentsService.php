@@ -18,12 +18,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * Service that provides access to the Payment
  * endpoints of the API
  *
- * @method create()
- * @method list()
- * @method get()
- * @method update()
- * @method cancel()
- * @method retry()
+ * @method ListResponse list(array $params)
  */
 class PaymentsService extends BaseService
 {
@@ -37,7 +32,7 @@ class PaymentsService extends BaseService
      *
      * Example URL: /payments
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return Payment
      **/
     public function create($params = array())
@@ -72,7 +67,7 @@ class PaymentsService extends BaseService
      *
      * Example URL: /payments
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return ListResponse
      **/
     protected function _doList($params = array())
@@ -95,7 +90,7 @@ class PaymentsService extends BaseService
      * Example URL: /payments/:identity
      *
      * @param  string        $identity Unique identifier, beginning with "PM".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Payment
      **/
     public function get($identity, $params = array())
@@ -124,7 +119,7 @@ class PaymentsService extends BaseService
      * Example URL: /payments/:identity
      *
      * @param  string        $identity Unique identifier, beginning with "PM".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Payment
      **/
     public function update($identity, $params = array())
@@ -155,7 +150,7 @@ class PaymentsService extends BaseService
      * Example URL: /payments/:identity/actions/cancel
      *
      * @param  string        $identity Unique identifier, beginning with "PM".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Payment
      **/
     public function cancel($identity, $params = array())
@@ -197,7 +192,7 @@ class PaymentsService extends BaseService
      * Example URL: /payments/:identity/actions/retry
      *
      * @param  string        $identity Unique identifier, beginning with "PM".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Payment
      **/
     public function retry($identity, $params = array())
@@ -238,7 +233,7 @@ class PaymentsService extends BaseService
      *
      * Example URL: /payments
      *
-     * @param  string[mixed] $params
+     * @param  array<string, mixed> $params
      * @return Paginator
      **/
     public function all($params = array())

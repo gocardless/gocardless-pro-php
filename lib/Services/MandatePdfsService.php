@@ -17,8 +17,6 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the MandatePdf
  * endpoints of the API
- *
- * @method create()
  */
 class MandatePdfsService extends BaseService
 {
@@ -32,21 +30,21 @@ class MandatePdfsService extends BaseService
      *
      * Example URL: /mandate_pdfs
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return MandatePdf
      **/
     public function create($params = array())
     {
         $path = "/mandate_pdfs";
-        if(isset($params['params'])) { 
+        if(isset($params['params'])) {
             $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
-        
+
             unset($params['params']);
         }
 
-        
+
         $response = $this->api_client->post($path, $params);
-        
+
 
         return $this->getResourceForResponse($response);
     }

@@ -17,7 +17,6 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the ScenarioSimulator
  * endpoints of the API
- *  @method run()
  */
 class ScenarioSimulatorsService extends BaseService
 {
@@ -182,7 +181,7 @@ class ScenarioSimulatorsService extends BaseService
  except for `bank_authorisation`. Only billing requests with
  a `payment_request` are supported.</li>
  </ul>
-    * @param  string[mixed] $params An associative array for any params
+    * @param  array<string, mixed> $params An associative array for any params
     * @return ScenarioSimulator
     **/
     public function run($identity, $params = array())
@@ -190,19 +189,19 @@ class ScenarioSimulatorsService extends BaseService
         $path = Util::subUrl(
             '/scenario_simulators/:identity/actions/run',
             array(
-                
+
                 'identity' => $identity
             )
         );
-        if(isset($params['params'])) { 
+        if(isset($params['params'])) {
           $params['body'] = json_encode(array("data" => (object)$params['params']));
-        
+
           unset($params['params']);
         }
 
-        
+
         $response = $this->api_client->post($path, $params);
-        
+
 
         return $this->getResourceForResponse($response);
     }

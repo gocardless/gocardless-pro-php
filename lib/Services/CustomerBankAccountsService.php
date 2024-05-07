@@ -18,11 +18,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * Service that provides access to the CustomerBankAccount
  * endpoints of the API
  *
- * @method create()
- * @method list()
- * @method get()
- * @method update()
- * @method disable()
+ * @method ListResponse list(array $params)
  */
 class CustomerBankAccountsService extends BaseService
 {
@@ -36,7 +32,7 @@ class CustomerBankAccountsService extends BaseService
      *
      * Example URL: /customer_bank_accounts
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return CustomerBankAccount
      **/
     public function create($params = array())
@@ -71,7 +67,7 @@ class CustomerBankAccountsService extends BaseService
      *
      * Example URL: /customer_bank_accounts
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return ListResponse
      **/
     protected function _doList($params = array())
@@ -94,7 +90,7 @@ class CustomerBankAccountsService extends BaseService
      * Example URL: /customer_bank_accounts/:identity
      *
      * @param  string        $identity Unique identifier, beginning with "BA".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return CustomerBankAccount
      **/
     public function get($identity, $params = array())
@@ -123,7 +119,7 @@ class CustomerBankAccountsService extends BaseService
      * Example URL: /customer_bank_accounts/:identity
      *
      * @param  string        $identity Unique identifier, beginning with "BA".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return CustomerBankAccount
      **/
     public function update($identity, $params = array())
@@ -154,7 +150,7 @@ class CustomerBankAccountsService extends BaseService
      * Example URL: /customer_bank_accounts/:identity/actions/disable
      *
      * @param  string        $identity Unique identifier, beginning with "BA".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return CustomerBankAccount
      **/
     public function disable($identity, $params = array())
@@ -195,7 +191,7 @@ class CustomerBankAccountsService extends BaseService
      *
      * Example URL: /customer_bank_accounts
      *
-     * @param  string[mixed] $params
+     * @param  array<string, mixed> $params
      * @return Paginator
      **/
     public function all($params = array())

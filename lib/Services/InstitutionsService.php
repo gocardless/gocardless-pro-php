@@ -18,8 +18,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * Service that provides access to the Institution
  * endpoints of the API
  *
- * @method list()
- * @method listForBillingRequest()
+ * @method ListResponse list(array $params)
  */
 class InstitutionsService extends BaseService
 {
@@ -33,7 +32,7 @@ class InstitutionsService extends BaseService
      *
      * Example URL: /institutions
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return ListResponse
      **/
     protected function _doList($params = array())
@@ -56,7 +55,7 @@ class InstitutionsService extends BaseService
      * Example URL: /billing_requests/:identity/institutions
      *
      * @param  string        $identity Unique identifier, beginning with "BRQ".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return ListResponse
      **/
     public function listForBillingRequest($identity, $params = array())
@@ -84,7 +83,7 @@ class InstitutionsService extends BaseService
      *
      * Example URL: /institutions
      *
-     * @param  string[mixed] $params
+     * @param  array<string, mixed> $params
      * @return Paginator
      **/
     public function all($params = array())
