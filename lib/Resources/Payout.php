@@ -11,19 +11,19 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a payout, providing access to its
  * attributes
  *
- * @property-read $amount
- * @property-read $arrival_date
- * @property-read $created_at
- * @property-read $currency
- * @property-read $deducted_fees
- * @property-read $fx
- * @property-read $id
- * @property-read $links
- * @property-read $metadata
- * @property-read $payout_type
- * @property-read $reference
- * @property-read $status
- * @property-read $tax_currency
+ * @property-read mixed $amount
+ * @property-read mixed $arrival_date
+ * @property-read mixed $created_at
+ * @property-read mixed $currency
+ * @property-read mixed $deducted_fees
+ * @property-read mixed $fx
+ * @property-read mixed $id
+ * @property-read mixed $links
+ * @property-read mixed $metadata
+ * @property-read mixed $payout_type
+ * @property-read mixed $reference
+ * @property-read mixed $status
+ * @property-read mixed $tax_currency
  */
 class Payout extends BaseResource
 {

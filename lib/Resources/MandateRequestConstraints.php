@@ -11,10 +11,10 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a mandate_request_constraints, providing access to its
  * attributes
  *
- * @property-read $end_date
- * @property-read $max_amount_per_payment
- * @property-read $periodic_limits
- * @property-read $start_date
+ * @property-read mixed $end_date
+ * @property-read mixed $max_amount_per_payment
+ * @property-read mixed $periodic_limits
+ * @property-read mixed $start_date
  */
 class MandateRequestConstraints extends BaseResource
 {

@@ -11,17 +11,17 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a billing_request, providing access to its
  * attributes
  *
- * @property-read $actions
- * @property-read $created_at
- * @property-read $fallback_enabled
- * @property-read $id
- * @property-read $links
- * @property-read $mandate_request
- * @property-read $metadata
- * @property-read $payment_request
- * @property-read $purpose_code
- * @property-read $resources
- * @property-read $status
+ * @property-read mixed $actions
+ * @property-read mixed $created_at
+ * @property-read mixed $fallback_enabled
+ * @property-read mixed $id
+ * @property-read mixed $links
+ * @property-read mixed $mandate_request
+ * @property-read mixed $metadata
+ * @property-read mixed $payment_request
+ * @property-read mixed $purpose_code
+ * @property-read mixed $resources
+ * @property-read mixed $status
  */
 class BillingRequest extends BaseResource
 {

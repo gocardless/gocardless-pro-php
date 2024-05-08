@@ -11,15 +11,15 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a instalment_schedule, providing access to its
  * attributes
  *
- * @property-read $created_at
- * @property-read $currency
- * @property-read $id
- * @property-read $links
- * @property-read $metadata
- * @property-read $name
- * @property-read $payment_errors
- * @property-read $status
- * @property-read $total_amount
+ * @property-read mixed $created_at
+ * @property-read mixed $currency
+ * @property-read mixed $id
+ * @property-read mixed $links
+ * @property-read mixed $metadata
+ * @property-read mixed $name
+ * @property-read mixed $payment_errors
+ * @property-read mixed $status
+ * @property-read mixed $total_amount
  */
 class InstalmentSchedule extends BaseResource
 {

@@ -11,10 +11,10 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a currency_exchange_rate, providing access to its
  * attributes
  *
- * @property-read $rate
- * @property-read $source
- * @property-read $target
- * @property-read $time
+ * @property-read mixed $rate
+ * @property-read mixed $source
+ * @property-read mixed $target
+ * @property-read mixed $time
  */
 class CurrencyExchangeRate extends BaseResource
 {

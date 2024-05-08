@@ -11,16 +11,16 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a bank_authorisation, providing access to its
  * attributes
  *
- * @property-read $authorisation_type
- * @property-read $authorised_at
- * @property-read $created_at
- * @property-read $expires_at
- * @property-read $id
- * @property-read $last_visited_at
- * @property-read $links
- * @property-read $qr_code_url
- * @property-read $redirect_uri
- * @property-read $url
+ * @property-read mixed $authorisation_type
+ * @property-read mixed $authorised_at
+ * @property-read mixed $created_at
+ * @property-read mixed $expires_at
+ * @property-read mixed $id
+ * @property-read mixed $last_visited_at
+ * @property-read mixed $links
+ * @property-read mixed $qr_code_url
+ * @property-read mixed $redirect_uri
+ * @property-read mixed $url
  */
 class BankAuthorisation extends BaseResource
 {

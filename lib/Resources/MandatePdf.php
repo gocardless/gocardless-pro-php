@@ -11,8 +11,8 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a mandate_pdf, providing access to its
  * attributes
  *
- * @property-read $expires_at
- * @property-read $url
+ * @property-read mixed $expires_at
+ * @property-read mixed $url
  */
 class MandatePdf extends BaseResource
 {

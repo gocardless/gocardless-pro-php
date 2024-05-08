@@ -11,9 +11,9 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a bank_details_lookup, providing access to its
  * attributes
  *
- * @property-read $available_debit_schemes
- * @property-read $bank_name
- * @property-read $bic
+ * @property-read mixed $available_debit_schemes
+ * @property-read mixed $bank_name
+ * @property-read mixed $bic
  */
 class BankDetailsLookup extends BaseResource
 {

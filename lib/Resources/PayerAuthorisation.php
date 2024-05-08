@@ -11,14 +11,14 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a payer_authorisation, providing access to its
  * attributes
  *
- * @property-read $bank_account
- * @property-read $created_at
- * @property-read $customer
- * @property-read $id
- * @property-read $incomplete_fields
- * @property-read $links
- * @property-read $mandate
- * @property-read $status
+ * @property-read mixed $bank_account
+ * @property-read mixed $created_at
+ * @property-read mixed $customer
+ * @property-read mixed $id
+ * @property-read mixed $incomplete_fields
+ * @property-read mixed $links
+ * @property-read mixed $mandate
+ * @property-read mixed $status
  */
 class PayerAuthorisation extends BaseResource
 {

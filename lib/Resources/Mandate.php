@@ -11,20 +11,20 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a mandate, providing access to its
  * attributes
  *
- * @property-read $authorisation_source
- * @property-read $consent_parameters
- * @property-read $created_at
- * @property-read $funds_settlement
- * @property-read $id
- * @property-read $links
- * @property-read $metadata
- * @property-read $next_possible_charge_date
- * @property-read $next_possible_standard_ach_charge_date
- * @property-read $payments_require_approval
- * @property-read $reference
- * @property-read $scheme
- * @property-read $status
- * @property-read $verified_at
+ * @property-read mixed $authorisation_source
+ * @property-read mixed $consent_parameters
+ * @property-read mixed $created_at
+ * @property-read mixed $funds_settlement
+ * @property-read mixed $id
+ * @property-read mixed $links
+ * @property-read mixed $metadata
+ * @property-read mixed $next_possible_charge_date
+ * @property-read mixed $next_possible_standard_ach_charge_date
+ * @property-read mixed $payments_require_approval
+ * @property-read mixed $reference
+ * @property-read mixed $scheme
+ * @property-read mixed $status
+ * @property-read mixed $verified_at
  */
 class Mandate extends BaseResource
 {

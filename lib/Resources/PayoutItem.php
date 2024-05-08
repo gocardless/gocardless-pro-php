@@ -11,10 +11,10 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a payout_item, providing access to its
  * attributes
  *
- * @property-read $amount
- * @property-read $links
- * @property-read $taxes
- * @property-read $type
+ * @property-read mixed $amount
+ * @property-read mixed $links
+ * @property-read mixed $taxes
+ * @property-read mixed $type
  */
 class PayoutItem extends BaseResource
 {

@@ -11,24 +11,24 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a billing_request_flow, providing access to its
  * attributes
  *
- * @property-read $authorisation_url
- * @property-read $auto_fulfil
- * @property-read $created_at
- * @property-read $customer_details_captured
- * @property-read $exit_uri
- * @property-read $expires_at
- * @property-read $id
- * @property-read $language
- * @property-read $links
- * @property-read $lock_bank_account
- * @property-read $lock_currency
- * @property-read $lock_customer_details
- * @property-read $prefilled_bank_account
- * @property-read $prefilled_customer
- * @property-read $redirect_uri
- * @property-read $session_token
- * @property-read $show_redirect_buttons
- * @property-read $show_success_redirect_button
+ * @property-read mixed $authorisation_url
+ * @property-read mixed $auto_fulfil
+ * @property-read mixed $created_at
+ * @property-read mixed $customer_details_captured
+ * @property-read mixed $exit_uri
+ * @property-read mixed $expires_at
+ * @property-read mixed $id
+ * @property-read mixed $language
+ * @property-read mixed $links
+ * @property-read mixed $lock_bank_account
+ * @property-read mixed $lock_currency
+ * @property-read mixed $lock_customer_details
+ * @property-read mixed $prefilled_bank_account
+ * @property-read mixed $prefilled_customer
+ * @property-read mixed $redirect_uri
+ * @property-read mixed $session_token
+ * @property-read mixed $show_redirect_buttons
+ * @property-read mixed $show_success_redirect_button
  */
 class BillingRequestFlow extends BaseResource
 {
