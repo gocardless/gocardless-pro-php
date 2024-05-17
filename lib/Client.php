@@ -102,6 +102,8 @@ class Client
         
         $this->services['institutions'] = new Services\InstitutionsService($this->api_client);
         
+        $this->services['logos'] = new Services\LogosService($this->api_client);
+        
         $this->services['mandates'] = new Services\MandatesService($this->api_client);
         
         $this->services['mandate_imports'] = new Services\MandateImportsService($this->api_client);
@@ -334,6 +336,19 @@ class Client
             throw new \Exception('Key institutions does not exist in services array');
         }
         return $this->services['institutions'];
+    }
+    
+    /**
+     * Service for interacting with logos
+     *
+     * @return Services\LogosService
+     */
+    public function logos()
+    {
+        if (!isset($this->services['logos'])) {
+            throw new \Exception('Key logos does not exist in services array');
+        }
+        return $this->services['logos'];
     }
     
     /**
