@@ -6,25 +6,25 @@
 
 namespace GoCardlessPro\Integration;
 
-class LogosIntegrationTest extends IntegrationTestBase
+class PayerThemesIntegrationTest extends IntegrationTestBase
 {
     public function testResourceModelExists()
     {
-        $obj = new \GoCardlessPro\Resources\Logo(array());
+        $obj = new \GoCardlessPro\Resources\PayerTheme(array());
         $this->assertNotNull($obj);
     }
     
-    public function testLogosCreateForCreditor()
+    public function testPayerThemesCreateForCreditor()
     {
-        $fixture = $this->loadJsonFixture('logos')->create_for_creditor;
+        $fixture = $this->loadJsonFixture('payer_themes')->create_for_creditor;
         $this->stub_request($fixture);
 
-        $service = $this->client->logos();
+        $service = $this->client->payerThemes();
         $response = call_user_func_array(array($service, 'createForCreditor'), (array)$fixture->url_params);
 
-        $body = $fixture->body->logos;
+        $body = $fixture->body->payer_themes;
     
-        $this->assertInstanceOf('\GoCardlessPro\Resources\Logo', $response);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\PayerTheme', $response);
 
         $this->assertEquals($body->id, $response->id);
     

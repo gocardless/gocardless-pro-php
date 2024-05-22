@@ -116,6 +116,8 @@ class Client
         
         $this->services['payer_authorisations'] = new Services\PayerAuthorisationsService($this->api_client);
         
+        $this->services['payer_themes'] = new Services\PayerThemesService($this->api_client);
+        
         $this->services['payments'] = new Services\PaymentsService($this->api_client);
         
         $this->services['payouts'] = new Services\PayoutsService($this->api_client);
@@ -427,6 +429,19 @@ class Client
             throw new \Exception('Key payer_authorisations does not exist in services array');
         }
         return $this->services['payer_authorisations'];
+    }
+    
+    /**
+     * Service for interacting with payer theme
+     *
+     * @return Services\PayerThemesService
+     */
+    public function payerThemes()
+    {
+        if (!isset($this->services['payer_themes'])) {
+            throw new \Exception('Key payer_themes does not exist in services array');
+        }
+        return $this->services['payer_themes'];
     }
     
     /**

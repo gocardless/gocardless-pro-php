@@ -10,36 +10,36 @@ namespace GoCardlessPro\Services;
 use \GoCardlessPro\Core\Paginator;
 use \GoCardlessPro\Core\Util;
 use \GoCardlessPro\Core\ListResponse;
-use \GoCardlessPro\Resources\Logo;
+use \GoCardlessPro\Resources\PayerTheme;
 use \GoCardlessPro\Core\Exception\InvalidStateException;
 
 
 /**
- * Service that provides access to the Logo
+ * Service that provides access to the PayerTheme
  * endpoints of the API
  *
  * @method createForCreditor()
  */
-class LogosService extends BaseService
+class PayerThemesService extends BaseService
 {
 
-    protected $envelope_key   = 'logos';
-    protected $resource_class = '\GoCardlessPro\Resources\Logo';
+    protected $envelope_key   = 'payer_themes';
+    protected $resource_class = '\GoCardlessPro\Resources\PayerTheme';
 
 
     /**
-     * Create a logo associated with a creditor
+     * Create a payer theme associated with a creditor
      *
-     * Example URL: /creditors/:identity/branding/logos
+     * Example URL: /creditors/:identity/branding/payer_themes
      *
      * @param  string        $identity Unique identifier, beginning with "CR".
      * @param  string[mixed] $params   An associative array for any params
-     * @return Logo
+     * @return PayerTheme
      **/
     public function createForCreditor($identity, $params = array())
     {
         $path = Util::subUrl(
-            '/creditors/:identity/branding/logos',
+            '/creditors/:identity/branding/payer_themes',
             array(
                 
                 'identity' => $identity
