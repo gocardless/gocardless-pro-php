@@ -58,7 +58,7 @@ class Client
                 'Content-Type' => 'application/json',
                 'Authorization' => "Bearer " . $access_token,
                 'GoCardless-Client-Library' => 'gocardless-pro-php',
-                'GoCardless-Client-Version' => '5.7.0',
+                'GoCardless-Client-Version' => '5.8.0',
                 'User-Agent' => $this->getUserAgent()
                 ),
                 'http_errors' => false,
@@ -102,6 +102,8 @@ class Client
         
         $this->services['institutions'] = new Services\InstitutionsService($this->api_client);
         
+        $this->services['logos'] = new Services\LogosService($this->api_client);
+        
         $this->services['mandates'] = new Services\MandatesService($this->api_client);
         
         $this->services['mandate_imports'] = new Services\MandateImportsService($this->api_client);
@@ -113,6 +115,8 @@ class Client
         $this->services['negative_balance_limits'] = new Services\NegativeBalanceLimitsService($this->api_client);
         
         $this->services['payer_authorisations'] = new Services\PayerAuthorisationsService($this->api_client);
+        
+        $this->services['payer_themes'] = new Services\PayerThemesService($this->api_client);
         
         $this->services['payments'] = new Services\PaymentsService($this->api_client);
         
@@ -337,6 +341,19 @@ class Client
     }
     
     /**
+     * Service for interacting with logos
+     *
+     * @return Services\LogosService
+     */
+    public function logos()
+    {
+        if (!isset($this->services['logos'])) {
+            throw new \Exception('Key logos does not exist in services array');
+        }
+        return $this->services['logos'];
+    }
+    
+    /**
      * Service for interacting with mandates
      *
      * @return Services\MandatesService
@@ -412,6 +429,19 @@ class Client
             throw new \Exception('Key payer_authorisations does not exist in services array');
         }
         return $this->services['payer_authorisations'];
+    }
+    
+    /**
+     * Service for interacting with payer theme
+     *
+     * @return Services\PayerThemesService
+     */
+    public function payerThemes()
+    {
+        if (!isset($this->services['payer_themes'])) {
+            throw new \Exception('Key payer_themes does not exist in services array');
+        }
+        return $this->services['payer_themes'];
     }
     
     /**
@@ -619,7 +649,7 @@ class Client
     {
         $curlinfo = curl_version();
         $uagent = array();
-        $uagent[] = 'gocardless-pro-php/5.7.0';
+        $uagent[] = 'gocardless-pro-php/5.8.0';
         $uagent[] = 'schema-version/2015-07-06';
         if (defined('\GuzzleHttp\Client::MAJOR_VERSION')) {
             $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::MAJOR_VERSION;
