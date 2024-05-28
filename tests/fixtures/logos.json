@@ -1,8 +1,8 @@
 { 
   "create_for_creditor": {
     "method": "POST",
-    "path_template": "/creditors/:identity/branding/logos",
-    "url_params": {"identity": "CR123"},
+    "path_template": "/branding/logos",
+    "url_params": {},
     "body": {"logos":{"id":"LO123"}}
   }
 }
