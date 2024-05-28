@@ -1,8 +1,8 @@
 { 
   "create_for_creditor": {
     "method": "POST",
-    "path_template": "/creditors/:identity/branding/payer_themes",
-    "url_params": {"identity": "CR123"},
+    "path_template": "/branding/payer_themes",
+    "url_params": {},
     "body": {"payer_themes":{"id":"PTH123"}}
   }
 }
