@@ -84,6 +84,7 @@ class Event extends BaseResource
      * <ul>
      * <li>`billing_requests`</li>
      * <li>`creditors`</li>
+     * <li>`exports`</li>
      * <li>`instalment_schedules`</li>
      * <li>`mandates`</li>
      * <li>`payer_authorisations`</li>
