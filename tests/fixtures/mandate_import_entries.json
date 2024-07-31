@@ -9,7 +9,7 @@
     "method": "GET",
     "path_template": "/mandate_import_entries",
     "url_params": {},
-    "body": {"mandate_import_entries":[{"created_at":"2014-01-01T12:00:00.000Z","links":{"customer":"CU123","customer_bank_account":"BA123","mandate":"MD123","mandate_import":"IM0000AAAAAAA"},"record_identifier":"bank-file.xml/line-1"},{"created_at":"2014-01-01T12:00:00.000Z","links":{"customer":"CU123","customer_bank_account":"BA123","mandate":"MD123","mandate_import":"IM0000AAAAAAA"},"record_identifier":"bank-file.xml/line-1"}],"meta":{"cursors":{"after":"example after 10","before":"example before 9326"},"limit":50}}
+    "body": {"mandate_import_entries":[{"created_at":"2014-01-01T12:00:00.000Z","links":{"customer":"CU123","customer_bank_account":"BA123","mandate":"MD123","mandate_import":"IM0000AAAAAAA"},"record_identifier":"bank-file.xml/line-1"},{"created_at":"2014-01-01T12:00:00.000Z","links":{"customer":"CU123","customer_bank_account":"BA123","mandate":"MD123","mandate_import":"IM0000AAAAAAA"},"record_identifier":"bank-file.xml/line-1"}],"meta":{"cursors":{"after":"example after 9301","before":"example before 1267"},"limit":50}}
   }
 }
 

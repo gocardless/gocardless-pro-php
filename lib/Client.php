@@ -98,6 +98,8 @@ class Client
         
         $this->services['events'] = new Services\EventsService($this->api_client);
         
+        $this->services['exports'] = new Services\ExportsService($this->api_client);
+        
         $this->services['instalment_schedules'] = new Services\InstalmentSchedulesService($this->api_client);
         
         $this->services['institutions'] = new Services\InstitutionsService($this->api_client);
@@ -312,6 +314,19 @@ class Client
             throw new \Exception('Key events does not exist in services array');
         }
         return $this->services['events'];
+    }
+    
+    /**
+     * Service for interacting with exports
+     *
+     * @return Services\ExportsService
+     */
+    public function exports()
+    {
+        if (!isset($this->services['exports'])) {
+            throw new \Exception('Key exports does not exist in services array');
+        }
+        return $this->services['exports'];
     }
     
     /**
