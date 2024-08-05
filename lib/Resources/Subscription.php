@@ -26,6 +26,7 @@ namespace GoCardlessPro\Resources;
  * @property-read $metadata
  * @property-read $month
  * @property-read $name
+ * @property-read $parent_plan_paused
  * @property-read $payment_reference
  * @property-read $retry_if_possible
  * @property-read $start_date
@@ -134,6 +135,11 @@ class Subscription extends BaseResource
      * on each payment created. Must not exceed 255 characters.
      */
     protected $name;
+
+    /**
+     * Whether the parent plan of this subscription is paused.
+     */
+    protected $parent_plan_paused;
 
     /**
      * An optional payment reference. This will be set as the reference on each

@@ -41,6 +41,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->month, $response->month);
         $this->assertEquals($body->name, $response->name);
+        $this->assertEquals($body->parent_plan_paused, $response->parent_plan_paused);
         $this->assertEquals($body->payment_reference, $response->payment_reference);
         $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
         $this->assertEquals($body->start_date, $response->start_date);
@@ -88,6 +89,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->month, $response->month);
         $this->assertEquals($body->name, $response->name);
+        $this->assertEquals($body->parent_plan_paused, $response->parent_plan_paused);
         $this->assertEquals($body->payment_reference, $response->payment_reference);
         $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
         $this->assertEquals($body->start_date, $response->start_date);
@@ -185,6 +187,10 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->name, $record->name);
             }
             
+            if (isset($body[$num]->parent_plan_paused)) {
+                $this->assertEquals($body[$num]->parent_plan_paused, $record->parent_plan_paused);
+            }
+            
             if (isset($body[$num]->payment_reference)) {
                 $this->assertEquals($body[$num]->payment_reference, $record->payment_reference);
             }
@@ -240,6 +246,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->month, $response->month);
         $this->assertEquals($body->name, $response->name);
+        $this->assertEquals($body->parent_plan_paused, $response->parent_plan_paused);
         $this->assertEquals($body->payment_reference, $response->payment_reference);
         $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
         $this->assertEquals($body->start_date, $response->start_date);
@@ -280,6 +287,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->month, $response->month);
         $this->assertEquals($body->name, $response->name);
+        $this->assertEquals($body->parent_plan_paused, $response->parent_plan_paused);
         $this->assertEquals($body->payment_reference, $response->payment_reference);
         $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
         $this->assertEquals($body->start_date, $response->start_date);
@@ -320,6 +328,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->month, $response->month);
         $this->assertEquals($body->name, $response->name);
+        $this->assertEquals($body->parent_plan_paused, $response->parent_plan_paused);
         $this->assertEquals($body->payment_reference, $response->payment_reference);
         $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
         $this->assertEquals($body->start_date, $response->start_date);
@@ -360,6 +369,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->month, $response->month);
         $this->assertEquals($body->name, $response->name);
+        $this->assertEquals($body->parent_plan_paused, $response->parent_plan_paused);
         $this->assertEquals($body->payment_reference, $response->payment_reference);
         $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
         $this->assertEquals($body->start_date, $response->start_date);
@@ -400,6 +410,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->month, $response->month);
         $this->assertEquals($body->name, $response->name);
+        $this->assertEquals($body->parent_plan_paused, $response->parent_plan_paused);
         $this->assertEquals($body->payment_reference, $response->payment_reference);
         $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
         $this->assertEquals($body->start_date, $response->start_date);

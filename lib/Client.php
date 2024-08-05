@@ -58,7 +58,7 @@ class Client
                 'Content-Type' => 'application/json',
                 'Authorization' => "Bearer " . $access_token,
                 'GoCardless-Client-Library' => 'gocardless-pro-php',
-                'GoCardless-Client-Version' => '5.9.0',
+                'GoCardless-Client-Version' => '5.10.0',
                 'User-Agent' => $this->getUserAgent()
                 ),
                 'http_errors' => false,
@@ -97,6 +97,8 @@ class Client
         $this->services['customer_notifications'] = new Services\CustomerNotificationsService($this->api_client);
         
         $this->services['events'] = new Services\EventsService($this->api_client);
+        
+        $this->services['exports'] = new Services\ExportsService($this->api_client);
         
         $this->services['instalment_schedules'] = new Services\InstalmentSchedulesService($this->api_client);
         
@@ -312,6 +314,19 @@ class Client
             throw new \Exception('Key events does not exist in services array');
         }
         return $this->services['events'];
+    }
+    
+    /**
+     * Service for interacting with exports
+     *
+     * @return Services\ExportsService
+     */
+    public function exports()
+    {
+        if (!isset($this->services['exports'])) {
+            throw new \Exception('Key exports does not exist in services array');
+        }
+        return $this->services['exports'];
     }
     
     /**
@@ -649,7 +664,7 @@ class Client
     {
         $curlinfo = curl_version();
         $uagent = array();
-        $uagent[] = 'gocardless-pro-php/5.9.0';
+        $uagent[] = 'gocardless-pro-php/5.10.0';
         $uagent[] = 'schema-version/2015-07-06';
         if (defined('\GuzzleHttp\Client::MAJOR_VERSION')) {
             $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::MAJOR_VERSION;
