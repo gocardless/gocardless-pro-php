@@ -11,24 +11,24 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a customer, providing access to its
  * attributes
  *
- * @property-read $address_line1
- * @property-read $address_line2
- * @property-read $address_line3
- * @property-read $city
- * @property-read $company_name
- * @property-read $country_code
- * @property-read $created_at
- * @property-read $danish_identity_number
- * @property-read $email
- * @property-read $family_name
- * @property-read $given_name
- * @property-read $id
- * @property-read $language
- * @property-read $metadata
- * @property-read $phone_number
- * @property-read $postal_code
- * @property-read $region
- * @property-read $swedish_identity_number
+ * @property-read mixed $address_line1
+ * @property-read mixed $address_line2
+ * @property-read mixed $address_line3
+ * @property-read mixed $city
+ * @property-read mixed $company_name
+ * @property-read mixed $country_code
+ * @property-read mixed $created_at
+ * @property-read mixed $danish_identity_number
+ * @property-read mixed $email
+ * @property-read mixed $family_name
+ * @property-read mixed $given_name
+ * @property-read mixed $id
+ * @property-read mixed $language
+ * @property-read mixed $metadata
+ * @property-read mixed $phone_number
+ * @property-read mixed $postal_code
+ * @property-read mixed $region
+ * @property-read mixed $swedish_identity_number
  */
 class Customer extends BaseResource
 {

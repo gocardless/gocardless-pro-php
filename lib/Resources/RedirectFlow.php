@@ -11,17 +11,17 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a redirect_flow, providing access to its
  * attributes
  *
- * @property-read $confirmation_url
- * @property-read $created_at
- * @property-read $description
- * @property-read $id
- * @property-read $links
- * @property-read $mandate_reference
- * @property-read $metadata
- * @property-read $redirect_url
- * @property-read $scheme
- * @property-read $session_token
- * @property-read $success_redirect_url
+ * @property-read mixed $confirmation_url
+ * @property-read mixed $created_at
+ * @property-read mixed $description
+ * @property-read mixed $id
+ * @property-read mixed $links
+ * @property-read mixed $mandate_reference
+ * @property-read mixed $metadata
+ * @property-read mixed $redirect_url
+ * @property-read mixed $scheme
+ * @property-read mixed $session_token
+ * @property-read mixed $success_redirect_url
  */
 class RedirectFlow extends BaseResource
 {

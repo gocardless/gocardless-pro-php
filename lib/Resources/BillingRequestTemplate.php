@@ -11,23 +11,23 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a billing_request_template, providing access to its
  * attributes
  *
- * @property-read $authorisation_url
- * @property-read $created_at
- * @property-read $id
- * @property-read $mandate_request_currency
- * @property-read $mandate_request_description
- * @property-read $mandate_request_metadata
- * @property-read $mandate_request_scheme
- * @property-read $mandate_request_verify
- * @property-read $metadata
- * @property-read $name
- * @property-read $payment_request_amount
- * @property-read $payment_request_currency
- * @property-read $payment_request_description
- * @property-read $payment_request_metadata
- * @property-read $payment_request_scheme
- * @property-read $redirect_uri
- * @property-read $updated_at
+ * @property-read mixed $authorisation_url
+ * @property-read mixed $created_at
+ * @property-read mixed $id
+ * @property-read mixed $mandate_request_currency
+ * @property-read mixed $mandate_request_description
+ * @property-read mixed $mandate_request_metadata
+ * @property-read mixed $mandate_request_scheme
+ * @property-read mixed $mandate_request_verify
+ * @property-read mixed $metadata
+ * @property-read mixed $name
+ * @property-read mixed $payment_request_amount
+ * @property-read mixed $payment_request_currency
+ * @property-read mixed $payment_request_description
+ * @property-read mixed $payment_request_metadata
+ * @property-read mixed $payment_request_scheme
+ * @property-read mixed $redirect_uri
+ * @property-read mixed $updated_at
  */
 class BillingRequestTemplate extends BaseResource
 {

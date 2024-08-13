@@ -11,20 +11,20 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a payment, providing access to its
  * attributes
  *
- * @property-read $amount
- * @property-read $amount_refunded
- * @property-read $charge_date
- * @property-read $created_at
- * @property-read $currency
- * @property-read $description
- * @property-read $faster_ach
- * @property-read $fx
- * @property-read $id
- * @property-read $links
- * @property-read $metadata
- * @property-read $reference
- * @property-read $retry_if_possible
- * @property-read $status
+ * @property-read mixed $amount
+ * @property-read mixed $amount_refunded
+ * @property-read mixed $charge_date
+ * @property-read mixed $created_at
+ * @property-read mixed $currency
+ * @property-read mixed $description
+ * @property-read mixed $faster_ach
+ * @property-read mixed $fx
+ * @property-read mixed $id
+ * @property-read mixed $links
+ * @property-read mixed $metadata
+ * @property-read mixed $reference
+ * @property-read mixed $retry_if_possible
+ * @property-read mixed $status
  */
 class Payment extends BaseResource
 {

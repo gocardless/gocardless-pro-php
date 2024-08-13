@@ -17,11 +17,6 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the MandateImport
  * endpoints of the API
- *
- * @method create()
- * @method get()
- * @method submit()
- * @method cancel()
  */
 class MandateImportsService extends BaseService
 {
@@ -35,7 +30,7 @@ class MandateImportsService extends BaseService
      *
      * Example URL: /mandate_imports
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return MandateImport
      **/
     public function create($params = array())
@@ -70,8 +65,8 @@ class MandateImportsService extends BaseService
      *
      * Example URL: /mandate_imports/:identity
      *
-     * @param  string        $identity Unique identifier, beginning with "IM".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "IM".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return MandateImport
      **/
     public function get($identity, $params = array())
@@ -99,8 +94,8 @@ class MandateImportsService extends BaseService
      *
      * Example URL: /mandate_imports/:identity/actions/submit
      *
-     * @param  string        $identity Unique identifier, beginning with "IM".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "IM".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return MandateImport
      **/
     public function submit($identity, $params = array())
@@ -141,8 +136,8 @@ class MandateImportsService extends BaseService
      *
      * Example URL: /mandate_imports/:identity/actions/cancel
      *
-     * @param  string        $identity Unique identifier, beginning with "IM".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "IM".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return MandateImport
      **/
     public function cancel($identity, $params = array())

@@ -18,9 +18,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * Service that provides access to the Webhook
  * endpoints of the API
  *
- * @method list()
- * @method get()
- * @method retry()
+ * @method ListResponse list(array $params)
  */
 class WebhooksService extends BaseService
 {
@@ -34,7 +32,7 @@ class WebhooksService extends BaseService
      *
      * Example URL: /webhooks
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return ListResponse
      **/
     protected function _doList($params = array())
@@ -56,8 +54,8 @@ class WebhooksService extends BaseService
      *
      * Example URL: /webhooks/:identity
      *
-     * @param  string        $identity Unique identifier, beginning with "WB".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "WB".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Webhook
      **/
     public function get($identity, $params = array())
@@ -85,8 +83,8 @@ class WebhooksService extends BaseService
      *
      * Example URL: /webhooks/:identity/actions/retry
      *
-     * @param  string        $identity Unique identifier, beginning with "WB".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "WB".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Webhook
      **/
     public function retry($identity, $params = array())

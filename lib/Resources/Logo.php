@@ -11,7 +11,7 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a logo, providing access to its
  * attributes
  *
- * @property-read $id
+ * @property-read mixed $id
  */
 class Logo extends BaseResource
 {

@@ -18,11 +18,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * Service that provides access to the Customer
  * endpoints of the API
  *
- * @method create()
- * @method list()
- * @method get()
- * @method update()
- * @method remove()
+ * @method ListResponse list(array $params)
  */
 class CustomersService extends BaseService
 {
@@ -36,7 +32,7 @@ class CustomersService extends BaseService
      *
      * Example URL: /customers
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return Customer
      **/
     public function create($params = array())
@@ -71,7 +67,7 @@ class CustomersService extends BaseService
      *
      * Example URL: /customers
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return ListResponse
      **/
     protected function _doList($params = array())
@@ -93,8 +89,8 @@ class CustomersService extends BaseService
      *
      * Example URL: /customers/:identity
      *
-     * @param  string        $identity Unique identifier, beginning with "CU".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "CU".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Customer
      **/
     public function get($identity, $params = array())
@@ -122,8 +118,8 @@ class CustomersService extends BaseService
      *
      * Example URL: /customers/:identity
      *
-     * @param  string        $identity Unique identifier, beginning with "CU".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "CU".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Customer
      **/
     public function update($identity, $params = array())
@@ -153,8 +149,8 @@ class CustomersService extends BaseService
      *
      * Example URL: /customers/:identity
      *
-     * @param  string        $identity Unique identifier, beginning with "CU".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "CU".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Customer
      **/
     public function remove($identity, $params = array())

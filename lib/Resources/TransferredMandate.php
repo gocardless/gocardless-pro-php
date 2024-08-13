@@ -11,10 +11,10 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a transferred_mandate, providing access to its
  * attributes
  *
- * @property-read $encrypted_customer_bank_details
- * @property-read $encrypted_decryption_key
- * @property-read $links
- * @property-read $public_key_id
+ * @property-read mixed $encrypted_customer_bank_details
+ * @property-read mixed $encrypted_decryption_key
+ * @property-read mixed $links
+ * @property-read mixed $public_key_id
  */
 class TransferredMandate extends BaseResource
 {

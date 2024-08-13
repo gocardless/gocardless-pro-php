@@ -18,12 +18,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * Service that provides access to the Block
  * endpoints of the API
  *
- * @method create()
- * @method get()
- * @method list()
- * @method disable()
- * @method enable()
- * @method blockByRef()
+ * @method ListResponse list(array $params)
  */
 class BlocksService extends BaseService
 {
@@ -37,7 +32,7 @@ class BlocksService extends BaseService
      *
      * Example URL: /blocks
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return Block
      **/
     public function create($params = array())
@@ -72,8 +67,8 @@ class BlocksService extends BaseService
      *
      * Example URL: /blocks/:identity
      *
-     * @param  string        $identity Unique identifier, beginning with "BLC".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "BLC".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Block
      **/
     public function get($identity, $params = array())
@@ -101,7 +96,7 @@ class BlocksService extends BaseService
      *
      * Example URL: /blocks
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return ListResponse
      **/
     protected function _doList($params = array())
@@ -123,8 +118,8 @@ class BlocksService extends BaseService
      *
      * Example URL: /blocks/:identity/actions/disable
      *
-     * @param  string        $identity Unique identifier, beginning with "BLC".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "BLC".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Block
      **/
     public function disable($identity, $params = array())
@@ -165,8 +160,8 @@ class BlocksService extends BaseService
      *
      * Example URL: /blocks/:identity/actions/enable
      *
-     * @param  string        $identity Unique identifier, beginning with "BLC".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "BLC".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Block
      **/
     public function enable($identity, $params = array())
@@ -207,7 +202,7 @@ class BlocksService extends BaseService
      *
      * Example URL: /blocks/block_by_ref
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return ListResponse
      **/
     public function blockByRef($params = array())

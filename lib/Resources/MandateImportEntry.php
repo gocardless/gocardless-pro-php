@@ -11,9 +11,9 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a mandate_import_entry, providing access to its
  * attributes
  *
- * @property-read $created_at
- * @property-read $links
- * @property-read $record_identifier
+ * @property-read mixed $created_at
+ * @property-read mixed $links
+ * @property-read mixed $record_identifier
  */
 class MandateImportEntry extends BaseResource
 {

@@ -17,12 +17,6 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the PayerAuthorisation
  * endpoints of the API
- *
- * @method get()
- * @method create()
- * @method update()
- * @method submit()
- * @method confirm()
  */
 class PayerAuthorisationsService extends BaseService
 {
@@ -36,8 +30,8 @@ class PayerAuthorisationsService extends BaseService
      *
      * Example URL: /payer_authorisations/:identity
      *
-     * @param  string        $identity Unique identifier, beginning with "PA".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "PA".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return PayerAuthorisation
      **/
     public function get($identity, $params = array())
@@ -65,7 +59,7 @@ class PayerAuthorisationsService extends BaseService
      *
      * Example URL: /payer_authorisations
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return PayerAuthorisation
      **/
     public function create($params = array())
@@ -100,8 +94,8 @@ class PayerAuthorisationsService extends BaseService
      *
      * Example URL: /payer_authorisations/:identity
      *
-     * @param  string        $identity Unique identifier, beginning with "PA".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "PA".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return PayerAuthorisation
      **/
     public function update($identity, $params = array())
@@ -131,8 +125,8 @@ class PayerAuthorisationsService extends BaseService
      *
      * Example URL: /payer_authorisations/:identity/actions/submit
      *
-     * @param  string        $identity Unique identifier, beginning with "PA".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "PA".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return PayerAuthorisation
      **/
     public function submit($identity, $params = array())
@@ -173,8 +167,8 @@ class PayerAuthorisationsService extends BaseService
      *
      * Example URL: /payer_authorisations/:identity/actions/confirm
      *
-     * @param  string        $identity Unique identifier, beginning with "PA".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "PA".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return PayerAuthorisation
      **/
     public function confirm($identity, $params = array())

@@ -17,8 +17,6 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the PayerTheme
  * endpoints of the API
- *
- * @method createForCreditor()
  */
 class PayerThemesService extends BaseService
 {
@@ -32,7 +30,7 @@ class PayerThemesService extends BaseService
      *
      * Example URL: /branding/payer_themes
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return PayerTheme
      **/
     public function createForCreditor($params = array())

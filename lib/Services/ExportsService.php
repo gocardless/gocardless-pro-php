@@ -18,8 +18,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * Service that provides access to the Export
  * endpoints of the API
  *
- * @method get()
- * @method list()
+ * @method ListResponse list(array $params)
  */
 class ExportsService extends BaseService
 {
@@ -33,8 +32,8 @@ class ExportsService extends BaseService
      *
      * Example URL: /exports/:identity
      *
-     * @param  string        $identity Unique identifier, beginning with "EX".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "EX".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Export
      **/
     public function get($identity, $params = array())
@@ -62,7 +61,7 @@ class ExportsService extends BaseService
      *
      * Example URL: /exports
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return ListResponse
      **/
     protected function _doList($params = array())

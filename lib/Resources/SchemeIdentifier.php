@@ -11,24 +11,24 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a scheme_identifier, providing access to its
  * attributes
  *
- * @property-read $address_line1
- * @property-read $address_line2
- * @property-read $address_line3
- * @property-read $can_specify_mandate_reference
- * @property-read $city
- * @property-read $country_code
- * @property-read $created_at
- * @property-read $currency
- * @property-read $email
- * @property-read $id
- * @property-read $minimum_advance_notice
- * @property-read $name
- * @property-read $phone_number
- * @property-read $postal_code
- * @property-read $reference
- * @property-read $region
- * @property-read $scheme
- * @property-read $status
+ * @property-read mixed $address_line1
+ * @property-read mixed $address_line2
+ * @property-read mixed $address_line3
+ * @property-read mixed $can_specify_mandate_reference
+ * @property-read mixed $city
+ * @property-read mixed $country_code
+ * @property-read mixed $created_at
+ * @property-read mixed $currency
+ * @property-read mixed $email
+ * @property-read mixed $id
+ * @property-read mixed $minimum_advance_notice
+ * @property-read mixed $name
+ * @property-read mixed $phone_number
+ * @property-read mixed $postal_code
+ * @property-read mixed $reference
+ * @property-read mixed $region
+ * @property-read mixed $scheme
+ * @property-read mixed $status
  */
 class SchemeIdentifier extends BaseResource
 {

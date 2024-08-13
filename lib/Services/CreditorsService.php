@@ -18,10 +18,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * Service that provides access to the Creditor
  * endpoints of the API
  *
- * @method create()
- * @method list()
- * @method get()
- * @method update()
+ * @method ListResponse list(array $params)
  */
 class CreditorsService extends BaseService
 {
@@ -35,7 +32,7 @@ class CreditorsService extends BaseService
      *
      * Example URL: /creditors
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return Creditor
      **/
     public function create($params = array())
@@ -70,7 +67,7 @@ class CreditorsService extends BaseService
      *
      * Example URL: /creditors
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return ListResponse
      **/
     protected function _doList($params = array())
@@ -92,8 +89,8 @@ class CreditorsService extends BaseService
      *
      * Example URL: /creditors/:identity
      *
-     * @param  string        $identity Unique identifier, beginning with "CR".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "CR".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Creditor
      **/
     public function get($identity, $params = array())
@@ -121,8 +118,8 @@ class CreditorsService extends BaseService
      *
      * Example URL: /creditors/:identity
      *
-     * @param  string        $identity Unique identifier, beginning with "CR".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "CR".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Creditor
      **/
     public function update($identity, $params = array())

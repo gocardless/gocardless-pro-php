@@ -17,8 +17,6 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the Logo
  * endpoints of the API
- *
- * @method createForCreditor()
  */
 class LogosService extends BaseService
 {
@@ -32,7 +30,7 @@ class LogosService extends BaseService
      *
      * Example URL: /branding/logos
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return Logo
      **/
     public function createForCreditor($params = array())

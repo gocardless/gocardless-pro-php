@@ -11,16 +11,16 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a verification_detail, providing access to its
  * attributes
  *
- * @property-read $address_line1
- * @property-read $address_line2
- * @property-read $address_line3
- * @property-read $city
- * @property-read $company_number
- * @property-read $description
- * @property-read $directors
- * @property-read $links
- * @property-read $name
- * @property-read $postal_code
+ * @property-read mixed $address_line1
+ * @property-read mixed $address_line2
+ * @property-read mixed $address_line3
+ * @property-read mixed $city
+ * @property-read mixed $company_number
+ * @property-read mixed $description
+ * @property-read mixed $directors
+ * @property-read mixed $links
+ * @property-read mixed $name
+ * @property-read mixed $postal_code
  */
 class VerificationDetail extends BaseResource
 {

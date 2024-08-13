@@ -11,15 +11,15 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a event, providing access to its
  * attributes
  *
- * @property-read $action
- * @property-read $created_at
- * @property-read $customer_notifications
- * @property-read $details
- * @property-read $id
- * @property-read $links
- * @property-read $metadata
- * @property-read $resource_metadata
- * @property-read $resource_type
+ * @property-read mixed $action
+ * @property-read mixed $created_at
+ * @property-read mixed $customer_notifications
+ * @property-read mixed $details
+ * @property-read mixed $id
+ * @property-read mixed $links
+ * @property-read mixed $metadata
+ * @property-read mixed $resource_metadata
+ * @property-read mixed $resource_type
  */
 class Event extends BaseResource
 {

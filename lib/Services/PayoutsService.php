@@ -18,9 +18,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * Service that provides access to the Payout
  * endpoints of the API
  *
- * @method list()
- * @method get()
- * @method update()
+ * @method ListResponse list(array $params)
  */
 class PayoutsService extends BaseService
 {
@@ -34,7 +32,7 @@ class PayoutsService extends BaseService
      *
      * Example URL: /payouts
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return ListResponse
      **/
     protected function _doList($params = array())
@@ -56,8 +54,8 @@ class PayoutsService extends BaseService
      *
      * Example URL: /payouts/:identity
      *
-     * @param  string        $identity Unique identifier, beginning with "PO".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "PO".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Payout
      **/
     public function get($identity, $params = array())
@@ -85,8 +83,8 @@ class PayoutsService extends BaseService
      *
      * Example URL: /payouts/:identity
      *
-     * @param  string        $identity Unique identifier, beginning with "PO".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "PO".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Payout
      **/
     public function update($identity, $params = array())
