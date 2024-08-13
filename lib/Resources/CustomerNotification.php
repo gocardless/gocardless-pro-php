@@ -11,12 +11,12 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a customer_notification, providing access to its
  * attributes
  *
- * @property-read $action_taken
- * @property-read $action_taken_at
- * @property-read $action_taken_by
- * @property-read $id
- * @property-read $links
- * @property-read $type
+ * @property-read mixed $action_taken
+ * @property-read mixed $action_taken_at
+ * @property-read mixed $action_taken_by
+ * @property-read mixed $id
+ * @property-read mixed $links
+ * @property-read mixed $type
  */
 class CustomerNotification extends BaseResource
 {

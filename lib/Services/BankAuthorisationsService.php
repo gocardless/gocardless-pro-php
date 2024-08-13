@@ -17,9 +17,6 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the BankAuthorisation
  * endpoints of the API
- *
- * @method create()
- * @method get()
  */
 class BankAuthorisationsService extends BaseService
 {
@@ -33,7 +30,7 @@ class BankAuthorisationsService extends BaseService
      *
      * Example URL: /bank_authorisations
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return BankAuthorisation
      **/
     public function create($params = array())
@@ -68,8 +65,8 @@ class BankAuthorisationsService extends BaseService
      *
      * Example URL: /bank_authorisations/:identity
      *
-     * @param  string        $identity Unique identifier, beginning with "BAU".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "BAU".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return BankAuthorisation
      **/
     public function get($identity, $params = array())

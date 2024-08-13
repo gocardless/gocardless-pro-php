@@ -18,9 +18,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * Service that provides access to the SchemeIdentifier
  * endpoints of the API
  *
- * @method create()
- * @method list()
- * @method get()
+ * @method ListResponse list(array $params)
  */
 class SchemeIdentifiersService extends BaseService
 {
@@ -34,7 +32,7 @@ class SchemeIdentifiersService extends BaseService
      *
      * Example URL: /scheme_identifiers
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return SchemeIdentifier
      **/
     public function create($params = array())
@@ -69,7 +67,7 @@ class SchemeIdentifiersService extends BaseService
      *
      * Example URL: /scheme_identifiers
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return ListResponse
      **/
     protected function _doList($params = array())
@@ -91,8 +89,8 @@ class SchemeIdentifiersService extends BaseService
      *
      * Example URL: /scheme_identifiers/:identity
      *
-     * @param  string        $identity Unique identifier, usually beginning with "SU".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, usually beginning with "SU".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return SchemeIdentifier
      **/
     public function get($identity, $params = array())

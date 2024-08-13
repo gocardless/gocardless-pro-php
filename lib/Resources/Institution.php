@@ -11,12 +11,12 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a institution, providing access to its
  * attributes
  *
- * @property-read $autocompletes_collect_bank_account
- * @property-read $country_code
- * @property-read $icon_url
- * @property-read $id
- * @property-read $logo_url
- * @property-read $name
+ * @property-read mixed $autocompletes_collect_bank_account
+ * @property-read mixed $country_code
+ * @property-read mixed $icon_url
+ * @property-read mixed $id
+ * @property-read mixed $logo_url
+ * @property-read mixed $name
  */
 class Institution extends BaseResource
 {

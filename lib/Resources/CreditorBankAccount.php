@@ -11,18 +11,18 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a creditor_bank_account, providing access to its
  * attributes
  *
- * @property-read $account_holder_name
- * @property-read $account_number_ending
- * @property-read $account_type
- * @property-read $bank_name
- * @property-read $country_code
- * @property-read $created_at
- * @property-read $currency
- * @property-read $enabled
- * @property-read $id
- * @property-read $links
- * @property-read $metadata
- * @property-read $verification_status
+ * @property-read mixed $account_holder_name
+ * @property-read mixed $account_number_ending
+ * @property-read mixed $account_type
+ * @property-read mixed $bank_name
+ * @property-read mixed $country_code
+ * @property-read mixed $created_at
+ * @property-read mixed $currency
+ * @property-read mixed $enabled
+ * @property-read mixed $id
+ * @property-read mixed $links
+ * @property-read mixed $metadata
+ * @property-read mixed $verification_status
  */
 class CreditorBankAccount extends BaseResource
 {

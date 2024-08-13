@@ -11,19 +11,19 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a webhook, providing access to its
  * attributes
  *
- * @property-read $created_at
- * @property-read $id
- * @property-read $is_test
- * @property-read $request_body
- * @property-read $request_headers
- * @property-read $response_body
- * @property-read $response_body_truncated
- * @property-read $response_code
- * @property-read $response_headers
- * @property-read $response_headers_content_truncated
- * @property-read $response_headers_count_truncated
- * @property-read $successful
- * @property-read $url
+ * @property-read mixed $created_at
+ * @property-read mixed $id
+ * @property-read mixed $is_test
+ * @property-read mixed $request_body
+ * @property-read mixed $request_headers
+ * @property-read mixed $response_body
+ * @property-read mixed $response_body_truncated
+ * @property-read mixed $response_code
+ * @property-read mixed $response_headers
+ * @property-read mixed $response_headers_content_truncated
+ * @property-read mixed $response_headers_count_truncated
+ * @property-read mixed $successful
+ * @property-read mixed $url
  */
 class Webhook extends BaseResource
 {

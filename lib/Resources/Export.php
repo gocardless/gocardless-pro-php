@@ -11,11 +11,11 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a export, providing access to its
  * attributes
  *
- * @property-read $created_at
- * @property-read $currency
- * @property-read $download_url
- * @property-read $export_type
- * @property-read $id
+ * @property-read mixed $created_at
+ * @property-read mixed $currency
+ * @property-read mixed $download_url
+ * @property-read mixed $export_type
+ * @property-read mixed $id
  */
 class Export extends BaseResource
 {

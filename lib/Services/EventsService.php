@@ -18,8 +18,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * Service that provides access to the Event
  * endpoints of the API
  *
- * @method list()
- * @method get()
+ * @method ListResponse list(array $params)
  */
 class EventsService extends BaseService
 {
@@ -33,7 +32,7 @@ class EventsService extends BaseService
      *
      * Example URL: /events
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return ListResponse
      **/
     protected function _doList($params = array())
@@ -55,8 +54,8 @@ class EventsService extends BaseService
      *
      * Example URL: /events/:identity
      *
-     * @param  string        $identity Unique identifier, beginning with "EV".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "EV".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return Event
      **/
     public function get($identity, $params = array())

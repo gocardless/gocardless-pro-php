@@ -18,12 +18,7 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
  * Service that provides access to the InstalmentSchedule
  * endpoints of the API
  *
- * @method createWithDates()
- * @method createWithSchedule()
- * @method list()
- * @method get()
- * @method update()
- * @method cancel()
+ * @method ListResponse list(array $params)
  */
 class InstalmentSchedulesService extends BaseService
 {
@@ -37,7 +32,7 @@ class InstalmentSchedulesService extends BaseService
      *
      * Example URL: /instalment_schedules
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return InstalmentSchedule
      **/
     public function createWithDates($params = array())
@@ -72,7 +67,7 @@ class InstalmentSchedulesService extends BaseService
      *
      * Example URL: /instalment_schedules
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return InstalmentSchedule
      **/
     public function createWithSchedule($params = array())
@@ -107,7 +102,7 @@ class InstalmentSchedulesService extends BaseService
      *
      * Example URL: /instalment_schedules
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return ListResponse
      **/
     protected function _doList($params = array())
@@ -129,8 +124,8 @@ class InstalmentSchedulesService extends BaseService
      *
      * Example URL: /instalment_schedules/:identity
      *
-     * @param  string        $identity Unique identifier, beginning with "IS".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "IS".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return InstalmentSchedule
      **/
     public function get($identity, $params = array())
@@ -158,8 +153,8 @@ class InstalmentSchedulesService extends BaseService
      *
      * Example URL: /instalment_schedules/:identity
      *
-     * @param  string        $identity Unique identifier, beginning with "IS".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "IS".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return InstalmentSchedule
      **/
     public function update($identity, $params = array())
@@ -189,8 +184,8 @@ class InstalmentSchedulesService extends BaseService
      *
      * Example URL: /instalment_schedules/:identity/actions/cancel
      *
-     * @param  string        $identity Unique identifier, beginning with "IS".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "IS".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return InstalmentSchedule
      **/
     public function cancel($identity, $params = array())

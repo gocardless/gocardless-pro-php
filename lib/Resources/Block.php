@@ -11,14 +11,14 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a block, providing access to its
  * attributes
  *
- * @property-read $active
- * @property-read $block_type
- * @property-read $created_at
- * @property-read $id
- * @property-read $reason_description
- * @property-read $reason_type
- * @property-read $resource_reference
- * @property-read $updated_at
+ * @property-read mixed $active
+ * @property-read mixed $block_type
+ * @property-read mixed $created_at
+ * @property-read mixed $id
+ * @property-read mixed $reason_description
+ * @property-read mixed $reason_type
+ * @property-read mixed $resource_reference
+ * @property-read mixed $updated_at
  */
 class Block extends BaseResource
 {

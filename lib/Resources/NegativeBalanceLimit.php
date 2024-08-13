@@ -11,11 +11,11 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a negative_balance_limit, providing access to its
  * attributes
  *
- * @property-read $balance_limit
- * @property-read $created_at
- * @property-read $currency
- * @property-read $id
- * @property-read $links
+ * @property-read mixed $balance_limit
+ * @property-read mixed $created_at
+ * @property-read mixed $currency
+ * @property-read mixed $id
+ * @property-read mixed $links
  */
 class NegativeBalanceLimit extends BaseResource
 {

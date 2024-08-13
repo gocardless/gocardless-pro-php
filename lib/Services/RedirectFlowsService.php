@@ -17,10 +17,6 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the RedirectFlow
  * endpoints of the API
- *
- * @method create()
- * @method get()
- * @method complete()
  */
 class RedirectFlowsService extends BaseService
 {
@@ -34,7 +30,7 @@ class RedirectFlowsService extends BaseService
      *
      * Example URL: /redirect_flows
      *
-     * @param  string[mixed] $params An associative array for any params
+     * @param  array<string, mixed> $params An associative array for any params
      * @return RedirectFlow
      **/
     public function create($params = array())
@@ -69,8 +65,8 @@ class RedirectFlowsService extends BaseService
      *
      * Example URL: /redirect_flows/:identity
      *
-     * @param  string        $identity Unique identifier, beginning with "RE".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "RE".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return RedirectFlow
      **/
     public function get($identity, $params = array())
@@ -98,8 +94,8 @@ class RedirectFlowsService extends BaseService
      *
      * Example URL: /redirect_flows/:identity/actions/complete
      *
-     * @param  string        $identity Unique identifier, beginning with "RE".
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "RE".
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return RedirectFlow
      **/
     public function complete($identity, $params = array())

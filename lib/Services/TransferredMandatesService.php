@@ -17,8 +17,6 @@ use \GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the TransferredMandate
  * endpoints of the API
- *
- * @method transferredMandates()
  */
 class TransferredMandatesService extends BaseService
 {
@@ -32,9 +30,9 @@ class TransferredMandatesService extends BaseService
      *
      * Example URL: /transferred_mandates/:identity
      *
-     * @param  string        $identity Unique identifier, beginning with "MD". Note that this
-                                 prefix may not apply to mandates created before 2016.
-     * @param  string[mixed] $params   An associative array for any params
+     * @param  string               $identity Unique identifier, beginning with "MD". Note that this
+     *                                        prefix may not apply to mandates created before 2016.
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return TransferredMandate
      **/
     public function transferredMandates($identity, $params = array())

@@ -11,12 +11,12 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a tax_rate, providing access to its
  * attributes
  *
- * @property-read $end_date
- * @property-read $id
- * @property-read $jurisdiction
- * @property-read $percentage
- * @property-read $start_date
- * @property-read $type
+ * @property-read mixed $end_date
+ * @property-read mixed $id
+ * @property-read mixed $jurisdiction
+ * @property-read mixed $percentage
+ * @property-read mixed $start_date
+ * @property-read mixed $type
  */
 class TaxRate extends BaseResource
 {

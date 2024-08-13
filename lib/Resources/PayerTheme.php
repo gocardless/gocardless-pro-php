@@ -11,7 +11,7 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a payer_theme, providing access to its
  * attributes
  *
- * @property-read $id
+ * @property-read mixed $id
  */
 class PayerTheme extends BaseResource
 {

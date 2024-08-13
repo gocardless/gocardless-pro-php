@@ -11,27 +11,27 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a creditor, providing access to its
  * attributes
  *
- * @property-read $address_line1
- * @property-read $address_line2
- * @property-read $address_line3
- * @property-read $bank_reference_prefix
- * @property-read $can_create_refunds
- * @property-read $city
- * @property-read $country_code
- * @property-read $created_at
- * @property-read $creditor_type
- * @property-read $custom_payment_pages_enabled
- * @property-read $fx_payout_currency
- * @property-read $id
- * @property-read $links
- * @property-read $logo_url
- * @property-read $mandate_imports_enabled
- * @property-read $merchant_responsible_for_notifications
- * @property-read $name
- * @property-read $postal_code
- * @property-read $region
- * @property-read $scheme_identifiers
- * @property-read $verification_status
+ * @property-read mixed $address_line1
+ * @property-read mixed $address_line2
+ * @property-read mixed $address_line3
+ * @property-read mixed $bank_reference_prefix
+ * @property-read mixed $can_create_refunds
+ * @property-read mixed $city
+ * @property-read mixed $country_code
+ * @property-read mixed $created_at
+ * @property-read mixed $creditor_type
+ * @property-read mixed $custom_payment_pages_enabled
+ * @property-read mixed $fx_payout_currency
+ * @property-read mixed $id
+ * @property-read mixed $links
+ * @property-read mixed $logo_url
+ * @property-read mixed $mandate_imports_enabled
+ * @property-read mixed $merchant_responsible_for_notifications
+ * @property-read mixed $name
+ * @property-read mixed $postal_code
+ * @property-read mixed $region
+ * @property-read mixed $scheme_identifiers
+ * @property-read mixed $verification_status
  */
 class Creditor extends BaseResource
 {

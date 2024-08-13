@@ -11,27 +11,27 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a subscription, providing access to its
  * attributes
  *
- * @property-read $amount
- * @property-read $app_fee
- * @property-read $count
- * @property-read $created_at
- * @property-read $currency
- * @property-read $day_of_month
- * @property-read $earliest_charge_date_after_resume
- * @property-read $end_date
- * @property-read $id
- * @property-read $interval
- * @property-read $interval_unit
- * @property-read $links
- * @property-read $metadata
- * @property-read $month
- * @property-read $name
- * @property-read $parent_plan_paused
- * @property-read $payment_reference
- * @property-read $retry_if_possible
- * @property-read $start_date
- * @property-read $status
- * @property-read $upcoming_payments
+ * @property-read mixed $amount
+ * @property-read mixed $app_fee
+ * @property-read mixed $count
+ * @property-read mixed $created_at
+ * @property-read mixed $currency
+ * @property-read mixed $day_of_month
+ * @property-read mixed $earliest_charge_date_after_resume
+ * @property-read mixed $end_date
+ * @property-read mixed $id
+ * @property-read mixed $interval
+ * @property-read mixed $interval_unit
+ * @property-read mixed $links
+ * @property-read mixed $metadata
+ * @property-read mixed $month
+ * @property-read mixed $name
+ * @property-read mixed $parent_plan_paused
+ * @property-read mixed $payment_reference
+ * @property-read mixed $retry_if_possible
+ * @property-read mixed $start_date
+ * @property-read mixed $status
+ * @property-read mixed $upcoming_payments
  */
 class Subscription extends BaseResource
 {
