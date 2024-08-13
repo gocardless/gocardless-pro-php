@@ -30,7 +30,7 @@ class Paginator implements \Iterator
     private $current_position;
 
     /**
-     * @var array Keep track of the index of the first record on the current page. Allows for relative indexing into the page.
+     * @var int Keep track of the index of the first record on the current page. Allows for relative indexing into the page.
      */
     private $current_page_position;
 
