@@ -14,6 +14,7 @@ namespace GoCardlessPro\Resources;
  * @property-read mixed $account_holder_name
  * @property-read mixed $account_number_ending
  * @property-read mixed $account_type
+ * @property-read mixed $bank_account_token
  * @property-read mixed $bank_name
  * @property-read mixed $country_code
  * @property-read mixed $created_at
@@ -47,6 +48,12 @@ class CustomerBankAccount extends BaseResource
      * details](#local-bank-details-united-states) for more information.
      */
     protected $account_type;
+
+    /**
+     * A token to uniquely refer to a set of bank account details. This feature
+     * is still in early access and is only available for certain organisations.
+     */
+    protected $bank_account_token;
 
     /**
      * Name of bank, taken from the bank details.
