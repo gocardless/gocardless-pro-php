@@ -13,6 +13,7 @@ namespace GoCardlessPro\Resources;
  *
  * @property-read mixed $authorisation_source
  * @property-read mixed $consent_parameters
+ * @property-read mixed $consent_type
  * @property-read mixed $created_at
  * @property-read mixed $funds_settlement
  * @property-read mixed $id
@@ -48,6 +49,13 @@ class Mandate extends BaseResource
      * (Optional) Payto and VRP Scheme specific information
      */
     protected $consent_parameters;
+
+    /**
+     * (Optional) Specifies the type of authorisation agreed between the payer
+     * and merchant. It can be set to one-off, recurring or standing for ACH, or
+     * single, recurring and sporadic for PAD.
+     */
+    protected $consent_type;
 
     /**
      * Fixed [timestamp](#api-usage-time-zones--dates), recording when this
