@@ -37,6 +37,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -75,6 +76,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
         
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -107,6 +109,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -138,6 +141,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -169,6 +173,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -200,6 +205,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -231,6 +237,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -306,6 +313,10 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->status, $record->status);
             }
             
+            if (isset($body[$num]->subscription_request)) {
+                $this->assertEquals($body[$num]->subscription_request, $record->subscription_request);
+            }
+            
         }
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -337,6 +348,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -368,6 +380,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -399,6 +412,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -430,6 +444,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -461,6 +476,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

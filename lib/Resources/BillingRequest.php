@@ -22,6 +22,7 @@ namespace GoCardlessPro\Resources;
  * @property-read mixed $purpose_code
  * @property-read mixed $resources
  * @property-read mixed $status
+ * @property-read mixed $subscription_request
  */
 class BillingRequest extends BaseResource
 {
@@ -104,5 +105,10 @@ class BillingRequest extends BaseResource
      * </ul>
      */
     protected $status;
+
+    /**
+     * Request for a subscription
+     */
+    protected $subscription_request;
 
 }
