@@ -29,6 +29,7 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->account_holder_name, $response->account_holder_name);
         $this->assertEquals($body->account_number_ending, $response->account_number_ending);
         $this->assertEquals($body->account_type, $response->account_type);
+        $this->assertEquals($body->bank_account_token, $response->bank_account_token);
         $this->assertEquals($body->bank_name, $response->bank_name);
         $this->assertEquals($body->country_code, $response->country_code);
         $this->assertEquals($body->created_at, $response->created_at);
@@ -67,6 +68,7 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->account_holder_name, $response->account_holder_name);
         $this->assertEquals($body->account_number_ending, $response->account_number_ending);
         $this->assertEquals($body->account_type, $response->account_type);
+        $this->assertEquals($body->bank_account_token, $response->bank_account_token);
         $this->assertEquals($body->bank_name, $response->bank_name);
         $this->assertEquals($body->country_code, $response->country_code);
         $this->assertEquals($body->created_at, $response->created_at);
@@ -117,6 +119,10 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
             
             if (isset($body[$num]->account_type)) {
                 $this->assertEquals($body[$num]->account_type, $record->account_type);
+            }
+            
+            if (isset($body[$num]->bank_account_token)) {
+                $this->assertEquals($body[$num]->bank_account_token, $record->bank_account_token);
             }
             
             if (isset($body[$num]->bank_name)) {
@@ -174,6 +180,7 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->account_holder_name, $response->account_holder_name);
         $this->assertEquals($body->account_number_ending, $response->account_number_ending);
         $this->assertEquals($body->account_type, $response->account_type);
+        $this->assertEquals($body->bank_account_token, $response->bank_account_token);
         $this->assertEquals($body->bank_name, $response->bank_name);
         $this->assertEquals($body->country_code, $response->country_code);
         $this->assertEquals($body->created_at, $response->created_at);
@@ -205,6 +212,7 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->account_holder_name, $response->account_holder_name);
         $this->assertEquals($body->account_number_ending, $response->account_number_ending);
         $this->assertEquals($body->account_type, $response->account_type);
+        $this->assertEquals($body->bank_account_token, $response->bank_account_token);
         $this->assertEquals($body->bank_name, $response->bank_name);
         $this->assertEquals($body->country_code, $response->country_code);
         $this->assertEquals($body->created_at, $response->created_at);
@@ -236,6 +244,7 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->account_holder_name, $response->account_holder_name);
         $this->assertEquals($body->account_number_ending, $response->account_number_ending);
         $this->assertEquals($body->account_type, $response->account_type);
+        $this->assertEquals($body->bank_account_token, $response->bank_account_token);
         $this->assertEquals($body->bank_name, $response->bank_name);
         $this->assertEquals($body->country_code, $response->country_code);
         $this->assertEquals($body->created_at, $response->created_at);

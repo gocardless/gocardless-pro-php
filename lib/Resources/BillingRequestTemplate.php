@@ -120,7 +120,7 @@ class BillingRequestTemplate extends BaseResource
     protected $name;
 
     /**
-     * Amount in minor unit (e.g. pence in GBP, cents in EUR).
+     * Amount in full.
      */
     protected $payment_request_amount;
 
