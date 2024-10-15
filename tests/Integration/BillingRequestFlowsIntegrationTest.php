@@ -44,6 +44,7 @@ class BillingRequestFlowsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->session_token, $response->session_token);
         $this->assertEquals($body->show_redirect_buttons, $response->show_redirect_buttons);
         $this->assertEquals($body->show_success_redirect_button, $response->show_success_redirect_button);
+        $this->assertEquals($body->skip_success_screen, $response->skip_success_screen);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -82,6 +83,7 @@ class BillingRequestFlowsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->session_token, $response->session_token);
         $this->assertEquals($body->show_redirect_buttons, $response->show_redirect_buttons);
         $this->assertEquals($body->show_success_redirect_button, $response->show_success_redirect_button);
+        $this->assertEquals($body->skip_success_screen, $response->skip_success_screen);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
