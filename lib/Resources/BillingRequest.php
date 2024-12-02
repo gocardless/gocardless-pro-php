@@ -16,6 +16,7 @@ namespace GoCardlessPro\Resources;
  * @property-read mixed $fallback_enabled
  * @property-read mixed $fallback_occurred
  * @property-read mixed $id
+ * @property-read mixed $instalment_schedule_request
  * @property-read mixed $links
  * @property-read mixed $mandate_request
  * @property-read mixed $metadata
@@ -23,6 +24,7 @@ namespace GoCardlessPro\Resources;
  * @property-read mixed $purpose_code
  * @property-read mixed $resources
  * @property-read mixed $status
+ * @property-read mixed $subscription_request
  */
 class BillingRequest extends BaseResource
 {
@@ -60,6 +62,11 @@ class BillingRequest extends BaseResource
      * Unique identifier, beginning with "BRQ".
      */
     protected $id;
+
+    /**
+     * Request for an instalment schedule
+     */
+    protected $instalment_schedule_request;
 
     /**
      * 
@@ -110,5 +117,10 @@ class BillingRequest extends BaseResource
      * </ul>
      */
     protected $status;
+
+    /**
+     * Request for a subscription
+     */
+    protected $subscription_request;
 
 }

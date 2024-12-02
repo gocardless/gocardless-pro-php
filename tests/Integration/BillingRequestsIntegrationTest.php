@@ -31,6 +31,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -38,6 +39,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -70,6 +72,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -77,6 +80,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
         
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -103,6 +107,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -110,6 +115,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -135,6 +141,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -142,6 +149,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -167,6 +175,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -174,6 +183,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -199,6 +209,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -206,6 +217,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -231,6 +243,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -238,6 +251,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -289,6 +303,10 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->id, $record->id);
             }
             
+            if (isset($body[$num]->instalment_schedule_request)) {
+                $this->assertEquals($body[$num]->instalment_schedule_request, $record->instalment_schedule_request);
+            }
+            
             if (isset($body[$num]->links)) {
                 $this->assertEquals($body[$num]->links, $record->links);
             }
@@ -317,6 +335,10 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->status, $record->status);
             }
             
+            if (isset($body[$num]->subscription_request)) {
+                $this->assertEquals($body[$num]->subscription_request, $record->subscription_request);
+            }
+            
         }
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -342,6 +364,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -349,6 +372,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -374,6 +398,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -381,6 +406,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -406,6 +432,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -413,6 +440,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -438,6 +466,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -445,6 +474,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -470,6 +500,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
         $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -477,6 +508,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->purpose_code, $response->purpose_code);
         $this->assertEquals($body->resources, $response->resources);
         $this->assertEquals($body->status, $response->status);
+        $this->assertEquals($body->subscription_request, $response->subscription_request);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
