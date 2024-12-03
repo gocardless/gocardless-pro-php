@@ -29,7 +29,9 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->actions, $response->actions);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -68,7 +70,9 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->actions, $response->actions);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -101,7 +105,9 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->actions, $response->actions);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -133,7 +139,9 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->actions, $response->actions);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -165,7 +173,9 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->actions, $response->actions);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -197,7 +207,9 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->actions, $response->actions);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -229,7 +241,9 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->actions, $response->actions);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -281,8 +295,16 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->fallback_enabled, $record->fallback_enabled);
             }
             
+            if (isset($body[$num]->fallback_occurred)) {
+                $this->assertEquals($body[$num]->fallback_occurred, $record->fallback_occurred);
+            }
+            
             if (isset($body[$num]->id)) {
                 $this->assertEquals($body[$num]->id, $record->id);
+            }
+            
+            if (isset($body[$num]->instalment_schedule_request)) {
+                $this->assertEquals($body[$num]->instalment_schedule_request, $record->instalment_schedule_request);
             }
             
             if (isset($body[$num]->links)) {
@@ -340,7 +362,9 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->actions, $response->actions);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -372,7 +396,9 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->actions, $response->actions);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -404,7 +430,9 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->actions, $response->actions);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -436,7 +464,9 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->actions, $response->actions);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);
@@ -468,7 +498,9 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->actions, $response->actions);
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
         $this->assertEquals($body->id, $response->id);
+        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
         $this->assertEquals($body->links, $response->links);
         $this->assertEquals($body->mandate_request, $response->mandate_request);
         $this->assertEquals($body->metadata, $response->metadata);

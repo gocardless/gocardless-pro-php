@@ -29,6 +29,7 @@ namespace GoCardlessPro\Resources;
  * @property-read mixed $session_token
  * @property-read mixed $show_redirect_buttons
  * @property-read mixed $show_success_redirect_button
+ * @property-read mixed $skip_success_screen
  */
 class BillingRequestFlow extends BaseResource
 {
@@ -158,5 +159,12 @@ class BillingRequestFlow extends BaseResource
      * where automatic redirections are not possible.
      */
     protected $show_success_redirect_button;
+
+    /**
+     * If true, the payer will not be redirected to the success screen after
+     * completing the flow. A redirect_uri needs to be provided for this
+     * parameter to be taken into account.
+     */
+    protected $skip_success_screen;
 
 }
