@@ -28,6 +28,7 @@ class MandateImportEntriesIntegrationTest extends IntegrationTestBase
 
         $this->assertEquals($body->created_at, $response->created_at);
         $this->assertEquals($body->links, $response->links);
+        $this->assertEquals($body->processing_errors, $response->processing_errors);
         $this->assertEquals($body->record_identifier, $response->record_identifier);
     
 
@@ -66,6 +67,10 @@ class MandateImportEntriesIntegrationTest extends IntegrationTestBase
             
             if (isset($body[$num]->links)) {
                 $this->assertEquals($body[$num]->links, $record->links);
+            }
+            
+            if (isset($body[$num]->processing_errors)) {
+                $this->assertEquals($body[$num]->processing_errors, $record->processing_errors);
             }
             
             if (isset($body[$num]->record_identifier)) {
