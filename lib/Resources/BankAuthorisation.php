@@ -82,9 +82,14 @@ class BankAuthorisation extends BaseResource
      * `redirect_uri`, in which case you should
      * prompt the user to try the bank authorisation step again.
      * 
-     * The `redirect_uri` you provide should handle the `outcome` query
-     * parameter for displaying the result of the
-     * bank authorisation as outlined above.
+     * Please note: bank authorisations can still fail despite an
+     * `outcome=success` on the `redirect_uri`. It is therefore recommended to
+     * wait for the relevant bank authorisation event, such as
+     * [`BANK_AUTHORISATION_AUTHORISED`](#billing-request-bankauthorisationauthorised),
+     * [`BANK_AUTHORISATION_DENIED`](#billing-request-bankauthorisationdenied),
+     * or
+     * [`BANK_AUTHORISATION_FAILED`](#billing-request-bankauthorisationfailed)
+     * in order to show the correct outcome to the user.
      * 
      * The BillingRequestFlow ID will also be appended to the `redirect_uri` as
      * query parameter `id=BRF123`.
