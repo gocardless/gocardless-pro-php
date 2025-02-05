@@ -3,7 +3,7 @@
     "method": "GET",
     "path_template": "/institutions",
     "url_params": {},
-    "body": {"institutions":[{"autocompletes_collect_bank_account":true,"country_code":"GB","icon_url":"https://gocardless/assets/icons/monzo","id":"monzo","logo_url":"https://gocardless/assets/logos/monzo","name":"VAT"},{"autocompletes_collect_bank_account":true,"country_code":"GB","icon_url":"https://gocardless/assets/icons/monzo","id":"monzo","logo_url":"https://gocardless/assets/logos/monzo","name":"VAT"}],"meta":{"cursors":{"after":"example after 5721","before":"example before 5985"},"limit":50}}
+    "body": {"institutions":[{"autocompletes_collect_bank_account":true,"country_code":"GB","icon_url":"https://gocardless/assets/icons/monzo","id":"monzo","logo_url":"https://gocardless/assets/logos/monzo","name":"VAT"},{"autocompletes_collect_bank_account":true,"country_code":"GB","icon_url":"https://gocardless/assets/icons/monzo","id":"monzo","logo_url":"https://gocardless/assets/logos/monzo","name":"VAT"}],"meta":{"cursors":{"after":"example after 5985","before":"example before 5721"},"limit":50}}
   },
   "list_for_billing_request": {
     "method": "GET",
