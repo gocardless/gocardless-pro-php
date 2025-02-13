@@ -77,12 +77,12 @@ class ScenarioSimulatorsService extends BaseService
      *                                        payment.</li> <li>`payment_late_failure`: Transitions a
      *                                        payment through to `late_failure`, having been
      *                                        apparently collected successfully beforehand. It must
-     *                                        start in the `pending_submission` state, and its mandate
-     *                                        must be in the `activated` state (unless it is a payment
-     *                                        for ACH, BECS, BECS_NZ or SEPA, in which cases the
-     *                                        mandate may be `pending_submission`, since their
-     *                                        mandates are submitted with their first payment). Not
-     *                                        compatible with Autogiro mandates.</li>
+     *                                        start in either the `pending_submission` or `paid_out`
+     *                                        state, and its mandate must be in the `activated` state
+     *                                        (unless it is a payment for ACH, BECS, BECS_NZ or SEPA,
+     *                                        in which cases the mandate may be `pending_submission`,
+     *                                        since their mandates are submitted with their first
+     *                                        payment). Not compatible with Autogiro mandates.</li>
      *                                        <li>`payment_late_failure_settled`: Behaves the same as
      *                                        the `payment_late_failure` simulator, except that the
      *                                        late failure is additionally included as a debit item in
