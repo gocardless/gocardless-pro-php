@@ -13,6 +13,7 @@ namespace GoCardlessPro\Resources;
  *
  * @property-read mixed $created_at
  * @property-read mixed $links
+ * @property-read mixed $processing_errors
  * @property-read mixed $record_identifier
  */
 class MandateImportEntry extends BaseResource
@@ -29,6 +30,11 @@ class MandateImportEntry extends BaseResource
      * Related resources
      */
     protected $links;
+
+    /**
+     * Per-resource processing errors
+     */
+    protected $processing_errors;
 
     /**
      * A unique identifier for this entry, which you can use (once the import
