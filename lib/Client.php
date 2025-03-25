@@ -72,6 +72,8 @@ class Client
 
         // Instantiate the services for each property
         
+        $this->services['balances'] = new Services\BalancesService($this->api_client);
+        
         $this->services['bank_authorisations'] = new Services\BankAuthorisationsService($this->api_client);
         
         $this->services['bank_details_lookups'] = new Services\BankDetailsLookupsService($this->api_client);
@@ -146,6 +148,19 @@ class Client
         
     }
 
+    
+    /**
+     * Service for interacting with balances
+     *
+     * @return Services\BalancesService
+     */
+    public function balances()
+    {
+        if (!isset($this->services['balances'])) {
+            throw new \Exception('Key balances does not exist in services array');
+        }
+        return $this->services['balances'];
+    }
     
     /**
      * Service for interacting with bank authorisations
