@@ -61,6 +61,10 @@ class InstitutionsIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->name, $record->name);
             }
             
+            if (isset($body[$num]->status)) {
+                $this->assertEquals($body[$num]->status, $record->status);
+            }
+            
         }
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -114,6 +118,10 @@ class InstitutionsIntegrationTest extends IntegrationTestBase
             
             if (isset($body[$num]->name)) {
                 $this->assertEquals($body[$num]->name, $record->name);
+            }
+            
+            if (isset($body[$num]->status)) {
+                $this->assertEquals($body[$num]->status, $record->status);
             }
             
         }
