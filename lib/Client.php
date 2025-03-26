@@ -58,7 +58,7 @@ class Client
                 'Content-Type' => 'application/json',
                 'Authorization' => "Bearer " . $access_token,
                 'GoCardless-Client-Library' => 'gocardless-pro-php',
-                'GoCardless-Client-Version' => '6.2.0',
+                'GoCardless-Client-Version' => '6.3.0',
                 'User-Agent' => $this->getUserAgent()
                 ),
                 'http_errors' => false,
@@ -71,6 +71,8 @@ class Client
         $this->api_client = new \GoCardlessPro\Core\ApiClient($http_client, $config);
 
         // Instantiate the services for each property
+        
+        $this->services['balances'] = new Services\BalancesService($this->api_client);
         
         $this->services['bank_authorisations'] = new Services\BankAuthorisationsService($this->api_client);
         
@@ -146,6 +148,19 @@ class Client
         
     }
 
+    
+    /**
+     * Service for interacting with balances
+     *
+     * @return Services\BalancesService
+     */
+    public function balances()
+    {
+        if (!isset($this->services['balances'])) {
+            throw new \Exception('Key balances does not exist in services array');
+        }
+        return $this->services['balances'];
+    }
     
     /**
      * Service for interacting with bank authorisations
@@ -664,7 +679,7 @@ class Client
     {
         $curlinfo = curl_version();
         $uagent = array();
-        $uagent[] = 'gocardless-pro-php/6.2.0';
+        $uagent[] = 'gocardless-pro-php/6.3.0';
         $uagent[] = 'schema-version/2015-07-06';
         if (defined('\GuzzleHttp\Client::MAJOR_VERSION')) {
             $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::MAJOR_VERSION;
