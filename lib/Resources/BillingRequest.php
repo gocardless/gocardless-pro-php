@@ -64,7 +64,9 @@ class BillingRequest extends BaseResource
     protected $id;
 
     /**
-     * Request for an instalment schedule
+     * Request for an instalment schedule. Has to contain either
+     * `instalments_with_schedule` object or an array of
+     * `instalments_with_dates` objects
      */
     protected $instalment_schedule_request;
 
