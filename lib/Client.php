@@ -74,6 +74,8 @@ class Client
         
         $this->services['balances'] = new Services\BalancesService($this->api_client);
         
+        $this->services['bank_account_details'] = new Services\BankAccountDetailsService($this->api_client);
+        
         $this->services['bank_authorisations'] = new Services\BankAuthorisationsService($this->api_client);
         
         $this->services['bank_details_lookups'] = new Services\BankDetailsLookupsService($this->api_client);
@@ -160,6 +162,19 @@ class Client
             throw new \Exception('Key balances does not exist in services array');
         }
         return $this->services['balances'];
+    }
+    
+    /**
+     * Service for interacting with bank account details
+     *
+     * @return Services\BankAccountDetailsService
+     */
+    public function bankAccountDetails()
+    {
+        if (!isset($this->services['bank_account_details'])) {
+            throw new \Exception('Key bank_account_details does not exist in services array');
+        }
+        return $this->services['bank_account_details'];
     }
     
     /**
