@@ -1,10 +1,12 @@
 <?php
 
 namespace GoCardlessPro;
+use \AllowDynamicProperties;
 
 /**
  * Main GoCardlessPro Client for making API calls
  */
+#[AllowDynamicProperties]
 class Client
 {
 
