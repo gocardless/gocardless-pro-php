@@ -3,19 +3,19 @@
     "method": "POST",
     "path_template": "/redirect_flows",
     "url_params": {},
-    "body": {"redirect_flows":{"confirmation_url":"https://pay.gocardless.com/flow/RE123/success","created_at":"2014-01-01T12:00:00.000Z","description":"Standard subscription","id":"RE123456","links":{"billing_request":"BR123","creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","mandate":"MD123"},"mandate_reference":"example mandate_reference 6138","metadata":{"salesforce_id":"ABCD1234"},"redirect_url":"http://pay.gocardless.com/flow/RE123","scheme":"bacs","session_token":"SESS_wSs0uGYMISxzqOBq","success_redirect_url":"https://example.com/pay/confirm"}}
+    "body": {"redirect_flows":{"confirmation_url":"https://pay.gocardless.com/flow/RE123/success","created_at":"2014-01-01T12:00:00.000Z","description":"Standard subscription","id":"RE123456","links":{"billing_request":"BR123","creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","mandate":"MD123"},"mandate_reference":"example mandate_reference 1092","metadata":{"salesforce_id":"ABCD1234"},"redirect_url":"http://pay.gocardless.com/flow/RE123","scheme":"bacs","session_token":"SESS_wSs0uGYMISxzqOBq","success_redirect_url":"https://example.com/pay/confirm"}}
   },
   "get": {
     "method": "GET",
     "path_template": "/redirect_flows/:identity",
     "url_params": {"identity": "RE123456"},
-    "body": {"redirect_flows":{"confirmation_url":"https://pay.gocardless.com/flow/RE123/success","created_at":"2014-01-01T12:00:00.000Z","description":"Standard subscription","id":"RE123456","links":{"billing_request":"BR123","creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","mandate":"MD123"},"mandate_reference":"example mandate_reference 8399","metadata":{"salesforce_id":"ABCD1234"},"redirect_url":"http://pay.gocardless.com/flow/RE123","scheme":"bacs","session_token":"SESS_wSs0uGYMISxzqOBq","success_redirect_url":"https://example.com/pay/confirm"}}
+    "body": {"redirect_flows":{"confirmation_url":"https://pay.gocardless.com/flow/RE123/success","created_at":"2014-01-01T12:00:00.000Z","description":"Standard subscription","id":"RE123456","links":{"billing_request":"BR123","creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","mandate":"MD123"},"mandate_reference":"example mandate_reference 6524","metadata":{"salesforce_id":"ABCD1234"},"redirect_url":"http://pay.gocardless.com/flow/RE123","scheme":"bacs","session_token":"SESS_wSs0uGYMISxzqOBq","success_redirect_url":"https://example.com/pay/confirm"}}
   },
   "complete": {
     "method": "POST",
     "path_template": "/redirect_flows/:identity/actions/complete",
     "url_params": {"identity": "RE123456"},
-    "body": {"redirect_flows":{"confirmation_url":"https://pay.gocardless.com/flow/RE123/success","created_at":"2014-01-01T12:00:00.000Z","description":"Standard subscription","id":"RE123456","links":{"billing_request":"BR123","creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","mandate":"MD123"},"mandate_reference":"example mandate_reference 4615","metadata":{"salesforce_id":"ABCD1234"},"redirect_url":"http://pay.gocardless.com/flow/RE123","scheme":"bacs","session_token":"SESS_wSs0uGYMISxzqOBq","success_redirect_url":"https://example.com/pay/confirm"}}
+    "body": {"redirect_flows":{"confirmation_url":"https://pay.gocardless.com/flow/RE123/success","created_at":"2014-01-01T12:00:00.000Z","description":"Standard subscription","id":"RE123456","links":{"billing_request":"BR123","creditor":"CR123","customer":"CU123","customer_bank_account":"BA123","mandate":"MD123"},"mandate_reference":"example mandate_reference 4214","metadata":{"salesforce_id":"ABCD1234"},"redirect_url":"http://pay.gocardless.com/flow/RE123","scheme":"bacs","session_token":"SESS_wSs0uGYMISxzqOBq","success_redirect_url":"https://example.com/pay/confirm"}}
   }
 }
 
