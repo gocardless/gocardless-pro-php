@@ -120,6 +120,8 @@ class Client
         
         $this->services['negative_balance_limits'] = new Services\NegativeBalanceLimitsService($this->api_client);
         
+        $this->services['outbound_payments'] = new Services\OutboundPaymentsService($this->api_client);
+        
         $this->services['payer_authorisations'] = new Services\PayerAuthorisationsService($this->api_client);
         
         $this->services['payer_themes'] = new Services\PayerThemesService($this->api_client);
@@ -461,6 +463,19 @@ class Client
             throw new \Exception('Key negative_balance_limits does not exist in services array');
         }
         return $this->services['negative_balance_limits'];
+    }
+    
+    /**
+     * Service for interacting with outbound payments
+     *
+     * @return Services\OutboundPaymentsService
+     */
+    public function outboundPayments()
+    {
+        if (!isset($this->services['outbound_payments'])) {
+            throw new \Exception('Key outbound_payments does not exist in services array');
+        }
+        return $this->services['outbound_payments'];
     }
     
     /**
