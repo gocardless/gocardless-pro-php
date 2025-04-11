@@ -56,7 +56,7 @@ class Balance extends BaseResource
     protected $currency;
 
     /**
-     * Dynamic [timestamp](#api-usage-time-zones--dates) recording when this
+     * Dynamic [timestamp](#api-usage-dates-and-times) recording when this
      * resource was last updated.
      */
     protected $last_updated_at;

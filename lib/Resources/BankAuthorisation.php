@@ -32,7 +32,7 @@ class BankAuthorisation extends BaseResource
     protected $authorisation_type;
 
     /**
-     * Fixed [timestamp](#api-usage-time-zones--dates), recording when the user
+     * Fixed [timestamp](#api-usage-dates-and-times), recording when the user
      * has been authorised.
      */
     protected $authorised_at;
@@ -54,7 +54,7 @@ class BankAuthorisation extends BaseResource
     protected $id;
 
     /**
-     * Fixed [timestamp](#api-usage-time-zones--dates), recording when the
+     * Fixed [timestamp](#api-usage-dates-and-times), recording when the
      * authorisation URL has been visited.
      */
     protected $last_visited_at;

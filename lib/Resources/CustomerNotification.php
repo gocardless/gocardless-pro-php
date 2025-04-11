@@ -30,7 +30,7 @@ class CustomerNotification extends BaseResource
     protected $action_taken;
 
     /**
-     * Fixed [timestamp](#api-usage-time-zones--dates), recording when this
+     * Fixed [timestamp](#api-usage-dates-and-times), recording when this
      * action was taken.
      */
     protected $action_taken_at;
