@@ -89,7 +89,7 @@ class OutboundPayment extends BaseResource
      * One of:
      * <ul>
      * <li>`verifying`: The payment has been
-     * [created](outbound-payments-create-an-outbound-payment) and the
+     * [created](#outbound-payments-create-an-outbound-payment) and the
      * verification process has begun.</li>
      * <li>`pending_approval`: The payment is awaiting
      * [approval](#outbound-payments-approve-an-outbound-payment).</li>
