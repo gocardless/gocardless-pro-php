@@ -100,19 +100,19 @@ class OutboundPaymentsService extends BaseService
     /**
      * Cancel an outbound payment
      *
-     * Example URL: /outbound_payments/:id/actions/cancel
+     * Example URL: /outbound_payments/:identity/actions/cancel
      *
-     * @param  string               $id     Unique identifier of the outbound payment.
-     * @param  array<string, mixed> $params An associative array for any params
+     * @param  string               $identity Unique identifier of the outbound payment.
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return OutboundPayment
      **/
-    public function cancel($id, $params = array())
+    public function cancel($identity, $params = array())
     {
         $path = Util::subUrl(
-            '/outbound_payments/:id/actions/cancel',
+            '/outbound_payments/:identity/actions/cancel',
             array(
                 
-                'id' => $id
+                'identity' => $identity
             )
         );
         if(isset($params['params'])) { 
@@ -142,19 +142,19 @@ class OutboundPaymentsService extends BaseService
     /**
      * Approve an outbound payment
      *
-     * Example URL: /outbound_payments/:id/actions/approve
+     * Example URL: /outbound_payments/:identity/actions/approve
      *
-     * @param  string               $id     Unique identifier of the outbound payment.
-     * @param  array<string, mixed> $params An associative array for any params
+     * @param  string               $identity Unique identifier of the outbound payment.
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return OutboundPayment
      **/
-    public function approve($id, $params = array())
+    public function approve($identity, $params = array())
     {
         $path = Util::subUrl(
-            '/outbound_payments/:id/actions/approve',
+            '/outbound_payments/:identity/actions/approve',
             array(
                 
-                'id' => $id
+                'identity' => $identity
             )
         );
         if(isset($params['params'])) { 
@@ -184,19 +184,19 @@ class OutboundPaymentsService extends BaseService
     /**
      * Get an outbound payment
      *
-     * Example URL: /outbound_payments/:id
+     * Example URL: /outbound_payments/:identity
      *
-     * @param  string               $id     Unique identifier of the outbound payment.
-     * @param  array<string, mixed> $params An associative array for any params
+     * @param  string               $identity Unique identifier of the outbound payment.
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return OutboundPayment
      **/
-    public function get($id, $params = array())
+    public function get($identity, $params = array())
     {
         $path = Util::subUrl(
-            '/outbound_payments/:id',
+            '/outbound_payments/:identity',
             array(
                 
-                'id' => $id
+                'identity' => $identity
             )
         );
         if(isset($params['params'])) { $params['query'] = $params['params'];
@@ -235,19 +235,19 @@ class OutboundPaymentsService extends BaseService
     /**
      * Update an outbound payment
      *
-     * Example URL: /outbound_payments/:id
+     * Example URL: /outbound_payments/:identity
      *
-     * @param  string               $id     Unique identifier of the outbound payment.
-     * @param  array<string, mixed> $params An associative array for any params
+     * @param  string               $identity Unique identifier of the outbound payment.
+     * @param  array<string, mixed> $params   An associative array for any params
      * @return OutboundPayment
      **/
-    public function update($id, $params = array())
+    public function update($identity, $params = array())
     {
         $path = Util::subUrl(
-            '/outbound_payments/:id',
+            '/outbound_payments/:identity',
             array(
                 
-                'id' => $id
+                'identity' => $identity
             )
         );
         if(isset($params['params'])) { 
