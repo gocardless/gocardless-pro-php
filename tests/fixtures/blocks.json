@@ -21,7 +21,7 @@
     "method": "POST",
     "path_template": "/blocks/:identity/actions/disable",
     "url_params": {"identity": "BLC123"},
-    "body": {"blocks":{"active":true,"block_type":"example block_type 909","created_at":"2014-01-01T12:00:00.000Z","id":"BLC123","reason_description":"example reason_description 5645","reason_type":"example reason_type 9277","resource_reference":"example@example.com","updated_at":"2014-01-01T12:00:00.000Z"}}
+    "body": {"blocks":{"active":true,"block_type":"example block_type 5645","created_at":"2014-01-01T12:00:00.000Z","id":"BLC123","reason_description":"example reason_description 9277","reason_type":"example reason_type 909","resource_reference":"example@example.com","updated_at":"2014-01-01T12:00:00.000Z"}}
   },
   "enable": {
     "method": "POST",

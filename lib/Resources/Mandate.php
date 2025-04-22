@@ -58,7 +58,7 @@ class Mandate extends BaseResource
     protected $consent_type;
 
     /**
-     * Fixed [timestamp](#api-usage-time-zones--dates), recording when this
+     * Fixed [timestamp](#api-usage-dates-and-times), recording when this
      * resource was created.
      */
     protected $created_at;
@@ -152,7 +152,7 @@ class Mandate extends BaseResource
     protected $status;
 
     /**
-     * [Timestamp](#api-usage-time-zones--dates) recording when this mandate was
+     * [Timestamp](#api-usage-dates-and-times) recording when this mandate was
      * verified.
      */
     protected $verified_at;

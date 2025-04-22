@@ -58,7 +58,7 @@ class Client
                 'Content-Type' => 'application/json',
                 'Authorization' => "Bearer " . $access_token,
                 'GoCardless-Client-Library' => 'gocardless-pro-php',
-                'GoCardless-Client-Version' => '6.5.0',
+                'GoCardless-Client-Version' => '6.6.0',
                 'User-Agent' => $this->getUserAgent()
                 ),
                 'http_errors' => false,
@@ -119,6 +119,8 @@ class Client
         $this->services['mandate_pdfs'] = new Services\MandatePdfsService($this->api_client);
         
         $this->services['negative_balance_limits'] = new Services\NegativeBalanceLimitsService($this->api_client);
+        
+        $this->services['outbound_payments'] = new Services\OutboundPaymentsService($this->api_client);
         
         $this->services['payer_authorisations'] = new Services\PayerAuthorisationsService($this->api_client);
         
@@ -464,6 +466,19 @@ class Client
     }
     
     /**
+     * Service for interacting with outbound payments
+     *
+     * @return Services\OutboundPaymentsService
+     */
+    public function outboundPayments()
+    {
+        if (!isset($this->services['outbound_payments'])) {
+            throw new \Exception('Key outbound_payments does not exist in services array');
+        }
+        return $this->services['outbound_payments'];
+    }
+    
+    /**
      * Service for interacting with payer authorisations
      *
      * @return Services\PayerAuthorisationsService
@@ -694,7 +709,7 @@ class Client
     {
         $curlinfo = curl_version();
         $uagent = array();
-        $uagent[] = 'gocardless-pro-php/6.5.0';
+        $uagent[] = 'gocardless-pro-php/6.6.0';
         $uagent[] = 'schema-version/2015-07-06';
         if (defined('\GuzzleHttp\Client::MAJOR_VERSION')) {
             $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::MAJOR_VERSION;

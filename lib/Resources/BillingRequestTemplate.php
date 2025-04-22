@@ -40,7 +40,7 @@ class BillingRequestTemplate extends BaseResource
     protected $authorisation_url;
 
     /**
-     * Fixed [timestamp](#api-usage-time-zones--dates), recording when this
+     * Fixed [timestamp](#api-usage-dates-and-times), recording when this
      * resource was created.
      */
     protected $created_at;
@@ -161,7 +161,7 @@ class BillingRequestTemplate extends BaseResource
     protected $redirect_uri;
 
     /**
-     * Dynamic [timestamp](#api-usage-time-zones--dates) recording when this
+     * Dynamic [timestamp](#api-usage-dates-and-times) recording when this
      * resource was last updated.
      */
     protected $updated_at;

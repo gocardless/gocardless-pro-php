@@ -1,7 +1,7 @@
 {
   "name": "gocardless/gocardless-pro",
   "description": "GoCardless Pro PHP Client Library",
-  "version": "6.5.0",
+  "version": "6.6.0",
   "keywords": [
     "gocardless",
     "direct debit",
