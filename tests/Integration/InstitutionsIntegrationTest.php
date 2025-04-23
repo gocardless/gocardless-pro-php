@@ -53,6 +53,10 @@ class InstitutionsIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->id, $record->id);
             }
             
+            if (isset($body[$num]->limits)) {
+                $this->assertEquals($body[$num]->limits, $record->limits);
+            }
+            
             if (isset($body[$num]->logo_url)) {
                 $this->assertEquals($body[$num]->logo_url, $record->logo_url);
             }
@@ -110,6 +114,10 @@ class InstitutionsIntegrationTest extends IntegrationTestBase
             
             if (isset($body[$num]->id)) {
                 $this->assertEquals($body[$num]->id, $record->id);
+            }
+            
+            if (isset($body[$num]->limits)) {
+                $this->assertEquals($body[$num]->limits, $record->limits);
             }
             
             if (isset($body[$num]->logo_url)) {
