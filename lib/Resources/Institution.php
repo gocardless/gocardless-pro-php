@@ -15,6 +15,7 @@ namespace GoCardlessPro\Resources;
  * @property-read mixed $country_code
  * @property-read mixed $icon_url
  * @property-read mixed $id
+ * @property-read mixed $limits
  * @property-read mixed $logo_url
  * @property-read mixed $name
  * @property-read mixed $status
@@ -33,7 +34,9 @@ class Institution extends BaseResource
     /**
      * [ISO
      * 3166-1](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
-     * alpha-2 code. The country code of the institution.
+     * alpha-2 code. The country code of the institution. If nothing is
+     * provided, institutions with the country code 'GB' are returned by
+     * default.
      */
     protected $country_code;
 
@@ -46,6 +49,11 @@ class Institution extends BaseResource
      * The unique identifier for this institution
      */
     protected $id;
+
+    /**
+     * Defines individual limits for business and personal accounts.
+     */
+    protected $limits;
 
     /**
      * A URL pointing to the logo for this institution
