@@ -23,7 +23,7 @@ abstract class Util
      *
      * @return string A querystring, essentially.
      */
-    public static function encodeQueryParams($arr, $prefix = null)
+    public static function encodeQueryParams($arr, string|null $prefix = null)
     {
         if (!is_array($arr)) {
             return $arr;
