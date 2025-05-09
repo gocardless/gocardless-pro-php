@@ -492,6 +492,41 @@ class BillingRequestsService extends BaseService
     }
 
     /**
+     * Create billing request with actions
+     *
+     * Example URL: /billing_requests/create_with_actions
+     *
+     * @param  array<string, mixed> $params An associative array for any params
+     * @return BillingRequest
+     **/
+    public function createWithActions($params = array())
+    {
+        $path = "/billing_requests/create_with_actions";
+        if(isset($params['params'])) { 
+            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+        
+            unset($params['params']);
+        }
+
+        
+        try {
+            $response = $this->api_client->post($path, $params);
+        } catch(InvalidStateException $e) {
+            if ($e->isIdempotentCreationConflict()) {
+                if ($this->api_client->error_on_idempotency_conflict) {
+                    throw $e;
+                }
+                return $this->get($e->getConflictingResourceId());
+            }
+
+            throw $e;
+        }
+        
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
      * List Billing Requests
      *
      * Example URL: /billing_requests
