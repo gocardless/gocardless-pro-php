@@ -13,6 +13,7 @@ namespace GoCardlessPro\Resources;
  *
  * @property-read mixed $amount
  * @property-read mixed $created_at
+ * @property-read mixed $currency
  * @property-read mixed $description
  * @property-read mixed $execution_date
  * @property-read mixed $id
@@ -39,6 +40,12 @@ class OutboundPayment extends BaseResource
      * outbound payment was created.
      */
     protected $created_at;
+
+    /**
+     * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency.
+     * Currently only "GBP" is supported.
+     */
+    protected $currency;
 
     /**
      * A human-readable description of the outbound payment
