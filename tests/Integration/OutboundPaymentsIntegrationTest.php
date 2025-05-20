@@ -28,6 +28,7 @@ class OutboundPaymentsIntegrationTest extends IntegrationTestBase
 
         $this->assertEquals($body->amount, $response->amount);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->currency, $response->currency);
         $this->assertEquals($body->description, $response->description);
         $this->assertEquals($body->execution_date, $response->execution_date);
         $this->assertEquals($body->id, $response->id);
@@ -67,6 +68,7 @@ class OutboundPaymentsIntegrationTest extends IntegrationTestBase
 
         $this->assertEquals($body->amount, $response->amount);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->currency, $response->currency);
         $this->assertEquals($body->description, $response->description);
         $this->assertEquals($body->execution_date, $response->execution_date);
         $this->assertEquals($body->id, $response->id);
@@ -100,6 +102,7 @@ class OutboundPaymentsIntegrationTest extends IntegrationTestBase
 
         $this->assertEquals($body->amount, $response->amount);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->currency, $response->currency);
         $this->assertEquals($body->description, $response->description);
         $this->assertEquals($body->execution_date, $response->execution_date);
         $this->assertEquals($body->id, $response->id);
@@ -132,6 +135,7 @@ class OutboundPaymentsIntegrationTest extends IntegrationTestBase
 
         $this->assertEquals($body->amount, $response->amount);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->currency, $response->currency);
         $this->assertEquals($body->description, $response->description);
         $this->assertEquals($body->execution_date, $response->execution_date);
         $this->assertEquals($body->id, $response->id);
@@ -164,6 +168,7 @@ class OutboundPaymentsIntegrationTest extends IntegrationTestBase
 
         $this->assertEquals($body->amount, $response->amount);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->currency, $response->currency);
         $this->assertEquals($body->description, $response->description);
         $this->assertEquals($body->execution_date, $response->execution_date);
         $this->assertEquals($body->id, $response->id);
@@ -196,6 +201,7 @@ class OutboundPaymentsIntegrationTest extends IntegrationTestBase
 
         $this->assertEquals($body->amount, $response->amount);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->currency, $response->currency);
         $this->assertEquals($body->description, $response->description);
         $this->assertEquals($body->execution_date, $response->execution_date);
         $this->assertEquals($body->id, $response->id);
@@ -243,6 +249,10 @@ class OutboundPaymentsIntegrationTest extends IntegrationTestBase
             
             if (isset($body[$num]->created_at)) {
                 $this->assertEquals($body[$num]->created_at, $record->created_at);
+            }
+            
+            if (isset($body[$num]->currency)) {
+                $this->assertEquals($body[$num]->currency, $record->currency);
             }
             
             if (isset($body[$num]->description)) {
@@ -307,6 +317,7 @@ class OutboundPaymentsIntegrationTest extends IntegrationTestBase
 
         $this->assertEquals($body->amount, $response->amount);
         $this->assertEquals($body->created_at, $response->created_at);
+        $this->assertEquals($body->currency, $response->currency);
         $this->assertEquals($body->description, $response->description);
         $this->assertEquals($body->execution_date, $response->execution_date);
         $this->assertEquals($body->id, $response->id);
