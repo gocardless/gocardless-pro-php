@@ -86,6 +86,8 @@ class Client
         
         $this->services['billing_request_templates'] = new Services\BillingRequestTemplatesService($this->api_client);
         
+        $this->services['billing_request_with_actions'] = new Services\BillingRequestWithActionsService($this->api_client);
+        
         $this->services['blocks'] = new Services\BlocksService($this->api_client);
         
         $this->services['creditors'] = new Services\CreditorsService($this->api_client);
@@ -242,6 +244,19 @@ class Client
             throw new \Exception('Key billing_request_templates does not exist in services array');
         }
         return $this->services['billing_request_templates'];
+    }
+    
+    /**
+     * Service for interacting with billing request with actions
+     *
+     * @return Services\BillingRequestWithActionsService
+     */
+    public function billingRequestWithActions()
+    {
+        if (!isset($this->services['billing_request_with_actions'])) {
+            throw new \Exception('Key billing_request_with_actions does not exist in services array');
+        }
+        return $this->services['billing_request_with_actions'];
     }
     
     /**
