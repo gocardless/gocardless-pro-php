@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use GoCardlessPro\Core\ApiResponse;
 use GoCardlessPro\Support\TestFixtures;
 
-class ErrorTest extends TestCase
+class ExceptionMessagesTest extends TestCase
 {
     use TestFixtures;
 

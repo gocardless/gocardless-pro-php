@@ -32,8 +32,8 @@ class RetryMiddlewareFactory
         return function (
             $retries,
             \GuzzleHttp\Psr7\Request $request,
-            \GuzzleHttp\Psr7\Response $response = null,
-            \GuzzleHttp\Exception\TransferException $exception = null
+            ?\GuzzleHttp\Psr7\Response $response = null,
+            ?\GuzzleHttp\Exception\TransferException $exception = null
         ) {
             if ($retries >= self::MAX_AUTOMATIC_TIMEOUT_RETRIES) {
                 return false;
@@ -78,7 +78,7 @@ class RetryMiddlewareFactory
      *
      * @return boolean
      */
-    private static function isConnectionError(\GuzzleHttp\Exception\TransferException $exception = null)
+    private static function isConnectionError(?\GuzzleHttp\Exception\TransferException $exception = null)
     {
         return $exception instanceof \GuzzleHttp\Exception\ConnectException;
     }
@@ -90,7 +90,7 @@ class RetryMiddlewareFactory
      *
      * @return boolean
      */
-    private static function isRetryableServerError(\GuzzleHttp\Psr7\Response $response = null)
+    private static function isRetryableServerError(?\GuzzleHttp\Psr7\Response $response = null)
     {
         if ($response) {
             $statusCode = $response->getStatusCode();
