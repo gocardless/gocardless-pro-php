@@ -3,7 +3,7 @@
     "method": "GET",
     "path_template": "/balances",
     "url_params": {},
-    "body": {"balances":[{"amount":3937,"balance_type":"confirmed_funds","currency":"EUR","last_updated_at":"2014-01-01T12:00:00.000Z","links":{"creditor":"CR123"}},{"amount":5904,"balance_type":"confirmed_funds","currency":"EUR","last_updated_at":"2014-01-01T12:00:00.000Z","links":{"creditor":"CR123"}}],"meta":{"cursors":{"after":"example after 7337","before":"example before 2452"},"limit":50}}
+    "body": {"balances":[{"amount":7678,"balance_type":"confirmed_funds","currency":"EUR","last_updated_at":"2014-01-01T12:00:00.000Z","links":{"creditor":"CR123"}},{"amount":7688,"balance_type":"confirmed_funds","currency":"EUR","last_updated_at":"2014-01-01T12:00:00.000Z","links":{"creditor":"CR123"}}],"meta":{"cursors":{"after":"example after 2978","before":"example before 1117"},"limit":50}}
   }
 }
 
