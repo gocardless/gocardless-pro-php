@@ -3,13 +3,13 @@
     "method": "GET",
     "path_template": "/exports/:identity",
     "url_params": {"identity": "EX123"},
-    "body": {"exports":{"created_at":"2014-01-01T12:00:00.000Z","currency":"GBP","download_url":"example download_url 3974","export_type":"payments_index","id":"EX123"}}
+    "body": {"exports":{"created_at":"2014-01-01T12:00:00.000Z","currency":"GBP","download_url":"example download_url 9204","export_type":"payments_index","id":"EX123"}}
   },
   "list": {
     "method": "GET",
     "path_template": "/exports",
     "url_params": {},
-    "body": {"exports":[{"created_at":"2014-01-01T12:00:00.000Z","currency":"GBP","export_type":"payments_index","id":"EX123"},{"created_at":"2014-01-01T12:00:00.000Z","currency":"GBP","export_type":"payments_index","id":"EX123"}],"meta":{"cursors":{"after":"example after 8340","before":"example before 7819"},"limit":50}}
+    "body": {"exports":[{"created_at":"2014-01-01T12:00:00.000Z","currency":"GBP","export_type":"payments_index","id":"EX123"},{"created_at":"2014-01-01T12:00:00.000Z","currency":"GBP","export_type":"payments_index","id":"EX123"}],"meta":{"cursors":{"after":"example after 1623","before":"example before 2867"},"limit":50}}
   }
 }
 
