@@ -14,6 +14,7 @@ namespace GoCardlessPro\Resources;
  * @property-read mixed $authorisation_url
  * @property-read mixed $created_at
  * @property-read mixed $id
+ * @property-read mixed $mandate_request_constraints
  * @property-read mixed $mandate_request_currency
  * @property-read mixed $mandate_request_description
  * @property-read mixed $mandate_request_metadata
@@ -49,6 +50,12 @@ class BillingRequestTemplate extends BaseResource
      * Unique identifier, beginning with "BRT".
      */
     protected $id;
+
+    /**
+     * Constraints that will apply to the mandate_request. (Optional)
+     * Specifically required for PayTo and VRP.
+     */
+    protected $mandate_request_constraints;
 
     /**
      * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
