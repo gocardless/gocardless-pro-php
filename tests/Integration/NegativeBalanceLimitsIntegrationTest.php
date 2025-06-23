@@ -65,29 +65,4 @@ class NegativeBalanceLimitsIntegrationTest extends IntegrationTestBase
     }
 
     
-    public function testNegativeBalanceLimitsCreate()
-    {
-        $fixture = $this->loadJsonFixture('negative_balance_limits')->create;
-        $this->stub_request($fixture);
-
-        $service = $this->client->negativeBalanceLimits();
-        $response = call_user_func_array(array($service, 'create'), (array)$fixture->url_params);
-
-        $body = $fixture->body->negative_balance_limits;
-    
-        $this->assertInstanceOf('\GoCardlessPro\Resources\NegativeBalanceLimit', $response);
-
-        $this->assertEquals($body->balance_limit, $response->balance_limit);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-    
-
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
-        $dispatchedRequest = $this->history[0]['request'];
-        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
-    }
-
-    
 }
