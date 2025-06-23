@@ -50,30 +50,6 @@ class NegativeBalanceLimitsService extends BaseService
     }
 
     /**
-     * Create a negative balance limit
-     *
-     * Example URL: /negative_balance_limits
-     *
-     * @param  array<string, mixed> $params An associative array for any params
-     * @return NegativeBalanceLimit
-     **/
-    public function create($params = array())
-    {
-        $path = "/negative_balance_limits";
-        if(isset($params['params'])) { 
-            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
-        
-            unset($params['params']);
-        }
-
-        
-        $response = $this->api_client->post($path, $params);
-        
-
-        return $this->getResourceForResponse($response);
-    }
-
-    /**
      * List negative balance limits
      *
      * Example URL: /negative_balance_limits
