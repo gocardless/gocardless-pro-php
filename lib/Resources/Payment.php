@@ -24,6 +24,7 @@ namespace GoCardlessPro\Resources;
  * @property-read mixed $metadata
  * @property-read mixed $reference
  * @property-read mixed $retry_if_possible
+ * @property-read mixed $scheme
  * @property-read mixed $status
  */
 class Payment extends BaseResource
@@ -131,6 +132,13 @@ class Payment extends BaseResource
      * dashboard](https://manage.gocardless.com/success-plus). </p>
      */
     protected $retry_if_possible;
+
+    /**
+     * A bank payment scheme. Currently "ach", "autogiro", "bacs", "becs",
+     * "becs_nz", "betalingsservice", "faster_payments", "pad", "pay_to" and
+     * "sepa_core" are supported.
+     */
+    protected $scheme;
 
     /**
      * One of:

@@ -39,6 +39,7 @@ class PaymentsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->reference, $response->reference);
         $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
+        $this->assertEquals($body->scheme, $response->scheme);
         $this->assertEquals($body->status, $response->status);
     
 
@@ -80,6 +81,7 @@ class PaymentsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->reference, $response->reference);
         $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
+        $this->assertEquals($body->scheme, $response->scheme);
         $this->assertEquals($body->status, $response->status);
         
 
@@ -165,6 +167,10 @@ class PaymentsIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->retry_if_possible, $record->retry_if_possible);
             }
             
+            if (isset($body[$num]->scheme)) {
+                $this->assertEquals($body[$num]->scheme, $record->scheme);
+            }
+            
             if (isset($body[$num]->status)) {
                 $this->assertEquals($body[$num]->status, $record->status);
             }
@@ -202,6 +208,7 @@ class PaymentsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->reference, $response->reference);
         $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
+        $this->assertEquals($body->scheme, $response->scheme);
         $this->assertEquals($body->status, $response->status);
     
 
@@ -236,6 +243,7 @@ class PaymentsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->reference, $response->reference);
         $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
+        $this->assertEquals($body->scheme, $response->scheme);
         $this->assertEquals($body->status, $response->status);
     
 
@@ -270,6 +278,7 @@ class PaymentsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->reference, $response->reference);
         $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
+        $this->assertEquals($body->scheme, $response->scheme);
         $this->assertEquals($body->status, $response->status);
     
 
@@ -304,6 +313,7 @@ class PaymentsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->reference, $response->reference);
         $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
+        $this->assertEquals($body->scheme, $response->scheme);
         $this->assertEquals($body->status, $response->status);
     
 
