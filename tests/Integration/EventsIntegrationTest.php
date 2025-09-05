@@ -73,6 +73,10 @@ class EventsIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->resource_type, $record->resource_type);
             }
             
+            if (isset($body[$num]->source)) {
+                $this->assertEquals($body[$num]->source, $record->source);
+            }
+            
         }
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -102,6 +106,7 @@ class EventsIntegrationTest extends IntegrationTestBase
         $this->assertEquals($body->metadata, $response->metadata);
         $this->assertEquals($body->resource_metadata, $response->resource_metadata);
         $this->assertEquals($body->resource_type, $response->resource_type);
+        $this->assertEquals($body->source, $response->source);
     
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

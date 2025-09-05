@@ -20,6 +20,7 @@ namespace GoCardlessPro\Resources;
  * @property-read mixed $metadata
  * @property-read mixed $resource_metadata
  * @property-read mixed $resource_type
+ * @property-read mixed $source
  */
 class Event extends BaseResource
 {
@@ -97,5 +98,10 @@ class Event extends BaseResource
      * </ul>
      */
     protected $resource_type;
+
+    /**
+     * Audit information about the source of the event.
+     */
+    protected $source;
 
 }
