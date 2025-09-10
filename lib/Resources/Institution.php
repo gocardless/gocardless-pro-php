@@ -51,8 +51,7 @@ class Institution extends BaseResource
     protected $id;
 
     /**
-     * Defines individual limits for business and personal accounts, in the
-     * lowest denomination for the currency (e.g. pence in GBP, cents in EUR).
+     * Defines individual limits for business and personal accounts.
      */
     protected $limits;
 
