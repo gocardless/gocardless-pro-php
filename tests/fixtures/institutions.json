@@ -3,13 +3,13 @@
     "method": "GET",
     "path_template": "/institutions",
     "url_params": {},
-    "body": {"institutions":[{"autocompletes_collect_bank_account":true,"country_code":"GB","icon_url":"https://gocardless/assets/icons/monzo","id":"monzo","limits":{"daily":{},"single":{}},"logo_url":"https://gocardless/assets/logos/monzo","name":"VAT","status":"enabled"},{"autocompletes_collect_bank_account":true,"country_code":"GB","icon_url":"https://gocardless/assets/icons/monzo","id":"monzo","limits":{"daily":{},"single":{}},"logo_url":"https://gocardless/assets/logos/monzo","name":"VAT","status":"enabled"}],"meta":{"cursors":{"after":"example after 1035","before":"example before 4481"},"limit":50}}
+    "body": {"institutions":[{"autocompletes_collect_bank_account":true,"country_code":"GB","icon_url":"https://gocardless/assets/icons/monzo","id":"monzo","limits":{"daily":{},"single":{}},"logo_url":"https://gocardless/assets/logos/monzo","name":"VAT","status":"enabled"},{"autocompletes_collect_bank_account":true,"country_code":"GB","icon_url":"https://gocardless/assets/icons/monzo","id":"monzo","limits":{"daily":{},"single":{}},"logo_url":"https://gocardless/assets/logos/monzo","name":"VAT","status":"enabled"}],"meta":{"cursors":{"after":"example after 1901","before":"example before 5116"},"limit":50}}
   },
   "list_for_billing_request": {
     "method": "GET",
     "path_template": "/billing_requests/:identity/institutions",
     "url_params": {"identity": "BRQ123"},
-    "body": {"institutions":[{"autocompletes_collect_bank_account":true,"country_code":"GB","icon_url":"https://gocardless/assets/icons/monzo","id":"monzo","limits":{"daily":{},"single":{}},"logo_url":"https://gocardless/assets/logos/monzo","name":"VAT","status":"enabled"},{"autocompletes_collect_bank_account":true,"country_code":"GB","icon_url":"https://gocardless/assets/icons/monzo","id":"monzo","limits":{"daily":{},"single":{}},"logo_url":"https://gocardless/assets/logos/monzo","name":"VAT","status":"enabled"}],"meta":{"cursors":{"after":"example after 4451","before":"example before 6727"},"limit":50}}
+    "body": {"institutions":[{"autocompletes_collect_bank_account":true,"country_code":"GB","icon_url":"https://gocardless/assets/icons/monzo","id":"monzo","limits":{"daily":{},"single":{}},"logo_url":"https://gocardless/assets/logos/monzo","name":"VAT","status":"enabled"},{"autocompletes_collect_bank_account":true,"country_code":"GB","icon_url":"https://gocardless/assets/icons/monzo","id":"monzo","limits":{"daily":{},"single":{}},"logo_url":"https://gocardless/assets/logos/monzo","name":"VAT","status":"enabled"}],"meta":{"cursors":{"after":"example after 7431","before":"example before 5396"},"limit":50}}
   }
 }
 
