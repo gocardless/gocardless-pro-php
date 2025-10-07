@@ -3,7 +3,7 @@
     "method": "GET",
     "path_template": "/bank_account_details/:identity",
     "url_params": {"identity": "BA123"},
-    "body": {"bank_account_details":{"ciphertext":"example ciphertext 3889","encrypted_key":"example encrypted_key 2555","iv":"example iv 8818","protected":"example protected 1613","tag":"example tag 5380"}}
+    "body": {"bank_account_details":{"ciphertext":"example ciphertext 1419","encrypted_key":"example encrypted_key 679","iv":"example iv 9499","protected":"example protected 6114","tag":"example tag 3361"}}
   }
 }
 
