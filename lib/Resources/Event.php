@@ -27,8 +27,8 @@ class Event extends BaseResource
     protected $model_name = "Event";
 
     /**
-     * What has happened to the resource. See [Event Actions](#event-actions)
-     * for the possible actions.
+     * What has happened to the resource. See [Event Actions](#webhooks) for the
+     * possible actions.
      */
     protected $action;
 
