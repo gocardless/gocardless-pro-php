@@ -118,7 +118,7 @@ class BillingRequestTemplatesService extends BaseService
      *
      * Example URL: /billing_request_templates/:identity
      *
-     * @param  string               $identity Unique identifier, beginning with "BRQ".
+     * @param  string               $identity Unique identifier, beginning with "BRT".
      * @param  array<string, mixed> $params   An associative array for any params
      * @return BillingRequestTemplate
      **/

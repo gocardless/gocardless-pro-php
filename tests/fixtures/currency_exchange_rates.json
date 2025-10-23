@@ -3,7 +3,7 @@
     "method": "GET",
     "path_template": "/currency_exchange_rates",
     "url_params": {},
-    "body": {"currency_exchange_rates":[{"rate":"1.1234567890","source":"GBP","target":"EUR","time":"2014-01-01T12:00:00Z"},{"rate":"1.1234567890","source":"GBP","target":"EUR","time":"2014-01-01T12:00:00Z"}],"meta":{"cursors":{"after":"example after 617","before":"example before 3787"},"limit":50}}
+    "body": {"currency_exchange_rates":[{"rate":"1.1234567890","source":"GBP","target":"EUR","time":"2014-01-01T12:00:00Z"},{"rate":"1.1234567890","source":"GBP","target":"EUR","time":"2014-01-01T12:00:00Z"}],"meta":{"cursors":{"after":"example after 4476","before":"example before 104"},"limit":50}}
   }
 }
 
