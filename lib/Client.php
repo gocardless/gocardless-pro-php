@@ -130,6 +130,8 @@ class Client
         
         $this->services['payments'] = new Services\PaymentsService($this->api_client);
         
+        $this->services['payment_account_transactions'] = new Services\PaymentAccountTransactionsService($this->api_client);
+        
         $this->services['payouts'] = new Services\PayoutsService($this->api_client);
         
         $this->services['payout_items'] = new Services\PayoutItemsService($this->api_client);
@@ -530,6 +532,19 @@ class Client
             throw new \Exception('Key payments does not exist in services array');
         }
         return $this->services['payments'];
+    }
+    
+    /**
+     * Service for interacting with payment account transactions
+     *
+     * @return Services\PaymentAccountTransactionsService
+     */
+    public function paymentAccountTransactions()
+    {
+        if (!isset($this->services['payment_account_transactions'])) {
+            throw new \Exception('Key payment_account_transactions does not exist in services array');
+        }
+        return $this->services['payment_account_transactions'];
     }
     
     /**
