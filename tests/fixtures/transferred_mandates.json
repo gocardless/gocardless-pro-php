@@ -3,7 +3,7 @@
     "method": "GET",
     "path_template": "/transferred_mandates/:identity",
     "url_params": {"identity": "MD123"},
-    "body": {"transferred_mandates":{"encrypted_customer_bank_details":"example encrypted_customer_bank_details 1372","encrypted_decryption_key":"example encrypted_decryption_key 2420","links":{"customer_bank_account":"BA123","mandate":"MD123"},"public_key_id":"example public_key_id 4155"}}
+    "body": {"transferred_mandates":{"encrypted_customer_bank_details":"example encrypted_customer_bank_details 1178","encrypted_decryption_key":"example encrypted_decryption_key 2289","links":{"customer_bank_account":"BA123","mandate":"MD123"},"public_key_id":"example public_key_id 4753"}}
   }
 }
 
