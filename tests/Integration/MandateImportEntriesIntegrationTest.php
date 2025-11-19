@@ -61,21 +61,21 @@ class MandateImportEntriesIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-                if (isset($body[$num]->created_at)) {
-                    $this->assertEquals($body[$num]->created_at, $record->created_at);
-                }
+            if (isset($body[$num]->created_at)) {
+                $this->assertEquals($body[$num]->created_at, $record->created_at);
+            }
             
-                if (isset($body[$num]->links)) {
-                    $this->assertEquals($body[$num]->links, $record->links);
-                }
+            if (isset($body[$num]->links)) {
+                $this->assertEquals($body[$num]->links, $record->links);
+            }
             
-                if (isset($body[$num]->processing_errors)) {
-                    $this->assertEquals($body[$num]->processing_errors, $record->processing_errors);
-                }
+            if (isset($body[$num]->processing_errors)) {
+                $this->assertEquals($body[$num]->processing_errors, $record->processing_errors);
+            }
             
-                if (isset($body[$num]->record_identifier)) {
-                    $this->assertEquals($body[$num]->record_identifier, $record->record_identifier);
-                }
+            if (isset($body[$num]->record_identifier)) {
+                $this->assertEquals($body[$num]->record_identifier, $record->record_identifier);
+            }
             
         }
 

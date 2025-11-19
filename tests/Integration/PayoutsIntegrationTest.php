@@ -37,57 +37,57 @@ class PayoutsIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-                if (isset($body[$num]->amount)) {
-                    $this->assertEquals($body[$num]->amount, $record->amount);
-                }
+            if (isset($body[$num]->amount)) {
+                $this->assertEquals($body[$num]->amount, $record->amount);
+            }
             
-                if (isset($body[$num]->arrival_date)) {
-                    $this->assertEquals($body[$num]->arrival_date, $record->arrival_date);
-                }
+            if (isset($body[$num]->arrival_date)) {
+                $this->assertEquals($body[$num]->arrival_date, $record->arrival_date);
+            }
             
-                if (isset($body[$num]->created_at)) {
-                    $this->assertEquals($body[$num]->created_at, $record->created_at);
-                }
+            if (isset($body[$num]->created_at)) {
+                $this->assertEquals($body[$num]->created_at, $record->created_at);
+            }
             
-                if (isset($body[$num]->currency)) {
-                    $this->assertEquals($body[$num]->currency, $record->currency);
-                }
+            if (isset($body[$num]->currency)) {
+                $this->assertEquals($body[$num]->currency, $record->currency);
+            }
             
-                if (isset($body[$num]->deducted_fees)) {
-                    $this->assertEquals($body[$num]->deducted_fees, $record->deducted_fees);
-                }
+            if (isset($body[$num]->deducted_fees)) {
+                $this->assertEquals($body[$num]->deducted_fees, $record->deducted_fees);
+            }
             
-                if (isset($body[$num]->fx)) {
-                    $this->assertEquals($body[$num]->fx, $record->fx);
-                }
+            if (isset($body[$num]->fx)) {
+                $this->assertEquals($body[$num]->fx, $record->fx);
+            }
             
-                if (isset($body[$num]->id)) {
-                    $this->assertEquals($body[$num]->id, $record->id);
-                }
+            if (isset($body[$num]->id)) {
+                $this->assertEquals($body[$num]->id, $record->id);
+            }
             
-                if (isset($body[$num]->links)) {
-                    $this->assertEquals($body[$num]->links, $record->links);
-                }
+            if (isset($body[$num]->links)) {
+                $this->assertEquals($body[$num]->links, $record->links);
+            }
             
-                if (isset($body[$num]->metadata)) {
-                    $this->assertEquals($body[$num]->metadata, $record->metadata);
-                }
+            if (isset($body[$num]->metadata)) {
+                $this->assertEquals($body[$num]->metadata, $record->metadata);
+            }
             
-                if (isset($body[$num]->payout_type)) {
-                    $this->assertEquals($body[$num]->payout_type, $record->payout_type);
-                }
+            if (isset($body[$num]->payout_type)) {
+                $this->assertEquals($body[$num]->payout_type, $record->payout_type);
+            }
             
-                if (isset($body[$num]->reference)) {
-                    $this->assertEquals($body[$num]->reference, $record->reference);
-                }
+            if (isset($body[$num]->reference)) {
+                $this->assertEquals($body[$num]->reference, $record->reference);
+            }
             
-                if (isset($body[$num]->status)) {
-                    $this->assertEquals($body[$num]->status, $record->status);
-                }
+            if (isset($body[$num]->status)) {
+                $this->assertEquals($body[$num]->status, $record->status);
+            }
             
-                if (isset($body[$num]->tax_currency)) {
-                    $this->assertEquals($body[$num]->tax_currency, $record->tax_currency);
-                }
+            if (isset($body[$num]->tax_currency)) {
+                $this->assertEquals($body[$num]->tax_currency, $record->tax_currency);
+            }
             
         }
 

@@ -42,7 +42,6 @@ class Mandate extends BaseResource
      * code: TEL)
      *   paper: Authorisation is provided in writing and signed, or similarly
      * authenticated (maps to SEC code: PPD)
-     * 
      */
     protected $authorisation_source;
 
@@ -73,7 +72,6 @@ class Mandate extends BaseResource
      * - `direct` will be a direct transfer from the payer's account to the
      * merchant where
      *   invoicing will be handled separately.
-     * 
      */
     protected $funds_settlement;
 

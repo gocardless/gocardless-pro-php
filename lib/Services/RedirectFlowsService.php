@@ -26,20 +26,20 @@ class RedirectFlowsService extends BaseService
 
 
     /**
-    * Create a redirect flow
-    *
-    * Example URL: /redirect_flows
-    *
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return RedirectFlow
-    **/
+     * Create a redirect flow
+     *
+     * Example URL: /redirect_flows
+     *
+     * @param  array<string, mixed> $params An associative array for any params
+     * @return RedirectFlow
+     **/
     public function create($params = array())
     {
         $path = "/redirect_flows";
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -61,14 +61,14 @@ class RedirectFlowsService extends BaseService
     }
 
     /**
-    * Get a single redirect flow
-    *
-    * Example URL: /redirect_flows/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "RE".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return RedirectFlow
-    **/
+     * Get a single redirect flow
+     *
+     * Example URL: /redirect_flows/:identity
+     *
+     * @param  string               $identity Unique identifier, beginning with "RE".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return RedirectFlow
+     **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -79,7 +79,7 @@ class RedirectFlowsService extends BaseService
             )
         );
         if(isset($params['params'])) { $params['query'] = $params['params'];
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -90,14 +90,14 @@ class RedirectFlowsService extends BaseService
     }
 
     /**
-    * Complete a redirect flow
-    *
-    * Example URL: /redirect_flows/:identity/actions/complete
-    *
-    * @param  string        $identity Unique identifier, beginning with "RE".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return RedirectFlow
-    **/
+     * Complete a redirect flow
+     *
+     * Example URL: /redirect_flows/:identity/actions/complete
+     *
+     * @param  string               $identity Unique identifier, beginning with "RE".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return RedirectFlow
+     **/
     public function complete($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -108,9 +108,9 @@ class RedirectFlowsService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array("data" => (object)$params['params']));
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         

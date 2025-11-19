@@ -22,10 +22,12 @@ class ApiClientTest extends TestCase
         $this->history = array();
         $historyMiddleware = \GuzzleHttp\Middleware::history($this->history);
         $handler->push($historyMiddleware);
-        $this->mock_http_client = new \GuzzleHttp\Client([
+        $this->mock_http_client = new \GuzzleHttp\Client(
+            [
             'handler' => $handler,
             'http_errors' => false
-        ]);
+            ]
+        );
 
         $this->api_client = new ApiClient(
             $this->mock_http_client,
@@ -72,13 +74,15 @@ class ApiClientTest extends TestCase
         $body = json_encode($data);
         $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], $body));
 
-        $this->api_client->post('/payments', array(
+        $this->api_client->post(
+            '/payments', array(
             'params' => array(
                 'customers' => array('amount' => '10')
             ),
             'headers' => array(
                 'Idempotency-Key' => 'my-custom-idempotency-key'
-            )));
+            ))
+        );
 
         $dispatchedRequest = $this->history[0]['request'];
         $requestIdempotencyKey = $dispatchedRequest->getHeaderLine('Idempotency-Key');
@@ -91,13 +95,15 @@ class ApiClientTest extends TestCase
         $body = json_encode($data);
         $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], $body));
 
-        $this->api_client->post('/payments', array(
+        $this->api_client->post(
+            '/payments', array(
             'params' => array(
                 'customers' => array('amount' => '10')
             ),
             'headers' => array(
                 'My-Custom-Header' => 'foo'
-            )));
+            ))
+        );
 
         $dispatchedRequest = $this->history[0]['request'];
         $requestCustomHeaderValue = $dispatchedRequest->getHeaderLine('My-Custom-Header');

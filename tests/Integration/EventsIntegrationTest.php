@@ -37,45 +37,45 @@ class EventsIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-                if (isset($body[$num]->action)) {
-                    $this->assertEquals($body[$num]->action, $record->action);
-                }
+            if (isset($body[$num]->action)) {
+                $this->assertEquals($body[$num]->action, $record->action);
+            }
             
-                if (isset($body[$num]->created_at)) {
-                    $this->assertEquals($body[$num]->created_at, $record->created_at);
-                }
+            if (isset($body[$num]->created_at)) {
+                $this->assertEquals($body[$num]->created_at, $record->created_at);
+            }
             
-                if (isset($body[$num]->customer_notifications)) {
-                    $this->assertEquals($body[$num]->customer_notifications, $record->customer_notifications);
-                }
+            if (isset($body[$num]->customer_notifications)) {
+                $this->assertEquals($body[$num]->customer_notifications, $record->customer_notifications);
+            }
             
-                if (isset($body[$num]->details)) {
-                    $this->assertEquals($body[$num]->details, $record->details);
-                }
+            if (isset($body[$num]->details)) {
+                $this->assertEquals($body[$num]->details, $record->details);
+            }
             
-                if (isset($body[$num]->id)) {
-                    $this->assertEquals($body[$num]->id, $record->id);
-                }
+            if (isset($body[$num]->id)) {
+                $this->assertEquals($body[$num]->id, $record->id);
+            }
             
-                if (isset($body[$num]->links)) {
-                    $this->assertEquals($body[$num]->links, $record->links);
-                }
+            if (isset($body[$num]->links)) {
+                $this->assertEquals($body[$num]->links, $record->links);
+            }
             
-                if (isset($body[$num]->metadata)) {
-                    $this->assertEquals($body[$num]->metadata, $record->metadata);
-                }
+            if (isset($body[$num]->metadata)) {
+                $this->assertEquals($body[$num]->metadata, $record->metadata);
+            }
             
-                if (isset($body[$num]->resource_metadata)) {
-                    $this->assertEquals($body[$num]->resource_metadata, $record->resource_metadata);
-                }
+            if (isset($body[$num]->resource_metadata)) {
+                $this->assertEquals($body[$num]->resource_metadata, $record->resource_metadata);
+            }
             
-                if (isset($body[$num]->resource_type)) {
-                    $this->assertEquals($body[$num]->resource_type, $record->resource_type);
-                }
+            if (isset($body[$num]->resource_type)) {
+                $this->assertEquals($body[$num]->resource_type, $record->resource_type);
+            }
             
-                if (isset($body[$num]->source)) {
-                    $this->assertEquals($body[$num]->source, $record->source);
-                }
+            if (isset($body[$num]->source)) {
+                $this->assertEquals($body[$num]->source, $record->source);
+            }
             
         }
 

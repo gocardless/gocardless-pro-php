@@ -44,7 +44,6 @@ class Event extends BaseResource
      * notifications. See
      * [here](/getting-started/api/handling-customer-notifications/)
      * for further information.
-     * 
      */
     protected $customer_notifications;
 
@@ -70,7 +69,6 @@ class Event extends BaseResource
      * 
      * This field will only be populated if the `details[origin]` field is `api`
      * otherwise it will be an empty object.
-     * 
      */
     protected $metadata;
 
@@ -79,7 +77,6 @@ class Event extends BaseResource
      * field will have the same
      * value of the `mandate[metadata]` field on the response you would receive
      * from performing a GET request on a mandate.
-     * 
      */
     protected $resource_metadata;
 

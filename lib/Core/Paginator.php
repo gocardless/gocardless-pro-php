@@ -4,6 +4,7 @@ namespace GoCardlessPro\Core;
 
 /**
  * Class allowing for pagination of API resources.
+ *
  * @implements \Iterator
  */
 class Paginator implements \Iterator
@@ -14,34 +15,35 @@ class Paginator implements \Iterator
     const HARD_RECORD_LIMIT = 500;
 
     /**
-    * @var \GoCardlessPro\Services\BaseService The resource service to fetch records with
-    */
+     * @var \GoCardlessPro\Services\BaseService The resource service to fetch records with
+     */
     private $service;
 
     /**
-    * @var array Request options
-    */
+     * @var array Request options
+     */
     private $options;
 
     /**
-    * @var int Keep track of current index
-    */
+     * @var int Keep track of current index
+     */
     private $current_position;
 
     /**
-    * @var array Keep track of the index of the first record on the current page. Allows for relative indexing into the page.
-    */
+     * @var array Keep track of the index of the first record on the current page. Allows for relative indexing into the page.
+     */
     private $current_page_position;
 
     /**
-    * @var array The current response obtained from the pagination service.
-    */
+     * @var array The current response obtained from the pagination service.
+     */
     private $current_response;
 
     /**
      * Creates the paginator
+     *
      * @param \GoCardlessPro\Services\BaseService $service Resource service used to fetch records
-     * @param array                                           $options  Request params to send with each request
+     * @param array                               $options Request params to send with each request
      */
     public function __construct($service, $options = array())
     {

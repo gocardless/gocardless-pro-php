@@ -43,7 +43,6 @@ class Payout extends BaseResource
      *   account on this day</li>
      *   <li>`null`: the payout hasn't been paid yet</li>
      * </ul>
-     * 
      */
     protected $arrival_date;
 

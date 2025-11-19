@@ -26,20 +26,20 @@ class MandatePdfsService extends BaseService
 
 
     /**
-    * Create a mandate PDF
-    *
-    * Example URL: /mandate_pdfs
-    *
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return MandatePdf
-    **/
+     * Create a mandate PDF
+     *
+     * Example URL: /mandate_pdfs
+     *
+     * @param  array<string, mixed> $params An associative array for any params
+     * @return MandatePdf
+     **/
     public function create($params = array())
     {
         $path = "/mandate_pdfs";
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         

@@ -26,20 +26,20 @@ class MandateImportsService extends BaseService
 
 
     /**
-    * Create a new mandate import
-    *
-    * Example URL: /mandate_imports
-    *
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return MandateImport
-    **/
+     * Create a new mandate import
+     *
+     * Example URL: /mandate_imports
+     *
+     * @param  array<string, mixed> $params An associative array for any params
+     * @return MandateImport
+     **/
     public function create($params = array())
     {
         $path = "/mandate_imports";
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -61,14 +61,14 @@ class MandateImportsService extends BaseService
     }
 
     /**
-    * Get a mandate import
-    *
-    * Example URL: /mandate_imports/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "IM".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return MandateImport
-    **/
+     * Get a mandate import
+     *
+     * Example URL: /mandate_imports/:identity
+     *
+     * @param  string               $identity Unique identifier, beginning with "IM".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return MandateImport
+     **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -79,7 +79,7 @@ class MandateImportsService extends BaseService
             )
         );
         if(isset($params['params'])) { $params['query'] = $params['params'];
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -90,14 +90,14 @@ class MandateImportsService extends BaseService
     }
 
     /**
-    * Submit a mandate import
-    *
-    * Example URL: /mandate_imports/:identity/actions/submit
-    *
-    * @param  string        $identity Unique identifier, beginning with "IM".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return MandateImport
-    **/
+     * Submit a mandate import
+     *
+     * Example URL: /mandate_imports/:identity/actions/submit
+     *
+     * @param  string               $identity Unique identifier, beginning with "IM".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return MandateImport
+     **/
     public function submit($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -108,9 +108,9 @@ class MandateImportsService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array("data" => (object)$params['params']));
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -132,14 +132,14 @@ class MandateImportsService extends BaseService
     }
 
     /**
-    * Cancel a mandate import
-    *
-    * Example URL: /mandate_imports/:identity/actions/cancel
-    *
-    * @param  string        $identity Unique identifier, beginning with "IM".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return MandateImport
-    **/
+     * Cancel a mandate import
+     *
+     * Example URL: /mandate_imports/:identity/actions/cancel
+     *
+     * @param  string               $identity Unique identifier, beginning with "IM".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return MandateImport
+     **/
     public function cancel($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -150,9 +150,9 @@ class MandateImportsService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array("data" => (object)$params['params']));
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         

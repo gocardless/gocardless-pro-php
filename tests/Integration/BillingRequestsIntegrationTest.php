@@ -283,61 +283,61 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-                if (isset($body[$num]->actions)) {
-                    $this->assertEquals($body[$num]->actions, $record->actions);
-                }
+            if (isset($body[$num]->actions)) {
+                $this->assertEquals($body[$num]->actions, $record->actions);
+            }
             
-                if (isset($body[$num]->created_at)) {
-                    $this->assertEquals($body[$num]->created_at, $record->created_at);
-                }
+            if (isset($body[$num]->created_at)) {
+                $this->assertEquals($body[$num]->created_at, $record->created_at);
+            }
             
-                if (isset($body[$num]->fallback_enabled)) {
-                    $this->assertEquals($body[$num]->fallback_enabled, $record->fallback_enabled);
-                }
+            if (isset($body[$num]->fallback_enabled)) {
+                $this->assertEquals($body[$num]->fallback_enabled, $record->fallback_enabled);
+            }
             
-                if (isset($body[$num]->fallback_occurred)) {
-                    $this->assertEquals($body[$num]->fallback_occurred, $record->fallback_occurred);
-                }
+            if (isset($body[$num]->fallback_occurred)) {
+                $this->assertEquals($body[$num]->fallback_occurred, $record->fallback_occurred);
+            }
             
-                if (isset($body[$num]->id)) {
-                    $this->assertEquals($body[$num]->id, $record->id);
-                }
+            if (isset($body[$num]->id)) {
+                $this->assertEquals($body[$num]->id, $record->id);
+            }
             
-                if (isset($body[$num]->instalment_schedule_request)) {
-                    $this->assertEquals($body[$num]->instalment_schedule_request, $record->instalment_schedule_request);
-                }
+            if (isset($body[$num]->instalment_schedule_request)) {
+                $this->assertEquals($body[$num]->instalment_schedule_request, $record->instalment_schedule_request);
+            }
             
-                if (isset($body[$num]->links)) {
-                    $this->assertEquals($body[$num]->links, $record->links);
-                }
+            if (isset($body[$num]->links)) {
+                $this->assertEquals($body[$num]->links, $record->links);
+            }
             
-                if (isset($body[$num]->mandate_request)) {
-                    $this->assertEquals($body[$num]->mandate_request, $record->mandate_request);
-                }
+            if (isset($body[$num]->mandate_request)) {
+                $this->assertEquals($body[$num]->mandate_request, $record->mandate_request);
+            }
             
-                if (isset($body[$num]->metadata)) {
-                    $this->assertEquals($body[$num]->metadata, $record->metadata);
-                }
+            if (isset($body[$num]->metadata)) {
+                $this->assertEquals($body[$num]->metadata, $record->metadata);
+            }
             
-                if (isset($body[$num]->payment_request)) {
-                    $this->assertEquals($body[$num]->payment_request, $record->payment_request);
-                }
+            if (isset($body[$num]->payment_request)) {
+                $this->assertEquals($body[$num]->payment_request, $record->payment_request);
+            }
             
-                if (isset($body[$num]->purpose_code)) {
-                    $this->assertEquals($body[$num]->purpose_code, $record->purpose_code);
-                }
+            if (isset($body[$num]->purpose_code)) {
+                $this->assertEquals($body[$num]->purpose_code, $record->purpose_code);
+            }
             
-                if (isset($body[$num]->resources)) {
-                    $this->assertEquals($body[$num]->resources, $record->resources);
-                }
+            if (isset($body[$num]->resources)) {
+                $this->assertEquals($body[$num]->resources, $record->resources);
+            }
             
-                if (isset($body[$num]->status)) {
-                    $this->assertEquals($body[$num]->status, $record->status);
-                }
+            if (isset($body[$num]->status)) {
+                $this->assertEquals($body[$num]->status, $record->status);
+            }
             
-                if (isset($body[$num]->subscription_request)) {
-                    $this->assertEquals($body[$num]->subscription_request, $record->subscription_request);
-                }
+            if (isset($body[$num]->subscription_request)) {
+                $this->assertEquals($body[$num]->subscription_request, $record->subscription_request);
+            }
             
         }
 

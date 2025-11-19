@@ -28,18 +28,18 @@ class TaxRatesService extends BaseService
 
 
     /**
-    * List tax rates
-    *
-    * Example URL: /tax_rates
-    *
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return ListResponse
-    **/
+     * List tax rates
+     *
+     * Example URL: /tax_rates
+     *
+     * @param  array<string, mixed> $params An associative array for any params
+     * @return ListResponse
+     **/
     protected function _doList($params = array())
     {
         $path = "/tax_rates";
         if(isset($params['params'])) { $params['query'] = $params['params'];
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -50,15 +50,15 @@ class TaxRatesService extends BaseService
     }
 
     /**
-    * Get a single tax rate
-    *
-    * Example URL: /tax_rates/:identity
-    *
-    * @param  string        $identity The unique identifier created by the jurisdiction, tax type
- and version
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return TaxRate
-    **/
+     * Get a single tax rate
+     *
+     * Example URL: /tax_rates/:identity
+     *
+     * @param  string               $identity The unique identifier created by the jurisdiction, tax type
+     *                                        and version
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return TaxRate
+     **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -69,7 +69,7 @@ class TaxRatesService extends BaseService
             )
         );
         if(isset($params['params'])) { $params['query'] = $params['params'];
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -80,13 +80,13 @@ class TaxRatesService extends BaseService
     }
 
     /**
-    * List tax rates
-    *
-    * Example URL: /tax_rates
-    *
-    * @param string[mixed] $params
-    * @return Paginator
-    **/
+     * List tax rates
+     *
+     * Example URL: /tax_rates
+     *
+     * @param  string[mixed] $params
+     * @return Paginator
+     **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

@@ -21,8 +21,8 @@ class ApiClient
     public $error_on_idempotency_conflict;
 
     /**
-     * @param GuzzleHttp\ClientInterface $http_client  An HTTP client to make requests
-     * @param array $config configuration for the ApiClient
+     * @param GuzzleHttp\ClientInterface $http_client An HTTP client to make requests
+     * @param array                      $config      configuration for the ApiClient
      */
     public function __construct(ClientInterface $http_client, array $config)
     {
@@ -150,22 +150,24 @@ class ApiClient
      * prepare query parameters to be sent to the API, since PHP's in-build
      * http_build_query casts booleans as "1" and "" respectively, which is odd.
      *
-     * @param array  $query An array to map through, casting booleans to strings
+     * @param array $query An array to map through, casting booleans to strings
      *
      * @return array The new array with booleans casted to strings
      */
     private function castBooleanValuesToStrings(array $query): array
     {
-        return array_map(function ($value) {
-            if ($value === true) {
-                return "true";
-            } elseif ($value === false) {
-                return "false";
-            } elseif (is_array($value)) {
-                return $this->castBooleanValuesToStrings($value);
-            } else {
-                return $value;
-            }
-        }, $query);
+        return array_map(
+            function ($value) {
+                if ($value === true) {
+                    return "true";
+                } elseif ($value === false) {
+                    return "false";
+                } elseif (is_array($value)) {
+                    return $this->castBooleanValuesToStrings($value);
+                } else {
+                    return $value;
+                }
+            }, $query
+        );
     }
 }

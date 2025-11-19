@@ -28,20 +28,20 @@ class BillingRequestsService extends BaseService
 
 
     /**
-    * Create a Billing Request
-    *
-    * Example URL: /billing_requests
-    *
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return BillingRequest
-    **/
+     * Create a Billing Request
+     *
+     * Example URL: /billing_requests
+     *
+     * @param  array<string, mixed> $params An associative array for any params
+     * @return BillingRequest
+     **/
     public function create($params = array())
     {
         $path = "/billing_requests";
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -63,14 +63,14 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * Collect customer details
-    *
-    * Example URL: /billing_requests/:identity/actions/collect_customer_details
-    *
-    * @param  string        $identity Unique identifier, beginning with "BRQ".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return BillingRequest
-    **/
+     * Collect customer details
+     *
+     * Example URL: /billing_requests/:identity/actions/collect_customer_details
+     *
+     * @param  string               $identity Unique identifier, beginning with "BRQ".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return BillingRequest
+     **/
     public function collectCustomerDetails($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -81,9 +81,9 @@ class BillingRequestsService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array("data" => (object)$params['params']));
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -105,14 +105,14 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * Collect bank account details
-    *
-    * Example URL: /billing_requests/:identity/actions/collect_bank_account
-    *
-    * @param  string        $identity Unique identifier, beginning with "BRQ".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return BillingRequest
-    **/
+     * Collect bank account details
+     *
+     * Example URL: /billing_requests/:identity/actions/collect_bank_account
+     *
+     * @param  string               $identity Unique identifier, beginning with "BRQ".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return BillingRequest
+     **/
     public function collectBankAccount($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -123,9 +123,9 @@ class BillingRequestsService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array("data" => (object)$params['params']));
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -147,14 +147,14 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * Confirm the payer details
-    *
-    * Example URL: /billing_requests/:identity/actions/confirm_payer_details
-    *
-    * @param  string        $identity Unique identifier, beginning with "BRQ".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return BillingRequest
-    **/
+     * Confirm the payer details
+     *
+     * Example URL: /billing_requests/:identity/actions/confirm_payer_details
+     *
+     * @param  string               $identity Unique identifier, beginning with "BRQ".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return BillingRequest
+     **/
     public function confirmPayerDetails($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -165,9 +165,9 @@ class BillingRequestsService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array("data" => (object)$params['params']));
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -189,14 +189,14 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * Fulfil a Billing Request
-    *
-    * Example URL: /billing_requests/:identity/actions/fulfil
-    *
-    * @param  string        $identity Unique identifier, beginning with "BRQ".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return BillingRequest
-    **/
+     * Fulfil a Billing Request
+     *
+     * Example URL: /billing_requests/:identity/actions/fulfil
+     *
+     * @param  string               $identity Unique identifier, beginning with "BRQ".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return BillingRequest
+     **/
     public function fulfil($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -207,9 +207,9 @@ class BillingRequestsService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array("data" => (object)$params['params']));
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -231,14 +231,14 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * Cancel a Billing Request
-    *
-    * Example URL: /billing_requests/:identity/actions/cancel
-    *
-    * @param  string        $identity Unique identifier, beginning with "BRQ".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return BillingRequest
-    **/
+     * Cancel a Billing Request
+     *
+     * Example URL: /billing_requests/:identity/actions/cancel
+     *
+     * @param  string               $identity Unique identifier, beginning with "BRQ".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return BillingRequest
+     **/
     public function cancel($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -249,9 +249,9 @@ class BillingRequestsService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array("data" => (object)$params['params']));
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -273,18 +273,18 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * List Billing Requests
-    *
-    * Example URL: /billing_requests
-    *
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return ListResponse
-    **/
+     * List Billing Requests
+     *
+     * Example URL: /billing_requests
+     *
+     * @param  array<string, mixed> $params An associative array for any params
+     * @return ListResponse
+     **/
     protected function _doList($params = array())
     {
         $path = "/billing_requests";
         if(isset($params['params'])) { $params['query'] = $params['params'];
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -295,14 +295,14 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * Get a single Billing Request
-    *
-    * Example URL: /billing_requests/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "BRQ".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return BillingRequest
-    **/
+     * Get a single Billing Request
+     *
+     * Example URL: /billing_requests/:identity
+     *
+     * @param  string               $identity Unique identifier, beginning with "BRQ".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return BillingRequest
+     **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -313,7 +313,7 @@ class BillingRequestsService extends BaseService
             )
         );
         if(isset($params['params'])) { $params['query'] = $params['params'];
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -324,14 +324,14 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * Notify the customer
-    *
-    * Example URL: /billing_requests/:identity/actions/notify
-    *
-    * @param  string        $identity Unique identifier, beginning with "BRQ".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return BillingRequest
-    **/
+     * Notify the customer
+     *
+     * Example URL: /billing_requests/:identity/actions/notify
+     *
+     * @param  string               $identity Unique identifier, beginning with "BRQ".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return BillingRequest
+     **/
     public function notify($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -342,9 +342,9 @@ class BillingRequestsService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array("data" => (object)$params['params']));
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -366,14 +366,14 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * Trigger fallback
-    *
-    * Example URL: /billing_requests/:identity/actions/fallback
-    *
-    * @param  string        $identity Unique identifier, beginning with "BRQ".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return BillingRequest
-    **/
+     * Trigger fallback
+     *
+     * Example URL: /billing_requests/:identity/actions/fallback
+     *
+     * @param  string               $identity Unique identifier, beginning with "BRQ".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return BillingRequest
+     **/
     public function fallback($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -384,9 +384,9 @@ class BillingRequestsService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array("data" => (object)$params['params']));
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -408,14 +408,14 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * Change currency
-    *
-    * Example URL: /billing_requests/:identity/actions/choose_currency
-    *
-    * @param  string        $identity Unique identifier, beginning with "BRQ".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return BillingRequest
-    **/
+     * Change currency
+     *
+     * Example URL: /billing_requests/:identity/actions/choose_currency
+     *
+     * @param  string               $identity Unique identifier, beginning with "BRQ".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return BillingRequest
+     **/
     public function chooseCurrency($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -426,9 +426,9 @@ class BillingRequestsService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array("data" => (object)$params['params']));
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -450,14 +450,14 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * Select institution for a Billing Request
-    *
-    * Example URL: /billing_requests/:identity/actions/select_institution
-    *
-    * @param  string        $identity Unique identifier, beginning with "BRQ".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return BillingRequest
-    **/
+     * Select institution for a Billing Request
+     *
+     * Example URL: /billing_requests/:identity/actions/select_institution
+     *
+     * @param  string               $identity Unique identifier, beginning with "BRQ".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return BillingRequest
+     **/
     public function selectInstitution($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -468,9 +468,9 @@ class BillingRequestsService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array("data" => (object)$params['params']));
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -492,13 +492,13 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * List Billing Requests
-    *
-    * Example URL: /billing_requests
-    *
-    * @param string[mixed] $params
-    * @return Paginator
-    **/
+     * List Billing Requests
+     *
+     * Example URL: /billing_requests
+     *
+     * @param  string[mixed] $params
+     * @return Paginator
+     **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

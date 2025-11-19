@@ -109,53 +109,53 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-                if (isset($body[$num]->account_holder_name)) {
-                    $this->assertEquals($body[$num]->account_holder_name, $record->account_holder_name);
-                }
+            if (isset($body[$num]->account_holder_name)) {
+                $this->assertEquals($body[$num]->account_holder_name, $record->account_holder_name);
+            }
             
-                if (isset($body[$num]->account_number_ending)) {
-                    $this->assertEquals($body[$num]->account_number_ending, $record->account_number_ending);
-                }
+            if (isset($body[$num]->account_number_ending)) {
+                $this->assertEquals($body[$num]->account_number_ending, $record->account_number_ending);
+            }
             
-                if (isset($body[$num]->account_type)) {
-                    $this->assertEquals($body[$num]->account_type, $record->account_type);
-                }
+            if (isset($body[$num]->account_type)) {
+                $this->assertEquals($body[$num]->account_type, $record->account_type);
+            }
             
-                if (isset($body[$num]->bank_account_token)) {
-                    $this->assertEquals($body[$num]->bank_account_token, $record->bank_account_token);
-                }
+            if (isset($body[$num]->bank_account_token)) {
+                $this->assertEquals($body[$num]->bank_account_token, $record->bank_account_token);
+            }
             
-                if (isset($body[$num]->bank_name)) {
-                    $this->assertEquals($body[$num]->bank_name, $record->bank_name);
-                }
+            if (isset($body[$num]->bank_name)) {
+                $this->assertEquals($body[$num]->bank_name, $record->bank_name);
+            }
             
-                if (isset($body[$num]->country_code)) {
-                    $this->assertEquals($body[$num]->country_code, $record->country_code);
-                }
+            if (isset($body[$num]->country_code)) {
+                $this->assertEquals($body[$num]->country_code, $record->country_code);
+            }
             
-                if (isset($body[$num]->created_at)) {
-                    $this->assertEquals($body[$num]->created_at, $record->created_at);
-                }
+            if (isset($body[$num]->created_at)) {
+                $this->assertEquals($body[$num]->created_at, $record->created_at);
+            }
             
-                if (isset($body[$num]->currency)) {
-                    $this->assertEquals($body[$num]->currency, $record->currency);
-                }
+            if (isset($body[$num]->currency)) {
+                $this->assertEquals($body[$num]->currency, $record->currency);
+            }
             
-                if (isset($body[$num]->enabled)) {
-                    $this->assertEquals($body[$num]->enabled, $record->enabled);
-                }
+            if (isset($body[$num]->enabled)) {
+                $this->assertEquals($body[$num]->enabled, $record->enabled);
+            }
             
-                if (isset($body[$num]->id)) {
-                    $this->assertEquals($body[$num]->id, $record->id);
-                }
+            if (isset($body[$num]->id)) {
+                $this->assertEquals($body[$num]->id, $record->id);
+            }
             
-                if (isset($body[$num]->links)) {
-                    $this->assertEquals($body[$num]->links, $record->links);
-                }
+            if (isset($body[$num]->links)) {
+                $this->assertEquals($body[$num]->links, $record->links);
+            }
             
-                if (isset($body[$num]->metadata)) {
-                    $this->assertEquals($body[$num]->metadata, $record->metadata);
-                }
+            if (isset($body[$num]->metadata)) {
+                $this->assertEquals($body[$num]->metadata, $record->metadata);
+            }
             
         }
 

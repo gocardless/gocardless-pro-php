@@ -28,20 +28,20 @@ class SchemeIdentifiersService extends BaseService
 
 
     /**
-    * Create a scheme identifier
-    *
-    * Example URL: /scheme_identifiers
-    *
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return SchemeIdentifier
-    **/
+     * Create a scheme identifier
+     *
+     * Example URL: /scheme_identifiers
+     *
+     * @param  array<string, mixed> $params An associative array for any params
+     * @return SchemeIdentifier
+     **/
     public function create($params = array())
     {
         $path = "/scheme_identifiers";
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -63,18 +63,18 @@ class SchemeIdentifiersService extends BaseService
     }
 
     /**
-    * List scheme identifiers
-    *
-    * Example URL: /scheme_identifiers
-    *
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return ListResponse
-    **/
+     * List scheme identifiers
+     *
+     * Example URL: /scheme_identifiers
+     *
+     * @param  array<string, mixed> $params An associative array for any params
+     * @return ListResponse
+     **/
     protected function _doList($params = array())
     {
         $path = "/scheme_identifiers";
         if(isset($params['params'])) { $params['query'] = $params['params'];
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -85,14 +85,14 @@ class SchemeIdentifiersService extends BaseService
     }
 
     /**
-    * Get a single scheme identifier
-    *
-    * Example URL: /scheme_identifiers/:identity
-    *
-    * @param  string        $identity Unique identifier, usually beginning with "SU".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return SchemeIdentifier
-    **/
+     * Get a single scheme identifier
+     *
+     * Example URL: /scheme_identifiers/:identity
+     *
+     * @param  string               $identity Unique identifier, usually beginning with "SU".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return SchemeIdentifier
+     **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -103,7 +103,7 @@ class SchemeIdentifiersService extends BaseService
             )
         );
         if(isset($params['params'])) { $params['query'] = $params['params'];
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -114,13 +114,13 @@ class SchemeIdentifiersService extends BaseService
     }
 
     /**
-    * List scheme identifiers
-    *
-    * Example URL: /scheme_identifiers
-    *
-    * @param string[mixed] $params
-    * @return Paginator
-    **/
+     * List scheme identifiers
+     *
+     * Example URL: /scheme_identifiers
+     *
+     * @param  string[mixed] $params
+     * @return Paginator
+     **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

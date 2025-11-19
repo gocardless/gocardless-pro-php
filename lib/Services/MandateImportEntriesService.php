@@ -28,20 +28,20 @@ class MandateImportEntriesService extends BaseService
 
 
     /**
-    * Add a mandate import entry
-    *
-    * Example URL: /mandate_import_entries
-    *
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return MandateImportEntry
-    **/
+     * Add a mandate import entry
+     *
+     * Example URL: /mandate_import_entries
+     *
+     * @param  array<string, mixed> $params An associative array for any params
+     * @return MandateImportEntry
+     **/
     public function create($params = array())
     {
         $path = "/mandate_import_entries";
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -52,18 +52,18 @@ class MandateImportEntriesService extends BaseService
     }
 
     /**
-    * List all mandate import entries
-    *
-    * Example URL: /mandate_import_entries
-    *
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return ListResponse
-    **/
+     * List all mandate import entries
+     *
+     * Example URL: /mandate_import_entries
+     *
+     * @param  array<string, mixed> $params An associative array for any params
+     * @return ListResponse
+     **/
     protected function _doList($params = array())
     {
         $path = "/mandate_import_entries";
         if(isset($params['params'])) { $params['query'] = $params['params'];
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -74,13 +74,13 @@ class MandateImportEntriesService extends BaseService
     }
 
     /**
-    * List all mandate import entries
-    *
-    * Example URL: /mandate_import_entries
-    *
-    * @param string[mixed] $params
-    * @return Paginator
-    **/
+     * List all mandate import entries
+     *
+     * Example URL: /mandate_import_entries
+     *
+     * @param  string[mixed] $params
+     * @return Paginator
+     **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

@@ -26,14 +26,14 @@ class BankAccountDetailsService extends BaseService
 
 
     /**
-    * Get encrypted bank details
-    *
-    * Example URL: /bank_account_details/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "BA".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return BankAccountDetail
-    **/
+     * Get encrypted bank details
+     *
+     * Example URL: /bank_account_details/:identity
+     *
+     * @param  string               $identity Unique identifier, beginning with "BA".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return BankAccountDetail
+     **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -44,7 +44,7 @@ class BankAccountDetailsService extends BaseService
             )
         );
         if(isset($params['params'])) { $params['query'] = $params['params'];
-          unset($params['params']);
+            unset($params['params']);
         }
 
         

@@ -10,6 +10,7 @@ namespace GoCardlessPro\Core;
 /**
  * Wrapper for a list of models in a response
  * Decodes from a Response
+ *
  * @subpackage Core
  */
 class ListResponse
@@ -31,13 +32,13 @@ class ListResponse
     {
         $this->api_response = $api_response;
         if (!is_null($this->api_response->body) && property_exists($this->api_response->body, 'meta') && !is_null($this->api_response->body->meta)) {
-	        if(property_exists($this->api_response->body->meta->cursors, 'before')) {
-	            $this->before = $this->api_response->body->meta->cursors->before;  	
+            if(property_exists($this->api_response->body->meta->cursors, 'before')) {
+                $this->before = $this->api_response->body->meta->cursors->before;      
             }
             if(property_exists($this->api_response->body->meta->cursors, 'after')) {
                 $this->after = $this->api_response->body->meta->cursors->after;
             }
-	    }
+        }
         foreach ($unenveloped_body as $item) {
             $this->records[] = new $model_class($item);
         }

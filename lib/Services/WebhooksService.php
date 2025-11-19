@@ -28,18 +28,18 @@ class WebhooksService extends BaseService
 
 
     /**
-    * List webhooks
-    *
-    * Example URL: /webhooks
-    *
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return ListResponse
-    **/
+     * List webhooks
+     *
+     * Example URL: /webhooks
+     *
+     * @param  array<string, mixed> $params An associative array for any params
+     * @return ListResponse
+     **/
     protected function _doList($params = array())
     {
         $path = "/webhooks";
         if(isset($params['params'])) { $params['query'] = $params['params'];
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -50,14 +50,14 @@ class WebhooksService extends BaseService
     }
 
     /**
-    * Get a single webhook
-    *
-    * Example URL: /webhooks/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "WB".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return Webhook
-    **/
+     * Get a single webhook
+     *
+     * Example URL: /webhooks/:identity
+     *
+     * @param  string               $identity Unique identifier, beginning with "WB".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return Webhook
+     **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -68,7 +68,7 @@ class WebhooksService extends BaseService
             )
         );
         if(isset($params['params'])) { $params['query'] = $params['params'];
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -79,14 +79,14 @@ class WebhooksService extends BaseService
     }
 
     /**
-    * Retry a webhook
-    *
-    * Example URL: /webhooks/:identity/actions/retry
-    *
-    * @param  string        $identity Unique identifier, beginning with "WB".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return Webhook
-    **/
+     * Retry a webhook
+     *
+     * Example URL: /webhooks/:identity/actions/retry
+     *
+     * @param  string               $identity Unique identifier, beginning with "WB".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return Webhook
+     **/
     public function retry($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -97,9 +97,9 @@ class WebhooksService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array("data" => (object)$params['params']));
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -121,13 +121,13 @@ class WebhooksService extends BaseService
     }
 
     /**
-    * List webhooks
-    *
-    * Example URL: /webhooks
-    *
-    * @param string[mixed] $params
-    * @return Paginator
-    **/
+     * List webhooks
+     *
+     * Example URL: /webhooks
+     *
+     * @param  string[mixed] $params
+     * @return Paginator
+     **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

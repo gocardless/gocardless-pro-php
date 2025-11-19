@@ -9,8 +9,8 @@ class Client
 {
 
     /**
-    * @var Core\ApiClient Internal reference to Api Client
-    */
+     * @var Core\ApiClient Internal reference to Api Client
+     */
     private $api_client;
     private $services = [];
 
@@ -18,10 +18,10 @@ class Client
      * @param array $config
      *     An array of config parameters
      *
-     *     @type string $environment
-     *     @type string $access_token
-     *     @type float $timeout
-     *     @type string $http_client
+     * @type string $environment
+     * @type string $access_token
+     * @type float $timeout
+     * @type string $http_client
      */
     public function __construct($config)
     {
@@ -44,14 +44,15 @@ class Client
             $stack->push(RetryMiddlewareFactory::buildMiddleware());
 
             $timeout = 0;
-            if(isset($config['timeout'])){
+            if(isset($config['timeout'])) {
                 $timeout = $config['timeout'];
             }
 
-            $http_client = new \GuzzleHttp\Client([
-              'base_uri' => $endpoint_url,
-              'timeout' => $timeout,
-              'headers' => array(
+            $http_client = new \GuzzleHttp\Client(
+                [
+                'base_uri' => $endpoint_url,
+                'timeout' => $timeout,
+                'headers' => array(
                 'GoCardless-Version' => '2015-07-06',
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
@@ -59,11 +60,12 @@ class Client
                 'GoCardless-Client-Library' => 'gocardless-pro-php',
                 'GoCardless-Client-Version' => '7.2.0',
                 'User-Agent' => $this->getUserAgent()
-              ),
-              'http_errors' => false,
-              'verify' => true,
-              'handler' => $stack
-            ]);
+                ),
+                'http_errors' => false,
+                'verify' => true,
+                'handler' => $stack
+                ]
+            );
         }
 
         $this->api_client = new \GoCardlessPro\Core\ApiClient($http_client, $config);
@@ -157,6 +159,7 @@ class Client
     
     /**
      * Service for interacting with balances
+     *
      * @return Services\BalancesService
      */
     public function balances()
@@ -169,6 +172,7 @@ class Client
     
     /**
      * Service for interacting with bank account details
+     *
      * @return Services\BankAccountDetailsService
      */
     public function bankAccountDetails()
@@ -181,6 +185,7 @@ class Client
     
     /**
      * Service for interacting with bank authorisations
+     *
      * @return Services\BankAuthorisationsService
      */
     public function bankAuthorisations()
@@ -193,6 +198,7 @@ class Client
     
     /**
      * Service for interacting with bank details lookups
+     *
      * @return Services\BankDetailsLookupsService
      */
     public function bankDetailsLookups()
@@ -205,6 +211,7 @@ class Client
     
     /**
      * Service for interacting with billing requests
+     *
      * @return Services\BillingRequestsService
      */
     public function billingRequests()
@@ -217,6 +224,7 @@ class Client
     
     /**
      * Service for interacting with billing request flows
+     *
      * @return Services\BillingRequestFlowsService
      */
     public function billingRequestFlows()
@@ -229,6 +237,7 @@ class Client
     
     /**
      * Service for interacting with billing request templates
+     *
      * @return Services\BillingRequestTemplatesService
      */
     public function billingRequestTemplates()
@@ -241,6 +250,7 @@ class Client
     
     /**
      * Service for interacting with billing request with actions
+     *
      * @return Services\BillingRequestWithActionsService
      */
     public function billingRequestWithActions()
@@ -253,6 +263,7 @@ class Client
     
     /**
      * Service for interacting with blocks
+     *
      * @return Services\BlocksService
      */
     public function blocks()
@@ -265,6 +276,7 @@ class Client
     
     /**
      * Service for interacting with creditors
+     *
      * @return Services\CreditorsService
      */
     public function creditors()
@@ -277,6 +289,7 @@ class Client
     
     /**
      * Service for interacting with creditor bank accounts
+     *
      * @return Services\CreditorBankAccountsService
      */
     public function creditorBankAccounts()
@@ -289,6 +302,7 @@ class Client
     
     /**
      * Service for interacting with currency exchange rates
+     *
      * @return Services\CurrencyExchangeRatesService
      */
     public function currencyExchangeRates()
@@ -301,6 +315,7 @@ class Client
     
     /**
      * Service for interacting with customers
+     *
      * @return Services\CustomersService
      */
     public function customers()
@@ -313,6 +328,7 @@ class Client
     
     /**
      * Service for interacting with customer bank accounts
+     *
      * @return Services\CustomerBankAccountsService
      */
     public function customerBankAccounts()
@@ -325,6 +341,7 @@ class Client
     
     /**
      * Service for interacting with customer notifications
+     *
      * @return Services\CustomerNotificationsService
      */
     public function customerNotifications()
@@ -337,6 +354,7 @@ class Client
     
     /**
      * Service for interacting with events
+     *
      * @return Services\EventsService
      */
     public function events()
@@ -349,6 +367,7 @@ class Client
     
     /**
      * Service for interacting with exports
+     *
      * @return Services\ExportsService
      */
     public function exports()
@@ -361,6 +380,7 @@ class Client
     
     /**
      * Service for interacting with instalment schedule
+     *
      * @return Services\InstalmentSchedulesService
      */
     public function instalmentSchedules()
@@ -373,6 +393,7 @@ class Client
     
     /**
      * Service for interacting with institutions
+     *
      * @return Services\InstitutionsService
      */
     public function institutions()
@@ -385,6 +406,7 @@ class Client
     
     /**
      * Service for interacting with logos
+     *
      * @return Services\LogosService
      */
     public function logos()
@@ -397,6 +419,7 @@ class Client
     
     /**
      * Service for interacting with mandates
+     *
      * @return Services\MandatesService
      */
     public function mandates()
@@ -409,6 +432,7 @@ class Client
     
     /**
      * Service for interacting with mandate imports
+     *
      * @return Services\MandateImportsService
      */
     public function mandateImports()
@@ -421,6 +445,7 @@ class Client
     
     /**
      * Service for interacting with mandate import entries
+     *
      * @return Services\MandateImportEntriesService
      */
     public function mandateImportEntries()
@@ -433,6 +458,7 @@ class Client
     
     /**
      * Service for interacting with mandate pdfs
+     *
      * @return Services\MandatePdfsService
      */
     public function mandatePdfs()
@@ -445,6 +471,7 @@ class Client
     
     /**
      * Service for interacting with negative balance limit
+     *
      * @return Services\NegativeBalanceLimitsService
      */
     public function negativeBalanceLimits()
@@ -457,6 +484,7 @@ class Client
     
     /**
      * Service for interacting with outbound payments
+     *
      * @return Services\OutboundPaymentsService
      */
     public function outboundPayments()
@@ -469,6 +497,7 @@ class Client
     
     /**
      * Service for interacting with payer authorisations
+     *
      * @return Services\PayerAuthorisationsService
      */
     public function payerAuthorisations()
@@ -481,6 +510,7 @@ class Client
     
     /**
      * Service for interacting with payer theme
+     *
      * @return Services\PayerThemesService
      */
     public function payerThemes()
@@ -493,6 +523,7 @@ class Client
     
     /**
      * Service for interacting with payments
+     *
      * @return Services\PaymentsService
      */
     public function payments()
@@ -505,6 +536,7 @@ class Client
     
     /**
      * Service for interacting with payment account transactions
+     *
      * @return Services\PaymentAccountTransactionsService
      */
     public function paymentAccountTransactions()
@@ -517,6 +549,7 @@ class Client
     
     /**
      * Service for interacting with payouts
+     *
      * @return Services\PayoutsService
      */
     public function payouts()
@@ -529,6 +562,7 @@ class Client
     
     /**
      * Service for interacting with payout items
+     *
      * @return Services\PayoutItemsService
      */
     public function payoutItems()
@@ -541,6 +575,7 @@ class Client
     
     /**
      * Service for interacting with redirect flows
+     *
      * @return Services\RedirectFlowsService
      */
     public function redirectFlows()
@@ -553,6 +588,7 @@ class Client
     
     /**
      * Service for interacting with refunds
+     *
      * @return Services\RefundsService
      */
     public function refunds()
@@ -565,6 +601,7 @@ class Client
     
     /**
      * Service for interacting with scenario simulators
+     *
      * @return Services\ScenarioSimulatorsService
      */
     public function scenarioSimulators()
@@ -577,6 +614,7 @@ class Client
     
     /**
      * Service for interacting with scheme identifiers
+     *
      * @return Services\SchemeIdentifiersService
      */
     public function schemeIdentifiers()
@@ -589,6 +627,7 @@ class Client
     
     /**
      * Service for interacting with subscriptions
+     *
      * @return Services\SubscriptionsService
      */
     public function subscriptions()
@@ -601,6 +640,7 @@ class Client
     
     /**
      * Service for interacting with tax rates
+     *
      * @return Services\TaxRatesService
      */
     public function taxRates()
@@ -613,6 +653,7 @@ class Client
     
     /**
      * Service for interacting with transferred mandate
+     *
      * @return Services\TransferredMandatesService
      */
     public function transferredMandates()
@@ -625,6 +666,7 @@ class Client
     
     /**
      * Service for interacting with verification details
+     *
      * @return Services\VerificationDetailsService
      */
     public function verificationDetails()
@@ -637,6 +679,7 @@ class Client
     
     /**
      * Service for interacting with webhooks
+     *
      * @return Services\WebhooksService
      */
     public function webhooks()

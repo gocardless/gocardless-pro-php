@@ -37,37 +37,37 @@ class InstitutionsIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-                if (isset($body[$num]->autocompletes_collect_bank_account)) {
-                    $this->assertEquals($body[$num]->autocompletes_collect_bank_account, $record->autocompletes_collect_bank_account);
-                }
+            if (isset($body[$num]->autocompletes_collect_bank_account)) {
+                $this->assertEquals($body[$num]->autocompletes_collect_bank_account, $record->autocompletes_collect_bank_account);
+            }
             
-                if (isset($body[$num]->country_code)) {
-                    $this->assertEquals($body[$num]->country_code, $record->country_code);
-                }
+            if (isset($body[$num]->country_code)) {
+                $this->assertEquals($body[$num]->country_code, $record->country_code);
+            }
             
-                if (isset($body[$num]->icon_url)) {
-                    $this->assertEquals($body[$num]->icon_url, $record->icon_url);
-                }
+            if (isset($body[$num]->icon_url)) {
+                $this->assertEquals($body[$num]->icon_url, $record->icon_url);
+            }
             
-                if (isset($body[$num]->id)) {
-                    $this->assertEquals($body[$num]->id, $record->id);
-                }
+            if (isset($body[$num]->id)) {
+                $this->assertEquals($body[$num]->id, $record->id);
+            }
             
-                if (isset($body[$num]->limits)) {
-                    $this->assertEquals($body[$num]->limits, $record->limits);
-                }
+            if (isset($body[$num]->limits)) {
+                $this->assertEquals($body[$num]->limits, $record->limits);
+            }
             
-                if (isset($body[$num]->logo_url)) {
-                    $this->assertEquals($body[$num]->logo_url, $record->logo_url);
-                }
+            if (isset($body[$num]->logo_url)) {
+                $this->assertEquals($body[$num]->logo_url, $record->logo_url);
+            }
             
-                if (isset($body[$num]->name)) {
-                    $this->assertEquals($body[$num]->name, $record->name);
-                }
+            if (isset($body[$num]->name)) {
+                $this->assertEquals($body[$num]->name, $record->name);
+            }
             
-                if (isset($body[$num]->status)) {
-                    $this->assertEquals($body[$num]->status, $record->status);
-                }
+            if (isset($body[$num]->status)) {
+                $this->assertEquals($body[$num]->status, $record->status);
+            }
             
         }
 
@@ -100,37 +100,37 @@ class InstitutionsIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-                if (isset($body[$num]->autocompletes_collect_bank_account)) {
-                    $this->assertEquals($body[$num]->autocompletes_collect_bank_account, $record->autocompletes_collect_bank_account);
-                }
+            if (isset($body[$num]->autocompletes_collect_bank_account)) {
+                $this->assertEquals($body[$num]->autocompletes_collect_bank_account, $record->autocompletes_collect_bank_account);
+            }
             
-                if (isset($body[$num]->country_code)) {
-                    $this->assertEquals($body[$num]->country_code, $record->country_code);
-                }
+            if (isset($body[$num]->country_code)) {
+                $this->assertEquals($body[$num]->country_code, $record->country_code);
+            }
             
-                if (isset($body[$num]->icon_url)) {
-                    $this->assertEquals($body[$num]->icon_url, $record->icon_url);
-                }
+            if (isset($body[$num]->icon_url)) {
+                $this->assertEquals($body[$num]->icon_url, $record->icon_url);
+            }
             
-                if (isset($body[$num]->id)) {
-                    $this->assertEquals($body[$num]->id, $record->id);
-                }
+            if (isset($body[$num]->id)) {
+                $this->assertEquals($body[$num]->id, $record->id);
+            }
             
-                if (isset($body[$num]->limits)) {
-                    $this->assertEquals($body[$num]->limits, $record->limits);
-                }
+            if (isset($body[$num]->limits)) {
+                $this->assertEquals($body[$num]->limits, $record->limits);
+            }
             
-                if (isset($body[$num]->logo_url)) {
-                    $this->assertEquals($body[$num]->logo_url, $record->logo_url);
-                }
+            if (isset($body[$num]->logo_url)) {
+                $this->assertEquals($body[$num]->logo_url, $record->logo_url);
+            }
             
-                if (isset($body[$num]->name)) {
-                    $this->assertEquals($body[$num]->name, $record->name);
-                }
+            if (isset($body[$num]->name)) {
+                $this->assertEquals($body[$num]->name, $record->name);
+            }
             
-                if (isset($body[$num]->status)) {
-                    $this->assertEquals($body[$num]->status, $record->status);
-                }
+            if (isset($body[$num]->status)) {
+                $this->assertEquals($body[$num]->status, $record->status);
+            }
             
         }
 

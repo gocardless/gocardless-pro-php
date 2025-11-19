@@ -76,7 +76,6 @@ class PayoutItem extends BaseResource
      * the bank or customer cancelled the chargeback. Will include taxes if
      * applicable for merchants.</li>
      * </ul>
-     * 
      */
     protected $type;
 

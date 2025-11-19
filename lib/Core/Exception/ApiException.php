@@ -18,8 +18,8 @@ class ApiException extends GoCardlessProException
     }
 
     /**
-     * @param int $status_code the status returned by the GoCardless API
-     * @param string $error_type the error type returned by the GoCardless API
+     * @param  int    $status_code the status returned by the GoCardless API
+     * @param  string $error_type  the error type returned by the GoCardless API
      * @return ApiException the exception corresponding to the supplied error type
      */
     public static function getError($status_code, $error_type)
@@ -55,7 +55,7 @@ class ApiException extends GoCardlessProException
     public function getErrors()
     {
         if (property_exists($this->api_error, 'errors')) {
-          return $this->api_error->errors;
+            return $this->api_error->errors;
         }
 
         return array();
@@ -79,21 +79,21 @@ class ApiException extends GoCardlessProException
     protected function getErrorMessage()
     {
         if (!is_array($this->getErrors())) {
-          return $this->api_error->message;
+            return $this->api_error->message;
         }
 
         $error_messages = array_map(array($this, 'extractErrorMessage'), $this->getErrors());
         $error_messages = array_filter(
             $error_messages,
             function ($m) {
-              return $m != $this->api_error->message;
+                return $m != $this->api_error->message;
             }
         );
 
         if (count($error_messages) > 0) {
-          return $this->api_error->message . ' (' . implode(", ", $error_messages) . ')';
+            return $this->api_error->message . ' (' . implode(", ", $error_messages) . ')';
         } else {
-          return $this->api_error->message;
+            return $this->api_error->message;
         }
     }
 

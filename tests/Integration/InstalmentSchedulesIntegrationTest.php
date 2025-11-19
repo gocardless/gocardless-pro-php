@@ -169,41 +169,41 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-                if (isset($body[$num]->created_at)) {
-                    $this->assertEquals($body[$num]->created_at, $record->created_at);
-                }
+            if (isset($body[$num]->created_at)) {
+                $this->assertEquals($body[$num]->created_at, $record->created_at);
+            }
             
-                if (isset($body[$num]->currency)) {
-                    $this->assertEquals($body[$num]->currency, $record->currency);
-                }
+            if (isset($body[$num]->currency)) {
+                $this->assertEquals($body[$num]->currency, $record->currency);
+            }
             
-                if (isset($body[$num]->id)) {
-                    $this->assertEquals($body[$num]->id, $record->id);
-                }
+            if (isset($body[$num]->id)) {
+                $this->assertEquals($body[$num]->id, $record->id);
+            }
             
-                if (isset($body[$num]->links)) {
-                    $this->assertEquals($body[$num]->links, $record->links);
-                }
+            if (isset($body[$num]->links)) {
+                $this->assertEquals($body[$num]->links, $record->links);
+            }
             
-                if (isset($body[$num]->metadata)) {
-                    $this->assertEquals($body[$num]->metadata, $record->metadata);
-                }
+            if (isset($body[$num]->metadata)) {
+                $this->assertEquals($body[$num]->metadata, $record->metadata);
+            }
             
-                if (isset($body[$num]->name)) {
-                    $this->assertEquals($body[$num]->name, $record->name);
-                }
+            if (isset($body[$num]->name)) {
+                $this->assertEquals($body[$num]->name, $record->name);
+            }
             
-                if (isset($body[$num]->payment_errors)) {
-                    $this->assertEquals($body[$num]->payment_errors, $record->payment_errors);
-                }
+            if (isset($body[$num]->payment_errors)) {
+                $this->assertEquals($body[$num]->payment_errors, $record->payment_errors);
+            }
             
-                if (isset($body[$num]->status)) {
-                    $this->assertEquals($body[$num]->status, $record->status);
-                }
+            if (isset($body[$num]->status)) {
+                $this->assertEquals($body[$num]->status, $record->status);
+            }
             
-                if (isset($body[$num]->total_amount)) {
-                    $this->assertEquals($body[$num]->total_amount, $record->total_amount);
-                }
+            if (isset($body[$num]->total_amount)) {
+                $this->assertEquals($body[$num]->total_amount, $record->total_amount);
+            }
             
         }
 

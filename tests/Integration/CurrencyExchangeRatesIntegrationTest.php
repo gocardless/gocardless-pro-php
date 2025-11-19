@@ -37,21 +37,21 @@ class CurrencyExchangeRatesIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-                if (isset($body[$num]->rate)) {
-                    $this->assertEquals($body[$num]->rate, $record->rate);
-                }
+            if (isset($body[$num]->rate)) {
+                $this->assertEquals($body[$num]->rate, $record->rate);
+            }
             
-                if (isset($body[$num]->source)) {
-                    $this->assertEquals($body[$num]->source, $record->source);
-                }
+            if (isset($body[$num]->source)) {
+                $this->assertEquals($body[$num]->source, $record->source);
+            }
             
-                if (isset($body[$num]->target)) {
-                    $this->assertEquals($body[$num]->target, $record->target);
-                }
+            if (isset($body[$num]->target)) {
+                $this->assertEquals($body[$num]->target, $record->target);
+            }
             
-                if (isset($body[$num]->time)) {
-                    $this->assertEquals($body[$num]->time, $record->time);
-                }
+            if (isset($body[$num]->time)) {
+                $this->assertEquals($body[$num]->time, $record->time);
+            }
             
         }
 

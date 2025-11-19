@@ -26,14 +26,14 @@ class PayerAuthorisationsService extends BaseService
 
 
     /**
-    * Get a single Payer Authorisation
-    *
-    * Example URL: /payer_authorisations/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "PA".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return PayerAuthorisation
-    **/
+     * Get a single Payer Authorisation
+     *
+     * Example URL: /payer_authorisations/:identity
+     *
+     * @param  string               $identity Unique identifier, beginning with "PA".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return PayerAuthorisation
+     **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -44,7 +44,7 @@ class PayerAuthorisationsService extends BaseService
             )
         );
         if(isset($params['params'])) { $params['query'] = $params['params'];
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -55,20 +55,20 @@ class PayerAuthorisationsService extends BaseService
     }
 
     /**
-    * Create a Payer Authorisation
-    *
-    * Example URL: /payer_authorisations
-    *
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return PayerAuthorisation
-    **/
+     * Create a Payer Authorisation
+     *
+     * Example URL: /payer_authorisations
+     *
+     * @param  array<string, mixed> $params An associative array for any params
+     * @return PayerAuthorisation
+     **/
     public function create($params = array())
     {
         $path = "/payer_authorisations";
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -90,14 +90,14 @@ class PayerAuthorisationsService extends BaseService
     }
 
     /**
-    * Update a Payer Authorisation
-    *
-    * Example URL: /payer_authorisations/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "PA".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return PayerAuthorisation
-    **/
+     * Update a Payer Authorisation
+     *
+     * Example URL: /payer_authorisations/:identity
+     *
+     * @param  string               $identity Unique identifier, beginning with "PA".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return PayerAuthorisation
+     **/
     public function update($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -108,9 +108,9 @@ class PayerAuthorisationsService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -121,14 +121,14 @@ class PayerAuthorisationsService extends BaseService
     }
 
     /**
-    * Submit a Payer Authorisation
-    *
-    * Example URL: /payer_authorisations/:identity/actions/submit
-    *
-    * @param  string        $identity Unique identifier, beginning with "PA".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return PayerAuthorisation
-    **/
+     * Submit a Payer Authorisation
+     *
+     * Example URL: /payer_authorisations/:identity/actions/submit
+     *
+     * @param  string               $identity Unique identifier, beginning with "PA".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return PayerAuthorisation
+     **/
     public function submit($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -139,9 +139,9 @@ class PayerAuthorisationsService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array("data" => (object)$params['params']));
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -163,14 +163,14 @@ class PayerAuthorisationsService extends BaseService
     }
 
     /**
-    * Confirm a Payer Authorisation
-    *
-    * Example URL: /payer_authorisations/:identity/actions/confirm
-    *
-    * @param  string        $identity Unique identifier, beginning with "PA".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return PayerAuthorisation
-    **/
+     * Confirm a Payer Authorisation
+     *
+     * Example URL: /payer_authorisations/:identity/actions/confirm
+     *
+     * @param  string               $identity Unique identifier, beginning with "PA".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return PayerAuthorisation
+     **/
     public function confirm($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -181,9 +181,9 @@ class PayerAuthorisationsService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array("data" => (object)$params['params']));
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         

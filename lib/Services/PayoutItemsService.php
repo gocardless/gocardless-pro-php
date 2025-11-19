@@ -28,18 +28,18 @@ class PayoutItemsService extends BaseService
 
 
     /**
-    * Get all payout items in a single payout
-    *
-    * Example URL: /payout_items
-    *
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return ListResponse
-    **/
+     * Get all payout items in a single payout
+     *
+     * Example URL: /payout_items
+     *
+     * @param  array<string, mixed> $params An associative array for any params
+     * @return ListResponse
+     **/
     protected function _doList($params = array())
     {
         $path = "/payout_items";
         if(isset($params['params'])) { $params['query'] = $params['params'];
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -50,13 +50,13 @@ class PayoutItemsService extends BaseService
     }
 
     /**
-    * Get all payout items in a single payout
-    *
-    * Example URL: /payout_items
-    *
-    * @param string[mixed] $params
-    * @return Paginator
-    **/
+     * Get all payout items in a single payout
+     *
+     * Example URL: /payout_items
+     *
+     * @param  string[mixed] $params
+     * @return Paginator
+     **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

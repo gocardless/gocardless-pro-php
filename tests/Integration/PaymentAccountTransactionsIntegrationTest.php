@@ -37,45 +37,45 @@ class PaymentAccountTransactionsIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-                if (isset($body[$num]->amount)) {
-                    $this->assertEquals($body[$num]->amount, $record->amount);
-                }
+            if (isset($body[$num]->amount)) {
+                $this->assertEquals($body[$num]->amount, $record->amount);
+            }
             
-                if (isset($body[$num]->balance_after_transaction)) {
-                    $this->assertEquals($body[$num]->balance_after_transaction, $record->balance_after_transaction);
-                }
+            if (isset($body[$num]->balance_after_transaction)) {
+                $this->assertEquals($body[$num]->balance_after_transaction, $record->balance_after_transaction);
+            }
             
-                if (isset($body[$num]->counterparty_name)) {
-                    $this->assertEquals($body[$num]->counterparty_name, $record->counterparty_name);
-                }
+            if (isset($body[$num]->counterparty_name)) {
+                $this->assertEquals($body[$num]->counterparty_name, $record->counterparty_name);
+            }
             
-                if (isset($body[$num]->currency)) {
-                    $this->assertEquals($body[$num]->currency, $record->currency);
-                }
+            if (isset($body[$num]->currency)) {
+                $this->assertEquals($body[$num]->currency, $record->currency);
+            }
             
-                if (isset($body[$num]->description)) {
-                    $this->assertEquals($body[$num]->description, $record->description);
-                }
+            if (isset($body[$num]->description)) {
+                $this->assertEquals($body[$num]->description, $record->description);
+            }
             
-                if (isset($body[$num]->direction)) {
-                    $this->assertEquals($body[$num]->direction, $record->direction);
-                }
+            if (isset($body[$num]->direction)) {
+                $this->assertEquals($body[$num]->direction, $record->direction);
+            }
             
-                if (isset($body[$num]->id)) {
-                    $this->assertEquals($body[$num]->id, $record->id);
-                }
+            if (isset($body[$num]->id)) {
+                $this->assertEquals($body[$num]->id, $record->id);
+            }
             
-                if (isset($body[$num]->links)) {
-                    $this->assertEquals($body[$num]->links, $record->links);
-                }
+            if (isset($body[$num]->links)) {
+                $this->assertEquals($body[$num]->links, $record->links);
+            }
             
-                if (isset($body[$num]->reference)) {
-                    $this->assertEquals($body[$num]->reference, $record->reference);
-                }
+            if (isset($body[$num]->reference)) {
+                $this->assertEquals($body[$num]->reference, $record->reference);
+            }
             
-                if (isset($body[$num]->value_date)) {
-                    $this->assertEquals($body[$num]->value_date, $record->value_date);
-                }
+            if (isset($body[$num]->value_date)) {
+                $this->assertEquals($body[$num]->value_date, $record->value_date);
+            }
             
         }
 

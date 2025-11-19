@@ -127,89 +127,89 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-                if (isset($body[$num]->amount)) {
-                    $this->assertEquals($body[$num]->amount, $record->amount);
-                }
+            if (isset($body[$num]->amount)) {
+                $this->assertEquals($body[$num]->amount, $record->amount);
+            }
             
-                if (isset($body[$num]->app_fee)) {
-                    $this->assertEquals($body[$num]->app_fee, $record->app_fee);
-                }
+            if (isset($body[$num]->app_fee)) {
+                $this->assertEquals($body[$num]->app_fee, $record->app_fee);
+            }
             
-                if (isset($body[$num]->count)) {
-                    $this->assertEquals($body[$num]->count, $record->count);
-                }
+            if (isset($body[$num]->count)) {
+                $this->assertEquals($body[$num]->count, $record->count);
+            }
             
-                if (isset($body[$num]->created_at)) {
-                    $this->assertEquals($body[$num]->created_at, $record->created_at);
-                }
+            if (isset($body[$num]->created_at)) {
+                $this->assertEquals($body[$num]->created_at, $record->created_at);
+            }
             
-                if (isset($body[$num]->currency)) {
-                    $this->assertEquals($body[$num]->currency, $record->currency);
-                }
+            if (isset($body[$num]->currency)) {
+                $this->assertEquals($body[$num]->currency, $record->currency);
+            }
             
-                if (isset($body[$num]->day_of_month)) {
-                    $this->assertEquals($body[$num]->day_of_month, $record->day_of_month);
-                }
+            if (isset($body[$num]->day_of_month)) {
+                $this->assertEquals($body[$num]->day_of_month, $record->day_of_month);
+            }
             
-                if (isset($body[$num]->earliest_charge_date_after_resume)) {
-                    $this->assertEquals($body[$num]->earliest_charge_date_after_resume, $record->earliest_charge_date_after_resume);
-                }
+            if (isset($body[$num]->earliest_charge_date_after_resume)) {
+                $this->assertEquals($body[$num]->earliest_charge_date_after_resume, $record->earliest_charge_date_after_resume);
+            }
             
-                if (isset($body[$num]->end_date)) {
-                    $this->assertEquals($body[$num]->end_date, $record->end_date);
-                }
+            if (isset($body[$num]->end_date)) {
+                $this->assertEquals($body[$num]->end_date, $record->end_date);
+            }
             
-                if (isset($body[$num]->id)) {
-                    $this->assertEquals($body[$num]->id, $record->id);
-                }
+            if (isset($body[$num]->id)) {
+                $this->assertEquals($body[$num]->id, $record->id);
+            }
             
-                if (isset($body[$num]->interval)) {
-                    $this->assertEquals($body[$num]->interval, $record->interval);
-                }
+            if (isset($body[$num]->interval)) {
+                $this->assertEquals($body[$num]->interval, $record->interval);
+            }
             
-                if (isset($body[$num]->interval_unit)) {
-                    $this->assertEquals($body[$num]->interval_unit, $record->interval_unit);
-                }
+            if (isset($body[$num]->interval_unit)) {
+                $this->assertEquals($body[$num]->interval_unit, $record->interval_unit);
+            }
             
-                if (isset($body[$num]->links)) {
-                    $this->assertEquals($body[$num]->links, $record->links);
-                }
+            if (isset($body[$num]->links)) {
+                $this->assertEquals($body[$num]->links, $record->links);
+            }
             
-                if (isset($body[$num]->metadata)) {
-                    $this->assertEquals($body[$num]->metadata, $record->metadata);
-                }
+            if (isset($body[$num]->metadata)) {
+                $this->assertEquals($body[$num]->metadata, $record->metadata);
+            }
             
-                if (isset($body[$num]->month)) {
-                    $this->assertEquals($body[$num]->month, $record->month);
-                }
+            if (isset($body[$num]->month)) {
+                $this->assertEquals($body[$num]->month, $record->month);
+            }
             
-                if (isset($body[$num]->name)) {
-                    $this->assertEquals($body[$num]->name, $record->name);
-                }
+            if (isset($body[$num]->name)) {
+                $this->assertEquals($body[$num]->name, $record->name);
+            }
             
-                if (isset($body[$num]->parent_plan_paused)) {
-                    $this->assertEquals($body[$num]->parent_plan_paused, $record->parent_plan_paused);
-                }
+            if (isset($body[$num]->parent_plan_paused)) {
+                $this->assertEquals($body[$num]->parent_plan_paused, $record->parent_plan_paused);
+            }
             
-                if (isset($body[$num]->payment_reference)) {
-                    $this->assertEquals($body[$num]->payment_reference, $record->payment_reference);
-                }
+            if (isset($body[$num]->payment_reference)) {
+                $this->assertEquals($body[$num]->payment_reference, $record->payment_reference);
+            }
             
-                if (isset($body[$num]->retry_if_possible)) {
-                    $this->assertEquals($body[$num]->retry_if_possible, $record->retry_if_possible);
-                }
+            if (isset($body[$num]->retry_if_possible)) {
+                $this->assertEquals($body[$num]->retry_if_possible, $record->retry_if_possible);
+            }
             
-                if (isset($body[$num]->start_date)) {
-                    $this->assertEquals($body[$num]->start_date, $record->start_date);
-                }
+            if (isset($body[$num]->start_date)) {
+                $this->assertEquals($body[$num]->start_date, $record->start_date);
+            }
             
-                if (isset($body[$num]->status)) {
-                    $this->assertEquals($body[$num]->status, $record->status);
-                }
+            if (isset($body[$num]->status)) {
+                $this->assertEquals($body[$num]->status, $record->status);
+            }
             
-                if (isset($body[$num]->upcoming_payments)) {
-                    $this->assertEquals($body[$num]->upcoming_payments, $record->upcoming_payments);
-                }
+            if (isset($body[$num]->upcoming_payments)) {
+                $this->assertEquals($body[$num]->upcoming_payments, $record->upcoming_payments);
+            }
             
         }
 

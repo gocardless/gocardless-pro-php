@@ -121,77 +121,77 @@ class SchemeIdentifiersIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-                if (isset($body[$num]->address_line1)) {
-                    $this->assertEquals($body[$num]->address_line1, $record->address_line1);
-                }
+            if (isset($body[$num]->address_line1)) {
+                $this->assertEquals($body[$num]->address_line1, $record->address_line1);
+            }
             
-                if (isset($body[$num]->address_line2)) {
-                    $this->assertEquals($body[$num]->address_line2, $record->address_line2);
-                }
+            if (isset($body[$num]->address_line2)) {
+                $this->assertEquals($body[$num]->address_line2, $record->address_line2);
+            }
             
-                if (isset($body[$num]->address_line3)) {
-                    $this->assertEquals($body[$num]->address_line3, $record->address_line3);
-                }
+            if (isset($body[$num]->address_line3)) {
+                $this->assertEquals($body[$num]->address_line3, $record->address_line3);
+            }
             
-                if (isset($body[$num]->can_specify_mandate_reference)) {
-                    $this->assertEquals($body[$num]->can_specify_mandate_reference, $record->can_specify_mandate_reference);
-                }
+            if (isset($body[$num]->can_specify_mandate_reference)) {
+                $this->assertEquals($body[$num]->can_specify_mandate_reference, $record->can_specify_mandate_reference);
+            }
             
-                if (isset($body[$num]->city)) {
-                    $this->assertEquals($body[$num]->city, $record->city);
-                }
+            if (isset($body[$num]->city)) {
+                $this->assertEquals($body[$num]->city, $record->city);
+            }
             
-                if (isset($body[$num]->country_code)) {
-                    $this->assertEquals($body[$num]->country_code, $record->country_code);
-                }
+            if (isset($body[$num]->country_code)) {
+                $this->assertEquals($body[$num]->country_code, $record->country_code);
+            }
             
-                if (isset($body[$num]->created_at)) {
-                    $this->assertEquals($body[$num]->created_at, $record->created_at);
-                }
+            if (isset($body[$num]->created_at)) {
+                $this->assertEquals($body[$num]->created_at, $record->created_at);
+            }
             
-                if (isset($body[$num]->currency)) {
-                    $this->assertEquals($body[$num]->currency, $record->currency);
-                }
+            if (isset($body[$num]->currency)) {
+                $this->assertEquals($body[$num]->currency, $record->currency);
+            }
             
-                if (isset($body[$num]->email)) {
-                    $this->assertEquals($body[$num]->email, $record->email);
-                }
+            if (isset($body[$num]->email)) {
+                $this->assertEquals($body[$num]->email, $record->email);
+            }
             
-                if (isset($body[$num]->id)) {
-                    $this->assertEquals($body[$num]->id, $record->id);
-                }
+            if (isset($body[$num]->id)) {
+                $this->assertEquals($body[$num]->id, $record->id);
+            }
             
-                if (isset($body[$num]->minimum_advance_notice)) {
-                    $this->assertEquals($body[$num]->minimum_advance_notice, $record->minimum_advance_notice);
-                }
+            if (isset($body[$num]->minimum_advance_notice)) {
+                $this->assertEquals($body[$num]->minimum_advance_notice, $record->minimum_advance_notice);
+            }
             
-                if (isset($body[$num]->name)) {
-                    $this->assertEquals($body[$num]->name, $record->name);
-                }
+            if (isset($body[$num]->name)) {
+                $this->assertEquals($body[$num]->name, $record->name);
+            }
             
-                if (isset($body[$num]->phone_number)) {
-                    $this->assertEquals($body[$num]->phone_number, $record->phone_number);
-                }
+            if (isset($body[$num]->phone_number)) {
+                $this->assertEquals($body[$num]->phone_number, $record->phone_number);
+            }
             
-                if (isset($body[$num]->postal_code)) {
-                    $this->assertEquals($body[$num]->postal_code, $record->postal_code);
-                }
+            if (isset($body[$num]->postal_code)) {
+                $this->assertEquals($body[$num]->postal_code, $record->postal_code);
+            }
             
-                if (isset($body[$num]->reference)) {
-                    $this->assertEquals($body[$num]->reference, $record->reference);
-                }
+            if (isset($body[$num]->reference)) {
+                $this->assertEquals($body[$num]->reference, $record->reference);
+            }
             
-                if (isset($body[$num]->region)) {
-                    $this->assertEquals($body[$num]->region, $record->region);
-                }
+            if (isset($body[$num]->region)) {
+                $this->assertEquals($body[$num]->region, $record->region);
+            }
             
-                if (isset($body[$num]->scheme)) {
-                    $this->assertEquals($body[$num]->scheme, $record->scheme);
-                }
+            if (isset($body[$num]->scheme)) {
+                $this->assertEquals($body[$num]->scheme, $record->scheme);
+            }
             
-                if (isset($body[$num]->status)) {
-                    $this->assertEquals($body[$num]->status, $record->status);
-                }
+            if (isset($body[$num]->status)) {
+                $this->assertEquals($body[$num]->status, $record->status);
+            }
             
         }
 

@@ -60,7 +60,6 @@ class Creditor extends BaseResource
      * sent to that creditor could be `ACME-8G7Q8`.
      * 
      * This prefix is also used for refunds in EUR and GBP.
-     * 
      */
     protected $bank_reference_prefix;
 

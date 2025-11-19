@@ -26,7 +26,6 @@ class CustomerNotification extends BaseResource
      * The action that was taken on the notification. Currently this can only be
      * `handled`,
      * which means the integrator sent the notification themselves.
-     * 
      */
     protected $action_taken;
 

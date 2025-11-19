@@ -26,20 +26,20 @@ class BankDetailsLookupsService extends BaseService
 
 
     /**
-    * Perform a bank details lookup
-    *
-    * Example URL: /bank_details_lookups
-    *
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return BankDetailsLookup
-    **/
+     * Perform a bank details lookup
+     *
+     * Example URL: /bank_details_lookups
+     *
+     * @param  array<string, mixed> $params An associative array for any params
+     * @return BankDetailsLookup
+     **/
     public function create($params = array())
     {
         $path = "/bank_details_lookups";
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         

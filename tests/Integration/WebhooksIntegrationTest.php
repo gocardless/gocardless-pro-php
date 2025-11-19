@@ -37,57 +37,57 @@ class WebhooksIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-                if (isset($body[$num]->created_at)) {
-                    $this->assertEquals($body[$num]->created_at, $record->created_at);
-                }
+            if (isset($body[$num]->created_at)) {
+                $this->assertEquals($body[$num]->created_at, $record->created_at);
+            }
             
-                if (isset($body[$num]->id)) {
-                    $this->assertEquals($body[$num]->id, $record->id);
-                }
+            if (isset($body[$num]->id)) {
+                $this->assertEquals($body[$num]->id, $record->id);
+            }
             
-                if (isset($body[$num]->is_test)) {
-                    $this->assertEquals($body[$num]->is_test, $record->is_test);
-                }
+            if (isset($body[$num]->is_test)) {
+                $this->assertEquals($body[$num]->is_test, $record->is_test);
+            }
             
-                if (isset($body[$num]->request_body)) {
-                    $this->assertEquals($body[$num]->request_body, $record->request_body);
-                }
+            if (isset($body[$num]->request_body)) {
+                $this->assertEquals($body[$num]->request_body, $record->request_body);
+            }
             
-                if (isset($body[$num]->request_headers)) {
-                    $this->assertEquals($body[$num]->request_headers, $record->request_headers);
-                }
+            if (isset($body[$num]->request_headers)) {
+                $this->assertEquals($body[$num]->request_headers, $record->request_headers);
+            }
             
-                if (isset($body[$num]->response_body)) {
-                    $this->assertEquals($body[$num]->response_body, $record->response_body);
-                }
+            if (isset($body[$num]->response_body)) {
+                $this->assertEquals($body[$num]->response_body, $record->response_body);
+            }
             
-                if (isset($body[$num]->response_body_truncated)) {
-                    $this->assertEquals($body[$num]->response_body_truncated, $record->response_body_truncated);
-                }
+            if (isset($body[$num]->response_body_truncated)) {
+                $this->assertEquals($body[$num]->response_body_truncated, $record->response_body_truncated);
+            }
             
-                if (isset($body[$num]->response_code)) {
-                    $this->assertEquals($body[$num]->response_code, $record->response_code);
-                }
+            if (isset($body[$num]->response_code)) {
+                $this->assertEquals($body[$num]->response_code, $record->response_code);
+            }
             
-                if (isset($body[$num]->response_headers)) {
-                    $this->assertEquals($body[$num]->response_headers, $record->response_headers);
-                }
+            if (isset($body[$num]->response_headers)) {
+                $this->assertEquals($body[$num]->response_headers, $record->response_headers);
+            }
             
-                if (isset($body[$num]->response_headers_content_truncated)) {
-                    $this->assertEquals($body[$num]->response_headers_content_truncated, $record->response_headers_content_truncated);
-                }
+            if (isset($body[$num]->response_headers_content_truncated)) {
+                $this->assertEquals($body[$num]->response_headers_content_truncated, $record->response_headers_content_truncated);
+            }
             
-                if (isset($body[$num]->response_headers_count_truncated)) {
-                    $this->assertEquals($body[$num]->response_headers_count_truncated, $record->response_headers_count_truncated);
-                }
+            if (isset($body[$num]->response_headers_count_truncated)) {
+                $this->assertEquals($body[$num]->response_headers_count_truncated, $record->response_headers_count_truncated);
+            }
             
-                if (isset($body[$num]->successful)) {
-                    $this->assertEquals($body[$num]->successful, $record->successful);
-                }
+            if (isset($body[$num]->successful)) {
+                $this->assertEquals($body[$num]->successful, $record->successful);
+            }
             
-                if (isset($body[$num]->url)) {
-                    $this->assertEquals($body[$num]->url, $record->url);
-                }
+            if (isset($body[$num]->url)) {
+                $this->assertEquals($body[$num]->url, $record->url);
+            }
             
         }
 

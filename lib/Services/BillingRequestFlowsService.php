@@ -26,20 +26,20 @@ class BillingRequestFlowsService extends BaseService
 
 
     /**
-    * Create a Billing Request Flow
-    *
-    * Example URL: /billing_request_flows
-    *
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return BillingRequestFlow
-    **/
+     * Create a Billing Request Flow
+     *
+     * Example URL: /billing_request_flows
+     *
+     * @param  array<string, mixed> $params An associative array for any params
+     * @return BillingRequestFlow
+     **/
     public function create($params = array())
     {
         $path = "/billing_request_flows";
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -50,14 +50,14 @@ class BillingRequestFlowsService extends BaseService
     }
 
     /**
-    * Initialise a Billing Request Flow
-    *
-    * Example URL: /billing_request_flows/:identity/actions/initialise
-    *
-    * @param  string        $identity Unique identifier, beginning with "BRF".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return BillingRequestFlow
-    **/
+     * Initialise a Billing Request Flow
+     *
+     * Example URL: /billing_request_flows/:identity/actions/initialise
+     *
+     * @param  string               $identity Unique identifier, beginning with "BRF".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return BillingRequestFlow
+     **/
     public function initialise($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -68,9 +68,9 @@ class BillingRequestFlowsService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array("data" => (object)$params['params']));
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         

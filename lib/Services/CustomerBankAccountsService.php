@@ -28,20 +28,20 @@ class CustomerBankAccountsService extends BaseService
 
 
     /**
-    * Create a customer bank account
-    *
-    * Example URL: /customer_bank_accounts
-    *
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return CustomerBankAccount
-    **/
+     * Create a customer bank account
+     *
+     * Example URL: /customer_bank_accounts
+     *
+     * @param  array<string, mixed> $params An associative array for any params
+     * @return CustomerBankAccount
+     **/
     public function create($params = array())
     {
         $path = "/customer_bank_accounts";
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -63,18 +63,18 @@ class CustomerBankAccountsService extends BaseService
     }
 
     /**
-    * List customer bank accounts
-    *
-    * Example URL: /customer_bank_accounts
-    *
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return ListResponse
-    **/
+     * List customer bank accounts
+     *
+     * Example URL: /customer_bank_accounts
+     *
+     * @param  array<string, mixed> $params An associative array for any params
+     * @return ListResponse
+     **/
     protected function _doList($params = array())
     {
         $path = "/customer_bank_accounts";
         if(isset($params['params'])) { $params['query'] = $params['params'];
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -85,14 +85,14 @@ class CustomerBankAccountsService extends BaseService
     }
 
     /**
-    * Get a single customer bank account
-    *
-    * Example URL: /customer_bank_accounts/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "BA".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return CustomerBankAccount
-    **/
+     * Get a single customer bank account
+     *
+     * Example URL: /customer_bank_accounts/:identity
+     *
+     * @param  string               $identity Unique identifier, beginning with "BA".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return CustomerBankAccount
+     **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -103,7 +103,7 @@ class CustomerBankAccountsService extends BaseService
             )
         );
         if(isset($params['params'])) { $params['query'] = $params['params'];
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -114,14 +114,14 @@ class CustomerBankAccountsService extends BaseService
     }
 
     /**
-    * Update a customer bank account
-    *
-    * Example URL: /customer_bank_accounts/:identity
-    *
-    * @param  string        $identity Unique identifier, beginning with "BA".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return CustomerBankAccount
-    **/
+     * Update a customer bank account
+     *
+     * Example URL: /customer_bank_accounts/:identity
+     *
+     * @param  string               $identity Unique identifier, beginning with "BA".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return CustomerBankAccount
+     **/
     public function update($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -132,9 +132,9 @@ class CustomerBankAccountsService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -145,14 +145,14 @@ class CustomerBankAccountsService extends BaseService
     }
 
     /**
-    * Disable a customer bank account
-    *
-    * Example URL: /customer_bank_accounts/:identity/actions/disable
-    *
-    * @param  string        $identity Unique identifier, beginning with "BA".
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return CustomerBankAccount
-    **/
+     * Disable a customer bank account
+     *
+     * Example URL: /customer_bank_accounts/:identity/actions/disable
+     *
+     * @param  string               $identity Unique identifier, beginning with "BA".
+     * @param  array<string, mixed> $params   An associative array for any params
+     * @return CustomerBankAccount
+     **/
     public function disable($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -163,9 +163,9 @@ class CustomerBankAccountsService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-          $params['body'] = json_encode(array("data" => (object)$params['params']));
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
         
-          unset($params['params']);
+            unset($params['params']);
         }
 
         
@@ -187,13 +187,13 @@ class CustomerBankAccountsService extends BaseService
     }
 
     /**
-    * List customer bank accounts
-    *
-    * Example URL: /customer_bank_accounts
-    *
-    * @param string[mixed] $params
-    * @return Paginator
-    **/
+     * List customer bank accounts
+     *
+     * Example URL: /customer_bank_accounts
+     *
+     * @param  string[mixed] $params
+     * @return Paginator
+     **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

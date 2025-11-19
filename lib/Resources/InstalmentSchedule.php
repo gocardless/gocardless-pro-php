@@ -67,7 +67,6 @@ class InstalmentSchedule extends BaseResource
      * failures from the individual payments, arranged by the index of the
      * payment that
      * failed.
-     * 
      */
     protected $payment_errors;
 
