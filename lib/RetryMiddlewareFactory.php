@@ -14,22 +14,20 @@ class RetryMiddlewareFactory
 
     /**
      * Builds an appropriately configured RetryMiddleware to retry failed requests
-     *
      * @return GuzzleHttp\RetryMiddleware
      */
     public static function buildMiddleware()
     {
-        return \GuzzleHttp\Middleware::retry(self::buildRetryDecider(), self::buildRetryDelay());
+      return \GuzzleHttp\Middleware::retry(self::buildRetryDecider(), self::buildRetryDelay());
     }
 
     /**
      * Internal function for building a retry decider for the Guzzle Retry middleware
-     *
      * @return callable A function called to decide whether to retry a request
      */
     private static function buildRetryDecider()
     {
-        return function (
+        return function(
             $retries,
             \GuzzleHttp\Psr7\Request $request,
             ?\GuzzleHttp\Psr7\Response $response = null,
@@ -61,23 +59,21 @@ class RetryMiddlewareFactory
 
     /**
      * Internal function for setting the delay for the Guzzle Retry middleware
-     *
      * @return callable A function called to decide how long to delay before a retry
      */
-    private static function buildRetryDelay()
-    {
-        return function (
+     private static function buildRetryDelay()
+     {
+        return function(
             $numberOfRetries
         ) {
             return self::RETRY_DELAY;
         };
-    }
+     }
 
     /**
      * Internal function for determining if a request hit a connection error
-     *
      * @return boolean
-     */
+    */
     private static function isConnectionError(?\GuzzleHttp\Exception\TransferException $exception = null)
     {
         return $exception instanceof \GuzzleHttp\Exception\ConnectException;
@@ -87,7 +83,6 @@ class RetryMiddlewareFactory
      * Internal function for determining if a response was a 5XX indicating a problem on
      * GoCardless' end, where a retry is likely to resolve the problem (e.g. 504 Gateway
      * Timeout)
-     *
      * @return boolean
      */
     private static function isRetryableServerError(?\GuzzleHttp\Psr7\Response $response = null)

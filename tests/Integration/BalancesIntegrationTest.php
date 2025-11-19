@@ -37,25 +37,25 @@ class BalancesIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-            if (isset($body[$num]->amount)) {
-                $this->assertEquals($body[$num]->amount, $record->amount);
-            }
+                if (isset($body[$num]->amount)) {
+                    $this->assertEquals($body[$num]->amount, $record->amount);
+                }
             
-            if (isset($body[$num]->balance_type)) {
-                $this->assertEquals($body[$num]->balance_type, $record->balance_type);
-            }
+                if (isset($body[$num]->balance_type)) {
+                    $this->assertEquals($body[$num]->balance_type, $record->balance_type);
+                }
             
-            if (isset($body[$num]->currency)) {
-                $this->assertEquals($body[$num]->currency, $record->currency);
-            }
+                if (isset($body[$num]->currency)) {
+                    $this->assertEquals($body[$num]->currency, $record->currency);
+                }
             
-            if (isset($body[$num]->last_updated_at)) {
-                $this->assertEquals($body[$num]->last_updated_at, $record->last_updated_at);
-            }
+                if (isset($body[$num]->last_updated_at)) {
+                    $this->assertEquals($body[$num]->last_updated_at, $record->last_updated_at);
+                }
             
-            if (isset($body[$num]->links)) {
-                $this->assertEquals($body[$num]->links, $record->links);
-            }
+                if (isset($body[$num]->links)) {
+                    $this->assertEquals($body[$num]->links, $record->links);
+                }
             
         }
 

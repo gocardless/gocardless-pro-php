@@ -26,15 +26,15 @@ class TransferredMandatesService extends BaseService
 
 
     /**
-     * Get updated customer bank details
-     *
-     * Example URL: /transferred_mandates/:identity
-     *
-     * @param  string               $identity Unique identifier, beginning with "MD". Note that this
-     *                                        prefix may not apply to mandates created before 2016.
-     * @param  array<string, mixed> $params   An associative array for any params
-     * @return TransferredMandate
-     **/
+    * Get updated customer bank details
+    *
+    * Example URL: /transferred_mandates/:identity
+    *
+    * @param  string        $identity Unique identifier, beginning with "MD". Note that this
+ prefix may not apply to mandates created before 2016.
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return TransferredMandate
+    **/
     public function transferredMandates($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -45,7 +45,7 @@ class TransferredMandatesService extends BaseService
             )
         );
         if(isset($params['params'])) { $params['query'] = $params['params'];
-            unset($params['params']);
+          unset($params['params']);
         }
 
         

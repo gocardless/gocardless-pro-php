@@ -28,18 +28,18 @@ class BillingRequestTemplatesService extends BaseService
 
 
     /**
-     * List Billing Request Templates
-     *
-     * Example URL: /billing_request_templates
-     *
-     * @param  array<string, mixed> $params An associative array for any params
-     * @return ListResponse
-     **/
+    * List Billing Request Templates
+    *
+    * Example URL: /billing_request_templates
+    *
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return ListResponse
+    **/
     protected function _doList($params = array())
     {
         $path = "/billing_request_templates";
         if(isset($params['params'])) { $params['query'] = $params['params'];
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -50,14 +50,14 @@ class BillingRequestTemplatesService extends BaseService
     }
 
     /**
-     * Get a single Billing Request Template
-     *
-     * Example URL: /billing_request_templates/:identity
-     *
-     * @param  string               $identity Unique identifier, beginning with "BRT".
-     * @param  array<string, mixed> $params   An associative array for any params
-     * @return BillingRequestTemplate
-     **/
+    * Get a single Billing Request Template
+    *
+    * Example URL: /billing_request_templates/:identity
+    *
+    * @param  string        $identity Unique identifier, beginning with "BRT".
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return BillingRequestTemplate
+    **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -68,7 +68,7 @@ class BillingRequestTemplatesService extends BaseService
             )
         );
         if(isset($params['params'])) { $params['query'] = $params['params'];
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -79,20 +79,20 @@ class BillingRequestTemplatesService extends BaseService
     }
 
     /**
-     * Create a Billing Request Template
-     *
-     * Example URL: /billing_request_templates
-     *
-     * @param  array<string, mixed> $params An associative array for any params
-     * @return BillingRequestTemplate
-     **/
+    * Create a Billing Request Template
+    *
+    * Example URL: /billing_request_templates
+    *
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return BillingRequestTemplate
+    **/
     public function create($params = array())
     {
         $path = "/billing_request_templates";
         if(isset($params['params'])) { 
-            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -114,14 +114,14 @@ class BillingRequestTemplatesService extends BaseService
     }
 
     /**
-     * Update a Billing Request Template
-     *
-     * Example URL: /billing_request_templates/:identity
-     *
-     * @param  string               $identity Unique identifier, beginning with "BRT".
-     * @param  array<string, mixed> $params   An associative array for any params
-     * @return BillingRequestTemplate
-     **/
+    * Update a Billing Request Template
+    *
+    * Example URL: /billing_request_templates/:identity
+    *
+    * @param  string        $identity Unique identifier, beginning with "BRT".
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return BillingRequestTemplate
+    **/
     public function update($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -132,9 +132,9 @@ class BillingRequestTemplatesService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -145,13 +145,13 @@ class BillingRequestTemplatesService extends BaseService
     }
 
     /**
-     * List Billing Request Templates
-     *
-     * Example URL: /billing_request_templates
-     *
-     * @param  string[mixed] $params
-     * @return Paginator
-     **/
+    * List Billing Request Templates
+    *
+    * Example URL: /billing_request_templates
+    *
+    * @param string[mixed] $params
+    * @return Paginator
+    **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

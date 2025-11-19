@@ -26,20 +26,20 @@ class LogosService extends BaseService
 
 
     /**
-     * Create a logo associated with a creditor
-     *
-     * Example URL: /branding/logos
-     *
-     * @param  array<string, mixed> $params An associative array for any params
-     * @return Logo
-     **/
+    * Create a logo associated with a creditor
+    *
+    * Example URL: /branding/logos
+    *
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return Logo
+    **/
     public function createForCreditor($params = array())
     {
         $path = "/branding/logos";
         if(isset($params['params'])) { 
-            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-            unset($params['params']);
+          unset($params['params']);
         }
 
         

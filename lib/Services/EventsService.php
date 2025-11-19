@@ -28,18 +28,18 @@ class EventsService extends BaseService
 
 
     /**
-     * List events
-     *
-     * Example URL: /events
-     *
-     * @param  array<string, mixed> $params An associative array for any params
-     * @return ListResponse
-     **/
+    * List events
+    *
+    * Example URL: /events
+    *
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return ListResponse
+    **/
     protected function _doList($params = array())
     {
         $path = "/events";
         if(isset($params['params'])) { $params['query'] = $params['params'];
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -50,14 +50,14 @@ class EventsService extends BaseService
     }
 
     /**
-     * Get a single event
-     *
-     * Example URL: /events/:identity
-     *
-     * @param  string               $identity Unique identifier, beginning with "EV".
-     * @param  array<string, mixed> $params   An associative array for any params
-     * @return Event
-     **/
+    * Get a single event
+    *
+    * Example URL: /events/:identity
+    *
+    * @param  string        $identity Unique identifier, beginning with "EV".
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return Event
+    **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -68,7 +68,7 @@ class EventsService extends BaseService
             )
         );
         if(isset($params['params'])) { $params['query'] = $params['params'];
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -79,13 +79,13 @@ class EventsService extends BaseService
     }
 
     /**
-     * List events
-     *
-     * Example URL: /events
-     *
-     * @param  string[mixed] $params
-     * @return Paginator
-     **/
+    * List events
+    *
+    * Example URL: /events
+    *
+    * @param string[mixed] $params
+    * @return Paginator
+    **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

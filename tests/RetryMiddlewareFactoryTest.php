@@ -7,12 +7,10 @@ class RetryMiddlewarFactoryTest extends TestCase
 {
     public function testRetryMiddlewareRetriesGetRequestsWhichTimeout()
     {
-        $mock = new \GuzzleHttp\Handler\MockHandler(
-            [
+        $mock = new \GuzzleHttp\Handler\MockHandler([
             new \GuzzleHttp\Exception\ConnectException('Timeout', new \GuzzleHttp\Psr7\Request('GET', 'test')),
             new \GuzzleHttp\Psr7\Response(200)
-            ]
-        );
+        ]);
 
         $handler = \GuzzleHttp\HandlerStack::create($mock);
         $handler->push(RetryMiddlewareFactory::buildMiddleware());
@@ -29,12 +27,10 @@ class RetryMiddlewarFactoryTest extends TestCase
 
     public function testRetryMiddlewareRetriesGetRequestsWhichRespond5XX()
     {
-        $mock = new \GuzzleHttp\Handler\MockHandler(
-            [
+        $mock = new \GuzzleHttp\Handler\MockHandler([
             new \GuzzleHttp\Psr7\Response(504),
             new \GuzzleHttp\Psr7\Response(200)
-            ]
-        );
+        ]);
 
         $handler = \GuzzleHttp\HandlerStack::create($mock);
         $handler->push(RetryMiddlewareFactory::buildMiddleware());
@@ -46,12 +42,10 @@ class RetryMiddlewarFactoryTest extends TestCase
 
     public function testRetryMiddlewareRetriesPutRequests()
     {
-        $mock = new \GuzzleHttp\Handler\MockHandler(
-            [
+        $mock = new \GuzzleHttp\Handler\MockHandler([
             new \GuzzleHttp\Exception\ConnectException('Timeout', new \GuzzleHttp\Psr7\Request('PUT', 'test')),
             new \GuzzleHttp\Psr7\Response(200)
-            ]
-        );
+        ]);
 
         $handler = \GuzzleHttp\HandlerStack::create($mock);
         $handler->push(RetryMiddlewareFactory::buildMiddleware());
@@ -63,12 +57,10 @@ class RetryMiddlewarFactoryTest extends TestCase
 
     public function testRetryMiddlewareRetriesCreatePostRequests()
     {
-        $mock = new \GuzzleHttp\Handler\MockHandler(
-            [
+        $mock = new \GuzzleHttp\Handler\MockHandler([
             new \GuzzleHttp\Exception\ConnectException('Timeout', new \GuzzleHttp\Psr7\Request('POST', 'test')),
             new \GuzzleHttp\Psr7\Response(200)
-            ]
-        );
+        ]);
 
         $handler = \GuzzleHttp\HandlerStack::create($mock);
         $handler->push(RetryMiddlewareFactory::buildMiddleware());
@@ -80,11 +72,9 @@ class RetryMiddlewarFactoryTest extends TestCase
 
     public function testRetryMiddlewareDoesntRetryActionPostRequests()
     {
-        $mock = new \GuzzleHttp\Handler\MockHandler(
-            [
+        $mock = new \GuzzleHttp\Handler\MockHandler([
             new \GuzzleHttp\Exception\ConnectException('Timeout', new \GuzzleHttp\Psr7\Request('POST', 'test'))
-            ]
-        );
+        ]);
 
         $handler = \GuzzleHttp\HandlerStack::create($mock);
         $handler->push(RetryMiddlewareFactory::buildMiddleware());

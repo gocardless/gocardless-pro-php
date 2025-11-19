@@ -26,20 +26,20 @@ class BillingRequestWithActionsService extends BaseService
 
 
     /**
-     * Create a Billing Request with Actions
-     *
-     * Example URL: /billing_requests/create_with_actions
-     *
-     * @param  array<string, mixed> $params An associative array for any params
-     * @return BillingRequestWithAction
-     **/
+    * Create a Billing Request with Actions
+    *
+    * Example URL: /billing_requests/create_with_actions
+    *
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return BillingRequestWithAction
+    **/
     public function createWithActions($params = array())
     {
         $path = "/billing_requests/create_with_actions";
         if(isset($params['params'])) { 
-            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-            unset($params['params']);
+          unset($params['params']);
         }
 
         

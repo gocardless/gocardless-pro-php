@@ -28,14 +28,14 @@ class ExportsService extends BaseService
 
 
     /**
-     * Get a single export
-     *
-     * Example URL: /exports/:identity
-     *
-     * @param  string               $identity Unique identifier, beginning with "EX".
-     * @param  array<string, mixed> $params   An associative array for any params
-     * @return Export
-     **/
+    * Get a single export
+    *
+    * Example URL: /exports/:identity
+    *
+    * @param  string        $identity Unique identifier, beginning with "EX".
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return Export
+    **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -46,7 +46,7 @@ class ExportsService extends BaseService
             )
         );
         if(isset($params['params'])) { $params['query'] = $params['params'];
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -57,18 +57,18 @@ class ExportsService extends BaseService
     }
 
     /**
-     * List exports
-     *
-     * Example URL: /exports
-     *
-     * @param  array<string, mixed> $params An associative array for any params
-     * @return ListResponse
-     **/
+    * List exports
+    *
+    * Example URL: /exports
+    *
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return ListResponse
+    **/
     protected function _doList($params = array())
     {
         $path = "/exports";
         if(isset($params['params'])) { $params['query'] = $params['params'];
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -79,13 +79,13 @@ class ExportsService extends BaseService
     }
 
     /**
-     * List exports
-     *
-     * Example URL: /exports
-     *
-     * @param  string[mixed] $params
-     * @return Paginator
-     **/
+    * List exports
+    *
+    * Example URL: /exports
+    *
+    * @param string[mixed] $params
+    * @return Paginator
+    **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

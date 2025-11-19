@@ -7,9 +7,9 @@ class ValidationFailedException extends ApiException
     protected function extractErrorMessage($error)
     {
         if (isset($error->field)) {
-            return $error->field . ' ' . $error->message;
+          return $error->field . ' ' . $error->message;
         } else {
-            return $error->message;
+          return $error->message;
         }
     }
 };

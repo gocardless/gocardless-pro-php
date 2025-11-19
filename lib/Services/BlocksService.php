@@ -28,20 +28,20 @@ class BlocksService extends BaseService
 
 
     /**
-     * Create a block
-     *
-     * Example URL: /blocks
-     *
-     * @param  array<string, mixed> $params An associative array for any params
-     * @return Block
-     **/
+    * Create a block
+    *
+    * Example URL: /blocks
+    *
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return Block
+    **/
     public function create($params = array())
     {
         $path = "/blocks";
         if(isset($params['params'])) { 
-            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -63,14 +63,14 @@ class BlocksService extends BaseService
     }
 
     /**
-     * Get a single block
-     *
-     * Example URL: /blocks/:identity
-     *
-     * @param  string               $identity Unique identifier, beginning with "BLC".
-     * @param  array<string, mixed> $params   An associative array for any params
-     * @return Block
-     **/
+    * Get a single block
+    *
+    * Example URL: /blocks/:identity
+    *
+    * @param  string        $identity Unique identifier, beginning with "BLC".
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return Block
+    **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -81,7 +81,7 @@ class BlocksService extends BaseService
             )
         );
         if(isset($params['params'])) { $params['query'] = $params['params'];
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -92,18 +92,18 @@ class BlocksService extends BaseService
     }
 
     /**
-     * List multiple blocks
-     *
-     * Example URL: /blocks
-     *
-     * @param  array<string, mixed> $params An associative array for any params
-     * @return ListResponse
-     **/
+    * List multiple blocks
+    *
+    * Example URL: /blocks
+    *
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return ListResponse
+    **/
     protected function _doList($params = array())
     {
         $path = "/blocks";
         if(isset($params['params'])) { $params['query'] = $params['params'];
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -114,14 +114,14 @@ class BlocksService extends BaseService
     }
 
     /**
-     * Disable a block
-     *
-     * Example URL: /blocks/:identity/actions/disable
-     *
-     * @param  string               $identity Unique identifier, beginning with "BLC".
-     * @param  array<string, mixed> $params   An associative array for any params
-     * @return Block
-     **/
+    * Disable a block
+    *
+    * Example URL: /blocks/:identity/actions/disable
+    *
+    * @param  string        $identity Unique identifier, beginning with "BLC".
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return Block
+    **/
     public function disable($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -132,9 +132,9 @@ class BlocksService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-            $params['body'] = json_encode(array("data" => (object)$params['params']));
+          $params['body'] = json_encode(array("data" => (object)$params['params']));
         
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -156,14 +156,14 @@ class BlocksService extends BaseService
     }
 
     /**
-     * Enable a block
-     *
-     * Example URL: /blocks/:identity/actions/enable
-     *
-     * @param  string               $identity Unique identifier, beginning with "BLC".
-     * @param  array<string, mixed> $params   An associative array for any params
-     * @return Block
-     **/
+    * Enable a block
+    *
+    * Example URL: /blocks/:identity/actions/enable
+    *
+    * @param  string        $identity Unique identifier, beginning with "BLC".
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return Block
+    **/
     public function enable($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -174,9 +174,9 @@ class BlocksService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-            $params['body'] = json_encode(array("data" => (object)$params['params']));
+          $params['body'] = json_encode(array("data" => (object)$params['params']));
         
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -198,20 +198,20 @@ class BlocksService extends BaseService
     }
 
     /**
-     * Create blocks by reference
-     *
-     * Example URL: /blocks/block_by_ref
-     *
-     * @param  array<string, mixed> $params An associative array for any params
-     * @return ListResponse
-     **/
+    * Create blocks by reference
+    *
+    * Example URL: /blocks/block_by_ref
+    *
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return ListResponse
+    **/
     public function blockByRef($params = array())
     {
         $path = "/blocks/block_by_ref";
         if(isset($params['params'])) { 
-            $params['body'] = json_encode(array("data" => (object)$params['params']));
+          $params['body'] = json_encode(array("data" => (object)$params['params']));
         
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -233,13 +233,13 @@ class BlocksService extends BaseService
     }
 
     /**
-     * List multiple blocks
-     *
-     * Example URL: /blocks
-     *
-     * @param  string[mixed] $params
-     * @return Paginator
-     **/
+    * List multiple blocks
+    *
+    * Example URL: /blocks
+    *
+    * @param string[mixed] $params
+    * @return Paginator
+    **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

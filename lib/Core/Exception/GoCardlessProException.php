@@ -2,6 +2,4 @@
 
 namespace GoCardlessPro\Core\Exception;
 
-class GoCardlessProException extends \Exception
-{
-};
+class GoCardlessProException extends \Exception {};

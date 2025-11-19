@@ -37,29 +37,29 @@ class TaxRatesIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-            if (isset($body[$num]->end_date)) {
-                $this->assertEquals($body[$num]->end_date, $record->end_date);
-            }
+                if (isset($body[$num]->end_date)) {
+                    $this->assertEquals($body[$num]->end_date, $record->end_date);
+                }
             
-            if (isset($body[$num]->id)) {
-                $this->assertEquals($body[$num]->id, $record->id);
-            }
+                if (isset($body[$num]->id)) {
+                    $this->assertEquals($body[$num]->id, $record->id);
+                }
             
-            if (isset($body[$num]->jurisdiction)) {
-                $this->assertEquals($body[$num]->jurisdiction, $record->jurisdiction);
-            }
+                if (isset($body[$num]->jurisdiction)) {
+                    $this->assertEquals($body[$num]->jurisdiction, $record->jurisdiction);
+                }
             
-            if (isset($body[$num]->percentage)) {
-                $this->assertEquals($body[$num]->percentage, $record->percentage);
-            }
+                if (isset($body[$num]->percentage)) {
+                    $this->assertEquals($body[$num]->percentage, $record->percentage);
+                }
             
-            if (isset($body[$num]->start_date)) {
-                $this->assertEquals($body[$num]->start_date, $record->start_date);
-            }
+                if (isset($body[$num]->start_date)) {
+                    $this->assertEquals($body[$num]->start_date, $record->start_date);
+                }
             
-            if (isset($body[$num]->type)) {
-                $this->assertEquals($body[$num]->type, $record->type);
-            }
+                if (isset($body[$num]->type)) {
+                    $this->assertEquals($body[$num]->type, $record->type);
+                }
             
         }
 

@@ -28,18 +28,18 @@ class BalancesService extends BaseService
 
 
     /**
-     * List balances
-     *
-     * Example URL: /balances
-     *
-     * @param  array<string, mixed> $params An associative array for any params
-     * @return ListResponse
-     **/
+    * List balances
+    *
+    * Example URL: /balances
+    *
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return ListResponse
+    **/
     protected function _doList($params = array())
     {
         $path = "/balances";
         if(isset($params['params'])) { $params['query'] = $params['params'];
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -50,13 +50,13 @@ class BalancesService extends BaseService
     }
 
     /**
-     * List balances
-     *
-     * Example URL: /balances
-     *
-     * @param  string[mixed] $params
-     * @return Paginator
-     **/
+    * List balances
+    *
+    * Example URL: /balances
+    *
+    * @param string[mixed] $params
+    * @return Paginator
+    **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

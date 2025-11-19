@@ -66,6 +66,7 @@ class BillingRequestTemplate extends BaseResource
     /**
      * A human-readable description of the payment and/or mandate. This will be
      * displayed to the payer when authorising the billing request.
+     * 
      */
     protected $mandate_request_description;
 
@@ -141,6 +142,7 @@ class BillingRequestTemplate extends BaseResource
     /**
      * A human-readable description of the payment and/or mandate. This will be
      * displayed to the payer when authorising the billing request.
+     * 
      */
     protected $payment_request_description;
 

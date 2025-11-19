@@ -28,18 +28,18 @@ class NegativeBalanceLimitsService extends BaseService
 
 
     /**
-     * List negative balance limits
-     *
-     * Example URL: /negative_balance_limits
-     *
-     * @param  array<string, mixed> $params An associative array for any params
-     * @return ListResponse
-     **/
+    * List negative balance limits
+    *
+    * Example URL: /negative_balance_limits
+    *
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return ListResponse
+    **/
     protected function _doList($params = array())
     {
         $path = "/negative_balance_limits";
         if(isset($params['params'])) { $params['query'] = $params['params'];
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -50,13 +50,13 @@ class NegativeBalanceLimitsService extends BaseService
     }
 
     /**
-     * List negative balance limits
-     *
-     * Example URL: /negative_balance_limits
-     *
-     * @param  string[mixed] $params
-     * @return Paginator
-     **/
+    * List negative balance limits
+    *
+    * Example URL: /negative_balance_limits
+    *
+    * @param string[mixed] $params
+    * @return Paginator
+    **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

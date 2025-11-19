@@ -115,65 +115,65 @@ class MandatesIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-            if (isset($body[$num]->authorisation_source)) {
-                $this->assertEquals($body[$num]->authorisation_source, $record->authorisation_source);
-            }
+                if (isset($body[$num]->authorisation_source)) {
+                    $this->assertEquals($body[$num]->authorisation_source, $record->authorisation_source);
+                }
             
-            if (isset($body[$num]->consent_parameters)) {
-                $this->assertEquals($body[$num]->consent_parameters, $record->consent_parameters);
-            }
+                if (isset($body[$num]->consent_parameters)) {
+                    $this->assertEquals($body[$num]->consent_parameters, $record->consent_parameters);
+                }
             
-            if (isset($body[$num]->consent_type)) {
-                $this->assertEquals($body[$num]->consent_type, $record->consent_type);
-            }
+                if (isset($body[$num]->consent_type)) {
+                    $this->assertEquals($body[$num]->consent_type, $record->consent_type);
+                }
             
-            if (isset($body[$num]->created_at)) {
-                $this->assertEquals($body[$num]->created_at, $record->created_at);
-            }
+                if (isset($body[$num]->created_at)) {
+                    $this->assertEquals($body[$num]->created_at, $record->created_at);
+                }
             
-            if (isset($body[$num]->funds_settlement)) {
-                $this->assertEquals($body[$num]->funds_settlement, $record->funds_settlement);
-            }
+                if (isset($body[$num]->funds_settlement)) {
+                    $this->assertEquals($body[$num]->funds_settlement, $record->funds_settlement);
+                }
             
-            if (isset($body[$num]->id)) {
-                $this->assertEquals($body[$num]->id, $record->id);
-            }
+                if (isset($body[$num]->id)) {
+                    $this->assertEquals($body[$num]->id, $record->id);
+                }
             
-            if (isset($body[$num]->links)) {
-                $this->assertEquals($body[$num]->links, $record->links);
-            }
+                if (isset($body[$num]->links)) {
+                    $this->assertEquals($body[$num]->links, $record->links);
+                }
             
-            if (isset($body[$num]->metadata)) {
-                $this->assertEquals($body[$num]->metadata, $record->metadata);
-            }
+                if (isset($body[$num]->metadata)) {
+                    $this->assertEquals($body[$num]->metadata, $record->metadata);
+                }
             
-            if (isset($body[$num]->next_possible_charge_date)) {
-                $this->assertEquals($body[$num]->next_possible_charge_date, $record->next_possible_charge_date);
-            }
+                if (isset($body[$num]->next_possible_charge_date)) {
+                    $this->assertEquals($body[$num]->next_possible_charge_date, $record->next_possible_charge_date);
+                }
             
-            if (isset($body[$num]->next_possible_standard_ach_charge_date)) {
-                $this->assertEquals($body[$num]->next_possible_standard_ach_charge_date, $record->next_possible_standard_ach_charge_date);
-            }
+                if (isset($body[$num]->next_possible_standard_ach_charge_date)) {
+                    $this->assertEquals($body[$num]->next_possible_standard_ach_charge_date, $record->next_possible_standard_ach_charge_date);
+                }
             
-            if (isset($body[$num]->payments_require_approval)) {
-                $this->assertEquals($body[$num]->payments_require_approval, $record->payments_require_approval);
-            }
+                if (isset($body[$num]->payments_require_approval)) {
+                    $this->assertEquals($body[$num]->payments_require_approval, $record->payments_require_approval);
+                }
             
-            if (isset($body[$num]->reference)) {
-                $this->assertEquals($body[$num]->reference, $record->reference);
-            }
+                if (isset($body[$num]->reference)) {
+                    $this->assertEquals($body[$num]->reference, $record->reference);
+                }
             
-            if (isset($body[$num]->scheme)) {
-                $this->assertEquals($body[$num]->scheme, $record->scheme);
-            }
+                if (isset($body[$num]->scheme)) {
+                    $this->assertEquals($body[$num]->scheme, $record->scheme);
+                }
             
-            if (isset($body[$num]->status)) {
-                $this->assertEquals($body[$num]->status, $record->status);
-            }
+                if (isset($body[$num]->status)) {
+                    $this->assertEquals($body[$num]->status, $record->status);
+                }
             
-            if (isset($body[$num]->verified_at)) {
-                $this->assertEquals($body[$num]->verified_at, $record->verified_at);
-            }
+                if (isset($body[$num]->verified_at)) {
+                    $this->assertEquals($body[$num]->verified_at, $record->verified_at);
+                }
             
         }
 

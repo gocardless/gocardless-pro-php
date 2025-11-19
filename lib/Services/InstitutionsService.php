@@ -28,18 +28,18 @@ class InstitutionsService extends BaseService
 
 
     /**
-     * List Institutions
-     *
-     * Example URL: /institutions
-     *
-     * @param  array<string, mixed> $params An associative array for any params
-     * @return ListResponse
-     **/
+    * List Institutions
+    *
+    * Example URL: /institutions
+    *
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return ListResponse
+    **/
     protected function _doList($params = array())
     {
         $path = "/institutions";
         if(isset($params['params'])) { $params['query'] = $params['params'];
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -50,14 +50,14 @@ class InstitutionsService extends BaseService
     }
 
     /**
-     * List institutions for Billing Request
-     *
-     * Example URL: /billing_requests/:identity/institutions
-     *
-     * @param  string               $identity Unique identifier, beginning with "BRQ".
-     * @param  array<string, mixed> $params   An associative array for any params
-     * @return ListResponse
-     **/
+    * List institutions for Billing Request
+    *
+    * Example URL: /billing_requests/:identity/institutions
+    *
+    * @param  string        $identity Unique identifier, beginning with "BRQ".
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return ListResponse
+    **/
     public function listForBillingRequest($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -68,7 +68,7 @@ class InstitutionsService extends BaseService
             )
         );
         if(isset($params['params'])) { $params['query'] = $params['params'];
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -79,13 +79,13 @@ class InstitutionsService extends BaseService
     }
 
     /**
-     * List Institutions
-     *
-     * Example URL: /institutions
-     *
-     * @param  string[mixed] $params
-     * @return Paginator
-     **/
+    * List Institutions
+    *
+    * Example URL: /institutions
+    *
+    * @param string[mixed] $params
+    * @return Paginator
+    **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

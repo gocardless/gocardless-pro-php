@@ -37,21 +37,21 @@ class PayoutItemsIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-            if (isset($body[$num]->amount)) {
-                $this->assertEquals($body[$num]->amount, $record->amount);
-            }
+                if (isset($body[$num]->amount)) {
+                    $this->assertEquals($body[$num]->amount, $record->amount);
+                }
             
-            if (isset($body[$num]->links)) {
-                $this->assertEquals($body[$num]->links, $record->links);
-            }
+                if (isset($body[$num]->links)) {
+                    $this->assertEquals($body[$num]->links, $record->links);
+                }
             
-            if (isset($body[$num]->taxes)) {
-                $this->assertEquals($body[$num]->taxes, $record->taxes);
-            }
+                if (isset($body[$num]->taxes)) {
+                    $this->assertEquals($body[$num]->taxes, $record->taxes);
+                }
             
-            if (isset($body[$num]->type)) {
-                $this->assertEquals($body[$num]->type, $record->type);
-            }
+                if (isset($body[$num]->type)) {
+                    $this->assertEquals($body[$num]->type, $record->type);
+                }
             
         }
 

@@ -127,6 +127,7 @@ class Subscription extends BaseResource
      * Name of the month on which to charge a customer. Must be lowercase. Only
      * applies
      * when the interval_unit is `yearly`.
+     * 
      */
     protected $month;
 
