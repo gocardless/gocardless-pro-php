@@ -1,6 +1,7 @@
 <?php
 
 namespace GoCardlessPro;
+
 use PHPUnit\Framework\TestCase;
 
 class WebhookTest extends TestCase
@@ -39,7 +40,7 @@ class WebhookTest extends TestCase
 
     public function testParseWithInvalidSignature()
     {
-        
+
         $this->expectException('\GoCardlessPro\Core\Exception\InvalidSignatureException');
 
         $signature_header = "not_correct";

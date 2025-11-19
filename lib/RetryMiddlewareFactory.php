@@ -7,14 +7,12 @@ namespace GoCardlessPro;
  */
 class RetryMiddlewareFactory
 {
-
     const MAX_AUTOMATIC_TIMEOUT_RETRIES = 3;
     const RETRY_DELAY = 500;
     const ACTIONS_PATH_REGEX = '/\/actions\/[a-z]+\z/';
 
     /**
      * Builds an appropriately configured RetryMiddleware to retry failed requests
-     *
      * @return GuzzleHttp\RetryMiddleware
      */
     public static function buildMiddleware()
@@ -24,7 +22,6 @@ class RetryMiddlewareFactory
 
     /**
      * Internal function for building a retry decider for the Guzzle Retry middleware
-     *
      * @return callable A function called to decide whether to retry a request
      */
     private static function buildRetryDecider()
@@ -61,7 +58,6 @@ class RetryMiddlewareFactory
 
     /**
      * Internal function for setting the delay for the Guzzle Retry middleware
-     *
      * @return callable A function called to decide how long to delay before a retry
      */
     private static function buildRetryDelay()
@@ -75,9 +71,8 @@ class RetryMiddlewareFactory
 
     /**
      * Internal function for determining if a request hit a connection error
-     *
      * @return boolean
-     */
+    */
     private static function isConnectionError(?\GuzzleHttp\Exception\TransferException $exception = null)
     {
         return $exception instanceof \GuzzleHttp\Exception\ConnectException;
@@ -87,7 +82,6 @@ class RetryMiddlewareFactory
      * Internal function for determining if a response was a 5XX indicating a problem on
      * GoCardless' end, where a retry is likely to resolve the problem (e.g. 504 Gateway
      * Timeout)
-     *
      * @return boolean
      */
     private static function isRetryableServerError(?\GuzzleHttp\Psr7\Response $response = null)

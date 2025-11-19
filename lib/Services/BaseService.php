@@ -39,7 +39,7 @@ abstract class BaseService
      * Handles functions in the API that are normally PHP reserved words. For
      * example `list`.
      *
-     * @param string   $name The name of the function
+     * @param string  $name The name of the function
      * @param string[] $args any arguments to the intended function
      */
     public function __call($name, $args)
@@ -48,7 +48,7 @@ abstract class BaseService
         if (method_exists($this, $attemptName)) {
             return call_user_func_array(array($this, $attemptName), $args);
         }
-        trigger_error('Call to undefined method '.__CLASS__.'::'.$name.'()', E_USER_ERROR);
+        trigger_error('Call to undefined method ' . __CLASS__ . '::' . $name . '()', E_USER_ERROR);
     }
 
     /**
@@ -67,7 +67,7 @@ abstract class BaseService
         $api_response = new \GoCardlessPro\Core\ApiResponse($response);
         $unenveloped_body = $this->getUnenvelopedBody($api_response->body);
 
-        if(is_array($unenveloped_body)) {
+        if (is_array($unenveloped_body)) {
             return new ListResponse($unenveloped_body, $this->resource_class, $api_response);
         } else {
             $rclass = $this->resource_class;
@@ -82,11 +82,10 @@ abstract class BaseService
      */
     protected function getUnenvelopedBody($body)
     {
-        if(isset($body->{$this->envelope_key})) {
+        if (isset($body->{$this->envelope_key})) {
             return $body->{$this->envelope_key};
         }
 
         return $body->data;
     }
-
 }

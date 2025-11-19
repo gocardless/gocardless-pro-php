@@ -11,58 +11,36 @@ namespace GoCardlessPro\Services;
 use GoCardlessPro\Core\Paginator;
 use GoCardlessPro\Core\Util;
 use GoCardlessPro\Core\ListResponse;
-use GoCardlessPro\Resources\TaxRate;
+use GoCardlessPro\Resources\PaymentAccountTransaction;
 use GoCardlessPro\Core\Exception\InvalidStateException;
 
 /**
- * Service that provides access to the TaxRate
+ * Service that provides access to the PaymentAccountTransaction
  * endpoints of the API
  *
  * @method ListResponse list(array $params)
  */
-class TaxRatesService extends BaseService
+class PaymentAccountTransactionsService extends BaseService
 {
-    protected $envelope_key   = 'tax_rates';
-    protected $resource_class = '\GoCardlessPro\Resources\TaxRate';
+    protected $envelope_key   = 'payment_account_transactions';
+    protected $resource_class = '\GoCardlessPro\Resources\PaymentAccountTransaction';
 
 
     /**
-    * List tax rates
+    * List payment account transactions
     *
-    * Example URL: /tax_rates
+    * Example URL: /payment_accounts/:identity/transactions
     *
+    * @param  string        $identity The unique ID of the [bank
+ account](#core-endpoints-creditor-bank-accounts) which
+ happens to be the payment account.
     * @param  array<string, mixed> $params An associative array for any params
     * @return ListResponse
     **/
-    protected function _doList($params = array())
-    {
-        $path = "/tax_rates";
-        if (isset($params['params'])) {
-            $params['query'] = $params['params'];
-            unset($params['params']);
-        }
-
-
-        $response = $this->api_client->get($path, $params);
-
-
-        return $this->getResourceForResponse($response);
-    }
-
-    /**
-    * Get a single tax rate
-    *
-    * Example URL: /tax_rates/:identity
-    *
-    * @param  string        $identity The unique identifier created by the jurisdiction, tax type
- and version
-    * @param  array<string, mixed> $params An associative array for any params
-    * @return TaxRate
-    **/
-    public function get($identity, $params = array())
+    protected function _doList($identity, $params = array())
     {
         $path = Util::subUrl(
-            '/tax_rates/:identity',
+            '/payment_accounts/:identity/transactions',
             array(
 
                 'identity' => $identity
@@ -81,9 +59,9 @@ class TaxRatesService extends BaseService
     }
 
     /**
-    * List tax rates
+    * List payment account transactions
     *
-    * Example URL: /tax_rates
+    * Example URL: /payment_accounts/:identity/transactions
     *
     * @param string[mixed] $params
     * @return Paginator

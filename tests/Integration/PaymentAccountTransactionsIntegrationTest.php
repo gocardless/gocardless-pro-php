@@ -7,27 +7,27 @@
 
 namespace GoCardlessPro\Integration;
 
-class NegativeBalanceLimitsIntegrationTest extends IntegrationTestBase
+class PaymentAccountTransactionsIntegrationTest extends IntegrationTestBase
 {
     public function testResourceModelExists()
     {
-        $obj = new \GoCardlessPro\Resources\NegativeBalanceLimit(array());
+        $obj = new \GoCardlessPro\Resources\PaymentAccountTransaction(array());
         $this->assertNotNull($obj);
     }
 
-    public function testNegativeBalanceLimitsList()
+    public function testPaymentAccountTransactionsList()
     {
-        $fixture = $this->loadJsonFixture('negative_balance_limits')->list;
+        $fixture = $this->loadJsonFixture('payment_account_transactions')->list;
         $this->stub_request($fixture);
 
-        $service = $this->client->negativeBalanceLimits();
+        $service = $this->client->paymentAccountTransactions();
         $response = call_user_func_array(array($service, 'list'), (array)$fixture->url_params);
 
-        $body = $fixture->body->negative_balance_limits;
+        $body = $fixture->body->payment_account_transactions;
 
         $records = $response->records;
         $this->assertInstanceOf('\GoCardlessPro\Core\ListResponse', $response);
-        $this->assertInstanceOf('\GoCardlessPro\Resources\NegativeBalanceLimit', $records[0]);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\PaymentAccountTransaction', $records[0]);
         if (!is_null($fixture->body) && property_exists($fixture->body, 'meta') && !is_null($fixture->body->meta)) {
             $this->assertEquals($fixture->body->meta->cursors->before, $response->before);
             $this->assertEquals($fixture->body->meta->cursors->after, $response->after);
@@ -38,16 +38,28 @@ class NegativeBalanceLimitsIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
 
-            if (isset($body[$num]->balance_limit)) {
-                $this->assertEquals($body[$num]->balance_limit, $record->balance_limit);
+            if (isset($body[$num]->amount)) {
+                $this->assertEquals($body[$num]->amount, $record->amount);
             }
 
-            if (isset($body[$num]->created_at)) {
-                $this->assertEquals($body[$num]->created_at, $record->created_at);
+            if (isset($body[$num]->balance_after_transaction)) {
+                $this->assertEquals($body[$num]->balance_after_transaction, $record->balance_after_transaction);
+            }
+
+            if (isset($body[$num]->counterparty_name)) {
+                $this->assertEquals($body[$num]->counterparty_name, $record->counterparty_name);
             }
 
             if (isset($body[$num]->currency)) {
                 $this->assertEquals($body[$num]->currency, $record->currency);
+            }
+
+            if (isset($body[$num]->description)) {
+                $this->assertEquals($body[$num]->description, $record->description);
+            }
+
+            if (isset($body[$num]->direction)) {
+                $this->assertEquals($body[$num]->direction, $record->direction);
             }
 
             if (isset($body[$num]->id)) {
@@ -56,6 +68,14 @@ class NegativeBalanceLimitsIntegrationTest extends IntegrationTestBase
 
             if (isset($body[$num]->links)) {
                 $this->assertEquals($body[$num]->links, $record->links);
+            }
+
+            if (isset($body[$num]->reference)) {
+                $this->assertEquals($body[$num]->reference, $record->reference);
+            }
+
+            if (isset($body[$num]->value_date)) {
+                $this->assertEquals($body[$num]->value_date, $record->value_date);
             }
         }
 

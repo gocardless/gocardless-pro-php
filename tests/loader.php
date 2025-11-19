@@ -1,4 +1,5 @@
 <?php
+
 require 'vendor/autoload.php';
 
 require __DIR__ . '/../lib/loader.php';
