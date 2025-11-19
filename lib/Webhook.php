@@ -59,7 +59,8 @@ class Webhook
     /**
      * Internal function for converting a parsed stdObject into an event resource
      */
-    private static function buildEvent($event) {
-       return new Resources\Event($event);
+    private static function buildEvent($event)
+    {
+        return new Resources\Event($event);
     }
 }

@@ -24,24 +24,24 @@ class ApiException extends GoCardlessProException
      */
     public static function getError($status_code, $error_type)
     {
-        switch($status_code) {
-        case 401:
-            return 'AuthenticationException';
-        case 403:
-            return 'PermissionsException';
-        case 429:
-            return 'RateLimitException';
+        switch ($status_code) {
+            case 401:
+                return 'AuthenticationException';
+            case 403:
+                return 'PermissionsException';
+            case 429:
+                return 'RateLimitException';
         }
 
-        switch($error_type) {
-        case 'gocardless':
-            return 'GoCardlessInternalException';
-        case 'invalid_api_usage':
-            return 'InvalidApiUsageException';
-        case 'invalid_state':
-            return 'InvalidStateException';
-        case 'validation_failed':
-            return 'ValidationFailedException';
+        switch ($error_type) {
+            case 'gocardless':
+                return 'GoCardlessInternalException';
+            case 'invalid_api_usage':
+                return 'InvalidApiUsageException';
+            case 'invalid_state':
+                return 'InvalidStateException';
+            case 'validation_failed':
+                return 'ValidationFailedException';
         }
 
         throw new GoCardlessProException('Invalid error type ' . $error_type);
@@ -55,7 +55,7 @@ class ApiException extends GoCardlessProException
     public function getErrors()
     {
         if (property_exists($this->api_error, 'errors')) {
-          return $this->api_error->errors;
+            return $this->api_error->errors;
         }
 
         return array();
@@ -79,21 +79,21 @@ class ApiException extends GoCardlessProException
     protected function getErrorMessage()
     {
         if (!is_array($this->getErrors())) {
-          return $this->api_error->message;
+            return $this->api_error->message;
         }
 
         $error_messages = array_map(array($this, 'extractErrorMessage'), $this->getErrors());
         $error_messages = array_filter(
             $error_messages,
             function ($m) {
-              return $m != $this->api_error->message;
+                return $m != $this->api_error->message;
             }
         );
 
         if (count($error_messages) > 0) {
-          return $this->api_error->message . ' (' . implode(", ", $error_messages) . ')';
+            return $this->api_error->message . ' (' . implode(", ", $error_messages) . ')';
         } else {
-          return $this->api_error->message;
+            return $this->api_error->message;
         }
     }
 

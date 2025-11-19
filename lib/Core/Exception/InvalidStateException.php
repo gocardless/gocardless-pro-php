@@ -2,7 +2,8 @@
 
 namespace GoCardlessPro\Core\Exception;
 
-class InvalidStateException extends ApiException {
+class InvalidStateException extends ApiException
+{
     public function isIdempotentCreationConflict()
     {
         return !is_null($this->getIdempotentCreationConflictError());

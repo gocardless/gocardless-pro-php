@@ -1,6 +1,7 @@
 <?php
 
 namespace GoCardlessPro;
+
 use PHPUnit\Framework\TestCase;
 
 class RetryMiddlewarFactoryTest extends TestCase

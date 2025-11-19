@@ -1,8 +1,8 @@
 <?php
 
 namespace GoCardlessPro\Core;
-use PHPUnit\Framework\TestCase;
 
+use PHPUnit\Framework\TestCase;
 use GoCardlessPro\Support\TestFixtures;
 
 class ApiClientTest extends TestCase

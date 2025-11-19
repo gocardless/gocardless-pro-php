@@ -48,7 +48,7 @@ class Paginator implements \Iterator
         $this->service = $service;
         $this->options = $options;
 
-        if(isset($options['params']) && isset($options['params']['limit'])) {
+        if (isset($options['params']) && isset($options['params']['limit'])) {
             $this->options['params']['limit'] = min($options['params']['limit'], self::HARD_RECORD_LIMIT);
         } else {
             $this->options['params']['limit'] = self::HARD_RECORD_LIMIT;
@@ -97,7 +97,7 @@ class Paginator implements \Iterator
     {
         ++$this->current_position;
 
-        if(!$this->valid()) {
+        if (!$this->valid()) {
             $this->current_response = $this->next_response();
             $this->current_page_position = $this->current_position;
         }
@@ -152,5 +152,4 @@ class Paginator implements \Iterator
     {
         return $this->current_response->records;
     }
-
 }
