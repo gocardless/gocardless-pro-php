@@ -3,7 +3,7 @@
     "method": "GET",
     "path_template": "/payment_accounts/:identity/transactions",
     "url_params": {"identity": "BA123"},
-    "body": {"meta":{"cursors":{"after":"example after 7766","before":"example before 8011"},"limit":50},"payment_account_transactions":[{"amount":1000,"balance_after_transaction":1000,"counterparty_name":"Acme Ltd","currency":"example currency 7921","description":"Reward Payment (August 2024)","direction":"credit","id":"PATR1234","links":{"outbound_payment":"OUT123","payment_bank_account":"BA123","payout":"PO123"},"reference":"GC-058408d9","value_date":"2014-01-01"},{"amount":1000,"balance_after_transaction":1000,"counterparty_name":"Acme Ltd","currency":"example currency 6994","description":"Reward Payment (August 2024)","direction":"credit","id":"PATR1234","links":{"outbound_payment":"OUT123","payment_bank_account":"BA123","payout":"PO123"},"reference":"GC-058408d9","value_date":"2014-01-01"}]}
+    "body": {"meta":{"cursors":{"after":"example after 3806","before":"example before 8537"},"limit":50},"payment_account_transactions":[{"amount":1000,"balance_after_transaction":1000,"counterparty_name":"Acme Ltd","currency":"example currency 5457","description":"Reward Payment (August 2024)","direction":"credit","id":"PATR1234","links":{"outbound_payment":"OUT123","payment_bank_account":"BA123","payout":"PO123"},"reference":"GC-058408d9","value_date":"2014-01-01"},{"amount":1000,"balance_after_transaction":1000,"counterparty_name":"Acme Ltd","currency":"example currency 1294","description":"Reward Payment (August 2024)","direction":"credit","id":"PATR1234","links":{"outbound_payment":"OUT123","payment_bank_account":"BA123","payout":"PO123"},"reference":"GC-058408d9","value_date":"2014-01-01"}]}
   }
 }
 
