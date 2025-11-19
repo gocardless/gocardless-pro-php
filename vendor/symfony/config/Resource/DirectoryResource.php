@@ -21,7 +21,6 @@ namespace Symfony\Component\Config\Resource;
 class DirectoryResource implements SelfCheckingResourceInterface
 {
     private string $resource;
-    private ?string $pattern;
 
     /**
      * @param string      $resource The file path to the resource
@@ -29,13 +28,14 @@ class DirectoryResource implements SelfCheckingResourceInterface
      *
      * @throws \InvalidArgumentException
      */
-    public function __construct(string $resource, string $pattern = null)
-    {
+    public function __construct(
+        string $resource,
+        private ?string $pattern = null,
+    ) {
         $resolvedResource = realpath($resource) ?: (file_exists($resource) ? $resource : false);
-        $this->pattern = $pattern;
 
         if (false === $resolvedResource || !is_dir($resolvedResource)) {
-            throw new \InvalidArgumentException(sprintf('The directory "%s" does not exist.', $resource));
+            throw new \InvalidArgumentException(\sprintf('The directory "%s" does not exist.', $resource));
         }
 
         $this->resource = $resolvedResource;
@@ -43,7 +43,7 @@ class DirectoryResource implements SelfCheckingResourceInterface
 
     public function __toString(): string
     {
-        return md5(serialize([$this->resource, $this->pattern]));
+        return hash('xxh128', serialize([$this->resource, $this->pattern]));
     }
 
     public function getResource(): string

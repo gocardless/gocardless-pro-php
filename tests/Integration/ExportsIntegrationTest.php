@@ -62,25 +62,25 @@ class ExportsIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-            if (isset($body[$num]->created_at)) {
-                $this->assertEquals($body[$num]->created_at, $record->created_at);
-            }
+                if (isset($body[$num]->created_at)) {
+                    $this->assertEquals($body[$num]->created_at, $record->created_at);
+                }
             
-            if (isset($body[$num]->currency)) {
-                $this->assertEquals($body[$num]->currency, $record->currency);
-            }
+                if (isset($body[$num]->currency)) {
+                    $this->assertEquals($body[$num]->currency, $record->currency);
+                }
             
-            if (isset($body[$num]->download_url)) {
-                $this->assertEquals($body[$num]->download_url, $record->download_url);
-            }
+                if (isset($body[$num]->download_url)) {
+                    $this->assertEquals($body[$num]->download_url, $record->download_url);
+                }
             
-            if (isset($body[$num]->export_type)) {
-                $this->assertEquals($body[$num]->export_type, $record->export_type);
-            }
+                if (isset($body[$num]->export_type)) {
+                    $this->assertEquals($body[$num]->export_type, $record->export_type);
+                }
             
-            if (isset($body[$num]->id)) {
-                $this->assertEquals($body[$num]->id, $record->id);
-            }
+                if (isset($body[$num]->id)) {
+                    $this->assertEquals($body[$num]->id, $record->id);
+                }
             
         }
 

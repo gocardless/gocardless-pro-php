@@ -28,17 +28,16 @@ class PaymentAccountTransactionsService extends BaseService
 
 
     /**
-     * List payment account transactions
-     *
-     * Example URL: /payment_accounts/:identity/transactions
-     *
-     * @param  string               $identity The unique ID of the [bank
-     *                                        account](#core-endpoints-creditor-bank-accounts)
-     *                                        which happens to be the
-     *                                        payment account.
-     * @param  array<string, mixed> $params   An associative array for any params
-     * @return ListResponse
-     **/
+    * List payment account transactions
+    *
+    * Example URL: /payment_accounts/:identity/transactions
+    *
+    * @param  string        $identity The unique ID of the [bank
+ account](#core-endpoints-creditor-bank-accounts) which
+ happens to be the payment account.
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return ListResponse
+    **/
     protected function _doList($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -49,7 +48,7 @@ class PaymentAccountTransactionsService extends BaseService
             )
         );
         if(isset($params['params'])) { $params['query'] = $params['params'];
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -60,13 +59,13 @@ class PaymentAccountTransactionsService extends BaseService
     }
 
     /**
-     * List payment account transactions
-     *
-     * Example URL: /payment_accounts/:identity/transactions
-     *
-     * @param  string[mixed] $params
-     * @return Paginator
-     **/
+    * List payment account transactions
+    *
+    * Example URL: /payment_accounts/:identity/transactions
+    *
+    * @param string[mixed] $params
+    * @return Paginator
+    **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

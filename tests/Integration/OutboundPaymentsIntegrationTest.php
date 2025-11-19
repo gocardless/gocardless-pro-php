@@ -243,57 +243,57 @@ class OutboundPaymentsIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-            if (isset($body[$num]->amount)) {
-                $this->assertEquals($body[$num]->amount, $record->amount);
-            }
+                if (isset($body[$num]->amount)) {
+                    $this->assertEquals($body[$num]->amount, $record->amount);
+                }
             
-            if (isset($body[$num]->created_at)) {
-                $this->assertEquals($body[$num]->created_at, $record->created_at);
-            }
+                if (isset($body[$num]->created_at)) {
+                    $this->assertEquals($body[$num]->created_at, $record->created_at);
+                }
             
-            if (isset($body[$num]->currency)) {
-                $this->assertEquals($body[$num]->currency, $record->currency);
-            }
+                if (isset($body[$num]->currency)) {
+                    $this->assertEquals($body[$num]->currency, $record->currency);
+                }
             
-            if (isset($body[$num]->description)) {
-                $this->assertEquals($body[$num]->description, $record->description);
-            }
+                if (isset($body[$num]->description)) {
+                    $this->assertEquals($body[$num]->description, $record->description);
+                }
             
-            if (isset($body[$num]->execution_date)) {
-                $this->assertEquals($body[$num]->execution_date, $record->execution_date);
-            }
+                if (isset($body[$num]->execution_date)) {
+                    $this->assertEquals($body[$num]->execution_date, $record->execution_date);
+                }
             
-            if (isset($body[$num]->id)) {
-                $this->assertEquals($body[$num]->id, $record->id);
-            }
+                if (isset($body[$num]->id)) {
+                    $this->assertEquals($body[$num]->id, $record->id);
+                }
             
-            if (isset($body[$num]->is_withdrawal)) {
-                $this->assertEquals($body[$num]->is_withdrawal, $record->is_withdrawal);
-            }
+                if (isset($body[$num]->is_withdrawal)) {
+                    $this->assertEquals($body[$num]->is_withdrawal, $record->is_withdrawal);
+                }
             
-            if (isset($body[$num]->links)) {
-                $this->assertEquals($body[$num]->links, $record->links);
-            }
+                if (isset($body[$num]->links)) {
+                    $this->assertEquals($body[$num]->links, $record->links);
+                }
             
-            if (isset($body[$num]->metadata)) {
-                $this->assertEquals($body[$num]->metadata, $record->metadata);
-            }
+                if (isset($body[$num]->metadata)) {
+                    $this->assertEquals($body[$num]->metadata, $record->metadata);
+                }
             
-            if (isset($body[$num]->reference)) {
-                $this->assertEquals($body[$num]->reference, $record->reference);
-            }
+                if (isset($body[$num]->reference)) {
+                    $this->assertEquals($body[$num]->reference, $record->reference);
+                }
             
-            if (isset($body[$num]->scheme)) {
-                $this->assertEquals($body[$num]->scheme, $record->scheme);
-            }
+                if (isset($body[$num]->scheme)) {
+                    $this->assertEquals($body[$num]->scheme, $record->scheme);
+                }
             
-            if (isset($body[$num]->status)) {
-                $this->assertEquals($body[$num]->status, $record->status);
-            }
+                if (isset($body[$num]->status)) {
+                    $this->assertEquals($body[$num]->status, $record->status);
+                }
             
-            if (isset($body[$num]->verifications)) {
-                $this->assertEquals($body[$num]->verifications, $record->verifications);
-            }
+                if (isset($body[$num]->verifications)) {
+                    $this->assertEquals($body[$num]->verifications, $record->verifications);
+                }
             
         }
 

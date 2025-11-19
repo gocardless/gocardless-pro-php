@@ -28,20 +28,20 @@ class OutboundPaymentsService extends BaseService
 
 
     /**
-     * Create an outbound payment
-     *
-     * Example URL: /outbound_payments
-     *
-     * @param  array<string, mixed> $params An associative array for any params
-     * @return OutboundPayment
-     **/
+    * Create an outbound payment
+    *
+    * Example URL: /outbound_payments
+    *
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return OutboundPayment
+    **/
     public function create($params = array())
     {
         $path = "/outbound_payments";
         if(isset($params['params'])) { 
-            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -63,20 +63,20 @@ class OutboundPaymentsService extends BaseService
     }
 
     /**
-     * Create a withdrawal outbound payment
-     *
-     * Example URL: /outbound_payments/withdrawal
-     *
-     * @param  array<string, mixed> $params An associative array for any params
-     * @return OutboundPayment
-     **/
+    * Create a withdrawal outbound payment
+    *
+    * Example URL: /outbound_payments/withdrawal
+    *
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return OutboundPayment
+    **/
     public function withdraw($params = array())
     {
         $path = "/outbound_payments/withdrawal";
         if(isset($params['params'])) { 
-            $params['body'] = json_encode(array("data" => (object)$params['params']));
+          $params['body'] = json_encode(array("data" => (object)$params['params']));
         
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -98,14 +98,14 @@ class OutboundPaymentsService extends BaseService
     }
 
     /**
-     * Cancel an outbound payment
-     *
-     * Example URL: /outbound_payments/:identity/actions/cancel
-     *
-     * @param  string               $identity Unique identifier of the outbound payment.
-     * @param  array<string, mixed> $params   An associative array for any params
-     * @return OutboundPayment
-     **/
+    * Cancel an outbound payment
+    *
+    * Example URL: /outbound_payments/:identity/actions/cancel
+    *
+    * @param  string        $identity Unique identifier of the outbound payment.
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return OutboundPayment
+    **/
     public function cancel($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -116,9 +116,9 @@ class OutboundPaymentsService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-            $params['body'] = json_encode(array("data" => (object)$params['params']));
+          $params['body'] = json_encode(array("data" => (object)$params['params']));
         
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -140,14 +140,14 @@ class OutboundPaymentsService extends BaseService
     }
 
     /**
-     * Approve an outbound payment
-     *
-     * Example URL: /outbound_payments/:identity/actions/approve
-     *
-     * @param  string               $identity Unique identifier of the outbound payment.
-     * @param  array<string, mixed> $params   An associative array for any params
-     * @return OutboundPayment
-     **/
+    * Approve an outbound payment
+    *
+    * Example URL: /outbound_payments/:identity/actions/approve
+    *
+    * @param  string        $identity Unique identifier of the outbound payment.
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return OutboundPayment
+    **/
     public function approve($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -158,9 +158,9 @@ class OutboundPaymentsService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-            $params['body'] = json_encode(array("data" => (object)$params['params']));
+          $params['body'] = json_encode(array("data" => (object)$params['params']));
         
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -182,14 +182,14 @@ class OutboundPaymentsService extends BaseService
     }
 
     /**
-     * Get an outbound payment
-     *
-     * Example URL: /outbound_payments/:identity
-     *
-     * @param  string               $identity Unique identifier of the outbound payment.
-     * @param  array<string, mixed> $params   An associative array for any params
-     * @return OutboundPayment
-     **/
+    * Get an outbound payment
+    *
+    * Example URL: /outbound_payments/:identity
+    *
+    * @param  string        $identity Unique identifier of the outbound payment.
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return OutboundPayment
+    **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -200,7 +200,7 @@ class OutboundPaymentsService extends BaseService
             )
         );
         if(isset($params['params'])) { $params['query'] = $params['params'];
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -211,18 +211,18 @@ class OutboundPaymentsService extends BaseService
     }
 
     /**
-     * List outbound payments
-     *
-     * Example URL: /outbound_payments
-     *
-     * @param  array<string, mixed> $params An associative array for any params
-     * @return ListResponse
-     **/
+    * List outbound payments
+    *
+    * Example URL: /outbound_payments
+    *
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return ListResponse
+    **/
     protected function _doList($params = array())
     {
         $path = "/outbound_payments";
         if(isset($params['params'])) { $params['query'] = $params['params'];
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -233,14 +233,14 @@ class OutboundPaymentsService extends BaseService
     }
 
     /**
-     * Update an outbound payment
-     *
-     * Example URL: /outbound_payments/:identity
-     *
-     * @param  string               $identity Unique identifier of the outbound payment.
-     * @param  array<string, mixed> $params   An associative array for any params
-     * @return OutboundPayment
-     **/
+    * Update an outbound payment
+    *
+    * Example URL: /outbound_payments/:identity
+    *
+    * @param  string        $identity Unique identifier of the outbound payment.
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return OutboundPayment
+    **/
     public function update($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -251,9 +251,9 @@ class OutboundPaymentsService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -264,13 +264,13 @@ class OutboundPaymentsService extends BaseService
     }
 
     /**
-     * List outbound payments
-     *
-     * Example URL: /outbound_payments
-     *
-     * @param  string[mixed] $params
-     * @return Paginator
-     **/
+    * List outbound payments
+    *
+    * Example URL: /outbound_payments
+    *
+    * @param string[mixed] $params
+    * @return Paginator
+    **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

@@ -11,6 +11,8 @@ namespace PHPUnit\Framework\MockObject;
 
 use function array_diff;
 use function array_merge;
+use PHPUnit\Framework\Exception;
+use PHPUnit\Framework\InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 
@@ -111,11 +113,11 @@ final class MockBuilder
     /**
      * Creates a mock object using a fluent interface.
      *
-     * @throws \PHPUnit\Framework\InvalidArgumentException
      * @throws ClassAlreadyExistsException
      * @throws ClassIsFinalException
      * @throws ClassIsReadonlyException
      * @throws DuplicateMethodException
+     * @throws InvalidArgumentException
      * @throws InvalidMethodNameException
      * @throws OriginalConstructorInvocationRequiredException
      * @throws ReflectionException
@@ -138,7 +140,7 @@ final class MockBuilder
             $this->callOriginalMethods,
             $this->proxyTarget,
             $this->allowMockingUnknownTypes,
-            $this->returnValueGeneration
+            $this->returnValueGeneration,
         );
 
         $this->testCase->registerMockObject($object);
@@ -149,11 +151,11 @@ final class MockBuilder
     /**
      * Creates a mock object for an abstract class using a fluent interface.
      *
-     * @psalm-return MockObject&MockedType
-     *
-     * @throws \PHPUnit\Framework\Exception
+     * @throws Exception
      * @throws ReflectionException
      * @throws RuntimeException
+     *
+     * @psalm-return MockObject&MockedType
      */
     public function getMockForAbstractClass(): MockObject
     {
@@ -165,7 +167,7 @@ final class MockBuilder
             $this->originalClone,
             $this->autoload,
             $this->methods,
-            $this->cloneArguments
+            $this->cloneArguments,
         );
 
         $this->testCase->registerMockObject($object);
@@ -176,11 +178,11 @@ final class MockBuilder
     /**
      * Creates a mock object for a trait using a fluent interface.
      *
-     * @psalm-return MockObject&MockedType
-     *
-     * @throws \PHPUnit\Framework\Exception
+     * @throws Exception
      * @throws ReflectionException
      * @throws RuntimeException
+     *
+     * @psalm-return MockObject&MockedType
      */
     public function getMockForTrait(): MockObject
     {
@@ -192,7 +194,7 @@ final class MockBuilder
             $this->originalClone,
             $this->autoload,
             $this->methods,
-            $this->cloneArguments
+            $this->cloneArguments,
         );
 
         $this->testCase->registerMockObject($object);
@@ -243,7 +245,7 @@ final class MockBuilder
             throw new ReflectionException(
                 $e->getMessage(),
                 $e->getCode(),
-                $e
+                $e,
             );
         }
         // @codeCoverageIgnoreEnd
@@ -285,7 +287,7 @@ final class MockBuilder
             throw new ReflectionException(
                 $e->getMessage(),
                 $e->getCode(),
-                $e
+                $e,
             );
         }
         // @codeCoverageIgnoreEnd
@@ -313,8 +315,8 @@ final class MockBuilder
         return $this->setMethods(
             array_diff(
                 $this->generator->getClassMethods($this->type),
-                $methods
-            )
+                $methods,
+            ),
         );
     }
 

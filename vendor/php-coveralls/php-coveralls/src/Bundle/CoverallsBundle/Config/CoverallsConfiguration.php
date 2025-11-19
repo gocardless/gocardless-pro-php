@@ -23,11 +23,9 @@ class CoverallsConfiguration implements ConfigurationInterface
     // ConfigurationInterface
 
     /**
-     * {@inheritdoc}
-     *
      * @see \Symfony\Component\Config\Definition\ConfigurationInterface::getConfigTreeBuilder()
      */
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         // define configuration
 
@@ -63,7 +61,8 @@ class CoverallsConfiguration implements ConfigurationInterface
                 ->booleanNode('exclude_no_stmt')
                     ->defaultFalse()
                 ->end()
-            ->end();
+            ->end()
+        ;
 
         return $treeBuilder;
     }

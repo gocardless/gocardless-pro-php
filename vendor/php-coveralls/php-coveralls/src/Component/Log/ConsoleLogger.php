@@ -15,14 +15,12 @@ class ConsoleLogger extends AbstractLogger
     /**
      * Output.
      *
-     * @var \Symfony\Component\Console\Output\OutputInterface
+     * @var OutputInterface
      */
     protected $output;
 
     /**
      * Constructor.
-     *
-     * @param OutputInterface $output
      */
     public function __construct(OutputInterface $output)
     {
@@ -30,12 +28,15 @@ class ConsoleLogger extends AbstractLogger
     }
 
     /**
-     * {@inheritdoc}
-     *
      * @see \Psr\Log\LoggerInterface::log()
+     *
+     * @param mixed $level
+     * @param mixed $message
      */
-    public function log($level, $message, array $context = [])
+    public function log($level, $message, array $context = []): void
     {
+        unset($level, $context);
+
         $this->output->writeln($message);
     }
 }

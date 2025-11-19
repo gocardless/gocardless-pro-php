@@ -121,77 +121,77 @@ class CustomersIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-            if (isset($body[$num]->address_line1)) {
-                $this->assertEquals($body[$num]->address_line1, $record->address_line1);
-            }
+                if (isset($body[$num]->address_line1)) {
+                    $this->assertEquals($body[$num]->address_line1, $record->address_line1);
+                }
             
-            if (isset($body[$num]->address_line2)) {
-                $this->assertEquals($body[$num]->address_line2, $record->address_line2);
-            }
+                if (isset($body[$num]->address_line2)) {
+                    $this->assertEquals($body[$num]->address_line2, $record->address_line2);
+                }
             
-            if (isset($body[$num]->address_line3)) {
-                $this->assertEquals($body[$num]->address_line3, $record->address_line3);
-            }
+                if (isset($body[$num]->address_line3)) {
+                    $this->assertEquals($body[$num]->address_line3, $record->address_line3);
+                }
             
-            if (isset($body[$num]->city)) {
-                $this->assertEquals($body[$num]->city, $record->city);
-            }
+                if (isset($body[$num]->city)) {
+                    $this->assertEquals($body[$num]->city, $record->city);
+                }
             
-            if (isset($body[$num]->company_name)) {
-                $this->assertEquals($body[$num]->company_name, $record->company_name);
-            }
+                if (isset($body[$num]->company_name)) {
+                    $this->assertEquals($body[$num]->company_name, $record->company_name);
+                }
             
-            if (isset($body[$num]->country_code)) {
-                $this->assertEquals($body[$num]->country_code, $record->country_code);
-            }
+                if (isset($body[$num]->country_code)) {
+                    $this->assertEquals($body[$num]->country_code, $record->country_code);
+                }
             
-            if (isset($body[$num]->created_at)) {
-                $this->assertEquals($body[$num]->created_at, $record->created_at);
-            }
+                if (isset($body[$num]->created_at)) {
+                    $this->assertEquals($body[$num]->created_at, $record->created_at);
+                }
             
-            if (isset($body[$num]->danish_identity_number)) {
-                $this->assertEquals($body[$num]->danish_identity_number, $record->danish_identity_number);
-            }
+                if (isset($body[$num]->danish_identity_number)) {
+                    $this->assertEquals($body[$num]->danish_identity_number, $record->danish_identity_number);
+                }
             
-            if (isset($body[$num]->email)) {
-                $this->assertEquals($body[$num]->email, $record->email);
-            }
+                if (isset($body[$num]->email)) {
+                    $this->assertEquals($body[$num]->email, $record->email);
+                }
             
-            if (isset($body[$num]->family_name)) {
-                $this->assertEquals($body[$num]->family_name, $record->family_name);
-            }
+                if (isset($body[$num]->family_name)) {
+                    $this->assertEquals($body[$num]->family_name, $record->family_name);
+                }
             
-            if (isset($body[$num]->given_name)) {
-                $this->assertEquals($body[$num]->given_name, $record->given_name);
-            }
+                if (isset($body[$num]->given_name)) {
+                    $this->assertEquals($body[$num]->given_name, $record->given_name);
+                }
             
-            if (isset($body[$num]->id)) {
-                $this->assertEquals($body[$num]->id, $record->id);
-            }
+                if (isset($body[$num]->id)) {
+                    $this->assertEquals($body[$num]->id, $record->id);
+                }
             
-            if (isset($body[$num]->language)) {
-                $this->assertEquals($body[$num]->language, $record->language);
-            }
+                if (isset($body[$num]->language)) {
+                    $this->assertEquals($body[$num]->language, $record->language);
+                }
             
-            if (isset($body[$num]->metadata)) {
-                $this->assertEquals($body[$num]->metadata, $record->metadata);
-            }
+                if (isset($body[$num]->metadata)) {
+                    $this->assertEquals($body[$num]->metadata, $record->metadata);
+                }
             
-            if (isset($body[$num]->phone_number)) {
-                $this->assertEquals($body[$num]->phone_number, $record->phone_number);
-            }
+                if (isset($body[$num]->phone_number)) {
+                    $this->assertEquals($body[$num]->phone_number, $record->phone_number);
+                }
             
-            if (isset($body[$num]->postal_code)) {
-                $this->assertEquals($body[$num]->postal_code, $record->postal_code);
-            }
+                if (isset($body[$num]->postal_code)) {
+                    $this->assertEquals($body[$num]->postal_code, $record->postal_code);
+                }
             
-            if (isset($body[$num]->region)) {
-                $this->assertEquals($body[$num]->region, $record->region);
-            }
+                if (isset($body[$num]->region)) {
+                    $this->assertEquals($body[$num]->region, $record->region);
+                }
             
-            if (isset($body[$num]->swedish_identity_number)) {
-                $this->assertEquals($body[$num]->swedish_identity_number, $record->swedish_identity_number);
-            }
+                if (isset($body[$num]->swedish_identity_number)) {
+                    $this->assertEquals($body[$num]->swedish_identity_number, $record->swedish_identity_number);
+                }
             
         }
 

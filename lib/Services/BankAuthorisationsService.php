@@ -26,20 +26,20 @@ class BankAuthorisationsService extends BaseService
 
 
     /**
-     * Create a Bank Authorisation
-     *
-     * Example URL: /bank_authorisations
-     *
-     * @param  array<string, mixed> $params An associative array for any params
-     * @return BankAuthorisation
-     **/
+    * Create a Bank Authorisation
+    *
+    * Example URL: /bank_authorisations
+    *
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return BankAuthorisation
+    **/
     public function create($params = array())
     {
         $path = "/bank_authorisations";
         if(isset($params['params'])) { 
-            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -61,14 +61,14 @@ class BankAuthorisationsService extends BaseService
     }
 
     /**
-     * Get a Bank Authorisation
-     *
-     * Example URL: /bank_authorisations/:identity
-     *
-     * @param  string               $identity Unique identifier, beginning with "BAU".
-     * @param  array<string, mixed> $params   An associative array for any params
-     * @return BankAuthorisation
-     **/
+    * Get a Bank Authorisation
+    *
+    * Example URL: /bank_authorisations/:identity
+    *
+    * @param  string        $identity Unique identifier, beginning with "BAU".
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return BankAuthorisation
+    **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -79,7 +79,7 @@ class BankAuthorisationsService extends BaseService
             )
         );
         if(isset($params['params'])) { $params['query'] = $params['params'];
-            unset($params['params']);
+          unset($params['params']);
         }
 
         

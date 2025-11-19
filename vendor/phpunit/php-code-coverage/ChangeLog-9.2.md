@@ -2,6 +2,47 @@
 
 All notable changes are documented in this file using the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [9.2.32] - 2024-08-22
+
+### Changed
+
+* Updated dependencies (so that users that install using Composer's `--prefer-lowest` CLI option also get recent versions)
+
+## [9.2.31] - 2024-03-02
+
+### Changed
+
+* Do not use implicitly nullable parameters
+
+## [9.2.30] - 2023-12-22
+
+### Changed
+
+* This component is now compatible with `nikic/php-parser` 5.0
+
+## [9.2.29] - 2023-09-19
+
+### Fixed
+
+* [#1012](https://github.com/sebastianbergmann/php-code-coverage/issues/1012): Cobertura report pulls functions from report scope, not the individual element
+
+## [9.2.28] - 2023-09-12
+
+### Changed
+
+* [#1011](https://github.com/sebastianbergmann/php-code-coverage/pull/1011): Avoid serialization of cache data in PHP report
+
+## [9.2.27] - 2023-07-26
+
+### Changed
+
+* The result of `CodeCoverage::getReport()` is now cached
+
+### Fixed
+
+* Static analysis cache keys do not include configuration settings that affect source code parsing
+* The Clover, Cobertura, Crap4j, and PHP report writers no longer create a `php:` directory when they should write to `php://stdout`, for instance
+
 ## [9.2.26] - 2023-03-06
 
 ### Changed
@@ -476,6 +517,12 @@ All notable changes are documented in this file using the [Keep a CHANGELOG](htt
 
 * This component is no longer supported on PHP 7.1
 
+[9.2.32]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.31...9.2.32
+[9.2.31]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.30...9.2.31
+[9.2.30]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.29...9.2.30
+[9.2.29]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.28...9.2.29
+[9.2.28]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.27...9.2.28
+[9.2.27]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.26...9.2.27
 [9.2.26]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.25...9.2.26
 [9.2.25]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.24...9.2.25
 [9.2.24]: https://github.com/sebastianbergmann/php-code-coverage/compare/9.2.23...9.2.24

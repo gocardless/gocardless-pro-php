@@ -28,20 +28,20 @@ class VerificationDetailsService extends BaseService
 
 
     /**
-     * Create a verification detail
-     *
-     * Example URL: /verification_details
-     *
-     * @param  array<string, mixed> $params An associative array for any params
-     * @return VerificationDetail
-     **/
+    * Create a verification detail
+    *
+    * Example URL: /verification_details
+    *
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return VerificationDetail
+    **/
     public function create($params = array())
     {
         $path = "/verification_details";
         if(isset($params['params'])) { 
-            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -52,18 +52,18 @@ class VerificationDetailsService extends BaseService
     }
 
     /**
-     * List verification details
-     *
-     * Example URL: /verification_details
-     *
-     * @param  array<string, mixed> $params An associative array for any params
-     * @return ListResponse
-     **/
+    * List verification details
+    *
+    * Example URL: /verification_details
+    *
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return ListResponse
+    **/
     protected function _doList($params = array())
     {
         $path = "/verification_details";
         if(isset($params['params'])) { $params['query'] = $params['params'];
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -74,13 +74,13 @@ class VerificationDetailsService extends BaseService
     }
 
     /**
-     * List verification details
-     *
-     * Example URL: /verification_details
-     *
-     * @param  string[mixed] $params
-     * @return Paginator
-     **/
+    * List verification details
+    *
+    * Example URL: /verification_details
+    *
+    * @param string[mixed] $params
+    * @return Paginator
+    **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

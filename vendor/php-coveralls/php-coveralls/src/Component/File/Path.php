@@ -18,15 +18,15 @@ class Path
      */
     public function isRelativePath($path)
     {
-        if (strlen($path) === 0) {
+        if ('' === $path) {
             return true;
         }
 
-        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-            return !preg_match('/^[a-z]+\:\\\\/i', $path);
+        if ('WIN' === strtoupper(substr(PHP_OS, 0, 3))) {
+            return !preg_match('/^[a-z]+\:\\\/i', $path);
         }
 
-        return strpos($path, DIRECTORY_SEPARATOR) !== 0;
+        return 0 !== strpos($path, \DIRECTORY_SEPARATOR);
     }
 
     /**
@@ -39,12 +39,12 @@ class Path
      */
     public function toAbsolutePath($path, $rootDir)
     {
-        if (!is_string($path)) {
+        if (!\is_string($path)) {
             return false;
         }
 
         if ($this->isRelativePath($path)) {
-            return $rootDir . DIRECTORY_SEPARATOR . $path;
+            return $rootDir.\DIRECTORY_SEPARATOR.$path;
         }
 
         return $path;
@@ -60,12 +60,12 @@ class Path
      */
     public function getRealPath($path, $rootDir)
     {
-        if (!is_string($path)) {
+        if (!\is_string($path)) {
             return false;
         }
 
         if ($this->isRelativePath($path)) {
-            return realpath($rootDir . DIRECTORY_SEPARATOR . $path);
+            return realpath($rootDir.\DIRECTORY_SEPARATOR.$path);
         }
 
         return realpath($path);
@@ -81,15 +81,15 @@ class Path
      */
     public function getRealDir($path, $rootDir)
     {
-        if (!is_string($path)) {
+        if (!\is_string($path)) {
             return false;
         }
 
         if ($this->isRelativePath($path)) {
-            return realpath($rootDir . DIRECTORY_SEPARATOR . dirname($path));
+            return realpath($rootDir.\DIRECTORY_SEPARATOR.\dirname($path));
         }
 
-        return realpath(dirname($path));
+        return realpath(\dirname($path));
     }
 
     /**
@@ -104,11 +104,11 @@ class Path
     {
         $realDir = $this->getRealDir($path, $rootDir);
 
-        if (!is_string($realDir)) {
+        if (!\is_string($realDir)) {
             return false;
         }
 
-        return $realDir . DIRECTORY_SEPARATOR . basename($path);
+        return $realDir.\DIRECTORY_SEPARATOR.basename($path);
     }
 
     /**
@@ -120,7 +120,7 @@ class Path
      */
     public function isRealPathExist($realpath)
     {
-        return $realpath !== false && file_exists($realpath);
+        return false !== $realpath && file_exists($realpath);
     }
 
     /**

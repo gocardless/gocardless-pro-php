@@ -42,9 +42,9 @@ final class Registry
     }
 
     /**
-     * @throws Exception
-     *
      * @psalm-param class-string $class
+     *
+     * @throws Exception
      */
     public function forClassName(string $class): DocBlock
     {
@@ -59,7 +59,7 @@ final class Registry
             throw new Exception(
                 $e->getMessage(),
                 $e->getCode(),
-                $e
+                $e,
             );
         }
         // @codeCoverageIgnoreEnd
@@ -68,9 +68,9 @@ final class Registry
     }
 
     /**
-     * @throws Exception
-     *
      * @psalm-param class-string $classInHierarchy
+     *
+     * @throws Exception
      */
     public function forMethod(string $classInHierarchy, string $method): DocBlock
     {
@@ -85,7 +85,7 @@ final class Registry
             throw new Exception(
                 $e->getMessage(),
                 $e->getCode(),
-                $e
+                $e,
             );
         }
         // @codeCoverageIgnoreEnd

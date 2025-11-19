@@ -39,7 +39,7 @@ abstract class BaseService
      * Handles functions in the API that are normally PHP reserved words. For
      * example `list`.
      *
-     * @param string   $name The name of the function
+     * @param string  $name The name of the function
      * @param string[] $args any arguments to the intended function
      */
     public function __call($name, $args)

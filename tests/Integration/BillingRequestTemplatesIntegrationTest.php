@@ -37,77 +37,77 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-            if (isset($body[$num]->authorisation_url)) {
-                $this->assertEquals($body[$num]->authorisation_url, $record->authorisation_url);
-            }
+                if (isset($body[$num]->authorisation_url)) {
+                    $this->assertEquals($body[$num]->authorisation_url, $record->authorisation_url);
+                }
             
-            if (isset($body[$num]->created_at)) {
-                $this->assertEquals($body[$num]->created_at, $record->created_at);
-            }
+                if (isset($body[$num]->created_at)) {
+                    $this->assertEquals($body[$num]->created_at, $record->created_at);
+                }
             
-            if (isset($body[$num]->id)) {
-                $this->assertEquals($body[$num]->id, $record->id);
-            }
+                if (isset($body[$num]->id)) {
+                    $this->assertEquals($body[$num]->id, $record->id);
+                }
             
-            if (isset($body[$num]->mandate_request_constraints)) {
-                $this->assertEquals($body[$num]->mandate_request_constraints, $record->mandate_request_constraints);
-            }
+                if (isset($body[$num]->mandate_request_constraints)) {
+                    $this->assertEquals($body[$num]->mandate_request_constraints, $record->mandate_request_constraints);
+                }
             
-            if (isset($body[$num]->mandate_request_currency)) {
-                $this->assertEquals($body[$num]->mandate_request_currency, $record->mandate_request_currency);
-            }
+                if (isset($body[$num]->mandate_request_currency)) {
+                    $this->assertEquals($body[$num]->mandate_request_currency, $record->mandate_request_currency);
+                }
             
-            if (isset($body[$num]->mandate_request_description)) {
-                $this->assertEquals($body[$num]->mandate_request_description, $record->mandate_request_description);
-            }
+                if (isset($body[$num]->mandate_request_description)) {
+                    $this->assertEquals($body[$num]->mandate_request_description, $record->mandate_request_description);
+                }
             
-            if (isset($body[$num]->mandate_request_metadata)) {
-                $this->assertEquals($body[$num]->mandate_request_metadata, $record->mandate_request_metadata);
-            }
+                if (isset($body[$num]->mandate_request_metadata)) {
+                    $this->assertEquals($body[$num]->mandate_request_metadata, $record->mandate_request_metadata);
+                }
             
-            if (isset($body[$num]->mandate_request_scheme)) {
-                $this->assertEquals($body[$num]->mandate_request_scheme, $record->mandate_request_scheme);
-            }
+                if (isset($body[$num]->mandate_request_scheme)) {
+                    $this->assertEquals($body[$num]->mandate_request_scheme, $record->mandate_request_scheme);
+                }
             
-            if (isset($body[$num]->mandate_request_verify)) {
-                $this->assertEquals($body[$num]->mandate_request_verify, $record->mandate_request_verify);
-            }
+                if (isset($body[$num]->mandate_request_verify)) {
+                    $this->assertEquals($body[$num]->mandate_request_verify, $record->mandate_request_verify);
+                }
             
-            if (isset($body[$num]->metadata)) {
-                $this->assertEquals($body[$num]->metadata, $record->metadata);
-            }
+                if (isset($body[$num]->metadata)) {
+                    $this->assertEquals($body[$num]->metadata, $record->metadata);
+                }
             
-            if (isset($body[$num]->name)) {
-                $this->assertEquals($body[$num]->name, $record->name);
-            }
+                if (isset($body[$num]->name)) {
+                    $this->assertEquals($body[$num]->name, $record->name);
+                }
             
-            if (isset($body[$num]->payment_request_amount)) {
-                $this->assertEquals($body[$num]->payment_request_amount, $record->payment_request_amount);
-            }
+                if (isset($body[$num]->payment_request_amount)) {
+                    $this->assertEquals($body[$num]->payment_request_amount, $record->payment_request_amount);
+                }
             
-            if (isset($body[$num]->payment_request_currency)) {
-                $this->assertEquals($body[$num]->payment_request_currency, $record->payment_request_currency);
-            }
+                if (isset($body[$num]->payment_request_currency)) {
+                    $this->assertEquals($body[$num]->payment_request_currency, $record->payment_request_currency);
+                }
             
-            if (isset($body[$num]->payment_request_description)) {
-                $this->assertEquals($body[$num]->payment_request_description, $record->payment_request_description);
-            }
+                if (isset($body[$num]->payment_request_description)) {
+                    $this->assertEquals($body[$num]->payment_request_description, $record->payment_request_description);
+                }
             
-            if (isset($body[$num]->payment_request_metadata)) {
-                $this->assertEquals($body[$num]->payment_request_metadata, $record->payment_request_metadata);
-            }
+                if (isset($body[$num]->payment_request_metadata)) {
+                    $this->assertEquals($body[$num]->payment_request_metadata, $record->payment_request_metadata);
+                }
             
-            if (isset($body[$num]->payment_request_scheme)) {
-                $this->assertEquals($body[$num]->payment_request_scheme, $record->payment_request_scheme);
-            }
+                if (isset($body[$num]->payment_request_scheme)) {
+                    $this->assertEquals($body[$num]->payment_request_scheme, $record->payment_request_scheme);
+                }
             
-            if (isset($body[$num]->redirect_uri)) {
-                $this->assertEquals($body[$num]->redirect_uri, $record->redirect_uri);
-            }
+                if (isset($body[$num]->redirect_uri)) {
+                    $this->assertEquals($body[$num]->redirect_uri, $record->redirect_uri);
+                }
             
-            if (isset($body[$num]->updated_at)) {
-                $this->assertEquals($body[$num]->updated_at, $record->updated_at);
-            }
+                if (isset($body[$num]->updated_at)) {
+                    $this->assertEquals($body[$num]->updated_at, $record->updated_at);
+                }
             
         }
 

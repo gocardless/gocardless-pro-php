@@ -5,7 +5,7 @@ namespace PhpCoveralls\Bundle\CoverallsBundle\Collector;
 use PhpCoveralls\Bundle\CoverallsBundle\Config\Configuration;
 
 /**
- * Environment variables collector for CI envrionment.
+ * Environment variables collector for CI environment.
  *
  * @author Kitamura Satoshi <with.no.parachute@gmail.com>
  */
@@ -66,7 +66,8 @@ class CiEnvVarsCollector
             ->fillGithubActions()
             ->fillLocal()
             ->fillRepoToken()
-            ->fillParallel();
+            ->fillParallel()
+        ;
 
         return $this->env;
     }
@@ -94,7 +95,7 @@ class CiEnvVarsCollector
      */
     protected function fillTravisCi()
     {
-        if (isset($this->env['TRAVIS']) && $this->env['TRAVIS'] && isset($this->env['TRAVIS_JOB_ID']) && isset($this->env['TRAVIS_BUILD_NUMBER'])) {
+        if (isset($this->env['TRAVIS']) && $this->env['TRAVIS'] && isset($this->env['TRAVIS_JOB_ID'], $this->env['TRAVIS_BUILD_NUMBER'])) {
             $this->env['CI_JOB_ID'] = $this->env['TRAVIS_JOB_ID'];
             $this->env['CI_BUILD_NUMBER'] = $this->env['TRAVIS_BUILD_NUMBER'];
 
@@ -129,14 +130,14 @@ class CiEnvVarsCollector
         $githubEventName = $this->env['GITHUB_EVENT_NAME'];
         $githubRef = $this->env['GITHUB_REF'];
 
-        if (strpos($githubRef, 'refs/heads/') !== false) {
+        if (false !== strpos($githubRef, 'refs/heads/')) {
             $githubRef = str_replace('refs/heads/', '', $githubRef);
-        } elseif ($githubEventName === 'pull_request') {
+        } elseif ('pull_request' === $githubEventName) {
             $refParts = explode('/', $githubRef);
             $prNumber = $refParts[2];
             $this->env['CI_PULL_REQUEST'] = $prNumber;
             $this->readEnv['CI_PULL_REQUEST'] = $this->env['CI_PULL_REQUEST'];
-        } elseif (strpos($githubRef, 'refs/tags/') !== false) {
+        } elseif (false !== strpos($githubRef, 'refs/tags/')) {
             $githubRef = str_replace('refs/tags/', '', $githubRef);
         }
 
@@ -213,7 +214,7 @@ class CiEnvVarsCollector
      */
     protected function fillJenkins()
     {
-        if (isset($this->env['JENKINS_URL']) && isset($this->env['BUILD_NUMBER'])) {
+        if (isset($this->env['JENKINS_URL'], $this->env['BUILD_NUMBER'])) {
             $this->env['CI_BUILD_NUMBER'] = $this->env['BUILD_NUMBER'];
             $this->env['CI_BUILD_URL'] = $this->env['JENKINS_URL'];
             $this->env['CI_NAME'] = 'jenkins';

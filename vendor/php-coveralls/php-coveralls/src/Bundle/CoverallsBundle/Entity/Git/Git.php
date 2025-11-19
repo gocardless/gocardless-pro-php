@@ -67,8 +67,6 @@ class Git extends Coveralls
     // API
 
     /**
-     * {@inheritdoc}
-     *
      * @see \PhpCoveralls\Bundle\CoverallsBundle\Entity\ArrayConvertable::toArray()
      */
     public function toArray()
@@ -101,7 +99,7 @@ class Git extends Coveralls
     /**
      * Return HEAD commit.
      *
-     * @return \PhpCoveralls\Bundle\CoverallsBundle\Entity\Git\Commit
+     * @return Commit
      */
     public function getHead()
     {
@@ -111,7 +109,7 @@ class Git extends Coveralls
     /**
      * Return remote repositories.
      *
-     * @return \PhpCoveralls\Bundle\CoverallsBundle\Entity\Git\Remote[]
+     * @return Remote[]
      */
     public function getRemotes()
     {

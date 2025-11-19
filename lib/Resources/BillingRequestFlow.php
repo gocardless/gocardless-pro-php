@@ -93,6 +93,7 @@ class BillingRequestFlow extends BaseResource
      * 
      * You can only lock bank account if these have already been completed as a
      * part of the billing request.
+     * 
      */
     protected $lock_bank_account;
 
@@ -111,6 +112,7 @@ class BillingRequestFlow extends BaseResource
      * 
      * You can only lock customer details if these have already been completed
      * as a part of the billing request.
+     * 
      */
     protected $lock_customer_details;
 

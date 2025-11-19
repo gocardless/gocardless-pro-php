@@ -41,29 +41,27 @@ class Metrics
         // not null
         $statementsArray = array_filter(
             $coverage,
-            function ($line) {
-                return $line !== null;
+            static function ($line) {
+                return null !== $line;
             }
         );
-        $this->statements = count($statementsArray);
+        $this->statements = \count($statementsArray);
 
         // covered statements
         // gt 0
         $coveredArray = array_filter(
             $statementsArray,
-            function ($line) {
+            static function ($line) {
                 return $line > 0;
             }
         );
-        $this->coveredStatements = count($coveredArray);
+        $this->coveredStatements = \count($coveredArray);
     }
 
     // API
 
     /**
      * Merge other metrics.
-     *
-     * @param Metrics $that
      */
     public function merge(self $that)
     {
@@ -81,7 +79,7 @@ class Metrics
      */
     public function hasStatements()
     {
-        return $this->statements !== 0;
+        return 0 !== $this->statements;
     }
 
     /**
@@ -111,7 +109,7 @@ class Metrics
      */
     public function getLineCoverage()
     {
-        if ($this->lineCoverage === null) {
+        if (null === $this->lineCoverage) {
             $this->lineCoverage = $this->calculateLineCoverage($this->statements, $this->coveredStatements);
         }
 
@@ -130,7 +128,7 @@ class Metrics
      */
     protected function calculateLineCoverage($statements, $coveredStatements)
     {
-        if ($statements === 0) {
+        if (0 === $statements) {
             return 0;
         }
 

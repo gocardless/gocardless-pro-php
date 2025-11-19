@@ -9,6 +9,7 @@ use PhpCoveralls\Bundle\CoverallsBundle\Config\Configurator;
 use PhpCoveralls\Bundle\CoverallsBundle\Repository\JobsRepository;
 use PhpCoveralls\Component\File\Path;
 use PhpCoveralls\Component\Log\ConsoleLogger;
+use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -40,7 +41,7 @@ class CoverallsJobsCommand extends Command
     /**
      * Logger.
      *
-     * @var \Psr\Log\LoggerInterface
+     * @var LoggerInterface
      */
     protected $logger;
 
@@ -59,11 +60,9 @@ class CoverallsJobsCommand extends Command
     // internal method
 
     /**
-     * {@inheritdoc}
-     *
      * @see \Symfony\Component\Console\Command\Command::configure()
      */
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('coveralls:v1:jobs')
@@ -127,20 +126,19 @@ class CoverallsJobsCommand extends Command
                 '-k',
                 InputOption::VALUE_NONE,
                 'Skip SSL certificate check.'
-            );
+            )
+        ;
     }
 
     /**
-     * {@inheritdoc}
-     *
      * @see \Symfony\Component\Console\Command\Command::execute()
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $stopwatch = new Stopwatch();
         $stopwatch->start(__CLASS__);
         $file = new Path();
-        if ($input->getOption('root_dir') !== '.') {
+        if ('.' !== $input->getOption('root_dir')) {
             $this->rootDir = $file->toAbsolutePath(
                 $input->getOption('root_dir'),
                 $this->rootDir
@@ -156,7 +154,7 @@ class CoverallsJobsCommand extends Command
         $event = $stopwatch->stop(__CLASS__);
         $time = number_format($event->getDuration() / 1000, 3);        // sec
         $mem = number_format($event->getMemory() / (1024 * 1024), 2); // MB
-        $this->logger->info(sprintf('elapsed time: <info>%s</info> sec memory: <info>%s</info> MB', $time, $mem));
+        $this->logger->info(\sprintf('elapsed time: <info>%s</info> sec memory: <info>%s</info> MB', $time, $mem));
 
         return $executionStatus ? 0 : 1;
     }
@@ -169,13 +167,13 @@ class CoverallsJobsCommand extends Command
      * @param InputInterface $input   input arguments
      * @param string         $rootDir path to project root directory
      *
-     * @return \PhpCoveralls\Bundle\CoverallsBundle\Config\Configuration
+     * @return Configuration
      */
     protected function loadConfiguration(InputInterface $input, $rootDir)
     {
         $coverallsYmlPath = $input->getOption('config');
 
-        $ymlPath = $this->rootDir . DIRECTORY_SEPARATOR . $coverallsYmlPath;
+        $ymlPath = $this->rootDir.\DIRECTORY_SEPARATOR.$coverallsYmlPath;
         $configurator = new Configurator();
 
         return $configurator
@@ -183,14 +181,14 @@ class CoverallsJobsCommand extends Command
             ->setDryRun($input->getOption('dry-run'))
             ->setExcludeNoStatementsUnlessFalse($input->getOption('exclude-no-stmt'))
             ->setVerbose($input->getOption('verbose'))
-            ->setEnv($input->getOption('env'));
+            ->setEnv($input->getOption('env'))
+        ;
     }
 
     /**
      * Execute Jobs API.
      *
-     * @param InputInterface $input  input arguments
-     * @param Configuration  $config configuration
+     * @param Configuration $config configuration
      *
      * @return bool
      */

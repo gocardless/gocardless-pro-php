@@ -1,6 +1,60 @@
 CHANGELOG
 =========
 
+7.3
+---
+
+ * Add `TreeHelper` and `TreeStyle` to display tree-like structures
+ * Add `SymfonyStyle::createTree()`
+ * Add support for invokable commands and add `#[Argument]` and `#[Option]` attributes to define input arguments and options
+ * Deprecate not declaring the parameter type in callable commands defined through `setCode` method
+ * Add support for help definition via `AsCommand` attribute
+ * Deprecate methods `Command::getDefaultName()` and `Command::getDefaultDescription()` in favor of the `#[AsCommand]` attribute
+ * Add support for Markdown format in `Table`
+ * Add support for `LockableTrait` in invokable commands
+ * Deprecate returning a non-integer value from a `\Closure` function set via `Command::setCode()`
+ * Mark `#[AsCommand]` attribute as `@final`
+ * Add support for `SignalableCommandInterface` with invokable commands
+
+7.2
+---
+
+ * Add support for `FORCE_COLOR` environment variable
+ * Add `verbosity` argument to `mustRun` process helper method
+ * [BC BREAK] Add silent verbosity (`--silent`/`SHELL_VERBOSITY=-2`) to suppress all output, including errors
+ * Add `OutputInterface::isSilent()`, `Output::isSilent()`, `OutputStyle::isSilent()` methods
+ * Add a configurable finished indicator to the progress indicator to show that the progress is finished
+ * Add ability to schedule alarm signals and a `ConsoleAlarmEvent`
+
+7.1
+---
+
+ * Add `ArgvInput::getRawTokens()`
+
+7.0
+---
+
+ * Add method `__toString()` to `InputInterface`
+ * Remove `Command::$defaultName` and `Command::$defaultDescription`, use the `AsCommand` attribute instead
+ * Require explicit argument when calling `*Command::setApplication()`, `*FormatterStyle::setForeground/setBackground()`, `Helper::setHelpSet()`, `Input*::setDefault()` and `Question::setAutocompleterCallback/setValidator()`
+ * Remove `StringInput::REGEX_STRING`
+
+6.4
+---
+
+ * Add `SignalMap` to map signal value to its name
+ * Multi-line text in vertical tables is aligned properly
+ * The application can also catch errors with `Application::setCatchErrors(true)`
+ * Add `RunCommandMessage` and `RunCommandMessageHandler`
+ * Dispatch `ConsoleTerminateEvent` after an exit on signal handling and add `ConsoleTerminateEvent::getInterruptingSignal()`
+
+6.3
+---
+
+ * Add support for choosing exit code while handling signal, or to not exit at all
+ * Add `ProgressBar::setPlaceholderFormatter` to set a placeholder attached to a instance, instead of being global.
+ * Add `ReStructuredTextDescriptor`
+
 6.2
 ---
 

@@ -28,12 +28,10 @@ abstract class IntegrationTestBase extends TestCase
         $handler = \GuzzleHttp\HandlerStack::create($this->mock);
         $handler->push($historyMiddleware);
 
-        $this->mock_http_client = new \GuzzleHttp\Client(
-            [
+        $this->mock_http_client = new \GuzzleHttp\Client([
             'handler' => $handler,
             'http_errors' => false
-            ]
-        );
+        ]);
         $this->client = new \GoCardlessPro\Client(
             array(
                 'access_token' => 'foobar',

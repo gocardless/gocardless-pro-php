@@ -9,6 +9,7 @@
  */
 namespace PHPUnit\Util\Log;
 
+use const PHP_EOL;
 use function class_exists;
 use function count;
 use function explode;
@@ -77,7 +78,7 @@ final class TeamCity extends DefaultResultPrinter
                 'message'  => self::getMessage($t),
                 'details'  => self::getDetails($t),
                 'duration' => self::toMilliseconds($time),
-            ]
+            ],
         );
     }
 
@@ -169,7 +170,7 @@ final class TeamCity extends DefaultResultPrinter
                 'message'  => self::getMessage($t),
                 'details'  => self::getDetails($t),
                 'duration' => self::toMilliseconds($time),
-            ]
+            ],
         );
     }
 
@@ -189,7 +190,7 @@ final class TeamCity extends DefaultResultPrinter
 
             $this->printEvent(
                 'testCount',
-                ['count' => count($suite)]
+                ['count' => count($suite)],
             );
         }
 
@@ -271,7 +272,7 @@ final class TeamCity extends DefaultResultPrinter
             [
                 'name'     => $test->getName(),
                 'duration' => self::toMilliseconds($time),
-            ]
+            ],
         );
     }
 
@@ -351,7 +352,7 @@ final class TeamCity extends DefaultResultPrinter
         return str_replace(
             ['|', "'", "\n", "\r", ']', '['],
             ['||', "|'", '|n', '|r', '|]', '|['],
-            $text
+            $text,
         );
     }
 
@@ -367,7 +368,7 @@ final class TeamCity extends DefaultResultPrinter
             throw new Exception(
                 $e->getMessage(),
                 $e->getCode(),
-                $e
+                $e,
             );
         }
         // @codeCoverageIgnoreEnd

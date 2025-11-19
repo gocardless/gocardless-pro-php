@@ -129,37 +129,37 @@ class BlocksIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-            if (isset($body[$num]->active)) {
-                $this->assertEquals($body[$num]->active, $record->active);
-            }
+                if (isset($body[$num]->active)) {
+                    $this->assertEquals($body[$num]->active, $record->active);
+                }
             
-            if (isset($body[$num]->block_type)) {
-                $this->assertEquals($body[$num]->block_type, $record->block_type);
-            }
+                if (isset($body[$num]->block_type)) {
+                    $this->assertEquals($body[$num]->block_type, $record->block_type);
+                }
             
-            if (isset($body[$num]->created_at)) {
-                $this->assertEquals($body[$num]->created_at, $record->created_at);
-            }
+                if (isset($body[$num]->created_at)) {
+                    $this->assertEquals($body[$num]->created_at, $record->created_at);
+                }
             
-            if (isset($body[$num]->id)) {
-                $this->assertEquals($body[$num]->id, $record->id);
-            }
+                if (isset($body[$num]->id)) {
+                    $this->assertEquals($body[$num]->id, $record->id);
+                }
             
-            if (isset($body[$num]->reason_description)) {
-                $this->assertEquals($body[$num]->reason_description, $record->reason_description);
-            }
+                if (isset($body[$num]->reason_description)) {
+                    $this->assertEquals($body[$num]->reason_description, $record->reason_description);
+                }
             
-            if (isset($body[$num]->reason_type)) {
-                $this->assertEquals($body[$num]->reason_type, $record->reason_type);
-            }
+                if (isset($body[$num]->reason_type)) {
+                    $this->assertEquals($body[$num]->reason_type, $record->reason_type);
+                }
             
-            if (isset($body[$num]->resource_reference)) {
-                $this->assertEquals($body[$num]->resource_reference, $record->resource_reference);
-            }
+                if (isset($body[$num]->resource_reference)) {
+                    $this->assertEquals($body[$num]->resource_reference, $record->resource_reference);
+                }
             
-            if (isset($body[$num]->updated_at)) {
-                $this->assertEquals($body[$num]->updated_at, $record->updated_at);
-            }
+                if (isset($body[$num]->updated_at)) {
+                    $this->assertEquals($body[$num]->updated_at, $record->updated_at);
+                }
             
         }
 
@@ -248,37 +248,37 @@ class BlocksIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
             
-            if (isset($body[$num]->active)) {
-                $this->assertEquals($body[$num]->active, $record->active);
-            }
+                if (isset($body[$num]->active)) {
+                    $this->assertEquals($body[$num]->active, $record->active);
+                }
             
-            if (isset($body[$num]->block_type)) {
-                $this->assertEquals($body[$num]->block_type, $record->block_type);
-            }
+                if (isset($body[$num]->block_type)) {
+                    $this->assertEquals($body[$num]->block_type, $record->block_type);
+                }
             
-            if (isset($body[$num]->created_at)) {
-                $this->assertEquals($body[$num]->created_at, $record->created_at);
-            }
+                if (isset($body[$num]->created_at)) {
+                    $this->assertEquals($body[$num]->created_at, $record->created_at);
+                }
             
-            if (isset($body[$num]->id)) {
-                $this->assertEquals($body[$num]->id, $record->id);
-            }
+                if (isset($body[$num]->id)) {
+                    $this->assertEquals($body[$num]->id, $record->id);
+                }
             
-            if (isset($body[$num]->reason_description)) {
-                $this->assertEquals($body[$num]->reason_description, $record->reason_description);
-            }
+                if (isset($body[$num]->reason_description)) {
+                    $this->assertEquals($body[$num]->reason_description, $record->reason_description);
+                }
             
-            if (isset($body[$num]->reason_type)) {
-                $this->assertEquals($body[$num]->reason_type, $record->reason_type);
-            }
+                if (isset($body[$num]->reason_type)) {
+                    $this->assertEquals($body[$num]->reason_type, $record->reason_type);
+                }
             
-            if (isset($body[$num]->resource_reference)) {
-                $this->assertEquals($body[$num]->resource_reference, $record->resource_reference);
-            }
+                if (isset($body[$num]->resource_reference)) {
+                    $this->assertEquals($body[$num]->resource_reference, $record->resource_reference);
+                }
             
-            if (isset($body[$num]->updated_at)) {
-                $this->assertEquals($body[$num]->updated_at, $record->updated_at);
-            }
+                if (isset($body[$num]->updated_at)) {
+                    $this->assertEquals($body[$num]->updated_at, $record->updated_at);
+                }
             
         }
 

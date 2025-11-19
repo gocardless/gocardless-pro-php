@@ -10,6 +10,7 @@ use PhpCoveralls\Bundle\CoverallsBundle\Version;
  * Data represents "json_file" of Coveralls API.
  *
  * @author Kitamura Satoshi <with.no.parachute@gmail.com>
+ *
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
 class JsonFile extends Coveralls
@@ -73,7 +74,7 @@ class JsonFile extends Coveralls
     /**
      * Source files.
      *
-     * @var \PhpCoveralls\Bundle\CoverallsBundle\Entity\SourceFile[]
+     * @var SourceFile[]
      */
     protected $sourceFiles = [];
 
@@ -119,8 +120,6 @@ class JsonFile extends Coveralls
     // API
 
     /**
-     * {@inheritdoc}
-     *
      * @see \PhpCoveralls\Bundle\CoverallsBundle\Entity\ArrayConvertable::toArray()
      */
     public function toArray()
@@ -145,8 +144,8 @@ class JsonFile extends Coveralls
         ];
 
         foreach ($arrayMap as $jsonKey => $propName) {
-            if (isset($this->$propName)) {
-                $array[$jsonKey] = $this->toJsonProperty($this->$propName);
+            if (isset($this->{$propName})) {
+                $array[$jsonKey] = $this->toJsonProperty($this->{$propName});
             }
         }
 
@@ -162,15 +161,16 @@ class JsonFile extends Coveralls
      *
      * @param array $env $_SERVER environment
      *
-     * @throws \RuntimeException
-     *
      * @return $this
+     *
+     * @throws \RuntimeException
      */
     public function fillJobs(array $env)
     {
         return $this
             ->fillStandardizedEnvVars($env)
-            ->ensureJobs();
+            ->ensureJobs()
+        ;
     }
 
     /**
@@ -180,7 +180,7 @@ class JsonFile extends Coveralls
     {
         $this->sourceFiles = array_filter(
             $this->sourceFiles,
-            function (SourceFile $sourceFile) {
+            static function (SourceFile $sourceFile) {
                 return $sourceFile->getMetrics()->hasStatements();
             }
         );
@@ -203,8 +203,8 @@ class JsonFile extends Coveralls
     {
         $metrics = $this->getMetrics();
 
+        /** @var SourceFile $sourceFile */
         foreach ($this->sourceFiles as $sourceFile) {
-            /* @var $sourceFile \PhpCoveralls\Bundle\CoverallsBundle\Entity\SourceFile */
             $metrics->merge($sourceFile->getMetrics());
         }
 
@@ -230,7 +230,7 @@ class JsonFile extends Coveralls
      *
      * @param string $path absolute path to source file
      *
-     * @return null|\PhpCoveralls\Bundle\CoverallsBundle\Entity\SourceFile
+     * @return null|SourceFile
      */
     public function getSourceFile($path)
     {
@@ -241,8 +241,6 @@ class JsonFile extends Coveralls
 
     /**
      * Add source file.
-     *
-     * @param SourceFile $sourceFile
      */
     public function addSourceFile(SourceFile $sourceFile)
     {
@@ -256,13 +254,13 @@ class JsonFile extends Coveralls
      */
     public function hasSourceFiles()
     {
-        return count($this->sourceFiles) > 0;
+        return \count($this->sourceFiles) > 0;
     }
 
     /**
      * Return source files.
      *
-     * @return \PhpCoveralls\Bundle\CoverallsBundle\Entity\SourceFile[]
+     * @return SourceFile[]
      */
     public function getSourceFiles()
     {
@@ -490,11 +488,11 @@ class JsonFile extends Coveralls
     /**
      * Return metrics.
      *
-     * @return \PhpCoveralls\Bundle\CoverallsBundle\Entity\Metrics
+     * @return Metrics
      */
     public function getMetrics()
     {
-        if ($this->metrics === null) {
+        if (null === $this->metrics) {
             $this->metrics = new Metrics();
         }
 
@@ -507,8 +505,6 @@ class JsonFile extends Coveralls
      * Convert to json property.
      *
      * @param mixed $prop
-     *
-     * @return mixed
      */
     protected function toJsonProperty($prop)
     {
@@ -516,7 +512,7 @@ class JsonFile extends Coveralls
             return $prop->toArray();
         }
 
-        if (is_array($prop)) {
+        if (\is_array($prop)) {
             return $this->toJsonPropertyArray($prop);
         }
 
@@ -525,8 +521,6 @@ class JsonFile extends Coveralls
 
     /**
      * Convert to array as json property.
-     *
-     * @param array $propArray
      *
      * @return array
      */
@@ -580,7 +574,7 @@ class JsonFile extends Coveralls
 
         foreach ($map as $propName => $envName) {
             if (isset($env[$envName])) {
-                $this->$propName = $env[$envName];
+                $this->{$propName} = $env[$envName];
             }
         }
 
@@ -590,9 +584,9 @@ class JsonFile extends Coveralls
     /**
      * Ensure data consistency for jobs API.
      *
-     * @throws \RuntimeException
-     *
      * @return $this
+     *
+     * @throws \RuntimeException
      */
     protected function ensureJobs()
     {
@@ -634,10 +628,10 @@ class JsonFile extends Coveralls
      */
     protected function requireServiceJobId()
     {
-        return $this->serviceName !== null
-            && $this->serviceNumber !== null
-            && $this->serviceJobId !== null
-            && $this->repoToken === null;
+        return null !== $this->serviceName
+            && null !== $this->serviceNumber
+            && null !== $this->serviceJobId
+            && null === $this->repoToken;
     }
 
     /**
@@ -647,9 +641,9 @@ class JsonFile extends Coveralls
      */
     protected function requireServiceNumber()
     {
-        return $this->serviceName !== null
-            && $this->serviceNumber !== null
-            && $this->repoToken !== null;
+        return null !== $this->serviceName
+            && null !== $this->serviceNumber
+            && null !== $this->repoToken;
     }
 
     /**
@@ -659,9 +653,9 @@ class JsonFile extends Coveralls
      */
     protected function requireServiceEventType()
     {
-        return $this->serviceName !== null
-            && $this->serviceEventType !== null
-            && $this->repoToken !== null;
+        return null !== $this->serviceName
+            && null !== $this->serviceEventType
+            && null !== $this->repoToken;
     }
 
     /**
@@ -671,8 +665,8 @@ class JsonFile extends Coveralls
      */
     protected function requireRepoToken()
     {
-        return $this->serviceName === 'travis-pro'
-            && $this->repoToken !== null;
+        return 'travis-pro' === $this->serviceName
+            && null !== $this->repoToken;
     }
 
     /**
@@ -682,7 +676,7 @@ class JsonFile extends Coveralls
      */
     protected function requireGithubActions()
     {
-        return $this->serviceName === 'github' && $this->serviceJobId !== null && $this->repoToken !== null;
+        return 'github' === $this->serviceName && null !== $this->serviceJobId && null !== $this->repoToken;
     }
 
     /**
@@ -692,10 +686,10 @@ class JsonFile extends Coveralls
      */
     protected function isUnsupportedServiceJob()
     {
-        return $this->serviceJobId === null
-            && $this->serviceNumber === null
-            && $this->serviceEventType === null
-            && $this->repoToken !== null;
+        return null === $this->serviceJobId
+            && null === $this->serviceNumber
+            && null === $this->serviceEventType
+            && null !== $this->repoToken;
     }
 
     protected function onJsonError()
@@ -709,22 +703,21 @@ class JsonFile extends Coveralls
         $sourceFiles = empty($array['source_files']) ? [] : $array['source_files'];
 
         foreach ($sourceFiles as $item) {
-            $this->throwWhenInvalidJson($item, '[source_files]: ' . $item['name']);
+            $this->throwWhenInvalidJson($item, '[source_files]: '.$item['name']);
         }
     }
 
     /**
-     * @param array  $item
      * @param string $source
      */
     private function throwWhenInvalidJson(array $item, $source)
     {
-        \json_encode($item);
+        json_encode($item);
 
-        if (\json_last_error() !== JSON_ERROR_NONE) {
-            throw new \UnexpectedValueException(sprintf(
+        if (JSON_ERROR_NONE !== json_last_error()) {
+            throw new \UnexpectedValueException(\sprintf(
                 'Can not encode to JSON, error: "%s" in "%s".',
-                \json_last_error_msg(),
+                json_last_error_msg(),
                 $source
             ));
         }

@@ -56,8 +56,6 @@ class Commit extends Coveralls
     // API
 
     /**
-     * {@inheritdoc}
-     *
      * @see \PhpCoveralls\Bundle\CoverallsBundle\Entity\ArrayConvertable::toArray()
      */
     public function toArray()
@@ -79,7 +77,7 @@ class Commit extends Coveralls
      *
      * @param string $id
      *
-     * @return \PhpCoveralls\Bundle\CoverallsBundle\Entity\Git\Commit
+     * @return Commit
      */
     public function setId($id)
     {
@@ -103,7 +101,7 @@ class Commit extends Coveralls
      *
      * @param string $authorName
      *
-     * @return \PhpCoveralls\Bundle\CoverallsBundle\Entity\Git\Commit
+     * @return Commit
      */
     public function setAuthorName($authorName)
     {
@@ -127,7 +125,7 @@ class Commit extends Coveralls
      *
      * @param string $authorEmail
      *
-     * @return \PhpCoveralls\Bundle\CoverallsBundle\Entity\Git\Commit
+     * @return Commit
      */
     public function setAuthorEmail($authorEmail)
     {
@@ -151,7 +149,7 @@ class Commit extends Coveralls
      *
      * @param string $committerName
      *
-     * @return \PhpCoveralls\Bundle\CoverallsBundle\Entity\Git\Commit
+     * @return Commit
      */
     public function setCommitterName($committerName)
     {
@@ -175,7 +173,7 @@ class Commit extends Coveralls
      *
      * @param string $committerEmail
      *
-     * @return \PhpCoveralls\Bundle\CoverallsBundle\Entity\Git\Commit
+     * @return Commit
      */
     public function setCommitterEmail($committerEmail)
     {
@@ -199,7 +197,7 @@ class Commit extends Coveralls
      *
      * @param string $message
      *
-     * @return \PhpCoveralls\Bundle\CoverallsBundle\Entity\Git\Commit
+     * @return Commit
      */
     public function setMessage($message)
     {

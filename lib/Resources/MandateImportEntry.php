@@ -42,6 +42,7 @@ class MandateImportEntry extends BaseResource
      * processed by GoCardless) to identify the records that have been created.
      * Limited
      * to 255 characters.
+     * 
      */
     protected $record_identifier;
 

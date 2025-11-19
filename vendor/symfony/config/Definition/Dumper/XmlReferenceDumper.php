@@ -31,12 +31,12 @@ class XmlReferenceDumper
 {
     private ?string $reference = null;
 
-    public function dump(ConfigurationInterface $configuration, string $namespace = null)
+    public function dump(ConfigurationInterface $configuration, ?string $namespace = null): string
     {
         return $this->dumpNode($configuration->getConfigTreeBuilder()->buildTree(), $namespace);
     }
 
-    public function dumpNode(NodeInterface $node, string $namespace = null)
+    public function dumpNode(NodeInterface $node, ?string $namespace = null): string
     {
         $this->reference = '';
         $this->writeNode($node, 0, true, $namespace);
@@ -46,16 +46,14 @@ class XmlReferenceDumper
         return $ref;
     }
 
-    private function writeNode(NodeInterface $node, int $depth = 0, bool $root = false, string $namespace = null)
+    private function writeNode(NodeInterface $node, int $depth = 0, bool $root = false, ?string $namespace = null): void
     {
         $rootName = ($root ? 'config' : $node->getName());
         $rootNamespace = ($namespace ?: ($root ? 'http://example.org/schema/dic/'.$node->getName() : null));
 
         // xml remapping
         if ($node->getParent()) {
-            $remapping = array_filter($node->getParent()->getXmlRemappings(), function (array $mapping) use ($rootName) {
-                return $rootName === $mapping[1];
-            });
+            $remapping = array_filter($node->getParent()->getXmlRemappings(), fn (array $mapping) => $rootName === $mapping[1]);
 
             if (\count($remapping)) {
                 [$singular] = current($remapping);
@@ -109,7 +107,7 @@ class XmlReferenceDumper
                             FloatNode::class,
                             IntegerNode::class => 'numeric value',
                             BooleanNode::class => 'true|false',
-                            EnumNode::class => implode('|', array_map('json_encode', $prototype->getValues())),
+                            EnumNode::class => $prototype->getPermissibleValues('|'),
                             default => 'value',
                         };
                     }
@@ -147,11 +145,11 @@ class XmlReferenceDumper
 
                 if ($child instanceof BaseNode && $child->isDeprecated()) {
                     $deprecation = $child->getDeprecation($child->getName(), $node->getPath());
-                    $comments[] = sprintf('Deprecated (%s)', ($deprecation['package'] || $deprecation['version'] ? "Since {$deprecation['package']} {$deprecation['version']}: " : '').$deprecation['message']);
+                    $comments[] = \sprintf('Deprecated (%s)', ($deprecation['package'] || $deprecation['version'] ? "Since {$deprecation['package']} {$deprecation['version']}: " : '').$deprecation['message']);
                 }
 
                 if ($child instanceof EnumNode) {
-                    $comments[] = 'One of '.implode('; ', array_map('json_encode', $child->getValues()));
+                    $comments[] = 'One of '.$child->getPermissibleValues('; ');
                 }
 
                 if (\count($comments)) {
@@ -201,7 +199,7 @@ class XmlReferenceDumper
         $rootOpenTag = '<'.$rootName;
         if (1 >= ($attributesCount = \count($rootAttributes))) {
             if (1 === $attributesCount) {
-                $rootOpenTag .= sprintf(' %s="%s"', current(array_keys($rootAttributes)), $this->writeValue(current($rootAttributes)));
+                $rootOpenTag .= \sprintf(' %s="%s"', current(array_keys($rootAttributes)), $this->writeValue(current($rootAttributes)));
             }
 
             $rootOpenTag .= $rootIsEmptyTag ? ' />' : '>';
@@ -217,7 +215,7 @@ class XmlReferenceDumper
             $i = 1;
 
             foreach ($rootAttributes as $attrName => $attrValue) {
-                $attr = sprintf('%s="%s"', $attrName, $this->writeValue($attrValue));
+                $attr = \sprintf('%s="%s"', $attrName, $this->writeValue($attrValue));
 
                 $this->writeLine($attr, $depth + 4);
 
@@ -249,12 +247,12 @@ class XmlReferenceDumper
     /**
      * Outputs a single config reference line.
      */
-    private function writeLine(string $text, int $indent = 0)
+    private function writeLine(string $text, int $indent = 0): void
     {
         $indent = \strlen($text) + $indent;
         $format = '%'.$indent.'s';
 
-        $this->reference .= sprintf($format, $text).\PHP_EOL;
+        $this->reference .= \sprintf($format, $text).\PHP_EOL;
     }
 
     /**
@@ -282,7 +280,7 @@ class XmlReferenceDumper
             return 'null';
         }
 
-        if (empty($value)) {
+        if (!$value) {
             return '';
         }
 

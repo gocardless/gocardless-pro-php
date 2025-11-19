@@ -1,7 +1,8 @@
 php-coveralls
 =============
 
-[![Build Status](https://travis-ci.org/php-coveralls/php-coveralls.svg?branch=master)](https://travis-ci.org/php-coveralls/php-coveralls)
+[![Static Code Analysis](https://github.com/php-coveralls/php-coveralls/actions/workflows/static-code-analysis.yml/badge.svg)](https://github.com/php-coveralls/php-coveralls/actions/workflows/static-code-analysis.yml)
+[![CI](https://github.com/php-coveralls/php-coveralls/actions/workflows/ci.yml/badge.svg)](https://github.com/php-coveralls/php-coveralls/actions/workflows/ci.yml)
 [![Coverage Status](https://coveralls.io/repos/php-coveralls/php-coveralls/badge.png?branch=master)](https://coveralls.io/r/php-coveralls/php-coveralls)
 
 [![Latest Stable Version](https://poser.pugx.org/php-coveralls/php-coveralls/v/stable.png)](https://packagist.org/packages/php-coveralls/php-coveralls)
@@ -11,9 +12,12 @@ PHP client library for [Coveralls](https://coveralls.io).
 
 # Prerequisites
 
-- PHP 5.5+ for 2.x or 5.3+ for 1.x
+- PHP 7.4+ for 2.9+
+- PHP 7.0+ for 2.7+
+- PHP 5.5+ for 2.x
+- PHP 5.3+ for 1.x
 - On [GitHub](https://github.com/)
-- Building on [Travis CI](http://travis-ci.org/), [CircleCI](https://circleci.com/), [Jenkins](http://jenkins-ci.org/) or [Codeship](https://www.codeship.io/)
+- Building on [Travis CI](http://travis-ci.org/), [CircleCI](https://circleci.com/), [Jenkins](http://jenkins-ci.org/), [Codeship](https://www.codeship.io/) or [GitHub Actions](https://github.com/features/actions)
 - Testing by [PHPUnit](https://github.com/sebastianbergmann/phpunit/) or other testing framework that can generate clover style coverage report
 
 # Installation
@@ -24,13 +28,13 @@ We started to create a phar file, starting from the version 0.7.0
 release. It is available at the URLs like:
 
 ```
-https://github.com/php-coveralls/php-coveralls/releases/download/v2.5.3/php-coveralls.phar
+https://github.com/php-coveralls/php-coveralls/releases/download/v2.9.0/php-coveralls.phar
 ```
 
 Download the file and add exec permissions:
 
 ```sh
-$ wget https://github.com/php-coveralls/php-coveralls/releases/download/v2.5.3/php-coveralls.phar
+$ wget https://github.com/php-coveralls/php-coveralls/releases/download/v2.9.0/php-coveralls.phar
 $ chmod +x php-coveralls.phar
 ```
 
@@ -81,12 +85,12 @@ Make sure that `phpunit.xml.dist` is configured to generate "coverage-clover" ty
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit ...>
-    <logging>
-        ...
-        <log type="coverage-clover" target="build/logs/clover.xml"/>
-        ...
-    </logging>
+<phpunit>
+    <coverage>
+        <report>
+            <clover outputFile="build/logs/clover.xml"/>
+        </report>
+    </coverage>
 </phpunit>
 ```
 
@@ -104,7 +108,7 @@ Above settings are good for most projects if your test suite is executed once a 
 
 ```json
     "require-dev": {
-        "php-coveralls/php-coveralls": "^2.5",
+        "php-coveralls/php-coveralls": "^2.9",
         "phpunit/phpcov": "^2.0"
     },
 ```
@@ -115,12 +119,12 @@ Make sure that `phpunit.xml.dist` is configured to generate "coverage-php" type 
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit ...>
-    <logging>
-        ...
-        <log type="coverage-php" target="build/cov/coverage.cov"/>
-        ...
-    </logging>
+<phpunit>
+  <coverage>
+    <report>
+      <php outputFile="build/cov/coverage.cov"/>
+    </report>
+  </coverage>
 </phpunit>
 ```
 
@@ -291,7 +295,7 @@ COVERALLS_FLAG_NAME=$YOUR_PHP_VERSION
 
 Bear in mind that you will need to configure your build to send a webhook after all the parallel builds are done in order for Coveralls to merge the results.
 
-Refer to [Parallel Builds Webhook](https://docs.coveralls.io/parallel-build-webhook) for more information for setup on your environment.
+Refer to [Parallel Builds Webhook](https://docs.coveralls.io/api-parallel-build-webhook) for more information for setup on your environment.
 
 
 ## CLI options
@@ -321,7 +325,7 @@ php-coveralls can use optional `.coveralls.yml` file to configure options. This 
 
 Following options can be used for php-coveralls.
 
-- `entry_point`: Used to specify API endpoint for sending reports. Useful when using self-hosted coveralls or other other, similar service (eg opencov). Default is `https://coveralls.io`.
+- `entry_point`: Used to specify API endpoint for sending reports. Useful when using self-hosted coveralls or other, similar service (eg opencov). Default is `https://coveralls.io`.
 - `coverage_clover`: Used to specify the path to `clover.xml`. Default is `build/logs/clover.xml`
 - `json_path`: Used to specify where to output `json_file` that will be uploaded to Coveralls API. Default is `build/logs/coveralls-upload.json`.
 

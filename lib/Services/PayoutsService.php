@@ -28,18 +28,18 @@ class PayoutsService extends BaseService
 
 
     /**
-     * List payouts
-     *
-     * Example URL: /payouts
-     *
-     * @param  array<string, mixed> $params An associative array for any params
-     * @return ListResponse
-     **/
+    * List payouts
+    *
+    * Example URL: /payouts
+    *
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return ListResponse
+    **/
     protected function _doList($params = array())
     {
         $path = "/payouts";
         if(isset($params['params'])) { $params['query'] = $params['params'];
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -50,14 +50,14 @@ class PayoutsService extends BaseService
     }
 
     /**
-     * Get a single payout
-     *
-     * Example URL: /payouts/:identity
-     *
-     * @param  string               $identity Unique identifier, beginning with "PO".
-     * @param  array<string, mixed> $params   An associative array for any params
-     * @return Payout
-     **/
+    * Get a single payout
+    *
+    * Example URL: /payouts/:identity
+    *
+    * @param  string        $identity Unique identifier, beginning with "PO".
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return Payout
+    **/
     public function get($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -68,7 +68,7 @@ class PayoutsService extends BaseService
             )
         );
         if(isset($params['params'])) { $params['query'] = $params['params'];
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -79,14 +79,14 @@ class PayoutsService extends BaseService
     }
 
     /**
-     * Update a payout
-     *
-     * Example URL: /payouts/:identity
-     *
-     * @param  string               $identity Unique identifier, beginning with "PO".
-     * @param  array<string, mixed> $params   An associative array for any params
-     * @return Payout
-     **/
+    * Update a payout
+    *
+    * Example URL: /payouts/:identity
+    *
+    * @param  string        $identity Unique identifier, beginning with "PO".
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return Payout
+    **/
     public function update($identity, $params = array())
     {
         $path = Util::subUrl(
@@ -97,9 +97,9 @@ class PayoutsService extends BaseService
             )
         );
         if(isset($params['params'])) { 
-            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-            unset($params['params']);
+          unset($params['params']);
         }
 
         
@@ -110,13 +110,13 @@ class PayoutsService extends BaseService
     }
 
     /**
-     * List payouts
-     *
-     * Example URL: /payouts
-     *
-     * @param  string[mixed] $params
-     * @return Paginator
-     **/
+    * List payouts
+    *
+    * Example URL: /payouts
+    *
+    * @param string[mixed] $params
+    * @return Paginator
+    **/
     public function all($params = array())
     {
         return new Paginator($this, $params);

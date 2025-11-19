@@ -26,20 +26,20 @@ class PayerThemesService extends BaseService
 
 
     /**
-     * Create a payer theme associated with a creditor
-     *
-     * Example URL: /branding/payer_themes
-     *
-     * @param  array<string, mixed> $params An associative array for any params
-     * @return PayerTheme
-     **/
+    * Create a payer theme associated with a creditor
+    *
+    * Example URL: /branding/payer_themes
+    *
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return PayerTheme
+    **/
     public function createForCreditor($params = array())
     {
         $path = "/branding/payer_themes";
         if(isset($params['params'])) { 
-            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+          $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
         
-            unset($params['params']);
+          unset($params['params']);
         }
 
         

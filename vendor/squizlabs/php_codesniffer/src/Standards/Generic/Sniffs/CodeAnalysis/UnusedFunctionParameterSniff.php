@@ -11,7 +11,8 @@
  * @author    Manuel Pichler <mapi@manuel-pichler.de>
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2007-2014 Manuel Pichler. All rights reserved.
- * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+ * @copyright 2023 PHPCSStandards and contributors
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/HEAD/licence.txt BSD Licence
  */
 
 namespace PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis;
@@ -24,6 +25,32 @@ class UnusedFunctionParameterSniff implements Sniff
 {
 
     /**
+     * A list of all PHP magic methods with fixed method signatures.
+     *
+     * Note: `__construct()` and `__invoke()` are excluded on purpose
+     * as their method signature is not fixed.
+     *
+     * @var array<string, true>
+     */
+    private const MAGIC_METHODS = [
+        '__destruct'    => true,
+        '__call'        => true,
+        '__callstatic'  => true,
+        '__get'         => true,
+        '__set'         => true,
+        '__isset'       => true,
+        '__unset'       => true,
+        '__sleep'       => true,
+        '__wakeup'      => true,
+        '__serialize'   => true,
+        '__unserialize' => true,
+        '__tostring'    => true,
+        '__set_state'   => true,
+        '__clone'       => true,
+        '__debuginfo'   => true,
+    ];
+
+    /**
      * The list of class type hints which will be ignored.
      *
      * @var array
@@ -34,7 +61,7 @@ class UnusedFunctionParameterSniff implements Sniff
     /**
      * Returns an array of tokens this test wants to listen for.
      *
-     * @return array
+     * @return array<int|string>
      */
     public function register()
     {
@@ -43,8 +70,7 @@ class UnusedFunctionParameterSniff implements Sniff
             T_CLOSURE,
             T_FN,
         ];
-
-    }//end register()
+    }
 
 
     /**
@@ -56,7 +82,7 @@ class UnusedFunctionParameterSniff implements Sniff
      *
      * @return void
      */
-    public function process(File $phpcsFile, $stackPtr)
+    public function process(File $phpcsFile, int $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
         $token  = $tokens[$stackPtr];
@@ -68,15 +94,25 @@ class UnusedFunctionParameterSniff implements Sniff
 
         $errorCode  = 'Found';
         $implements = false;
-        $extends    = false;
-        $classPtr   = $phpcsFile->getCondition($stackPtr, T_CLASS);
-        if ($classPtr !== false) {
-            $implements = $phpcsFile->findImplementedInterfaceNames($classPtr);
-            $extends    = $phpcsFile->findExtendedClassName($classPtr);
-            if ($extends !== false) {
-                $errorCode .= 'InExtendedClass';
-            } else if ($implements !== false) {
-                $errorCode .= 'InImplementedInterface';
+
+        if ($token['code'] === T_FUNCTION) {
+            $classPtr = $phpcsFile->getCondition($stackPtr, T_CLASS);
+            if ($classPtr !== false) {
+                // Check for magic methods and ignore these as the method signature cannot be changed.
+                $methodName   = $phpcsFile->getDeclarationName($stackPtr);
+                $methodNameLc = strtolower($methodName);
+                if (isset(self::MAGIC_METHODS[$methodNameLc]) === true) {
+                    return;
+                }
+
+                // Check for extends/implements and adjust the error code when found.
+                $implements = $phpcsFile->findImplementedInterfaceNames($classPtr);
+                $extends    = $phpcsFile->findExtendedClassName($classPtr);
+                if ($extends !== false) {
+                    $errorCode .= 'InExtendedClass';
+                } elseif ($implements !== false) {
+                    $errorCode .= 'InImplementedInterface';
+                }
             }
         }
 
@@ -116,14 +152,14 @@ class UnusedFunctionParameterSniff implements Sniff
             T_END_NOWDOC           => T_END_NOWDOC,
             T_DOUBLE_QUOTED_STRING => T_DOUBLE_QUOTED_STRING,
         ];
-        $validTokens += Tokens::$emptyTokens;
+        $validTokens += Tokens::EMPTY_TOKENS;
 
         for (; $next <= $end; ++$next) {
             $token = $tokens[$next];
             $code  = $token['code'];
 
             // Ignorable tokens.
-            if (isset(Tokens::$emptyTokens[$code]) === true) {
+            if (isset(Tokens::EMPTY_TOKENS[$code]) === true) {
                 continue;
             }
 
@@ -135,40 +171,44 @@ class UnusedFunctionParameterSniff implements Sniff
 
                 // A return statement as the first content indicates an interface method.
                 if ($code === T_RETURN) {
-                    $tmp = $phpcsFile->findNext(Tokens::$emptyTokens, ($next + 1), null, true);
-                    if ($tmp === false && $implements !== false) {
+                    $firstNonEmptyTokenAfterReturn = $phpcsFile->findNext(Tokens::EMPTY_TOKENS, ($next + 1), null, true);
+                    if ($tokens[$firstNonEmptyTokenAfterReturn]['code'] === T_SEMICOLON && $implements !== false) {
                         return;
                     }
 
-                    // There is a return.
-                    if ($tokens[$tmp]['code'] === T_SEMICOLON && $implements !== false) {
-                        return;
-                    }
+                    $secondNonEmptyTokenAfterReturn = $phpcsFile->findNext(
+                        Tokens::EMPTY_TOKENS,
+                        ($firstNonEmptyTokenAfterReturn + 1),
+                        null,
+                        true
+                    );
 
-                    $tmp = $phpcsFile->findNext(Tokens::$emptyTokens, ($tmp + 1), null, true);
-                    if ($tmp !== false && $tokens[$tmp]['code'] === T_SEMICOLON && $implements !== false) {
+                    if ($secondNonEmptyTokenAfterReturn !== false
+                        && $tokens[$secondNonEmptyTokenAfterReturn]['code'] === T_SEMICOLON
+                        && $implements !== false
+                    ) {
                         // There is a return <token>.
                         return;
                     }
-                }//end if
-            }//end if
+                }
+            }
 
             $foundContent = true;
 
             if ($code === T_VARIABLE && isset($params[$token['content']]) === true) {
                 unset($params[$token['content']]);
-            } else if ($code === T_DOLLAR) {
+            } elseif ($code === T_DOLLAR) {
                 $nextToken = $phpcsFile->findNext(T_WHITESPACE, ($next + 1), null, true);
                 if ($tokens[$nextToken]['code'] === T_OPEN_CURLY_BRACKET) {
                     $nextToken = $phpcsFile->findNext(T_WHITESPACE, ($nextToken + 1), null, true);
                     if ($tokens[$nextToken]['code'] === T_STRING) {
-                        $varContent = '$'.$tokens[$nextToken]['content'];
+                        $varContent = '$' . $tokens[$nextToken]['content'];
                         if (isset($params[$varContent]) === true) {
                             unset($params[$varContent]);
                         }
                     }
                 }
-            } else if ($code === T_DOUBLE_QUOTED_STRING
+            } elseif ($code === T_DOUBLE_QUOTED_STRING
                 || $code === T_START_HEREDOC
                 || $code === T_START_NOWDOC
             ) {
@@ -192,8 +232,8 @@ class UnusedFunctionParameterSniff implements Sniff
 
                     $varContent = '';
                     if ($stringToken[0] === T_DOLLAR_OPEN_CURLY_BRACES) {
-                        $varContent = '$'.$stringTokens[($stringPtr + 1)][1];
-                    } else if ($stringToken[0] === T_VARIABLE) {
+                        $varContent = '$' . $stringTokens[($stringPtr + 1)][1];
+                    } elseif ($stringToken[0] === T_VARIABLE) {
                         $varContent = $stringToken[1];
                     }
 
@@ -201,8 +241,8 @@ class UnusedFunctionParameterSniff implements Sniff
                         unset($params[$varContent]);
                     }
                 }
-            }//end if
-        }//end for
+            }
+        }
 
         if ($foundContent === true && count($params) > 0) {
             $error = 'The method parameter %s is never used';
@@ -229,7 +269,7 @@ class UnusedFunctionParameterSniff implements Sniff
                     if (isset($params[$methodParams[$i]['name']]) === true) {
                         $errorInfo[$methodParams[$i]['name']] = [
                             'position'  => $params[$methodParams[$i]['name']],
-                            'errorcode' => $errorCode.'BeforeLastUsed',
+                            'errorcode' => $errorCode . 'BeforeLastUsed',
                             'typehint'  => $methodParams[$i]['type_hint'],
                         ];
                     }
@@ -239,12 +279,12 @@ class UnusedFunctionParameterSniff implements Sniff
                     } else {
                         $errorInfo[$methodParams[$i]['name']] = [
                             'position'  => $params[$methodParams[$i]['name']],
-                            'errorcode' => $errorCode.'AfterLastUsed',
+                            'errorcode' => $errorCode . 'AfterLastUsed',
                             'typehint'  => $methodParams[$i]['type_hint'],
                         ];
                     }
                 }
-            }//end for
+            }
 
             if (count($errorInfo) > 0) {
                 $errorInfo = array_reverse($errorInfo);
@@ -257,9 +297,6 @@ class UnusedFunctionParameterSniff implements Sniff
                     $phpcsFile->addWarning($error, $info['position'], $info['errorcode'], $data);
                 }
             }
-        }//end if
-
-    }//end process()
-
-
-}//end class
+        }
+    }
+}
