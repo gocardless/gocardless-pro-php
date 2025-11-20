@@ -1,4 +1,6 @@
 { 
+  
+  
   "create": {
     "method": "POST",
     "path_template": "/bank_details_lookups",

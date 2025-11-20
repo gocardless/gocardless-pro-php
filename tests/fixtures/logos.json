@@ -1,4 +1,6 @@
 { 
+  
+  
   "create_for_creditor": {
     "method": "POST",
     "path_template": "/branding/logos",

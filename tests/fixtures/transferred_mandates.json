@@ -1,9 +1,11 @@
 { 
+  
+  
   "transferred_mandates": {
     "method": "GET",
     "path_template": "/transferred_mandates/:identity",
     "url_params": {"identity": "MD123"},
-    "body": {"transferred_mandates":{"encrypted_customer_bank_details":"example encrypted_customer_bank_details 3174","encrypted_decryption_key":"example encrypted_decryption_key 2498","links":{"customer_bank_account":"BA123","mandate":"MD123"},"public_key_id":"example public_key_id 768"}}
+    "body": {"transferred_mandates":{"encrypted_customer_bank_details":"example encrypted_customer_bank_details 101","encrypted_decryption_key":"example encrypted_decryption_key 101","links":{"customer_bank_account":"BA123","mandate":"MD123"},"public_key_id":"example public_key_id 101"}}
   }
 }
 
