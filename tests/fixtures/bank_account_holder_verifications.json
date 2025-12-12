@@ -1,0 +1,17 @@
+{ 
+  
+  
+  "create": {
+    "method": "POST",
+    "path_template": "/bank_account_holder_verifications",
+    "url_params": {},
+    "body": {"bank_account_holder_verifications":{"actual_account_name":"Jo Doe","id":"BAHV123","result":"partial_match","status":"pending","type":"confirmation_of_payee"}}
+  },
+  "get": {
+    "method": "GET",
+    "path_template": "/bank_account_holder_verifications/:identity",
+    "url_params": {"identity": "BAHV123"},
+    "body": {"bank_account_holder_verifications":{"actual_account_name":"Jo Doe","id":"BAHV123","result":"partial_match","status":"pending","type":"confirmation_of_payee"}}
+  }
+}
+

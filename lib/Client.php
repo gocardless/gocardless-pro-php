@@ -73,6 +73,8 @@ class Client
 
         $this->services['bank_account_details'] = new Services\BankAccountDetailsService($this->api_client);
 
+        $this->services['bank_account_holder_verifications'] = new Services\BankAccountHolderVerificationsService($this->api_client);
+
         $this->services['bank_authorisations'] = new Services\BankAuthorisationsService($this->api_client);
 
         $this->services['bank_details_lookups'] = new Services\BankDetailsLookupsService($this->api_client);
@@ -175,6 +177,18 @@ class Client
             throw new \Exception('Key bank_account_details does not exist in services array');
         }
         return $this->services['bank_account_details'];
+    }
+
+    /**
+     * Service for interacting with bank account holder verification
+     * @return Services\BankAccountHolderVerificationsService
+     */
+    public function bankAccountHolderVerifications()
+    {
+        if (!isset($this->services['bank_account_holder_verifications'])) {
+            throw new \Exception('Key bank_account_holder_verifications does not exist in services array');
+        }
+        return $this->services['bank_account_holder_verifications'];
     }
 
     /**
