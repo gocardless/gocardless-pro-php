@@ -26,7 +26,6 @@ class ApiExceptionTest extends TestCase
     public function testType()
     {
         $this->assertEquals('invalid_state', $this->error->getType());
-
     }
 
     public function testCode()

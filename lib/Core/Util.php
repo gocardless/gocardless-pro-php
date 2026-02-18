@@ -1,4 +1,5 @@
 <?php
+
 namespace GoCardlessPro\Core;
 
 abstract class Util
@@ -36,9 +37,9 @@ abstract class Util
             }
 
             if ($prefix && $k && !is_int($k)) {
-                $k = $prefix."[".$k."]";
+                $k = $prefix . "[" . $k . "]";
             } elseif ($prefix) {
-                $k = $prefix."[]";
+                $k = $prefix . "[]";
             }
 
             if (is_array($v)) {
@@ -47,7 +48,7 @@ abstract class Util
                     $r[] = $enc;
                 }
             } else {
-                $r[] = urlencode($k)."=".urlencode($v);
+                $r[] = urlencode($k) . "=" . urlencode($v);
             }
         }
 
@@ -70,12 +71,11 @@ abstract class Util
     {
         foreach ($substitutions as $substitution_key => $substitution_value) {
             if (!is_string($substitution_value)) {
-                $error_type = ' needs to be a string, not a '.gettype($substitution_value).'.';
+                $error_type = ' needs to be a string, not a ' . gettype($substitution_value) . '.';
                 throw new \Exception('URL value for ' . $substitution_key . $error_type);
             }
             $url = str_replace(':' . $substitution_key, $substitution_value, $url);
         }
         return $url;
     }
-
 }

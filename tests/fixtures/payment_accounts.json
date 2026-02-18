@@ -1,0 +1,17 @@
+{
+  
+  
+  "get": {
+    "method": "GET",
+    "path_template": "/payment_accounts/:identity",
+    "url_params": {"identity": "BA123"},
+    "body": {"payment_accounts":{"account_balance":1000,"account_holder_name":"Billie Jean","account_number_ending":"1234","bank_name":"BARCLAYS BANK PLC","currency":"EUR","id":"BA123","links":{"creditor":"CR123"}}}
+  },
+  "list": {
+    "method": "GET",
+    "path_template": "/payment_accounts",
+    "url_params": {},
+    "body": {"meta":{"cursors":{"after":"example after 101","before":"example before 101"},"limit":50},"payment_accounts":[{"account_balance":1000,"account_holder_name":"Billie Jean","account_number_ending":"1234","bank_name":"BARCLAYS BANK PLC","currency":"EUR","id":"BA123","links":{"creditor":"CR123"}},{"account_balance":1000,"account_holder_name":"Billie Jean","account_number_ending":"1234","bank_name":"BARCLAYS BANK PLC","currency":"EUR","id":"BA123","links":{"creditor":"CR123"}}]}
+  }
+}
+

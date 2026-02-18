@@ -1,27 +1,29 @@
-{ 
+{
+  
+  
   "create": {
     "method": "POST",
     "path_template": "/mandate_imports",
     "url_params": {},
-    "body": {"mandate_imports":{"created_at":"2014-01-01T12:00:00.000Z","id":"IM000010790WX1","links":{"creditor":"CR123"},"scheme":"bacs","status":"created"}}
+    "body": {"mandate_imports":{"created_at":"2014-01-01T12:00:00.000Z","id":"IM123","links":{"creditor":"CR123"},"scheme":"bacs","status":"created"}}
   },
   "get": {
     "method": "GET",
     "path_template": "/mandate_imports/:identity",
-    "url_params": {"identity": "IM000010790WX1"},
-    "body": {"mandate_imports":{"created_at":"2014-01-01T12:00:00.000Z","id":"IM000010790WX1","links":{"creditor":"CR123"},"scheme":"bacs","status":"created"}}
+    "url_params": {"identity": "IM123"},
+    "body": {"mandate_imports":{"created_at":"2014-01-01T12:00:00.000Z","id":"IM123","links":{"creditor":"CR123"},"scheme":"bacs","status":"created"}}
   },
   "submit": {
     "method": "POST",
     "path_template": "/mandate_imports/:identity/actions/submit",
-    "url_params": {"identity": "IM000010790WX1"},
-    "body": {"mandate_imports":{"created_at":"2014-01-01T12:00:00.000Z","id":"IM000010790WX1","links":{"creditor":"CR123"},"scheme":"bacs","status":"created"}}
+    "url_params": {"identity": "IM123"},
+    "body": {"mandate_imports":{"created_at":"2014-01-01T12:00:00.000Z","id":"IM123","links":{"creditor":"CR123"},"scheme":"bacs","status":"created"}}
   },
   "cancel": {
     "method": "POST",
     "path_template": "/mandate_imports/:identity/actions/cancel",
-    "url_params": {"identity": "IM000010790WX1"},
-    "body": {"mandate_imports":{"created_at":"2014-01-01T12:00:00.000Z","id":"IM000010790WX1","links":{"creditor":"CR123"},"scheme":"bacs","status":"created"}}
+    "url_params": {"identity": "IM123"},
+    "body": {"mandate_imports":{"created_at":"2014-01-01T12:00:00.000Z","id":"IM123","links":{"creditor":"CR123"},"scheme":"bacs","status":"created"}}
   }
 }
 
