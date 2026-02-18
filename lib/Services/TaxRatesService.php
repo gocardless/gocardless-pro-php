@@ -27,7 +27,7 @@ class TaxRatesService extends BaseService
 
 
     /**
-    * List tax rates
+    *  List tax rates
     *
     * Example URL: /tax_rates
     *
@@ -50,12 +50,12 @@ class TaxRatesService extends BaseService
     }
 
     /**
-    * Get a single tax rate
+    *  Get a single tax rate
     *
     * Example URL: /tax_rates/:identity
     *
-    * @param  string        $identity The unique identifier created by the jurisdiction, tax type
- and version
+    * @param  string        $identity  The unique identifier created by the jurisdiction, tax
+  type and version
     * @param  array<string, mixed> $params An associative array for any params
     * @return TaxRate
     **/
@@ -81,7 +81,7 @@ class TaxRatesService extends BaseService
     }
 
     /**
-    * List tax rates
+    *  List tax rates
     *
     * Example URL: /tax_rates
     *

@@ -27,10 +27,22 @@ class TransferredMandatesIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\TransferredMandate', $response);
 
-        $this->assertEquals($body->encrypted_customer_bank_details, $response->encrypted_customer_bank_details);
-        $this->assertEquals($body->encrypted_decryption_key, $response->encrypted_decryption_key);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->public_key_id, $response->public_key_id);
+
+        if (property_exists($body, 'encrypted_customer_bank_details')) {
+            $this->assertEquals($body->encrypted_customer_bank_details, $response->encrypted_customer_bank_details);
+        }
+
+        if (property_exists($body, 'encrypted_decryption_key')) {
+            $this->assertEquals($body->encrypted_decryption_key, $response->encrypted_decryption_key);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'public_key_id')) {
+            $this->assertEquals($body->public_key_id, $response->public_key_id);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

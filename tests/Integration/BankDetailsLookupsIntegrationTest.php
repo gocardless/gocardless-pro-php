@@ -27,9 +27,18 @@ class BankDetailsLookupsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BankDetailsLookup', $response);
 
-        $this->assertEquals($body->available_debit_schemes, $response->available_debit_schemes);
-        $this->assertEquals($body->bank_name, $response->bank_name);
-        $this->assertEquals($body->bic, $response->bic);
+
+        if (property_exists($body, 'available_debit_schemes')) {
+            $this->assertEquals($body->available_debit_schemes, $response->available_debit_schemes);
+        }
+
+        if (property_exists($body, 'bank_name')) {
+            $this->assertEquals($body->bank_name, $response->bank_name);
+        }
+
+        if (property_exists($body, 'bic')) {
+            $this->assertEquals($body->bic, $response->bic);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

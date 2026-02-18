@@ -27,7 +27,7 @@ class MandatesService extends BaseService
 
 
     /**
-    * Create a mandate
+    *  Create a mandate
     *
     * Example URL: /mandates
     *
@@ -62,7 +62,7 @@ class MandatesService extends BaseService
     }
 
     /**
-    * List mandates
+    *  List mandates
     *
     * Example URL: /mandates
     *
@@ -85,12 +85,12 @@ class MandatesService extends BaseService
     }
 
     /**
-    * Get a single mandate
+    *  Get a single mandate
     *
     * Example URL: /mandates/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "MD". Note that this
- prefix may not apply to mandates created before 2016.
+    * @param  string        $identity  Unique identifier, beginning with "MD". Note that this
+  prefix may not apply to mandates created before 2016.
     * @param  array<string, mixed> $params An associative array for any params
     * @return Mandate
     **/
@@ -116,12 +116,12 @@ class MandatesService extends BaseService
     }
 
     /**
-    * Update a mandate
+    *  Update a mandate
     *
     * Example URL: /mandates/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "MD". Note that this
- prefix may not apply to mandates created before 2016.
+    * @param  string        $identity  Unique identifier, beginning with "MD". Note that this
+  prefix may not apply to mandates created before 2016.
     * @param  array<string, mixed> $params An associative array for any params
     * @return Mandate
     **/
@@ -148,12 +148,12 @@ class MandatesService extends BaseService
     }
 
     /**
-    * Cancel a mandate
+    *  Cancel a mandate
     *
     * Example URL: /mandates/:identity/actions/cancel
     *
-    * @param  string        $identity Unique identifier, beginning with "MD". Note that this
- prefix may not apply to mandates created before 2016.
+    * @param  string        $identity  Unique identifier, beginning with "MD". Note that this
+  prefix may not apply to mandates created before 2016.
     * @param  array<string, mixed> $params An associative array for any params
     * @return Mandate
     **/
@@ -191,12 +191,12 @@ class MandatesService extends BaseService
     }
 
     /**
-    * Reinstate a mandate
+    *  Reinstate a mandate
     *
     * Example URL: /mandates/:identity/actions/reinstate
     *
-    * @param  string        $identity Unique identifier, beginning with "MD". Note that this
- prefix may not apply to mandates created before 2016.
+    * @param  string        $identity  Unique identifier, beginning with "MD". Note that this
+  prefix may not apply to mandates created before 2016.
     * @param  array<string, mixed> $params An associative array for any params
     * @return Mandate
     **/
@@ -234,7 +234,7 @@ class MandatesService extends BaseService
     }
 
     /**
-    * List mandates
+    *  List mandates
     *
     * Example URL: /mandates
     *

@@ -27,18 +27,54 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\CreditorBankAccount', $response);
 
-        $this->assertEquals($body->account_holder_name, $response->account_holder_name);
-        $this->assertEquals($body->account_number_ending, $response->account_number_ending);
-        $this->assertEquals($body->account_type, $response->account_type);
-        $this->assertEquals($body->bank_name, $response->bank_name);
-        $this->assertEquals($body->country_code, $response->country_code);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->enabled, $response->enabled);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->verification_status, $response->verification_status);
+
+        if (property_exists($body, 'account_holder_name')) {
+            $this->assertEquals($body->account_holder_name, $response->account_holder_name);
+        }
+
+        if (property_exists($body, 'account_number_ending')) {
+            $this->assertEquals($body->account_number_ending, $response->account_number_ending);
+        }
+
+        if (property_exists($body, 'account_type')) {
+            $this->assertEquals($body->account_type, $response->account_type);
+        }
+
+        if (property_exists($body, 'bank_name')) {
+            $this->assertEquals($body->bank_name, $response->bank_name);
+        }
+
+        if (property_exists($body, 'country_code')) {
+            $this->assertEquals($body->country_code, $response->country_code);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'enabled')) {
+            $this->assertEquals($body->enabled, $response->enabled);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'verification_status')) {
+            $this->assertEquals($body->verification_status, $response->verification_status);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -66,18 +102,42 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\CreditorBankAccount', $response);
 
-        $this->assertEquals($body->account_holder_name, $response->account_holder_name);
-        $this->assertEquals($body->account_number_ending, $response->account_number_ending);
-        $this->assertEquals($body->account_type, $response->account_type);
-        $this->assertEquals($body->bank_name, $response->bank_name);
-        $this->assertEquals($body->country_code, $response->country_code);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->enabled, $response->enabled);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->verification_status, $response->verification_status);
+        if (property_exists($body, 'account_holder_name')) {
+            $this->assertEquals($body->account_holder_name, $response->account_holder_name);
+        }
+        if (property_exists($body, 'account_number_ending')) {
+            $this->assertEquals($body->account_number_ending, $response->account_number_ending);
+        }
+        if (property_exists($body, 'account_type')) {
+            $this->assertEquals($body->account_type, $response->account_type);
+        }
+        if (property_exists($body, 'bank_name')) {
+            $this->assertEquals($body->bank_name, $response->bank_name);
+        }
+        if (property_exists($body, 'country_code')) {
+            $this->assertEquals($body->country_code, $response->country_code);
+        }
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+        if (property_exists($body, 'enabled')) {
+            $this->assertEquals($body->enabled, $response->enabled);
+        }
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+        if (property_exists($body, 'verification_status')) {
+            $this->assertEquals($body->verification_status, $response->verification_status);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -177,18 +237,54 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\CreditorBankAccount', $response);
 
-        $this->assertEquals($body->account_holder_name, $response->account_holder_name);
-        $this->assertEquals($body->account_number_ending, $response->account_number_ending);
-        $this->assertEquals($body->account_type, $response->account_type);
-        $this->assertEquals($body->bank_name, $response->bank_name);
-        $this->assertEquals($body->country_code, $response->country_code);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->enabled, $response->enabled);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->verification_status, $response->verification_status);
+
+        if (property_exists($body, 'account_holder_name')) {
+            $this->assertEquals($body->account_holder_name, $response->account_holder_name);
+        }
+
+        if (property_exists($body, 'account_number_ending')) {
+            $this->assertEquals($body->account_number_ending, $response->account_number_ending);
+        }
+
+        if (property_exists($body, 'account_type')) {
+            $this->assertEquals($body->account_type, $response->account_type);
+        }
+
+        if (property_exists($body, 'bank_name')) {
+            $this->assertEquals($body->bank_name, $response->bank_name);
+        }
+
+        if (property_exists($body, 'country_code')) {
+            $this->assertEquals($body->country_code, $response->country_code);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'enabled')) {
+            $this->assertEquals($body->enabled, $response->enabled);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'verification_status')) {
+            $this->assertEquals($body->verification_status, $response->verification_status);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -209,18 +305,54 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\CreditorBankAccount', $response);
 
-        $this->assertEquals($body->account_holder_name, $response->account_holder_name);
-        $this->assertEquals($body->account_number_ending, $response->account_number_ending);
-        $this->assertEquals($body->account_type, $response->account_type);
-        $this->assertEquals($body->bank_name, $response->bank_name);
-        $this->assertEquals($body->country_code, $response->country_code);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->enabled, $response->enabled);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->verification_status, $response->verification_status);
+
+        if (property_exists($body, 'account_holder_name')) {
+            $this->assertEquals($body->account_holder_name, $response->account_holder_name);
+        }
+
+        if (property_exists($body, 'account_number_ending')) {
+            $this->assertEquals($body->account_number_ending, $response->account_number_ending);
+        }
+
+        if (property_exists($body, 'account_type')) {
+            $this->assertEquals($body->account_type, $response->account_type);
+        }
+
+        if (property_exists($body, 'bank_name')) {
+            $this->assertEquals($body->bank_name, $response->bank_name);
+        }
+
+        if (property_exists($body, 'country_code')) {
+            $this->assertEquals($body->country_code, $response->country_code);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'enabled')) {
+            $this->assertEquals($body->enabled, $response->enabled);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'verification_status')) {
+            $this->assertEquals($body->verification_status, $response->verification_status);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

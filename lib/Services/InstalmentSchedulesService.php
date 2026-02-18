@@ -27,7 +27,7 @@ class InstalmentSchedulesService extends BaseService
 
 
     /**
-    * Create (with dates)
+    *  Create (with dates)
     *
     * Example URL: /instalment_schedules
     *
@@ -62,7 +62,7 @@ class InstalmentSchedulesService extends BaseService
     }
 
     /**
-    * Create (with schedule)
+    *  Create (with schedule)
     *
     * Example URL: /instalment_schedules
     *
@@ -97,7 +97,7 @@ class InstalmentSchedulesService extends BaseService
     }
 
     /**
-    * List instalment schedules
+    *  List instalment schedules
     *
     * Example URL: /instalment_schedules
     *
@@ -120,11 +120,11 @@ class InstalmentSchedulesService extends BaseService
     }
 
     /**
-    * Get a single instalment schedule
+    *  Get a single instalment schedule
     *
     * Example URL: /instalment_schedules/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "IS".
+    * @param  string        $identity  Unique identifier, beginning with "IS".
     * @param  array<string, mixed> $params An associative array for any params
     * @return InstalmentSchedule
     **/
@@ -150,11 +150,11 @@ class InstalmentSchedulesService extends BaseService
     }
 
     /**
-    * Update an instalment schedule
+    *  Update an instalment schedule
     *
     * Example URL: /instalment_schedules/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "IS".
+    * @param  string        $identity  Unique identifier, beginning with "IS".
     * @param  array<string, mixed> $params An associative array for any params
     * @return InstalmentSchedule
     **/
@@ -181,11 +181,11 @@ class InstalmentSchedulesService extends BaseService
     }
 
     /**
-    * Cancel an instalment schedule
+    *  Cancel an instalment schedule
     *
     * Example URL: /instalment_schedules/:identity/actions/cancel
     *
-    * @param  string        $identity Unique identifier, beginning with "IS".
+    * @param  string        $identity  Unique identifier, beginning with "IS".
     * @param  array<string, mixed> $params An associative array for any params
     * @return InstalmentSchedule
     **/
@@ -223,7 +223,7 @@ class InstalmentSchedulesService extends BaseService
     }
 
     /**
-    * List instalment schedules
+    *  List instalment schedules
     *
     * Example URL: /instalment_schedules
     *

@@ -27,7 +27,7 @@ class SchemeIdentifiersService extends BaseService
 
 
     /**
-    * Create a scheme identifier
+    *  Create a scheme identifier
     *
     * Example URL: /scheme_identifiers
     *
@@ -62,7 +62,7 @@ class SchemeIdentifiersService extends BaseService
     }
 
     /**
-    * List scheme identifiers
+    *  List scheme identifiers
     *
     * Example URL: /scheme_identifiers
     *
@@ -85,11 +85,11 @@ class SchemeIdentifiersService extends BaseService
     }
 
     /**
-    * Get a single scheme identifier
+    *  Get a single scheme identifier
     *
     * Example URL: /scheme_identifiers/:identity
     *
-    * @param  string        $identity Unique identifier, usually beginning with "SU".
+    * @param  string        $identity  Unique identifier, usually beginning with "SU".
     * @param  array<string, mixed> $params An associative array for any params
     * @return SchemeIdentifier
     **/
@@ -115,7 +115,7 @@ class SchemeIdentifiersService extends BaseService
     }
 
     /**
-    * List scheme identifiers
+    *  List scheme identifiers
     *
     * Example URL: /scheme_identifiers
     *

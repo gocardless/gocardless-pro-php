@@ -27,24 +27,78 @@ class SchemeIdentifiersIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\SchemeIdentifier', $response);
 
-        $this->assertEquals($body->address_line1, $response->address_line1);
-        $this->assertEquals($body->address_line2, $response->address_line2);
-        $this->assertEquals($body->address_line3, $response->address_line3);
-        $this->assertEquals($body->can_specify_mandate_reference, $response->can_specify_mandate_reference);
-        $this->assertEquals($body->city, $response->city);
-        $this->assertEquals($body->country_code, $response->country_code);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->email, $response->email);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->minimum_advance_notice, $response->minimum_advance_notice);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->phone_number, $response->phone_number);
-        $this->assertEquals($body->postal_code, $response->postal_code);
-        $this->assertEquals($body->reference, $response->reference);
-        $this->assertEquals($body->region, $response->region);
-        $this->assertEquals($body->scheme, $response->scheme);
-        $this->assertEquals($body->status, $response->status);
+
+        if (property_exists($body, 'address_line1')) {
+            $this->assertEquals($body->address_line1, $response->address_line1);
+        }
+
+        if (property_exists($body, 'address_line2')) {
+            $this->assertEquals($body->address_line2, $response->address_line2);
+        }
+
+        if (property_exists($body, 'address_line3')) {
+            $this->assertEquals($body->address_line3, $response->address_line3);
+        }
+
+        if (property_exists($body, 'can_specify_mandate_reference')) {
+            $this->assertEquals($body->can_specify_mandate_reference, $response->can_specify_mandate_reference);
+        }
+
+        if (property_exists($body, 'city')) {
+            $this->assertEquals($body->city, $response->city);
+        }
+
+        if (property_exists($body, 'country_code')) {
+            $this->assertEquals($body->country_code, $response->country_code);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'email')) {
+            $this->assertEquals($body->email, $response->email);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'minimum_advance_notice')) {
+            $this->assertEquals($body->minimum_advance_notice, $response->minimum_advance_notice);
+        }
+
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+
+        if (property_exists($body, 'phone_number')) {
+            $this->assertEquals($body->phone_number, $response->phone_number);
+        }
+
+        if (property_exists($body, 'postal_code')) {
+            $this->assertEquals($body->postal_code, $response->postal_code);
+        }
+
+        if (property_exists($body, 'reference')) {
+            $this->assertEquals($body->reference, $response->reference);
+        }
+
+        if (property_exists($body, 'region')) {
+            $this->assertEquals($body->region, $response->region);
+        }
+
+        if (property_exists($body, 'scheme')) {
+            $this->assertEquals($body->scheme, $response->scheme);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -72,24 +126,60 @@ class SchemeIdentifiersIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\SchemeIdentifier', $response);
 
-        $this->assertEquals($body->address_line1, $response->address_line1);
-        $this->assertEquals($body->address_line2, $response->address_line2);
-        $this->assertEquals($body->address_line3, $response->address_line3);
-        $this->assertEquals($body->can_specify_mandate_reference, $response->can_specify_mandate_reference);
-        $this->assertEquals($body->city, $response->city);
-        $this->assertEquals($body->country_code, $response->country_code);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->email, $response->email);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->minimum_advance_notice, $response->minimum_advance_notice);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->phone_number, $response->phone_number);
-        $this->assertEquals($body->postal_code, $response->postal_code);
-        $this->assertEquals($body->reference, $response->reference);
-        $this->assertEquals($body->region, $response->region);
-        $this->assertEquals($body->scheme, $response->scheme);
-        $this->assertEquals($body->status, $response->status);
+        if (property_exists($body, 'address_line1')) {
+            $this->assertEquals($body->address_line1, $response->address_line1);
+        }
+        if (property_exists($body, 'address_line2')) {
+            $this->assertEquals($body->address_line2, $response->address_line2);
+        }
+        if (property_exists($body, 'address_line3')) {
+            $this->assertEquals($body->address_line3, $response->address_line3);
+        }
+        if (property_exists($body, 'can_specify_mandate_reference')) {
+            $this->assertEquals($body->can_specify_mandate_reference, $response->can_specify_mandate_reference);
+        }
+        if (property_exists($body, 'city')) {
+            $this->assertEquals($body->city, $response->city);
+        }
+        if (property_exists($body, 'country_code')) {
+            $this->assertEquals($body->country_code, $response->country_code);
+        }
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+        if (property_exists($body, 'email')) {
+            $this->assertEquals($body->email, $response->email);
+        }
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+        if (property_exists($body, 'minimum_advance_notice')) {
+            $this->assertEquals($body->minimum_advance_notice, $response->minimum_advance_notice);
+        }
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+        if (property_exists($body, 'phone_number')) {
+            $this->assertEquals($body->phone_number, $response->phone_number);
+        }
+        if (property_exists($body, 'postal_code')) {
+            $this->assertEquals($body->postal_code, $response->postal_code);
+        }
+        if (property_exists($body, 'reference')) {
+            $this->assertEquals($body->reference, $response->reference);
+        }
+        if (property_exists($body, 'region')) {
+            $this->assertEquals($body->region, $response->region);
+        }
+        if (property_exists($body, 'scheme')) {
+            $this->assertEquals($body->scheme, $response->scheme);
+        }
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -213,24 +303,78 @@ class SchemeIdentifiersIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\SchemeIdentifier', $response);
 
-        $this->assertEquals($body->address_line1, $response->address_line1);
-        $this->assertEquals($body->address_line2, $response->address_line2);
-        $this->assertEquals($body->address_line3, $response->address_line3);
-        $this->assertEquals($body->can_specify_mandate_reference, $response->can_specify_mandate_reference);
-        $this->assertEquals($body->city, $response->city);
-        $this->assertEquals($body->country_code, $response->country_code);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->email, $response->email);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->minimum_advance_notice, $response->minimum_advance_notice);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->phone_number, $response->phone_number);
-        $this->assertEquals($body->postal_code, $response->postal_code);
-        $this->assertEquals($body->reference, $response->reference);
-        $this->assertEquals($body->region, $response->region);
-        $this->assertEquals($body->scheme, $response->scheme);
-        $this->assertEquals($body->status, $response->status);
+
+        if (property_exists($body, 'address_line1')) {
+            $this->assertEquals($body->address_line1, $response->address_line1);
+        }
+
+        if (property_exists($body, 'address_line2')) {
+            $this->assertEquals($body->address_line2, $response->address_line2);
+        }
+
+        if (property_exists($body, 'address_line3')) {
+            $this->assertEquals($body->address_line3, $response->address_line3);
+        }
+
+        if (property_exists($body, 'can_specify_mandate_reference')) {
+            $this->assertEquals($body->can_specify_mandate_reference, $response->can_specify_mandate_reference);
+        }
+
+        if (property_exists($body, 'city')) {
+            $this->assertEquals($body->city, $response->city);
+        }
+
+        if (property_exists($body, 'country_code')) {
+            $this->assertEquals($body->country_code, $response->country_code);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'email')) {
+            $this->assertEquals($body->email, $response->email);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'minimum_advance_notice')) {
+            $this->assertEquals($body->minimum_advance_notice, $response->minimum_advance_notice);
+        }
+
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+
+        if (property_exists($body, 'phone_number')) {
+            $this->assertEquals($body->phone_number, $response->phone_number);
+        }
+
+        if (property_exists($body, 'postal_code')) {
+            $this->assertEquals($body->postal_code, $response->postal_code);
+        }
+
+        if (property_exists($body, 'reference')) {
+            $this->assertEquals($body->reference, $response->reference);
+        }
+
+        if (property_exists($body, 'region')) {
+            $this->assertEquals($body->region, $response->region);
+        }
+
+        if (property_exists($body, 'scheme')) {
+            $this->assertEquals($body->scheme, $response->scheme);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

@@ -27,7 +27,7 @@ class PayoutItemsService extends BaseService
 
 
     /**
-    * Get all payout items in a single payout
+    *  Get all payout items in a single payout
     *
     * Example URL: /payout_items
     *
@@ -50,7 +50,7 @@ class PayoutItemsService extends BaseService
     }
 
     /**
-    * Get all payout items in a single payout
+    *  Get all payout items in a single payout
     *
     * Example URL: /payout_items
     *

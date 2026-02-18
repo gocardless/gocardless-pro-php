@@ -27,11 +27,26 @@ class ExportsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Export', $response);
 
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->download_url, $response->download_url);
-        $this->assertEquals($body->export_type, $response->export_type);
-        $this->assertEquals($body->id, $response->id);
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'download_url')) {
+            $this->assertEquals($body->download_url, $response->download_url);
+        }
+
+        if (property_exists($body, 'export_type')) {
+            $this->assertEquals($body->export_type, $response->export_type);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

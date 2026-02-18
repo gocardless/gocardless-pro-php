@@ -27,25 +27,82 @@ class BillingRequestFlowsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequestFlow', $response);
 
-        $this->assertEquals($body->authorisation_url, $response->authorisation_url);
-        $this->assertEquals($body->auto_fulfil, $response->auto_fulfil);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->customer_details_captured, $response->customer_details_captured);
-        $this->assertEquals($body->exit_uri, $response->exit_uri);
-        $this->assertEquals($body->expires_at, $response->expires_at);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->language, $response->language);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->lock_bank_account, $response->lock_bank_account);
-        $this->assertEquals($body->lock_currency, $response->lock_currency);
-        $this->assertEquals($body->lock_customer_details, $response->lock_customer_details);
-        $this->assertEquals($body->prefilled_bank_account, $response->prefilled_bank_account);
-        $this->assertEquals($body->prefilled_customer, $response->prefilled_customer);
-        $this->assertEquals($body->redirect_uri, $response->redirect_uri);
-        $this->assertEquals($body->session_token, $response->session_token);
-        $this->assertEquals($body->show_redirect_buttons, $response->show_redirect_buttons);
-        $this->assertEquals($body->show_success_redirect_button, $response->show_success_redirect_button);
-        $this->assertEquals($body->skip_success_screen, $response->skip_success_screen);
+
+        if (property_exists($body, 'authorisation_url')) {
+            $this->assertEquals($body->authorisation_url, $response->authorisation_url);
+        }
+
+        if (property_exists($body, 'auto_fulfil')) {
+            $this->assertEquals($body->auto_fulfil, $response->auto_fulfil);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'customer_details_captured')) {
+            $this->assertEquals($body->customer_details_captured, $response->customer_details_captured);
+        }
+
+        if (property_exists($body, 'exit_uri')) {
+            $this->assertEquals($body->exit_uri, $response->exit_uri);
+        }
+
+        if (property_exists($body, 'expires_at')) {
+            $this->assertEquals($body->expires_at, $response->expires_at);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'language')) {
+            $this->assertEquals($body->language, $response->language);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'lock_bank_account')) {
+            $this->assertEquals($body->lock_bank_account, $response->lock_bank_account);
+        }
+
+        if (property_exists($body, 'lock_currency')) {
+            $this->assertEquals($body->lock_currency, $response->lock_currency);
+        }
+
+        if (property_exists($body, 'lock_customer_details')) {
+            $this->assertEquals($body->lock_customer_details, $response->lock_customer_details);
+        }
+
+        if (property_exists($body, 'prefilled_bank_account')) {
+            $this->assertEquals($body->prefilled_bank_account, $response->prefilled_bank_account);
+        }
+
+        if (property_exists($body, 'prefilled_customer')) {
+            $this->assertEquals($body->prefilled_customer, $response->prefilled_customer);
+        }
+
+        if (property_exists($body, 'redirect_uri')) {
+            $this->assertEquals($body->redirect_uri, $response->redirect_uri);
+        }
+
+        if (property_exists($body, 'session_token')) {
+            $this->assertEquals($body->session_token, $response->session_token);
+        }
+
+        if (property_exists($body, 'show_redirect_buttons')) {
+            $this->assertEquals($body->show_redirect_buttons, $response->show_redirect_buttons);
+        }
+
+        if (property_exists($body, 'show_success_redirect_button')) {
+            $this->assertEquals($body->show_success_redirect_button, $response->show_success_redirect_button);
+        }
+
+        if (property_exists($body, 'skip_success_screen')) {
+            $this->assertEquals($body->skip_success_screen, $response->skip_success_screen);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -66,25 +123,82 @@ class BillingRequestFlowsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequestFlow', $response);
 
-        $this->assertEquals($body->authorisation_url, $response->authorisation_url);
-        $this->assertEquals($body->auto_fulfil, $response->auto_fulfil);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->customer_details_captured, $response->customer_details_captured);
-        $this->assertEquals($body->exit_uri, $response->exit_uri);
-        $this->assertEquals($body->expires_at, $response->expires_at);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->language, $response->language);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->lock_bank_account, $response->lock_bank_account);
-        $this->assertEquals($body->lock_currency, $response->lock_currency);
-        $this->assertEquals($body->lock_customer_details, $response->lock_customer_details);
-        $this->assertEquals($body->prefilled_bank_account, $response->prefilled_bank_account);
-        $this->assertEquals($body->prefilled_customer, $response->prefilled_customer);
-        $this->assertEquals($body->redirect_uri, $response->redirect_uri);
-        $this->assertEquals($body->session_token, $response->session_token);
-        $this->assertEquals($body->show_redirect_buttons, $response->show_redirect_buttons);
-        $this->assertEquals($body->show_success_redirect_button, $response->show_success_redirect_button);
-        $this->assertEquals($body->skip_success_screen, $response->skip_success_screen);
+
+        if (property_exists($body, 'authorisation_url')) {
+            $this->assertEquals($body->authorisation_url, $response->authorisation_url);
+        }
+
+        if (property_exists($body, 'auto_fulfil')) {
+            $this->assertEquals($body->auto_fulfil, $response->auto_fulfil);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'customer_details_captured')) {
+            $this->assertEquals($body->customer_details_captured, $response->customer_details_captured);
+        }
+
+        if (property_exists($body, 'exit_uri')) {
+            $this->assertEquals($body->exit_uri, $response->exit_uri);
+        }
+
+        if (property_exists($body, 'expires_at')) {
+            $this->assertEquals($body->expires_at, $response->expires_at);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'language')) {
+            $this->assertEquals($body->language, $response->language);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'lock_bank_account')) {
+            $this->assertEquals($body->lock_bank_account, $response->lock_bank_account);
+        }
+
+        if (property_exists($body, 'lock_currency')) {
+            $this->assertEquals($body->lock_currency, $response->lock_currency);
+        }
+
+        if (property_exists($body, 'lock_customer_details')) {
+            $this->assertEquals($body->lock_customer_details, $response->lock_customer_details);
+        }
+
+        if (property_exists($body, 'prefilled_bank_account')) {
+            $this->assertEquals($body->prefilled_bank_account, $response->prefilled_bank_account);
+        }
+
+        if (property_exists($body, 'prefilled_customer')) {
+            $this->assertEquals($body->prefilled_customer, $response->prefilled_customer);
+        }
+
+        if (property_exists($body, 'redirect_uri')) {
+            $this->assertEquals($body->redirect_uri, $response->redirect_uri);
+        }
+
+        if (property_exists($body, 'session_token')) {
+            $this->assertEquals($body->session_token, $response->session_token);
+        }
+
+        if (property_exists($body, 'show_redirect_buttons')) {
+            $this->assertEquals($body->show_redirect_buttons, $response->show_redirect_buttons);
+        }
+
+        if (property_exists($body, 'show_success_redirect_button')) {
+            $this->assertEquals($body->show_success_redirect_button, $response->show_success_redirect_button);
+        }
+
+        if (property_exists($body, 'skip_success_screen')) {
+            $this->assertEquals($body->skip_success_screen, $response->skip_success_screen);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

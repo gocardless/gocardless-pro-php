@@ -27,7 +27,7 @@ class CreditorBankAccountsService extends BaseService
 
 
     /**
-    * Create a creditor bank account
+    *  Create a creditor bank account
     *
     * Example URL: /creditor_bank_accounts
     *
@@ -62,7 +62,7 @@ class CreditorBankAccountsService extends BaseService
     }
 
     /**
-    * List creditor bank accounts
+    *  List creditor bank accounts
     *
     * Example URL: /creditor_bank_accounts
     *
@@ -85,11 +85,11 @@ class CreditorBankAccountsService extends BaseService
     }
 
     /**
-    * Get a single creditor bank account
+    *  Get a single creditor bank account
     *
     * Example URL: /creditor_bank_accounts/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "BA".
+    * @param  string        $identity  Unique identifier, beginning with "BA".
     * @param  array<string, mixed> $params An associative array for any params
     * @return CreditorBankAccount
     **/
@@ -115,11 +115,11 @@ class CreditorBankAccountsService extends BaseService
     }
 
     /**
-    * Disable a creditor bank account
+    *  Disable a creditor bank account
     *
     * Example URL: /creditor_bank_accounts/:identity/actions/disable
     *
-    * @param  string        $identity Unique identifier, beginning with "BA".
+    * @param  string        $identity  Unique identifier, beginning with "BA".
     * @param  array<string, mixed> $params An associative array for any params
     * @return CreditorBankAccount
     **/
@@ -157,7 +157,7 @@ class CreditorBankAccountsService extends BaseService
     }
 
     /**
-    * List creditor bank accounts
+    *  List creditor bank accounts
     *
     * Example URL: /creditor_bank_accounts
     *

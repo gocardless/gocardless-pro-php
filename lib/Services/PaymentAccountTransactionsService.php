@@ -27,13 +27,13 @@ class PaymentAccountTransactionsService extends BaseService
 
 
     /**
-    * List payment account transactions
+    *  List payment account transactions
     *
     * Example URL: /payment_accounts/:identity/transactions
     *
-    * @param  string        $identity The unique ID of the [bank
- account](#core-endpoints-creditor-bank-accounts) which
- happens to be the payment account.
+    * @param  string        $identity  The unique ID of the [bank
+  account](#core-endpoints-creditor-bank-accounts) which
+  happens to be the payment account.
     * @param  array<string, mixed> $params An associative array for any params
     * @return ListResponse
     **/
@@ -59,7 +59,7 @@ class PaymentAccountTransactionsService extends BaseService
     }
 
     /**
-    * List payment account transactions
+    *  List payment account transactions
     *
     * Example URL: /payment_accounts/:identity/transactions
     *

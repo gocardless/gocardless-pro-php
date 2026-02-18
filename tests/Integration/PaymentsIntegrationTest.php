@@ -27,21 +27,66 @@ class PaymentsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Payment', $response);
 
-        $this->assertEquals($body->amount, $response->amount);
-        $this->assertEquals($body->amount_refunded, $response->amount_refunded);
-        $this->assertEquals($body->charge_date, $response->charge_date);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->description, $response->description);
-        $this->assertEquals($body->faster_ach, $response->faster_ach);
-        $this->assertEquals($body->fx, $response->fx);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->reference, $response->reference);
-        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
-        $this->assertEquals($body->scheme, $response->scheme);
-        $this->assertEquals($body->status, $response->status);
+
+        if (property_exists($body, 'amount')) {
+            $this->assertEquals($body->amount, $response->amount);
+        }
+
+        if (property_exists($body, 'amount_refunded')) {
+            $this->assertEquals($body->amount_refunded, $response->amount_refunded);
+        }
+
+        if (property_exists($body, 'charge_date')) {
+            $this->assertEquals($body->charge_date, $response->charge_date);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'description')) {
+            $this->assertEquals($body->description, $response->description);
+        }
+
+        if (property_exists($body, 'faster_ach')) {
+            $this->assertEquals($body->faster_ach, $response->faster_ach);
+        }
+
+        if (property_exists($body, 'fx')) {
+            $this->assertEquals($body->fx, $response->fx);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'reference')) {
+            $this->assertEquals($body->reference, $response->reference);
+        }
+
+        if (property_exists($body, 'retry_if_possible')) {
+            $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
+        }
+
+        if (property_exists($body, 'scheme')) {
+            $this->assertEquals($body->scheme, $response->scheme);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -69,21 +114,51 @@ class PaymentsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Payment', $response);
 
-        $this->assertEquals($body->amount, $response->amount);
-        $this->assertEquals($body->amount_refunded, $response->amount_refunded);
-        $this->assertEquals($body->charge_date, $response->charge_date);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->description, $response->description);
-        $this->assertEquals($body->faster_ach, $response->faster_ach);
-        $this->assertEquals($body->fx, $response->fx);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->reference, $response->reference);
-        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
-        $this->assertEquals($body->scheme, $response->scheme);
-        $this->assertEquals($body->status, $response->status);
+        if (property_exists($body, 'amount')) {
+            $this->assertEquals($body->amount, $response->amount);
+        }
+        if (property_exists($body, 'amount_refunded')) {
+            $this->assertEquals($body->amount_refunded, $response->amount_refunded);
+        }
+        if (property_exists($body, 'charge_date')) {
+            $this->assertEquals($body->charge_date, $response->charge_date);
+        }
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+        if (property_exists($body, 'description')) {
+            $this->assertEquals($body->description, $response->description);
+        }
+        if (property_exists($body, 'faster_ach')) {
+            $this->assertEquals($body->faster_ach, $response->faster_ach);
+        }
+        if (property_exists($body, 'fx')) {
+            $this->assertEquals($body->fx, $response->fx);
+        }
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+        if (property_exists($body, 'reference')) {
+            $this->assertEquals($body->reference, $response->reference);
+        }
+        if (property_exists($body, 'retry_if_possible')) {
+            $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
+        }
+        if (property_exists($body, 'scheme')) {
+            $this->assertEquals($body->scheme, $response->scheme);
+        }
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -195,21 +270,66 @@ class PaymentsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Payment', $response);
 
-        $this->assertEquals($body->amount, $response->amount);
-        $this->assertEquals($body->amount_refunded, $response->amount_refunded);
-        $this->assertEquals($body->charge_date, $response->charge_date);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->description, $response->description);
-        $this->assertEquals($body->faster_ach, $response->faster_ach);
-        $this->assertEquals($body->fx, $response->fx);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->reference, $response->reference);
-        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
-        $this->assertEquals($body->scheme, $response->scheme);
-        $this->assertEquals($body->status, $response->status);
+
+        if (property_exists($body, 'amount')) {
+            $this->assertEquals($body->amount, $response->amount);
+        }
+
+        if (property_exists($body, 'amount_refunded')) {
+            $this->assertEquals($body->amount_refunded, $response->amount_refunded);
+        }
+
+        if (property_exists($body, 'charge_date')) {
+            $this->assertEquals($body->charge_date, $response->charge_date);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'description')) {
+            $this->assertEquals($body->description, $response->description);
+        }
+
+        if (property_exists($body, 'faster_ach')) {
+            $this->assertEquals($body->faster_ach, $response->faster_ach);
+        }
+
+        if (property_exists($body, 'fx')) {
+            $this->assertEquals($body->fx, $response->fx);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'reference')) {
+            $this->assertEquals($body->reference, $response->reference);
+        }
+
+        if (property_exists($body, 'retry_if_possible')) {
+            $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
+        }
+
+        if (property_exists($body, 'scheme')) {
+            $this->assertEquals($body->scheme, $response->scheme);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -230,21 +350,66 @@ class PaymentsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Payment', $response);
 
-        $this->assertEquals($body->amount, $response->amount);
-        $this->assertEquals($body->amount_refunded, $response->amount_refunded);
-        $this->assertEquals($body->charge_date, $response->charge_date);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->description, $response->description);
-        $this->assertEquals($body->faster_ach, $response->faster_ach);
-        $this->assertEquals($body->fx, $response->fx);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->reference, $response->reference);
-        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
-        $this->assertEquals($body->scheme, $response->scheme);
-        $this->assertEquals($body->status, $response->status);
+
+        if (property_exists($body, 'amount')) {
+            $this->assertEquals($body->amount, $response->amount);
+        }
+
+        if (property_exists($body, 'amount_refunded')) {
+            $this->assertEquals($body->amount_refunded, $response->amount_refunded);
+        }
+
+        if (property_exists($body, 'charge_date')) {
+            $this->assertEquals($body->charge_date, $response->charge_date);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'description')) {
+            $this->assertEquals($body->description, $response->description);
+        }
+
+        if (property_exists($body, 'faster_ach')) {
+            $this->assertEquals($body->faster_ach, $response->faster_ach);
+        }
+
+        if (property_exists($body, 'fx')) {
+            $this->assertEquals($body->fx, $response->fx);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'reference')) {
+            $this->assertEquals($body->reference, $response->reference);
+        }
+
+        if (property_exists($body, 'retry_if_possible')) {
+            $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
+        }
+
+        if (property_exists($body, 'scheme')) {
+            $this->assertEquals($body->scheme, $response->scheme);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -265,21 +430,66 @@ class PaymentsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Payment', $response);
 
-        $this->assertEquals($body->amount, $response->amount);
-        $this->assertEquals($body->amount_refunded, $response->amount_refunded);
-        $this->assertEquals($body->charge_date, $response->charge_date);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->description, $response->description);
-        $this->assertEquals($body->faster_ach, $response->faster_ach);
-        $this->assertEquals($body->fx, $response->fx);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->reference, $response->reference);
-        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
-        $this->assertEquals($body->scheme, $response->scheme);
-        $this->assertEquals($body->status, $response->status);
+
+        if (property_exists($body, 'amount')) {
+            $this->assertEquals($body->amount, $response->amount);
+        }
+
+        if (property_exists($body, 'amount_refunded')) {
+            $this->assertEquals($body->amount_refunded, $response->amount_refunded);
+        }
+
+        if (property_exists($body, 'charge_date')) {
+            $this->assertEquals($body->charge_date, $response->charge_date);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'description')) {
+            $this->assertEquals($body->description, $response->description);
+        }
+
+        if (property_exists($body, 'faster_ach')) {
+            $this->assertEquals($body->faster_ach, $response->faster_ach);
+        }
+
+        if (property_exists($body, 'fx')) {
+            $this->assertEquals($body->fx, $response->fx);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'reference')) {
+            $this->assertEquals($body->reference, $response->reference);
+        }
+
+        if (property_exists($body, 'retry_if_possible')) {
+            $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
+        }
+
+        if (property_exists($body, 'scheme')) {
+            $this->assertEquals($body->scheme, $response->scheme);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -300,21 +510,66 @@ class PaymentsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Payment', $response);
 
-        $this->assertEquals($body->amount, $response->amount);
-        $this->assertEquals($body->amount_refunded, $response->amount_refunded);
-        $this->assertEquals($body->charge_date, $response->charge_date);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->description, $response->description);
-        $this->assertEquals($body->faster_ach, $response->faster_ach);
-        $this->assertEquals($body->fx, $response->fx);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->reference, $response->reference);
-        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
-        $this->assertEquals($body->scheme, $response->scheme);
-        $this->assertEquals($body->status, $response->status);
+
+        if (property_exists($body, 'amount')) {
+            $this->assertEquals($body->amount, $response->amount);
+        }
+
+        if (property_exists($body, 'amount_refunded')) {
+            $this->assertEquals($body->amount_refunded, $response->amount_refunded);
+        }
+
+        if (property_exists($body, 'charge_date')) {
+            $this->assertEquals($body->charge_date, $response->charge_date);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'description')) {
+            $this->assertEquals($body->description, $response->description);
+        }
+
+        if (property_exists($body, 'faster_ach')) {
+            $this->assertEquals($body->faster_ach, $response->faster_ach);
+        }
+
+        if (property_exists($body, 'fx')) {
+            $this->assertEquals($body->fx, $response->fx);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'reference')) {
+            $this->assertEquals($body->reference, $response->reference);
+        }
+
+        if (property_exists($body, 'retry_if_possible')) {
+            $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
+        }
+
+        if (property_exists($body, 'scheme')) {
+            $this->assertEquals($body->scheme, $response->scheme);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

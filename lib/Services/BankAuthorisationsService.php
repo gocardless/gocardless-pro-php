@@ -25,7 +25,7 @@ class BankAuthorisationsService extends BaseService
 
 
     /**
-    * Create a Bank Authorisation
+    *  Create a Bank Authorisation
     *
     * Example URL: /bank_authorisations
     *
@@ -60,11 +60,11 @@ class BankAuthorisationsService extends BaseService
     }
 
     /**
-    * Get a Bank Authorisation
+    *  Get a Bank Authorisation
     *
     * Example URL: /bank_authorisations/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "BAU".
+    * @param  string        $identity  Unique identifier, beginning with "BAU".
     * @param  array<string, mixed> $params An associative array for any params
     * @return BankAuthorisation
     **/

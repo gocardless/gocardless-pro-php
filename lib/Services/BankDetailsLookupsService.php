@@ -25,7 +25,7 @@ class BankDetailsLookupsService extends BaseService
 
 
     /**
-    * Perform a bank details lookup
+    *  Perform a bank details lookup
     *
     * Example URL: /bank_details_lookups
     *

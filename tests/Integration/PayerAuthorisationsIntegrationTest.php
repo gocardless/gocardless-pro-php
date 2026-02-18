@@ -27,14 +27,38 @@ class PayerAuthorisationsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\PayerAuthorisation', $response);
 
-        $this->assertEquals($body->bank_account, $response->bank_account);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->customer, $response->customer);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->incomplete_fields, $response->incomplete_fields);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate, $response->mandate);
-        $this->assertEquals($body->status, $response->status);
+
+        if (property_exists($body, 'bank_account')) {
+            $this->assertEquals($body->bank_account, $response->bank_account);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'customer')) {
+            $this->assertEquals($body->customer, $response->customer);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'incomplete_fields')) {
+            $this->assertEquals($body->incomplete_fields, $response->incomplete_fields);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'mandate')) {
+            $this->assertEquals($body->mandate, $response->mandate);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -55,14 +79,38 @@ class PayerAuthorisationsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\PayerAuthorisation', $response);
 
-        $this->assertEquals($body->bank_account, $response->bank_account);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->customer, $response->customer);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->incomplete_fields, $response->incomplete_fields);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate, $response->mandate);
-        $this->assertEquals($body->status, $response->status);
+
+        if (property_exists($body, 'bank_account')) {
+            $this->assertEquals($body->bank_account, $response->bank_account);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'customer')) {
+            $this->assertEquals($body->customer, $response->customer);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'incomplete_fields')) {
+            $this->assertEquals($body->incomplete_fields, $response->incomplete_fields);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'mandate')) {
+            $this->assertEquals($body->mandate, $response->mandate);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -90,14 +138,30 @@ class PayerAuthorisationsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\PayerAuthorisation', $response);
 
-        $this->assertEquals($body->bank_account, $response->bank_account);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->customer, $response->customer);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->incomplete_fields, $response->incomplete_fields);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate, $response->mandate);
-        $this->assertEquals($body->status, $response->status);
+        if (property_exists($body, 'bank_account')) {
+            $this->assertEquals($body->bank_account, $response->bank_account);
+        }
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+        if (property_exists($body, 'customer')) {
+            $this->assertEquals($body->customer, $response->customer);
+        }
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+        if (property_exists($body, 'incomplete_fields')) {
+            $this->assertEquals($body->incomplete_fields, $response->incomplete_fields);
+        }
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+        if (property_exists($body, 'mandate')) {
+            $this->assertEquals($body->mandate, $response->mandate);
+        }
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -119,14 +183,38 @@ class PayerAuthorisationsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\PayerAuthorisation', $response);
 
-        $this->assertEquals($body->bank_account, $response->bank_account);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->customer, $response->customer);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->incomplete_fields, $response->incomplete_fields);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate, $response->mandate);
-        $this->assertEquals($body->status, $response->status);
+
+        if (property_exists($body, 'bank_account')) {
+            $this->assertEquals($body->bank_account, $response->bank_account);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'customer')) {
+            $this->assertEquals($body->customer, $response->customer);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'incomplete_fields')) {
+            $this->assertEquals($body->incomplete_fields, $response->incomplete_fields);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'mandate')) {
+            $this->assertEquals($body->mandate, $response->mandate);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -147,14 +235,38 @@ class PayerAuthorisationsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\PayerAuthorisation', $response);
 
-        $this->assertEquals($body->bank_account, $response->bank_account);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->customer, $response->customer);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->incomplete_fields, $response->incomplete_fields);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate, $response->mandate);
-        $this->assertEquals($body->status, $response->status);
+
+        if (property_exists($body, 'bank_account')) {
+            $this->assertEquals($body->bank_account, $response->bank_account);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'customer')) {
+            $this->assertEquals($body->customer, $response->customer);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'incomplete_fields')) {
+            $this->assertEquals($body->incomplete_fields, $response->incomplete_fields);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'mandate')) {
+            $this->assertEquals($body->mandate, $response->mandate);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -175,14 +287,38 @@ class PayerAuthorisationsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\PayerAuthorisation', $response);
 
-        $this->assertEquals($body->bank_account, $response->bank_account);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->customer, $response->customer);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->incomplete_fields, $response->incomplete_fields);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate, $response->mandate);
-        $this->assertEquals($body->status, $response->status);
+
+        if (property_exists($body, 'bank_account')) {
+            $this->assertEquals($body->bank_account, $response->bank_account);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'customer')) {
+            $this->assertEquals($body->customer, $response->customer);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'incomplete_fields')) {
+            $this->assertEquals($body->incomplete_fields, $response->incomplete_fields);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'mandate')) {
+            $this->assertEquals($body->mandate, $response->mandate);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

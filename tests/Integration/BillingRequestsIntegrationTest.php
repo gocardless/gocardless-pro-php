@@ -27,20 +27,70 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
-        $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
-        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate_request, $response->mandate_request);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->purpose_code, $response->purpose_code);
-        $this->assertEquals($body->resources, $response->resources);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->subscription_request, $response->subscription_request);
+
+        if (property_exists($body, 'actions')) {
+            $this->assertEquals($body->actions, $response->actions);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'fallback_enabled')) {
+            $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        }
+
+        if (property_exists($body, 'fallback_occurred')) {
+            $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'instalment_schedule_request')) {
+            $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'mandate_request')) {
+            $this->assertEquals($body->mandate_request, $response->mandate_request);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'payment_context_code')) {
+            $this->assertEquals($body->payment_context_code, $response->payment_context_code);
+        }
+
+        if (property_exists($body, 'payment_purpose_code')) {
+            $this->assertEquals($body->payment_purpose_code, $response->payment_purpose_code);
+        }
+
+        if (property_exists($body, 'payment_request')) {
+            $this->assertEquals($body->payment_request, $response->payment_request);
+        }
+
+        if (property_exists($body, 'purpose_code')) {
+            $this->assertEquals($body->purpose_code, $response->purpose_code);
+        }
+
+        if (property_exists($body, 'resources')) {
+            $this->assertEquals($body->resources, $response->resources);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'subscription_request')) {
+            $this->assertEquals($body->subscription_request, $response->subscription_request);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -68,20 +118,54 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
-        $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
-        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate_request, $response->mandate_request);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->purpose_code, $response->purpose_code);
-        $this->assertEquals($body->resources, $response->resources);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->subscription_request, $response->subscription_request);
+        if (property_exists($body, 'actions')) {
+            $this->assertEquals($body->actions, $response->actions);
+        }
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+        if (property_exists($body, 'fallback_enabled')) {
+            $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        }
+        if (property_exists($body, 'fallback_occurred')) {
+            $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
+        }
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+        if (property_exists($body, 'instalment_schedule_request')) {
+            $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
+        }
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+        if (property_exists($body, 'mandate_request')) {
+            $this->assertEquals($body->mandate_request, $response->mandate_request);
+        }
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+        if (property_exists($body, 'payment_context_code')) {
+            $this->assertEquals($body->payment_context_code, $response->payment_context_code);
+        }
+        if (property_exists($body, 'payment_purpose_code')) {
+            $this->assertEquals($body->payment_purpose_code, $response->payment_purpose_code);
+        }
+        if (property_exists($body, 'payment_request')) {
+            $this->assertEquals($body->payment_request, $response->payment_request);
+        }
+        if (property_exists($body, 'purpose_code')) {
+            $this->assertEquals($body->purpose_code, $response->purpose_code);
+        }
+        if (property_exists($body, 'resources')) {
+            $this->assertEquals($body->resources, $response->resources);
+        }
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+        if (property_exists($body, 'subscription_request')) {
+            $this->assertEquals($body->subscription_request, $response->subscription_request);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -103,20 +187,70 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
-        $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
-        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate_request, $response->mandate_request);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->purpose_code, $response->purpose_code);
-        $this->assertEquals($body->resources, $response->resources);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->subscription_request, $response->subscription_request);
+
+        if (property_exists($body, 'actions')) {
+            $this->assertEquals($body->actions, $response->actions);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'fallback_enabled')) {
+            $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        }
+
+        if (property_exists($body, 'fallback_occurred')) {
+            $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'instalment_schedule_request')) {
+            $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'mandate_request')) {
+            $this->assertEquals($body->mandate_request, $response->mandate_request);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'payment_context_code')) {
+            $this->assertEquals($body->payment_context_code, $response->payment_context_code);
+        }
+
+        if (property_exists($body, 'payment_purpose_code')) {
+            $this->assertEquals($body->payment_purpose_code, $response->payment_purpose_code);
+        }
+
+        if (property_exists($body, 'payment_request')) {
+            $this->assertEquals($body->payment_request, $response->payment_request);
+        }
+
+        if (property_exists($body, 'purpose_code')) {
+            $this->assertEquals($body->purpose_code, $response->purpose_code);
+        }
+
+        if (property_exists($body, 'resources')) {
+            $this->assertEquals($body->resources, $response->resources);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'subscription_request')) {
+            $this->assertEquals($body->subscription_request, $response->subscription_request);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -137,20 +271,70 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
-        $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
-        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate_request, $response->mandate_request);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->purpose_code, $response->purpose_code);
-        $this->assertEquals($body->resources, $response->resources);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->subscription_request, $response->subscription_request);
+
+        if (property_exists($body, 'actions')) {
+            $this->assertEquals($body->actions, $response->actions);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'fallback_enabled')) {
+            $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        }
+
+        if (property_exists($body, 'fallback_occurred')) {
+            $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'instalment_schedule_request')) {
+            $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'mandate_request')) {
+            $this->assertEquals($body->mandate_request, $response->mandate_request);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'payment_context_code')) {
+            $this->assertEquals($body->payment_context_code, $response->payment_context_code);
+        }
+
+        if (property_exists($body, 'payment_purpose_code')) {
+            $this->assertEquals($body->payment_purpose_code, $response->payment_purpose_code);
+        }
+
+        if (property_exists($body, 'payment_request')) {
+            $this->assertEquals($body->payment_request, $response->payment_request);
+        }
+
+        if (property_exists($body, 'purpose_code')) {
+            $this->assertEquals($body->purpose_code, $response->purpose_code);
+        }
+
+        if (property_exists($body, 'resources')) {
+            $this->assertEquals($body->resources, $response->resources);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'subscription_request')) {
+            $this->assertEquals($body->subscription_request, $response->subscription_request);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -171,20 +355,70 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
-        $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
-        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate_request, $response->mandate_request);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->purpose_code, $response->purpose_code);
-        $this->assertEquals($body->resources, $response->resources);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->subscription_request, $response->subscription_request);
+
+        if (property_exists($body, 'actions')) {
+            $this->assertEquals($body->actions, $response->actions);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'fallback_enabled')) {
+            $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        }
+
+        if (property_exists($body, 'fallback_occurred')) {
+            $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'instalment_schedule_request')) {
+            $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'mandate_request')) {
+            $this->assertEquals($body->mandate_request, $response->mandate_request);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'payment_context_code')) {
+            $this->assertEquals($body->payment_context_code, $response->payment_context_code);
+        }
+
+        if (property_exists($body, 'payment_purpose_code')) {
+            $this->assertEquals($body->payment_purpose_code, $response->payment_purpose_code);
+        }
+
+        if (property_exists($body, 'payment_request')) {
+            $this->assertEquals($body->payment_request, $response->payment_request);
+        }
+
+        if (property_exists($body, 'purpose_code')) {
+            $this->assertEquals($body->purpose_code, $response->purpose_code);
+        }
+
+        if (property_exists($body, 'resources')) {
+            $this->assertEquals($body->resources, $response->resources);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'subscription_request')) {
+            $this->assertEquals($body->subscription_request, $response->subscription_request);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -205,20 +439,70 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
-        $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
-        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate_request, $response->mandate_request);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->purpose_code, $response->purpose_code);
-        $this->assertEquals($body->resources, $response->resources);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->subscription_request, $response->subscription_request);
+
+        if (property_exists($body, 'actions')) {
+            $this->assertEquals($body->actions, $response->actions);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'fallback_enabled')) {
+            $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        }
+
+        if (property_exists($body, 'fallback_occurred')) {
+            $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'instalment_schedule_request')) {
+            $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'mandate_request')) {
+            $this->assertEquals($body->mandate_request, $response->mandate_request);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'payment_context_code')) {
+            $this->assertEquals($body->payment_context_code, $response->payment_context_code);
+        }
+
+        if (property_exists($body, 'payment_purpose_code')) {
+            $this->assertEquals($body->payment_purpose_code, $response->payment_purpose_code);
+        }
+
+        if (property_exists($body, 'payment_request')) {
+            $this->assertEquals($body->payment_request, $response->payment_request);
+        }
+
+        if (property_exists($body, 'purpose_code')) {
+            $this->assertEquals($body->purpose_code, $response->purpose_code);
+        }
+
+        if (property_exists($body, 'resources')) {
+            $this->assertEquals($body->resources, $response->resources);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'subscription_request')) {
+            $this->assertEquals($body->subscription_request, $response->subscription_request);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -239,20 +523,70 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
-        $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
-        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate_request, $response->mandate_request);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->purpose_code, $response->purpose_code);
-        $this->assertEquals($body->resources, $response->resources);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->subscription_request, $response->subscription_request);
+
+        if (property_exists($body, 'actions')) {
+            $this->assertEquals($body->actions, $response->actions);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'fallback_enabled')) {
+            $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        }
+
+        if (property_exists($body, 'fallback_occurred')) {
+            $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'instalment_schedule_request')) {
+            $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'mandate_request')) {
+            $this->assertEquals($body->mandate_request, $response->mandate_request);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'payment_context_code')) {
+            $this->assertEquals($body->payment_context_code, $response->payment_context_code);
+        }
+
+        if (property_exists($body, 'payment_purpose_code')) {
+            $this->assertEquals($body->payment_purpose_code, $response->payment_purpose_code);
+        }
+
+        if (property_exists($body, 'payment_request')) {
+            $this->assertEquals($body->payment_request, $response->payment_request);
+        }
+
+        if (property_exists($body, 'purpose_code')) {
+            $this->assertEquals($body->purpose_code, $response->purpose_code);
+        }
+
+        if (property_exists($body, 'resources')) {
+            $this->assertEquals($body->resources, $response->resources);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'subscription_request')) {
+            $this->assertEquals($body->subscription_request, $response->subscription_request);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -320,6 +654,14 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->metadata, $record->metadata);
             }
 
+            if (isset($body[$num]->payment_context_code)) {
+                $this->assertEquals($body[$num]->payment_context_code, $record->payment_context_code);
+            }
+
+            if (isset($body[$num]->payment_purpose_code)) {
+                $this->assertEquals($body[$num]->payment_purpose_code, $record->payment_purpose_code);
+            }
+
             if (isset($body[$num]->payment_request)) {
                 $this->assertEquals($body[$num]->payment_request, $record->payment_request);
             }
@@ -359,20 +701,70 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
-        $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
-        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate_request, $response->mandate_request);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->purpose_code, $response->purpose_code);
-        $this->assertEquals($body->resources, $response->resources);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->subscription_request, $response->subscription_request);
+
+        if (property_exists($body, 'actions')) {
+            $this->assertEquals($body->actions, $response->actions);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'fallback_enabled')) {
+            $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        }
+
+        if (property_exists($body, 'fallback_occurred')) {
+            $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'instalment_schedule_request')) {
+            $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'mandate_request')) {
+            $this->assertEquals($body->mandate_request, $response->mandate_request);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'payment_context_code')) {
+            $this->assertEquals($body->payment_context_code, $response->payment_context_code);
+        }
+
+        if (property_exists($body, 'payment_purpose_code')) {
+            $this->assertEquals($body->payment_purpose_code, $response->payment_purpose_code);
+        }
+
+        if (property_exists($body, 'payment_request')) {
+            $this->assertEquals($body->payment_request, $response->payment_request);
+        }
+
+        if (property_exists($body, 'purpose_code')) {
+            $this->assertEquals($body->purpose_code, $response->purpose_code);
+        }
+
+        if (property_exists($body, 'resources')) {
+            $this->assertEquals($body->resources, $response->resources);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'subscription_request')) {
+            $this->assertEquals($body->subscription_request, $response->subscription_request);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -393,20 +785,70 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
-        $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
-        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate_request, $response->mandate_request);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->purpose_code, $response->purpose_code);
-        $this->assertEquals($body->resources, $response->resources);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->subscription_request, $response->subscription_request);
+
+        if (property_exists($body, 'actions')) {
+            $this->assertEquals($body->actions, $response->actions);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'fallback_enabled')) {
+            $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        }
+
+        if (property_exists($body, 'fallback_occurred')) {
+            $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'instalment_schedule_request')) {
+            $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'mandate_request')) {
+            $this->assertEquals($body->mandate_request, $response->mandate_request);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'payment_context_code')) {
+            $this->assertEquals($body->payment_context_code, $response->payment_context_code);
+        }
+
+        if (property_exists($body, 'payment_purpose_code')) {
+            $this->assertEquals($body->payment_purpose_code, $response->payment_purpose_code);
+        }
+
+        if (property_exists($body, 'payment_request')) {
+            $this->assertEquals($body->payment_request, $response->payment_request);
+        }
+
+        if (property_exists($body, 'purpose_code')) {
+            $this->assertEquals($body->purpose_code, $response->purpose_code);
+        }
+
+        if (property_exists($body, 'resources')) {
+            $this->assertEquals($body->resources, $response->resources);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'subscription_request')) {
+            $this->assertEquals($body->subscription_request, $response->subscription_request);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -427,20 +869,70 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
-        $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
-        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate_request, $response->mandate_request);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->purpose_code, $response->purpose_code);
-        $this->assertEquals($body->resources, $response->resources);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->subscription_request, $response->subscription_request);
+
+        if (property_exists($body, 'actions')) {
+            $this->assertEquals($body->actions, $response->actions);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'fallback_enabled')) {
+            $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        }
+
+        if (property_exists($body, 'fallback_occurred')) {
+            $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'instalment_schedule_request')) {
+            $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'mandate_request')) {
+            $this->assertEquals($body->mandate_request, $response->mandate_request);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'payment_context_code')) {
+            $this->assertEquals($body->payment_context_code, $response->payment_context_code);
+        }
+
+        if (property_exists($body, 'payment_purpose_code')) {
+            $this->assertEquals($body->payment_purpose_code, $response->payment_purpose_code);
+        }
+
+        if (property_exists($body, 'payment_request')) {
+            $this->assertEquals($body->payment_request, $response->payment_request);
+        }
+
+        if (property_exists($body, 'purpose_code')) {
+            $this->assertEquals($body->purpose_code, $response->purpose_code);
+        }
+
+        if (property_exists($body, 'resources')) {
+            $this->assertEquals($body->resources, $response->resources);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'subscription_request')) {
+            $this->assertEquals($body->subscription_request, $response->subscription_request);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -461,20 +953,70 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
-        $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
-        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate_request, $response->mandate_request);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->purpose_code, $response->purpose_code);
-        $this->assertEquals($body->resources, $response->resources);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->subscription_request, $response->subscription_request);
+
+        if (property_exists($body, 'actions')) {
+            $this->assertEquals($body->actions, $response->actions);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'fallback_enabled')) {
+            $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        }
+
+        if (property_exists($body, 'fallback_occurred')) {
+            $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'instalment_schedule_request')) {
+            $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'mandate_request')) {
+            $this->assertEquals($body->mandate_request, $response->mandate_request);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'payment_context_code')) {
+            $this->assertEquals($body->payment_context_code, $response->payment_context_code);
+        }
+
+        if (property_exists($body, 'payment_purpose_code')) {
+            $this->assertEquals($body->payment_purpose_code, $response->payment_purpose_code);
+        }
+
+        if (property_exists($body, 'payment_request')) {
+            $this->assertEquals($body->payment_request, $response->payment_request);
+        }
+
+        if (property_exists($body, 'purpose_code')) {
+            $this->assertEquals($body->purpose_code, $response->purpose_code);
+        }
+
+        if (property_exists($body, 'resources')) {
+            $this->assertEquals($body->resources, $response->resources);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'subscription_request')) {
+            $this->assertEquals($body->subscription_request, $response->subscription_request);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -495,20 +1037,70 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
-        $this->assertEquals($body->actions, $response->actions);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
-        $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate_request, $response->mandate_request);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->payment_request, $response->payment_request);
-        $this->assertEquals($body->purpose_code, $response->purpose_code);
-        $this->assertEquals($body->resources, $response->resources);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->subscription_request, $response->subscription_request);
+
+        if (property_exists($body, 'actions')) {
+            $this->assertEquals($body->actions, $response->actions);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'fallback_enabled')) {
+            $this->assertEquals($body->fallback_enabled, $response->fallback_enabled);
+        }
+
+        if (property_exists($body, 'fallback_occurred')) {
+            $this->assertEquals($body->fallback_occurred, $response->fallback_occurred);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'instalment_schedule_request')) {
+            $this->assertEquals($body->instalment_schedule_request, $response->instalment_schedule_request);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'mandate_request')) {
+            $this->assertEquals($body->mandate_request, $response->mandate_request);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'payment_context_code')) {
+            $this->assertEquals($body->payment_context_code, $response->payment_context_code);
+        }
+
+        if (property_exists($body, 'payment_purpose_code')) {
+            $this->assertEquals($body->payment_purpose_code, $response->payment_purpose_code);
+        }
+
+        if (property_exists($body, 'payment_request')) {
+            $this->assertEquals($body->payment_request, $response->payment_request);
+        }
+
+        if (property_exists($body, 'purpose_code')) {
+            $this->assertEquals($body->purpose_code, $response->purpose_code);
+        }
+
+        if (property_exists($body, 'resources')) {
+            $this->assertEquals($body->resources, $response->resources);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'subscription_request')) {
+            $this->assertEquals($body->subscription_request, $response->subscription_request);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

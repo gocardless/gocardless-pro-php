@@ -27,17 +27,50 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\RedirectFlow', $response);
 
-        $this->assertEquals($body->confirmation_url, $response->confirmation_url);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->description, $response->description);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate_reference, $response->mandate_reference);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->redirect_url, $response->redirect_url);
-        $this->assertEquals($body->scheme, $response->scheme);
-        $this->assertEquals($body->session_token, $response->session_token);
-        $this->assertEquals($body->success_redirect_url, $response->success_redirect_url);
+
+        if (property_exists($body, 'confirmation_url')) {
+            $this->assertEquals($body->confirmation_url, $response->confirmation_url);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'description')) {
+            $this->assertEquals($body->description, $response->description);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'mandate_reference')) {
+            $this->assertEquals($body->mandate_reference, $response->mandate_reference);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'redirect_url')) {
+            $this->assertEquals($body->redirect_url, $response->redirect_url);
+        }
+
+        if (property_exists($body, 'scheme')) {
+            $this->assertEquals($body->scheme, $response->scheme);
+        }
+
+        if (property_exists($body, 'session_token')) {
+            $this->assertEquals($body->session_token, $response->session_token);
+        }
+
+        if (property_exists($body, 'success_redirect_url')) {
+            $this->assertEquals($body->success_redirect_url, $response->success_redirect_url);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -65,17 +98,39 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\RedirectFlow', $response);
 
-        $this->assertEquals($body->confirmation_url, $response->confirmation_url);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->description, $response->description);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate_reference, $response->mandate_reference);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->redirect_url, $response->redirect_url);
-        $this->assertEquals($body->scheme, $response->scheme);
-        $this->assertEquals($body->session_token, $response->session_token);
-        $this->assertEquals($body->success_redirect_url, $response->success_redirect_url);
+        if (property_exists($body, 'confirmation_url')) {
+            $this->assertEquals($body->confirmation_url, $response->confirmation_url);
+        }
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+        if (property_exists($body, 'description')) {
+            $this->assertEquals($body->description, $response->description);
+        }
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+        if (property_exists($body, 'mandate_reference')) {
+            $this->assertEquals($body->mandate_reference, $response->mandate_reference);
+        }
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+        if (property_exists($body, 'redirect_url')) {
+            $this->assertEquals($body->redirect_url, $response->redirect_url);
+        }
+        if (property_exists($body, 'scheme')) {
+            $this->assertEquals($body->scheme, $response->scheme);
+        }
+        if (property_exists($body, 'session_token')) {
+            $this->assertEquals($body->session_token, $response->session_token);
+        }
+        if (property_exists($body, 'success_redirect_url')) {
+            $this->assertEquals($body->success_redirect_url, $response->success_redirect_url);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -97,17 +152,50 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\RedirectFlow', $response);
 
-        $this->assertEquals($body->confirmation_url, $response->confirmation_url);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->description, $response->description);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate_reference, $response->mandate_reference);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->redirect_url, $response->redirect_url);
-        $this->assertEquals($body->scheme, $response->scheme);
-        $this->assertEquals($body->session_token, $response->session_token);
-        $this->assertEquals($body->success_redirect_url, $response->success_redirect_url);
+
+        if (property_exists($body, 'confirmation_url')) {
+            $this->assertEquals($body->confirmation_url, $response->confirmation_url);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'description')) {
+            $this->assertEquals($body->description, $response->description);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'mandate_reference')) {
+            $this->assertEquals($body->mandate_reference, $response->mandate_reference);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'redirect_url')) {
+            $this->assertEquals($body->redirect_url, $response->redirect_url);
+        }
+
+        if (property_exists($body, 'scheme')) {
+            $this->assertEquals($body->scheme, $response->scheme);
+        }
+
+        if (property_exists($body, 'session_token')) {
+            $this->assertEquals($body->session_token, $response->session_token);
+        }
+
+        if (property_exists($body, 'success_redirect_url')) {
+            $this->assertEquals($body->success_redirect_url, $response->success_redirect_url);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -128,17 +216,50 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\RedirectFlow', $response);
 
-        $this->assertEquals($body->confirmation_url, $response->confirmation_url);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->description, $response->description);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->mandate_reference, $response->mandate_reference);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->redirect_url, $response->redirect_url);
-        $this->assertEquals($body->scheme, $response->scheme);
-        $this->assertEquals($body->session_token, $response->session_token);
-        $this->assertEquals($body->success_redirect_url, $response->success_redirect_url);
+
+        if (property_exists($body, 'confirmation_url')) {
+            $this->assertEquals($body->confirmation_url, $response->confirmation_url);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'description')) {
+            $this->assertEquals($body->description, $response->description);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'mandate_reference')) {
+            $this->assertEquals($body->mandate_reference, $response->mandate_reference);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'redirect_url')) {
+            $this->assertEquals($body->redirect_url, $response->redirect_url);
+        }
+
+        if (property_exists($body, 'scheme')) {
+            $this->assertEquals($body->scheme, $response->scheme);
+        }
+
+        if (property_exists($body, 'session_token')) {
+            $this->assertEquals($body->session_token, $response->session_token);
+        }
+
+        if (property_exists($body, 'success_redirect_url')) {
+            $this->assertEquals($body->success_redirect_url, $response->success_redirect_url);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

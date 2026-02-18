@@ -25,11 +25,11 @@ class PayerAuthorisationsService extends BaseService
 
 
     /**
-    * Get a single Payer Authorisation
+    *  Get a single Payer Authorisation
     *
     * Example URL: /payer_authorisations/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "PA".
+    * @param  string        $identity  Unique identifier, beginning with "PA".
     * @param  array<string, mixed> $params An associative array for any params
     * @return PayerAuthorisation
     **/
@@ -55,7 +55,7 @@ class PayerAuthorisationsService extends BaseService
     }
 
     /**
-    * Create a Payer Authorisation
+    *  Create a Payer Authorisation
     *
     * Example URL: /payer_authorisations
     *
@@ -90,11 +90,11 @@ class PayerAuthorisationsService extends BaseService
     }
 
     /**
-    * Update a Payer Authorisation
+    *  Update a Payer Authorisation
     *
     * Example URL: /payer_authorisations/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "PA".
+    * @param  string        $identity  Unique identifier, beginning with "PA".
     * @param  array<string, mixed> $params An associative array for any params
     * @return PayerAuthorisation
     **/
@@ -121,11 +121,11 @@ class PayerAuthorisationsService extends BaseService
     }
 
     /**
-    * Submit a Payer Authorisation
+    *  Submit a Payer Authorisation
     *
     * Example URL: /payer_authorisations/:identity/actions/submit
     *
-    * @param  string        $identity Unique identifier, beginning with "PA".
+    * @param  string        $identity  Unique identifier, beginning with "PA".
     * @param  array<string, mixed> $params An associative array for any params
     * @return PayerAuthorisation
     **/
@@ -163,11 +163,11 @@ class PayerAuthorisationsService extends BaseService
     }
 
     /**
-    * Confirm a Payer Authorisation
+    *  Confirm a Payer Authorisation
     *
     * Example URL: /payer_authorisations/:identity/actions/confirm
     *
-    * @param  string        $identity Unique identifier, beginning with "PA".
+    * @param  string        $identity  Unique identifier, beginning with "PA".
     * @param  array<string, mixed> $params An associative array for any params
     * @return PayerAuthorisation
     **/

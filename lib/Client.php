@@ -105,6 +105,8 @@ class Client
 
         $this->services['exports'] = new Services\ExportsService($this->api_client);
 
+        $this->services['funds_availabilities'] = new Services\FundsAvailabilitiesService($this->api_client);
+
         $this->services['instalment_schedules'] = new Services\InstalmentSchedulesService($this->api_client);
 
         $this->services['institutions'] = new Services\InstitutionsService($this->api_client);
@@ -371,6 +373,18 @@ class Client
             throw new \Exception('Key exports does not exist in services array');
         }
         return $this->services['exports'];
+    }
+
+    /**
+     * Service for interacting with funds availability
+     * @return Services\FundsAvailabilitiesService
+     */
+    public function fundsAvailabilities()
+    {
+        if (!isset($this->services['funds_availabilities'])) {
+            throw new \Exception('Key funds_availabilities does not exist in services array');
+        }
+        return $this->services['funds_availabilities'];
     }
 
     /**

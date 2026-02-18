@@ -19,7 +19,7 @@ class PayerTheme extends BaseResource
     protected $model_name = "PayerTheme";
 
     /**
-     * Unique identifier, beginning with "PTH".
+     *  Unique identifier, beginning with "PTH".
      */
     protected $id;
 }

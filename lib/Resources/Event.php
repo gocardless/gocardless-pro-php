@@ -28,23 +28,23 @@ class Event extends BaseResource
     protected $model_name = "Event";
 
     /**
-     * What has happened to the resource. See [Event Types](#event-types) for
-     * the possible actions.
+     *  What has happened to the resource. See [Event Types](#event-types) for
+     *  the possible actions.
      */
     protected $action;
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when this
-     * resource was created.
+     *  Fixed [timestamp](#api-usage-dates-and-times), recording when this
+     *  resource was created.
      */
     protected $created_at;
 
     /**
-     * Present only in webhooks when an integrator is authorised to send their
-     * own
-     * notifications. See
-     * [here](/getting-started/api/handling-customer-notifications/)
-     * for further information.
+     *  Present only in webhooks when an integrator is authorised to send their
+     *  own
+     *  notifications. See
+     *  [here](/getting-started/api/handling-customer-notifications/)
+     *  for further information.
      *
      */
     protected $customer_notifications;
@@ -55,7 +55,7 @@ class Event extends BaseResource
     protected $details;
 
     /**
-     * Unique identifier, beginning with "EV".
+     *  Unique identifier, beginning with "EV".
      */
     protected $id;
 
@@ -65,46 +65,46 @@ class Event extends BaseResource
     protected $links;
 
     /**
-     * The metadata that was passed when making the API request that triggered
-     * the event
-     * (for instance, cancelling a mandate).
+     *  The metadata that was passed when making the API request that triggered
+     *  the event
+     *  (for instance, cancelling a mandate).
      *
-     * This field will only be populated if the `details[origin]` field is `api`
-     * otherwise it will be an empty object.
+     *  This field will only be populated if the `details[origin]` field is
+     *  `api` otherwise it will be an empty object.
      *
      */
     protected $metadata;
 
     /**
-     * The metadata of the resource that the event is for. For example, this
-     * field will have the same
-     * value of the `mandate[metadata]` field on the response you would receive
-     * from performing a GET request on a mandate.
+     *  The metadata of the resource that the event is for. For example, this
+     *  field will have the same
+     *  value of the `mandate[metadata]` field on the response you would receive
+     *  from performing a GET request on a mandate.
      *
      */
     protected $resource_metadata;
 
     /**
-     * The resource type for this event. One of:
-     * <ul>
-     * <li>`billing_requests`</li>
-     * <li>`creditors`</li>
-     * <li>`exports`</li>
-     * <li>`instalment_schedules`</li>
-     * <li>`mandates`</li>
-     * <li>`payer_authorisations`</li>
-     * <li>`payments`</li>
-     * <li>`payouts`</li>
-     * <li>`refunds`</li>
-     * <li>`scheme_identifiers`</li>
-     * <li>`subscriptions`</li>
-     * <li>`outbound_payments`</li>
-     * </ul>
+     *  The resource type for this event. One of:
+     *  <ul>
+     *  <li>`billing_requests`</li>
+     *  <li>`creditors`</li>
+     *  <li>`exports`</li>
+     *  <li>`instalment_schedules`</li>
+     *  <li>`mandates`</li>
+     *  <li>`payer_authorisations`</li>
+     *  <li>`payments`</li>
+     *  <li>`payouts`</li>
+     *  <li>`refunds`</li>
+     *  <li>`scheme_identifiers`</li>
+     *  <li>`subscriptions`</li>
+     *  <li>`outbound_payments`</li>
+     *  </ul>
      */
     protected $resource_type;
 
     /**
-     * Audit information about the source of the event.
+     *  Audit information about the source of the event.
      */
     protected $source;
 }

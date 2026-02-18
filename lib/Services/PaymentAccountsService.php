@@ -27,7 +27,37 @@ class PaymentAccountsService extends BaseService
 
 
     /**
-    * List payment accounts
+    *  Get a single payment account details
+    *
+    * Example URL: /payment_accounts/:identity
+    *
+    * @param  string        $identity  Unique identifier, beginning with "BA".
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return PaymentAccount
+    **/
+    public function get($identity, $params = array())
+    {
+        $path = Util::subUrl(
+            '/payment_accounts/:identity',
+            array(
+
+                'identity' => $identity
+            )
+        );
+        if (isset($params['params'])) {
+            $params['query'] = $params['params'];
+            unset($params['params']);
+        }
+
+
+        $response = $this->api_client->get($path, $params);
+
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
+    *  List payment accounts
     *
     * Example URL: /payment_accounts
     *
@@ -50,7 +80,7 @@ class PaymentAccountsService extends BaseService
     }
 
     /**
-    * List payment accounts
+    *  List payment accounts
     *
     * Example URL: /payment_accounts
     *

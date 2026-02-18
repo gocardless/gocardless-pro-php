@@ -27,11 +27,26 @@ class BankAccountDetailsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BankAccountDetail', $response);
 
-        $this->assertEquals($body->ciphertext, $response->ciphertext);
-        $this->assertEquals($body->encrypted_key, $response->encrypted_key);
-        $this->assertEquals($body->iv, $response->iv);
-        $this->assertEquals($body->protected, $response->protected);
-        $this->assertEquals($body->tag, $response->tag);
+
+        if (property_exists($body, 'ciphertext')) {
+            $this->assertEquals($body->ciphertext, $response->ciphertext);
+        }
+
+        if (property_exists($body, 'encrypted_key')) {
+            $this->assertEquals($body->encrypted_key, $response->encrypted_key);
+        }
+
+        if (property_exists($body, 'iv')) {
+            $this->assertEquals($body->iv, $response->iv);
+        }
+
+        if (property_exists($body, 'protected')) {
+            $this->assertEquals($body->protected, $response->protected);
+        }
+
+        if (property_exists($body, 'tag')) {
+            $this->assertEquals($body->tag, $response->tag);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

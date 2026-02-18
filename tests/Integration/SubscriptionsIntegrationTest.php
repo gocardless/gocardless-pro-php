@@ -27,27 +27,90 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Subscription', $response);
 
-        $this->assertEquals($body->amount, $response->amount);
-        $this->assertEquals($body->app_fee, $response->app_fee);
-        $this->assertEquals($body->count, $response->count);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->day_of_month, $response->day_of_month);
-        $this->assertEquals($body->earliest_charge_date_after_resume, $response->earliest_charge_date_after_resume);
-        $this->assertEquals($body->end_date, $response->end_date);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->interval, $response->interval);
-        $this->assertEquals($body->interval_unit, $response->interval_unit);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->month, $response->month);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->parent_plan_paused, $response->parent_plan_paused);
-        $this->assertEquals($body->payment_reference, $response->payment_reference);
-        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
-        $this->assertEquals($body->start_date, $response->start_date);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->upcoming_payments, $response->upcoming_payments);
+
+        if (property_exists($body, 'amount')) {
+            $this->assertEquals($body->amount, $response->amount);
+        }
+
+        if (property_exists($body, 'app_fee')) {
+            $this->assertEquals($body->app_fee, $response->app_fee);
+        }
+
+        if (property_exists($body, 'count')) {
+            $this->assertEquals($body->count, $response->count);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'day_of_month')) {
+            $this->assertEquals($body->day_of_month, $response->day_of_month);
+        }
+
+        if (property_exists($body, 'earliest_charge_date_after_resume')) {
+            $this->assertEquals($body->earliest_charge_date_after_resume, $response->earliest_charge_date_after_resume);
+        }
+
+        if (property_exists($body, 'end_date')) {
+            $this->assertEquals($body->end_date, $response->end_date);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'interval')) {
+            $this->assertEquals($body->interval, $response->interval);
+        }
+
+        if (property_exists($body, 'interval_unit')) {
+            $this->assertEquals($body->interval_unit, $response->interval_unit);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'month')) {
+            $this->assertEquals($body->month, $response->month);
+        }
+
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+
+        if (property_exists($body, 'parent_plan_paused')) {
+            $this->assertEquals($body->parent_plan_paused, $response->parent_plan_paused);
+        }
+
+        if (property_exists($body, 'payment_reference')) {
+            $this->assertEquals($body->payment_reference, $response->payment_reference);
+        }
+
+        if (property_exists($body, 'retry_if_possible')) {
+            $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
+        }
+
+        if (property_exists($body, 'start_date')) {
+            $this->assertEquals($body->start_date, $response->start_date);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'upcoming_payments')) {
+            $this->assertEquals($body->upcoming_payments, $response->upcoming_payments);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -75,27 +138,69 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Subscription', $response);
 
-        $this->assertEquals($body->amount, $response->amount);
-        $this->assertEquals($body->app_fee, $response->app_fee);
-        $this->assertEquals($body->count, $response->count);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->day_of_month, $response->day_of_month);
-        $this->assertEquals($body->earliest_charge_date_after_resume, $response->earliest_charge_date_after_resume);
-        $this->assertEquals($body->end_date, $response->end_date);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->interval, $response->interval);
-        $this->assertEquals($body->interval_unit, $response->interval_unit);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->month, $response->month);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->parent_plan_paused, $response->parent_plan_paused);
-        $this->assertEquals($body->payment_reference, $response->payment_reference);
-        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
-        $this->assertEquals($body->start_date, $response->start_date);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->upcoming_payments, $response->upcoming_payments);
+        if (property_exists($body, 'amount')) {
+            $this->assertEquals($body->amount, $response->amount);
+        }
+        if (property_exists($body, 'app_fee')) {
+            $this->assertEquals($body->app_fee, $response->app_fee);
+        }
+        if (property_exists($body, 'count')) {
+            $this->assertEquals($body->count, $response->count);
+        }
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+        if (property_exists($body, 'day_of_month')) {
+            $this->assertEquals($body->day_of_month, $response->day_of_month);
+        }
+        if (property_exists($body, 'earliest_charge_date_after_resume')) {
+            $this->assertEquals($body->earliest_charge_date_after_resume, $response->earliest_charge_date_after_resume);
+        }
+        if (property_exists($body, 'end_date')) {
+            $this->assertEquals($body->end_date, $response->end_date);
+        }
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+        if (property_exists($body, 'interval')) {
+            $this->assertEquals($body->interval, $response->interval);
+        }
+        if (property_exists($body, 'interval_unit')) {
+            $this->assertEquals($body->interval_unit, $response->interval_unit);
+        }
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+        if (property_exists($body, 'month')) {
+            $this->assertEquals($body->month, $response->month);
+        }
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+        if (property_exists($body, 'parent_plan_paused')) {
+            $this->assertEquals($body->parent_plan_paused, $response->parent_plan_paused);
+        }
+        if (property_exists($body, 'payment_reference')) {
+            $this->assertEquals($body->payment_reference, $response->payment_reference);
+        }
+        if (property_exists($body, 'retry_if_possible')) {
+            $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
+        }
+        if (property_exists($body, 'start_date')) {
+            $this->assertEquals($body->start_date, $response->start_date);
+        }
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+        if (property_exists($body, 'upcoming_payments')) {
+            $this->assertEquals($body->upcoming_payments, $response->upcoming_payments);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -231,27 +336,90 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Subscription', $response);
 
-        $this->assertEquals($body->amount, $response->amount);
-        $this->assertEquals($body->app_fee, $response->app_fee);
-        $this->assertEquals($body->count, $response->count);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->day_of_month, $response->day_of_month);
-        $this->assertEquals($body->earliest_charge_date_after_resume, $response->earliest_charge_date_after_resume);
-        $this->assertEquals($body->end_date, $response->end_date);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->interval, $response->interval);
-        $this->assertEquals($body->interval_unit, $response->interval_unit);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->month, $response->month);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->parent_plan_paused, $response->parent_plan_paused);
-        $this->assertEquals($body->payment_reference, $response->payment_reference);
-        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
-        $this->assertEquals($body->start_date, $response->start_date);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->upcoming_payments, $response->upcoming_payments);
+
+        if (property_exists($body, 'amount')) {
+            $this->assertEquals($body->amount, $response->amount);
+        }
+
+        if (property_exists($body, 'app_fee')) {
+            $this->assertEquals($body->app_fee, $response->app_fee);
+        }
+
+        if (property_exists($body, 'count')) {
+            $this->assertEquals($body->count, $response->count);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'day_of_month')) {
+            $this->assertEquals($body->day_of_month, $response->day_of_month);
+        }
+
+        if (property_exists($body, 'earliest_charge_date_after_resume')) {
+            $this->assertEquals($body->earliest_charge_date_after_resume, $response->earliest_charge_date_after_resume);
+        }
+
+        if (property_exists($body, 'end_date')) {
+            $this->assertEquals($body->end_date, $response->end_date);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'interval')) {
+            $this->assertEquals($body->interval, $response->interval);
+        }
+
+        if (property_exists($body, 'interval_unit')) {
+            $this->assertEquals($body->interval_unit, $response->interval_unit);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'month')) {
+            $this->assertEquals($body->month, $response->month);
+        }
+
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+
+        if (property_exists($body, 'parent_plan_paused')) {
+            $this->assertEquals($body->parent_plan_paused, $response->parent_plan_paused);
+        }
+
+        if (property_exists($body, 'payment_reference')) {
+            $this->assertEquals($body->payment_reference, $response->payment_reference);
+        }
+
+        if (property_exists($body, 'retry_if_possible')) {
+            $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
+        }
+
+        if (property_exists($body, 'start_date')) {
+            $this->assertEquals($body->start_date, $response->start_date);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'upcoming_payments')) {
+            $this->assertEquals($body->upcoming_payments, $response->upcoming_payments);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -272,27 +440,90 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Subscription', $response);
 
-        $this->assertEquals($body->amount, $response->amount);
-        $this->assertEquals($body->app_fee, $response->app_fee);
-        $this->assertEquals($body->count, $response->count);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->day_of_month, $response->day_of_month);
-        $this->assertEquals($body->earliest_charge_date_after_resume, $response->earliest_charge_date_after_resume);
-        $this->assertEquals($body->end_date, $response->end_date);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->interval, $response->interval);
-        $this->assertEquals($body->interval_unit, $response->interval_unit);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->month, $response->month);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->parent_plan_paused, $response->parent_plan_paused);
-        $this->assertEquals($body->payment_reference, $response->payment_reference);
-        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
-        $this->assertEquals($body->start_date, $response->start_date);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->upcoming_payments, $response->upcoming_payments);
+
+        if (property_exists($body, 'amount')) {
+            $this->assertEquals($body->amount, $response->amount);
+        }
+
+        if (property_exists($body, 'app_fee')) {
+            $this->assertEquals($body->app_fee, $response->app_fee);
+        }
+
+        if (property_exists($body, 'count')) {
+            $this->assertEquals($body->count, $response->count);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'day_of_month')) {
+            $this->assertEquals($body->day_of_month, $response->day_of_month);
+        }
+
+        if (property_exists($body, 'earliest_charge_date_after_resume')) {
+            $this->assertEquals($body->earliest_charge_date_after_resume, $response->earliest_charge_date_after_resume);
+        }
+
+        if (property_exists($body, 'end_date')) {
+            $this->assertEquals($body->end_date, $response->end_date);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'interval')) {
+            $this->assertEquals($body->interval, $response->interval);
+        }
+
+        if (property_exists($body, 'interval_unit')) {
+            $this->assertEquals($body->interval_unit, $response->interval_unit);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'month')) {
+            $this->assertEquals($body->month, $response->month);
+        }
+
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+
+        if (property_exists($body, 'parent_plan_paused')) {
+            $this->assertEquals($body->parent_plan_paused, $response->parent_plan_paused);
+        }
+
+        if (property_exists($body, 'payment_reference')) {
+            $this->assertEquals($body->payment_reference, $response->payment_reference);
+        }
+
+        if (property_exists($body, 'retry_if_possible')) {
+            $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
+        }
+
+        if (property_exists($body, 'start_date')) {
+            $this->assertEquals($body->start_date, $response->start_date);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'upcoming_payments')) {
+            $this->assertEquals($body->upcoming_payments, $response->upcoming_payments);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -313,27 +544,90 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Subscription', $response);
 
-        $this->assertEquals($body->amount, $response->amount);
-        $this->assertEquals($body->app_fee, $response->app_fee);
-        $this->assertEquals($body->count, $response->count);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->day_of_month, $response->day_of_month);
-        $this->assertEquals($body->earliest_charge_date_after_resume, $response->earliest_charge_date_after_resume);
-        $this->assertEquals($body->end_date, $response->end_date);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->interval, $response->interval);
-        $this->assertEquals($body->interval_unit, $response->interval_unit);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->month, $response->month);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->parent_plan_paused, $response->parent_plan_paused);
-        $this->assertEquals($body->payment_reference, $response->payment_reference);
-        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
-        $this->assertEquals($body->start_date, $response->start_date);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->upcoming_payments, $response->upcoming_payments);
+
+        if (property_exists($body, 'amount')) {
+            $this->assertEquals($body->amount, $response->amount);
+        }
+
+        if (property_exists($body, 'app_fee')) {
+            $this->assertEquals($body->app_fee, $response->app_fee);
+        }
+
+        if (property_exists($body, 'count')) {
+            $this->assertEquals($body->count, $response->count);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'day_of_month')) {
+            $this->assertEquals($body->day_of_month, $response->day_of_month);
+        }
+
+        if (property_exists($body, 'earliest_charge_date_after_resume')) {
+            $this->assertEquals($body->earliest_charge_date_after_resume, $response->earliest_charge_date_after_resume);
+        }
+
+        if (property_exists($body, 'end_date')) {
+            $this->assertEquals($body->end_date, $response->end_date);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'interval')) {
+            $this->assertEquals($body->interval, $response->interval);
+        }
+
+        if (property_exists($body, 'interval_unit')) {
+            $this->assertEquals($body->interval_unit, $response->interval_unit);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'month')) {
+            $this->assertEquals($body->month, $response->month);
+        }
+
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+
+        if (property_exists($body, 'parent_plan_paused')) {
+            $this->assertEquals($body->parent_plan_paused, $response->parent_plan_paused);
+        }
+
+        if (property_exists($body, 'payment_reference')) {
+            $this->assertEquals($body->payment_reference, $response->payment_reference);
+        }
+
+        if (property_exists($body, 'retry_if_possible')) {
+            $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
+        }
+
+        if (property_exists($body, 'start_date')) {
+            $this->assertEquals($body->start_date, $response->start_date);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'upcoming_payments')) {
+            $this->assertEquals($body->upcoming_payments, $response->upcoming_payments);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -354,27 +648,90 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Subscription', $response);
 
-        $this->assertEquals($body->amount, $response->amount);
-        $this->assertEquals($body->app_fee, $response->app_fee);
-        $this->assertEquals($body->count, $response->count);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->day_of_month, $response->day_of_month);
-        $this->assertEquals($body->earliest_charge_date_after_resume, $response->earliest_charge_date_after_resume);
-        $this->assertEquals($body->end_date, $response->end_date);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->interval, $response->interval);
-        $this->assertEquals($body->interval_unit, $response->interval_unit);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->month, $response->month);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->parent_plan_paused, $response->parent_plan_paused);
-        $this->assertEquals($body->payment_reference, $response->payment_reference);
-        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
-        $this->assertEquals($body->start_date, $response->start_date);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->upcoming_payments, $response->upcoming_payments);
+
+        if (property_exists($body, 'amount')) {
+            $this->assertEquals($body->amount, $response->amount);
+        }
+
+        if (property_exists($body, 'app_fee')) {
+            $this->assertEquals($body->app_fee, $response->app_fee);
+        }
+
+        if (property_exists($body, 'count')) {
+            $this->assertEquals($body->count, $response->count);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'day_of_month')) {
+            $this->assertEquals($body->day_of_month, $response->day_of_month);
+        }
+
+        if (property_exists($body, 'earliest_charge_date_after_resume')) {
+            $this->assertEquals($body->earliest_charge_date_after_resume, $response->earliest_charge_date_after_resume);
+        }
+
+        if (property_exists($body, 'end_date')) {
+            $this->assertEquals($body->end_date, $response->end_date);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'interval')) {
+            $this->assertEquals($body->interval, $response->interval);
+        }
+
+        if (property_exists($body, 'interval_unit')) {
+            $this->assertEquals($body->interval_unit, $response->interval_unit);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'month')) {
+            $this->assertEquals($body->month, $response->month);
+        }
+
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+
+        if (property_exists($body, 'parent_plan_paused')) {
+            $this->assertEquals($body->parent_plan_paused, $response->parent_plan_paused);
+        }
+
+        if (property_exists($body, 'payment_reference')) {
+            $this->assertEquals($body->payment_reference, $response->payment_reference);
+        }
+
+        if (property_exists($body, 'retry_if_possible')) {
+            $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
+        }
+
+        if (property_exists($body, 'start_date')) {
+            $this->assertEquals($body->start_date, $response->start_date);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'upcoming_payments')) {
+            $this->assertEquals($body->upcoming_payments, $response->upcoming_payments);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -395,27 +752,90 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Subscription', $response);
 
-        $this->assertEquals($body->amount, $response->amount);
-        $this->assertEquals($body->app_fee, $response->app_fee);
-        $this->assertEquals($body->count, $response->count);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->day_of_month, $response->day_of_month);
-        $this->assertEquals($body->earliest_charge_date_after_resume, $response->earliest_charge_date_after_resume);
-        $this->assertEquals($body->end_date, $response->end_date);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->interval, $response->interval);
-        $this->assertEquals($body->interval_unit, $response->interval_unit);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->month, $response->month);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->parent_plan_paused, $response->parent_plan_paused);
-        $this->assertEquals($body->payment_reference, $response->payment_reference);
-        $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
-        $this->assertEquals($body->start_date, $response->start_date);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->upcoming_payments, $response->upcoming_payments);
+
+        if (property_exists($body, 'amount')) {
+            $this->assertEquals($body->amount, $response->amount);
+        }
+
+        if (property_exists($body, 'app_fee')) {
+            $this->assertEquals($body->app_fee, $response->app_fee);
+        }
+
+        if (property_exists($body, 'count')) {
+            $this->assertEquals($body->count, $response->count);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'day_of_month')) {
+            $this->assertEquals($body->day_of_month, $response->day_of_month);
+        }
+
+        if (property_exists($body, 'earliest_charge_date_after_resume')) {
+            $this->assertEquals($body->earliest_charge_date_after_resume, $response->earliest_charge_date_after_resume);
+        }
+
+        if (property_exists($body, 'end_date')) {
+            $this->assertEquals($body->end_date, $response->end_date);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'interval')) {
+            $this->assertEquals($body->interval, $response->interval);
+        }
+
+        if (property_exists($body, 'interval_unit')) {
+            $this->assertEquals($body->interval_unit, $response->interval_unit);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'month')) {
+            $this->assertEquals($body->month, $response->month);
+        }
+
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+
+        if (property_exists($body, 'parent_plan_paused')) {
+            $this->assertEquals($body->parent_plan_paused, $response->parent_plan_paused);
+        }
+
+        if (property_exists($body, 'payment_reference')) {
+            $this->assertEquals($body->payment_reference, $response->payment_reference);
+        }
+
+        if (property_exists($body, 'retry_if_possible')) {
+            $this->assertEquals($body->retry_if_possible, $response->retry_if_possible);
+        }
+
+        if (property_exists($body, 'start_date')) {
+            $this->assertEquals($body->start_date, $response->start_date);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'upcoming_payments')) {
+            $this->assertEquals($body->upcoming_payments, $response->upcoming_payments);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

@@ -27,24 +27,78 @@ class CustomersIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Customer', $response);
 
-        $this->assertEquals($body->address_line1, $response->address_line1);
-        $this->assertEquals($body->address_line2, $response->address_line2);
-        $this->assertEquals($body->address_line3, $response->address_line3);
-        $this->assertEquals($body->city, $response->city);
-        $this->assertEquals($body->company_name, $response->company_name);
-        $this->assertEquals($body->country_code, $response->country_code);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->danish_identity_number, $response->danish_identity_number);
-        $this->assertEquals($body->email, $response->email);
-        $this->assertEquals($body->family_name, $response->family_name);
-        $this->assertEquals($body->given_name, $response->given_name);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->language, $response->language);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->phone_number, $response->phone_number);
-        $this->assertEquals($body->postal_code, $response->postal_code);
-        $this->assertEquals($body->region, $response->region);
-        $this->assertEquals($body->swedish_identity_number, $response->swedish_identity_number);
+
+        if (property_exists($body, 'address_line1')) {
+            $this->assertEquals($body->address_line1, $response->address_line1);
+        }
+
+        if (property_exists($body, 'address_line2')) {
+            $this->assertEquals($body->address_line2, $response->address_line2);
+        }
+
+        if (property_exists($body, 'address_line3')) {
+            $this->assertEquals($body->address_line3, $response->address_line3);
+        }
+
+        if (property_exists($body, 'city')) {
+            $this->assertEquals($body->city, $response->city);
+        }
+
+        if (property_exists($body, 'company_name')) {
+            $this->assertEquals($body->company_name, $response->company_name);
+        }
+
+        if (property_exists($body, 'country_code')) {
+            $this->assertEquals($body->country_code, $response->country_code);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'danish_identity_number')) {
+            $this->assertEquals($body->danish_identity_number, $response->danish_identity_number);
+        }
+
+        if (property_exists($body, 'email')) {
+            $this->assertEquals($body->email, $response->email);
+        }
+
+        if (property_exists($body, 'family_name')) {
+            $this->assertEquals($body->family_name, $response->family_name);
+        }
+
+        if (property_exists($body, 'given_name')) {
+            $this->assertEquals($body->given_name, $response->given_name);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'language')) {
+            $this->assertEquals($body->language, $response->language);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'phone_number')) {
+            $this->assertEquals($body->phone_number, $response->phone_number);
+        }
+
+        if (property_exists($body, 'postal_code')) {
+            $this->assertEquals($body->postal_code, $response->postal_code);
+        }
+
+        if (property_exists($body, 'region')) {
+            $this->assertEquals($body->region, $response->region);
+        }
+
+        if (property_exists($body, 'swedish_identity_number')) {
+            $this->assertEquals($body->swedish_identity_number, $response->swedish_identity_number);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -72,24 +126,60 @@ class CustomersIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Customer', $response);
 
-        $this->assertEquals($body->address_line1, $response->address_line1);
-        $this->assertEquals($body->address_line2, $response->address_line2);
-        $this->assertEquals($body->address_line3, $response->address_line3);
-        $this->assertEquals($body->city, $response->city);
-        $this->assertEquals($body->company_name, $response->company_name);
-        $this->assertEquals($body->country_code, $response->country_code);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->danish_identity_number, $response->danish_identity_number);
-        $this->assertEquals($body->email, $response->email);
-        $this->assertEquals($body->family_name, $response->family_name);
-        $this->assertEquals($body->given_name, $response->given_name);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->language, $response->language);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->phone_number, $response->phone_number);
-        $this->assertEquals($body->postal_code, $response->postal_code);
-        $this->assertEquals($body->region, $response->region);
-        $this->assertEquals($body->swedish_identity_number, $response->swedish_identity_number);
+        if (property_exists($body, 'address_line1')) {
+            $this->assertEquals($body->address_line1, $response->address_line1);
+        }
+        if (property_exists($body, 'address_line2')) {
+            $this->assertEquals($body->address_line2, $response->address_line2);
+        }
+        if (property_exists($body, 'address_line3')) {
+            $this->assertEquals($body->address_line3, $response->address_line3);
+        }
+        if (property_exists($body, 'city')) {
+            $this->assertEquals($body->city, $response->city);
+        }
+        if (property_exists($body, 'company_name')) {
+            $this->assertEquals($body->company_name, $response->company_name);
+        }
+        if (property_exists($body, 'country_code')) {
+            $this->assertEquals($body->country_code, $response->country_code);
+        }
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+        if (property_exists($body, 'danish_identity_number')) {
+            $this->assertEquals($body->danish_identity_number, $response->danish_identity_number);
+        }
+        if (property_exists($body, 'email')) {
+            $this->assertEquals($body->email, $response->email);
+        }
+        if (property_exists($body, 'family_name')) {
+            $this->assertEquals($body->family_name, $response->family_name);
+        }
+        if (property_exists($body, 'given_name')) {
+            $this->assertEquals($body->given_name, $response->given_name);
+        }
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+        if (property_exists($body, 'language')) {
+            $this->assertEquals($body->language, $response->language);
+        }
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+        if (property_exists($body, 'phone_number')) {
+            $this->assertEquals($body->phone_number, $response->phone_number);
+        }
+        if (property_exists($body, 'postal_code')) {
+            $this->assertEquals($body->postal_code, $response->postal_code);
+        }
+        if (property_exists($body, 'region')) {
+            $this->assertEquals($body->region, $response->region);
+        }
+        if (property_exists($body, 'swedish_identity_number')) {
+            $this->assertEquals($body->swedish_identity_number, $response->swedish_identity_number);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -213,24 +303,78 @@ class CustomersIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Customer', $response);
 
-        $this->assertEquals($body->address_line1, $response->address_line1);
-        $this->assertEquals($body->address_line2, $response->address_line2);
-        $this->assertEquals($body->address_line3, $response->address_line3);
-        $this->assertEquals($body->city, $response->city);
-        $this->assertEquals($body->company_name, $response->company_name);
-        $this->assertEquals($body->country_code, $response->country_code);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->danish_identity_number, $response->danish_identity_number);
-        $this->assertEquals($body->email, $response->email);
-        $this->assertEquals($body->family_name, $response->family_name);
-        $this->assertEquals($body->given_name, $response->given_name);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->language, $response->language);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->phone_number, $response->phone_number);
-        $this->assertEquals($body->postal_code, $response->postal_code);
-        $this->assertEquals($body->region, $response->region);
-        $this->assertEquals($body->swedish_identity_number, $response->swedish_identity_number);
+
+        if (property_exists($body, 'address_line1')) {
+            $this->assertEquals($body->address_line1, $response->address_line1);
+        }
+
+        if (property_exists($body, 'address_line2')) {
+            $this->assertEquals($body->address_line2, $response->address_line2);
+        }
+
+        if (property_exists($body, 'address_line3')) {
+            $this->assertEquals($body->address_line3, $response->address_line3);
+        }
+
+        if (property_exists($body, 'city')) {
+            $this->assertEquals($body->city, $response->city);
+        }
+
+        if (property_exists($body, 'company_name')) {
+            $this->assertEquals($body->company_name, $response->company_name);
+        }
+
+        if (property_exists($body, 'country_code')) {
+            $this->assertEquals($body->country_code, $response->country_code);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'danish_identity_number')) {
+            $this->assertEquals($body->danish_identity_number, $response->danish_identity_number);
+        }
+
+        if (property_exists($body, 'email')) {
+            $this->assertEquals($body->email, $response->email);
+        }
+
+        if (property_exists($body, 'family_name')) {
+            $this->assertEquals($body->family_name, $response->family_name);
+        }
+
+        if (property_exists($body, 'given_name')) {
+            $this->assertEquals($body->given_name, $response->given_name);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'language')) {
+            $this->assertEquals($body->language, $response->language);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'phone_number')) {
+            $this->assertEquals($body->phone_number, $response->phone_number);
+        }
+
+        if (property_exists($body, 'postal_code')) {
+            $this->assertEquals($body->postal_code, $response->postal_code);
+        }
+
+        if (property_exists($body, 'region')) {
+            $this->assertEquals($body->region, $response->region);
+        }
+
+        if (property_exists($body, 'swedish_identity_number')) {
+            $this->assertEquals($body->swedish_identity_number, $response->swedish_identity_number);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -251,24 +395,78 @@ class CustomersIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Customer', $response);
 
-        $this->assertEquals($body->address_line1, $response->address_line1);
-        $this->assertEquals($body->address_line2, $response->address_line2);
-        $this->assertEquals($body->address_line3, $response->address_line3);
-        $this->assertEquals($body->city, $response->city);
-        $this->assertEquals($body->company_name, $response->company_name);
-        $this->assertEquals($body->country_code, $response->country_code);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->danish_identity_number, $response->danish_identity_number);
-        $this->assertEquals($body->email, $response->email);
-        $this->assertEquals($body->family_name, $response->family_name);
-        $this->assertEquals($body->given_name, $response->given_name);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->language, $response->language);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->phone_number, $response->phone_number);
-        $this->assertEquals($body->postal_code, $response->postal_code);
-        $this->assertEquals($body->region, $response->region);
-        $this->assertEquals($body->swedish_identity_number, $response->swedish_identity_number);
+
+        if (property_exists($body, 'address_line1')) {
+            $this->assertEquals($body->address_line1, $response->address_line1);
+        }
+
+        if (property_exists($body, 'address_line2')) {
+            $this->assertEquals($body->address_line2, $response->address_line2);
+        }
+
+        if (property_exists($body, 'address_line3')) {
+            $this->assertEquals($body->address_line3, $response->address_line3);
+        }
+
+        if (property_exists($body, 'city')) {
+            $this->assertEquals($body->city, $response->city);
+        }
+
+        if (property_exists($body, 'company_name')) {
+            $this->assertEquals($body->company_name, $response->company_name);
+        }
+
+        if (property_exists($body, 'country_code')) {
+            $this->assertEquals($body->country_code, $response->country_code);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'danish_identity_number')) {
+            $this->assertEquals($body->danish_identity_number, $response->danish_identity_number);
+        }
+
+        if (property_exists($body, 'email')) {
+            $this->assertEquals($body->email, $response->email);
+        }
+
+        if (property_exists($body, 'family_name')) {
+            $this->assertEquals($body->family_name, $response->family_name);
+        }
+
+        if (property_exists($body, 'given_name')) {
+            $this->assertEquals($body->given_name, $response->given_name);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'language')) {
+            $this->assertEquals($body->language, $response->language);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'phone_number')) {
+            $this->assertEquals($body->phone_number, $response->phone_number);
+        }
+
+        if (property_exists($body, 'postal_code')) {
+            $this->assertEquals($body->postal_code, $response->postal_code);
+        }
+
+        if (property_exists($body, 'region')) {
+            $this->assertEquals($body->region, $response->region);
+        }
+
+        if (property_exists($body, 'swedish_identity_number')) {
+            $this->assertEquals($body->swedish_identity_number, $response->swedish_identity_number);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -289,24 +487,78 @@ class CustomersIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Customer', $response);
 
-        $this->assertEquals($body->address_line1, $response->address_line1);
-        $this->assertEquals($body->address_line2, $response->address_line2);
-        $this->assertEquals($body->address_line3, $response->address_line3);
-        $this->assertEquals($body->city, $response->city);
-        $this->assertEquals($body->company_name, $response->company_name);
-        $this->assertEquals($body->country_code, $response->country_code);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->danish_identity_number, $response->danish_identity_number);
-        $this->assertEquals($body->email, $response->email);
-        $this->assertEquals($body->family_name, $response->family_name);
-        $this->assertEquals($body->given_name, $response->given_name);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->language, $response->language);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->phone_number, $response->phone_number);
-        $this->assertEquals($body->postal_code, $response->postal_code);
-        $this->assertEquals($body->region, $response->region);
-        $this->assertEquals($body->swedish_identity_number, $response->swedish_identity_number);
+
+        if (property_exists($body, 'address_line1')) {
+            $this->assertEquals($body->address_line1, $response->address_line1);
+        }
+
+        if (property_exists($body, 'address_line2')) {
+            $this->assertEquals($body->address_line2, $response->address_line2);
+        }
+
+        if (property_exists($body, 'address_line3')) {
+            $this->assertEquals($body->address_line3, $response->address_line3);
+        }
+
+        if (property_exists($body, 'city')) {
+            $this->assertEquals($body->city, $response->city);
+        }
+
+        if (property_exists($body, 'company_name')) {
+            $this->assertEquals($body->company_name, $response->company_name);
+        }
+
+        if (property_exists($body, 'country_code')) {
+            $this->assertEquals($body->country_code, $response->country_code);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'danish_identity_number')) {
+            $this->assertEquals($body->danish_identity_number, $response->danish_identity_number);
+        }
+
+        if (property_exists($body, 'email')) {
+            $this->assertEquals($body->email, $response->email);
+        }
+
+        if (property_exists($body, 'family_name')) {
+            $this->assertEquals($body->family_name, $response->family_name);
+        }
+
+        if (property_exists($body, 'given_name')) {
+            $this->assertEquals($body->given_name, $response->given_name);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'language')) {
+            $this->assertEquals($body->language, $response->language);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'phone_number')) {
+            $this->assertEquals($body->phone_number, $response->phone_number);
+        }
+
+        if (property_exists($body, 'postal_code')) {
+            $this->assertEquals($body->postal_code, $response->postal_code);
+        }
+
+        if (property_exists($body, 'region')) {
+            $this->assertEquals($body->region, $response->region);
+        }
+
+        if (property_exists($body, 'swedish_identity_number')) {
+            $this->assertEquals($body->swedish_identity_number, $response->swedish_identity_number);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

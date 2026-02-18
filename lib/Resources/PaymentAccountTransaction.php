@@ -28,42 +28,42 @@ class PaymentAccountTransaction extends BaseResource
     protected $model_name = "PaymentAccountTransaction";
 
     /**
-     * Amount, in the lowest denomination for the currency (e.g. pence in GBP,
-     * cents in EUR).
+     *  Amount, in the lowest denomination for the currency (e.g. pence in GBP,
+     *  cents in EUR).
      */
     protected $amount;
 
     /**
-     * Balance after transaction, in the lowest denomination for the currency
-     * (e.g. pence in GBP, cents in EUR).
+     *  Balance after transaction, in the lowest denomination for the currency
+     *  (e.g. pence in GBP, cents in EUR).
      */
     protected $balance_after_transaction;
 
     /**
-     * The name of the counterparty of the transaction. The counterparty is the
-     * recipient for a credit, or the sender for a debit.
+     *  The name of the counterparty of the transaction. The counterparty is the
+     *  recipient for a credit, or the sender for a debit.
      */
     protected $counterparty_name;
 
     /**
-     * The currency of the transaction.
+     *  The currency of the transaction.
      */
     protected $currency;
 
     /**
-     * The description of the transaction, if available
+     *  The description of the transaction, if available
      */
     protected $description;
 
     /**
-     * The direction of the transaction. Debits mean money leaving the account
-     * (e.g. outbound payment), while credits signify money coming in (e.g.
-     * manual top-up).
+     *  The direction of the transaction. Debits mean money leaving the account
+     *  (e.g. outbound payment), while credits signify money coming in (e.g.
+     *  manual top-up).
      */
     protected $direction;
 
     /**
-     * The unique ID of the payment account transaction.
+     *  The unique ID of the payment account transaction.
      */
     protected $id;
 
@@ -73,13 +73,13 @@ class PaymentAccountTransaction extends BaseResource
     protected $links;
 
     /**
-     * The reference of the transaction. This is typically supplied by the
-     * sender.
+     *  The reference of the transaction. This is typically supplied by the
+     *  sender.
      */
     protected $reference;
 
     /**
-     * The date of when the transaction occurred.
+     *  The date of when the transaction occurred.
      */
     protected $value_date;
 }

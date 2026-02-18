@@ -27,21 +27,66 @@ class MandatesIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Mandate', $response);
 
-        $this->assertEquals($body->authorisation_source, $response->authorisation_source);
-        $this->assertEquals($body->consent_parameters, $response->consent_parameters);
-        $this->assertEquals($body->consent_type, $response->consent_type);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->funds_settlement, $response->funds_settlement);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->next_possible_charge_date, $response->next_possible_charge_date);
-        $this->assertEquals($body->next_possible_standard_ach_charge_date, $response->next_possible_standard_ach_charge_date);
-        $this->assertEquals($body->payments_require_approval, $response->payments_require_approval);
-        $this->assertEquals($body->reference, $response->reference);
-        $this->assertEquals($body->scheme, $response->scheme);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->verified_at, $response->verified_at);
+
+        if (property_exists($body, 'authorisation_source')) {
+            $this->assertEquals($body->authorisation_source, $response->authorisation_source);
+        }
+
+        if (property_exists($body, 'consent_parameters')) {
+            $this->assertEquals($body->consent_parameters, $response->consent_parameters);
+        }
+
+        if (property_exists($body, 'consent_type')) {
+            $this->assertEquals($body->consent_type, $response->consent_type);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'funds_settlement')) {
+            $this->assertEquals($body->funds_settlement, $response->funds_settlement);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'next_possible_charge_date')) {
+            $this->assertEquals($body->next_possible_charge_date, $response->next_possible_charge_date);
+        }
+
+        if (property_exists($body, 'next_possible_standard_ach_charge_date')) {
+            $this->assertEquals($body->next_possible_standard_ach_charge_date, $response->next_possible_standard_ach_charge_date);
+        }
+
+        if (property_exists($body, 'payments_require_approval')) {
+            $this->assertEquals($body->payments_require_approval, $response->payments_require_approval);
+        }
+
+        if (property_exists($body, 'reference')) {
+            $this->assertEquals($body->reference, $response->reference);
+        }
+
+        if (property_exists($body, 'scheme')) {
+            $this->assertEquals($body->scheme, $response->scheme);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'verified_at')) {
+            $this->assertEquals($body->verified_at, $response->verified_at);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -69,21 +114,51 @@ class MandatesIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Mandate', $response);
 
-        $this->assertEquals($body->authorisation_source, $response->authorisation_source);
-        $this->assertEquals($body->consent_parameters, $response->consent_parameters);
-        $this->assertEquals($body->consent_type, $response->consent_type);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->funds_settlement, $response->funds_settlement);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->next_possible_charge_date, $response->next_possible_charge_date);
-        $this->assertEquals($body->next_possible_standard_ach_charge_date, $response->next_possible_standard_ach_charge_date);
-        $this->assertEquals($body->payments_require_approval, $response->payments_require_approval);
-        $this->assertEquals($body->reference, $response->reference);
-        $this->assertEquals($body->scheme, $response->scheme);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->verified_at, $response->verified_at);
+        if (property_exists($body, 'authorisation_source')) {
+            $this->assertEquals($body->authorisation_source, $response->authorisation_source);
+        }
+        if (property_exists($body, 'consent_parameters')) {
+            $this->assertEquals($body->consent_parameters, $response->consent_parameters);
+        }
+        if (property_exists($body, 'consent_type')) {
+            $this->assertEquals($body->consent_type, $response->consent_type);
+        }
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+        if (property_exists($body, 'funds_settlement')) {
+            $this->assertEquals($body->funds_settlement, $response->funds_settlement);
+        }
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+        if (property_exists($body, 'next_possible_charge_date')) {
+            $this->assertEquals($body->next_possible_charge_date, $response->next_possible_charge_date);
+        }
+        if (property_exists($body, 'next_possible_standard_ach_charge_date')) {
+            $this->assertEquals($body->next_possible_standard_ach_charge_date, $response->next_possible_standard_ach_charge_date);
+        }
+        if (property_exists($body, 'payments_require_approval')) {
+            $this->assertEquals($body->payments_require_approval, $response->payments_require_approval);
+        }
+        if (property_exists($body, 'reference')) {
+            $this->assertEquals($body->reference, $response->reference);
+        }
+        if (property_exists($body, 'scheme')) {
+            $this->assertEquals($body->scheme, $response->scheme);
+        }
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+        if (property_exists($body, 'verified_at')) {
+            $this->assertEquals($body->verified_at, $response->verified_at);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -195,21 +270,66 @@ class MandatesIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Mandate', $response);
 
-        $this->assertEquals($body->authorisation_source, $response->authorisation_source);
-        $this->assertEquals($body->consent_parameters, $response->consent_parameters);
-        $this->assertEquals($body->consent_type, $response->consent_type);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->funds_settlement, $response->funds_settlement);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->next_possible_charge_date, $response->next_possible_charge_date);
-        $this->assertEquals($body->next_possible_standard_ach_charge_date, $response->next_possible_standard_ach_charge_date);
-        $this->assertEquals($body->payments_require_approval, $response->payments_require_approval);
-        $this->assertEquals($body->reference, $response->reference);
-        $this->assertEquals($body->scheme, $response->scheme);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->verified_at, $response->verified_at);
+
+        if (property_exists($body, 'authorisation_source')) {
+            $this->assertEquals($body->authorisation_source, $response->authorisation_source);
+        }
+
+        if (property_exists($body, 'consent_parameters')) {
+            $this->assertEquals($body->consent_parameters, $response->consent_parameters);
+        }
+
+        if (property_exists($body, 'consent_type')) {
+            $this->assertEquals($body->consent_type, $response->consent_type);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'funds_settlement')) {
+            $this->assertEquals($body->funds_settlement, $response->funds_settlement);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'next_possible_charge_date')) {
+            $this->assertEquals($body->next_possible_charge_date, $response->next_possible_charge_date);
+        }
+
+        if (property_exists($body, 'next_possible_standard_ach_charge_date')) {
+            $this->assertEquals($body->next_possible_standard_ach_charge_date, $response->next_possible_standard_ach_charge_date);
+        }
+
+        if (property_exists($body, 'payments_require_approval')) {
+            $this->assertEquals($body->payments_require_approval, $response->payments_require_approval);
+        }
+
+        if (property_exists($body, 'reference')) {
+            $this->assertEquals($body->reference, $response->reference);
+        }
+
+        if (property_exists($body, 'scheme')) {
+            $this->assertEquals($body->scheme, $response->scheme);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'verified_at')) {
+            $this->assertEquals($body->verified_at, $response->verified_at);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -230,21 +350,66 @@ class MandatesIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Mandate', $response);
 
-        $this->assertEquals($body->authorisation_source, $response->authorisation_source);
-        $this->assertEquals($body->consent_parameters, $response->consent_parameters);
-        $this->assertEquals($body->consent_type, $response->consent_type);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->funds_settlement, $response->funds_settlement);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->next_possible_charge_date, $response->next_possible_charge_date);
-        $this->assertEquals($body->next_possible_standard_ach_charge_date, $response->next_possible_standard_ach_charge_date);
-        $this->assertEquals($body->payments_require_approval, $response->payments_require_approval);
-        $this->assertEquals($body->reference, $response->reference);
-        $this->assertEquals($body->scheme, $response->scheme);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->verified_at, $response->verified_at);
+
+        if (property_exists($body, 'authorisation_source')) {
+            $this->assertEquals($body->authorisation_source, $response->authorisation_source);
+        }
+
+        if (property_exists($body, 'consent_parameters')) {
+            $this->assertEquals($body->consent_parameters, $response->consent_parameters);
+        }
+
+        if (property_exists($body, 'consent_type')) {
+            $this->assertEquals($body->consent_type, $response->consent_type);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'funds_settlement')) {
+            $this->assertEquals($body->funds_settlement, $response->funds_settlement);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'next_possible_charge_date')) {
+            $this->assertEquals($body->next_possible_charge_date, $response->next_possible_charge_date);
+        }
+
+        if (property_exists($body, 'next_possible_standard_ach_charge_date')) {
+            $this->assertEquals($body->next_possible_standard_ach_charge_date, $response->next_possible_standard_ach_charge_date);
+        }
+
+        if (property_exists($body, 'payments_require_approval')) {
+            $this->assertEquals($body->payments_require_approval, $response->payments_require_approval);
+        }
+
+        if (property_exists($body, 'reference')) {
+            $this->assertEquals($body->reference, $response->reference);
+        }
+
+        if (property_exists($body, 'scheme')) {
+            $this->assertEquals($body->scheme, $response->scheme);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'verified_at')) {
+            $this->assertEquals($body->verified_at, $response->verified_at);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -265,21 +430,66 @@ class MandatesIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Mandate', $response);
 
-        $this->assertEquals($body->authorisation_source, $response->authorisation_source);
-        $this->assertEquals($body->consent_parameters, $response->consent_parameters);
-        $this->assertEquals($body->consent_type, $response->consent_type);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->funds_settlement, $response->funds_settlement);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->next_possible_charge_date, $response->next_possible_charge_date);
-        $this->assertEquals($body->next_possible_standard_ach_charge_date, $response->next_possible_standard_ach_charge_date);
-        $this->assertEquals($body->payments_require_approval, $response->payments_require_approval);
-        $this->assertEquals($body->reference, $response->reference);
-        $this->assertEquals($body->scheme, $response->scheme);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->verified_at, $response->verified_at);
+
+        if (property_exists($body, 'authorisation_source')) {
+            $this->assertEquals($body->authorisation_source, $response->authorisation_source);
+        }
+
+        if (property_exists($body, 'consent_parameters')) {
+            $this->assertEquals($body->consent_parameters, $response->consent_parameters);
+        }
+
+        if (property_exists($body, 'consent_type')) {
+            $this->assertEquals($body->consent_type, $response->consent_type);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'funds_settlement')) {
+            $this->assertEquals($body->funds_settlement, $response->funds_settlement);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'next_possible_charge_date')) {
+            $this->assertEquals($body->next_possible_charge_date, $response->next_possible_charge_date);
+        }
+
+        if (property_exists($body, 'next_possible_standard_ach_charge_date')) {
+            $this->assertEquals($body->next_possible_standard_ach_charge_date, $response->next_possible_standard_ach_charge_date);
+        }
+
+        if (property_exists($body, 'payments_require_approval')) {
+            $this->assertEquals($body->payments_require_approval, $response->payments_require_approval);
+        }
+
+        if (property_exists($body, 'reference')) {
+            $this->assertEquals($body->reference, $response->reference);
+        }
+
+        if (property_exists($body, 'scheme')) {
+            $this->assertEquals($body->scheme, $response->scheme);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'verified_at')) {
+            $this->assertEquals($body->verified_at, $response->verified_at);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -300,21 +510,66 @@ class MandatesIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Mandate', $response);
 
-        $this->assertEquals($body->authorisation_source, $response->authorisation_source);
-        $this->assertEquals($body->consent_parameters, $response->consent_parameters);
-        $this->assertEquals($body->consent_type, $response->consent_type);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->funds_settlement, $response->funds_settlement);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->next_possible_charge_date, $response->next_possible_charge_date);
-        $this->assertEquals($body->next_possible_standard_ach_charge_date, $response->next_possible_standard_ach_charge_date);
-        $this->assertEquals($body->payments_require_approval, $response->payments_require_approval);
-        $this->assertEquals($body->reference, $response->reference);
-        $this->assertEquals($body->scheme, $response->scheme);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->verified_at, $response->verified_at);
+
+        if (property_exists($body, 'authorisation_source')) {
+            $this->assertEquals($body->authorisation_source, $response->authorisation_source);
+        }
+
+        if (property_exists($body, 'consent_parameters')) {
+            $this->assertEquals($body->consent_parameters, $response->consent_parameters);
+        }
+
+        if (property_exists($body, 'consent_type')) {
+            $this->assertEquals($body->consent_type, $response->consent_type);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'funds_settlement')) {
+            $this->assertEquals($body->funds_settlement, $response->funds_settlement);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'next_possible_charge_date')) {
+            $this->assertEquals($body->next_possible_charge_date, $response->next_possible_charge_date);
+        }
+
+        if (property_exists($body, 'next_possible_standard_ach_charge_date')) {
+            $this->assertEquals($body->next_possible_standard_ach_charge_date, $response->next_possible_standard_ach_charge_date);
+        }
+
+        if (property_exists($body, 'payments_require_approval')) {
+            $this->assertEquals($body->payments_require_approval, $response->payments_require_approval);
+        }
+
+        if (property_exists($body, 'reference')) {
+            $this->assertEquals($body->reference, $response->reference);
+        }
+
+        if (property_exists($body, 'scheme')) {
+            $this->assertEquals($body->scheme, $response->scheme);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'verified_at')) {
+            $this->assertEquals($body->verified_at, $response->verified_at);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

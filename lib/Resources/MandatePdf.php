@@ -20,15 +20,15 @@ class MandatePdf extends BaseResource
     protected $model_name = "MandatePdf";
 
     /**
-     * The date and time at which the `url` will expire (10 minutes after the
-     * original request).
+     *  The date and time at which the `url` will expire (10 minutes after the
+     *  original request).
      */
     protected $expires_at;
 
     /**
-     * The URL at which this mandate PDF can be viewed until it expires at the
-     * date and time specified by `expires_at`. You should not store this URL or
-     * rely on its structure remaining the same.
+     *  The URL at which this mandate PDF can be viewed until it expires at the
+     *  date and time specified by `expires_at`. You should not store this URL
+     *  or rely on its structure remaining the same.
      */
     protected $url;
 }

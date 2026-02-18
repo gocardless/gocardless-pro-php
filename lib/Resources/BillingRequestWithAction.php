@@ -20,31 +20,32 @@ class BillingRequestWithAction extends BaseResource
     protected $model_name = "BillingRequestWithAction";
 
     /**
-     * Bank Authorisations can be used to authorise Billing Requests.
-     * Authorisations
-     * are created against a specific bank, usually the bank that provides the
-     * payer's
-     * account.
+     *  Bank Authorisations can be used to authorise Billing Requests.
+     *  Authorisations
+     *  are created against a specific bank, usually the bank that provides the
+     *  payer's
+     *  account.
      *
-     * Creation of Bank Authorisations is only permitted from GoCardless hosted
-     * UIs
-     * (see Billing Request Flows) to ensure we meet regulatory requirements for
-     * checkout flows.
+     *  Creation of Bank Authorisations is only permitted from GoCardless hosted
+     *  UIs
+     *  (see Billing Request Flows) to ensure we meet regulatory requirements
+     *  for
+     *  checkout flows.
      */
     protected $bank_authorisations;
 
     /**
-     *  Billing Requests help create resources that require input or action from
-     * a customer. An example of required input might be additional customer
-     * billing details, while an action would be asking a customer to authorise
-     * a payment using their mobile banking app.
+     *   Billing Requests help create resources that require input or action
+     *  from a customer. An example of required input might be additional
+     *  customer billing details, while an action would be asking a customer to
+     *  authorise a payment using their mobile banking app.
      *
-     * See [Billing Requests:
-     * Overview](https://developer.gocardless.com/getting-started/billing-requests/overview/)
-     * for how-to's, explanations and tutorials. <p
-     * class="notice"><strong>Important</strong>: All properties associated with
-     * `subscription_request` and `instalment_schedule_request` are only
-     * supported for ACH and PAD schemes.</p>
+     *  See [Billing Requests:
+     *  Overview](https://developer.gocardless.com/getting-started/billing-requests/overview/)
+     *  for how-to's, explanations and tutorials. <p
+     *  class="notice"><strong>Important</strong>: All properties associated
+     *  with `subscription_request` and `instalment_schedule_request` are only
+     *  supported for ACH and PAD schemes.</p>
      */
     protected $billing_requests;
 }

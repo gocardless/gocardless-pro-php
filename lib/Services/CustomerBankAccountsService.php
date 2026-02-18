@@ -27,7 +27,7 @@ class CustomerBankAccountsService extends BaseService
 
 
     /**
-    * Create a customer bank account
+    *  Create a customer bank account
     *
     * Example URL: /customer_bank_accounts
     *
@@ -62,7 +62,7 @@ class CustomerBankAccountsService extends BaseService
     }
 
     /**
-    * List customer bank accounts
+    *  List customer bank accounts
     *
     * Example URL: /customer_bank_accounts
     *
@@ -85,11 +85,11 @@ class CustomerBankAccountsService extends BaseService
     }
 
     /**
-    * Get a single customer bank account
+    *  Get a single customer bank account
     *
     * Example URL: /customer_bank_accounts/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "BA".
+    * @param  string        $identity  Unique identifier, beginning with "BA".
     * @param  array<string, mixed> $params An associative array for any params
     * @return CustomerBankAccount
     **/
@@ -115,11 +115,11 @@ class CustomerBankAccountsService extends BaseService
     }
 
     /**
-    * Update a customer bank account
+    *  Update a customer bank account
     *
     * Example URL: /customer_bank_accounts/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "BA".
+    * @param  string        $identity  Unique identifier, beginning with "BA".
     * @param  array<string, mixed> $params An associative array for any params
     * @return CustomerBankAccount
     **/
@@ -146,11 +146,11 @@ class CustomerBankAccountsService extends BaseService
     }
 
     /**
-    * Disable a customer bank account
+    *  Disable a customer bank account
     *
     * Example URL: /customer_bank_accounts/:identity/actions/disable
     *
-    * @param  string        $identity Unique identifier, beginning with "BA".
+    * @param  string        $identity  Unique identifier, beginning with "BA".
     * @param  array<string, mixed> $params An associative array for any params
     * @return CustomerBankAccount
     **/
@@ -188,7 +188,7 @@ class CustomerBankAccountsService extends BaseService
     }
 
     /**
-    * List customer bank accounts
+    *  List customer bank accounts
     *
     * Example URL: /customer_bank_accounts
     *

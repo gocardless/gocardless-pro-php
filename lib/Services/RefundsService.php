@@ -27,7 +27,7 @@ class RefundsService extends BaseService
 
 
     /**
-    * Create a refund
+    *  Create a refund
     *
     * Example URL: /refunds
     *
@@ -62,7 +62,7 @@ class RefundsService extends BaseService
     }
 
     /**
-    * List refunds
+    *  List refunds
     *
     * Example URL: /refunds
     *
@@ -85,11 +85,11 @@ class RefundsService extends BaseService
     }
 
     /**
-    * Get a single refund
+    *  Get a single refund
     *
     * Example URL: /refunds/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "RF".
+    * @param  string        $identity  Unique identifier, beginning with "RF".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Refund
     **/
@@ -115,11 +115,11 @@ class RefundsService extends BaseService
     }
 
     /**
-    * Update a refund
+    *  Update a refund
     *
     * Example URL: /refunds/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "RF".
+    * @param  string        $identity  Unique identifier, beginning with "RF".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Refund
     **/
@@ -146,7 +146,7 @@ class RefundsService extends BaseService
     }
 
     /**
-    * List refunds
+    *  List refunds
     *
     * Example URL: /refunds
     *

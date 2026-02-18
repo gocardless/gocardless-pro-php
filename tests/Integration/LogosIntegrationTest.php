@@ -27,7 +27,10 @@ class LogosIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Logo', $response);
 
-        $this->assertEquals($body->id, $response->id);
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

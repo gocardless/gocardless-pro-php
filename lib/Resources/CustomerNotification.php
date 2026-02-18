@@ -24,27 +24,27 @@ class CustomerNotification extends BaseResource
     protected $model_name = "CustomerNotification";
 
     /**
-     * The action that was taken on the notification. Currently this can only be
-     * `handled`,
-     * which means the integrator sent the notification themselves.
+     *  The action that was taken on the notification. Currently this can only
+     *  be `handled`,
+     *  which means the integrator sent the notification themselves.
      *
      */
     protected $action_taken;
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when this
-     * action was taken.
+     *  Fixed [timestamp](#api-usage-dates-and-times), recording when this
+     *  action was taken.
      */
     protected $action_taken_at;
 
     /**
-     * A string identifying the integrator who was able to handle this
-     * notification.
+     *  A string identifying the integrator who was able to handle this
+     *  notification.
      */
     protected $action_taken_by;
 
     /**
-     * The id of the notification.
+     *  The id of the notification.
      */
     protected $id;
 
@@ -54,18 +54,18 @@ class CustomerNotification extends BaseResource
     protected $links;
 
     /**
-     * The type of notification the customer shall receive.
-     * One of:
-     * <ul>
-     * <li>`payment_created`</li>
-     * <li>`payment_cancelled`</li>
-     * <li>`mandate_created`</li>
-     * <li>`mandate_blocked`</li>
-     * <li>`subscription_created`</li>
-     * <li>`subscription_cancelled`</li>
-     * <li>`instalment_schedule_created`</li>
-     * <li>`instalment_schedule_cancelled`</li>
-     * </ul>
+     *  The type of notification the customer shall receive.
+     *  One of:
+     *  <ul>
+     *  <li>`payment_created`</li>
+     *  <li>`payment_cancelled`</li>
+     *  <li>`mandate_created`</li>
+     *  <li>`mandate_blocked`</li>
+     *  <li>`subscription_created`</li>
+     *  <li>`subscription_cancelled`</li>
+     *  <li>`instalment_schedule_created`</li>
+     *  <li>`instalment_schedule_cancelled`</li>
+     *  </ul>
      */
     protected $type;
 }

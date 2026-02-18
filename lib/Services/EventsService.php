@@ -27,7 +27,7 @@ class EventsService extends BaseService
 
 
     /**
-    * List events
+    *  List events
     *
     * Example URL: /events
     *
@@ -50,11 +50,11 @@ class EventsService extends BaseService
     }
 
     /**
-    * Get a single event
+    *  Get a single event
     *
     * Example URL: /events/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "EV".
+    * @param  string        $identity  Unique identifier, beginning with "EV".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Event
     **/
@@ -80,7 +80,7 @@ class EventsService extends BaseService
     }
 
     /**
-    * List events
+    *  List events
     *
     * Example URL: /events
     *

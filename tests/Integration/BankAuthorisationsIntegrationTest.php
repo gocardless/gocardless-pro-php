@@ -27,16 +27,46 @@ class BankAuthorisationsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BankAuthorisation', $response);
 
-        $this->assertEquals($body->authorisation_type, $response->authorisation_type);
-        $this->assertEquals($body->authorised_at, $response->authorised_at);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->expires_at, $response->expires_at);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->last_visited_at, $response->last_visited_at);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->qr_code_url, $response->qr_code_url);
-        $this->assertEquals($body->redirect_uri, $response->redirect_uri);
-        $this->assertEquals($body->url, $response->url);
+
+        if (property_exists($body, 'authorisation_type')) {
+            $this->assertEquals($body->authorisation_type, $response->authorisation_type);
+        }
+
+        if (property_exists($body, 'authorised_at')) {
+            $this->assertEquals($body->authorised_at, $response->authorised_at);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'expires_at')) {
+            $this->assertEquals($body->expires_at, $response->expires_at);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'last_visited_at')) {
+            $this->assertEquals($body->last_visited_at, $response->last_visited_at);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'qr_code_url')) {
+            $this->assertEquals($body->qr_code_url, $response->qr_code_url);
+        }
+
+        if (property_exists($body, 'redirect_uri')) {
+            $this->assertEquals($body->redirect_uri, $response->redirect_uri);
+        }
+
+        if (property_exists($body, 'url')) {
+            $this->assertEquals($body->url, $response->url);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -64,16 +94,36 @@ class BankAuthorisationsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BankAuthorisation', $response);
 
-        $this->assertEquals($body->authorisation_type, $response->authorisation_type);
-        $this->assertEquals($body->authorised_at, $response->authorised_at);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->expires_at, $response->expires_at);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->last_visited_at, $response->last_visited_at);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->qr_code_url, $response->qr_code_url);
-        $this->assertEquals($body->redirect_uri, $response->redirect_uri);
-        $this->assertEquals($body->url, $response->url);
+        if (property_exists($body, 'authorisation_type')) {
+            $this->assertEquals($body->authorisation_type, $response->authorisation_type);
+        }
+        if (property_exists($body, 'authorised_at')) {
+            $this->assertEquals($body->authorised_at, $response->authorised_at);
+        }
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+        if (property_exists($body, 'expires_at')) {
+            $this->assertEquals($body->expires_at, $response->expires_at);
+        }
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+        if (property_exists($body, 'last_visited_at')) {
+            $this->assertEquals($body->last_visited_at, $response->last_visited_at);
+        }
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+        if (property_exists($body, 'qr_code_url')) {
+            $this->assertEquals($body->qr_code_url, $response->qr_code_url);
+        }
+        if (property_exists($body, 'redirect_uri')) {
+            $this->assertEquals($body->redirect_uri, $response->redirect_uri);
+        }
+        if (property_exists($body, 'url')) {
+            $this->assertEquals($body->url, $response->url);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -95,16 +145,46 @@ class BankAuthorisationsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BankAuthorisation', $response);
 
-        $this->assertEquals($body->authorisation_type, $response->authorisation_type);
-        $this->assertEquals($body->authorised_at, $response->authorised_at);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->expires_at, $response->expires_at);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->last_visited_at, $response->last_visited_at);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->qr_code_url, $response->qr_code_url);
-        $this->assertEquals($body->redirect_uri, $response->redirect_uri);
-        $this->assertEquals($body->url, $response->url);
+
+        if (property_exists($body, 'authorisation_type')) {
+            $this->assertEquals($body->authorisation_type, $response->authorisation_type);
+        }
+
+        if (property_exists($body, 'authorised_at')) {
+            $this->assertEquals($body->authorised_at, $response->authorised_at);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'expires_at')) {
+            $this->assertEquals($body->expires_at, $response->expires_at);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'last_visited_at')) {
+            $this->assertEquals($body->last_visited_at, $response->last_visited_at);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'qr_code_url')) {
+            $this->assertEquals($body->qr_code_url, $response->qr_code_url);
+        }
+
+        if (property_exists($body, 'redirect_uri')) {
+            $this->assertEquals($body->redirect_uri, $response->redirect_uri);
+        }
+
+        if (property_exists($body, 'url')) {
+            $this->assertEquals($body->url, $response->url);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

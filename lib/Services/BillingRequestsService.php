@@ -27,7 +27,7 @@ class BillingRequestsService extends BaseService
 
 
     /**
-    * Create a Billing Request
+    *  Create a Billing Request
     *
     * Example URL: /billing_requests
     *
@@ -62,11 +62,11 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * Collect customer details
+    *  Collect customer details
     *
     * Example URL: /billing_requests/:identity/actions/collect_customer_details
     *
-    * @param  string        $identity Unique identifier, beginning with "BRQ".
+    * @param  string        $identity  Unique identifier, beginning with "BRQ".
     * @param  array<string, mixed> $params An associative array for any params
     * @return BillingRequest
     **/
@@ -104,11 +104,11 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * Collect bank account details
+    *  Collect bank account details
     *
     * Example URL: /billing_requests/:identity/actions/collect_bank_account
     *
-    * @param  string        $identity Unique identifier, beginning with "BRQ".
+    * @param  string        $identity  Unique identifier, beginning with "BRQ".
     * @param  array<string, mixed> $params An associative array for any params
     * @return BillingRequest
     **/
@@ -146,11 +146,11 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * Confirm the payer details
+    *  Confirm the payer details
     *
     * Example URL: /billing_requests/:identity/actions/confirm_payer_details
     *
-    * @param  string        $identity Unique identifier, beginning with "BRQ".
+    * @param  string        $identity  Unique identifier, beginning with "BRQ".
     * @param  array<string, mixed> $params An associative array for any params
     * @return BillingRequest
     **/
@@ -188,11 +188,11 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * Fulfil a Billing Request
+    *  Fulfil a Billing Request
     *
     * Example URL: /billing_requests/:identity/actions/fulfil
     *
-    * @param  string        $identity Unique identifier, beginning with "BRQ".
+    * @param  string        $identity  Unique identifier, beginning with "BRQ".
     * @param  array<string, mixed> $params An associative array for any params
     * @return BillingRequest
     **/
@@ -230,11 +230,11 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * Cancel a Billing Request
+    *  Cancel a Billing Request
     *
     * Example URL: /billing_requests/:identity/actions/cancel
     *
-    * @param  string        $identity Unique identifier, beginning with "BRQ".
+    * @param  string        $identity  Unique identifier, beginning with "BRQ".
     * @param  array<string, mixed> $params An associative array for any params
     * @return BillingRequest
     **/
@@ -272,7 +272,7 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * List Billing Requests
+    *  List Billing Requests
     *
     * Example URL: /billing_requests
     *
@@ -295,11 +295,11 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * Get a single Billing Request
+    *  Get a single Billing Request
     *
     * Example URL: /billing_requests/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "BRQ".
+    * @param  string        $identity  Unique identifier, beginning with "BRQ".
     * @param  array<string, mixed> $params An associative array for any params
     * @return BillingRequest
     **/
@@ -325,11 +325,11 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * Notify the customer
+    *  Notify the customer
     *
     * Example URL: /billing_requests/:identity/actions/notify
     *
-    * @param  string        $identity Unique identifier, beginning with "BRQ".
+    * @param  string        $identity  Unique identifier, beginning with "BRQ".
     * @param  array<string, mixed> $params An associative array for any params
     * @return BillingRequest
     **/
@@ -367,11 +367,11 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * Trigger fallback
+    *  Trigger fallback
     *
     * Example URL: /billing_requests/:identity/actions/fallback
     *
-    * @param  string        $identity Unique identifier, beginning with "BRQ".
+    * @param  string        $identity  Unique identifier, beginning with "BRQ".
     * @param  array<string, mixed> $params An associative array for any params
     * @return BillingRequest
     **/
@@ -409,11 +409,11 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * Change currency
+    *  Change currency
     *
     * Example URL: /billing_requests/:identity/actions/choose_currency
     *
-    * @param  string        $identity Unique identifier, beginning with "BRQ".
+    * @param  string        $identity  Unique identifier, beginning with "BRQ".
     * @param  array<string, mixed> $params An associative array for any params
     * @return BillingRequest
     **/
@@ -451,11 +451,11 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * Select institution for a Billing Request
+    *  Select institution for a Billing Request
     *
     * Example URL: /billing_requests/:identity/actions/select_institution
     *
-    * @param  string        $identity Unique identifier, beginning with "BRQ".
+    * @param  string        $identity  Unique identifier, beginning with "BRQ".
     * @param  array<string, mixed> $params An associative array for any params
     * @return BillingRequest
     **/
@@ -493,7 +493,7 @@ class BillingRequestsService extends BaseService
     }
 
     /**
-    * List Billing Requests
+    *  List Billing Requests
     *
     * Example URL: /billing_requests
     *

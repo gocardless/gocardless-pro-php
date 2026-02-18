@@ -25,7 +25,7 @@ class PayerThemesService extends BaseService
 
 
     /**
-    * Create a payer theme associated with a creditor
+    *  Create a payer theme associated with a creditor
     *
     * Example URL: /branding/payer_themes
     *

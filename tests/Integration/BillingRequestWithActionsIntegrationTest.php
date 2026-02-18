@@ -27,8 +27,14 @@ class BillingRequestWithActionsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequestWithAction', $response);
 
-        $this->assertEquals($body->bank_authorisations, $response->bank_authorisations);
-        $this->assertEquals($body->billing_requests, $response->billing_requests);
+
+        if (property_exists($body, 'bank_authorisations')) {
+            $this->assertEquals($body->bank_authorisations, $response->bank_authorisations);
+        }
+
+        if (property_exists($body, 'billing_requests')) {
+            $this->assertEquals($body->billing_requests, $response->billing_requests);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

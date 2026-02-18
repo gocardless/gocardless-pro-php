@@ -27,7 +27,7 @@ class PaymentsService extends BaseService
 
 
     /**
-    * Create a payment
+    *  Create a payment
     *
     * Example URL: /payments
     *
@@ -62,7 +62,7 @@ class PaymentsService extends BaseService
     }
 
     /**
-    * List payments
+    *  List payments
     *
     * Example URL: /payments
     *
@@ -85,11 +85,11 @@ class PaymentsService extends BaseService
     }
 
     /**
-    * Get a single payment
+    *  Get a single payment
     *
     * Example URL: /payments/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "PM".
+    * @param  string        $identity  Unique identifier, beginning with "PM".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Payment
     **/
@@ -115,11 +115,11 @@ class PaymentsService extends BaseService
     }
 
     /**
-    * Update a payment
+    *  Update a payment
     *
     * Example URL: /payments/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "PM".
+    * @param  string        $identity  Unique identifier, beginning with "PM".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Payment
     **/
@@ -146,11 +146,11 @@ class PaymentsService extends BaseService
     }
 
     /**
-    * Cancel a payment
+    *  Cancel a payment
     *
     * Example URL: /payments/:identity/actions/cancel
     *
-    * @param  string        $identity Unique identifier, beginning with "PM".
+    * @param  string        $identity  Unique identifier, beginning with "PM".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Payment
     **/
@@ -188,11 +188,11 @@ class PaymentsService extends BaseService
     }
 
     /**
-    * Retry a payment
+    *  Retry a payment
     *
     * Example URL: /payments/:identity/actions/retry
     *
-    * @param  string        $identity Unique identifier, beginning with "PM".
+    * @param  string        $identity  Unique identifier, beginning with "PM".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Payment
     **/
@@ -230,7 +230,7 @@ class PaymentsService extends BaseService
     }
 
     /**
-    * List payments
+    *  List payments
     *
     * Example URL: /payments
     *

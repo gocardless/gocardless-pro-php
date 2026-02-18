@@ -109,19 +109,58 @@ class WebhooksIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Webhook', $response);
 
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->is_test, $response->is_test);
-        $this->assertEquals($body->request_body, $response->request_body);
-        $this->assertEquals($body->request_headers, $response->request_headers);
-        $this->assertEquals($body->response_body, $response->response_body);
-        $this->assertEquals($body->response_body_truncated, $response->response_body_truncated);
-        $this->assertEquals($body->response_code, $response->response_code);
-        $this->assertEquals($body->response_headers, $response->response_headers);
-        $this->assertEquals($body->response_headers_content_truncated, $response->response_headers_content_truncated);
-        $this->assertEquals($body->response_headers_count_truncated, $response->response_headers_count_truncated);
-        $this->assertEquals($body->successful, $response->successful);
-        $this->assertEquals($body->url, $response->url);
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'is_test')) {
+            $this->assertEquals($body->is_test, $response->is_test);
+        }
+
+        if (property_exists($body, 'request_body')) {
+            $this->assertEquals($body->request_body, $response->request_body);
+        }
+
+        if (property_exists($body, 'request_headers')) {
+            $this->assertEquals($body->request_headers, $response->request_headers);
+        }
+
+        if (property_exists($body, 'response_body')) {
+            $this->assertEquals($body->response_body, $response->response_body);
+        }
+
+        if (property_exists($body, 'response_body_truncated')) {
+            $this->assertEquals($body->response_body_truncated, $response->response_body_truncated);
+        }
+
+        if (property_exists($body, 'response_code')) {
+            $this->assertEquals($body->response_code, $response->response_code);
+        }
+
+        if (property_exists($body, 'response_headers')) {
+            $this->assertEquals($body->response_headers, $response->response_headers);
+        }
+
+        if (property_exists($body, 'response_headers_content_truncated')) {
+            $this->assertEquals($body->response_headers_content_truncated, $response->response_headers_content_truncated);
+        }
+
+        if (property_exists($body, 'response_headers_count_truncated')) {
+            $this->assertEquals($body->response_headers_count_truncated, $response->response_headers_count_truncated);
+        }
+
+        if (property_exists($body, 'successful')) {
+            $this->assertEquals($body->successful, $response->successful);
+        }
+
+        if (property_exists($body, 'url')) {
+            $this->assertEquals($body->url, $response->url);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -142,19 +181,58 @@ class WebhooksIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Webhook', $response);
 
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->is_test, $response->is_test);
-        $this->assertEquals($body->request_body, $response->request_body);
-        $this->assertEquals($body->request_headers, $response->request_headers);
-        $this->assertEquals($body->response_body, $response->response_body);
-        $this->assertEquals($body->response_body_truncated, $response->response_body_truncated);
-        $this->assertEquals($body->response_code, $response->response_code);
-        $this->assertEquals($body->response_headers, $response->response_headers);
-        $this->assertEquals($body->response_headers_content_truncated, $response->response_headers_content_truncated);
-        $this->assertEquals($body->response_headers_count_truncated, $response->response_headers_count_truncated);
-        $this->assertEquals($body->successful, $response->successful);
-        $this->assertEquals($body->url, $response->url);
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'is_test')) {
+            $this->assertEquals($body->is_test, $response->is_test);
+        }
+
+        if (property_exists($body, 'request_body')) {
+            $this->assertEquals($body->request_body, $response->request_body);
+        }
+
+        if (property_exists($body, 'request_headers')) {
+            $this->assertEquals($body->request_headers, $response->request_headers);
+        }
+
+        if (property_exists($body, 'response_body')) {
+            $this->assertEquals($body->response_body, $response->response_body);
+        }
+
+        if (property_exists($body, 'response_body_truncated')) {
+            $this->assertEquals($body->response_body_truncated, $response->response_body_truncated);
+        }
+
+        if (property_exists($body, 'response_code')) {
+            $this->assertEquals($body->response_code, $response->response_code);
+        }
+
+        if (property_exists($body, 'response_headers')) {
+            $this->assertEquals($body->response_headers, $response->response_headers);
+        }
+
+        if (property_exists($body, 'response_headers_content_truncated')) {
+            $this->assertEquals($body->response_headers_content_truncated, $response->response_headers_content_truncated);
+        }
+
+        if (property_exists($body, 'response_headers_count_truncated')) {
+            $this->assertEquals($body->response_headers_count_truncated, $response->response_headers_count_truncated);
+        }
+
+        if (property_exists($body, 'successful')) {
+            $this->assertEquals($body->successful, $response->successful);
+        }
+
+        if (property_exists($body, 'url')) {
+            $this->assertEquals($body->url, $response->url);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

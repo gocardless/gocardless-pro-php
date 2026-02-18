@@ -19,7 +19,7 @@ class Logo extends BaseResource
     protected $model_name = "Logo";
 
     /**
-     * Unique identifier, beginning with "LO".
+     *  Unique identifier, beginning with "LO".
      */
     protected $id;
 }

@@ -27,7 +27,7 @@ class CustomersService extends BaseService
 
 
     /**
-    * Create a customer
+    *  Create a customer
     *
     * Example URL: /customers
     *
@@ -62,7 +62,7 @@ class CustomersService extends BaseService
     }
 
     /**
-    * List customers
+    *  List customers
     *
     * Example URL: /customers
     *
@@ -85,11 +85,11 @@ class CustomersService extends BaseService
     }
 
     /**
-    * Get a single customer
+    *  Get a single customer
     *
     * Example URL: /customers/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "CU".
+    * @param  string        $identity  Unique identifier, beginning with "CU".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Customer
     **/
@@ -115,11 +115,11 @@ class CustomersService extends BaseService
     }
 
     /**
-    * Update a customer
+    *  Update a customer
     *
     * Example URL: /customers/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "CU".
+    * @param  string        $identity  Unique identifier, beginning with "CU".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Customer
     **/
@@ -146,11 +146,11 @@ class CustomersService extends BaseService
     }
 
     /**
-    * Remove a customer
+    *  Remove a customer
     *
     * Example URL: /customers/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "CU".
+    * @param  string        $identity  Unique identifier, beginning with "CU".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Customer
     **/
@@ -176,7 +176,7 @@ class CustomersService extends BaseService
     }
 
     /**
-    * List customers
+    *  List customers
     *
     * Example URL: /customers
     *

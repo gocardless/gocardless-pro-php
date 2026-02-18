@@ -27,7 +27,7 @@ class CurrencyExchangeRatesService extends BaseService
 
 
     /**
-    * List exchange rates
+    *  List exchange rates
     *
     * Example URL: /currency_exchange_rates
     *
@@ -50,7 +50,7 @@ class CurrencyExchangeRatesService extends BaseService
     }
 
     /**
-    * List exchange rates
+    *  List exchange rates
     *
     * Example URL: /currency_exchange_rates
     *

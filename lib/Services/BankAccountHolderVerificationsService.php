@@ -25,7 +25,7 @@ class BankAccountHolderVerificationsService extends BaseService
 
 
     /**
-    * Create a bank account holder verification.
+    *  Create a bank account holder verification.
     *
     * Example URL: /bank_account_holder_verifications
     *
@@ -60,12 +60,12 @@ class BankAccountHolderVerificationsService extends BaseService
     }
 
     /**
-    * Get a bank account holder verification.
+    *  Get a bank account holder verification.
     *
     * Example URL: /bank_account_holder_verifications/:identity
     *
-    * @param  string        $identity The unique identifier for the bank account holder
- verification resource, e.g. "BAHV123".
+    * @param  string        $identity  The unique identifier for the bank account holder
+  verification resource, e.g. "BAHV123".
     * @param  array<string, mixed> $params An associative array for any params
     * @return BankAccountHolderVerification
     **/

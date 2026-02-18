@@ -27,7 +27,7 @@ class BalancesService extends BaseService
 
 
     /**
-    * List balances
+    *  List balances
     *
     * Example URL: /balances
     *
@@ -50,7 +50,7 @@ class BalancesService extends BaseService
     }
 
     /**
-    * List balances
+    *  List balances
     *
     * Example URL: /balances
     *

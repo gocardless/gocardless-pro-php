@@ -15,6 +15,54 @@ class PaymentAccountsIntegrationTest extends IntegrationTestBase
         $this->assertNotNull($obj);
     }
 
+    public function testPaymentAccountsGet()
+    {
+        $fixture = $this->loadJsonFixture('payment_accounts')->get;
+        $this->stub_request($fixture);
+
+        $service = $this->client->paymentAccounts();
+        $response = call_user_func_array(array($service, 'get'), (array)$fixture->url_params);
+
+        $body = $fixture->body->payment_accounts;
+
+        $this->assertInstanceOf('\GoCardlessPro\Resources\PaymentAccount', $response);
+
+
+        if (property_exists($body, 'account_balance')) {
+            $this->assertEquals($body->account_balance, $response->account_balance);
+        }
+
+        if (property_exists($body, 'account_holder_name')) {
+            $this->assertEquals($body->account_holder_name, $response->account_holder_name);
+        }
+
+        if (property_exists($body, 'account_number_ending')) {
+            $this->assertEquals($body->account_number_ending, $response->account_number_ending);
+        }
+
+        if (property_exists($body, 'bank_name')) {
+            $this->assertEquals($body->bank_name, $response->bank_name);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+    }
+
+
     public function testPaymentAccountsList()
     {
         $fixture = $this->loadJsonFixture('payment_accounts')->list;

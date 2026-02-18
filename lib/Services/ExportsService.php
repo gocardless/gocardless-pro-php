@@ -27,11 +27,11 @@ class ExportsService extends BaseService
 
 
     /**
-    * Get a single export
+    *  Get a single export
     *
     * Example URL: /exports/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "EX".
+    * @param  string        $identity  Unique identifier, beginning with "EX".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Export
     **/
@@ -57,7 +57,7 @@ class ExportsService extends BaseService
     }
 
     /**
-    * List exports
+    *  List exports
     *
     * Example URL: /exports
     *
@@ -80,7 +80,7 @@ class ExportsService extends BaseService
     }
 
     /**
-    * List exports
+    *  List exports
     *
     * Example URL: /exports
     *

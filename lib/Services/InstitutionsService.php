@@ -27,7 +27,7 @@ class InstitutionsService extends BaseService
 
 
     /**
-    * List Institutions
+    *  List Institutions
     *
     * Example URL: /institutions
     *
@@ -50,11 +50,11 @@ class InstitutionsService extends BaseService
     }
 
     /**
-    * List institutions for Billing Request
+    *  List institutions for Billing Request
     *
     * Example URL: /billing_requests/:identity/institutions
     *
-    * @param  string        $identity Unique identifier, beginning with "BRQ".
+    * @param  string        $identity  Unique identifier, beginning with "BRQ".
     * @param  array<string, mixed> $params An associative array for any params
     * @return ListResponse
     **/
@@ -80,7 +80,7 @@ class InstitutionsService extends BaseService
     }
 
     /**
-    * List Institutions
+    *  List Institutions
     *
     * Example URL: /institutions
     *

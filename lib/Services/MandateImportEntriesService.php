@@ -27,7 +27,7 @@ class MandateImportEntriesService extends BaseService
 
 
     /**
-    * Add a mandate import entry
+    *  Add a mandate import entry
     *
     * Example URL: /mandate_import_entries
     *
@@ -51,7 +51,7 @@ class MandateImportEntriesService extends BaseService
     }
 
     /**
-    * List all mandate import entries
+    *  List all mandate import entries
     *
     * Example URL: /mandate_import_entries
     *
@@ -74,7 +74,7 @@ class MandateImportEntriesService extends BaseService
     }
 
     /**
-    * List all mandate import entries
+    *  List all mandate import entries
     *
     * Example URL: /mandate_import_entries
     *

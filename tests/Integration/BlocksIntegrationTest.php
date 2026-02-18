@@ -27,14 +27,38 @@ class BlocksIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Block', $response);
 
-        $this->assertEquals($body->active, $response->active);
-        $this->assertEquals($body->block_type, $response->block_type);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->reason_description, $response->reason_description);
-        $this->assertEquals($body->reason_type, $response->reason_type);
-        $this->assertEquals($body->resource_reference, $response->resource_reference);
-        $this->assertEquals($body->updated_at, $response->updated_at);
+
+        if (property_exists($body, 'active')) {
+            $this->assertEquals($body->active, $response->active);
+        }
+
+        if (property_exists($body, 'block_type')) {
+            $this->assertEquals($body->block_type, $response->block_type);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'reason_description')) {
+            $this->assertEquals($body->reason_description, $response->reason_description);
+        }
+
+        if (property_exists($body, 'reason_type')) {
+            $this->assertEquals($body->reason_type, $response->reason_type);
+        }
+
+        if (property_exists($body, 'resource_reference')) {
+            $this->assertEquals($body->resource_reference, $response->resource_reference);
+        }
+
+        if (property_exists($body, 'updated_at')) {
+            $this->assertEquals($body->updated_at, $response->updated_at);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -62,14 +86,30 @@ class BlocksIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Block', $response);
 
-        $this->assertEquals($body->active, $response->active);
-        $this->assertEquals($body->block_type, $response->block_type);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->reason_description, $response->reason_description);
-        $this->assertEquals($body->reason_type, $response->reason_type);
-        $this->assertEquals($body->resource_reference, $response->resource_reference);
-        $this->assertEquals($body->updated_at, $response->updated_at);
+        if (property_exists($body, 'active')) {
+            $this->assertEquals($body->active, $response->active);
+        }
+        if (property_exists($body, 'block_type')) {
+            $this->assertEquals($body->block_type, $response->block_type);
+        }
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+        if (property_exists($body, 'reason_description')) {
+            $this->assertEquals($body->reason_description, $response->reason_description);
+        }
+        if (property_exists($body, 'reason_type')) {
+            $this->assertEquals($body->reason_type, $response->reason_type);
+        }
+        if (property_exists($body, 'resource_reference')) {
+            $this->assertEquals($body->resource_reference, $response->resource_reference);
+        }
+        if (property_exists($body, 'updated_at')) {
+            $this->assertEquals($body->updated_at, $response->updated_at);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -91,14 +131,38 @@ class BlocksIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Block', $response);
 
-        $this->assertEquals($body->active, $response->active);
-        $this->assertEquals($body->block_type, $response->block_type);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->reason_description, $response->reason_description);
-        $this->assertEquals($body->reason_type, $response->reason_type);
-        $this->assertEquals($body->resource_reference, $response->resource_reference);
-        $this->assertEquals($body->updated_at, $response->updated_at);
+
+        if (property_exists($body, 'active')) {
+            $this->assertEquals($body->active, $response->active);
+        }
+
+        if (property_exists($body, 'block_type')) {
+            $this->assertEquals($body->block_type, $response->block_type);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'reason_description')) {
+            $this->assertEquals($body->reason_description, $response->reason_description);
+        }
+
+        if (property_exists($body, 'reason_type')) {
+            $this->assertEquals($body->reason_type, $response->reason_type);
+        }
+
+        if (property_exists($body, 'resource_reference')) {
+            $this->assertEquals($body->resource_reference, $response->resource_reference);
+        }
+
+        if (property_exists($body, 'updated_at')) {
+            $this->assertEquals($body->updated_at, $response->updated_at);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -181,14 +245,38 @@ class BlocksIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Block', $response);
 
-        $this->assertEquals($body->active, $response->active);
-        $this->assertEquals($body->block_type, $response->block_type);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->reason_description, $response->reason_description);
-        $this->assertEquals($body->reason_type, $response->reason_type);
-        $this->assertEquals($body->resource_reference, $response->resource_reference);
-        $this->assertEquals($body->updated_at, $response->updated_at);
+
+        if (property_exists($body, 'active')) {
+            $this->assertEquals($body->active, $response->active);
+        }
+
+        if (property_exists($body, 'block_type')) {
+            $this->assertEquals($body->block_type, $response->block_type);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'reason_description')) {
+            $this->assertEquals($body->reason_description, $response->reason_description);
+        }
+
+        if (property_exists($body, 'reason_type')) {
+            $this->assertEquals($body->reason_type, $response->reason_type);
+        }
+
+        if (property_exists($body, 'resource_reference')) {
+            $this->assertEquals($body->resource_reference, $response->resource_reference);
+        }
+
+        if (property_exists($body, 'updated_at')) {
+            $this->assertEquals($body->updated_at, $response->updated_at);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -209,14 +297,38 @@ class BlocksIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Block', $response);
 
-        $this->assertEquals($body->active, $response->active);
-        $this->assertEquals($body->block_type, $response->block_type);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->reason_description, $response->reason_description);
-        $this->assertEquals($body->reason_type, $response->reason_type);
-        $this->assertEquals($body->resource_reference, $response->resource_reference);
-        $this->assertEquals($body->updated_at, $response->updated_at);
+
+        if (property_exists($body, 'active')) {
+            $this->assertEquals($body->active, $response->active);
+        }
+
+        if (property_exists($body, 'block_type')) {
+            $this->assertEquals($body->block_type, $response->block_type);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'reason_description')) {
+            $this->assertEquals($body->reason_description, $response->reason_description);
+        }
+
+        if (property_exists($body, 'reason_type')) {
+            $this->assertEquals($body->reason_type, $response->reason_type);
+        }
+
+        if (property_exists($body, 'resource_reference')) {
+            $this->assertEquals($body->resource_reference, $response->resource_reference);
+        }
+
+        if (property_exists($body, 'updated_at')) {
+            $this->assertEquals($body->updated_at, $response->updated_at);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

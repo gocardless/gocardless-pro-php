@@ -25,7 +25,7 @@ class MandatePdfsService extends BaseService
 
 
     /**
-    * Create a mandate PDF
+    *  Create a mandate PDF
     *
     * Example URL: /mandate_pdfs
     *

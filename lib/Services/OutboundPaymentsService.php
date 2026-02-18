@@ -27,7 +27,7 @@ class OutboundPaymentsService extends BaseService
 
 
     /**
-    * Create an outbound payment
+    *  Create an outbound payment
     *
     * Example URL: /outbound_payments
     *
@@ -62,7 +62,7 @@ class OutboundPaymentsService extends BaseService
     }
 
     /**
-    * Create a withdrawal outbound payment
+    *  Create a withdrawal outbound payment
     *
     * Example URL: /outbound_payments/withdrawal
     *
@@ -97,11 +97,11 @@ class OutboundPaymentsService extends BaseService
     }
 
     /**
-    * Cancel an outbound payment
+    *  Cancel an outbound payment
     *
     * Example URL: /outbound_payments/:identity/actions/cancel
     *
-    * @param  string        $identity Unique identifier of the outbound payment.
+    * @param  string        $identity  Unique identifier of the outbound payment.
     * @param  array<string, mixed> $params An associative array for any params
     * @return OutboundPayment
     **/
@@ -139,11 +139,11 @@ class OutboundPaymentsService extends BaseService
     }
 
     /**
-    * Approve an outbound payment
+    *  Approve an outbound payment
     *
     * Example URL: /outbound_payments/:identity/actions/approve
     *
-    * @param  string        $identity Unique identifier of the outbound payment.
+    * @param  string        $identity  Unique identifier of the outbound payment.
     * @param  array<string, mixed> $params An associative array for any params
     * @return OutboundPayment
     **/
@@ -181,11 +181,11 @@ class OutboundPaymentsService extends BaseService
     }
 
     /**
-    * Get an outbound payment
+    *  Get an outbound payment
     *
     * Example URL: /outbound_payments/:identity
     *
-    * @param  string        $identity Unique identifier of the outbound payment.
+    * @param  string        $identity  Unique identifier of the outbound payment.
     * @param  array<string, mixed> $params An associative array for any params
     * @return OutboundPayment
     **/
@@ -211,7 +211,7 @@ class OutboundPaymentsService extends BaseService
     }
 
     /**
-    * List outbound payments
+    *  List outbound payments
     *
     * Example URL: /outbound_payments
     *
@@ -234,11 +234,11 @@ class OutboundPaymentsService extends BaseService
     }
 
     /**
-    * Update an outbound payment
+    *  Update an outbound payment
     *
     * Example URL: /outbound_payments/:identity
     *
-    * @param  string        $identity Unique identifier of the outbound payment.
+    * @param  string        $identity  Unique identifier of the outbound payment.
     * @param  array<string, mixed> $params An associative array for any params
     * @return OutboundPayment
     **/
@@ -265,7 +265,30 @@ class OutboundPaymentsService extends BaseService
     }
 
     /**
-    * List outbound payments
+    *  Outbound payment statistics
+    *
+    * Example URL: /outbound_payments/stats
+    *
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return OutboundPayment
+    **/
+    public function stats($params = array())
+    {
+        $path = "/outbound_payments/stats";
+        if (isset($params['params'])) {
+            $params['query'] = $params['params'];
+            unset($params['params']);
+        }
+
+
+        $response = $this->api_client->get($path, $params);
+
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
+    *  List outbound payments
     *
     * Example URL: /outbound_payments
     *

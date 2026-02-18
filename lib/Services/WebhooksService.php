@@ -27,7 +27,7 @@ class WebhooksService extends BaseService
 
 
     /**
-    * List webhooks
+    *  List webhooks
     *
     * Example URL: /webhooks
     *
@@ -50,11 +50,11 @@ class WebhooksService extends BaseService
     }
 
     /**
-    * Get a single webhook
+    *  Get a single webhook
     *
     * Example URL: /webhooks/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "WB".
+    * @param  string        $identity  Unique identifier, beginning with "WB".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Webhook
     **/
@@ -80,11 +80,11 @@ class WebhooksService extends BaseService
     }
 
     /**
-    * Retry a webhook
+    *  Retry a webhook
     *
     * Example URL: /webhooks/:identity/actions/retry
     *
-    * @param  string        $identity Unique identifier, beginning with "WB".
+    * @param  string        $identity  Unique identifier, beginning with "WB".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Webhook
     **/
@@ -122,7 +122,7 @@ class WebhooksService extends BaseService
     }
 
     /**
-    * List webhooks
+    *  List webhooks
     *
     * Example URL: /webhooks
     *

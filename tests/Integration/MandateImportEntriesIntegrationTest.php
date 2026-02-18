@@ -27,10 +27,22 @@ class MandateImportEntriesIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\MandateImportEntry', $response);
 
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->processing_errors, $response->processing_errors);
-        $this->assertEquals($body->record_identifier, $response->record_identifier);
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'processing_errors')) {
+            $this->assertEquals($body->processing_errors, $response->processing_errors);
+        }
+
+        if (property_exists($body, 'record_identifier')) {
+            $this->assertEquals($body->record_identifier, $response->record_identifier);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

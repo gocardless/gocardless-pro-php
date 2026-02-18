@@ -81,12 +81,30 @@ class TaxRatesIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\TaxRate', $response);
 
-        $this->assertEquals($body->end_date, $response->end_date);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->jurisdiction, $response->jurisdiction);
-        $this->assertEquals($body->percentage, $response->percentage);
-        $this->assertEquals($body->start_date, $response->start_date);
-        $this->assertEquals($body->type, $response->type);
+
+        if (property_exists($body, 'end_date')) {
+            $this->assertEquals($body->end_date, $response->end_date);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'jurisdiction')) {
+            $this->assertEquals($body->jurisdiction, $response->jurisdiction);
+        }
+
+        if (property_exists($body, 'percentage')) {
+            $this->assertEquals($body->percentage, $response->percentage);
+        }
+
+        if (property_exists($body, 'start_date')) {
+            $this->assertEquals($body->start_date, $response->start_date);
+        }
+
+        if (property_exists($body, 'type')) {
+            $this->assertEquals($body->type, $response->type);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

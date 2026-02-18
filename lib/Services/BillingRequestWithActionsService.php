@@ -25,7 +25,7 @@ class BillingRequestWithActionsService extends BaseService
 
 
     /**
-    * Create a Billing Request with Actions
+    *  Create a Billing Request with Actions
     *
     * Example URL: /billing_requests/create_with_actions
     *

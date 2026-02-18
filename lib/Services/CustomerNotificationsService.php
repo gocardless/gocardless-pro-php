@@ -25,11 +25,11 @@ class CustomerNotificationsService extends BaseService
 
 
     /**
-    * Handle a notification
+    *  Handle a notification
     *
     * Example URL: /customer_notifications/:identity/actions/handle
     *
-    * @param  string        $identity The id of the notification.
+    * @param  string        $identity  The id of the notification.
     * @param  array<string, mixed> $params An associative array for any params
     * @return CustomerNotification
     **/

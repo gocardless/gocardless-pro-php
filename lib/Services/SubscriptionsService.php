@@ -27,7 +27,7 @@ class SubscriptionsService extends BaseService
 
 
     /**
-    * Create a subscription
+    *  Create a subscription
     *
     * Example URL: /subscriptions
     *
@@ -62,7 +62,7 @@ class SubscriptionsService extends BaseService
     }
 
     /**
-    * List subscriptions
+    *  List subscriptions
     *
     * Example URL: /subscriptions
     *
@@ -85,11 +85,11 @@ class SubscriptionsService extends BaseService
     }
 
     /**
-    * Get a single subscription
+    *  Get a single subscription
     *
     * Example URL: /subscriptions/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "SB".
+    * @param  string        $identity  Unique identifier, beginning with "SB".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Subscription
     **/
@@ -115,11 +115,11 @@ class SubscriptionsService extends BaseService
     }
 
     /**
-    * Update a subscription
+    *  Update a subscription
     *
     * Example URL: /subscriptions/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "SB".
+    * @param  string        $identity  Unique identifier, beginning with "SB".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Subscription
     **/
@@ -146,11 +146,11 @@ class SubscriptionsService extends BaseService
     }
 
     /**
-    * Pause a subscription
+    *  Pause a subscription
     *
     * Example URL: /subscriptions/:identity/actions/pause
     *
-    * @param  string        $identity Unique identifier, beginning with "SB".
+    * @param  string        $identity  Unique identifier, beginning with "SB".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Subscription
     **/
@@ -188,11 +188,11 @@ class SubscriptionsService extends BaseService
     }
 
     /**
-    * Resume a subscription
+    *  Resume a subscription
     *
     * Example URL: /subscriptions/:identity/actions/resume
     *
-    * @param  string        $identity Unique identifier, beginning with "SB".
+    * @param  string        $identity  Unique identifier, beginning with "SB".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Subscription
     **/
@@ -230,11 +230,11 @@ class SubscriptionsService extends BaseService
     }
 
     /**
-    * Cancel a subscription
+    *  Cancel a subscription
     *
     * Example URL: /subscriptions/:identity/actions/cancel
     *
-    * @param  string        $identity Unique identifier, beginning with "SB".
+    * @param  string        $identity  Unique identifier, beginning with "SB".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Subscription
     **/
@@ -272,7 +272,7 @@ class SubscriptionsService extends BaseService
     }
 
     /**
-    * List subscriptions
+    *  List subscriptions
     *
     * Example URL: /subscriptions
     *

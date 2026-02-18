@@ -1,4 +1,4 @@
-{ 
+{
   
   
   "create": {
@@ -42,6 +42,12 @@
     "path_template": "/outbound_payments/:identity",
     "url_params": {"identity": "OUT123"},
     "body": {"outbound_payments":{"amount":1000,"created_at":"2024-01-01T12:00:00.000Z","currency":"GBP","description":"Reward Payment (August 2024)","execution_date":"2024-08-31","id":"OUT123","is_withdrawal":true,"links":{"creditor":"CR123","customer":"CU123","recipient_bank_account":"BA123"},"metadata":{},"reference":"GC-QC2FI7GBEW7VCXL","scheme":"faster_payments","status":"cancelled","verifications":{"recipient_bank_account_holder_verification":{"actual_account_name":"Jo Doe","result":"partial_match","type":"confirmation_of_payee"}}}}
+  },
+  "stats": {
+    "method": "GET",
+    "path_template": "/outbound_payments/stats",
+    "url_params": {},
+    "body": {"outbound_payments":{"executing_amount":101,"executing_count":101,"pending_approval_amount":101,"pending_approval_count":101,"scheduled_amount":101,"scheduled_count":101}}
   }
 }
 

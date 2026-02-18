@@ -25,40 +25,40 @@ class PaymentAccount extends BaseResource
     protected $model_name = "PaymentAccount";
 
     /**
-     * Current balance on a payment account in the lowest denomination for the
-     * currency (e.g. pence in GBP, cents in EUR).
-     * It is time-sensitive as it is ever changing.
+     *  Current balance on a payment account in the lowest denomination for the
+     *  currency (e.g. pence in GBP, cents in EUR).
+     *  It is time-sensitive as it is ever changing.
      */
     protected $account_balance;
 
     /**
-     * Name of the account holder, as known by the bank. Usually this is the
-     * same as the name stored with the linked
-     * [creditor](#core-endpoints-creditors). This field will be transliterated,
-     * upcased and truncated to 18 characters.
+     *  Name of the account holder, as known by the bank. Usually this is the
+     *  same as the name stored with the linked
+     *  [creditor](#core-endpoints-creditors). This field will be
+     *  transliterated, upcased and truncated to 18 characters.
      */
     protected $account_holder_name;
 
     /**
-     * The last few digits of the account number. Currently 4 digits for NZD
-     * bank accounts and 2 digits for other currencies.
+     *  The last few digits of the account number. Currently 4 digits for NZD
+     *  bank accounts and 2 digits for other currencies.
      */
     protected $account_number_ending;
 
     /**
-     * Name of bank, taken from the bank details.
+     *  Name of bank, taken from the bank details.
      */
     protected $bank_name;
 
     /**
-     * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
-     * code. Currently "AUD", "CAD", "DKK", "EUR", "GBP", "NZD", "SEK" and "USD"
-     * are supported.
+     *  [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
+     *  code. Currently "AUD", "CAD", "DKK", "EUR", "GBP", "NZD", "SEK" and
+     *  "USD" are supported.
      */
     protected $currency;
 
     /**
-     * Unique identifier, beginning with "BA".
+     *  Unique identifier, beginning with "BA".
      */
     protected $id;
 

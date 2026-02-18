@@ -27,7 +27,7 @@ class VerificationDetailsService extends BaseService
 
 
     /**
-    * Create a verification detail
+    *  Create a verification detail
     *
     * Example URL: /verification_details
     *
@@ -51,7 +51,7 @@ class VerificationDetailsService extends BaseService
     }
 
     /**
-    * List verification details
+    *  List verification details
     *
     * Example URL: /verification_details
     *
@@ -74,7 +74,7 @@ class VerificationDetailsService extends BaseService
     }
 
     /**
-    * List verification details
+    *  List verification details
     *
     * Example URL: /verification_details
     *

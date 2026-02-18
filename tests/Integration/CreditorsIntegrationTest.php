@@ -27,27 +27,90 @@ class CreditorsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Creditor', $response);
 
-        $this->assertEquals($body->address_line1, $response->address_line1);
-        $this->assertEquals($body->address_line2, $response->address_line2);
-        $this->assertEquals($body->address_line3, $response->address_line3);
-        $this->assertEquals($body->bank_reference_prefix, $response->bank_reference_prefix);
-        $this->assertEquals($body->can_create_refunds, $response->can_create_refunds);
-        $this->assertEquals($body->city, $response->city);
-        $this->assertEquals($body->country_code, $response->country_code);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->creditor_type, $response->creditor_type);
-        $this->assertEquals($body->custom_payment_pages_enabled, $response->custom_payment_pages_enabled);
-        $this->assertEquals($body->fx_payout_currency, $response->fx_payout_currency);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->logo_url, $response->logo_url);
-        $this->assertEquals($body->mandate_imports_enabled, $response->mandate_imports_enabled);
-        $this->assertEquals($body->merchant_responsible_for_notifications, $response->merchant_responsible_for_notifications);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->postal_code, $response->postal_code);
-        $this->assertEquals($body->region, $response->region);
-        $this->assertEquals($body->scheme_identifiers, $response->scheme_identifiers);
-        $this->assertEquals($body->verification_status, $response->verification_status);
+
+        if (property_exists($body, 'address_line1')) {
+            $this->assertEquals($body->address_line1, $response->address_line1);
+        }
+
+        if (property_exists($body, 'address_line2')) {
+            $this->assertEquals($body->address_line2, $response->address_line2);
+        }
+
+        if (property_exists($body, 'address_line3')) {
+            $this->assertEquals($body->address_line3, $response->address_line3);
+        }
+
+        if (property_exists($body, 'bank_reference_prefix')) {
+            $this->assertEquals($body->bank_reference_prefix, $response->bank_reference_prefix);
+        }
+
+        if (property_exists($body, 'can_create_refunds')) {
+            $this->assertEquals($body->can_create_refunds, $response->can_create_refunds);
+        }
+
+        if (property_exists($body, 'city')) {
+            $this->assertEquals($body->city, $response->city);
+        }
+
+        if (property_exists($body, 'country_code')) {
+            $this->assertEquals($body->country_code, $response->country_code);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'creditor_type')) {
+            $this->assertEquals($body->creditor_type, $response->creditor_type);
+        }
+
+        if (property_exists($body, 'custom_payment_pages_enabled')) {
+            $this->assertEquals($body->custom_payment_pages_enabled, $response->custom_payment_pages_enabled);
+        }
+
+        if (property_exists($body, 'fx_payout_currency')) {
+            $this->assertEquals($body->fx_payout_currency, $response->fx_payout_currency);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'logo_url')) {
+            $this->assertEquals($body->logo_url, $response->logo_url);
+        }
+
+        if (property_exists($body, 'mandate_imports_enabled')) {
+            $this->assertEquals($body->mandate_imports_enabled, $response->mandate_imports_enabled);
+        }
+
+        if (property_exists($body, 'merchant_responsible_for_notifications')) {
+            $this->assertEquals($body->merchant_responsible_for_notifications, $response->merchant_responsible_for_notifications);
+        }
+
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+
+        if (property_exists($body, 'postal_code')) {
+            $this->assertEquals($body->postal_code, $response->postal_code);
+        }
+
+        if (property_exists($body, 'region')) {
+            $this->assertEquals($body->region, $response->region);
+        }
+
+        if (property_exists($body, 'scheme_identifiers')) {
+            $this->assertEquals($body->scheme_identifiers, $response->scheme_identifiers);
+        }
+
+        if (property_exists($body, 'verification_status')) {
+            $this->assertEquals($body->verification_status, $response->verification_status);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -75,27 +138,69 @@ class CreditorsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Creditor', $response);
 
-        $this->assertEquals($body->address_line1, $response->address_line1);
-        $this->assertEquals($body->address_line2, $response->address_line2);
-        $this->assertEquals($body->address_line3, $response->address_line3);
-        $this->assertEquals($body->bank_reference_prefix, $response->bank_reference_prefix);
-        $this->assertEquals($body->can_create_refunds, $response->can_create_refunds);
-        $this->assertEquals($body->city, $response->city);
-        $this->assertEquals($body->country_code, $response->country_code);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->creditor_type, $response->creditor_type);
-        $this->assertEquals($body->custom_payment_pages_enabled, $response->custom_payment_pages_enabled);
-        $this->assertEquals($body->fx_payout_currency, $response->fx_payout_currency);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->logo_url, $response->logo_url);
-        $this->assertEquals($body->mandate_imports_enabled, $response->mandate_imports_enabled);
-        $this->assertEquals($body->merchant_responsible_for_notifications, $response->merchant_responsible_for_notifications);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->postal_code, $response->postal_code);
-        $this->assertEquals($body->region, $response->region);
-        $this->assertEquals($body->scheme_identifiers, $response->scheme_identifiers);
-        $this->assertEquals($body->verification_status, $response->verification_status);
+        if (property_exists($body, 'address_line1')) {
+            $this->assertEquals($body->address_line1, $response->address_line1);
+        }
+        if (property_exists($body, 'address_line2')) {
+            $this->assertEquals($body->address_line2, $response->address_line2);
+        }
+        if (property_exists($body, 'address_line3')) {
+            $this->assertEquals($body->address_line3, $response->address_line3);
+        }
+        if (property_exists($body, 'bank_reference_prefix')) {
+            $this->assertEquals($body->bank_reference_prefix, $response->bank_reference_prefix);
+        }
+        if (property_exists($body, 'can_create_refunds')) {
+            $this->assertEquals($body->can_create_refunds, $response->can_create_refunds);
+        }
+        if (property_exists($body, 'city')) {
+            $this->assertEquals($body->city, $response->city);
+        }
+        if (property_exists($body, 'country_code')) {
+            $this->assertEquals($body->country_code, $response->country_code);
+        }
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+        if (property_exists($body, 'creditor_type')) {
+            $this->assertEquals($body->creditor_type, $response->creditor_type);
+        }
+        if (property_exists($body, 'custom_payment_pages_enabled')) {
+            $this->assertEquals($body->custom_payment_pages_enabled, $response->custom_payment_pages_enabled);
+        }
+        if (property_exists($body, 'fx_payout_currency')) {
+            $this->assertEquals($body->fx_payout_currency, $response->fx_payout_currency);
+        }
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+        if (property_exists($body, 'logo_url')) {
+            $this->assertEquals($body->logo_url, $response->logo_url);
+        }
+        if (property_exists($body, 'mandate_imports_enabled')) {
+            $this->assertEquals($body->mandate_imports_enabled, $response->mandate_imports_enabled);
+        }
+        if (property_exists($body, 'merchant_responsible_for_notifications')) {
+            $this->assertEquals($body->merchant_responsible_for_notifications, $response->merchant_responsible_for_notifications);
+        }
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+        if (property_exists($body, 'postal_code')) {
+            $this->assertEquals($body->postal_code, $response->postal_code);
+        }
+        if (property_exists($body, 'region')) {
+            $this->assertEquals($body->region, $response->region);
+        }
+        if (property_exists($body, 'scheme_identifiers')) {
+            $this->assertEquals($body->scheme_identifiers, $response->scheme_identifiers);
+        }
+        if (property_exists($body, 'verification_status')) {
+            $this->assertEquals($body->verification_status, $response->verification_status);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -231,27 +336,90 @@ class CreditorsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Creditor', $response);
 
-        $this->assertEquals($body->address_line1, $response->address_line1);
-        $this->assertEquals($body->address_line2, $response->address_line2);
-        $this->assertEquals($body->address_line3, $response->address_line3);
-        $this->assertEquals($body->bank_reference_prefix, $response->bank_reference_prefix);
-        $this->assertEquals($body->can_create_refunds, $response->can_create_refunds);
-        $this->assertEquals($body->city, $response->city);
-        $this->assertEquals($body->country_code, $response->country_code);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->creditor_type, $response->creditor_type);
-        $this->assertEquals($body->custom_payment_pages_enabled, $response->custom_payment_pages_enabled);
-        $this->assertEquals($body->fx_payout_currency, $response->fx_payout_currency);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->logo_url, $response->logo_url);
-        $this->assertEquals($body->mandate_imports_enabled, $response->mandate_imports_enabled);
-        $this->assertEquals($body->merchant_responsible_for_notifications, $response->merchant_responsible_for_notifications);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->postal_code, $response->postal_code);
-        $this->assertEquals($body->region, $response->region);
-        $this->assertEquals($body->scheme_identifiers, $response->scheme_identifiers);
-        $this->assertEquals($body->verification_status, $response->verification_status);
+
+        if (property_exists($body, 'address_line1')) {
+            $this->assertEquals($body->address_line1, $response->address_line1);
+        }
+
+        if (property_exists($body, 'address_line2')) {
+            $this->assertEquals($body->address_line2, $response->address_line2);
+        }
+
+        if (property_exists($body, 'address_line3')) {
+            $this->assertEquals($body->address_line3, $response->address_line3);
+        }
+
+        if (property_exists($body, 'bank_reference_prefix')) {
+            $this->assertEquals($body->bank_reference_prefix, $response->bank_reference_prefix);
+        }
+
+        if (property_exists($body, 'can_create_refunds')) {
+            $this->assertEquals($body->can_create_refunds, $response->can_create_refunds);
+        }
+
+        if (property_exists($body, 'city')) {
+            $this->assertEquals($body->city, $response->city);
+        }
+
+        if (property_exists($body, 'country_code')) {
+            $this->assertEquals($body->country_code, $response->country_code);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'creditor_type')) {
+            $this->assertEquals($body->creditor_type, $response->creditor_type);
+        }
+
+        if (property_exists($body, 'custom_payment_pages_enabled')) {
+            $this->assertEquals($body->custom_payment_pages_enabled, $response->custom_payment_pages_enabled);
+        }
+
+        if (property_exists($body, 'fx_payout_currency')) {
+            $this->assertEquals($body->fx_payout_currency, $response->fx_payout_currency);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'logo_url')) {
+            $this->assertEquals($body->logo_url, $response->logo_url);
+        }
+
+        if (property_exists($body, 'mandate_imports_enabled')) {
+            $this->assertEquals($body->mandate_imports_enabled, $response->mandate_imports_enabled);
+        }
+
+        if (property_exists($body, 'merchant_responsible_for_notifications')) {
+            $this->assertEquals($body->merchant_responsible_for_notifications, $response->merchant_responsible_for_notifications);
+        }
+
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+
+        if (property_exists($body, 'postal_code')) {
+            $this->assertEquals($body->postal_code, $response->postal_code);
+        }
+
+        if (property_exists($body, 'region')) {
+            $this->assertEquals($body->region, $response->region);
+        }
+
+        if (property_exists($body, 'scheme_identifiers')) {
+            $this->assertEquals($body->scheme_identifiers, $response->scheme_identifiers);
+        }
+
+        if (property_exists($body, 'verification_status')) {
+            $this->assertEquals($body->verification_status, $response->verification_status);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -272,27 +440,90 @@ class CreditorsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Creditor', $response);
 
-        $this->assertEquals($body->address_line1, $response->address_line1);
-        $this->assertEquals($body->address_line2, $response->address_line2);
-        $this->assertEquals($body->address_line3, $response->address_line3);
-        $this->assertEquals($body->bank_reference_prefix, $response->bank_reference_prefix);
-        $this->assertEquals($body->can_create_refunds, $response->can_create_refunds);
-        $this->assertEquals($body->city, $response->city);
-        $this->assertEquals($body->country_code, $response->country_code);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->creditor_type, $response->creditor_type);
-        $this->assertEquals($body->custom_payment_pages_enabled, $response->custom_payment_pages_enabled);
-        $this->assertEquals($body->fx_payout_currency, $response->fx_payout_currency);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->logo_url, $response->logo_url);
-        $this->assertEquals($body->mandate_imports_enabled, $response->mandate_imports_enabled);
-        $this->assertEquals($body->merchant_responsible_for_notifications, $response->merchant_responsible_for_notifications);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->postal_code, $response->postal_code);
-        $this->assertEquals($body->region, $response->region);
-        $this->assertEquals($body->scheme_identifiers, $response->scheme_identifiers);
-        $this->assertEquals($body->verification_status, $response->verification_status);
+
+        if (property_exists($body, 'address_line1')) {
+            $this->assertEquals($body->address_line1, $response->address_line1);
+        }
+
+        if (property_exists($body, 'address_line2')) {
+            $this->assertEquals($body->address_line2, $response->address_line2);
+        }
+
+        if (property_exists($body, 'address_line3')) {
+            $this->assertEquals($body->address_line3, $response->address_line3);
+        }
+
+        if (property_exists($body, 'bank_reference_prefix')) {
+            $this->assertEquals($body->bank_reference_prefix, $response->bank_reference_prefix);
+        }
+
+        if (property_exists($body, 'can_create_refunds')) {
+            $this->assertEquals($body->can_create_refunds, $response->can_create_refunds);
+        }
+
+        if (property_exists($body, 'city')) {
+            $this->assertEquals($body->city, $response->city);
+        }
+
+        if (property_exists($body, 'country_code')) {
+            $this->assertEquals($body->country_code, $response->country_code);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'creditor_type')) {
+            $this->assertEquals($body->creditor_type, $response->creditor_type);
+        }
+
+        if (property_exists($body, 'custom_payment_pages_enabled')) {
+            $this->assertEquals($body->custom_payment_pages_enabled, $response->custom_payment_pages_enabled);
+        }
+
+        if (property_exists($body, 'fx_payout_currency')) {
+            $this->assertEquals($body->fx_payout_currency, $response->fx_payout_currency);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'logo_url')) {
+            $this->assertEquals($body->logo_url, $response->logo_url);
+        }
+
+        if (property_exists($body, 'mandate_imports_enabled')) {
+            $this->assertEquals($body->mandate_imports_enabled, $response->mandate_imports_enabled);
+        }
+
+        if (property_exists($body, 'merchant_responsible_for_notifications')) {
+            $this->assertEquals($body->merchant_responsible_for_notifications, $response->merchant_responsible_for_notifications);
+        }
+
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+
+        if (property_exists($body, 'postal_code')) {
+            $this->assertEquals($body->postal_code, $response->postal_code);
+        }
+
+        if (property_exists($body, 'region')) {
+            $this->assertEquals($body->region, $response->region);
+        }
+
+        if (property_exists($body, 'scheme_identifiers')) {
+            $this->assertEquals($body->scheme_identifiers, $response->scheme_identifiers);
+        }
+
+        if (property_exists($body, 'verification_status')) {
+            $this->assertEquals($body->verification_status, $response->verification_status);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

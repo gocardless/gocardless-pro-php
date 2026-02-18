@@ -1,0 +1,11 @@
+{
+  
+  
+  "check": {
+    "method": "GET",
+    "path_template": "/funds_availability/:identity",
+    "url_params": {"identity": "MD123"},
+    "body": {"funds_availability":{"available":false}}
+  }
+}
+

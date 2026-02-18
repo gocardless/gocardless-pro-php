@@ -97,16 +97,46 @@ class EventsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\Event', $response);
 
-        $this->assertEquals($body->action, $response->action);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->customer_notifications, $response->customer_notifications);
-        $this->assertEquals($body->details, $response->details);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->resource_metadata, $response->resource_metadata);
-        $this->assertEquals($body->resource_type, $response->resource_type);
-        $this->assertEquals($body->source, $response->source);
+
+        if (property_exists($body, 'action')) {
+            $this->assertEquals($body->action, $response->action);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'customer_notifications')) {
+            $this->assertEquals($body->customer_notifications, $response->customer_notifications);
+        }
+
+        if (property_exists($body, 'details')) {
+            $this->assertEquals($body->details, $response->details);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'resource_metadata')) {
+            $this->assertEquals($body->resource_metadata, $response->resource_metadata);
+        }
+
+        if (property_exists($body, 'resource_type')) {
+            $this->assertEquals($body->resource_type, $response->resource_type);
+        }
+
+        if (property_exists($body, 'source')) {
+            $this->assertEquals($body->source, $response->source);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

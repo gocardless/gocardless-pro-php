@@ -25,7 +25,7 @@ class LogosService extends BaseService
 
 
     /**
-    * Create a logo associated with a creditor
+    *  Create a logo associated with a creditor
     *
     * Example URL: /branding/logos
     *

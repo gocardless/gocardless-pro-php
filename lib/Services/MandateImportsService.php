@@ -25,7 +25,7 @@ class MandateImportsService extends BaseService
 
 
     /**
-    * Create a new mandate import
+    *  Create a new mandate import
     *
     * Example URL: /mandate_imports
     *
@@ -60,11 +60,11 @@ class MandateImportsService extends BaseService
     }
 
     /**
-    * Get a mandate import
+    *  Get a mandate import
     *
     * Example URL: /mandate_imports/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "IM".
+    * @param  string        $identity  Unique identifier, beginning with "IM".
     * @param  array<string, mixed> $params An associative array for any params
     * @return MandateImport
     **/
@@ -90,11 +90,11 @@ class MandateImportsService extends BaseService
     }
 
     /**
-    * Submit a mandate import
+    *  Submit a mandate import
     *
     * Example URL: /mandate_imports/:identity/actions/submit
     *
-    * @param  string        $identity Unique identifier, beginning with "IM".
+    * @param  string        $identity  Unique identifier, beginning with "IM".
     * @param  array<string, mixed> $params An associative array for any params
     * @return MandateImport
     **/
@@ -132,11 +132,11 @@ class MandateImportsService extends BaseService
     }
 
     /**
-    * Cancel a mandate import
+    *  Cancel a mandate import
     *
     * Example URL: /mandate_imports/:identity/actions/cancel
     *
-    * @param  string        $identity Unique identifier, beginning with "IM".
+    * @param  string        $identity  Unique identifier, beginning with "IM".
     * @param  array<string, mixed> $params An associative array for any params
     * @return MandateImport
     **/

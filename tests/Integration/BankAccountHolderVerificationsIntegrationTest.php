@@ -27,11 +27,26 @@ class BankAccountHolderVerificationsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BankAccountHolderVerification', $response);
 
-        $this->assertEquals($body->actual_account_name, $response->actual_account_name);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->result, $response->result);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->type, $response->type);
+
+        if (property_exists($body, 'actual_account_name')) {
+            $this->assertEquals($body->actual_account_name, $response->actual_account_name);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'result')) {
+            $this->assertEquals($body->result, $response->result);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'type')) {
+            $this->assertEquals($body->type, $response->type);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -59,11 +74,21 @@ class BankAccountHolderVerificationsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BankAccountHolderVerification', $response);
 
-        $this->assertEquals($body->actual_account_name, $response->actual_account_name);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->result, $response->result);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->type, $response->type);
+        if (property_exists($body, 'actual_account_name')) {
+            $this->assertEquals($body->actual_account_name, $response->actual_account_name);
+        }
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+        if (property_exists($body, 'result')) {
+            $this->assertEquals($body->result, $response->result);
+        }
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+        if (property_exists($body, 'type')) {
+            $this->assertEquals($body->type, $response->type);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -85,11 +110,26 @@ class BankAccountHolderVerificationsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BankAccountHolderVerification', $response);
 
-        $this->assertEquals($body->actual_account_name, $response->actual_account_name);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->result, $response->result);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->type, $response->type);
+
+        if (property_exists($body, 'actual_account_name')) {
+            $this->assertEquals($body->actual_account_name, $response->actual_account_name);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'result')) {
+            $this->assertEquals($body->result, $response->result);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'type')) {
+            $this->assertEquals($body->type, $response->type);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

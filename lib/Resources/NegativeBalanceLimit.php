@@ -23,25 +23,25 @@ class NegativeBalanceLimit extends BaseResource
     protected $model_name = "NegativeBalanceLimit";
 
     /**
-     * The limit amount in pence (e.g. 10000 for a -100 GBP limit).
+     *  The limit amount in pence (e.g. 10000 for a -100 GBP limit).
      */
     protected $balance_limit;
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when this limit
-     * was created.
+     *  Fixed [timestamp](#api-usage-dates-and-times), recording when this limit
+     *  was created.
      */
     protected $created_at;
 
     /**
-     * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
-     * code. Currently "AUD", "CAD", "DKK", "EUR", "GBP", "NZD", "SEK" and "USD"
-     * are supported.
+     *  [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
+     *  code. Currently "AUD", "CAD", "DKK", "EUR", "GBP", "NZD", "SEK" and
+     *  "USD" are supported.
      */
     protected $currency;
 
     /**
-     * Unique identifier, beginning with "NBL".
+     *  Unique identifier, beginning with "NBL".
      */
     protected $id;
 

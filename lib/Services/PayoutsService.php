@@ -27,7 +27,7 @@ class PayoutsService extends BaseService
 
 
     /**
-    * List payouts
+    *  List payouts
     *
     * Example URL: /payouts
     *
@@ -50,11 +50,11 @@ class PayoutsService extends BaseService
     }
 
     /**
-    * Get a single payout
+    *  Get a single payout
     *
     * Example URL: /payouts/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "PO".
+    * @param  string        $identity  Unique identifier, beginning with "PO".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Payout
     **/
@@ -80,11 +80,11 @@ class PayoutsService extends BaseService
     }
 
     /**
-    * Update a payout
+    *  Update a payout
     *
     * Example URL: /payouts/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "PO".
+    * @param  string        $identity  Unique identifier, beginning with "PO".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Payout
     **/
@@ -111,7 +111,7 @@ class PayoutsService extends BaseService
     }
 
     /**
-    * List payouts
+    *  List payouts
     *
     * Example URL: /payouts
     *

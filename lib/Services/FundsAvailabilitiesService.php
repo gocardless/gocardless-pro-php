@@ -11,32 +11,33 @@ namespace GoCardlessPro\Services;
 use GoCardlessPro\Core\Paginator;
 use GoCardlessPro\Core\Util;
 use GoCardlessPro\Core\ListResponse;
-use GoCardlessPro\Resources\BankAccountDetail;
+use GoCardlessPro\Resources\FundsAvailability;
 use GoCardlessPro\Core\Exception\InvalidStateException;
 
 /**
- * Service that provides access to the BankAccountDetail
+ * Service that provides access to the FundsAvailability
  * endpoints of the API
  */
-class BankAccountDetailsService extends BaseService
+class FundsAvailabilitiesService extends BaseService
 {
-    protected $envelope_key   = 'bank_account_details';
-    protected $resource_class = '\GoCardlessPro\Resources\BankAccountDetail';
+    protected $envelope_key   = 'funds_availability';
+    protected $resource_class = '\GoCardlessPro\Resources\FundsAvailability';
 
 
     /**
-    *  Get encrypted bank details
+    *  Funds availability
     *
-    * Example URL: /bank_account_details/:identity
+    * Example URL: /funds_availability/:identity
     *
-    * @param  string        $identity  Unique identifier, beginning with "BA".
+    * @param  string        $identity  Unique identifier, beginning with "MD". Note that this
+  prefix may not apply to mandates created before 2016.
     * @param  array<string, mixed> $params An associative array for any params
-    * @return BankAccountDetail
+    * @return FundsAvailability
     **/
-    public function get($identity, $params = array())
+    public function check($identity, $params = array())
     {
         $path = Util::subUrl(
-            '/bank_account_details/:identity',
+            '/funds_availability/:identity',
             array(
 
                 'identity' => $identity

@@ -23,28 +23,28 @@ class Export extends BaseResource
     protected $model_name = "Export";
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when this
-     * resource was created.
+     *  Fixed [timestamp](#api-usage-dates-and-times), recording when this
+     *  resource was created.
      */
     protected $created_at;
 
     /**
-     * The currency of the export (if applicable)
+     *  The currency of the export (if applicable)
      */
     protected $currency;
 
     /**
-     * Download url for the export file. Subject to expiry.
+     *  Download url for the export file. Subject to expiry.
      */
     protected $download_url;
 
     /**
-     * The type of the export
+     *  The type of the export
      */
     protected $export_type;
 
     /**
-     * Unique identifier, beginning with "EX".
+     *  Unique identifier, beginning with "EX".
      */
     protected $id;
 }

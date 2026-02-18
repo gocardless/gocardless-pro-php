@@ -27,7 +27,7 @@ class NegativeBalanceLimitsService extends BaseService
 
 
     /**
-    * List negative balance limits
+    *  List negative balance limits
     *
     * Example URL: /negative_balance_limits
     *
@@ -50,7 +50,7 @@ class NegativeBalanceLimitsService extends BaseService
     }
 
     /**
-    * List negative balance limits
+    *  List negative balance limits
     *
     * Example URL: /negative_balance_limits
     *

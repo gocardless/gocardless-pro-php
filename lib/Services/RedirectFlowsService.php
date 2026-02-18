@@ -25,7 +25,7 @@ class RedirectFlowsService extends BaseService
 
 
     /**
-    * Create a redirect flow
+    *  Create a redirect flow
     *
     * Example URL: /redirect_flows
     *
@@ -60,11 +60,11 @@ class RedirectFlowsService extends BaseService
     }
 
     /**
-    * Get a single redirect flow
+    *  Get a single redirect flow
     *
     * Example URL: /redirect_flows/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "RE".
+    * @param  string        $identity  Unique identifier, beginning with "RE".
     * @param  array<string, mixed> $params An associative array for any params
     * @return RedirectFlow
     **/
@@ -90,11 +90,11 @@ class RedirectFlowsService extends BaseService
     }
 
     /**
-    * Complete a redirect flow
+    *  Complete a redirect flow
     *
     * Example URL: /redirect_flows/:identity/actions/complete
     *
-    * @param  string        $identity Unique identifier, beginning with "RE".
+    * @param  string        $identity  Unique identifier, beginning with "RE".
     * @param  array<string, mixed> $params An associative array for any params
     * @return RedirectFlow
     **/

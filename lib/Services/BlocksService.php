@@ -27,7 +27,7 @@ class BlocksService extends BaseService
 
 
     /**
-    * Create a block
+    *  Create a block
     *
     * Example URL: /blocks
     *
@@ -62,11 +62,11 @@ class BlocksService extends BaseService
     }
 
     /**
-    * Get a single block
+    *  Get a single block
     *
     * Example URL: /blocks/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "BLC".
+    * @param  string        $identity  Unique identifier, beginning with "BLC".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Block
     **/
@@ -92,7 +92,7 @@ class BlocksService extends BaseService
     }
 
     /**
-    * List multiple blocks
+    *  List multiple blocks
     *
     * Example URL: /blocks
     *
@@ -115,11 +115,11 @@ class BlocksService extends BaseService
     }
 
     /**
-    * Disable a block
+    *  Disable a block
     *
     * Example URL: /blocks/:identity/actions/disable
     *
-    * @param  string        $identity Unique identifier, beginning with "BLC".
+    * @param  string        $identity  Unique identifier, beginning with "BLC".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Block
     **/
@@ -157,11 +157,11 @@ class BlocksService extends BaseService
     }
 
     /**
-    * Enable a block
+    *  Enable a block
     *
     * Example URL: /blocks/:identity/actions/enable
     *
-    * @param  string        $identity Unique identifier, beginning with "BLC".
+    * @param  string        $identity  Unique identifier, beginning with "BLC".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Block
     **/
@@ -199,7 +199,7 @@ class BlocksService extends BaseService
     }
 
     /**
-    * Create blocks by reference
+    *  Create blocks by reference
     *
     * Example URL: /blocks/block_by_ref
     *
@@ -234,7 +234,7 @@ class BlocksService extends BaseService
     }
 
     /**
-    * List multiple blocks
+    *  List multiple blocks
     *
     * Example URL: /blocks
     *

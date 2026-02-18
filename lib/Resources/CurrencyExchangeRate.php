@@ -22,23 +22,23 @@ class CurrencyExchangeRate extends BaseResource
     protected $model_name = "CurrencyExchangeRate";
 
     /**
-     * The exchange rate from the source to target currencies provided with up
-     * to 10 decimal places.
+     *  The exchange rate from the source to target currencies provided with up
+     *  to 10 decimal places.
      */
     protected $rate;
 
     /**
-     * Source currency
+     *  Source currency
      */
     protected $source;
 
     /**
-     * Target currency
+     *  Target currency
      */
     protected $target;
 
     /**
-     * Time at which the rate was retrieved from the provider.
+     *  Time at which the rate was retrieved from the provider.
      */
     protected $time;
 }

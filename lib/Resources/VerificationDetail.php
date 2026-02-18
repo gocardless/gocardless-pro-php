@@ -28,37 +28,37 @@ class VerificationDetail extends BaseResource
     protected $model_name = "VerificationDetail";
 
     /**
-     * The first line of the company's address.
+     *  The first line of the company's address.
      */
     protected $address_line1;
 
     /**
-     * The second line of the company's address.
+     *  The second line of the company's address.
      */
     protected $address_line2;
 
     /**
-     * The third line of the company's address.
+     *  The third line of the company's address.
      */
     protected $address_line3;
 
     /**
-     * The city of the company's address.
+     *  The city of the company's address.
      */
     protected $city;
 
     /**
-     * The company's registration number.
+     *  The company's registration number.
      */
     protected $company_number;
 
     /**
-     * A summary describing what the company does.
+     *  A summary describing what the company does.
      */
     protected $description;
 
     /**
-     * The company's directors.
+     *  The company's directors.
      */
     protected $directors;
 
@@ -68,12 +68,12 @@ class VerificationDetail extends BaseResource
     protected $links;
 
     /**
-     * The company's legal name.
+     *  The company's legal name.
      */
     protected $name;
 
     /**
-     * The company's postal code.
+     *  The company's postal code.
      */
     protected $postal_code;
 }

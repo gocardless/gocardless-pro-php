@@ -27,15 +27,42 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\InstalmentSchedule', $response);
 
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->payment_errors, $response->payment_errors);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->total_amount, $response->total_amount);
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+
+        if (property_exists($body, 'payment_errors')) {
+            $this->assertEquals($body->payment_errors, $response->payment_errors);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'total_amount')) {
+            $this->assertEquals($body->total_amount, $response->total_amount);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -63,15 +90,33 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\InstalmentSchedule', $response);
 
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->payment_errors, $response->payment_errors);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->total_amount, $response->total_amount);
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+        if (property_exists($body, 'payment_errors')) {
+            $this->assertEquals($body->payment_errors, $response->payment_errors);
+        }
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+        if (property_exists($body, 'total_amount')) {
+            $this->assertEquals($body->total_amount, $response->total_amount);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -93,15 +138,42 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\InstalmentSchedule', $response);
 
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->payment_errors, $response->payment_errors);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->total_amount, $response->total_amount);
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+
+        if (property_exists($body, 'payment_errors')) {
+            $this->assertEquals($body->payment_errors, $response->payment_errors);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'total_amount')) {
+            $this->assertEquals($body->total_amount, $response->total_amount);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -129,15 +201,33 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\InstalmentSchedule', $response);
 
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->payment_errors, $response->payment_errors);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->total_amount, $response->total_amount);
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+        if (property_exists($body, 'payment_errors')) {
+            $this->assertEquals($body->payment_errors, $response->payment_errors);
+        }
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+        if (property_exists($body, 'total_amount')) {
+            $this->assertEquals($body->total_amount, $response->total_amount);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -225,15 +315,42 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\InstalmentSchedule', $response);
 
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->payment_errors, $response->payment_errors);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->total_amount, $response->total_amount);
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+
+        if (property_exists($body, 'payment_errors')) {
+            $this->assertEquals($body->payment_errors, $response->payment_errors);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'total_amount')) {
+            $this->assertEquals($body->total_amount, $response->total_amount);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -254,15 +371,42 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\InstalmentSchedule', $response);
 
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->payment_errors, $response->payment_errors);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->total_amount, $response->total_amount);
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+
+        if (property_exists($body, 'payment_errors')) {
+            $this->assertEquals($body->payment_errors, $response->payment_errors);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'total_amount')) {
+            $this->assertEquals($body->total_amount, $response->total_amount);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -283,15 +427,42 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\InstalmentSchedule', $response);
 
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->currency, $response->currency);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->payment_errors, $response->payment_errors);
-        $this->assertEquals($body->status, $response->status);
-        $this->assertEquals($body->total_amount, $response->total_amount);
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+
+        if (property_exists($body, 'payment_errors')) {
+            $this->assertEquals($body->payment_errors, $response->payment_errors);
+        }
+
+        if (property_exists($body, 'status')) {
+            $this->assertEquals($body->status, $response->status);
+        }
+
+        if (property_exists($body, 'total_amount')) {
+            $this->assertEquals($body->total_amount, $response->total_amount);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

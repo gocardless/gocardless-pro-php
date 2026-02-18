@@ -27,12 +27,30 @@ class CustomerNotificationsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\CustomerNotification', $response);
 
-        $this->assertEquals($body->action_taken, $response->action_taken);
-        $this->assertEquals($body->action_taken_at, $response->action_taken_at);
-        $this->assertEquals($body->action_taken_by, $response->action_taken_by);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->type, $response->type);
+
+        if (property_exists($body, 'action_taken')) {
+            $this->assertEquals($body->action_taken, $response->action_taken);
+        }
+
+        if (property_exists($body, 'action_taken_at')) {
+            $this->assertEquals($body->action_taken_at, $response->action_taken_at);
+        }
+
+        if (property_exists($body, 'action_taken_by')) {
+            $this->assertEquals($body->action_taken_by, $response->action_taken_by);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'type')) {
+            $this->assertEquals($body->type, $response->type);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

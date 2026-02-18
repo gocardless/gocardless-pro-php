@@ -27,16 +27,46 @@ class VerificationDetailsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\VerificationDetail', $response);
 
-        $this->assertEquals($body->address_line1, $response->address_line1);
-        $this->assertEquals($body->address_line2, $response->address_line2);
-        $this->assertEquals($body->address_line3, $response->address_line3);
-        $this->assertEquals($body->city, $response->city);
-        $this->assertEquals($body->company_number, $response->company_number);
-        $this->assertEquals($body->description, $response->description);
-        $this->assertEquals($body->directors, $response->directors);
-        $this->assertEquals($body->links, $response->links);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->postal_code, $response->postal_code);
+
+        if (property_exists($body, 'address_line1')) {
+            $this->assertEquals($body->address_line1, $response->address_line1);
+        }
+
+        if (property_exists($body, 'address_line2')) {
+            $this->assertEquals($body->address_line2, $response->address_line2);
+        }
+
+        if (property_exists($body, 'address_line3')) {
+            $this->assertEquals($body->address_line3, $response->address_line3);
+        }
+
+        if (property_exists($body, 'city')) {
+            $this->assertEquals($body->city, $response->city);
+        }
+
+        if (property_exists($body, 'company_number')) {
+            $this->assertEquals($body->company_number, $response->company_number);
+        }
+
+        if (property_exists($body, 'description')) {
+            $this->assertEquals($body->description, $response->description);
+        }
+
+        if (property_exists($body, 'directors')) {
+            $this->assertEquals($body->directors, $response->directors);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+
+        if (property_exists($body, 'postal_code')) {
+            $this->assertEquals($body->postal_code, $response->postal_code);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

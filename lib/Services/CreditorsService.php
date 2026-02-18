@@ -27,7 +27,7 @@ class CreditorsService extends BaseService
 
 
     /**
-    * Create a creditor
+    *  Create a creditor
     *
     * Example URL: /creditors
     *
@@ -62,7 +62,7 @@ class CreditorsService extends BaseService
     }
 
     /**
-    * List creditors
+    *  List creditors
     *
     * Example URL: /creditors
     *
@@ -85,11 +85,11 @@ class CreditorsService extends BaseService
     }
 
     /**
-    * Get a single creditor
+    *  Get a single creditor
     *
     * Example URL: /creditors/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "CR".
+    * @param  string        $identity  Unique identifier, beginning with "CR".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Creditor
     **/
@@ -115,11 +115,11 @@ class CreditorsService extends BaseService
     }
 
     /**
-    * Update a creditor
+    *  Update a creditor
     *
     * Example URL: /creditors/:identity
     *
-    * @param  string        $identity Unique identifier, beginning with "CR".
+    * @param  string        $identity  Unique identifier, beginning with "CR".
     * @param  array<string, mixed> $params An associative array for any params
     * @return Creditor
     **/
@@ -146,7 +146,7 @@ class CreditorsService extends BaseService
     }
 
     /**
-    * List creditors
+    *  List creditors
     *
     * Example URL: /creditors
     *

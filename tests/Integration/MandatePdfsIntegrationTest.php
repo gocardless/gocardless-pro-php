@@ -27,8 +27,14 @@ class MandatePdfsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\MandatePdf', $response);
 
-        $this->assertEquals($body->expires_at, $response->expires_at);
-        $this->assertEquals($body->url, $response->url);
+
+        if (property_exists($body, 'expires_at')) {
+            $this->assertEquals($body->expires_at, $response->expires_at);
+        }
+
+        if (property_exists($body, 'url')) {
+            $this->assertEquals($body->url, $response->url);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

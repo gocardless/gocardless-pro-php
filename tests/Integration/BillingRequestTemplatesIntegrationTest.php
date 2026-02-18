@@ -129,24 +129,78 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequestTemplate', $response);
 
-        $this->assertEquals($body->authorisation_url, $response->authorisation_url);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->mandate_request_constraints, $response->mandate_request_constraints);
-        $this->assertEquals($body->mandate_request_currency, $response->mandate_request_currency);
-        $this->assertEquals($body->mandate_request_description, $response->mandate_request_description);
-        $this->assertEquals($body->mandate_request_metadata, $response->mandate_request_metadata);
-        $this->assertEquals($body->mandate_request_scheme, $response->mandate_request_scheme);
-        $this->assertEquals($body->mandate_request_verify, $response->mandate_request_verify);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->payment_request_amount, $response->payment_request_amount);
-        $this->assertEquals($body->payment_request_currency, $response->payment_request_currency);
-        $this->assertEquals($body->payment_request_description, $response->payment_request_description);
-        $this->assertEquals($body->payment_request_metadata, $response->payment_request_metadata);
-        $this->assertEquals($body->payment_request_scheme, $response->payment_request_scheme);
-        $this->assertEquals($body->redirect_uri, $response->redirect_uri);
-        $this->assertEquals($body->updated_at, $response->updated_at);
+
+        if (property_exists($body, 'authorisation_url')) {
+            $this->assertEquals($body->authorisation_url, $response->authorisation_url);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'mandate_request_constraints')) {
+            $this->assertEquals($body->mandate_request_constraints, $response->mandate_request_constraints);
+        }
+
+        if (property_exists($body, 'mandate_request_currency')) {
+            $this->assertEquals($body->mandate_request_currency, $response->mandate_request_currency);
+        }
+
+        if (property_exists($body, 'mandate_request_description')) {
+            $this->assertEquals($body->mandate_request_description, $response->mandate_request_description);
+        }
+
+        if (property_exists($body, 'mandate_request_metadata')) {
+            $this->assertEquals($body->mandate_request_metadata, $response->mandate_request_metadata);
+        }
+
+        if (property_exists($body, 'mandate_request_scheme')) {
+            $this->assertEquals($body->mandate_request_scheme, $response->mandate_request_scheme);
+        }
+
+        if (property_exists($body, 'mandate_request_verify')) {
+            $this->assertEquals($body->mandate_request_verify, $response->mandate_request_verify);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+
+        if (property_exists($body, 'payment_request_amount')) {
+            $this->assertEquals($body->payment_request_amount, $response->payment_request_amount);
+        }
+
+        if (property_exists($body, 'payment_request_currency')) {
+            $this->assertEquals($body->payment_request_currency, $response->payment_request_currency);
+        }
+
+        if (property_exists($body, 'payment_request_description')) {
+            $this->assertEquals($body->payment_request_description, $response->payment_request_description);
+        }
+
+        if (property_exists($body, 'payment_request_metadata')) {
+            $this->assertEquals($body->payment_request_metadata, $response->payment_request_metadata);
+        }
+
+        if (property_exists($body, 'payment_request_scheme')) {
+            $this->assertEquals($body->payment_request_scheme, $response->payment_request_scheme);
+        }
+
+        if (property_exists($body, 'redirect_uri')) {
+            $this->assertEquals($body->redirect_uri, $response->redirect_uri);
+        }
+
+        if (property_exists($body, 'updated_at')) {
+            $this->assertEquals($body->updated_at, $response->updated_at);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -167,24 +221,78 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequestTemplate', $response);
 
-        $this->assertEquals($body->authorisation_url, $response->authorisation_url);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->mandate_request_constraints, $response->mandate_request_constraints);
-        $this->assertEquals($body->mandate_request_currency, $response->mandate_request_currency);
-        $this->assertEquals($body->mandate_request_description, $response->mandate_request_description);
-        $this->assertEquals($body->mandate_request_metadata, $response->mandate_request_metadata);
-        $this->assertEquals($body->mandate_request_scheme, $response->mandate_request_scheme);
-        $this->assertEquals($body->mandate_request_verify, $response->mandate_request_verify);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->payment_request_amount, $response->payment_request_amount);
-        $this->assertEquals($body->payment_request_currency, $response->payment_request_currency);
-        $this->assertEquals($body->payment_request_description, $response->payment_request_description);
-        $this->assertEquals($body->payment_request_metadata, $response->payment_request_metadata);
-        $this->assertEquals($body->payment_request_scheme, $response->payment_request_scheme);
-        $this->assertEquals($body->redirect_uri, $response->redirect_uri);
-        $this->assertEquals($body->updated_at, $response->updated_at);
+
+        if (property_exists($body, 'authorisation_url')) {
+            $this->assertEquals($body->authorisation_url, $response->authorisation_url);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'mandate_request_constraints')) {
+            $this->assertEquals($body->mandate_request_constraints, $response->mandate_request_constraints);
+        }
+
+        if (property_exists($body, 'mandate_request_currency')) {
+            $this->assertEquals($body->mandate_request_currency, $response->mandate_request_currency);
+        }
+
+        if (property_exists($body, 'mandate_request_description')) {
+            $this->assertEquals($body->mandate_request_description, $response->mandate_request_description);
+        }
+
+        if (property_exists($body, 'mandate_request_metadata')) {
+            $this->assertEquals($body->mandate_request_metadata, $response->mandate_request_metadata);
+        }
+
+        if (property_exists($body, 'mandate_request_scheme')) {
+            $this->assertEquals($body->mandate_request_scheme, $response->mandate_request_scheme);
+        }
+
+        if (property_exists($body, 'mandate_request_verify')) {
+            $this->assertEquals($body->mandate_request_verify, $response->mandate_request_verify);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+
+        if (property_exists($body, 'payment_request_amount')) {
+            $this->assertEquals($body->payment_request_amount, $response->payment_request_amount);
+        }
+
+        if (property_exists($body, 'payment_request_currency')) {
+            $this->assertEquals($body->payment_request_currency, $response->payment_request_currency);
+        }
+
+        if (property_exists($body, 'payment_request_description')) {
+            $this->assertEquals($body->payment_request_description, $response->payment_request_description);
+        }
+
+        if (property_exists($body, 'payment_request_metadata')) {
+            $this->assertEquals($body->payment_request_metadata, $response->payment_request_metadata);
+        }
+
+        if (property_exists($body, 'payment_request_scheme')) {
+            $this->assertEquals($body->payment_request_scheme, $response->payment_request_scheme);
+        }
+
+        if (property_exists($body, 'redirect_uri')) {
+            $this->assertEquals($body->redirect_uri, $response->redirect_uri);
+        }
+
+        if (property_exists($body, 'updated_at')) {
+            $this->assertEquals($body->updated_at, $response->updated_at);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -212,24 +320,60 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequestTemplate', $response);
 
-        $this->assertEquals($body->authorisation_url, $response->authorisation_url);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->mandate_request_constraints, $response->mandate_request_constraints);
-        $this->assertEquals($body->mandate_request_currency, $response->mandate_request_currency);
-        $this->assertEquals($body->mandate_request_description, $response->mandate_request_description);
-        $this->assertEquals($body->mandate_request_metadata, $response->mandate_request_metadata);
-        $this->assertEquals($body->mandate_request_scheme, $response->mandate_request_scheme);
-        $this->assertEquals($body->mandate_request_verify, $response->mandate_request_verify);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->payment_request_amount, $response->payment_request_amount);
-        $this->assertEquals($body->payment_request_currency, $response->payment_request_currency);
-        $this->assertEquals($body->payment_request_description, $response->payment_request_description);
-        $this->assertEquals($body->payment_request_metadata, $response->payment_request_metadata);
-        $this->assertEquals($body->payment_request_scheme, $response->payment_request_scheme);
-        $this->assertEquals($body->redirect_uri, $response->redirect_uri);
-        $this->assertEquals($body->updated_at, $response->updated_at);
+        if (property_exists($body, 'authorisation_url')) {
+            $this->assertEquals($body->authorisation_url, $response->authorisation_url);
+        }
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+        if (property_exists($body, 'mandate_request_constraints')) {
+            $this->assertEquals($body->mandate_request_constraints, $response->mandate_request_constraints);
+        }
+        if (property_exists($body, 'mandate_request_currency')) {
+            $this->assertEquals($body->mandate_request_currency, $response->mandate_request_currency);
+        }
+        if (property_exists($body, 'mandate_request_description')) {
+            $this->assertEquals($body->mandate_request_description, $response->mandate_request_description);
+        }
+        if (property_exists($body, 'mandate_request_metadata')) {
+            $this->assertEquals($body->mandate_request_metadata, $response->mandate_request_metadata);
+        }
+        if (property_exists($body, 'mandate_request_scheme')) {
+            $this->assertEquals($body->mandate_request_scheme, $response->mandate_request_scheme);
+        }
+        if (property_exists($body, 'mandate_request_verify')) {
+            $this->assertEquals($body->mandate_request_verify, $response->mandate_request_verify);
+        }
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+        if (property_exists($body, 'payment_request_amount')) {
+            $this->assertEquals($body->payment_request_amount, $response->payment_request_amount);
+        }
+        if (property_exists($body, 'payment_request_currency')) {
+            $this->assertEquals($body->payment_request_currency, $response->payment_request_currency);
+        }
+        if (property_exists($body, 'payment_request_description')) {
+            $this->assertEquals($body->payment_request_description, $response->payment_request_description);
+        }
+        if (property_exists($body, 'payment_request_metadata')) {
+            $this->assertEquals($body->payment_request_metadata, $response->payment_request_metadata);
+        }
+        if (property_exists($body, 'payment_request_scheme')) {
+            $this->assertEquals($body->payment_request_scheme, $response->payment_request_scheme);
+        }
+        if (property_exists($body, 'redirect_uri')) {
+            $this->assertEquals($body->redirect_uri, $response->redirect_uri);
+        }
+        if (property_exists($body, 'updated_at')) {
+            $this->assertEquals($body->updated_at, $response->updated_at);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
@@ -251,24 +395,78 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequestTemplate', $response);
 
-        $this->assertEquals($body->authorisation_url, $response->authorisation_url);
-        $this->assertEquals($body->created_at, $response->created_at);
-        $this->assertEquals($body->id, $response->id);
-        $this->assertEquals($body->mandate_request_constraints, $response->mandate_request_constraints);
-        $this->assertEquals($body->mandate_request_currency, $response->mandate_request_currency);
-        $this->assertEquals($body->mandate_request_description, $response->mandate_request_description);
-        $this->assertEquals($body->mandate_request_metadata, $response->mandate_request_metadata);
-        $this->assertEquals($body->mandate_request_scheme, $response->mandate_request_scheme);
-        $this->assertEquals($body->mandate_request_verify, $response->mandate_request_verify);
-        $this->assertEquals($body->metadata, $response->metadata);
-        $this->assertEquals($body->name, $response->name);
-        $this->assertEquals($body->payment_request_amount, $response->payment_request_amount);
-        $this->assertEquals($body->payment_request_currency, $response->payment_request_currency);
-        $this->assertEquals($body->payment_request_description, $response->payment_request_description);
-        $this->assertEquals($body->payment_request_metadata, $response->payment_request_metadata);
-        $this->assertEquals($body->payment_request_scheme, $response->payment_request_scheme);
-        $this->assertEquals($body->redirect_uri, $response->redirect_uri);
-        $this->assertEquals($body->updated_at, $response->updated_at);
+
+        if (property_exists($body, 'authorisation_url')) {
+            $this->assertEquals($body->authorisation_url, $response->authorisation_url);
+        }
+
+        if (property_exists($body, 'created_at')) {
+            $this->assertEquals($body->created_at, $response->created_at);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'mandate_request_constraints')) {
+            $this->assertEquals($body->mandate_request_constraints, $response->mandate_request_constraints);
+        }
+
+        if (property_exists($body, 'mandate_request_currency')) {
+            $this->assertEquals($body->mandate_request_currency, $response->mandate_request_currency);
+        }
+
+        if (property_exists($body, 'mandate_request_description')) {
+            $this->assertEquals($body->mandate_request_description, $response->mandate_request_description);
+        }
+
+        if (property_exists($body, 'mandate_request_metadata')) {
+            $this->assertEquals($body->mandate_request_metadata, $response->mandate_request_metadata);
+        }
+
+        if (property_exists($body, 'mandate_request_scheme')) {
+            $this->assertEquals($body->mandate_request_scheme, $response->mandate_request_scheme);
+        }
+
+        if (property_exists($body, 'mandate_request_verify')) {
+            $this->assertEquals($body->mandate_request_verify, $response->mandate_request_verify);
+        }
+
+        if (property_exists($body, 'metadata')) {
+            $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'name')) {
+            $this->assertEquals($body->name, $response->name);
+        }
+
+        if (property_exists($body, 'payment_request_amount')) {
+            $this->assertEquals($body->payment_request_amount, $response->payment_request_amount);
+        }
+
+        if (property_exists($body, 'payment_request_currency')) {
+            $this->assertEquals($body->payment_request_currency, $response->payment_request_currency);
+        }
+
+        if (property_exists($body, 'payment_request_description')) {
+            $this->assertEquals($body->payment_request_description, $response->payment_request_description);
+        }
+
+        if (property_exists($body, 'payment_request_metadata')) {
+            $this->assertEquals($body->payment_request_metadata, $response->payment_request_metadata);
+        }
+
+        if (property_exists($body, 'payment_request_scheme')) {
+            $this->assertEquals($body->payment_request_scheme, $response->payment_request_scheme);
+        }
+
+        if (property_exists($body, 'redirect_uri')) {
+            $this->assertEquals($body->redirect_uri, $response->redirect_uri);
+        }
+
+        if (property_exists($body, 'updated_at')) {
+            $this->assertEquals($body->updated_at, $response->updated_at);
+        }
 
 
         $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);

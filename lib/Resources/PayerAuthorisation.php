@@ -26,59 +26,59 @@ class PayerAuthorisation extends BaseResource
     protected $model_name = "PayerAuthorisation";
 
     /**
-     * All details required for the creation of a
-     * [Customer Bank Account](#core-endpoints-customer-bank-accounts).
+     *  All details required for the creation of a
+     *  [Customer Bank Account](#core-endpoints-customer-bank-accounts).
      */
     protected $bank_account;
 
     /**
-     * [Timestamp](#api-usage-dates-and-times), recording when this Payer
-     * Authorisation was created.
+     *  [Timestamp](#api-usage-dates-and-times), recording when this Payer
+     *  Authorisation was created.
      */
     protected $created_at;
 
     /**
-     * All details required for the creation of a
-     * [Customer](#core-endpoints-customers).
+     *  All details required for the creation of a
+     *  [Customer](#core-endpoints-customers).
      */
     protected $customer;
 
     /**
-     * Unique identifier, beginning with "PA".
+     *  Unique identifier, beginning with "PA".
      */
     protected $id;
 
     /**
-     * An array of fields which are missing and is required to set up the
-     * mandate.
+     *  An array of fields which are missing and is required to set up the
+     *  mandate.
      */
     protected $incomplete_fields;
 
     /**
-     * IDs of the created resources. Available after the Payer Authorisation is
-     * completed.
+     *  IDs of the created resources. Available after the Payer Authorisation is
+     *  completed.
      */
     protected $links;
 
     /**
-     * All details required for the creation of a
-     * [Mandate](#core-endpoints-mandates).
+     *  All details required for the creation of a
+     *  [Mandate](#core-endpoints-mandates).
      */
     protected $mandate;
 
     /**
-     * One of:
-     * <ul>
-     * <li>`created`: The PayerAuthorisation has been created, and not been
-     * confirmed yet</li>
-     * <li>`submitted`: The payer information has been submitted</li>
-     * <li>`confirmed`: PayerAuthorisation is confirmed and resources are ready
-     * to be created</li>
-     * <li>`completed`: The PayerAuthorisation has been completed and customer,
-     * bank_account and mandate has been created</li>
-     * <li>`failed`: The PayerAuthorisation has failed and customer,
-     * bank_account and mandate is not created</li>
-     * </ul>
+     *  One of:
+     *  <ul>
+     *  <li>`created`: The PayerAuthorisation has been created, and not been
+     *  confirmed yet</li>
+     *  <li>`submitted`: The payer information has been submitted</li>
+     *  <li>`confirmed`: PayerAuthorisation is confirmed and resources are ready
+     *  to be created</li>
+     *  <li>`completed`: The PayerAuthorisation has been completed and customer,
+     *  bank_account and mandate has been created</li>
+     *  <li>`failed`: The PayerAuthorisation has failed and customer,
+     *  bank_account and mandate is not created</li>
+     *  </ul>
      */
     protected $status;
 }
