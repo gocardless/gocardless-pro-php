@@ -233,4 +233,26 @@ class ApiClientTest extends TestCase
             throw $e;
         }
     }
+
+    public function testStringErrorResponse()
+    {
+        $fixture = $this->loadFixture('string_error');
+        $this->expectException('\GoCardlessPro\Core\Exception\ApiException');
+        $this->expectExceptionMessage('Something went wrong');
+
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(400, ['Content-Type' => 'application/json'], $fixture));
+
+        try {
+            $this->api_client->get('/some_endpoint');
+        } catch (\GoCardlessPro\Core\Exception\ApiException $e) {
+            $this->assertEquals($e->getApiResponse()->status_code, '400');
+            $this->assertEquals($e->getApiResponse()->headers, ['Content-Type' => ['application/json']]);
+            $this->assertEquals($e->getMessage(), 'Something went wrong');
+
+            // Verify that methods return appropriate values for string errors
+            $this->assertEquals(array(), $e->getErrors());
+
+            throw $e;
+        }
+    }
 }

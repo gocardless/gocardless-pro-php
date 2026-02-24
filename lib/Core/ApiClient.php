@@ -137,8 +137,22 @@ class ApiClient
             return null;
         }
 
+        // Normalize string errors into standard error object format
+        if (is_string($json->error)) {
+            $json->error = (object)[
+                'code' => $status_code,
+                'message' => $json->error
+            ];
+            // Create a new response with normalized error structure
+            $response = new Response(
+                $status_code,
+                $response->getHeaders(),
+                json_encode($json)
+            );
+        }
+
         $error = $json->error;
-        $exception_class = (string) ApiException::getError($status_code, $error->type);
+        $exception_class = (string) ApiException::getError($status_code, $error->type ?? null);
         $exception_class = 'GoCardlessPro\\Core\\Exception\\' . $exception_class;
 
         $api_response = new ApiResponse($response);
