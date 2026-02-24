@@ -25,6 +25,8 @@ class ApiException extends GoCardlessProException
     public static function getError($status_code, $error_type)
     {
         switch ($status_code) {
+            case 400:
+                return 'InvalidApiUsageException';
             case 401:
                 return 'AuthenticationException';
             case 403:
