@@ -25,11 +25,11 @@ class BankAccountDetailsService extends BaseService
 
 
     /**
-    *  Get encrypted bank details
+    * Get encrypted bank details
     *
     * Example URL: /bank_account_details/:identity
     *
-    * @param  string        $identity  Unique identifier, beginning with "BA".
+    * @param  string        $identity Unique identifier, beginning with "BA".
     * @param  array<string, mixed> $params An associative array for any params
     * @return BankAccountDetail
     **/

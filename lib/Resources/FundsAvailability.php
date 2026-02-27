@@ -19,7 +19,7 @@ class FundsAvailability extends BaseResource
     protected $model_name = "FundsAvailability";
 
     /**
-     *  Indicates if the amount is available
+     * Indicates if the amount is available
      */
     protected $available;
 }
