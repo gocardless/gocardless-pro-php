@@ -27,11 +27,11 @@ class PaymentAccountsService extends BaseService
 
 
     /**
-    *  Get a single payment account details
+    * Get a single payment account details
     *
     * Example URL: /payment_accounts/:identity
     *
-    * @param  string        $identity  Unique identifier, beginning with "BA".
+    * @param  string        $identity Unique identifier, beginning with "BA".
     * @param  array<string, mixed> $params An associative array for any params
     * @return PaymentAccount
     **/
@@ -57,7 +57,7 @@ class PaymentAccountsService extends BaseService
     }
 
     /**
-    *  List payment accounts
+    * List payment accounts
     *
     * Example URL: /payment_accounts
     *
@@ -80,7 +80,7 @@ class PaymentAccountsService extends BaseService
     }
 
     /**
-    *  List payment accounts
+    * List payment accounts
     *
     * Example URL: /payment_accounts
     *
