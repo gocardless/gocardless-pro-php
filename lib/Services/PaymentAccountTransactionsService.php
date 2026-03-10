@@ -27,6 +27,38 @@ class PaymentAccountTransactionsService extends BaseService
 
 
     /**
+    * Get a single payment account transaction
+    *
+    * Example URL: /payment_account_transactions/:identity
+    *
+    * @param  string        $identity The unique ID of the [bank
+ account](#core-endpoints-creditor-bank-accounts) which
+ happens to be the payment account.
+    * @param  array<string, mixed> $params An associative array for any params
+    * @return PaymentAccountTransaction
+    **/
+    public function get($identity, $params = array())
+    {
+        $path = Util::subUrl(
+            '/payment_account_transactions/:identity',
+            array(
+
+                'identity' => $identity
+            )
+        );
+        if (isset($params['params'])) {
+            $params['query'] = $params['params'];
+            unset($params['params']);
+        }
+
+
+        $response = $this->api_client->get($path, $params);
+
+
+        return $this->getResourceForResponse($response);
+    }
+
+    /**
     * List payment account transactions
     *
     * Example URL: /payment_accounts/:identity/transactions

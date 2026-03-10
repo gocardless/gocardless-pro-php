@@ -15,6 +15,66 @@ class PaymentAccountTransactionsIntegrationTest extends IntegrationTestBase
         $this->assertNotNull($obj);
     }
 
+    public function testPaymentAccountTransactionsGet()
+    {
+        $fixture = $this->loadJsonFixture('payment_account_transactions')->get;
+        $this->stub_request($fixture);
+
+        $service = $this->client->paymentAccountTransactions();
+        $response = call_user_func_array(array($service, 'get'), (array)$fixture->url_params);
+
+        $body = $fixture->body->payment_account_transactions;
+
+        $this->assertInstanceOf('\GoCardlessPro\Resources\PaymentAccountTransaction', $response);
+
+
+        if (property_exists($body, 'amount')) {
+            $this->assertEquals($body->amount, $response->amount);
+        }
+
+        if (property_exists($body, 'balance_after_transaction')) {
+            $this->assertEquals($body->balance_after_transaction, $response->balance_after_transaction);
+        }
+
+        if (property_exists($body, 'counterparty_name')) {
+            $this->assertEquals($body->counterparty_name, $response->counterparty_name);
+        }
+
+        if (property_exists($body, 'currency')) {
+            $this->assertEquals($body->currency, $response->currency);
+        }
+
+        if (property_exists($body, 'description')) {
+            $this->assertEquals($body->description, $response->description);
+        }
+
+        if (property_exists($body, 'direction')) {
+            $this->assertEquals($body->direction, $response->direction);
+        }
+
+        if (property_exists($body, 'id')) {
+            $this->assertEquals($body->id, $response->id);
+        }
+
+        if (property_exists($body, 'links')) {
+            $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'reference')) {
+            $this->assertEquals($body->reference, $response->reference);
+        }
+
+        if (property_exists($body, 'value_date')) {
+            $this->assertEquals($body->value_date, $response->value_date);
+        }
+
+
+        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
+    }
+
+
     public function testPaymentAccountTransactionsList()
     {
         $fixture = $this->loadJsonFixture('payment_account_transactions')->list;
