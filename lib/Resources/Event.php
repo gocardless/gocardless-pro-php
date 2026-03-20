@@ -99,6 +99,7 @@ class Event extends BaseResource
      * <li>`scheme_identifiers`</li>
      * <li>`subscriptions`</li>
      * <li>`outbound_payments`</li>
+     * <li>`payment_account_transactions`</li>
      * </ul>
      */
     protected $resource_type;

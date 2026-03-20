@@ -1,6 +1,6 @@
 {
   "name": "gocardless/gocardless-pro",
-  "description": "GoCardless Pro PHP Client Library",
+  "description": "GoCardless PHP Client Library",
   "version": "7.2.0",
   "keywords": [
     "gocardless",
