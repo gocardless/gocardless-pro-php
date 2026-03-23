@@ -18,7 +18,7 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
     public function testRedirectFlowsCreate()
     {
         $fixture = $this->loadJsonFixture('redirect_flows')->create;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->redirectFlows();
         $response = call_user_func_array(array($service, 'create'), (array)$fixture->url_params);
@@ -73,7 +73,7 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -133,7 +133,7 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $conflictRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $conflictRequest->getUri()->getPath());
         $getRequest = $this->history[1]['request'];
@@ -143,7 +143,7 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
     public function testRedirectFlowsGet()
     {
         $fixture = $this->loadJsonFixture('redirect_flows')->get;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->redirectFlows();
         $response = call_user_func_array(array($service, 'get'), (array)$fixture->url_params);
@@ -198,7 +198,7 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -207,7 +207,7 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
     public function testRedirectFlowsComplete()
     {
         $fixture = $this->loadJsonFixture('redirect_flows')->complete;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->redirectFlows();
         $response = call_user_func_array(array($service, 'complete'), (array)$fixture->url_params);
@@ -262,7 +262,7 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }

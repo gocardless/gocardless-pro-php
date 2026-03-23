@@ -6,6 +6,7 @@ use PHPUnit\Framework\TestCase;
 use GoCardlessPro\Core\Exceptions;
 use GoCardlessPro\Resources\BaseResource;
 
+// phpcs:disable PSR1.Classes.ClassDeclaration.MultipleClasses
 class FakeResource extends BaseResource
 {
     protected $model_name = "FakeResource";

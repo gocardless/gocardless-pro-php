@@ -18,7 +18,7 @@ class PayerThemesIntegrationTest extends IntegrationTestBase
     public function testPayerThemesCreateForCreditor()
     {
         $fixture = $this->loadJsonFixture('payer_themes')->create_for_creditor;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->payerThemes();
         $response = call_user_func_array(array($service, 'createForCreditor'), (array)$fixture->url_params);
@@ -33,7 +33,7 @@ class PayerThemesIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }

@@ -18,7 +18,7 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
     public function testInstalmentSchedulesCreateWithDates()
     {
         $fixture = $this->loadJsonFixture('instalment_schedules')->create_with_dates;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->instalmentSchedules();
         $response = call_user_func_array(array($service, 'createWithDates'), (array)$fixture->url_params);
@@ -65,7 +65,7 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -119,7 +119,7 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $conflictRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $conflictRequest->getUri()->getPath());
         $getRequest = $this->history[1]['request'];
@@ -129,7 +129,7 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
     public function testInstalmentSchedulesCreateWithSchedule()
     {
         $fixture = $this->loadJsonFixture('instalment_schedules')->create_with_schedule;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->instalmentSchedules();
         $response = call_user_func_array(array($service, 'createWithSchedule'), (array)$fixture->url_params);
@@ -176,7 +176,7 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -230,7 +230,7 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $conflictRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $conflictRequest->getUri()->getPath());
         $getRequest = $this->history[1]['request'];
@@ -240,7 +240,7 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
     public function testInstalmentSchedulesList()
     {
         $fixture = $this->loadJsonFixture('instalment_schedules')->list;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->instalmentSchedules();
         $response = call_user_func_array(array($service, 'list'), (array)$fixture->url_params);
@@ -297,7 +297,7 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
             }
         }
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -306,7 +306,7 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
     public function testInstalmentSchedulesGet()
     {
         $fixture = $this->loadJsonFixture('instalment_schedules')->get;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->instalmentSchedules();
         $response = call_user_func_array(array($service, 'get'), (array)$fixture->url_params);
@@ -353,7 +353,7 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -362,7 +362,7 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
     public function testInstalmentSchedulesUpdate()
     {
         $fixture = $this->loadJsonFixture('instalment_schedules')->update;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->instalmentSchedules();
         $response = call_user_func_array(array($service, 'update'), (array)$fixture->url_params);
@@ -409,7 +409,7 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -418,7 +418,7 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
     public function testInstalmentSchedulesCancel()
     {
         $fixture = $this->loadJsonFixture('instalment_schedules')->cancel;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->instalmentSchedules();
         $response = call_user_func_array(array($service, 'cancel'), (array)$fixture->url_params);
@@ -465,7 +465,7 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }

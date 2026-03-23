@@ -24,7 +24,7 @@ class Client
      */
     public function __construct($config)
     {
-        $this->validate_config($config);
+        $this->validateConfig($config);
 
         $access_token = $config['access_token'];
 
@@ -706,7 +706,7 @@ class Client
      *
      * @param array[string]mixed $config the client configuration options
      */
-    private function validate_config(&$config)
+    private function validateConfig(&$config)
     {
         $required_option_keys = array('access_token', 'environment');
 

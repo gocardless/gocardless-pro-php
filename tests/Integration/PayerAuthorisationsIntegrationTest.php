@@ -18,7 +18,7 @@ class PayerAuthorisationsIntegrationTest extends IntegrationTestBase
     public function testPayerAuthorisationsGet()
     {
         $fixture = $this->loadJsonFixture('payer_authorisations')->get;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->payerAuthorisations();
         $response = call_user_func_array(array($service, 'get'), (array)$fixture->url_params);
@@ -61,7 +61,7 @@ class PayerAuthorisationsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -70,7 +70,7 @@ class PayerAuthorisationsIntegrationTest extends IntegrationTestBase
     public function testPayerAuthorisationsCreate()
     {
         $fixture = $this->loadJsonFixture('payer_authorisations')->create;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->payerAuthorisations();
         $response = call_user_func_array(array($service, 'create'), (array)$fixture->url_params);
@@ -113,7 +113,7 @@ class PayerAuthorisationsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -164,7 +164,7 @@ class PayerAuthorisationsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $conflictRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $conflictRequest->getUri()->getPath());
         $getRequest = $this->history[1]['request'];
@@ -174,7 +174,7 @@ class PayerAuthorisationsIntegrationTest extends IntegrationTestBase
     public function testPayerAuthorisationsUpdate()
     {
         $fixture = $this->loadJsonFixture('payer_authorisations')->update;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->payerAuthorisations();
         $response = call_user_func_array(array($service, 'update'), (array)$fixture->url_params);
@@ -217,7 +217,7 @@ class PayerAuthorisationsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -226,7 +226,7 @@ class PayerAuthorisationsIntegrationTest extends IntegrationTestBase
     public function testPayerAuthorisationsSubmit()
     {
         $fixture = $this->loadJsonFixture('payer_authorisations')->submit;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->payerAuthorisations();
         $response = call_user_func_array(array($service, 'submit'), (array)$fixture->url_params);
@@ -269,7 +269,7 @@ class PayerAuthorisationsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -278,7 +278,7 @@ class PayerAuthorisationsIntegrationTest extends IntegrationTestBase
     public function testPayerAuthorisationsConfirm()
     {
         $fixture = $this->loadJsonFixture('payer_authorisations')->confirm;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->payerAuthorisations();
         $response = call_user_func_array(array($service, 'confirm'), (array)$fixture->url_params);
@@ -321,7 +321,7 @@ class PayerAuthorisationsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }

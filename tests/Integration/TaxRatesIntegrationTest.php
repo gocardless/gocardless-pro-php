@@ -18,7 +18,7 @@ class TaxRatesIntegrationTest extends IntegrationTestBase
     public function testTaxRatesList()
     {
         $fixture = $this->loadJsonFixture('tax_rates')->list;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->taxRates();
         $response = call_user_func_array(array($service, 'list'), (array)$fixture->url_params);
@@ -63,7 +63,7 @@ class TaxRatesIntegrationTest extends IntegrationTestBase
             }
         }
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -72,7 +72,7 @@ class TaxRatesIntegrationTest extends IntegrationTestBase
     public function testTaxRatesGet()
     {
         $fixture = $this->loadJsonFixture('tax_rates')->get;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->taxRates();
         $response = call_user_func_array(array($service, 'get'), (array)$fixture->url_params);
@@ -107,7 +107,7 @@ class TaxRatesIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }

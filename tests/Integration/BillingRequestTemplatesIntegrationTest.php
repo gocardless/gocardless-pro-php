@@ -18,7 +18,7 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
     public function testBillingRequestTemplatesList()
     {
         $fixture = $this->loadJsonFixture('billing_request_templates')->list;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->billingRequestTemplates();
         $response = call_user_func_array(array($service, 'list'), (array)$fixture->url_params);
@@ -111,7 +111,7 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
             }
         }
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -120,7 +120,7 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
     public function testBillingRequestTemplatesGet()
     {
         $fixture = $this->loadJsonFixture('billing_request_templates')->get;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->billingRequestTemplates();
         $response = call_user_func_array(array($service, 'get'), (array)$fixture->url_params);
@@ -203,7 +203,7 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -212,7 +212,7 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
     public function testBillingRequestTemplatesCreate()
     {
         $fixture = $this->loadJsonFixture('billing_request_templates')->create;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->billingRequestTemplates();
         $response = call_user_func_array(array($service, 'create'), (array)$fixture->url_params);
@@ -295,7 +295,7 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -376,7 +376,7 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $conflictRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $conflictRequest->getUri()->getPath());
         $getRequest = $this->history[1]['request'];
@@ -386,7 +386,7 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
     public function testBillingRequestTemplatesUpdate()
     {
         $fixture = $this->loadJsonFixture('billing_request_templates')->update;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->billingRequestTemplates();
         $response = call_user_func_array(array($service, 'update'), (array)$fixture->url_params);
@@ -469,7 +469,7 @@ class BillingRequestTemplatesIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }

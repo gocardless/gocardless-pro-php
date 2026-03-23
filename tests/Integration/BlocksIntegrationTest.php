@@ -18,7 +18,7 @@ class BlocksIntegrationTest extends IntegrationTestBase
     public function testBlocksCreate()
     {
         $fixture = $this->loadJsonFixture('blocks')->create;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->blocks();
         $response = call_user_func_array(array($service, 'create'), (array)$fixture->url_params);
@@ -61,7 +61,7 @@ class BlocksIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -112,7 +112,7 @@ class BlocksIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $conflictRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $conflictRequest->getUri()->getPath());
         $getRequest = $this->history[1]['request'];
@@ -122,7 +122,7 @@ class BlocksIntegrationTest extends IntegrationTestBase
     public function testBlocksGet()
     {
         $fixture = $this->loadJsonFixture('blocks')->get;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->blocks();
         $response = call_user_func_array(array($service, 'get'), (array)$fixture->url_params);
@@ -165,7 +165,7 @@ class BlocksIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -174,7 +174,7 @@ class BlocksIntegrationTest extends IntegrationTestBase
     public function testBlocksList()
     {
         $fixture = $this->loadJsonFixture('blocks')->list;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->blocks();
         $response = call_user_func_array(array($service, 'list'), (array)$fixture->url_params);
@@ -227,7 +227,7 @@ class BlocksIntegrationTest extends IntegrationTestBase
             }
         }
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -236,7 +236,7 @@ class BlocksIntegrationTest extends IntegrationTestBase
     public function testBlocksDisable()
     {
         $fixture = $this->loadJsonFixture('blocks')->disable;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->blocks();
         $response = call_user_func_array(array($service, 'disable'), (array)$fixture->url_params);
@@ -279,7 +279,7 @@ class BlocksIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -288,7 +288,7 @@ class BlocksIntegrationTest extends IntegrationTestBase
     public function testBlocksEnable()
     {
         $fixture = $this->loadJsonFixture('blocks')->enable;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->blocks();
         $response = call_user_func_array(array($service, 'enable'), (array)$fixture->url_params);
@@ -331,7 +331,7 @@ class BlocksIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -340,7 +340,7 @@ class BlocksIntegrationTest extends IntegrationTestBase
     public function testBlocksBlockByRef()
     {
         $fixture = $this->loadJsonFixture('blocks')->block_by_ref;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->blocks();
         $response = call_user_func_array(array($service, 'blockByRef'), (array)$fixture->url_params);
@@ -393,7 +393,7 @@ class BlocksIntegrationTest extends IntegrationTestBase
             }
         }
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }

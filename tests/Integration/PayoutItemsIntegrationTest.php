@@ -18,7 +18,7 @@ class PayoutItemsIntegrationTest extends IntegrationTestBase
     public function testPayoutItemsList()
     {
         $fixture = $this->loadJsonFixture('payout_items')->list;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->payoutItems();
         $response = call_user_func_array(array($service, 'list'), (array)$fixture->url_params);
@@ -55,7 +55,7 @@ class PayoutItemsIntegrationTest extends IntegrationTestBase
             }
         }
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }

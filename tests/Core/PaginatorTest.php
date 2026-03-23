@@ -5,6 +5,7 @@ namespace GoCardlessPro\Core;
 use PHPUnit\Framework\TestCase;
 use GoCardlessPro\Resources\BaseResource;
 
+// phpcs:disable PSR1.Classes.ClassDeclaration.MultipleClasses
 class FakePaginationResource extends BaseResource
 {
     protected $model_name = "FakeResource";
@@ -16,7 +17,7 @@ class PaginatorTest extends TestCase
 {
     private $paginator;
 
-    private function build_list_response($raw_body)
+    private function buildListResponse($raw_body)
     {
         $raw_response = new \GuzzleHttp\Psr7\Response(200, [], $raw_body);
         $decoded_body = json_decode($raw_body);
@@ -34,8 +35,8 @@ class PaginatorTest extends TestCase
 
         $fake_service = new Mocks\MockService(
             array(
-                $this->build_list_response($body_1),
-                $this->build_list_response($body_2)
+                $this->buildListResponse($body_1),
+                $this->buildListResponse($body_2)
             )
         );
 

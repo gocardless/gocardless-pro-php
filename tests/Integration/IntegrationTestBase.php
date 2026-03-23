@@ -47,7 +47,7 @@ abstract class IntegrationTestBase extends TestCase
         parent::tearDown();
     }
 
-    public function stub_request($resource_fixture)
+    public function stubRequest($resource_fixture)
     {
         $path = preg_replace("/:(\w+)/", "\\w+", $resource_fixture->path_template);
         $path_regexp = "|" . str_replace("\\\\w\+", "\\w+", preg_quote($path)) . "|";
@@ -57,7 +57,7 @@ abstract class IntegrationTestBase extends TestCase
         $this->mock->append($response);
     }
 
-    public function extract_resource_fixture_path_regex($resource_fixture)
+    public function extractResourceFixturePathRegex($resource_fixture)
     {
         $path = preg_replace("/:(\w+)/", "\\w+", $resource_fixture->path_template);
         return "|" . str_replace("\\\\w\+", "\\w+", preg_quote($path)) . "|";

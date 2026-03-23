@@ -18,7 +18,7 @@ class BillingRequestWithActionsIntegrationTest extends IntegrationTestBase
     public function testBillingRequestWithActionsCreateWithActions()
     {
         $fixture = $this->loadJsonFixture('billing_request_with_actions')->create_with_actions;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->billingRequestWithActions();
         $response = call_user_func_array(array($service, 'createWithActions'), (array)$fixture->url_params);
@@ -37,7 +37,7 @@ class BillingRequestWithActionsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }

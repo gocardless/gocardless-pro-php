@@ -18,7 +18,7 @@ class FundsAvailabilitiesIntegrationTest extends IntegrationTestBase
     public function testFundsAvailabilitiesCheck()
     {
         $fixture = $this->loadJsonFixture('funds_availabilities')->check;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->fundsAvailabilities();
         $response = call_user_func_array(array($service, 'check'), (array)$fixture->url_params);
@@ -33,7 +33,7 @@ class FundsAvailabilitiesIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
