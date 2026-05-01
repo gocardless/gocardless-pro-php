@@ -1,0 +1,11 @@
+{
+  
+  
+  "list": {
+    "method": "GET",
+    "path_template": "/outbound_payment_import_entries",
+    "url_params": {},
+    "body": {"meta":{"cursors":{"after":"example after 101","before":"example before 101"},"limit":50},"outbound_payment_import_entries":[{"amount":1000,"created_at":"2014-01-01T12:00:00.000Z","id":"IE123","links":{"outbound_payment":"OUT123","outbound_payment_import":"IM123","recipient_bank_account":"BA123"},"metadata":{},"processed_at":"2014-01-01T12:00:00.000Z","reference":"Invoice 12345","scheme":"faster_payments","validation_errors":{"outbound_payment":{"amount":["example amount 101"],"recipient_bank_account":["example recipient_bank_account 101"],"reference":["example reference 101"],"scheme":"faster_payments"}},"verification_result":"full_match"},{"amount":1000,"created_at":"2014-01-01T12:00:00.000Z","id":"IE123","links":{"outbound_payment":"OUT123","outbound_payment_import":"IM123","recipient_bank_account":"BA123"},"metadata":{},"processed_at":"2014-01-01T12:00:00.000Z","reference":"Invoice 12345","scheme":"faster_payments","validation_errors":{"outbound_payment":{"amount":["example amount 102"],"recipient_bank_account":["example recipient_bank_account 102"],"reference":["example reference 102"],"scheme":"faster_payments"}},"verification_result":"full_match"}]}
+  }
+}
+

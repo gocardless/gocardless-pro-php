@@ -15,6 +15,7 @@ namespace GoCardlessPro\Resources;
  * @property-read mixed $created_at
  * @property-read mixed $currency
  * @property-read mixed $download_url
+ * @property-read mixed $error_message
  * @property-read mixed $export_type
  * @property-read mixed $id
  */
@@ -37,6 +38,11 @@ class Export extends BaseResource
      * Download url for the export file. Subject to expiry.
      */
     protected $download_url;
+
+    /**
+     * Error message if the export encountered an error during processing.
+     */
+    protected $error_message;
 
     /**
      * The type of the export

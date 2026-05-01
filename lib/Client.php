@@ -125,6 +125,10 @@ class Client
 
         $this->services['outbound_payments'] = new Services\OutboundPaymentsService($this->api_client);
 
+        $this->services['outbound_payment_imports'] = new Services\OutboundPaymentImportsService($this->api_client);
+
+        $this->services['outbound_payment_import_entries'] = new Services\OutboundPaymentImportEntriesService($this->api_client);
+
         $this->services['payer_authorisations'] = new Services\PayerAuthorisationsService($this->api_client);
 
         $this->services['payer_themes'] = new Services\PayerThemesService($this->api_client);
@@ -493,6 +497,30 @@ class Client
             throw new \Exception('Key outbound_payments does not exist in services array');
         }
         return $this->services['outbound_payments'];
+    }
+
+    /**
+     * Service for interacting with outbound payment imports
+     * @return Services\OutboundPaymentImportsService
+     */
+    public function outboundPaymentImports()
+    {
+        if (!isset($this->services['outbound_payment_imports'])) {
+            throw new \Exception('Key outbound_payment_imports does not exist in services array');
+        }
+        return $this->services['outbound_payment_imports'];
+    }
+
+    /**
+     * Service for interacting with outbound payment import entries
+     * @return Services\OutboundPaymentImportEntriesService
+     */
+    public function outboundPaymentImportEntries()
+    {
+        if (!isset($this->services['outbound_payment_import_entries'])) {
+            throw new \Exception('Key outbound_payment_import_entries does not exist in services array');
+        }
+        return $this->services['outbound_payment_import_entries'];
     }
 
     /**

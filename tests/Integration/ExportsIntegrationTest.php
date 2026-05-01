@@ -40,6 +40,10 @@ class ExportsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->download_url, $response->download_url);
         }
 
+        if (property_exists($body, 'error_message')) {
+            $this->assertEquals($body->error_message, $response->error_message);
+        }
+
         if (property_exists($body, 'export_type')) {
             $this->assertEquals($body->export_type, $response->export_type);
         }
@@ -88,6 +92,10 @@ class ExportsIntegrationTest extends IntegrationTestBase
 
             if (isset($body[$num]->download_url)) {
                 $this->assertEquals($body[$num]->download_url, $record->download_url);
+            }
+
+            if (isset($body[$num]->error_message)) {
+                $this->assertEquals($body[$num]->error_message, $record->error_message);
             }
 
             if (isset($body[$num]->export_type)) {

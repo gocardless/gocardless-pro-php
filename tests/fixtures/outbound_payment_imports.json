@@ -1,0 +1,23 @@
+{
+  
+  
+  "create": {
+    "method": "POST",
+    "path_template": "/outbound_payment_imports",
+    "url_params": {},
+    "body": {"outbound_payment_imports":{"amount_sum":1000,"authorisation_url":"https://manage.gocardless.com/imports/IM123","created_at":"2014-01-01T12:00:00.000Z","currency":"GBP","entry_counts":{"failed_to_process":0,"invalid":0,"processed":1000,"total":1000,"valid":1000,"verified":0,"verified_with_full_match":0,"verified_with_no_match":0,"verified_with_partial_match":0,"verified_with_unable_to_match":0},"id":"IM123","links":{"creditor":"CR123"},"status":"created"}}
+  },
+  "get": {
+    "method": "GET",
+    "path_template": "/outbound_payment_imports/:identity",
+    "url_params": {"identity": "IM123"},
+    "body": {"outbound_payment_imports":{"amount_sum":1000,"authorisation_url":"https://manage.gocardless.com/imports/IM123","created_at":"2014-01-01T12:00:00.000Z","currency":"GBP","entry_counts":{"failed_to_process":0,"invalid":0,"processed":1000,"total":1000,"valid":1000,"verified":0,"verified_with_full_match":0,"verified_with_no_match":0,"verified_with_partial_match":0,"verified_with_unable_to_match":0},"id":"IM123","links":{"creditor":"CR123"},"status":"created"}}
+  },
+  "list": {
+    "method": "GET",
+    "path_template": "/outbound_payment_imports",
+    "url_params": {},
+    "body": {"meta":{"cursors":{"after":"example after 101","before":"example before 101"},"limit":50},"outbound_payment_imports":[{"amount_sum":1000,"authorisation_url":"https://manage.gocardless.com/imports/IM123","created_at":"2014-01-01T12:00:00.000Z","currency":"GBP","entry_counts":{"failed_to_process":0,"invalid":0,"processed":1000,"total":1000,"valid":1000,"verified":0,"verified_with_full_match":0,"verified_with_no_match":0,"verified_with_partial_match":0,"verified_with_unable_to_match":0},"id":"IM123","links":{"creditor":"CR123"},"status":"created"},{"amount_sum":1000,"authorisation_url":"https://manage.gocardless.com/imports/IM123","created_at":"2014-01-01T12:00:00.000Z","currency":"GBP","entry_counts":{"failed_to_process":0,"invalid":0,"processed":1000,"total":1000,"valid":1000,"verified":0,"verified_with_full_match":0,"verified_with_no_match":0,"verified_with_partial_match":0,"verified_with_unable_to_match":0},"id":"IM123","links":{"creditor":"CR123"},"status":"created"}]}
+  }
+}
+
