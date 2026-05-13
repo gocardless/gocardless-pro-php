@@ -76,6 +76,10 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->metadata, $response->metadata);
         }
 
+        if (property_exists($body, 'trusted_recipient')) {
+            $this->assertEquals($body->trusted_recipient, $response->trusted_recipient);
+        }
+
 
         $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
@@ -137,6 +141,9 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
         }
         if (property_exists($body, 'metadata')) {
             $this->assertEquals($body->metadata, $response->metadata);
+        }
+        if (property_exists($body, 'trusted_recipient')) {
+            $this->assertEquals($body->trusted_recipient, $response->trusted_recipient);
         }
 
 
@@ -217,6 +224,10 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
             if (isset($body[$num]->metadata)) {
                 $this->assertEquals($body[$num]->metadata, $record->metadata);
             }
+
+            if (isset($body[$num]->trusted_recipient)) {
+                $this->assertEquals($body[$num]->trusted_recipient, $record->trusted_recipient);
+            }
         }
 
         $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
@@ -284,6 +295,10 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
 
         if (property_exists($body, 'metadata')) {
             $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'trusted_recipient')) {
+            $this->assertEquals($body->trusted_recipient, $response->trusted_recipient);
         }
 
 
@@ -354,6 +369,10 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->metadata, $response->metadata);
         }
 
+        if (property_exists($body, 'trusted_recipient')) {
+            $this->assertEquals($body->trusted_recipient, $response->trusted_recipient);
+        }
+
 
         $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
@@ -420,6 +439,10 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
 
         if (property_exists($body, 'metadata')) {
             $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'trusted_recipient')) {
+            $this->assertEquals($body->trusted_recipient, $response->trusted_recipient);
         }
 
 

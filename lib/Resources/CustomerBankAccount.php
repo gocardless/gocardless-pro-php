@@ -24,6 +24,7 @@ namespace GoCardlessPro\Resources;
  * @property-read mixed $id
  * @property-read mixed $links
  * @property-read mixed $metadata
+ * @property-read mixed $trusted_recipient
  */
 class CustomerBankAccount extends BaseResource
 {
@@ -104,4 +105,11 @@ class CustomerBankAccount extends BaseResource
      * names up to 50 characters and values up to 500 characters.
      */
     protected $metadata;
+
+    /**
+     * Whether this customer bank account is registered as a trusted recipient
+     * for Outbound Payments. Only present when the feature is enabled for the
+     * organisation.
+     */
+    protected $trusted_recipient;
 }
