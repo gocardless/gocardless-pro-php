@@ -1,6 +1,6 @@
-# GoCardless Pro PHP client library
+# GoCardless PHP client library
 
-A PHP client for interacting with the GoCardless Pro API.
+A PHP client for interacting with the GoCardless API.
 
 [![PHP version](https://badge.fury.io/ph/gocardless%2Fgocardless-pro.svg)](https://badge.fury.io/ph/gocardless%2Fgocardless-pro)
 [![CircleCI](https://circleci.com/gh/gocardless/gocardless-pro-php.svg?style=shield)](https://circleci.com/gh/gocardless/gocardless-pro-php)
