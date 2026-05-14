@@ -55,7 +55,7 @@ class Payout extends BaseResource
     protected $created_at;
 
     /**
-     * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
+     * [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
      * code. Currently "AUD", "CAD", "DKK", "EUR", "GBP", "NZD", "SEK" and "USD"
      * are supported.
      */
@@ -123,7 +123,7 @@ class Payout extends BaseResource
     protected $status;
 
     /**
-     * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) code for
+     * [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) code for
      * the currency in which tax is paid out to the tax authorities of your tax
      * jurisdiction. Currently “EUR”, “GBP”, for French or British merchants,
      * this will be `null` if tax is not applicable <em>beta</em>

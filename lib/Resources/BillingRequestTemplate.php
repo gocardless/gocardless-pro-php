@@ -59,7 +59,7 @@ class BillingRequestTemplate extends BaseResource
     protected $mandate_request_constraints;
 
     /**
-     * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
+     * [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
      * code.
      */
     protected $mandate_request_currency;
@@ -134,7 +134,7 @@ class BillingRequestTemplate extends BaseResource
     protected $payment_request_amount;
 
     /**
-     * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
+     * [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
      * code. `GBP` and `EUR` supported; `GBP` with your customers in the UK and
      * for `EUR` with your customers in supported Eurozone countries only.
      */

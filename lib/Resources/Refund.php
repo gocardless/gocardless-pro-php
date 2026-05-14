@@ -38,7 +38,7 @@ class Refund extends BaseResource
     protected $created_at;
 
     /**
-     * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
+     * [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
      * code. This is set to the currency of the refund's
      * [payment](#core-endpoints-payments).
      */

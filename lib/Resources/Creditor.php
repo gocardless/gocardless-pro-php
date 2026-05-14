@@ -77,7 +77,7 @@ class Creditor extends BaseResource
 
     /**
      * [ISO 3166-1 alpha-2
-     * code.](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
+     * code.](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
      */
     protected $country_code;
 
@@ -101,7 +101,7 @@ class Creditor extends BaseResource
     protected $custom_payment_pages_enabled;
 
     /**
-     * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) code for
+     * [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) code for
      * the currency in which amounts will be paid out (after foreign exchange).
      * Currently "AUD", "CAD", "DKK", "EUR", "GBP", "NZD", "SEK" and "USD" are
      * supported. Present only if payouts will be (or were) made via foreign
