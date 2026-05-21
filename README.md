@@ -236,6 +236,18 @@ try {
 }
 ```
 
+#### Accessing the webhook ID
+
+If you need to access the webhook ID for debugging purposes, you can use `Webhook::parseWithMeta` instead:
+
+```php
+$result = GoCardlessPro\Webhook::parseWithMeta($request_body, $signature_header, $webhook_endpoint_secret);
+$events = $result->getEvents();
+$webhookId = $result->getWebhookId(); // e.g. "WB123" - useful for debugging
+```
+
+Note: The webhook ID is intended for debugging and logging purposes only. It should not be used for deduplication - instead, use the event IDs to deduplicate, as each event has a unique ID that remains consistent if the same event is sent multiple times.
+
 For more details on working with webhooks, see our ["Getting started" guide](https://developer.gocardless.com/getting-started/api/introduction/?lang=php).
 
 ## Supporting PHP >= 8.1
