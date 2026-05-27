@@ -199,7 +199,7 @@ class InstalmentSchedulesService extends BaseService
             )
         );
         if (isset($params['params'])) {
-            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
 
             unset($params['params']);
         }

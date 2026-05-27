@@ -133,7 +133,7 @@ class BlocksService extends BaseService
             )
         );
         if (isset($params['params'])) {
-            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
 
             unset($params['params']);
         }
@@ -175,7 +175,7 @@ class BlocksService extends BaseService
             )
         );
         if (isset($params['params'])) {
-            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
 
             unset($params['params']);
         }
@@ -210,7 +210,7 @@ class BlocksService extends BaseService
     {
         $path = "/blocks/block_by_ref";
         if (isset($params['params'])) {
-            $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
+            $params['body'] = json_encode(array("data" => (object)$params['params']));
 
             unset($params['params']);
         }
