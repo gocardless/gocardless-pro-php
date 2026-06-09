@@ -19,6 +19,7 @@ namespace GoCardlessPro\Resources;
  * @property-read mixed $funds_settlement
  * @property-read mixed $id
  * @property-read mixed $links
+ * @property-read mixed $mandate_type
  * @property-read mixed $metadata
  * @property-read mixed $next_possible_charge_date
  * @property-read mixed $next_possible_standard_ach_charge_date
@@ -88,6 +89,11 @@ class Mandate extends BaseResource
      *
      */
     protected $links;
+
+    /**
+     * Mandate type
+     */
+    protected $mandate_type;
 
     /**
      * Key-value store of custom data. Up to 3 keys are permitted, with key

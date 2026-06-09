@@ -283,4 +283,54 @@ class BillingRequestsCodeSamplesTest extends TestCase
 
         ob_end_clean();
     }
+
+
+
+
+    public function testFallbackCodeSample()
+    {
+        $this->expectNotToPerformAssertions();
+
+        // Mock response - enqueue multiple times to handle code samples with multiple API calls
+        $responseBody = '{ "billing_requests": {} }';
+        for ($i = 0; $i < 5; $i++) {
+            $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], $responseBody));
+        }
+
+        // Suppress output from code samples
+        ob_start();
+
+        $client = $this->client;
+
+        $client->billingRequests()->fallback("BR123");
+
+        ob_end_clean();
+    }
+
+
+
+
+    public function testChooseCurrencyCodeSample()
+    {
+        $this->expectNotToPerformAssertions();
+
+        // Mock response - enqueue multiple times to handle code samples with multiple API calls
+        $responseBody = '{ "billing_requests": {} }';
+        for ($i = 0; $i < 5; $i++) {
+            $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], $responseBody));
+        }
+
+        // Suppress output from code samples
+        ob_start();
+
+        $client = $this->client;
+
+        $client->billingRequests()->chooseCurrency("BR123", [
+          "params" => [
+            "currency" => "GBP"
+          ]
+        ]);
+
+        ob_end_clean();
+    }
 }

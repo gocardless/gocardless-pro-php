@@ -136,8 +136,9 @@ class Payment extends BaseResource
 
     /**
      * A bank payment scheme. Currently "ach", "autogiro", "bacs", "becs",
-     * "becs_nz", "betalingsservice", "faster_payments", "pad", "pay_to" and
-     * "sepa_core" are supported.
+     * "becs_nz", "betalingsservice", "faster_payments", "pad", "pay_to",
+     * "sepa_core", "sepa_credit_transfer" and "sepa_instant_credit_transfer"
+     * are supported.
      */
     protected $scheme;
 

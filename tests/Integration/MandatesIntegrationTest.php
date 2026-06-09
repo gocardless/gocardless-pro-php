@@ -56,6 +56,10 @@ class MandatesIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->links, $response->links);
         }
 
+        if (property_exists($body, 'mandate_type')) {
+            $this->assertEquals($body->mandate_type, $response->mandate_type);
+        }
+
         if (property_exists($body, 'metadata')) {
             $this->assertEquals($body->metadata, $response->metadata);
         }
@@ -134,6 +138,9 @@ class MandatesIntegrationTest extends IntegrationTestBase
         }
         if (property_exists($body, 'links')) {
             $this->assertEquals($body->links, $response->links);
+        }
+        if (property_exists($body, 'mandate_type')) {
+            $this->assertEquals($body->mandate_type, $response->mandate_type);
         }
         if (property_exists($body, 'metadata')) {
             $this->assertEquals($body->metadata, $response->metadata);
@@ -219,6 +226,10 @@ class MandatesIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->links, $record->links);
             }
 
+            if (isset($body[$num]->mandate_type)) {
+                $this->assertEquals($body[$num]->mandate_type, $record->mandate_type);
+            }
+
             if (isset($body[$num]->metadata)) {
                 $this->assertEquals($body[$num]->metadata, $record->metadata);
             }
@@ -297,6 +308,10 @@ class MandatesIntegrationTest extends IntegrationTestBase
 
         if (property_exists($body, 'links')) {
             $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'mandate_type')) {
+            $this->assertEquals($body->mandate_type, $response->mandate_type);
         }
 
         if (property_exists($body, 'metadata')) {
@@ -379,6 +394,10 @@ class MandatesIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->links, $response->links);
         }
 
+        if (property_exists($body, 'mandate_type')) {
+            $this->assertEquals($body->mandate_type, $response->mandate_type);
+        }
+
         if (property_exists($body, 'metadata')) {
             $this->assertEquals($body->metadata, $response->metadata);
         }
@@ -459,6 +478,10 @@ class MandatesIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->links, $response->links);
         }
 
+        if (property_exists($body, 'mandate_type')) {
+            $this->assertEquals($body->mandate_type, $response->mandate_type);
+        }
+
         if (property_exists($body, 'metadata')) {
             $this->assertEquals($body->metadata, $response->metadata);
         }
@@ -537,6 +560,10 @@ class MandatesIntegrationTest extends IntegrationTestBase
 
         if (property_exists($body, 'links')) {
             $this->assertEquals($body->links, $response->links);
+        }
+
+        if (property_exists($body, 'mandate_type')) {
+            $this->assertEquals($body->mandate_type, $response->mandate_type);
         }
 
         if (property_exists($body, 'metadata')) {
