@@ -48,6 +48,10 @@ class VerificationDetailsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->company_number, $response->company_number);
         }
 
+        if (property_exists($body, 'country_code')) {
+            $this->assertEquals($body->country_code, $response->country_code);
+        }
+
         if (property_exists($body, 'description')) {
             $this->assertEquals($body->description, $response->description);
         }
@@ -66,6 +70,10 @@ class VerificationDetailsIntegrationTest extends IntegrationTestBase
 
         if (property_exists($body, 'postal_code')) {
             $this->assertEquals($body->postal_code, $response->postal_code);
+        }
+
+        if (property_exists($body, 'region')) {
+            $this->assertEquals($body->region, $response->region);
         }
 
 
@@ -118,6 +126,10 @@ class VerificationDetailsIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->company_number, $record->company_number);
             }
 
+            if (isset($body[$num]->country_code)) {
+                $this->assertEquals($body[$num]->country_code, $record->country_code);
+            }
+
             if (isset($body[$num]->description)) {
                 $this->assertEquals($body[$num]->description, $record->description);
             }
@@ -136,6 +148,10 @@ class VerificationDetailsIntegrationTest extends IntegrationTestBase
 
             if (isset($body[$num]->postal_code)) {
                 $this->assertEquals($body[$num]->postal_code, $record->postal_code);
+            }
+
+            if (isset($body[$num]->region)) {
+                $this->assertEquals($body[$num]->region, $record->region);
             }
         }
 
