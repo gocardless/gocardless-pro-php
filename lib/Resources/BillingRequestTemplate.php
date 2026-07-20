@@ -42,8 +42,9 @@ class BillingRequestTemplate extends BaseResource
     protected $authorisation_url;
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when this
-     * resource was created.
+     * Fixed timestamp
+     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * recording when this resource was created.
      */
     protected $created_at;
 
@@ -59,7 +60,7 @@ class BillingRequestTemplate extends BaseResource
     protected $mandate_request_constraints;
 
     /**
-     * [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
+     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
      * code.
      */
     protected $mandate_request_currency;
@@ -67,7 +68,6 @@ class BillingRequestTemplate extends BaseResource
     /**
      * A human-readable description of the payment and/or mandate. This will be
      * displayed to the payer when authorising the billing request.
-     *
      */
     protected $mandate_request_description;
 
@@ -110,7 +110,7 @@ class BillingRequestTemplate extends BaseResource
     protected $payment_request_amount;
 
     /**
-     * [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
+     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
      * code. `GBP` and `EUR` supported; `GBP` with your customers in the UK and
      * for `EUR` with your customers in supported Eurozone countries only.
      */
@@ -119,7 +119,6 @@ class BillingRequestTemplate extends BaseResource
     /**
      * A human-readable description of the payment and/or mandate. This will be
      * displayed to the payer when authorising the billing request.
-     *
      */
     protected $payment_request_description;
 
@@ -147,8 +146,9 @@ class BillingRequestTemplate extends BaseResource
     protected $redirect_uri;
 
     /**
-     * Dynamic [timestamp](#api-usage-dates-and-times) recording when this
-     * resource was last updated.
+     * Dynamic timestamp
+     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times)
+     * recording when this resource was last updated.
      */
     protected $updated_at;
 }

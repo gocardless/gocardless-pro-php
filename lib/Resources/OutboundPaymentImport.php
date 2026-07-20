@@ -37,13 +37,14 @@ class OutboundPaymentImport extends BaseResource
     protected $authorisation_url;
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when this
-     * resource was created.
+     * Fixed timestamp
+     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * recording when this resource was created.
      */
     protected $created_at;
 
     /**
-     * [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency.
+     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency.
      * Currently only "GBP" is supported.
      */
     protected $currency;
@@ -65,18 +66,16 @@ class OutboundPaymentImport extends BaseResource
 
     /**
      * The status of the outbound payment import.
-     * <ul>
-     * <li>`created`: The initial state of a new import.</li>
-     * <li>`validating`: Import validation in progress.</li>
-     * <li>`invalid`: Import validation failed.</li>
-     * <li>`valid`: Import validation succeeded.</li>
-     * <li>`processing`: Authorisation received; payments are being
-     * generated.</li>
-     * <li>`processed`: All entries have been successfully converted into
-     * outbound payments.</li>
-     * <li>`cancelled`: The import was cancelled by a user or automatically
-     * expired by the system.</li>
-     * </ul>
+     *
+     * - `created`: The initial state of a new import.
+     * - `validating`: Import validation in progress.
+     * - `invalid`: Import validation failed.
+     * - `valid`: Import validation succeeded.
+     * - `processing`: Authorisation received; payments are being generated.
+     * - `processed`: All entries have been successfully converted into outbound
+     * payments.
+     * - `cancelled`: The import was cancelled by a user or automatically
+     * expired by the system.
      */
     protected $status;
 }

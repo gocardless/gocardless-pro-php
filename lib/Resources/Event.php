@@ -28,24 +28,25 @@ class Event extends BaseResource
     protected $model_name = "Event";
 
     /**
-     * What has happened to the resource. See [Event Types](#event-types) for
-     * the possible actions.
+     * What has happened to the resource. See Event Types
+     * (https://developer.gocardless.com/api-reference/#event-types) for the
+     * possible actions.
      */
     protected $action;
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when this
-     * resource was created.
+     * Fixed timestamp
+     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * recording when this resource was created.
      */
     protected $created_at;
 
     /**
      * Present only in webhooks when an integrator is authorised to send their
      * own
-     * notifications. See
-     * [here](/getting-started/api/handling-customer-notifications/)
+     * notifications. See here
+     * (https://developer.gocardless.com/getting-started/api/handling-customer-notifications/)
      * for further information.
-     *
      */
     protected $customer_notifications;
 
@@ -71,7 +72,6 @@ class Event extends BaseResource
      *
      * This field will only be populated if the `details[origin]` field is `api`
      * otherwise it will be an empty object.
-     *
      */
     protected $metadata;
 
@@ -80,27 +80,25 @@ class Event extends BaseResource
      * field will have the same
      * value of the `mandate[metadata]` field on the response you would receive
      * from performing a GET request on a mandate.
-     *
      */
     protected $resource_metadata;
 
     /**
      * The resource type for this event. One of:
-     * <ul>
-     * <li>`billing_requests`</li>
-     * <li>`creditors`</li>
-     * <li>`exports`</li>
-     * <li>`instalment_schedules`</li>
-     * <li>`mandates`</li>
-     * <li>`payer_authorisations`</li>
-     * <li>`payments`</li>
-     * <li>`payouts`</li>
-     * <li>`refunds`</li>
-     * <li>`scheme_identifiers`</li>
-     * <li>`subscriptions`</li>
-     * <li>`outbound_payments`</li>
-     * <li>`payment_account_transactions`</li>
-     * </ul>
+     *
+     * - `billing_requests`
+     * - `creditors`
+     * - `exports`
+     * - `instalment_schedules`
+     * - `mandates`
+     * - `payer_authorisations`
+     * - `payments`
+     * - `payouts`
+     * - `refunds`
+     * - `scheme_identifiers`
+     * - `subscriptions`
+     * - `outbound_payments`
+     * - `payment_account_transactions`
      */
     protected $resource_type;
 

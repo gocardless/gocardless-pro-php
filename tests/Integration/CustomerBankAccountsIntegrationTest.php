@@ -76,6 +76,10 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->metadata, $response->metadata);
         }
 
+        if (property_exists($body, 'payer_name_verification_result')) {
+            $this->assertEquals($body->payer_name_verification_result, $response->payer_name_verification_result);
+        }
+
         if (property_exists($body, 'trusted_recipient')) {
             $this->assertEquals($body->trusted_recipient, $response->trusted_recipient);
         }
@@ -141,6 +145,9 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
         }
         if (property_exists($body, 'metadata')) {
             $this->assertEquals($body->metadata, $response->metadata);
+        }
+        if (property_exists($body, 'payer_name_verification_result')) {
+            $this->assertEquals($body->payer_name_verification_result, $response->payer_name_verification_result);
         }
         if (property_exists($body, 'trusted_recipient')) {
             $this->assertEquals($body->trusted_recipient, $response->trusted_recipient);
@@ -225,6 +232,10 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->metadata, $record->metadata);
             }
 
+            if (isset($body[$num]->payer_name_verification_result)) {
+                $this->assertEquals($body[$num]->payer_name_verification_result, $record->payer_name_verification_result);
+            }
+
             if (isset($body[$num]->trusted_recipient)) {
                 $this->assertEquals($body[$num]->trusted_recipient, $record->trusted_recipient);
             }
@@ -295,6 +306,10 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
 
         if (property_exists($body, 'metadata')) {
             $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'payer_name_verification_result')) {
+            $this->assertEquals($body->payer_name_verification_result, $response->payer_name_verification_result);
         }
 
         if (property_exists($body, 'trusted_recipient')) {
@@ -369,6 +384,10 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->metadata, $response->metadata);
         }
 
+        if (property_exists($body, 'payer_name_verification_result')) {
+            $this->assertEquals($body->payer_name_verification_result, $response->payer_name_verification_result);
+        }
+
         if (property_exists($body, 'trusted_recipient')) {
             $this->assertEquals($body->trusted_recipient, $response->trusted_recipient);
         }
@@ -439,6 +458,10 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
 
         if (property_exists($body, 'metadata')) {
             $this->assertEquals($body->metadata, $response->metadata);
+        }
+
+        if (property_exists($body, 'payer_name_verification_result')) {
+            $this->assertEquals($body->payer_name_verification_result, $response->payer_name_verification_result);
         }
 
         if (property_exists($body, 'trusted_recipient')) {

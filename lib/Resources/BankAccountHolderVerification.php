@@ -36,35 +36,31 @@ class BankAccountHolderVerification extends BaseResource
 
     /**
      * Result of the verification, could be one of
-     * <ul>
-     *   <li>`full_match`: The verification has confirmed that the account name
-     * exactly matches the details provided.</li>
-     *   <li>`partial_match`:  The verification has confirmed that the account
-     * name is similar but does not match to the details provided. </li>
-     *   <li>`no_match`: The verification concludes the provided name does not
-     * match the account details.</li>
-     *   <li>`unable_to_match`: The verification could not be performed due to
-     * recipient bank issues or technical issues </li>
-     * </ul>
+     *
+     * - `full_match`: The verification has confirmed that the account name
+     * exactly matches the details provided.
+     * - `partial_match`:  The verification has confirmed that the account name
+     * is similar but does not match to the details provided.
+     * - `no_match`: The verification concludes the provided name does not match
+     * the account details.
+     * - `unable_to_match`: The verification could not be performed due to
+     * recipient bank issues or technical issues
      */
     protected $result;
 
     /**
      * The status of the bank account holder verification.
-     * <ul>
-     *   <li>`pending`: We have triggered the verification, but the result has
-     * not come back yet.</li>
-     *   <li>`completed`: The verification is complete and is ready to be
-     * used.</li>
-     * </ul>
      *
+     * - `pending`: We have triggered the verification, but the result has not
+     * come back yet.
+     * - `completed`: The verification is complete and is ready to be used.
      */
     protected $status;
 
     /**
      * Type of the verification that has been performed
-     * eg. [Confirmation of
-     * Payee](https://www.wearepay.uk/what-we-do/overlay-services/confirmation-of-payee/)
+     * eg. Confirmation of Payee
+     * (https://www.wearepay.uk/what-we-do/overlay-services/confirmation-of-payee/)
      */
     protected $type;
 }

@@ -33,9 +33,10 @@ class PaymentAccount extends BaseResource
 
     /**
      * Name of the account holder, as known by the bank. Usually this is the
-     * same as the name stored with the linked
-     * [creditor](#core-endpoints-creditors). This field will be transliterated,
-     * upcased and truncated to 18 characters.
+     * same as the name stored with the linked creditor
+     * (https://developer.gocardless.com/api-reference/#core-endpoints-creditors).
+     * This field will be transliterated, upcased and truncated to 18
+     * characters.
      */
     protected $account_holder_name;
 
@@ -51,7 +52,7 @@ class PaymentAccount extends BaseResource
     protected $bank_name;
 
     /**
-     * [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
+     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
      * code. Currently "AUD", "CAD", "DKK", "EUR", "GBP", "NZD", "SEK" and "USD"
      * are supported.
      */

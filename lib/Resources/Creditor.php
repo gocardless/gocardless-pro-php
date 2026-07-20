@@ -61,7 +61,6 @@ class Creditor extends BaseResource
      * sent to that creditor could be `ACME-8G7Q8`.
      *
      * This prefix is also used for refunds in EUR and GBP.
-     *
      */
     protected $bank_reference_prefix;
 
@@ -76,14 +75,15 @@ class Creditor extends BaseResource
     protected $city;
 
     /**
-     * [ISO 3166-1 alpha-2
-     * code.](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
+     * ISO 3166-1 alpha-2 code.
+     * (https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
      */
     protected $country_code;
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when this
-     * resource was created.
+     * Fixed timestamp
+     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * recording when this resource was created.
      */
     protected $created_at;
 
@@ -94,14 +94,14 @@ class Creditor extends BaseResource
     protected $creditor_type;
 
     /**
-     * Boolean value indicating whether creditor has the [Custom Payment
-     * Pages](https://hub.gocardless.com/s/article/Custom-payment-pages)
-     * functionality enabled.
+     * Boolean value indicating whether creditor has the Custom Payment Pages
+     * (https://hub.gocardless.com/s/article/Custom-payment-pages) functionality
+     * enabled.
      */
     protected $custom_payment_pages_enabled;
 
     /**
-     * [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) code for
+     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) code for
      * the currency in which amounts will be paid out (after foreign exchange).
      * Currently "AUD", "CAD", "DKK", "EUR", "GBP", "NZD", "SEK" and "USD" are
      * supported. Present only if payouts will be (or were) made via foreign
@@ -125,17 +125,18 @@ class Creditor extends BaseResource
     protected $logo_url;
 
     /**
-     * Boolean value indicating whether creditor has the [Mandate
-     * Imports](#core-endpoints-mandate-imports) functionality enabled.
+     * Boolean value indicating whether creditor has the Mandate Imports
+     * (https://developer.gocardless.com/api-reference/#core-endpoints-mandate-imports)
+     * functionality enabled.
      */
     protected $mandate_imports_enabled;
 
     /**
      * Boolean value indicating whether the organisation is responsible for
      * sending all customer notifications (note this is separate from the
-     * functionality described
-     * [here](/getting-started/api/handling-customer-notifications/)). If you
-     * are a partner app, and this value is true, you should not send
+     * functionality described here
+     * (https://developer.gocardless.com/getting-started/api/handling-customer-notifications/)).
+     * If you are a partner app, and this value is true, you should not send
      * notifications on behalf of this organisation.
      */
     protected $merchant_responsible_for_notifications;
@@ -161,30 +162,30 @@ class Creditor extends BaseResource
      *
      * The support address, `phone_number` and `email` fields are for customers
      * to contact the merchant for support purposes. They must be displayed on
-     * the payment page, please see our [compliance
-     * requirements](#appendix-compliance-requirements) for more details.
+     * the payment page, please see our compliance requirements
+     * (https://developer.gocardless.com/api-reference/#appendix-compliance-requirements)
+     * for more details.
      */
     protected $scheme_identifiers;
 
     /**
      * The creditor's verification status, indicating whether they can yet
      * receive payouts. For more details on handling verification as a partner,
-     * see our ["Helping your users get verified"
-     * guide](/getting-started/partners/helping-your-users-get-verified/). One
-     * of:
-     * <ul>
-     * <li>`successful`: The creditor's account is fully verified, and they can
+     * see our "Helping your users get verified" guide
+     * (https://developer.gocardless.com/getting-started/partners/helping-your-users-get-verified/).
+     * One of:
+     *
+     * - `successful`: The creditor's account is fully verified, and they can
      * receive payouts. Once a creditor has been successfully verified, they may
      * in the future require further verification - for example, if they change
      * their payout bank account, we will have to check that they own the new
-     * bank account before they can receive payouts again.</li>
-     * <li>`in_review`: The creditor has provided all of the information
-     * currently requested, and it is awaiting review by GoCardless before they
-     * can be verified and receive payouts.</li>
-     * <li>`action_required`: The creditor needs to provide further information
-     * to verify their account so they can receive payouts, and should visit the
-     * verification flow.</li>
-     * </ul>
+     * bank account before they can receive payouts again.
+     * - `in_review`: The creditor has provided all of the information currently
+     * requested, and it is awaiting review by GoCardless before they can be
+     * verified and receive payouts.
+     * - `action_required`: The creditor needs to provide further information to
+     * verify their account so they can receive payouts, and should visit the
+     * verification flow.
      */
     protected $verification_status;
 }

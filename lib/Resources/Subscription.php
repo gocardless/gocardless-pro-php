@@ -57,13 +57,14 @@ class Subscription extends BaseResource
     protected $count;
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when this
-     * resource was created.
+     * Fixed timestamp
+     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * recording when this resource was created.
      */
     protected $created_at;
 
     /**
-     * [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
+     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
      * code. Currently "AUD", "CAD", "DKK", "EUR", "GBP", "NZD", "SEK" and "USD"
      * are supported.
      */
@@ -85,13 +86,12 @@ class Subscription extends BaseResource
 
     /**
      * Date on or after which no further payments should be created.
-     * <br />
+     *
      * If this field is blank and `count` is not specified, the subscription
      * will continue forever.
-     * <br />
-     * <p class="deprecated-notice"><strong>Deprecated</strong>: This field will
-     * be removed in a future API version. Use `count` to specify a number of
-     * payments instead.</p>
+     *
+     * Deprecated: This field will be removed in a future API version. Use
+     * `count` to specify a number of payments instead.
      */
     protected $end_date;
 
@@ -128,7 +128,6 @@ class Subscription extends BaseResource
      * Name of the month on which to charge a customer. Must be lowercase. Only
      * applies
      * when the interval_unit is `yearly`.
-     *
      */
     protected $month;
 
@@ -148,27 +147,28 @@ class Subscription extends BaseResource
      * payment
      * created and will appear on your customer's bank statement. See the
      * documentation for
-     * the [create payment endpoint](#payments-create-a-payment) for more
-     * details.
-     * <br />
-     * <p class="restricted-notice"><strong>Restricted</strong>: You need your
-     * own Service User Number to specify a payment reference for Bacs
-     * payments.</p>
+     * the create payment endpoint
+     * (https://developer.gocardless.com/api-reference/#payments-create-a-payment)
+     * for more details.
+     *
+     * Restricted: You need your own Service User Number to specify a payment
+     * reference for Bacs payments.
      */
     protected $payment_reference;
 
     /**
-     * On failure, automatically retry payments using [intelligent
-     * retries](/success-plus/overview). Default is `false`. <p
-     * class="notice"><strong>Important</strong>: To be able to use intelligent
-     * retries, Success+ needs to be enabled in [GoCardless
-     * dashboard](https://manage.gocardless.com/success-plus). </p>
+     * On failure, automatically retry payments using intelligent retries
+     * (https://developer.gocardless.com/success-plus/overview). Default is
+     * `false`. Important: To be able to use intelligent retries, Success+ needs
+     * to be enabled in GoCardless dashboard
+     * (https://manage.gocardless.com/success-plus).
      */
     protected $retry_if_possible;
 
     /**
      * The date on which the first payment should be charged. Must be on or
-     * after the [mandate](#core-endpoints-mandates)'s
+     * after the mandate
+     * (https://developer.gocardless.com/api-reference/#core-endpoints-mandates)'s
      * `next_possible_charge_date`. When left blank and `month` or
      * `day_of_month` are provided, this will be set to the date of the first
      * payment. If created without `month` or `day_of_month` this will be set as
@@ -178,20 +178,18 @@ class Subscription extends BaseResource
 
     /**
      * One of:
-     * <ul>
-     * <li>`pending_customer_approval`: the subscription is waiting for customer
-     * approval before becoming active</li>
-     * <li>`customer_approval_denied`: the customer did not approve the
-     * subscription</li>
-     * <li>`active`: the subscription is currently active and will continue to
-     * create payments</li>
-     * <li>`finished`: all of the payments scheduled for creation under this
-     * subscription have been created</li>
-     * <li>`cancelled`: the subscription has been cancelled and will no longer
-     * create payments</li>
-     * <li>`paused`: the subscription has been paused and will not create
-     * payments</li>
-     * </ul>
+     *
+     * - `pending_customer_approval`: the subscription is waiting for customer
+     * approval before becoming active
+     * - `customer_approval_denied`: the customer did not approve the
+     * subscription
+     * - `active`: the subscription is currently active and will continue to
+     * create payments
+     * - `finished`: all of the payments scheduled for creation under this
+     * subscription have been created
+     * - `cancelled`: the subscription has been cancelled and will no longer
+     * create payments
+     * - `paused`: the subscription has been paused and will not create payments
      */
     protected $status;
 

@@ -38,24 +38,23 @@ class Payout extends BaseResource
     /**
      * Date the payout is due to arrive in the creditor's bank account.
      * One of:
-     * <ul>
-     *   <li>`yyyy-mm-dd`: the payout has been paid and is due to arrive in the
-     * creditor's bank
-     *   account on this day</li>
-     *   <li>`null`: the payout hasn't been paid yet</li>
-     * </ul>
      *
+     * - `yyyy-mm-dd`: the payout has been paid and is due to arrive in the
+     * creditor's bank
+     * account on this day
+     * - `null`: the payout hasn't been paid yet
      */
     protected $arrival_date;
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when this
-     * resource was created.
+     * Fixed timestamp
+     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * recording when this resource was created.
      */
     protected $created_at;
 
     /**
-     * [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
+     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
      * code. Currently "AUD", "CAD", "DKK", "EUR", "GBP", "NZD", "SEK" and "USD"
      * are supported.
      */
@@ -64,14 +63,14 @@ class Payout extends BaseResource
     /**
      * Fees that have already been deducted from the payout amount in minor unit
      * (e.g. pence in GBP, cents in EUR), inclusive of tax if applicable.
-     * <br />
+     *
      * For each `late_failure_settled` or `chargeback_settled` action, we refund
      * the transaction fees in a payout. This means that a payout can have a
      * negative `deducted_fees` value.
-     * <br />
+     *
      * This field is calculated as `(GoCardless fees + app fees + surcharge
      * fees) - (refunded fees)`
-     * <br />
+     *
      * If the merchant is invoiced for fees separately from the payout, then
      * `deducted_fees` will be 0.
      */
@@ -94,7 +93,7 @@ class Payout extends BaseResource
 
     /**
      * Key-value store of custom data. Up to 3 keys are permitted, with key
-     * names up to 50 characters and values up to 500 characters. _Note:_ This
+     * names up to 50 characters and values up to 500 characters. Note: This
      * should not be used for storing PII data.
      */
     protected $metadata;
@@ -111,22 +110,20 @@ class Payout extends BaseResource
 
     /**
      * One of:
-     * <ul>
-     * <li>`pending`: the payout has been created, but not yet sent to your bank
-     * or it is in the process of being exchanged through our FX provider.</li>
-     * <li>`paid`: the payout has been sent to the your bank. FX payouts will
-     * become `paid` after we emit the `fx_rate_confirmed` webhook.</li>
-     * <li>`bounced`: the payout bounced when sent, the payout can be
-     * retried.</li>
-     * </ul>
+     *
+     * - `pending`: the payout has been created, but not yet sent to your bank
+     * or it is in the process of being exchanged through our FX provider.
+     * - `paid`: the payout has been sent to the your bank. FX payouts will
+     * become `paid` after we emit the `fx_rate_confirmed` webhook.
+     * - `bounced`: the payout bounced when sent, the payout can be retried.
      */
     protected $status;
 
     /**
-     * [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) code for
+     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) code for
      * the currency in which tax is paid out to the tax authorities of your tax
      * jurisdiction. Currently “EUR”, “GBP”, for French or British merchants,
-     * this will be `null` if tax is not applicable <em>beta</em>
+     * this will be `null` if tax is not applicable beta
      */
     protected $tax_currency;
 }

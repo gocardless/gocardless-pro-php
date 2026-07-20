@@ -34,8 +34,9 @@ class OutboundPaymentImportEntry extends BaseResource
     protected $amount;
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when this
-     * resource was created.
+     * Fixed timestamp
+     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * recording when this resource was created.
      */
     protected $created_at;
 
@@ -56,8 +57,9 @@ class OutboundPaymentImportEntry extends BaseResource
     protected $metadata;
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when this entry
-     * was processed.
+     * Fixed timestamp
+     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * recording when this entry was processed.
      */
     protected $processed_at;
 

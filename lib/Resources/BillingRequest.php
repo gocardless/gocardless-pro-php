@@ -40,8 +40,9 @@ class BillingRequest extends BaseResource
     protected $actions;
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when this
-     * resource was created.
+     * Fixed timestamp
+     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * recording when this resource was created.
      */
     protected $created_at;
 
@@ -50,8 +51,8 @@ class BillingRequest extends BaseResource
      * payment to direct debit.
      * Should not be set if GoCardless payment intelligence feature is used.
      *
-     * See [Billing Requests: Retain customers with
-     * Fallbacks](https://developer.gocardless.com/billing-requests/retain-customers-with-fallbacks/)
+     * See Billing Requests: Retain customers with Fallbacks
+     * (https://developer.gocardless.com/billing-requests/retain-customers-with-fallbacks/)
      * for more information.
      */
     protected $fallback_enabled;
@@ -102,8 +103,8 @@ class BillingRequest extends BaseResource
      * Specifies the underlying purpose of the payment. Defines the specific
      * reason or type of service/goods the payment relates to, improving
      * straight-through processing and compliance.
-     * See [VRP Commercial Payment Purpose
-     * Codes](https://developer.gocardless.com/vrp-commercial-payment-purpose-codes/)
+     * See VRP Commercial Payment Purpose Codes
+     * (https://developer.gocardless.com/vrp-commercial-payment-purpose-codes/)
      * for the complete list of valid codes.
      */
     protected $payment_purpose_code;
@@ -117,9 +118,9 @@ class BillingRequest extends BaseResource
      * Specifies the high-level purpose/category of a mandate and/or payment
      * using a set of pre-defined categories. Provides context on the nature and
      * reason for the payment to facilitate processing and compliance.
-     * See [Billing Request Purpose
-     * Codes](https://developer.gocardless.com/billing-request-purpose-codes/)
-     * for the complete list of valid codes.
+     * See Billing Request Purpose Codes
+     * (https://developer.gocardless.com/billing-request-purpose-codes/) for the
+     * complete list of valid codes.
      */
     protected $purpose_code;
 
@@ -130,16 +131,13 @@ class BillingRequest extends BaseResource
 
     /**
      * One of:
-     * <ul>
-     * <li>`pending`: the billing request is pending and can be used</li>
-     * <li>`ready_to_fulfil`: the billing request is ready to fulfil</li>
-     * <li>`fulfilling`: the billing request is currently undergoing
-     * fulfilment</li>
-     * <li>`fulfilled`: the billing request has been fulfilled and a payment
-     * created</li>
-     * <li>`cancelled`: the billing request has been cancelled and cannot be
-     * used</li>
-     * </ul>
+     *
+     * - `pending`: the billing request is pending and can be used
+     * - `ready_to_fulfil`: the billing request is ready to fulfil
+     * - `fulfilling`: the billing request is currently undergoing fulfilment
+     * - `fulfilled`: the billing request has been fulfilled and a payment
+     * created
+     * - `cancelled`: the billing request has been cancelled and cannot be used
      */
     protected $status;
 

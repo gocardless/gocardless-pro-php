@@ -34,17 +34,16 @@ class Mandate extends BaseResource
     protected $model_name = "Mandate";
 
     /**
-     * This field is ACH specific, sometimes referred to as [SEC
-     * code](https://www.moderntreasury.com/learn/sec-codes).
+     * This field is ACH specific, sometimes referred to as SEC code
+     * (https://www.moderntreasury.com/learn/sec-codes).
      *
      * This is the way that the payer gives authorisation to the merchant.
-     *   web: Authorisation is Internet Initiated or via Mobile Entry (maps to
-     * SEC code: WEB)
-     *   telephone: Authorisation is provided orally over telephone (maps to SEC
+     * web: Authorisation is Internet Initiated or via Mobile Entry (maps to SEC
+     * code: WEB)
+     * telephone: Authorisation is provided orally over telephone (maps to SEC
      * code: TEL)
-     *   paper: Authorisation is provided in writing and signed, or similarly
+     * paper: Authorisation is provided in writing and signed, or similarly
      * authenticated (maps to SEC code: PPD)
-     *
      */
     protected $authorisation_source;
 
@@ -61,8 +60,9 @@ class Mandate extends BaseResource
     protected $consent_type;
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when this
-     * resource was created.
+     * Fixed timestamp
+     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * recording when this resource was created.
      */
     protected $created_at;
 
@@ -74,8 +74,7 @@ class Mandate extends BaseResource
      * out.
      * - `direct` will be a direct transfer from the payer's account to the
      * merchant where
-     *   invoicing will be handled separately.
-     *
+     * invoicing will be handled separately.
      */
     protected $funds_settlement;
 
@@ -123,46 +122,46 @@ class Mandate extends BaseResource
     protected $payments_require_approval;
 
     /**
-     * Unique reference. Different schemes have different length and [character
-     * set](#appendix-character-sets) requirements. GoCardless will generate a
-     * unique reference satisfying the different scheme requirements if this
-     * field is left blank.
+     * Unique reference. Different schemes have different length and character
+     * set
+     * (https://developer.gocardless.com/api-reference/#appendix-character-sets)
+     * requirements. GoCardless will generate a unique reference satisfying the
+     * different scheme requirements if this field is left blank.
      */
     protected $reference;
 
     /**
-     * <a name="mandates_scheme"></a>Bank payment scheme to which this mandate
-     * and associated payments are submitted. Can be supplied or automatically
-     * detected from the customer's bank account.
+     * Bank payment scheme to which this mandate and associated payments are
+     * submitted. Can be supplied or automatically detected from the customer's
+     * bank account.
      */
     protected $scheme;
 
     /**
      * One of:
-     * <ul>
-     * <li>`pending_customer_approval`: the mandate has not yet been signed by
-     * the second customer</li>
-     * <li>`pending_submission`: the mandate has not yet been submitted to the
-     * customer's bank</li>
-     * <li>`submitted`: the mandate has been submitted to the customer's bank
-     * but has not been processed yet</li>
-     * <li>`active`: the mandate has been successfully set up by the customer's
-     * bank</li>
-     * <li>`suspended_by_payer`: the mandate has been suspended by payer</li>
-     * <li>`failed`: the mandate could not be created</li>
-     * <li>`cancelled`: the mandate has been cancelled</li>
-     * <li>`expired`: the mandate has expired due to dormancy</li>
-     * <li>`consumed`: the mandate has been consumed and cannot be reused (note
-     * that this only applies to schemes that are per-payment authorised)</li>
-     * <li>`blocked`: the mandate has been blocked and payments cannot be
-     * created</li>
-     * </ul>
+     *
+     * - `pending_customer_approval`: the mandate has not yet been signed by the
+     * second customer
+     * - `pending_submission`: the mandate has not yet been submitted to the
+     * customer's bank
+     * - `submitted`: the mandate has been submitted to the customer's bank but
+     * has not been processed yet
+     * - `active`: the mandate has been successfully set up by the customer's
+     * bank
+     * - `suspended_by_payer`: the mandate has been suspended by payer
+     * - `failed`: the mandate could not be created
+     * - `cancelled`: the mandate has been cancelled
+     * - `expired`: the mandate has expired due to dormancy
+     * - `consumed`: the mandate has been consumed and cannot be reused (note
+     * that this only applies to schemes that are per-payment authorised)
+     * - `blocked`: the mandate has been blocked and payments cannot be created
      */
     protected $status;
 
     /**
-     * [Timestamp](#api-usage-dates-and-times) recording when this mandate was
-     * verified.
+     * Timestamp
+     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times)
+     * recording when this mandate was verified.
      */
     protected $verified_at;
 }

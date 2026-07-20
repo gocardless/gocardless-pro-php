@@ -22,8 +22,9 @@ class MandateImportEntry extends BaseResource
     protected $model_name = "MandateImportEntry";
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when this
-     * resource was created.
+     * Fixed timestamp
+     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * recording when this resource was created.
      */
     protected $created_at;
 
@@ -43,7 +44,6 @@ class MandateImportEntry extends BaseResource
      * processed by GoCardless) to identify the records that have been created.
      * Limited
      * to 255 characters.
-     *
      */
     protected $record_identifier;
 }

@@ -31,9 +31,10 @@ class CreditorBankAccount extends BaseResource
 
     /**
      * Name of the account holder, as known by the bank. Usually this is the
-     * same as the name stored with the linked
-     * [creditor](#core-endpoints-creditors). This field will be transliterated,
-     * upcased and truncated to 18 characters.
+     * same as the name stored with the linked creditor
+     * (https://developer.gocardless.com/api-reference/#core-endpoints-creditors).
+     * This field will be transliterated, upcased and truncated to 18
+     * characters.
      */
     protected $account_holder_name;
 
@@ -45,8 +46,9 @@ class CreditorBankAccount extends BaseResource
 
     /**
      * Bank account type. Required for USD-denominated bank accounts. Must not
-     * be provided for bank accounts in other currencies. See [local
-     * details](#local-bank-details-united-states) for more information.
+     * be provided for bank accounts in other currencies. See local details
+     * (https://developer.gocardless.com/api-reference/#local-bank-details-united-states)
+     * for more information.
      */
     protected $account_type;
 
@@ -56,21 +58,22 @@ class CreditorBankAccount extends BaseResource
     protected $bank_name;
 
     /**
-     * [ISO 3166-1 alpha-2
-     * code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements).
+     * ISO 3166-1 alpha-2 code
+     * (https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements).
      * Defaults to the country code of the `iban` if supplied, otherwise is
      * required.
      */
     protected $country_code;
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when this
-     * resource was created.
+     * Fixed timestamp
+     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * recording when this resource was created.
      */
     protected $created_at;
 
     /**
-     * [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
+     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
      * code. Currently "AUD", "CAD", "DKK", "EUR", "GBP", "NZD", "SEK" and "USD"
      * are supported.
      */

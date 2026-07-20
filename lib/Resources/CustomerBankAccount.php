@@ -24,6 +24,7 @@ namespace GoCardlessPro\Resources;
  * @property-read mixed $id
  * @property-read mixed $links
  * @property-read mixed $metadata
+ * @property-read mixed $payer_name_verification_result
  * @property-read mixed $trusted_recipient
  */
 class CustomerBankAccount extends BaseResource
@@ -35,8 +36,8 @@ class CustomerBankAccount extends BaseResource
      * when the customer is created is stored and is available via the API, but
      * is transliterated, upcased, and truncated to 18 characters in bank
      * submissions. This field is required unless the request includes a
-     * [customer bank account
-     * token](#javascript-flow-customer-bank-account-tokens).
+     * customer bank account token
+     * (https://developer.gocardless.com/api-reference/#javascript-flow-customer-bank-account-tokens).
      */
     protected $account_holder_name;
 
@@ -48,8 +49,9 @@ class CustomerBankAccount extends BaseResource
 
     /**
      * Bank account type. Required for USD-denominated bank accounts. Must not
-     * be provided for bank accounts in other currencies. See [local
-     * details](#local-bank-details-united-states) for more information.
+     * be provided for bank accounts in other currencies. See local details
+     * (https://developer.gocardless.com/api-reference/#local-bank-details-united-states)
+     * for more information.
      */
     protected $account_type;
 
@@ -65,21 +67,22 @@ class CustomerBankAccount extends BaseResource
     protected $bank_name;
 
     /**
-     * [ISO 3166-1 alpha-2
-     * code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements).
+     * ISO 3166-1 alpha-2 code
+     * (https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements).
      * Defaults to the country code of the `iban` if supplied, otherwise is
      * required.
      */
     protected $country_code;
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when this
-     * resource was created.
+     * Fixed timestamp
+     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * recording when this resource was created.
      */
     protected $created_at;
 
     /**
-     * [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
+     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
      * code. Currently "AUD", "CAD", "DKK", "EUR", "GBP", "NZD", "SEK" and "USD"
      * are supported.
      */
@@ -105,6 +108,21 @@ class CustomerBankAccount extends BaseResource
      * names up to 50 characters and values up to 500 characters.
      */
     protected $metadata;
+
+    /**
+     * The result of the payer name verification check performed when the bank
+     * account was created. Only present if a check was performed.
+     *
+     * - `full`: The name provided matches the name held by the bank.
+     * - `close`: The name provided is a close but not exact match to the name
+     * held by the bank.
+     * - `cannot_perform_verification`: A verification was attempted but could
+     * not be completed. This can happen for a number of reasons, including the
+     * account holder's bank not participating in the verification scheme, the
+     * account not being eligible for verification (e.g. the account holder has
+     * opted out), or the bank details not being resolvable, among others.
+     */
+    protected $payer_name_verification_result;
 
     /**
      * Whether this customer bank account is registered as a trusted recipient

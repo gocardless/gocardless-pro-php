@@ -33,17 +33,18 @@ class RedirectFlow extends BaseResource
      * customer to rather than use your own page, that confirms in their chosen
      * language that their Direct Debit has been set up successfully. Only
      * returned once the customer has set up their mandate via the payment pages
-     * and the redirect flow has been
-     * [completed](#redirect-flows-complete-a-redirect-flow), and only available
-     * for 15 minutes from when you complete the redirect flow. The structure of
-     * this URL may change at any time, so you should read it directly from the
-     * API response.
+     * and the redirect flow has been completed
+     * (https://developer.gocardless.com/api-reference/#redirect-flows-complete-a-redirect-flow),
+     * and only available for 15 minutes from when you complete the redirect
+     * flow. The structure of this URL may change at any time, so you should
+     * read it directly from the API response.
      */
     protected $confirmation_url;
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when this
-     * resource was created.
+     * Fixed timestamp
+     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * recording when this resource was created.
      */
     protected $created_at;
 
@@ -70,7 +71,7 @@ class RedirectFlow extends BaseResource
 
     /**
      * Key-value store of custom data. Up to 3 keys are permitted, with key
-     * names up to 50 characters and values up to 500 characters. _Note:_ This
+     * names up to 50 characters and values up to 500 characters. Note: This
      * should not be used for storing PII data.
      */
     protected $metadata;
