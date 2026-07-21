@@ -61,7 +61,7 @@ class CustomerNotificationsCodeSamplesTest extends TestCase
 
         $client = $this->client;
 
-        $client->customerNotifications()->handle("PCN123");
+        $client->customerNotifications()->handle("EV1D18JEXAMPLE");
 
         ob_end_clean();
     }
