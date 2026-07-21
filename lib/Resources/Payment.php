@@ -36,6 +36,10 @@ class Payment extends BaseResource
      * Amount, in the lowest denomination for the currency (e.g. pence in GBP,
      * cents in EUR).
      *
+     * Minimum and maximum amounts vary by payment scheme. For more information,
+     * see Transaction limits
+     * (https://support.gocardless.com/hc/en-gb/articles/115000309245-Transaction-limits)
+     *
      * For Variable Recurring Payments (VRP), this must not exceed the mandate's
      * `max_amount_per_payment`
      * constraint.
