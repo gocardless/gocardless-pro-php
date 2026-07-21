@@ -31,9 +31,9 @@ class PaymentAccountTransactionsService extends BaseService
     *
     * Example URL: /payment_account_transactions/:identity
     *
-    * @param  string        $identity The unique ID of the [bank
- account](#core-endpoints-creditor-bank-accounts) which
- happens to be the payment account.
+    * @param  string        $identity The unique ID of the bank account
+ (https://developer.gocardless.com/api-reference/#core-endpoints-creditor-bank-accounts)
+ which happens to be the payment account.
     * @param  array<string, mixed> $params An associative array for any params
     * @return PaymentAccountTransaction
     **/
@@ -63,9 +63,9 @@ class PaymentAccountTransactionsService extends BaseService
     *
     * Example URL: /payment_accounts/:identity/transactions
     *
-    * @param  string        $identity The unique ID of the [bank
- account](#core-endpoints-creditor-bank-accounts) which
- happens to be the payment account.
+    * @param  string        $identity The unique ID of the bank account
+ (https://developer.gocardless.com/api-reference/#core-endpoints-creditor-bank-accounts)
+ which happens to be the payment account.
     * @param  array<string, mixed> $params An associative array for any params
     * @return ListResponse
     **/

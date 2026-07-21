@@ -115,6 +115,21 @@ class ApiClientTest extends TestCase
         $this->api_client->get('/some_endpoint');
     }
 
+    public function testMalformedResponseIncludesStatusCodeAndBody()
+    {
+        $body = "<html>502 Bad Gateway</html>";
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(502, [], $body));
+
+        try {
+            $this->api_client->get('/some_endpoint');
+            $this->fail('expected MalformedResponseException');
+        } catch (\GoCardlessPro\Core\Exception\MalformedResponseException $e) {
+            $this->assertEquals(502, $e->statusCode());
+            $this->assertStringContainsString('HTTP 502', $e->getMessage());
+            $this->assertStringContainsString('502 Bad Gateway', $e->getMessage());
+        }
+    }
+
     public function testInvalidStateErrorResponse()
     {
         $fixture = $this->loadFixture('invalid_state_error');

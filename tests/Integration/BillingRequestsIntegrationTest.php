@@ -18,7 +18,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
     public function testBillingRequestsCreate()
     {
         $fixture = $this->loadJsonFixture('billing_requests')->create;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->billingRequests();
         $response = call_user_func_array(array($service, 'create'), (array)$fixture->url_params);
@@ -93,7 +93,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -168,7 +168,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $conflictRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $conflictRequest->getUri()->getPath());
         $getRequest = $this->history[1]['request'];
@@ -178,7 +178,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
     public function testBillingRequestsCollectCustomerDetails()
     {
         $fixture = $this->loadJsonFixture('billing_requests')->collect_customer_details;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->billingRequests();
         $response = call_user_func_array(array($service, 'collectCustomerDetails'), (array)$fixture->url_params);
@@ -253,7 +253,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -262,7 +262,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
     public function testBillingRequestsCollectBankAccount()
     {
         $fixture = $this->loadJsonFixture('billing_requests')->collect_bank_account;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->billingRequests();
         $response = call_user_func_array(array($service, 'collectBankAccount'), (array)$fixture->url_params);
@@ -337,7 +337,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -346,7 +346,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
     public function testBillingRequestsConfirmPayerDetails()
     {
         $fixture = $this->loadJsonFixture('billing_requests')->confirm_payer_details;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->billingRequests();
         $response = call_user_func_array(array($service, 'confirmPayerDetails'), (array)$fixture->url_params);
@@ -421,7 +421,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -430,7 +430,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
     public function testBillingRequestsFulfil()
     {
         $fixture = $this->loadJsonFixture('billing_requests')->fulfil;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->billingRequests();
         $response = call_user_func_array(array($service, 'fulfil'), (array)$fixture->url_params);
@@ -505,7 +505,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -514,7 +514,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
     public function testBillingRequestsCancel()
     {
         $fixture = $this->loadJsonFixture('billing_requests')->cancel;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->billingRequests();
         $response = call_user_func_array(array($service, 'cancel'), (array)$fixture->url_params);
@@ -589,7 +589,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -598,7 +598,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
     public function testBillingRequestsList()
     {
         $fixture = $this->loadJsonFixture('billing_requests')->list;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->billingRequests();
         $response = call_user_func_array(array($service, 'list'), (array)$fixture->url_params);
@@ -683,7 +683,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
             }
         }
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -692,7 +692,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
     public function testBillingRequestsGet()
     {
         $fixture = $this->loadJsonFixture('billing_requests')->get;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->billingRequests();
         $response = call_user_func_array(array($service, 'get'), (array)$fixture->url_params);
@@ -767,7 +767,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -776,7 +776,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
     public function testBillingRequestsNotify()
     {
         $fixture = $this->loadJsonFixture('billing_requests')->notify;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->billingRequests();
         $response = call_user_func_array(array($service, 'notify'), (array)$fixture->url_params);
@@ -851,7 +851,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -860,7 +860,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
     public function testBillingRequestsFallback()
     {
         $fixture = $this->loadJsonFixture('billing_requests')->fallback;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->billingRequests();
         $response = call_user_func_array(array($service, 'fallback'), (array)$fixture->url_params);
@@ -935,7 +935,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -944,7 +944,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
     public function testBillingRequestsChooseCurrency()
     {
         $fixture = $this->loadJsonFixture('billing_requests')->choose_currency;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->billingRequests();
         $response = call_user_func_array(array($service, 'chooseCurrency'), (array)$fixture->url_params);
@@ -1019,7 +1019,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -1028,7 +1028,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
     public function testBillingRequestsSelectInstitution()
     {
         $fixture = $this->loadJsonFixture('billing_requests')->select_institution;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->billingRequests();
         $response = call_user_func_array(array($service, 'selectInstitution'), (array)$fixture->url_params);
@@ -1103,7 +1103,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }

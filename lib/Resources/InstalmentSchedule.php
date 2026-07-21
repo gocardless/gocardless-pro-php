@@ -27,13 +27,14 @@ class InstalmentSchedule extends BaseResource
     protected $model_name = "InstalmentSchedule";
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when this
-     * resource was created.
+     * Fixed timestamp
+     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * recording when this resource was created.
      */
     protected $created_at;
 
     /**
-     * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
+     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
      * code. Currently "AUD", "CAD", "DKK", "EUR", "GBP", "NZD", "SEK" and "USD"
      * are supported.
      */
@@ -68,22 +69,19 @@ class InstalmentSchedule extends BaseResource
      * failures from the individual payments, arranged by the index of the
      * payment that
      * failed.
-     *
      */
     protected $payment_errors;
 
     /**
      * One of:
-     * <ul>
-     * <li>`pending`: we're waiting for GC to create the payments</li>
-     * <li>`active`: the payments have been created, and the schedule is
-     * active</li>
-     * <li>`creation_failed`: payment creation failed</li>
-     * <li>`completed`: we have passed the date of the final payment and all
-     * payments have been collected</li>
-     * <li>`cancelled`: the schedule has been cancelled</li>
-     * <li>`errored`: one or more payments have failed</li>
-     * </ul>
+     *
+     * - `pending`: we're waiting for GC to create the payments
+     * - `active`: the payments have been created, and the schedule is active
+     * - `creation_failed`: payment creation failed
+     * - `completed`: we have passed the date of the final payment and all
+     * payments have been collected
+     * - `cancelled`: the schedule has been cancelled
+     * - `errored`: one or more payments have failed
      */
     protected $status;
 

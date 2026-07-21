@@ -18,7 +18,7 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
     public function testCustomerBankAccountsCreate()
     {
         $fixture = $this->loadJsonFixture('customer_bank_accounts')->create;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->customerBankAccounts();
         $response = call_user_func_array(array($service, 'create'), (array)$fixture->url_params);
@@ -76,8 +76,16 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->metadata, $response->metadata);
         }
 
+        if (property_exists($body, 'payer_name_verification_result')) {
+            $this->assertEquals($body->payer_name_verification_result, $response->payer_name_verification_result);
+        }
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        if (property_exists($body, 'trusted_recipient')) {
+            $this->assertEquals($body->trusted_recipient, $response->trusted_recipient);
+        }
+
+
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -138,9 +146,15 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
         if (property_exists($body, 'metadata')) {
             $this->assertEquals($body->metadata, $response->metadata);
         }
+        if (property_exists($body, 'payer_name_verification_result')) {
+            $this->assertEquals($body->payer_name_verification_result, $response->payer_name_verification_result);
+        }
+        if (property_exists($body, 'trusted_recipient')) {
+            $this->assertEquals($body->trusted_recipient, $response->trusted_recipient);
+        }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $conflictRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $conflictRequest->getUri()->getPath());
         $getRequest = $this->history[1]['request'];
@@ -150,7 +164,7 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
     public function testCustomerBankAccountsList()
     {
         $fixture = $this->loadJsonFixture('customer_bank_accounts')->list;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->customerBankAccounts();
         $response = call_user_func_array(array($service, 'list'), (array)$fixture->url_params);
@@ -217,9 +231,17 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
             if (isset($body[$num]->metadata)) {
                 $this->assertEquals($body[$num]->metadata, $record->metadata);
             }
+
+            if (isset($body[$num]->payer_name_verification_result)) {
+                $this->assertEquals($body[$num]->payer_name_verification_result, $record->payer_name_verification_result);
+            }
+
+            if (isset($body[$num]->trusted_recipient)) {
+                $this->assertEquals($body[$num]->trusted_recipient, $record->trusted_recipient);
+            }
         }
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -228,7 +250,7 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
     public function testCustomerBankAccountsGet()
     {
         $fixture = $this->loadJsonFixture('customer_bank_accounts')->get;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->customerBankAccounts();
         $response = call_user_func_array(array($service, 'get'), (array)$fixture->url_params);
@@ -286,8 +308,16 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->metadata, $response->metadata);
         }
 
+        if (property_exists($body, 'payer_name_verification_result')) {
+            $this->assertEquals($body->payer_name_verification_result, $response->payer_name_verification_result);
+        }
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        if (property_exists($body, 'trusted_recipient')) {
+            $this->assertEquals($body->trusted_recipient, $response->trusted_recipient);
+        }
+
+
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -296,7 +326,7 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
     public function testCustomerBankAccountsUpdate()
     {
         $fixture = $this->loadJsonFixture('customer_bank_accounts')->update;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->customerBankAccounts();
         $response = call_user_func_array(array($service, 'update'), (array)$fixture->url_params);
@@ -354,8 +384,16 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->metadata, $response->metadata);
         }
 
+        if (property_exists($body, 'payer_name_verification_result')) {
+            $this->assertEquals($body->payer_name_verification_result, $response->payer_name_verification_result);
+        }
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        if (property_exists($body, 'trusted_recipient')) {
+            $this->assertEquals($body->trusted_recipient, $response->trusted_recipient);
+        }
+
+
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -364,7 +402,7 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
     public function testCustomerBankAccountsDisable()
     {
         $fixture = $this->loadJsonFixture('customer_bank_accounts')->disable;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->customerBankAccounts();
         $response = call_user_func_array(array($service, 'disable'), (array)$fixture->url_params);
@@ -422,8 +460,16 @@ class CustomerBankAccountsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->metadata, $response->metadata);
         }
 
+        if (property_exists($body, 'payer_name_verification_result')) {
+            $this->assertEquals($body->payer_name_verification_result, $response->payer_name_verification_result);
+        }
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        if (property_exists($body, 'trusted_recipient')) {
+            $this->assertEquals($body->trusted_recipient, $response->trusted_recipient);
+        }
+
+
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }

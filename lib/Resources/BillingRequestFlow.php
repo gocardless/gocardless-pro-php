@@ -79,7 +79,7 @@ class BillingRequestFlow extends BaseResource
 
     /**
      * Sets the default language of the Billing Request Flow and the customer.
-     * [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) code.
+     * ISO 639-1 (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) code.
      */
     protected $language;
 
@@ -95,7 +95,6 @@ class BillingRequestFlow extends BaseResource
      *
      * You can only lock bank account if these have already been completed as a
      * part of the billing request.
-     *
      */
     protected $lock_bank_account;
 
@@ -114,7 +113,6 @@ class BillingRequestFlow extends BaseResource
      *
      * You can only lock customer details if these have already been completed
      * as a part of the billing request.
-     *
      */
     protected $lock_customer_details;
 

@@ -18,7 +18,7 @@ class SchemeIdentifiersIntegrationTest extends IntegrationTestBase
     public function testSchemeIdentifiersCreate()
     {
         $fixture = $this->loadJsonFixture('scheme_identifiers')->create;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->schemeIdentifiers();
         $response = call_user_func_array(array($service, 'create'), (array)$fixture->url_params);
@@ -101,7 +101,7 @@ class SchemeIdentifiersIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -182,7 +182,7 @@ class SchemeIdentifiersIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $conflictRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $conflictRequest->getUri()->getPath());
         $getRequest = $this->history[1]['request'];
@@ -192,7 +192,7 @@ class SchemeIdentifiersIntegrationTest extends IntegrationTestBase
     public function testSchemeIdentifiersList()
     {
         $fixture = $this->loadJsonFixture('scheme_identifiers')->list;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->schemeIdentifiers();
         $response = call_user_func_array(array($service, 'list'), (array)$fixture->url_params);
@@ -285,7 +285,7 @@ class SchemeIdentifiersIntegrationTest extends IntegrationTestBase
             }
         }
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -294,7 +294,7 @@ class SchemeIdentifiersIntegrationTest extends IntegrationTestBase
     public function testSchemeIdentifiersGet()
     {
         $fixture = $this->loadJsonFixture('scheme_identifiers')->get;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->schemeIdentifiers();
         $response = call_user_func_array(array($service, 'get'), (array)$fixture->url_params);
@@ -377,7 +377,7 @@ class SchemeIdentifiersIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }

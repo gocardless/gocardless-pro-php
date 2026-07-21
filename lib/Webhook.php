@@ -39,6 +39,35 @@ class Webhook
     }
 
     /**
+     * Validates that a webhook was genuinely sent by GoCardless using `isValidSignature`,
+     * and then parses it into a WebhookParseResult containing both the events and the
+     * webhook ID from the meta field.
+     *
+     * @param string $request_body the request body
+     * @param string $signature_header the signature included in the request, found in the
+     *     `Webhook-Signature` header
+     * @param string $webhook_endpoint_secret the webhook endpoint secret for your webhook
+     *     endpoint, as configured in your GoCardless Dashboard
+     * @return WebhookParseResult containing the events and webhook ID
+     * @throws Core\Exception\InvalidSignatureException if the
+     *     signature header specified does not match the signature computed using the
+     *     request body and webhook endpoint secret
+     */
+    public static function parseWithMeta($request_body, $signature_header, $webhook_endpoint_secret)
+    {
+        if (self::isSignatureValid($request_body, $signature_header, $webhook_endpoint_secret)) {
+            $parsed = json_decode($request_body);
+            $events = array_map([Webhook::class, 'buildEvent'], $parsed->events);
+            $webhookId = isset($parsed->meta) && isset($parsed->meta->webhook_id)
+                ? $parsed->meta->webhook_id
+                : null;
+            return new WebhookParseResult($events, $webhookId);
+        } else {
+            throw new Core\Exception\InvalidSignatureException(self::INVALID_SIGNATURE_MESSAGE);
+        }
+    }
+
+    /**
      * Validates that a webhook was genuinely sent by GoCardless by computing its
      * signature using the body and your webhook endpoint secret, and comparing that with
      * the signature included in the `Webhook-Signature` header.

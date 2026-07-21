@@ -18,7 +18,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
     public function testMandatesCreate()
     {
         $fixture = $this->loadJsonFixture('mandates')->create;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->mandates();
         $response = call_user_func_array(array($service, 'create'), (array)$fixture->url_params);
@@ -56,6 +56,10 @@ class MandatesIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->links, $response->links);
         }
 
+        if (property_exists($body, 'mandate_type')) {
+            $this->assertEquals($body->mandate_type, $response->mandate_type);
+        }
+
         if (property_exists($body, 'metadata')) {
             $this->assertEquals($body->metadata, $response->metadata);
         }
@@ -89,7 +93,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -135,6 +139,9 @@ class MandatesIntegrationTest extends IntegrationTestBase
         if (property_exists($body, 'links')) {
             $this->assertEquals($body->links, $response->links);
         }
+        if (property_exists($body, 'mandate_type')) {
+            $this->assertEquals($body->mandate_type, $response->mandate_type);
+        }
         if (property_exists($body, 'metadata')) {
             $this->assertEquals($body->metadata, $response->metadata);
         }
@@ -161,7 +168,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $conflictRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $conflictRequest->getUri()->getPath());
         $getRequest = $this->history[1]['request'];
@@ -171,7 +178,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
     public function testMandatesList()
     {
         $fixture = $this->loadJsonFixture('mandates')->list;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->mandates();
         $response = call_user_func_array(array($service, 'list'), (array)$fixture->url_params);
@@ -219,6 +226,10 @@ class MandatesIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->links, $record->links);
             }
 
+            if (isset($body[$num]->mandate_type)) {
+                $this->assertEquals($body[$num]->mandate_type, $record->mandate_type);
+            }
+
             if (isset($body[$num]->metadata)) {
                 $this->assertEquals($body[$num]->metadata, $record->metadata);
             }
@@ -252,7 +263,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
             }
         }
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -261,7 +272,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
     public function testMandatesGet()
     {
         $fixture = $this->loadJsonFixture('mandates')->get;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->mandates();
         $response = call_user_func_array(array($service, 'get'), (array)$fixture->url_params);
@@ -299,6 +310,10 @@ class MandatesIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->links, $response->links);
         }
 
+        if (property_exists($body, 'mandate_type')) {
+            $this->assertEquals($body->mandate_type, $response->mandate_type);
+        }
+
         if (property_exists($body, 'metadata')) {
             $this->assertEquals($body->metadata, $response->metadata);
         }
@@ -332,7 +347,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -341,7 +356,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
     public function testMandatesUpdate()
     {
         $fixture = $this->loadJsonFixture('mandates')->update;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->mandates();
         $response = call_user_func_array(array($service, 'update'), (array)$fixture->url_params);
@@ -379,6 +394,10 @@ class MandatesIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->links, $response->links);
         }
 
+        if (property_exists($body, 'mandate_type')) {
+            $this->assertEquals($body->mandate_type, $response->mandate_type);
+        }
+
         if (property_exists($body, 'metadata')) {
             $this->assertEquals($body->metadata, $response->metadata);
         }
@@ -412,7 +431,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -421,7 +440,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
     public function testMandatesCancel()
     {
         $fixture = $this->loadJsonFixture('mandates')->cancel;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->mandates();
         $response = call_user_func_array(array($service, 'cancel'), (array)$fixture->url_params);
@@ -459,6 +478,10 @@ class MandatesIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->links, $response->links);
         }
 
+        if (property_exists($body, 'mandate_type')) {
+            $this->assertEquals($body->mandate_type, $response->mandate_type);
+        }
+
         if (property_exists($body, 'metadata')) {
             $this->assertEquals($body->metadata, $response->metadata);
         }
@@ -492,7 +515,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -501,7 +524,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
     public function testMandatesReinstate()
     {
         $fixture = $this->loadJsonFixture('mandates')->reinstate;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->mandates();
         $response = call_user_func_array(array($service, 'reinstate'), (array)$fixture->url_params);
@@ -539,6 +562,10 @@ class MandatesIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->links, $response->links);
         }
 
+        if (property_exists($body, 'mandate_type')) {
+            $this->assertEquals($body->mandate_type, $response->mandate_type);
+        }
+
         if (property_exists($body, 'metadata')) {
             $this->assertEquals($body->metadata, $response->metadata);
         }
@@ -572,7 +599,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }

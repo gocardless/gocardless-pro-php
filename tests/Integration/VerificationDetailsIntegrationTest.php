@@ -18,7 +18,7 @@ class VerificationDetailsIntegrationTest extends IntegrationTestBase
     public function testVerificationDetailsCreate()
     {
         $fixture = $this->loadJsonFixture('verification_details')->create;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->verificationDetails();
         $response = call_user_func_array(array($service, 'create'), (array)$fixture->url_params);
@@ -48,6 +48,10 @@ class VerificationDetailsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->company_number, $response->company_number);
         }
 
+        if (property_exists($body, 'country_code')) {
+            $this->assertEquals($body->country_code, $response->country_code);
+        }
+
         if (property_exists($body, 'description')) {
             $this->assertEquals($body->description, $response->description);
         }
@@ -68,8 +72,12 @@ class VerificationDetailsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->postal_code, $response->postal_code);
         }
 
+        if (property_exists($body, 'region')) {
+            $this->assertEquals($body->region, $response->region);
+        }
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -78,7 +86,7 @@ class VerificationDetailsIntegrationTest extends IntegrationTestBase
     public function testVerificationDetailsList()
     {
         $fixture = $this->loadJsonFixture('verification_details')->list;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->verificationDetails();
         $response = call_user_func_array(array($service, 'list'), (array)$fixture->url_params);
@@ -118,6 +126,10 @@ class VerificationDetailsIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->company_number, $record->company_number);
             }
 
+            if (isset($body[$num]->country_code)) {
+                $this->assertEquals($body[$num]->country_code, $record->country_code);
+            }
+
             if (isset($body[$num]->description)) {
                 $this->assertEquals($body[$num]->description, $record->description);
             }
@@ -137,9 +149,13 @@ class VerificationDetailsIntegrationTest extends IntegrationTestBase
             if (isset($body[$num]->postal_code)) {
                 $this->assertEquals($body[$num]->postal_code, $record->postal_code);
             }
+
+            if (isset($body[$num]->region)) {
+                $this->assertEquals($body[$num]->region, $record->region);
+            }
         }
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }

@@ -65,14 +65,15 @@ class Customer extends BaseResource
     protected $company_name;
 
     /**
-     * [ISO 3166-1 alpha-2
-     * code.](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
+     * ISO 3166-1 alpha-2 code.
+     * (https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
      */
     protected $country_code;
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when this
-     * resource was created.
+     * Fixed timestamp
+     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * recording when this resource was created.
      */
     protected $created_at;
 
@@ -105,13 +106,13 @@ class Customer extends BaseResource
     protected $id;
 
     /**
-     * [ISO 639-1](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) code.
+     * ISO 639-1 (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) code.
      * Used as the language for notification emails sent by GoCardless if your
-     * organisation does not send its own (see [compliance
-     * requirements](#appendix-compliance-requirements)). Currently only "en",
-     * "fr", "de", "pt", "es", "it", "nl", "da", "nb", "sl", "sv" are supported.
-     * If this is not provided, the language will be chosen based on the
-     * `country_code` (if supplied) or default to "en".
+     * organisation does not send its own (see compliance requirements
+     * (https://developer.gocardless.com/api-reference/#appendix-compliance-requirements)).
+     * Currently only "en", "fr", "de", "pt", "es", "it", "nl", "da", "nb",
+     * "sl", "sv" are supported. If this is not provided, the language will be
+     * chosen based on the `country_code` (if supplied) or default to "en".
      */
     protected $language;
 
@@ -122,7 +123,7 @@ class Customer extends BaseResource
     protected $metadata;
 
     /**
-     * [ITU E.123](https://en.wikipedia.org/wiki/E.123) formatted phone number,
+     * ITU E.123 (https://en.wikipedia.org/wiki/E.123) formatted phone number,
      * including country code.
      */
     protected $phone_number;
@@ -134,7 +135,7 @@ class Customer extends BaseResource
 
     /**
      * The customer's address region, county or department. For US customers a 2
-     * letter [ISO3166-2:US](https://en.wikipedia.org/wiki/ISO_3166-2:US) state
+     * letter ISO3166-2:US (https://en.wikipedia.org/wiki/ISO_3166-2:US) state
      * code is required (e.g. `CA` for California).
      */
     protected $region;

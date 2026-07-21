@@ -17,11 +17,13 @@ namespace GoCardlessPro\Resources;
  * @property-read mixed $address_line3
  * @property-read mixed $city
  * @property-read mixed $company_number
+ * @property-read mixed $country_code
  * @property-read mixed $description
  * @property-read mixed $directors
  * @property-read mixed $links
  * @property-read mixed $name
  * @property-read mixed $postal_code
+ * @property-read mixed $region
  */
 class VerificationDetail extends BaseResource
 {
@@ -53,6 +55,11 @@ class VerificationDetail extends BaseResource
     protected $company_number;
 
     /**
+     * The country code of the company's address.
+     */
+    protected $country_code;
+
+    /**
      * A summary describing what the company does.
      */
     protected $description;
@@ -76,4 +83,9 @@ class VerificationDetail extends BaseResource
      * The company's postal code.
      */
     protected $postal_code;
+
+    /**
+     * The region of the company's address.
+     */
+    protected $region;
 }

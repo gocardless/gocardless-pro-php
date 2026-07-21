@@ -19,6 +19,7 @@ namespace GoCardlessPro\Resources;
  * @property-read mixed $limits
  * @property-read mixed $logo_url
  * @property-read mixed $name
+ * @property-read mixed $roles
  * @property-read mixed $status
  */
 class Institution extends BaseResource
@@ -33,8 +34,8 @@ class Institution extends BaseResource
     protected $autocompletes_collect_bank_account;
 
     /**
-     * [ISO
-     * 3166-1](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
+     * ISO 3166-1
+     * (https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
      * alpha-2 code. The country code of the institution. If nothing is
      * provided, institutions with the country code 'GB' are returned by
      * default.
@@ -65,6 +66,12 @@ class Institution extends BaseResource
      * A human readable name for this institution
      */
     protected $name;
+
+    /**
+     * The roles assigned to this institution, representing the open banking
+     * features it supports.
+     */
+    protected $roles;
 
     /**
      * The status of the institution

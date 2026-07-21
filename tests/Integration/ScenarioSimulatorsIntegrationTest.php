@@ -18,7 +18,7 @@ class ScenarioSimulatorsIntegrationTest extends IntegrationTestBase
     public function testScenarioSimulatorsRun()
     {
         $fixture = $this->loadJsonFixture('scenario_simulators')->run;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->scenarioSimulators();
         $response = call_user_func_array(array($service, 'run'), (array)$fixture->url_params);
@@ -33,7 +33,7 @@ class ScenarioSimulatorsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }

@@ -37,13 +37,14 @@ class OutboundPayment extends BaseResource
     protected $amount;
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when the
-     * outbound payment was created.
+     * Fixed timestamp
+     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * recording when the outbound payment was created.
      */
     protected $created_at;
 
     /**
-     * [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency.
+     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency.
      * Currently only "GBP" is supported.
      */
     protected $currency;
@@ -83,10 +84,13 @@ class OutboundPayment extends BaseResource
 
     /**
      * An optional reference that will appear on your customer's bank statement.
-     * The character limit for this reference is dependent on the scheme.<br />
-     * <strong>Faster Payments</strong> - 18 characters, including:
-     * "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 &-./"<br
-     * />
+     * The character limit for this reference is dependent on the scheme.
+     *
+     * Faster Payments <ul>
+     * <li>18 characters, including:
+     * "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
+     * &-./"</li>
+     * </ul>
      */
     protected $reference;
 
@@ -98,25 +102,26 @@ class OutboundPayment extends BaseResource
 
     /**
      * One of:
-     * <ul>
-     * <li>`verifying`: The payment has been
-     * [created](#outbound-payments-create-an-outbound-payment) and the
-     * verification process has begun.</li>
-     * <li>`pending_approval`: The payment is awaiting
-     * [approval](#outbound-payments-approve-an-outbound-payment).</li>
-     * <li>`scheduled`: The payment has passed verification &
-     * [approval](#outbound-payments-approve-an-outbound-payment), but
-     * processing has not yet begun.</li>
-     * <li>`executing`: The execution date has arrived and the payment has been
-     * placed in queue for processing.</li>
-     * <li>`executed`: The payment has been accepted by the scheme and is now on
-     * its way to the recipient.</li>
-     * <li>`cancelled`: The payment has been
-     * [cancelled](#outbound-payments-cancel-an-outbound-payment) or was not
-     * [approved](#outbound-payments-approve-an-outbound-payment) on time.</li>
-     * <li>`failed`: The payment was not sent, usually due to an error while or
-     * after executing.</li>
-     * </ul>
+     *
+     * - `verifying`: The payment has been created
+     * (https://developer.gocardless.com/api-reference/#outbound-payments-create-an-outbound-payment)
+     * and the verification process has begun.
+     * - `pending_approval`: The payment is awaiting approval
+     * (https://developer.gocardless.com/api-reference/#outbound-payments-approve-an-outbound-payment).
+     * - `scheduled`: The payment has passed verification & approval
+     * (https://developer.gocardless.com/api-reference/#outbound-payments-approve-an-outbound-payment),
+     * but processing has not yet begun.
+     * - `executing`: The execution date has arrived and the payment has been
+     * placed in queue for processing.
+     * - `executed`: The payment has been accepted by the scheme and is now on
+     * its way to the recipient.
+     * - `cancelled`: The payment has been cancelled
+     * (https://developer.gocardless.com/api-reference/#outbound-payments-cancel-an-outbound-payment)
+     * or was not approved
+     * (https://developer.gocardless.com/api-reference/#outbound-payments-approve-an-outbound-payment)
+     * on time.
+     * - `failed`: The payment was not sent, usually due to an error while or
+     * after executing.
      */
     protected $status;
 

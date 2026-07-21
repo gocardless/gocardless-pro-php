@@ -18,7 +18,7 @@ class BankAccountDetailsIntegrationTest extends IntegrationTestBase
     public function testBankAccountDetailsGet()
     {
         $fixture = $this->loadJsonFixture('bank_account_details')->get;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->bankAccountDetails();
         $response = call_user_func_array(array($service, 'get'), (array)$fixture->url_params);
@@ -49,7 +49,7 @@ class BankAccountDetailsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }

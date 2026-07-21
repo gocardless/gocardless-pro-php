@@ -18,7 +18,7 @@ class InstitutionsIntegrationTest extends IntegrationTestBase
     public function testInstitutionsList()
     {
         $fixture = $this->loadJsonFixture('institutions')->list;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->institutions();
         $response = call_user_func_array(array($service, 'list'), (array)$fixture->url_params);
@@ -66,12 +66,16 @@ class InstitutionsIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->name, $record->name);
             }
 
+            if (isset($body[$num]->roles)) {
+                $this->assertEquals($body[$num]->roles, $record->roles);
+            }
+
             if (isset($body[$num]->status)) {
                 $this->assertEquals($body[$num]->status, $record->status);
             }
         }
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -80,7 +84,7 @@ class InstitutionsIntegrationTest extends IntegrationTestBase
     public function testInstitutionsListForBillingRequest()
     {
         $fixture = $this->loadJsonFixture('institutions')->list_for_billing_request;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->institutions();
         $response = call_user_func_array(array($service, 'listForBillingRequest'), (array)$fixture->url_params);
@@ -128,12 +132,16 @@ class InstitutionsIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->name, $record->name);
             }
 
+            if (isset($body[$num]->roles)) {
+                $this->assertEquals($body[$num]->roles, $record->roles);
+            }
+
             if (isset($body[$num]->status)) {
                 $this->assertEquals($body[$num]->status, $record->status);
             }
         }
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }

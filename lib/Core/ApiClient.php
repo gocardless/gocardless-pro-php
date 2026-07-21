@@ -125,14 +125,14 @@ class ApiClient
             return null;
         }
 
+        $status_code = $response->getStatusCode();
         $json = json_decode($response->getBody());
 
         if ($json === null) {
             $msg = "Malformed response received from server";
-            throw new Exception\MalformedResponseException($msg, $response);
+            throw new Exception\MalformedResponseException($msg, $response, $status_code);
         }
 
-        $status_code = $response->getStatusCode();
         if ($status_code < 400) {
             return null;
         }

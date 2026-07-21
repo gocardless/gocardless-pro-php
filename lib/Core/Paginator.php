@@ -11,7 +11,7 @@ class Paginator implements \Iterator
     /**
     * Default max records to retrieve per page
     */
-    const HARD_RECORD_LIMIT = 500;
+    public const HARD_RECORD_LIMIT = 500;
 
     /**
     * @var \GoCardlessPro\Services\BaseService The resource service to fetch records with
@@ -63,7 +63,7 @@ class Paginator implements \Iterator
     {
         $this->current_position = 0;
         $this->current_page_position = 0;
-        $this->current_response = $this->initial_response();
+        $this->current_response = $this->initialResponse();
     }
 
     /**
@@ -74,7 +74,7 @@ class Paginator implements \Iterator
     #[\ReturnTypeWillChange]
     public function current()
     {
-        return $this->current_records()[$this->key()];
+        return $this->currentRecords()[$this->key()];
     }
 
     /**
@@ -98,7 +98,7 @@ class Paginator implements \Iterator
         ++$this->current_position;
 
         if (!$this->valid()) {
-            $this->current_response = $this->next_response();
+            $this->current_response = $this->nextResponse();
             $this->current_page_position = $this->current_position;
         }
     }
@@ -112,7 +112,7 @@ class Paginator implements \Iterator
     public function valid()
     {
         return !is_null($this->current_response) &&
-            array_key_exists($this->key(), $this->current_records());
+            array_key_exists($this->key(), $this->currentRecords());
     }
 
     /**
@@ -120,7 +120,7 @@ class Paginator implements \Iterator
      *
      * @return ListResponse
      */
-    private function initial_response()
+    private function initialResponse()
     {
         $options = $this->options;
         $options['params']['after'] = null;
@@ -132,7 +132,7 @@ class Paginator implements \Iterator
      *
      * @return ListResponse
      */
-    private function next_response()
+    private function nextResponse()
     {
         $options = $this->options;
         $options['params']['after'] = $this->current_response->after;
@@ -148,7 +148,7 @@ class Paginator implements \Iterator
      *
      * @return \GoCardlessPro\Resources\BaseResource[]
      */
-    private function current_records()
+    private function currentRecords()
     {
         return $this->current_response->records;
     }

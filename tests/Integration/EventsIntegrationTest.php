@@ -18,7 +18,7 @@ class EventsIntegrationTest extends IntegrationTestBase
     public function testEventsList()
     {
         $fixture = $this->loadJsonFixture('events')->list;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->events();
         $response = call_user_func_array(array($service, 'list'), (array)$fixture->url_params);
@@ -79,7 +79,7 @@ class EventsIntegrationTest extends IntegrationTestBase
             }
         }
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -88,7 +88,7 @@ class EventsIntegrationTest extends IntegrationTestBase
     public function testEventsGet()
     {
         $fixture = $this->loadJsonFixture('events')->get;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->events();
         $response = call_user_func_array(array($service, 'get'), (array)$fixture->url_params);
@@ -139,7 +139,7 @@ class EventsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }

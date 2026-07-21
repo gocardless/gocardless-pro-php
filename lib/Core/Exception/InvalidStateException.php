@@ -26,4 +26,4 @@ class InvalidStateException extends ApiException
             }
         }
     }
-};
+}

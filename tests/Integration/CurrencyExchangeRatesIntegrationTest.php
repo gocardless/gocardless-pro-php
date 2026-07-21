@@ -18,7 +18,7 @@ class CurrencyExchangeRatesIntegrationTest extends IntegrationTestBase
     public function testCurrencyExchangeRatesList()
     {
         $fixture = $this->loadJsonFixture('currency_exchange_rates')->list;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->currencyExchangeRates();
         $response = call_user_func_array(array($service, 'list'), (array)$fixture->url_params);
@@ -55,7 +55,7 @@ class CurrencyExchangeRatesIntegrationTest extends IntegrationTestBase
             }
         }
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }

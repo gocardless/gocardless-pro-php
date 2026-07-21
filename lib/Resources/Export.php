@@ -15,6 +15,7 @@ namespace GoCardlessPro\Resources;
  * @property-read mixed $created_at
  * @property-read mixed $currency
  * @property-read mixed $download_url
+ * @property-read mixed $error_message
  * @property-read mixed $export_type
  * @property-read mixed $id
  */
@@ -23,8 +24,9 @@ class Export extends BaseResource
     protected $model_name = "Export";
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when this
-     * resource was created.
+     * Fixed timestamp
+     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * recording when this resource was created.
      */
     protected $created_at;
 
@@ -37,6 +39,11 @@ class Export extends BaseResource
      * Download url for the export file. Subject to expiry.
      */
     protected $download_url;
+
+    /**
+     * Error message if the export encountered an error during processing.
+     */
+    protected $error_message;
 
     /**
      * The type of the export

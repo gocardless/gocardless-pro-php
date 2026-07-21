@@ -18,7 +18,7 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
     public function testCreditorBankAccountsCreate()
     {
         $fixture = $this->loadJsonFixture('creditor_bank_accounts')->create;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->creditorBankAccounts();
         $response = call_user_func_array(array($service, 'create'), (array)$fixture->url_params);
@@ -77,7 +77,7 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -140,7 +140,7 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $conflictRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $conflictRequest->getUri()->getPath());
         $getRequest = $this->history[1]['request'];
@@ -150,7 +150,7 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
     public function testCreditorBankAccountsList()
     {
         $fixture = $this->loadJsonFixture('creditor_bank_accounts')->list;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->creditorBankAccounts();
         $response = call_user_func_array(array($service, 'list'), (array)$fixture->url_params);
@@ -219,7 +219,7 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
             }
         }
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -228,7 +228,7 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
     public function testCreditorBankAccountsGet()
     {
         $fixture = $this->loadJsonFixture('creditor_bank_accounts')->get;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->creditorBankAccounts();
         $response = call_user_func_array(array($service, 'get'), (array)$fixture->url_params);
@@ -287,7 +287,7 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -296,7 +296,7 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
     public function testCreditorBankAccountsDisable()
     {
         $fixture = $this->loadJsonFixture('creditor_bank_accounts')->disable;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->creditorBankAccounts();
         $response = call_user_func_array(array($service, 'disable'), (array)$fixture->url_params);
@@ -355,7 +355,7 @@ class CreditorBankAccountsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }

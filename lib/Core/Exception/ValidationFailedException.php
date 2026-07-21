@@ -12,4 +12,4 @@ class ValidationFailedException extends ApiException
             return $error->message;
         }
     }
-};
+}

@@ -18,7 +18,7 @@ class BankAccountHolderVerificationsIntegrationTest extends IntegrationTestBase
     public function testBankAccountHolderVerificationsCreate()
     {
         $fixture = $this->loadJsonFixture('bank_account_holder_verifications')->create;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->bankAccountHolderVerifications();
         $response = call_user_func_array(array($service, 'create'), (array)$fixture->url_params);
@@ -49,7 +49,7 @@ class BankAccountHolderVerificationsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -91,7 +91,7 @@ class BankAccountHolderVerificationsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $conflictRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $conflictRequest->getUri()->getPath());
         $getRequest = $this->history[1]['request'];
@@ -101,7 +101,7 @@ class BankAccountHolderVerificationsIntegrationTest extends IntegrationTestBase
     public function testBankAccountHolderVerificationsGet()
     {
         $fixture = $this->loadJsonFixture('bank_account_holder_verifications')->get;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->bankAccountHolderVerifications();
         $response = call_user_func_array(array($service, 'get'), (array)$fixture->url_params);
@@ -132,7 +132,7 @@ class BankAccountHolderVerificationsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }

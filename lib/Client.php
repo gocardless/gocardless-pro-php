@@ -24,7 +24,7 @@ class Client
      */
     public function __construct($config)
     {
-        $this->validate_config($config);
+        $this->validateConfig($config);
 
         $access_token = $config['access_token'];
 
@@ -56,7 +56,7 @@ class Client
                 'Content-Type' => 'application/json',
                 'Authorization' => "Bearer " . $access_token,
                 'GoCardless-Client-Library' => 'gocardless-pro-php',
-                'GoCardless-Client-Version' => '7.2.0',
+                'GoCardless-Client-Version' => '7.3.0',
                 'User-Agent' => $this->getUserAgent()
               ),
               'http_errors' => false,
@@ -124,6 +124,10 @@ class Client
         $this->services['negative_balance_limits'] = new Services\NegativeBalanceLimitsService($this->api_client);
 
         $this->services['outbound_payments'] = new Services\OutboundPaymentsService($this->api_client);
+
+        $this->services['outbound_payment_imports'] = new Services\OutboundPaymentImportsService($this->api_client);
+
+        $this->services['outbound_payment_import_entries'] = new Services\OutboundPaymentImportEntriesService($this->api_client);
 
         $this->services['payer_authorisations'] = new Services\PayerAuthorisationsService($this->api_client);
 
@@ -496,6 +500,30 @@ class Client
     }
 
     /**
+     * Service for interacting with outbound payment imports
+     * @return Services\OutboundPaymentImportsService
+     */
+    public function outboundPaymentImports()
+    {
+        if (!isset($this->services['outbound_payment_imports'])) {
+            throw new \Exception('Key outbound_payment_imports does not exist in services array');
+        }
+        return $this->services['outbound_payment_imports'];
+    }
+
+    /**
+     * Service for interacting with outbound payment import entries
+     * @return Services\OutboundPaymentImportEntriesService
+     */
+    public function outboundPaymentImportEntries()
+    {
+        if (!isset($this->services['outbound_payment_import_entries'])) {
+            throw new \Exception('Key outbound_payment_import_entries does not exist in services array');
+        }
+        return $this->services['outbound_payment_import_entries'];
+    }
+
+    /**
      * Service for interacting with payer authorisations
      * @return Services\PayerAuthorisationsService
      */
@@ -706,7 +734,7 @@ class Client
      *
      * @param array[string]mixed $config the client configuration options
      */
-    private function validate_config(&$config)
+    private function validateConfig(&$config)
     {
         $required_option_keys = array('access_token', 'environment');
 
@@ -736,14 +764,9 @@ class Client
     {
         $curlinfo = curl_version();
         $uagent = array();
-        $uagent[] = 'gocardless-pro-php/7.2.0';
+        $uagent[] = 'gocardless-pro-php/7.3.0';
         $uagent[] = 'schema-version/2015-07-06';
-        if (defined('\GuzzleHttp\Client::MAJOR_VERSION')) {
-            $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::MAJOR_VERSION;
-        } else {
-            // Backward compatibility for Guzzle <7.0
-            $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::VERSION;
-        }
+        $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::MAJOR_VERSION;
         $uagent[] = 'php/' . phpversion();
         if (extension_loaded('curl') && function_exists('curl_version')) {
             $uagent[] = 'curl/' . \curl_version()['version'];

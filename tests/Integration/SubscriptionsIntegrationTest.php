@@ -18,7 +18,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
     public function testSubscriptionsCreate()
     {
         $fixture = $this->loadJsonFixture('subscriptions')->create;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->subscriptions();
         $response = call_user_func_array(array($service, 'create'), (array)$fixture->url_params);
@@ -113,7 +113,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -203,7 +203,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $conflictRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $conflictRequest->getUri()->getPath());
         $getRequest = $this->history[1]['request'];
@@ -213,7 +213,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
     public function testSubscriptionsList()
     {
         $fixture = $this->loadJsonFixture('subscriptions')->list;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->subscriptions();
         $response = call_user_func_array(array($service, 'list'), (array)$fixture->url_params);
@@ -318,7 +318,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
             }
         }
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -327,7 +327,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
     public function testSubscriptionsGet()
     {
         $fixture = $this->loadJsonFixture('subscriptions')->get;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->subscriptions();
         $response = call_user_func_array(array($service, 'get'), (array)$fixture->url_params);
@@ -422,7 +422,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -431,7 +431,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
     public function testSubscriptionsUpdate()
     {
         $fixture = $this->loadJsonFixture('subscriptions')->update;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->subscriptions();
         $response = call_user_func_array(array($service, 'update'), (array)$fixture->url_params);
@@ -526,7 +526,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -535,7 +535,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
     public function testSubscriptionsPause()
     {
         $fixture = $this->loadJsonFixture('subscriptions')->pause;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->subscriptions();
         $response = call_user_func_array(array($service, 'pause'), (array)$fixture->url_params);
@@ -630,7 +630,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -639,7 +639,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
     public function testSubscriptionsResume()
     {
         $fixture = $this->loadJsonFixture('subscriptions')->resume;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->subscriptions();
         $response = call_user_func_array(array($service, 'resume'), (array)$fixture->url_params);
@@ -734,7 +734,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -743,7 +743,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
     public function testSubscriptionsCancel()
     {
         $fixture = $this->loadJsonFixture('subscriptions')->cancel;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->subscriptions();
         $response = call_user_func_array(array($service, 'cancel'), (array)$fixture->url_params);
@@ -838,7 +838,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }

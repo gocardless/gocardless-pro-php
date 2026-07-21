@@ -1,6 +1,6 @@
-# GoCardless Pro PHP client library
+# GoCardless PHP client library
 
-A PHP client for interacting with the GoCardless Pro API.
+A PHP client for interacting with the GoCardless API.
 
 [![PHP version](https://badge.fury.io/ph/gocardless%2Fgocardless-pro.svg)](https://badge.fury.io/ph/gocardless%2Fgocardless-pro)
 [![CircleCI](https://circleci.com/gh/gocardless/gocardless-pro-php.svg?style=shield)](https://circleci.com/gh/gocardless/gocardless-pro-php)
@@ -235,6 +235,18 @@ try {
      header('HTTP/1.1 498 Invalid Token');
 }
 ```
+
+#### Accessing the webhook ID
+
+If you need to access the webhook ID for debugging purposes, you can use `Webhook::parseWithMeta` instead:
+
+```php
+$result = GoCardlessPro\Webhook::parseWithMeta($request_body, $signature_header, $webhook_endpoint_secret);
+$events = $result->getEvents();
+$webhookId = $result->getWebhookId(); // e.g. "WB123" - useful for debugging
+```
+
+Note: The webhook ID is intended for debugging and logging purposes only. It should not be used for deduplication - instead, use the event IDs to deduplicate, as each event has a unique ID that remains consistent if the same event is sent multiple times.
 
 For more details on working with webhooks, see our ["Getting started" guide](https://developer.gocardless.com/getting-started/api/introduction/?lang=php).
 

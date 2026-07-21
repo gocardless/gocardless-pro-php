@@ -33,8 +33,9 @@ class BankAuthorisation extends BaseResource
     protected $authorisation_type;
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when the user
-     * has been authorised.
+     * Fixed timestamp
+     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * recording when the user has been authorised.
      */
     protected $authorised_at;
 
@@ -55,8 +56,9 @@ class BankAuthorisation extends BaseResource
     protected $id;
 
     /**
-     * Fixed [timestamp](#api-usage-dates-and-times), recording when the
-     * authorisation URL has been visited.
+     * Fixed timestamp
+     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * recording when the authorisation URL has been visited.
      */
     protected $last_visited_at;
 
@@ -86,10 +88,12 @@ class BankAuthorisation extends BaseResource
      * Please note: bank authorisations can still fail despite an
      * `outcome=success` on the `redirect_uri`. It is therefore recommended to
      * wait for the relevant bank authorisation event, such as
-     * [`BANK_AUTHORISATION_AUTHORISED`](#billing-request-bankauthorisationauthorised),
-     * [`BANK_AUTHORISATION_DENIED`](#billing-request-bankauthorisationdenied),
-     * or
-     * [`BANK_AUTHORISATION_FAILED`](#billing-request-bankauthorisationfailed)
+     * `BANK_AUTHORISATION_AUTHORISED`
+     * (https://developer.gocardless.com/api-reference/#billing-request-bankauthorisationauthorised),
+     * `BANK_AUTHORISATION_DENIED`
+     * (https://developer.gocardless.com/api-reference/#billing-request-bankauthorisationdenied),
+     * or `BANK_AUTHORISATION_FAILED`
+     * (https://developer.gocardless.com/api-reference/#billing-request-bankauthorisationfailed)
      * in order to show the correct outcome to the user.
      *
      * The BillingRequestFlow ID will also be appended to the `redirect_uri` as

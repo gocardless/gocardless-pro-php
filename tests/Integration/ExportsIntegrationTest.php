@@ -18,7 +18,7 @@ class ExportsIntegrationTest extends IntegrationTestBase
     public function testExportsGet()
     {
         $fixture = $this->loadJsonFixture('exports')->get;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->exports();
         $response = call_user_func_array(array($service, 'get'), (array)$fixture->url_params);
@@ -40,6 +40,10 @@ class ExportsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->download_url, $response->download_url);
         }
 
+        if (property_exists($body, 'error_message')) {
+            $this->assertEquals($body->error_message, $response->error_message);
+        }
+
         if (property_exists($body, 'export_type')) {
             $this->assertEquals($body->export_type, $response->export_type);
         }
@@ -49,7 +53,7 @@ class ExportsIntegrationTest extends IntegrationTestBase
         }
 
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
@@ -58,7 +62,7 @@ class ExportsIntegrationTest extends IntegrationTestBase
     public function testExportsList()
     {
         $fixture = $this->loadJsonFixture('exports')->list;
-        $this->stub_request($fixture);
+        $this->stubRequest($fixture);
 
         $service = $this->client->exports();
         $response = call_user_func_array(array($service, 'list'), (array)$fixture->url_params);
@@ -90,6 +94,10 @@ class ExportsIntegrationTest extends IntegrationTestBase
                 $this->assertEquals($body[$num]->download_url, $record->download_url);
             }
 
+            if (isset($body[$num]->error_message)) {
+                $this->assertEquals($body[$num]->error_message, $record->error_message);
+            }
+
             if (isset($body[$num]->export_type)) {
                 $this->assertEquals($body[$num]->export_type, $record->export_type);
             }
@@ -99,7 +107,7 @@ class ExportsIntegrationTest extends IntegrationTestBase
             }
         }
 
-        $expectedPathRegex = $this->extract_resource_fixture_path_regex($fixture);
+        $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
         $this->assertMatchesRegularExpression($expectedPathRegex, $dispatchedRequest->getUri()->getPath());
     }
