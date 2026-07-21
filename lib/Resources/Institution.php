@@ -19,6 +19,7 @@ namespace GoCardlessPro\Resources;
  * @property-read mixed $limits
  * @property-read mixed $logo_url
  * @property-read mixed $name
+ * @property-read mixed $roles
  * @property-read mixed $status
  */
 class Institution extends BaseResource
@@ -65,6 +66,12 @@ class Institution extends BaseResource
      * A human readable name for this institution
      */
     protected $name;
+
+    /**
+     * The roles assigned to this institution, representing the open banking
+     * features it supports.
+     */
+    protected $roles;
 
     /**
      * The status of the institution
