@@ -1,7 +1,7 @@
 {
   "name": "gocardless/gocardless-pro",
   "description": "GoCardless PHP Client Library",
-  "version": "7.3.0",
+  "version": "8.0.0",
   "keywords": [
     "gocardless",
     "direct debit",
@@ -16,7 +16,7 @@
     }
   ],
   "require": {
-    "php": ">=8.1",
+    "php": ">=8.2",
     "ext-curl": "*",
     "ext-json": "*",
     "ext-mbstring": "*",
@@ -26,6 +26,11 @@
     "phpunit/phpunit": "^9.5",
     "squizlabs/php_codesniffer": "^4.0",
     "php-coveralls/php-coveralls": "^2.4"
+  },
+  "config": {
+    "platform": {
+      "php": "8.2"
+    }
   },
   "autoload": {
     "psr-4": {
