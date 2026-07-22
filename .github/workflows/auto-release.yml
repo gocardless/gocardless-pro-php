@@ -1,0 +1,56 @@
+name: Create Release
+
+on:
+  push:
+    branches: [master]
+
+permissions:
+  contents: write
+
+jobs:
+  create_release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Get version from composer.json
+        id: version
+        run: |
+          VERSION=$(jq -r .version composer.json)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      
+      - name: Check if tag exists
+        id: check
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          if git rev-parse "v${VERSION}" >/dev/null 2>&1; then
+            echo "Tag v${VERSION} already exists, skipping release"
+            echo "should_release=false" >> $GITHUB_OUTPUT
+          else
+            echo "Tag v${VERSION} does not exist, will create release"
+            echo "should_release=true" >> $GITHUB_OUTPUT
+          fi
+      # There's no explicit publish step for Packagist.
+      # 
+      # Instead, we have a push hook that tells Packagist to crawl our repo.
+      # 
+      # Packagist seems to prioritise the version specified in composer.json over the git tag, 
+      # but the documentation suggests we could just use git tags.
+      # https://packagist.org/about#managing-package-versions
+      # 
+      # For our purposes, we specify it in composer.json because the version is managed from gocardless/client-library-templates
+      # and so it is a single source of truth.
+      # We create a git tag and GitHub release because they are useful references for users.
+      - name: Create tag and release
+        if: steps.check.outputs.should_release == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag v${{ steps.version.outputs.version }}
+          git push origin v${{ steps.version.outputs.version }}
+          gh release create v${{ steps.version.outputs.version }} --generate-notes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GOCARDLESS_CI_ROBOT_TOKEN }}
