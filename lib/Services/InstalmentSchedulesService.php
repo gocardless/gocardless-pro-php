@@ -19,6 +19,8 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
  * endpoints of the API
  *
  * @method ListResponse list(array $params)
+ *
+ * @extends BaseService<\GoCardlessPro\Resources\InstalmentSchedule>
  */
 class InstalmentSchedulesService extends BaseService
 {
@@ -227,7 +229,7 @@ class InstalmentSchedulesService extends BaseService
     *
     * Example URL: /instalment_schedules
     *
-    * @param string[mixed] $params
+    * @param array<string, mixed> $params
     * @return Paginator
     **/
     public function all($params = array())

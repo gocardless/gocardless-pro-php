@@ -19,6 +19,8 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
  * endpoints of the API
  *
  * @method ListResponse list(array $params)
+ *
+ * @extends BaseService<\GoCardlessPro\Resources\Block>
  */
 class BlocksService extends BaseService
 {
@@ -238,7 +240,7 @@ class BlocksService extends BaseService
     *
     * Example URL: /blocks
     *
-    * @param string[mixed] $params
+    * @param array<string, mixed> $params
     * @return Paginator
     **/
     public function all($params = array())

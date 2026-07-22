@@ -12,7 +12,7 @@ class BankDetailsLookupsIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\BankDetailsLookup(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\BankDetailsLookup', $obj);
     }
 
     public function testBankDetailsLookupsCreate()

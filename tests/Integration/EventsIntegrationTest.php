@@ -12,7 +12,7 @@ class EventsIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\Event(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\Event', $obj);
     }
 
     public function testEventsList()

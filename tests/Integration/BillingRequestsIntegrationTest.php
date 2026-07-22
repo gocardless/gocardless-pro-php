@@ -12,7 +12,7 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\BillingRequest(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $obj);
     }
 
     public function testBillingRequestsCreate()

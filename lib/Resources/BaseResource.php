@@ -19,11 +19,16 @@ abstract class BaseResource
     public $api_response;
 
     /**
+     * @var string The human-readable name of the resource, set by each subclass.
+     */
+    protected $model_name;
+
+    /**
      * Initialise the model using an associative array. Will set values for all
      * valid properties, invalid or unrecognised properties will have no effect.
      *
-     * @param \stdClass   $data         Data to populate the attributes
-     * @param ApiResponse $api_response ApiResponse object.
+     * @param array<string, mixed>|\stdClass          $data         Data to populate the attributes
+     * @param \GoCardlessPro\Core\ApiResponse $api_response ApiResponse object.
      */
     public function __construct($data, $api_response = null)
     {
@@ -43,7 +48,7 @@ abstract class BaseResource
      * explicitly knowing when this is happening is more useful.
      *
      * @param  string $field the name of the field we're accessing
-     * @throws Exception Throws an exception if the field is invalid.
+     * @throws GoCardlessProException Throws an exception if the field is invalid.
      * @return mixed
      */
     public function __get($field)

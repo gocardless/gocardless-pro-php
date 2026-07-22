@@ -19,6 +19,8 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
  * endpoints of the API
  *
  * @method ListResponse list(array $params)
+ *
+ * @extends BaseService<\GoCardlessPro\Resources\Event>
  */
 class EventsService extends BaseService
 {
@@ -84,7 +86,7 @@ class EventsService extends BaseService
     *
     * Example URL: /events
     *
-    * @param string[mixed] $params
+    * @param array<string, mixed> $params
     * @return Paginator
     **/
     public function all($params = array())

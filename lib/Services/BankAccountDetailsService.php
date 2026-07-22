@@ -17,6 +17,8 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the BankAccountDetail
  * endpoints of the API
+ *
+ * @extends BaseService<\GoCardlessPro\Resources\BankAccountDetail>
  */
 class BankAccountDetailsService extends BaseService
 {

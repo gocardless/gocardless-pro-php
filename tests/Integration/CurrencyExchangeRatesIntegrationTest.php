@@ -12,7 +12,7 @@ class CurrencyExchangeRatesIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\CurrencyExchangeRate(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\CurrencyExchangeRate', $obj);
     }
 
     public function testCurrencyExchangeRatesList()

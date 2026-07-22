@@ -19,6 +19,8 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
  * endpoints of the API
  *
  * @method ListResponse list(array $params)
+ *
+ * @extends BaseService<\GoCardlessPro\Resources\TaxRate>
  */
 class TaxRatesService extends BaseService
 {
@@ -85,7 +87,7 @@ class TaxRatesService extends BaseService
     *
     * Example URL: /tax_rates
     *
-    * @param string[mixed] $params
+    * @param array<string, mixed> $params
     * @return Paginator
     **/
     public function all($params = array())

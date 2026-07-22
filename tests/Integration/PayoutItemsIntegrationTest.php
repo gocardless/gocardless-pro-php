@@ -12,7 +12,7 @@ class PayoutItemsIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\PayoutItem(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\PayoutItem', $obj);
     }
 
     public function testPayoutItemsList()

@@ -12,7 +12,7 @@ class OutboundPaymentImportEntriesIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\OutboundPaymentImportEntry(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\OutboundPaymentImportEntry', $obj);
     }
 
     public function testOutboundPaymentImportEntriesList()

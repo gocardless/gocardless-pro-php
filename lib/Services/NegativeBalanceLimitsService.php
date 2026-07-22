@@ -19,6 +19,8 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
  * endpoints of the API
  *
  * @method ListResponse list(array $params)
+ *
+ * @extends BaseService<\GoCardlessPro\Resources\NegativeBalanceLimit>
  */
 class NegativeBalanceLimitsService extends BaseService
 {
@@ -54,7 +56,7 @@ class NegativeBalanceLimitsService extends BaseService
     *
     * Example URL: /negative_balance_limits
     *
-    * @param string[mixed] $params
+    * @param array<string, mixed> $params
     * @return Paginator
     **/
     public function all($params = array())

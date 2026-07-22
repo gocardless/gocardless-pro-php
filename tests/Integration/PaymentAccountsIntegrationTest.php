@@ -12,7 +12,7 @@ class PaymentAccountsIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\PaymentAccount(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\PaymentAccount', $obj);
     }
 
     public function testPaymentAccountsGet()

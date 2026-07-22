@@ -17,6 +17,8 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the TransferredMandate
  * endpoints of the API
+ *
+ * @extends BaseService<\GoCardlessPro\Resources\TransferredMandate>
  */
 class TransferredMandatesService extends BaseService
 {

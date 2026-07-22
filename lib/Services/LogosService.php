@@ -17,6 +17,8 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the Logo
  * endpoints of the API
+ *
+ * @extends BaseService<\GoCardlessPro\Resources\Logo>
  */
 class LogosService extends BaseService
 {

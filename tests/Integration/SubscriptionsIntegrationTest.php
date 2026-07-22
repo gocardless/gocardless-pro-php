@@ -12,7 +12,7 @@ class SubscriptionsIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\Subscription(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\Subscription', $obj);
     }
 
     public function testSubscriptionsCreate()

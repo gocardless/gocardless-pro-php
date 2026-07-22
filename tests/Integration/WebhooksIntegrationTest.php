@@ -12,7 +12,7 @@ class WebhooksIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\Webhook(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\Webhook', $obj);
     }
 
     public function testWebhooksList()

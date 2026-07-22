@@ -40,7 +40,7 @@ class Client
             $http_client = $config['http_client'];
         } else {
             $stack = \GuzzleHttp\HandlerStack::create();
-            $stack->push(RetryMiddlewareFactory::buildMiddleware());
+            $stack->push(RetryMiddlewareFactory::buildMiddleware()); // @phpstan-ignore argument.type (Guzzle's own Middleware::retry() return type doesn't match HandlerStack::push()'s expected callable shape; RetryMiddleware is invokable at runtime)
 
             $timeout = 0;
             if (isset($config['timeout'])) {
@@ -56,7 +56,7 @@ class Client
                 'Content-Type' => 'application/json',
                 'Authorization' => "Bearer " . $access_token,
                 'GoCardless-Client-Library' => 'gocardless-pro-php',
-                'GoCardless-Client-Version' => '8.0.0',
+                'GoCardless-Client-Version' => '8.0.1',
                 'User-Agent' => $this->getUserAgent()
               ),
               'http_errors' => false,
@@ -732,7 +732,7 @@ class Client
     /**
      * Ensures a config is valid and sets defaults where required
      *
-     * @param array[string]mixed $config the client configuration options
+     * @param array<string, mixed> $config the client configuration options
      */
     private function validateConfig(&$config)
     {
@@ -764,7 +764,7 @@ class Client
     {
         $curlinfo = curl_version();
         $uagent = array();
-        $uagent[] = 'gocardless-pro-php/8.0.0';
+        $uagent[] = 'gocardless-pro-php/8.0.1';
         $uagent[] = 'schema-version/2015-07-06';
         $uagent[] = 'GuzzleHttp/' . \GuzzleHttp\Client::MAJOR_VERSION;
         $uagent[] = 'php/' . phpversion();

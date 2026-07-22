@@ -2,7 +2,9 @@
 
 namespace GoCardlessPro\Core\Mocks;
 
-class MockService
+use GoCardlessPro\Services\BaseService;
+
+class MockService extends BaseService
 {
     private $pages;
 

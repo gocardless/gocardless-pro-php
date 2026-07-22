@@ -12,7 +12,7 @@ class SchemeIdentifiersIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\SchemeIdentifier(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\SchemeIdentifier', $obj);
     }
 
     public function testSchemeIdentifiersCreate()

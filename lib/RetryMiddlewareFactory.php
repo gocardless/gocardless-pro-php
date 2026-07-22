@@ -13,7 +13,7 @@ class RetryMiddlewareFactory
 
     /**
      * Builds an appropriately configured RetryMiddleware to retry failed requests
-     * @return GuzzleHttp\RetryMiddleware
+     * @return \GuzzleHttp\RetryMiddleware
      */
     public static function buildMiddleware()
     {

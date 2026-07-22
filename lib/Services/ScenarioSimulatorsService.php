@@ -17,6 +17,8 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the ScenarioSimulator
  * endpoints of the API
+ *
+ * @extends BaseService<\GoCardlessPro\Resources\ScenarioSimulator>
  */
 class ScenarioSimulatorsService extends BaseService
 {

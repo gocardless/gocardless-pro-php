@@ -8,7 +8,7 @@ class ApiException extends GoCardlessProException
     private $api_response;
 
     /**
-     * @param ApiResponse $api_response the response from the GoCardless API
+     * @param \GoCardlessPro\Core\ApiResponse $api_response the response from the GoCardless API
      */
     public function __construct($api_response)
     {
@@ -20,7 +20,7 @@ class ApiException extends GoCardlessProException
     /**
      * @param int $status_code the status returned by the GoCardless API
      * @param string $error_type the error type returned by the GoCardless API
-     * @return ApiException the exception corresponding to the supplied error type
+     * @return string the exception class name corresponding to the supplied error type
      */
     public static function getError($status_code, $error_type)
     {

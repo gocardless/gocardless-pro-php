@@ -12,7 +12,7 @@ class CreditorsIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\Creditor(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\Creditor', $obj);
     }
 
     public function testCreditorsCreate()

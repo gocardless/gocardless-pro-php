@@ -7,6 +7,10 @@ use GoCardlessPro\Core\ListResponse;
 
 /**
  * Base service class for all resource services.
+ *
+ * @method ListResponse list(array $params)
+ *
+ * @template TResource of \GoCardlessPro\Resources\BaseResource
  */
 abstract class BaseService
 {
@@ -55,9 +59,9 @@ abstract class BaseService
      * Takes a raw response and returns either an instantiated resource or a
      * ListResponse
      *
-     * @param array $response The raw API response
+     * @param \GuzzleHttp\Psr7\Response $response The raw API response
      *
-     * @return ListResponse|\GoCardlessPro\Resources\BaseResource
+     * @return ListResponse|TResource|null
      */
     protected function getResourceForResponse($response)
     {
@@ -78,7 +82,7 @@ abstract class BaseService
     /**
      * @param object $body The decoded JSON body of the response
      *
-     * @return object The body, unenveloped
+     * @return array|object The body, unenveloped
      */
     protected function getUnenvelopedBody($body)
     {

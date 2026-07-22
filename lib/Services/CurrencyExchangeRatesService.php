@@ -19,6 +19,8 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
  * endpoints of the API
  *
  * @method ListResponse list(array $params)
+ *
+ * @extends BaseService<\GoCardlessPro\Resources\CurrencyExchangeRate>
  */
 class CurrencyExchangeRatesService extends BaseService
 {
@@ -54,7 +56,7 @@ class CurrencyExchangeRatesService extends BaseService
     *
     * Example URL: /currency_exchange_rates
     *
-    * @param string[mixed] $params
+    * @param array<string, mixed> $params
     * @return Paginator
     **/
     public function all($params = array())

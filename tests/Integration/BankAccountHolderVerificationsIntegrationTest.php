@@ -12,7 +12,7 @@ class BankAccountHolderVerificationsIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\BankAccountHolderVerification(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\BankAccountHolderVerification', $obj);
     }
 
     public function testBankAccountHolderVerificationsCreate()

@@ -1,0 +1,8 @@
+parameters:
+	ignoreErrors:
+		-
+			# https://gocardless.atlassian.net/browse/IX-2252
+			message: '#^Method GoCardlessPro\\Services\\BlocksService\:\:blockByRef\(\) should return GoCardlessPro\\Core\\ListResponse but returns GoCardlessPro\\Resources\\Block\.$#'
+			identifier: return.type
+			count: 1
+			path: lib/Services/BlocksService.php

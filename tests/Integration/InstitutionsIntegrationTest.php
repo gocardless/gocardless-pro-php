@@ -12,7 +12,7 @@ class InstitutionsIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\Institution(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\Institution', $obj);
     }
 
     public function testInstitutionsList()

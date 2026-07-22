@@ -12,7 +12,7 @@ class PayerAuthorisationsIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\PayerAuthorisation(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\PayerAuthorisation', $obj);
     }
 
     public function testPayerAuthorisationsGet()

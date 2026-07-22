@@ -17,6 +17,8 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the PayerTheme
  * endpoints of the API
+ *
+ * @extends BaseService<\GoCardlessPro\Resources\PayerTheme>
  */
 class PayerThemesService extends BaseService
 {

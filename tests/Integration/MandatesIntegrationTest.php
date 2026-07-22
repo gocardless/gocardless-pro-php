@@ -12,7 +12,7 @@ class MandatesIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\Mandate(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\Mandate', $obj);
     }
 
     public function testMandatesCreate()

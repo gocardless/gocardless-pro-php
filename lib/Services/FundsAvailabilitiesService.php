@@ -17,6 +17,8 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the FundsAvailability
  * endpoints of the API
+ *
+ * @extends BaseService<\GoCardlessPro\Resources\FundsAvailability>
  */
 class FundsAvailabilitiesService extends BaseService
 {

@@ -24,7 +24,7 @@ class ListResponse
      * Creates a new list response of the same model class and decodes
      * the array from the raw response.
      *
-     * @param object      $unenveloped_body The unenveloped API response
+     * @param array       $unenveloped_body The unenveloped API response
      * @param string      $model_class      The class to build for each element in the body
      * @param ApiResponse $api_response     The raw ApiResponse from the original request
      */

@@ -23,7 +23,7 @@ class ResourceTest extends TestCase
     {
         $resource = new FakeResource((object) array('foo' => 'bar'));
 
-        $this->assertEquals('bar', $resource->foo);
+        $this->assertEquals('bar', $resource->foo); // @phpstan-ignore property.protected
     }
 
     public function testValidNestedGetter()
@@ -31,7 +31,7 @@ class ResourceTest extends TestCase
         $fake_data = (object) array("links" => (object) array("one" => 1));
         $resource = new FakeResource($fake_data);
 
-        $this->assertEquals(1, $resource->links->one);
+        $this->assertEquals(1, $resource->links->one); // @phpstan-ignore property.protected
     }
 
     public function testInvalidGetter()
@@ -40,7 +40,7 @@ class ResourceTest extends TestCase
         $this->expectExceptionMessage('unknown is not a valid FakeResource property');
 
         $resource = new FakeResource((object) array('foo' => 'bar'));
-        $resource->unknown;
+        $resource->unknown; // @phpstan-ignore property.notFound, expr.resultUnused
     }
 
     public function testGetApiResponse()

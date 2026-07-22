@@ -12,7 +12,7 @@ class InstalmentSchedulesIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\InstalmentSchedule(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\InstalmentSchedule', $obj);
     }
 
     public function testInstalmentSchedulesCreateWithDates()

@@ -12,7 +12,7 @@ class TransferredMandatesIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\TransferredMandate(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\TransferredMandate', $obj);
     }
 
     public function testTransferredMandatesTransferredMandates()

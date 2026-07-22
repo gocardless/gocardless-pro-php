@@ -12,7 +12,7 @@ class RedirectFlowsIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\RedirectFlow(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\RedirectFlow', $obj);
     }
 
     public function testRedirectFlowsCreate()
