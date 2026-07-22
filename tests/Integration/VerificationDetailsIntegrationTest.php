@@ -12,7 +12,7 @@ class VerificationDetailsIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\VerificationDetail(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\VerificationDetail', $obj);
     }
 
     public function testVerificationDetailsCreate()

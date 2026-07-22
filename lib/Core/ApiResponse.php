@@ -19,7 +19,7 @@ class ApiResponse
     public $status_code;
 
     /**
-     * @var object Full decoded JSON body
+     * @var object|null Full decoded JSON body
      */
     public $body;
 

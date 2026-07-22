@@ -19,6 +19,8 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
  * endpoints of the API
  *
  * @method ListResponse list(array $params)
+ *
+ * @extends BaseService<\GoCardlessPro\Resources\Refund>
  */
 class RefundsService extends BaseService
 {
@@ -150,7 +152,7 @@ class RefundsService extends BaseService
     *
     * Example URL: /refunds
     *
-    * @param string[mixed] $params
+    * @param array<string, mixed> $params
     * @return Paginator
     **/
     public function all($params = array())

@@ -19,6 +19,8 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
  * endpoints of the API
  *
  * @method ListResponse list(array $params)
+ *
+ * @extends BaseService<\GoCardlessPro\Resources\VerificationDetail>
  */
 class VerificationDetailsService extends BaseService
 {
@@ -78,7 +80,7 @@ class VerificationDetailsService extends BaseService
     *
     * Example URL: /verification_details
     *
-    * @param string[mixed] $params
+    * @param array<string, mixed> $params
     * @return Paginator
     **/
     public function all($params = array())

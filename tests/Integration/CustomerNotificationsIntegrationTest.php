@@ -12,7 +12,7 @@ class CustomerNotificationsIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\CustomerNotification(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\CustomerNotification', $obj);
     }
 
     public function testCustomerNotificationsHandle()

@@ -22,7 +22,7 @@ class ApiClient
     public $error_on_idempotency_conflict;
 
     /**
-     * @param GuzzleHttp\ClientInterface $http_client  An HTTP client to make requests
+     * @param \GuzzleHttp\ClientInterface $http_client  An HTTP client to make requests
      * @param array $config configuration for the ApiClient
      */
     public function __construct(ClientInterface $http_client, array $config)
@@ -37,11 +37,11 @@ class ApiClient
      * @param string $path   The relative path for the API request. e.g. /records
      * @param array  $params Any query params to send with the request
      *
-     * @return array The raw response
+     * @return \GuzzleHttp\Psr7\Response The raw response
      */
     public function get(string $path, array $params = []): Response
     {
-        if (is_array($params) && array_key_exists("query", $params)) {
+        if (array_key_exists("query", $params)) {
             $params["query"] = $this->castBooleanValuesToStrings($params["query"]);
         }
 
@@ -56,7 +56,7 @@ class ApiClient
      * @param string $path   The relative path for the API request. e.g. /records
      * @param array  $params Body of the request, will be serialized to JSON
      *
-     * @return array The raw response
+     * @return \GuzzleHttp\Psr7\Response The raw response
      */
     public function put(string $path, array $params): Response
     {
@@ -71,7 +71,7 @@ class ApiClient
      * @param string $path   The relative path for the API request. e.g. /records
      * @param array  $params Body of the request, will be serialized to JSON
      *
-     * @return array The raw response
+     * @return \GuzzleHttp\Psr7\Response The raw response
      */
     public function post(string $path, array $params): Response
     {
@@ -91,7 +91,7 @@ class ApiClient
      * @param string $path   The relative path for the API request. e.g. /records
      * @param array  $params Body of the request, will be serialized to JSON
      *
-     * @return array The raw response
+     * @return \GuzzleHttp\Psr7\Response The raw response
      */
     public function delete(string $path, array $params): Response
     {
@@ -117,7 +117,7 @@ class ApiClient
      * If the response is JSON, but the status code is >= 400, then we return
      * the appropriate error depending on the code
      *
-     * @param GuzzleHttp\Psr7\Response $response The raw API response
+     * @param \GuzzleHttp\Psr7\Response $response The raw API response
      */
     private function handleErrors(Response $response)
     {

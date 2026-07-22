@@ -19,6 +19,8 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
  * endpoints of the API
  *
  * @method ListResponse list(array $params)
+ *
+ * @extends BaseService<\GoCardlessPro\Resources\OutboundPaymentImportEntry>
  */
 class OutboundPaymentImportEntriesService extends BaseService
 {
@@ -54,7 +56,7 @@ class OutboundPaymentImportEntriesService extends BaseService
     *
     * Example URL: /outbound_payment_import_entries
     *
-    * @param string[mixed] $params
+    * @param array<string, mixed> $params
     * @return Paginator
     **/
     public function all($params = array())

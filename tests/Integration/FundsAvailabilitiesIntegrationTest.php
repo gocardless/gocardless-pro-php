@@ -12,7 +12,7 @@ class FundsAvailabilitiesIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\FundsAvailability(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\FundsAvailability', $obj);
     }
 
     public function testFundsAvailabilitiesCheck()

@@ -12,7 +12,7 @@ class MandatePdfsIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\MandatePdf(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\MandatePdf', $obj);
     }
 
     public function testMandatePdfsCreate()

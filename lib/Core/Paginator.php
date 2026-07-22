@@ -4,7 +4,6 @@ namespace GoCardlessPro\Core;
 
 /**
  * Class allowing for pagination of API resources.
- * @implements \Iterator
  */
 class Paginator implements \Iterator
 {
@@ -29,12 +28,12 @@ class Paginator implements \Iterator
     private $current_position;
 
     /**
-    * @var array Keep track of the index of the first record on the current page. Allows for relative indexing into the page.
+    * @var int Keep track of the index of the first record on the current page. Allows for relative indexing into the page.
     */
     private $current_page_position;
 
     /**
-    * @var array The current response obtained from the pagination service.
+    * @var ListResponse|null The current response obtained from the pagination service.
     */
     private $current_response;
 
@@ -130,7 +129,7 @@ class Paginator implements \Iterator
     /**
      * Fetches the next page of results (based on the current page)
      *
-     * @return ListResponse
+     * @return ListResponse|null
      */
     private function nextResponse()
     {

@@ -12,7 +12,7 @@ class BankAuthorisationsIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\BankAuthorisation(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\BankAuthorisation', $obj);
     }
 
     public function testBankAuthorisationsCreate()

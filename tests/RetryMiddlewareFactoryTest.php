@@ -14,7 +14,7 @@ class RetryMiddlewarFactoryTest extends TestCase
         ]);
 
         $handler = \GuzzleHttp\HandlerStack::create($mock);
-        $handler->push(RetryMiddlewareFactory::buildMiddleware());
+        $handler->push(RetryMiddlewareFactory::buildMiddleware()); // @phpstan-ignore argument.type
         $history = array();
         $handler->push(\GuzzleHttp\Middleware::history($history));
 
@@ -34,7 +34,7 @@ class RetryMiddlewarFactoryTest extends TestCase
         ]);
 
         $handler = \GuzzleHttp\HandlerStack::create($mock);
-        $handler->push(RetryMiddlewareFactory::buildMiddleware());
+        $handler->push(RetryMiddlewareFactory::buildMiddleware()); // @phpstan-ignore argument.type
 
         $client = new \GuzzleHttp\Client(array('handler' => $handler));
 
@@ -49,7 +49,7 @@ class RetryMiddlewarFactoryTest extends TestCase
         ]);
 
         $handler = \GuzzleHttp\HandlerStack::create($mock);
-        $handler->push(RetryMiddlewareFactory::buildMiddleware());
+        $handler->push(RetryMiddlewareFactory::buildMiddleware()); // @phpstan-ignore argument.type
 
         $client = new \GuzzleHttp\Client(array('handler' => $handler));
 
@@ -64,7 +64,7 @@ class RetryMiddlewarFactoryTest extends TestCase
         ]);
 
         $handler = \GuzzleHttp\HandlerStack::create($mock);
-        $handler->push(RetryMiddlewareFactory::buildMiddleware());
+        $handler->push(RetryMiddlewareFactory::buildMiddleware()); // @phpstan-ignore argument.type
 
         $client = new \GuzzleHttp\Client(array('handler' => $handler));
 
@@ -78,7 +78,7 @@ class RetryMiddlewarFactoryTest extends TestCase
         ]);
 
         $handler = \GuzzleHttp\HandlerStack::create($mock);
-        $handler->push(RetryMiddlewareFactory::buildMiddleware());
+        $handler->push(RetryMiddlewareFactory::buildMiddleware()); // @phpstan-ignore argument.type
 
         $client = new \GuzzleHttp\Client(array('handler' => $handler));
 

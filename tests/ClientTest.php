@@ -30,7 +30,6 @@ class ClientTest extends TestCase
     public function testCreatesClientSuccessfully()
     {
         $client = new Client(array('access_token' => 'foo', 'environment' => 'live'));
-        $this->assertNotNull($client);
         $this->assertInstanceOf('\GoCardlessPro\Services\CustomersService', $client->customers());
     }
 }

@@ -17,6 +17,8 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the BankAuthorisation
  * endpoints of the API
+ *
+ * @extends BaseService<\GoCardlessPro\Resources\BankAuthorisation>
  */
 class BankAuthorisationsService extends BaseService
 {

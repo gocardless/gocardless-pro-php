@@ -17,6 +17,8 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the BillingRequestFlow
  * endpoints of the API
+ *
+ * @extends BaseService<\GoCardlessPro\Resources\BillingRequestFlow>
  */
 class BillingRequestFlowsService extends BaseService
 {

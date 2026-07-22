@@ -19,6 +19,8 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
  * endpoints of the API
  *
  * @method ListResponse list(array $params)
+ *
+ * @extends BaseService<\GoCardlessPro\Resources\SchemeIdentifier>
  */
 class SchemeIdentifiersService extends BaseService
 {
@@ -119,7 +121,7 @@ class SchemeIdentifiersService extends BaseService
     *
     * Example URL: /scheme_identifiers
     *
-    * @param string[mixed] $params
+    * @param array<string, mixed> $params
     * @return Paginator
     **/
     public function all($params = array())

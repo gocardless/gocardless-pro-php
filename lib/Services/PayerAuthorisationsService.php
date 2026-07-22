@@ -17,6 +17,8 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the PayerAuthorisation
  * endpoints of the API
+ *
+ * @extends BaseService<\GoCardlessPro\Resources\PayerAuthorisation>
  */
 class PayerAuthorisationsService extends BaseService
 {

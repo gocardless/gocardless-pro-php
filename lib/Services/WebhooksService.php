@@ -19,6 +19,8 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
  * endpoints of the API
  *
  * @method ListResponse list(array $params)
+ *
+ * @extends BaseService<\GoCardlessPro\Resources\Webhook>
  */
 class WebhooksService extends BaseService
 {
@@ -126,7 +128,7 @@ class WebhooksService extends BaseService
     *
     * Example URL: /webhooks
     *
-    * @param string[mixed] $params
+    * @param array<string, mixed> $params
     * @return Paginator
     **/
     public function all($params = array())

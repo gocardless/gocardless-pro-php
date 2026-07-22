@@ -12,7 +12,7 @@ class ScenarioSimulatorsIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\ScenarioSimulator(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\ScenarioSimulator', $obj);
     }
 
     public function testScenarioSimulatorsRun()

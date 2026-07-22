@@ -12,7 +12,7 @@ class PayerThemesIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\PayerTheme(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\PayerTheme', $obj);
     }
 
     public function testPayerThemesCreateForCreditor()

@@ -17,6 +17,8 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
 /**
  * Service that provides access to the BankAccountHolderVerification
  * endpoints of the API
+ *
+ * @extends BaseService<\GoCardlessPro\Resources\BankAccountHolderVerification>
  */
 class BankAccountHolderVerificationsService extends BaseService
 {

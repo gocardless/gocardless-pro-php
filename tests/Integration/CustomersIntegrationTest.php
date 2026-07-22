@@ -12,7 +12,7 @@ class CustomersIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\Customer(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\Customer', $obj);
     }
 
     public function testCustomersCreate()

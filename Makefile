@@ -9,6 +9,9 @@ test: vendor/
 syntax: vendor/
 	./vendor/bin/phpcs --standard=phpcs-ruleset.xml $(CODE_PATHS)
 
+analyse: vendor/
+	./vendor/bin/phpstan analyse --memory-limit=1G
+
 vendor:
 	composer install
 

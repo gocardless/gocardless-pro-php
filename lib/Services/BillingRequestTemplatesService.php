@@ -19,6 +19,8 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
  * endpoints of the API
  *
  * @method ListResponse list(array $params)
+ *
+ * @extends BaseService<\GoCardlessPro\Resources\BillingRequestTemplate>
  */
 class BillingRequestTemplatesService extends BaseService
 {
@@ -150,7 +152,7 @@ class BillingRequestTemplatesService extends BaseService
     *
     * Example URL: /billing_request_templates
     *
-    * @param string[mixed] $params
+    * @param array<string, mixed> $params
     * @return Paginator
     **/
     public function all($params = array())

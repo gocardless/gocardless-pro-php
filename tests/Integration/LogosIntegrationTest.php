@@ -12,7 +12,7 @@ class LogosIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\Logo(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\Logo', $obj);
     }
 
     public function testLogosCreateForCreditor()

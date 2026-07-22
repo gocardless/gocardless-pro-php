@@ -12,7 +12,7 @@ class NegativeBalanceLimitsIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\NegativeBalanceLimit(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\NegativeBalanceLimit', $obj);
     }
 
     public function testNegativeBalanceLimitsList()

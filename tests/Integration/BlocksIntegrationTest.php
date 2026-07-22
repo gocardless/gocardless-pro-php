@@ -12,7 +12,7 @@ class BlocksIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\Block(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\Block', $obj);
     }
 
     public function testBlocksCreate()

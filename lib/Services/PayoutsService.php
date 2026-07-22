@@ -19,6 +19,8 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
  * endpoints of the API
  *
  * @method ListResponse list(array $params)
+ *
+ * @extends BaseService<\GoCardlessPro\Resources\Payout>
  */
 class PayoutsService extends BaseService
 {
@@ -115,7 +117,7 @@ class PayoutsService extends BaseService
     *
     * Example URL: /payouts
     *
-    * @param string[mixed] $params
+    * @param array<string, mixed> $params
     * @return Paginator
     **/
     public function all($params = array())

@@ -12,7 +12,7 @@ class TaxRatesIntegrationTest extends IntegrationTestBase
     public function testResourceModelExists()
     {
         $obj = new \GoCardlessPro\Resources\TaxRate(array());
-        $this->assertNotNull($obj);
+        $this->assertInstanceOf('\GoCardlessPro\Resources\TaxRate', $obj);
     }
 
     public function testTaxRatesList()
