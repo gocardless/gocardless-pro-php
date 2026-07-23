@@ -8,7 +8,7 @@ use GoCardlessPro\Core\ListResponse;
 /**
  * Base service class for all resource services.
  *
- * @method ListResponse list(array $params)
+ * @method ListResponse list(array $params = [])
  *
  * @template TResource of \GoCardlessPro\Resources\BaseResource
  */
