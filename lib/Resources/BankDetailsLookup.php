@@ -38,7 +38,7 @@ class BankDetailsLookup extends BaseResource
      *
      * Even if no BIC is returned for an account, GoCardless may still be able
      * to collect payments from it - you should refer to the
-     * `available_debit_schemes` attribute to determine reachability.
+     * available_debit_schemes attribute to determine reachability.
      */
     protected $bic;
 }

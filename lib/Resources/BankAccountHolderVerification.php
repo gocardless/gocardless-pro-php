@@ -39,7 +39,7 @@ class BankAccountHolderVerification extends BaseResource
      *
      * - `full_match`: The verification has confirmed that the account name
      * exactly matches the details provided.
-     * - `partial_match`:  The verification has confirmed that the account name
+     * - `partial_match`: The verification has confirmed that the account name
      * is similar but does not match to the details provided.
      * - `no_match`: The verification concludes the provided name does not match
      * the account details.

@@ -183,7 +183,7 @@ class Payment extends BaseResource
      * submitted to the banks
      * - `submitted`: the payment has been submitted to the banks
      * - `confirmed`: the payment has been confirmed as collected
-     * - `paid_out`:  the payment has been included in a payout
+     * - `paid_out`: the payment has been included in a payout
      * (https://developer.gocardless.com/api-reference/#core-endpoints-payouts)
      * - `cancelled`: the payment has been cancelled
      * - `customer_approval_denied`: the customer has denied approval for the

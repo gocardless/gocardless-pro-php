@@ -40,8 +40,7 @@ class Payout extends BaseResource
      * One of:
      *
      * - `yyyy-mm-dd`: the payout has been paid and is due to arrive in the
-     * creditor's bank
-     * account on this day
+     * creditor's bank account on this day
      * - `null`: the payout hasn't been paid yet
      */
     protected $arrival_date;
