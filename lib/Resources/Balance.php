@@ -33,17 +33,17 @@ class Balance extends BaseResource
     /**
      * Type of the balance. Could be one of
      *
-     * - pending_payments_submitted: Payments we have submitted to the scheme
+     * - `pending_payments_submitted`: Payments we have submitted to the scheme
      * but not yet confirmed. This does not exactly correspond to Pending
      * payments in the dashboard, because this balance does not include payments
      * that are pending submission.
-     * - confirmed_funds: Payments that have been confirmed minus fees and
+     * - `confirmed_funds`: Payments that have been confirmed minus fees and
      * unclaimed debits for refunds, failures and chargebacks. These funds have
      * not yet been moved into a payout.
-     * - pending_payouts: Confirmed payments that have been moved into a payout.
-     * This is the total due to be paid into your bank account in the next
-     * payout run (payouts happen once every business day).
-     * pending_payouts will only be non-zero while we are generating and
+     * - `pending_payouts`: Confirmed payments that have been moved into a
+     * payout. This is the total due to be paid into your bank account in the
+     * next payout run (payouts happen once every business day).
+     * `pending_payouts` will only be non-zero while we are generating and
      * submitting the payouts to our partner bank.
      */
     protected $balance_type;
