@@ -34,157 +34,187 @@ class ScenarioSimulatorsService extends BaseService
     * @param  string        $identity The unique identifier of the simulator, used to initiate
  simulations. One of:
 
- - `creditor_verification_status_action_required`: Sets a
- creditor's `verification status` to `action required`,
- meaning that the creditor must provide further information
- to GoCardless in order to verify their account to receive
- payouts.
- - `creditor_verification_status_in_review`: Sets a
- creditor's `verification status` to `in review`, meaning
- that the creditor has provided all of the information
- requested by GoCardless to verify their account, and is now
- awaiting review.
- - `creditor_verification_status_successful`: Sets a
- creditor's `verification status` to `successful`, meaning
- that the creditor is fully verified and can receive
- payouts.
- - `payment_confirmed`: Transitions a payment through to
- `confirmed`. It must start in the `pending_submission`
- state, and its mandate must be in the `activated` state
- (unless it is a payment for ACH, BECS, BECS_NZ or SEPA, in
- which cases the mandate may be `pending_submission`, since
- their mandates are submitted with their first payment).
- - `payment_paid_out`: Transitions a payment through to
- `paid_out`, having been collected successfully and paid out
- to you. It must start in the `pending_submission` state,
- and its mandate must be in the `activated` state (unless it
- is a payment for ACH, BECS, BECS_NZ or SEPA, in which cases
- the mandate may be `pending_submission`, since their
- mandates are submitted with their first payment).
- - `payment_failed`: Transitions a payment through to
- `failed`. It must start in the `pending_submission` state,
- and its mandate must be in the `activated` state (unless it
- is a payment for ACH, BECS, BECS_NZ or SEPA, in which cases
- the mandate may be `pending_submission`, since their
- mandates are submitted with their first payment).
- - `payment_charged_back`: Behaves the same as the
- `payout_paid_out` simulator, except that the payment is
- transitioned to `charged_back` after it is paid out, having
- been charged back by the customer.
- - `payment_chargeback_settled`: Behaves the same as the
- `payment_charged_back` simulator, except that the charged
- back payment is additionally included as a debit item in a
- payout, thereby settling the charged back payment.
- - `payment_late_failure`: Transitions a payment through to
- `late_failure`, having been apparently collected
- successfully beforehand. It must start in either the
- `pending_submission` or `paid_out` state, and its mandate
- must be in the `activated` state (unless it is a payment
- for ACH, BECS, BECS_NZ or SEPA, in which cases the mandate
- may be `pending_submission`, since their mandates are
- submitted with their first payment). Not compatible with
- Autogiro mandates.
- - `payment_late_failure_settled`: Behaves the same as the
- `payment_late_failure` simulator, except that the late
- failure is additionally included as a debit item in a
- payout, thereby settling the late failure.
- - `payment_submitted`: Transitions a payment to
- `submitted`, without proceeding any further. It must start
- in the `pending_submission` state.
- - `mandate_activated`: Transitions a mandate through to
- `activated`, having been submitted to the banks and set up
- successfully. It must start in the `pending_submission`
- state. Not compatible with ACH, BECS, BECS_NZ and SEPA
- mandates, which are submitted and activated with their
- first payment.
- - `mandate_customer_approval_granted`: Transitions a
- mandate through to `pending_submission`, as if the customer
+ <ul>
+
+ <li><code>creditor_verification_status_action_required</code>:
+ Sets a creditor's <code>verification status</code> to
+ <code>action required</code>, meaning that the creditor
+ must provide further information to GoCardless in order to
+ verify their account to receive payouts.</li>
+ <li><code>creditor_verification_status_in_review</code>:
+ Sets a creditor's <code>verification status</code> to
+ <code>in review</code>, meaning that the creditor has
+ provided all of the information requested by GoCardless to
+ verify their account, and is now awaiting review.</li>
+ <li><code>creditor_verification_status_successful</code>:
+ Sets a creditor's <code>verification status</code> to
+ <code>successful</code>, meaning that the creditor is fully
+ verified and can receive payouts.</li>
+ <li><code>payment_confirmed</code>: Transitions a payment
+ through to <code>confirmed</code>. It must start in the
+ <code>pending_submission</code> state, and its mandate must
+ be in the <code>activated</code> state (unless it is a
+ payment for ACH, BECS, BECS_NZ or SEPA, in which cases the
+ mandate may be <code>pending_submission</code>, since their
+ mandates are submitted with their first payment).</li>
+ <li><code>payment_paid_out</code>: Transitions a payment
+ through to <code>paid_out</code>, having been collected
+ successfully and paid out to you. It must start in the
+ <code>pending_submission</code> state, and its mandate must
+ be in the <code>activated</code> state (unless it is a
+ payment for ACH, BECS, BECS_NZ or SEPA, in which cases the
+ mandate may be <code>pending_submission</code>, since their
+ mandates are submitted with their first payment).</li>
+ <li><code>payment_failed</code>: Transitions a payment
+ through to <code>failed</code>. It must start in the
+ <code>pending_submission</code> state, and its mandate must
+ be in the <code>activated</code> state (unless it is a
+ payment for ACH, BECS, BECS_NZ or SEPA, in which cases the
+ mandate may be <code>pending_submission</code>, since their
+ mandates are submitted with their first payment).</li>
+ <li><code>payment_charged_back</code>: Behaves the same as
+ the <code>payout_paid_out</code> simulator, except that the
+ payment is transitioned to <code>charged_back</code> after
+ it is paid out, having been charged back by the
+ customer.</li>
+ <li><code>payment_chargeback_settled</code>: Behaves the
+ same as the <code>payment_charged_back</code> simulator,
+ except that the charged back payment is additionally
+ included as a debit item in a payout, thereby settling the
+ charged back payment.</li>
+ <li><code>payment_late_failure</code>: Transitions a
+ payment through to <code>late_failure</code>, having been
+ apparently collected successfully beforehand. It must start
+ in either the <code>pending_submission</code> or
+ <code>paid_out</code> state, and its mandate must be in the
+ <code>activated</code> state (unless it is a payment for
+ ACH, BECS, BECS_NZ or SEPA, in which cases the mandate may
+ be <code>pending_submission</code>, since their mandates
+ are submitted with their first payment). Not compatible
+ with Autogiro mandates.</li>
+ <li><code>payment_late_failure_settled</code>: Behaves the
+ same as the <code>payment_late_failure</code> simulator,
+ except that the late failure is additionally included as a
+ debit item in a payout, thereby settling the late
+ failure.</li>
+ <li><code>payment_submitted</code>: Transitions a payment
+ to <code>submitted</code>, without proceeding any further.
+ It must start in the <code>pending_submission</code>
+ state.</li>
+ <li><code>mandate_activated</code>: Transitions a mandate
+ through to <code>activated</code>, having been submitted to
+ the banks and set up successfully. It must start in the
+ <code>pending_submission</code> state. Not compatible with
+ ACH, BECS, BECS_NZ and SEPA mandates, which are submitted
+ and activated with their first payment.</li>
+ <li><code>mandate_customer_approval_granted</code>:
+ Transitions a mandate through to
+ <code>pending_submission</code>, as if the customer
  approved the mandate creation. It must start in the
- `pending_customer_approval` state. Compatible only with
- Bacs and SEPA mandates, which support customer signatures
- on the mandate. All payments associated with the mandate
- will be transitioned to `pending_submission`. All
- subscriptions associated with the mandate will become
- `active`.
- - `mandate_customer_approval_skipped`: Transitions a
- mandate through to `pending_submission`, as if the customer
- skipped the mandate approval during the mandate creation
- process. It must start in the `pending_customer_approval`
+ <code>pending_customer_approval</code> state. Compatible
+ only with Bacs and SEPA mandates, which support customer
+ signatures on the mandate. All payments associated with the
+ mandate will be transitioned to
+ <code>pending_submission</code>. All subscriptions
+ associated with the mandate will become
+ <code>active</code>.</li>
+ <li><code>mandate_customer_approval_skipped</code>:
+ Transitions a mandate through to
+ <code>pending_submission</code>, as if the customer skipped
+ the mandate approval during the mandate creation process.
+ It must start in the <code>pending_customer_approval</code>
  state. Compatible only with Bacs and SEPA mandates, which
  support customer signatures on the mandate. All payments
  associated with the mandate will be transitioned to
- `pending_submission`. All subscriptions associated with the
- mandate will become `active`.
- - `mandate_failed`: Transitions a mandate through to
- `failed`, having been submitted to the banks but found to
- be invalid (for example due to invalid bank details). It
- must start in the `pending_submission` or `submitted`
+ <code>pending_submission</code>. All subscriptions
+ associated with the mandate will become
+ <code>active</code>.</li>
+ <li><code>mandate_failed</code>: Transitions a mandate
+ through to <code>failed</code>, having been submitted to
+ the banks but found to be invalid (for example due to
+ invalid bank details). It must start in the
+ <code>pending_submission</code> or <code>submitted</code>
  states. Not compatible with SEPA mandates, which are
- submitted with their first payment.
- - `mandate_expired`: Transitions a mandate through to
- `expired`, having been submitted to the banks, set up
- successfully and then expired because no collection
- attempts were made against it for longer than the scheme's
- dormancy period (13 months for Bacs, 3 years for SEPA, 15
- months for ACH, Betalingsservice, and BECS). It must start
- in the `pending_submission` state. Not compatible with
- Autogiro, BECS NZ, and PAD mandates, which do not expire.
- - `mandate_transferred`: Transitions a mandate through to
- `transferred`, having been submitted to the banks, set up
- successfully and then moved to a new bank account due. It
- must start in the `pending_submission` state. Only
- compatible with Bacs and SEPA mandates.
- - `mandate_transferred_with_resubmission`: Transitions a
- mandate through `transferred` and resubmits it to the
- banks, can be caused be the UK's Current Account Switching
- Service (CASS) or when a customer contacts GoCardless to
- change their bank details. It must start in the
- `pending_submission` state. Only compatible with Bacs
- mandates.
- - `mandate_suspended_by_payer`: Transitions a mandate to
- `suspended_by_payer`, as if payer has suspended the mandate
- after it has been setup successfully. It must start in the
- `activated` state. Only compatible with PAY_TO mandates.
- - `refund_paid`: Transitions a refund to `paid`. It must
- start in either the `pending_submission` or `submitted`
- state.
- - `refund_settled`: Transitions a refund to `paid`, if it's
- not already, then generates a payout that includes the
- refund, thereby settling the funds. It must start in one of
- `pending_submission`, `submitted` or `paid` states.
- - `refund_bounced`: Transitions a refund to `bounced`. It
- must start in either the `pending_submission`, `submitted`,
- or `paid` state.
- - `refund_returned`: Transitions a refund to
- `refund_returned`. The refund must start in
- `pending_submission`.
- - `payout_bounced`: Transitions a payout to `bounced`. It
- must start in the `paid` state.
- - `billing_request_fulfilled`: Authorises the billing
- request, and then fulfils it. The billing request must be
- in the `pending` state, with all actions completed except
- for `bank_authorisation`. Only billing requests with a
- `payment_request` are supported.
- - `billing_request_fulfilled_and_payment_failed`:
+ submitted with their first payment.</li>
+ <li><code>mandate_expired</code>: Transitions a mandate
+ through to <code>expired</code>, having been submitted to
+ the banks, set up successfully and then expired because no
+ collection attempts were made against it for longer than
+ the scheme's dormancy period (13 months for Bacs, 3 years
+ for SEPA, 15 months for ACH, Betalingsservice, and BECS).
+ It must start in the <code>pending_submission</code> state.
+ Not compatible with Autogiro, BECS NZ, and PAD mandates,
+ which do not expire.</li>
+ <li><code>mandate_transferred</code>: Transitions a mandate
+ through to <code>transferred</code>, having been submitted
+ to the banks, set up successfully and then moved to a new
+ bank account due. It must start in the
+ <code>pending_submission</code> state. Only compatible with
+ Bacs and SEPA mandates.</li>
+ <li><code>mandate_transferred_with_resubmission</code>:
+ Transitions a mandate through <code>transferred</code> and
+ resubmits it to the banks, can be caused be the UK's
+ Current Account Switching Service (CASS) or when a customer
+ contacts GoCardless to change their bank details. It must
+ start in the <code>pending_submission</code> state. Only
+ compatible with Bacs mandates.</li>
+ <li><code>mandate_suspended_by_payer</code>: Transitions a
+ mandate to <code>suspended_by_payer</code>, as if payer has
+ suspended the mandate after it has been setup successfully.
+ It must start in the <code>activated</code> state. Only
+ compatible with PAY_TO mandates.</li>
+ <li><code>refund_paid</code>: Transitions a refund to
+ <code>paid</code>. It must start in either the
+ <code>pending_submission</code> or <code>submitted</code>
+ state.</li>
+ <li><code>refund_settled</code>: Transitions a refund to
+ <code>paid</code>, if it's not already, then generates a
+ payout that includes the refund, thereby settling the
+ funds. It must start in one of
+ <code>pending_submission</code>, <code>submitted</code> or
+ <code>paid</code> states.</li>
+ <li><code>refund_bounced</code>: Transitions a refund to
+ <code>bounced</code>. It must start in either the
+ <code>pending_submission</code>, <code>submitted</code>, or
+ <code>paid</code> state.</li>
+ <li><code>refund_returned</code>: Transitions a refund to
+ <code>refund_returned</code>. The refund must start in
+ <code>pending_submission</code>.</li>
+ <li><code>payout_bounced</code>: Transitions a payout to
+ <code>bounced</code>. It must start in the
+ <code>paid</code> state.</li>
+ <li><code>billing_request_fulfilled</code>: Authorises the
+ billing request, and then fulfils it. The billing request
+ must be in the <code>pending</code> state, with all actions
+ completed except for <code>bank_authorisation</code>. Only
+ billing requests with a <code>payment_request</code> are
+ supported.</li>
+
+ <li><code>billing_request_fulfilled_and_payment_failed</code>:
  Authorises the billing request, fulfils it, and moves the
- associated payment to `failed`. The billing request must be
- in the `pending` state, with all actions completed except
- for `bank_authorisation`. Only billing requests with a
- `payment_request` are supported.
- -
- `billing_request_fulfilled_and_payment_confirmed_to_failed`:
+ associated payment to <code>failed</code>. The billing
+ request must be in the <code>pending</code> state, with all
+ actions completed except for
+ <code>bank_authorisation</code>. Only billing requests with
+ a <code>payment_request</code> are supported.</li>
+
+ <li><code>billing_request_fulfilled_and_payment_confirmed_to_failed</code>:
  Authorises the billing request, fulfils it, moves the
- associated payment to `confirmed` and then moves it to
- `failed`. The billing request must be in the `pending`
- state, with all actions completed except for
- `bank_authorisation`. Only billing requests with a
- `payment_request` are supported.
- - `billing_request_fulfilled_and_payment_paid_out`:
+ associated payment to <code>confirmed</code> and then moves
+ it to <code>failed</code>. The billing request must be in
+ the <code>pending</code> state, with all actions completed
+ except for <code>bank_authorisation</code>. Only billing
+ requests with a <code>payment_request</code> are
+ supported.</li>
+
+ <li><code>billing_request_fulfilled_and_payment_paid_out</code>:
  Authorises the billing request, fulfils it, and moves the
- associated payment to `paid_out`. The billing request must
- be in the `pending` state, with all actions completed
- except for `bank_authorisation`. Only billing requests with
- a `payment_request` are supported.
+ associated payment to <code>paid_out</code>. The billing
+ request must be in the <code>pending</code> state, with all
+ actions completed except for
+ <code>bank_authorisation</code>. Only billing requests with
+ a <code>payment_request</code> are supported.</li>
+ </ul>
     * @param  array<string, mixed> $params An associative array for any params
     * @return ScenarioSimulator
     **/

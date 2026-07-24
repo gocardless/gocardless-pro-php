@@ -57,41 +57,47 @@ class Subscription extends BaseResource
     protected $count;
 
     /**
-     * Fixed timestamp
-     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * Fixed <a
+     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;
 
     /**
-     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
-     * code. Currently "AUD", "CAD", "DKK", "EUR", "GBP", "NZD", "SEK" and "USD"
-     * are supported.
+     * <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO
+     * 4217</a> currency code. Currently "AUD", "CAD", "DKK", "EUR", "GBP",
+     * "NZD", "SEK" and "USD" are supported.
      */
     protected $currency;
 
     /**
-     * As per RFC 2445. The day of the month to charge customers on. `1`-`28` or
-     * `-1` to indicate the last day of the month.
+     * As per RFC 2445. The day of the month to charge customers on.
+     * <code>1</code><ul>
+     * <li></li>
+     * </ul><code>28</code> or <code>-1</code> to indicate the last day of the
+     * month.
      */
     protected $day_of_month;
 
     /**
-     * The earliest date that will be used as a `charge_date` on payments
-     * created for this subscription if it is resumed. Only present for `paused`
-     * subscriptions.
+     * The earliest date that will be used as a <code>charge_date</code> on
+     * payments
+     * created for this subscription if it is resumed. Only present for
+     * <code>paused</code> subscriptions.
      * This value will change over time.
      */
     protected $earliest_charge_date_after_resume;
 
     /**
      * Date on or after which no further payments should be created.
+     * <br></br>
+     * If this field is blank and <code>count</code> is not specified, the
+     * subscription will continue forever.
+     * <br></br>
      *
-     * If this field is blank and `count` is not specified, the subscription
-     * will continue forever.
-     *
-     * Deprecated: This field will be removed in a future API version. Use count
-     * to specify a number of payments instead.
+     * <p class="deprecated-notice"><strong>Deprecated</strong>: This field will
+     * be removed in a future API version. Use <code>count</code> to specify a
+     * number of payments instead.</p>
      */
     protected $end_date;
 
@@ -101,15 +107,15 @@ class Subscription extends BaseResource
     protected $id;
 
     /**
-     * Number of `interval_units` between customer charge dates. Must be greater
-     * than or equal to `1`. Must result in at least one charge date per year.
-     * Defaults to `1`.
+     * Number of <code>interval_units</code> between customer charge dates. Must
+     * be greater than or equal to <code>1</code>. Must result in at least one
+     * charge date per year. Defaults to <code>1</code>.
      */
     protected $interval;
 
     /**
-     * The unit of time between customer charge dates. One of `weekly`,
-     * `monthly` or `yearly`.
+     * The unit of time between customer charge dates. One of
+     * <code>weekly</code>, <code>monthly</code> or <code>yearly</code>.
      */
     protected $interval_unit;
 
@@ -127,7 +133,7 @@ class Subscription extends BaseResource
     /**
      * Name of the month on which to charge a customer. Must be lowercase. Only
      * applies
-     * when the interval_unit is `yearly`.
+     * when the interval_unit is <code>yearly</code>.
      */
     protected $month;
 
@@ -147,49 +153,57 @@ class Subscription extends BaseResource
      * payment
      * created and will appear on your customer's bank statement. See the
      * documentation for
-     * the create payment endpoint
-     * (https://developer.gocardless.com/api-reference/#payments-create-a-payment)
-     * for more details.
+     * the <a
+     * href="https://developer.gocardless.com/api-reference/#payments-create-a-payment">create
+     * payment endpoint</a> for more details.
+     * <br></br>
      *
-     * Restricted: You need your own Service User Number to specify a payment
-     * reference for Bacs payments.
+     * <p class="restricted-notice"><strong>Restricted</strong>: You need your
+     * own Service User Number to specify a payment reference for Bacs
+     * payments.</p>
      */
     protected $payment_reference;
 
     /**
-     * On failure, automatically retry payments using intelligent retries
-     * (https://developer.gocardless.com/success-plus/overview). Default is
-     * `false`. Important: To be able to use intelligent retries, Success+ needs
-     * to be enabled in GoCardless dashboard
-     * (https://manage.gocardless.com/success-plus).
+     * On failure, automatically retry payments using <a
+     * href="https://developer.gocardless.com/success-plus/overview">intelligent
+     * retries</a>. Default is <code>false</code>. <p
+     * class="notice"><strong>Important</strong>: To be able to use intelligent
+     * retries, Success+ needs to be enabled in <a
+     * href="https://manage.gocardless.com/success-plus">GoCardless
+     * dashboard</a>. </p>
      */
     protected $retry_if_possible;
 
     /**
      * The date on which the first payment should be charged. Must be on or
-     * after the mandate
-     * (https://developer.gocardless.com/api-reference/#core-endpoints-mandates)'s
-     * `next_possible_charge_date`. When left blank and `month` or
-     * `day_of_month` are provided, this will be set to the date of the first
-     * payment. If created without `month` or `day_of_month` this will be set as
-     * the mandate's `next_possible_charge_date`
+     * after the <a
+     * href="https://developer.gocardless.com/api-reference/#core-endpoints-mandates">mandate</a>'s
+     * <code>next_possible_charge_date</code>. When left blank and
+     * <code>month</code> or <code>day_of_month</code> are provided, this will
+     * be set to the date of the first payment. If created without
+     * <code>month</code> or <code>day_of_month</code> this will be set as the
+     * mandate's <code>next_possible_charge_date</code>
      */
     protected $start_date;
 
     /**
      * One of:
      *
-     * - `pending_customer_approval`: the subscription is waiting for customer
-     * approval before becoming active
-     * - `customer_approval_denied`: the customer did not approve the
-     * subscription
-     * - `active`: the subscription is currently active and will continue to
-     * create payments
-     * - `finished`: all of the payments scheduled for creation under this
-     * subscription have been created
-     * - `cancelled`: the subscription has been cancelled and will no longer
-     * create payments
-     * - `paused`: the subscription has been paused and will not create payments
+     * <ul>
+     * <li><code>pending_customer_approval</code>: the subscription is waiting
+     * for customer approval before becoming active</li>
+     * <li><code>customer_approval_denied</code>: the customer did not approve
+     * the subscription</li>
+     * <li><code>active</code>: the subscription is currently active and will
+     * continue to create payments</li>
+     * <li><code>finished</code>: all of the payments scheduled for creation
+     * under this subscription have been created</li>
+     * <li><code>cancelled</code>: the subscription has been cancelled and will
+     * no longer create payments</li>
+     * <li><code>paused</code>: the subscription has been paused and will not
+     * create payments</li>
+     * </ul>
      */
     protected $status;
 

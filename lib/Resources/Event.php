@@ -28,15 +28,15 @@ class Event extends BaseResource
     protected $model_name = "Event";
 
     /**
-     * What has happened to the resource. See Event Types
-     * (https://developer.gocardless.com/api-reference/#event-types) for the
-     * possible actions.
+     * What has happened to the resource. See <a
+     * href="https://developer.gocardless.com/api-reference/#event-types">Event
+     * Types</a> for the possible actions.
      */
     protected $action;
 
     /**
-     * Fixed timestamp
-     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * Fixed <a
+     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;
@@ -44,8 +44,8 @@ class Event extends BaseResource
     /**
      * Present only in webhooks when an integrator is authorised to send their
      * own
-     * notifications. See here
-     * (https://developer.gocardless.com/getting-started/api/handling-customer-notifications/)
+     * notifications. See <a
+     * href="https://developer.gocardless.com/getting-started/api/handling-customer-notifications/">here</a>
      * for further information.
      */
     protected $customer_notifications;
@@ -70,35 +70,37 @@ class Event extends BaseResource
      * the event
      * (for instance, cancelling a mandate).
      *
-     * This field will only be populated if the `details[origin]` field is `api`
-     * otherwise it will be an empty object.
+     * This field will only be populated if the <code>details[origin]</code>
+     * field is <code>api</code> otherwise it will be an empty object.
      */
     protected $metadata;
 
     /**
      * The metadata of the resource that the event is for. For example, this
      * field will have the same
-     * value of the `mandate[metadata]` field on the response you would receive
-     * from performing a GET request on a mandate.
+     * value of the <code>mandate[metadata]</code> field on the response you
+     * would receive from performing a GET request on a mandate.
      */
     protected $resource_metadata;
 
     /**
      * The resource type for this event. One of:
      *
-     * - `billing_requests`
-     * - `creditors`
-     * - `exports`
-     * - `instalment_schedules`
-     * - `mandates`
-     * - `payer_authorisations`
-     * - `payments`
-     * - `payouts`
-     * - `refunds`
-     * - `scheme_identifiers`
-     * - `subscriptions`
-     * - `outbound_payments`
-     * - `payment_account_transactions`
+     * <ul>
+     * <li><code>billing_requests</code></li>
+     * <li><code>creditors</code></li>
+     * <li><code>exports</code></li>
+     * <li><code>instalment_schedules</code></li>
+     * <li><code>mandates</code></li>
+     * <li><code>payer_authorisations</code></li>
+     * <li><code>payments</code></li>
+     * <li><code>payouts</code></li>
+     * <li><code>refunds</code></li>
+     * <li><code>scheme_identifiers</code></li>
+     * <li><code>subscriptions</code></li>
+     * <li><code>outbound_payments</code></li>
+     * <li><code>payment_account_transactions</code></li>
+     * </ul>
      */
     protected $resource_type;
 

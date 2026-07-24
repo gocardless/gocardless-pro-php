@@ -62,14 +62,15 @@ class SchemeIdentifier extends BaseResource
     protected $city;
 
     /**
-     * ISO 3166-1 alpha-2 code.
-     * (https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
+     * <a
+     * href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">ISO
+     * 3166-1 alpha-2 code.</a>
      */
     protected $country_code;
 
     /**
-     * Fixed timestamp
-     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * Fixed <a
+     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;
@@ -95,9 +96,9 @@ class SchemeIdentifier extends BaseResource
      * this scheme identifier.
      *
      * By default, GoCardless sends these notifications automatically. Please
-     * see our compliance requirements
-     * (https://developer.gocardless.com/api-reference/#appendix-compliance-requirements)
-     * for more details.
+     * see our <a
+     * href="https://developer.gocardless.com/api-reference/#appendix-compliance-requirements">compliance
+     * requirements</a> for more details.
      */
     protected $minimum_advance_notice;
 
@@ -133,8 +134,8 @@ class SchemeIdentifier extends BaseResource
     protected $scheme;
 
     /**
-     * The status of the scheme identifier. Only `active` scheme identifiers
-     * will be applied to a creditor and used against payments.
+     * The status of the scheme identifier. Only <code>active</code> scheme
+     * identifiers will be applied to a creditor and used against payments.
      */
     protected $status;
 }

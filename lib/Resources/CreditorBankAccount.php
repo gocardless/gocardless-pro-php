@@ -31,8 +31,8 @@ class CreditorBankAccount extends BaseResource
 
     /**
      * Name of the account holder, as known by the bank. Usually this is the
-     * same as the name stored with the linked creditor
-     * (https://developer.gocardless.com/api-reference/#core-endpoints-creditors).
+     * same as the name stored with the linked <a
+     * href="https://developer.gocardless.com/api-reference/#core-endpoints-creditors">creditor</a>.
      * This field will be transliterated, upcased and truncated to 18
      * characters.
      */
@@ -46,9 +46,9 @@ class CreditorBankAccount extends BaseResource
 
     /**
      * Bank account type. Required for USD-denominated bank accounts. Must not
-     * be provided for bank accounts in other currencies. See local details
-     * (https://developer.gocardless.com/api-reference/#local-bank-details-united-states)
-     * for more information.
+     * be provided for bank accounts in other currencies. See <a
+     * href="https://developer.gocardless.com/api-reference/#local-bank-details-united-states">local
+     * details</a> for more information.
      */
     protected $account_type;
 
@@ -58,24 +58,24 @@ class CreditorBankAccount extends BaseResource
     protected $bank_name;
 
     /**
-     * ISO 3166-1 alpha-2 code
-     * (https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements).
-     * Defaults to the country code of the `iban` if supplied, otherwise is
-     * required.
+     * <a
+     * href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">ISO
+     * 3166-1 alpha-2 code</a>. Defaults to the country code of the
+     * <code>iban</code> if supplied, otherwise is required.
      */
     protected $country_code;
 
     /**
-     * Fixed timestamp
-     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * Fixed <a
+     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;
 
     /**
-     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
-     * code. Currently "AUD", "CAD", "DKK", "EUR", "GBP", "NZD", "SEK" and "USD"
-     * are supported.
+     * <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO
+     * 4217</a> currency code. Currently "AUD", "CAD", "DKK", "EUR", "GBP",
+     * "NZD", "SEK" and "USD" are supported.
      */
     protected $currency;
 
@@ -101,8 +101,8 @@ class CreditorBankAccount extends BaseResource
     protected $metadata;
 
     /**
-     * Verification status of the Bank Account. Can be one of `pending`,
-     * `in_review` or `successful`
+     * Verification status of the Bank Account. Can be one of
+     * <code>pending</code>, <code>in_review</code> or <code>successful</code>
      */
     protected $verification_status;
 }

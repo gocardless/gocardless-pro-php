@@ -25,14 +25,14 @@ class CustomerNotification extends BaseResource
 
     /**
      * The action that was taken on the notification. Currently this can only be
-     * `handled`,
+     * <code>handled</code>,
      * which means the integrator sent the notification themselves.
      */
     protected $action_taken;
 
     /**
-     * Fixed timestamp
-     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * Fixed <a
+     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
      * recording when this
      * action was taken.
      */
@@ -58,14 +58,16 @@ class CustomerNotification extends BaseResource
      * The type of notification the customer shall receive.
      * One of:
      *
-     * - `payment_created`
-     * - `payment_cancelled`
-     * - `mandate_created`
-     * - `mandate_blocked`
-     * - `subscription_created`
-     * - `subscription_cancelled`
-     * - `instalment_schedule_created`
-     * - `instalment_schedule_cancelled`
+     * <ul>
+     * <li><code>payment_created</code></li>
+     * <li><code>payment_cancelled</code></li>
+     * <li><code>mandate_created</code></li>
+     * <li><code>mandate_blocked</code></li>
+     * <li><code>subscription_created</code></li>
+     * <li><code>subscription_cancelled</code></li>
+     * <li><code>instalment_schedule_created</code></li>
+     * <li><code>instalment_schedule_cancelled</code></li>
+     * </ul>
      */
     protected $type;
 }

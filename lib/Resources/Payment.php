@@ -37,18 +37,19 @@ class Payment extends BaseResource
      * cents in EUR).
      *
      * Minimum and maximum amounts vary by payment scheme. For more information,
-     * see Transaction limits
-     * (https://support.gocardless.com/hc/en-gb/articles/115000309245-Transaction-limits)
+     * see <a
+     * href="https://support.gocardless.com/hc/en-gb/articles/115000309245-Transaction-limits">Transaction
+     * limits</a>
      *
      * For Variable Recurring Payments (VRP), this must not exceed the mandate's
-     * `max_amount_per_payment`
+     * <code>max_amount_per_payment</code>
      * constraint.
      */
     protected $amount;
 
     /**
-     * Amount refunded
-     * (https://developer.gocardless.com/api-reference/#core-endpoints-refunds),
+     * Amount <a
+     * href="https://developer.gocardless.com/api-reference/#core-endpoints-refunds">refunded</a>,
      * in the lowest denomination for the currency (e.g. pence in GBP, cents in
      * EUR).
      */
@@ -57,32 +58,34 @@ class Payment extends BaseResource
     /**
      * A future date on which the payment should be collected. If not specified,
      * the payment will be collected as soon as possible. If the value is before
-     * the mandate
-     * (https://developer.gocardless.com/api-reference/#core-endpoints-mandates)'s
-     * `next_possible_charge_date` creation will fail. If the value is not a
-     * working day it will be rolled forwards to the next available one.
+     * the <a
+     * href="https://developer.gocardless.com/api-reference/#core-endpoints-mandates">mandate</a>'s
+     * <code>next_possible_charge_date</code> creation will fail. If the value
+     * is not a working day it will be rolled forwards to the next available
+     * one.
      */
     protected $charge_date;
 
     /**
-     * Fixed timestamp
-     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * Fixed <a
+     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;
 
     /**
-     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
-     * code. Currently "AUD", "CAD", "DKK", "EUR", "GBP", "NZD", "SEK" and "USD"
-     * are supported.
+     * <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO
+     * 4217</a> currency code. Currently "AUD", "CAD", "DKK", "EUR", "GBP",
+     * "NZD", "SEK" and "USD" are supported.
      */
     protected $currency;
 
     /**
      * A human-readable description of the payment. This will be included in the
      * notification email GoCardless sends to your customer if your organisation
-     * does not send its own notifications (see compliance requirements
-     * (https://developer.gocardless.com/api-reference/#appendix-compliance-requirements)).
+     * does not send its own notifications (see <a
+     * href="https://developer.gocardless.com/api-reference/#appendix-compliance-requirements">compliance
+     * requirements</a>).
      */
     protected $description;
 
@@ -117,52 +120,47 @@ class Payment extends BaseResource
 
     /**
      * An optional reference that will appear on your customer's bank statement.
-     * The character limit for this reference is dependent on the scheme.
-     *  ACH <ul>
+     * The character limit for this reference is dependent on the
+     * scheme.<br></br> <strong>ACH</strong> <ul>
      * <li>10 characters</li>
-     * </ul>
-     *  Autogiro <ul>
+     * </ul><br></br> <strong>Autogiro</strong> <ul>
      * <li>11 characters</li>
-     * </ul>
-     *  Bacs <ul>
+     * </ul><br></br> <strong>Bacs</strong> <ul>
      * <li>10 characters</li>
-     * </ul>
-     *  BECS <ul>
+     * </ul><br></br> <strong>BECS</strong> <ul>
      * <li>30 characters</li>
-     * </ul>
-     *  BECS NZ <ul>
+     * </ul><br></br> <strong>BECS NZ</strong> <ul>
      * <li>12 characters</li>
-     * </ul>
-     *  Betalingsservice <ul>
+     * </ul><br></br> <strong>Betalingsservice</strong> <ul>
      * <li>30 characters</li>
-     * </ul>
-     *  Faster Payments <ul>
+     * </ul><br></br> <strong>Faster Payments</strong> <ul>
      * <li>18 characters</li>
-     * </ul>
-     *  PAD <ul>
+     * </ul><br></br> <strong>PAD</strong> <ul>
      * <li>scheme doesn't offer references</li>
-     * </ul>
-     *  PayTo <ul>
+     * </ul><br></br> <strong>PayTo</strong> <ul>
      * <li>18 characters</li>
-     * </ul>
-     *  SEPA <ul>
+     * </ul><br></br> <strong>SEPA</strong> <ul>
      * <li>140 characters</li>
-     * </ul>
-     *  Note that this reference must be unique (for each merchant) for the BECS
-     * scheme as it is a scheme requirement. Restricted: You can only specify a
-     * payment reference for Bacs payments (that is, when collecting from the
-     * UK) if you're on the GoCardless Plus, Pro or Enterprise packages
-     * (https://gocardless.com/pricing).
-     *  Restricted: You can not specify a payment reference for Faster Payments.
+     * </ul><br></br> Note that this reference must be unique (for each
+     * merchant) for the BECS scheme as it is a scheme requirement. <p
+     * class="restricted-notice"><strong>Restricted</strong>: You can only
+     * specify a payment reference for Bacs payments (that is, when collecting
+     * from the UK) if you're on the <a
+     * href="https://gocardless.com/pricing">GoCardless Plus, Pro or Enterprise
+     * packages</a>.</p> <p
+     * class="restricted-notice"><strong>Restricted</strong>: You can not
+     * specify a payment reference for Faster Payments.</p>
      */
     protected $reference;
 
     /**
-     * On failure, automatically retry the payment using intelligent retries
-     * (https://developer.gocardless.com/success-plus/overview). Default is
-     * `false`. Important: To be able to use intelligent retries, Success+ needs
-     * to be enabled in GoCardless dashboard
-     * (https://manage.gocardless.com/success-plus).
+     * On failure, automatically retry the payment using <a
+     * href="https://developer.gocardless.com/success-plus/overview">intelligent
+     * retries</a>. Default is <code>false</code>. <p
+     * class="notice"><strong>Important</strong>: To be able to use intelligent
+     * retries, Success+ needs to be enabled in <a
+     * href="https://manage.gocardless.com/success-plus">GoCardless
+     * dashboard</a>. </p>
      */
     protected $retry_if_possible;
 
@@ -177,21 +175,25 @@ class Payment extends BaseResource
     /**
      * One of:
      *
-     * - `pending_customer_approval`: we're waiting for the customer to approve
-     * this payment
-     * - `pending_submission`: the payment has been created, but not yet
-     * submitted to the banks
-     * - `submitted`: the payment has been submitted to the banks
-     * - `confirmed`: the payment has been confirmed as collected
-     * - `paid_out`: the payment has been included in a payout
-     * (https://developer.gocardless.com/api-reference/#core-endpoints-payouts)
-     * - `cancelled`: the payment has been cancelled
-     * - `customer_approval_denied`: the customer has denied approval for the
-     * payment. You should contact the customer directly
-     * - `failed`: the payment failed to be processed. Note that payments can
-     * fail after being confirmed if the failure message is sent late by the
-     * banks.
-     * - `charged_back`: the payment has been charged back
+     * <ul>
+     * <li><code>pending_customer_approval</code>: we're waiting for the
+     * customer to approve this payment</li>
+     * <li><code>pending_submission</code>: the payment has been created, but
+     * not yet submitted to the banks</li>
+     * <li><code>submitted</code>: the payment has been submitted to the
+     * banks</li>
+     * <li><code>confirmed</code>: the payment has been confirmed as
+     * collected</li>
+     * <li><code>paid_out</code>: the payment has been included in a <a
+     * href="https://developer.gocardless.com/api-reference/#core-endpoints-payouts">payout</a></li>
+     * <li><code>cancelled</code>: the payment has been cancelled</li>
+     * <li><code>customer_approval_denied</code>: the customer has denied
+     * approval for the payment. You should contact the customer directly</li>
+     * <li><code>failed</code>: the payment failed to be processed. Note that
+     * payments can fail after being confirmed if the failure message is sent
+     * late by the banks.</li>
+     * <li><code>charged_back</code>: the payment has been charged back</li>
+     * </ul>
      */
     protected $status;
 }

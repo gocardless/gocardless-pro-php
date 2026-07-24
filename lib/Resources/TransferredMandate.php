@@ -23,8 +23,9 @@ class TransferredMandate extends BaseResource
 
     /**
      * Encrypted customer bank account details, containing:
-     * `iban`, `account_holder_name`, `swift_bank_code`, `swift_branch_code`,
-     * `swift_account_number`
+     * <code>iban</code>, <code>account_holder_name</code>,
+     * <code>swift_bank_code</code>, <code>swift_branch_code</code>,
+     * <code>swift_account_number</code>
      */
     protected $encrypted_customer_bank_details;
 

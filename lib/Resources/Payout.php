@@ -39,39 +39,42 @@ class Payout extends BaseResource
      * Date the payout is due to arrive in the creditor's bank account.
      * One of:
      *
-     * - `yyyy-mm-dd`: the payout has been paid and is due to arrive in the
-     * creditor's bank account on this day
-     * - `null`: the payout hasn't been paid yet
+     * <ul>
+     * <li><code>yyyy-mm-dd</code>: the payout has been paid and is due to
+     * arrive in the creditor's bank account on this day</li>
+     * <li><code>null</code>: the payout hasn't been paid yet</li>
+     * </ul>
      */
     protected $arrival_date;
 
     /**
-     * Fixed timestamp
-     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * Fixed <a
+     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;
 
     /**
-     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
-     * code. Currently "AUD", "CAD", "DKK", "EUR", "GBP", "NZD", "SEK" and "USD"
-     * are supported.
+     * <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO
+     * 4217</a> currency code. Currently "AUD", "CAD", "DKK", "EUR", "GBP",
+     * "NZD", "SEK" and "USD" are supported.
      */
     protected $currency;
 
     /**
      * Fees that have already been deducted from the payout amount in minor unit
      * (e.g. pence in GBP, cents in EUR), inclusive of tax if applicable.
-     *
-     * For each `late_failure_settled` or `chargeback_settled` action, we refund
-     * the transaction fees in a payout. This means that a payout can have a
-     * negative `deducted_fees` value.
-     *
-     * This field is calculated as `(GoCardless fees + app fees + surcharge
-     * fees) - (refunded fees)`
-     *
+     * <br></br>
+     * For each <code>late_failure_settled</code> or
+     * <code>chargeback_settled</code> action, we refund the transaction fees in
+     * a payout. This means that a payout can have a negative
+     * <code>deducted_fees</code> value.
+     * <br></br>
+     * This field is calculated as <code>(GoCardless fees + app fees + surcharge
+     * fees) - (refunded fees)</code>
+     * <br></br>
      * If the merchant is invoiced for fees separately from the payout, then
-     * `deducted_fees` will be 0.
+     * <code>deducted_fees</code> will be 0.
      */
     protected $deducted_fees;
 
@@ -92,8 +95,8 @@ class Payout extends BaseResource
 
     /**
      * Key-value store of custom data. Up to 3 keys are permitted, with key
-     * names up to 50 characters and values up to 500 characters. Note: This
-     * should not be used for storing PII data.
+     * names up to 50 characters and values up to 500 characters. <em>Note:</em>
+     * This should not be used for storing PII data.
      */
     protected $metadata;
 
@@ -110,19 +113,25 @@ class Payout extends BaseResource
     /**
      * One of:
      *
-     * - `pending`: the payout has been created, but not yet sent to your bank
-     * or it is in the process of being exchanged through our FX provider.
-     * - `paid`: the payout has been sent to the your bank. FX payouts will
-     * become `paid` after we emit the `fx_rate_confirmed` webhook.
-     * - `bounced`: the payout bounced when sent, the payout can be retried.
+     * <ul>
+     * <li><code>pending</code>: the payout has been created, but not yet sent
+     * to your bank or it is in the process of being exchanged through our FX
+     * provider.</li>
+     * <li><code>paid</code>: the payout has been sent to the your bank. FX
+     * payouts will become <code>paid</code> after we emit the
+     * <code>fx_rate_confirmed</code> webhook.</li>
+     * <li><code>bounced</code>: the payout bounced when sent, the payout can be
+     * retried.</li>
+     * </ul>
      */
     protected $status;
 
     /**
-     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) code for
-     * the currency in which tax is paid out to the tax authorities of your tax
-     * jurisdiction. Currently “EUR”, “GBP”, for French or British merchants,
-     * this will be `null` if tax is not applicable beta
+     * <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO
+     * 4217</a> code for the currency in which tax is paid out to the tax
+     * authorities of your tax jurisdiction. Currently “EUR”, “GBP”, for French
+     * or British merchants, this will be <code>null</code> if tax is not
+     * applicable <em>beta</em>
      */
     protected $tax_currency;
 }

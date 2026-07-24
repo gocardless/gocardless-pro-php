@@ -39,11 +39,13 @@ class BillingRequestWithAction extends BaseResource
      * billing details, while an action would be asking a customer to authorise
      * a payment using their mobile banking app.
      *
-     * See Billing Requests: Overview
-     * (https://developer.gocardless.com/getting-started/billing-requests/overview/)
-     * for how-to's, explanations and tutorials. Important: All properties
-     * associated with `subscription_request` and `instalment_schedule_request`
-     * are only supported for ACH and PAD schemes.
+     * See <a
+     * href="https://developer.gocardless.com/getting-started/billing-requests/overview/">Billing
+     * Requests: Overview</a> for how-to's, explanations and tutorials. <p
+     * class="notice"><strong>Important</strong>: All properties associated with
+     * <code>subscription_request</code> and
+     * <code>instalment_schedule_request</code> are only supported for ACH and
+     * PAD schemes.</p>
      */
     protected $billing_requests;
 }

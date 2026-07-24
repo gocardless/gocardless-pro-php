@@ -21,8 +21,8 @@ class BankDetailsLookup extends BaseResource
     protected $model_name = "BankDetailsLookup";
 
     /**
-     * Array of schemes
-     * (https://developer.gocardless.com/api-reference/#mandates_scheme)
+     * Array of <a
+     * href="https://developer.gocardless.com/api-reference/#mandates_scheme">schemes</a>
      * supported for this bank account. This will be an empty array if the bank
      * account is not reachable by any schemes.
      */
@@ -36,9 +36,10 @@ class BankDetailsLookup extends BaseResource
     /**
      * ISO 9362 SWIFT BIC of the bank with which the account is held.
      *
-     * Even if no BIC is returned for an account, GoCardless may still be able
-     * to collect payments from it - you should refer to the
-     * available_debit_schemes attribute to determine reachability.
+     * <p class="notice">Even if no BIC is returned for an account, GoCardless
+     * may still be able to collect payments from it - you should refer to the
+     * <code>available_debit_schemes</code> attribute to determine
+     * reachability.</p>
      */
     protected $bic;
 }

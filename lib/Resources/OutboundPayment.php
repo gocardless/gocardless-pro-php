@@ -37,15 +37,15 @@ class OutboundPayment extends BaseResource
     protected $amount;
 
     /**
-     * Fixed timestamp
-     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * Fixed <a
+     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
      * recording when the outbound payment was created.
      */
     protected $created_at;
 
     /**
-     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency.
-     * Currently only "GBP" is supported.
+     * <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO
+     * 4217</a> currency. Currently only "GBP" is supported.
      */
     protected $currency;
 
@@ -84,13 +84,13 @@ class OutboundPayment extends BaseResource
 
     /**
      * An optional reference that will appear on your customer's bank statement.
-     * The character limit for this reference is dependent on the scheme.
-     *
-     * Faster Payments <ul>
+     * The character limit for this reference is dependent on the
+     * scheme.<br></br>
+     * <strong>Faster Payments</strong> <ul>
      * <li>18 characters, including:
      * "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
-     * &-./"</li>
-     * </ul>
+     * &amp;-./"</li>
+     * </ul><br></br>
      */
     protected $reference;
 
@@ -103,25 +103,27 @@ class OutboundPayment extends BaseResource
     /**
      * One of:
      *
-     * - `verifying`: The payment has been created
-     * (https://developer.gocardless.com/api-reference/#outbound-payments-create-an-outbound-payment)
-     * and the verification process has begun.
-     * - `pending_approval`: The payment is awaiting approval
-     * (https://developer.gocardless.com/api-reference/#outbound-payments-approve-an-outbound-payment).
-     * - `scheduled`: The payment has passed verification & approval
-     * (https://developer.gocardless.com/api-reference/#outbound-payments-approve-an-outbound-payment),
-     * but processing has not yet begun.
-     * - `executing`: The execution date has arrived and the payment has been
-     * placed in queue for processing.
-     * - `executed`: The payment has been accepted by the scheme and is now on
-     * its way to the recipient.
-     * - `cancelled`: The payment has been cancelled
-     * (https://developer.gocardless.com/api-reference/#outbound-payments-cancel-an-outbound-payment)
-     * or was not approved
-     * (https://developer.gocardless.com/api-reference/#outbound-payments-approve-an-outbound-payment)
-     * on time.
-     * - `failed`: The payment was not sent, usually due to an error while or
-     * after executing.
+     * <ul>
+     * <li><code>verifying</code>: The payment has been <a
+     * href="https://developer.gocardless.com/api-reference/#outbound-payments-create-an-outbound-payment">created</a>
+     * and the verification process has begun.</li>
+     * <li><code>pending_approval</code>: The payment is awaiting <a
+     * href="https://developer.gocardless.com/api-reference/#outbound-payments-approve-an-outbound-payment">approval</a>.</li>
+     * <li><code>scheduled</code>: The payment has passed verification &amp; <a
+     * href="https://developer.gocardless.com/api-reference/#outbound-payments-approve-an-outbound-payment">approval</a>,
+     * but processing has not yet begun.</li>
+     * <li><code>executing</code>: The execution date has arrived and the
+     * payment has been placed in queue for processing.</li>
+     * <li><code>executed</code>: The payment has been accepted by the scheme
+     * and is now on its way to the recipient.</li>
+     * <li><code>cancelled</code>: The payment has been <a
+     * href="https://developer.gocardless.com/api-reference/#outbound-payments-cancel-an-outbound-payment">cancelled</a>
+     * or was not <a
+     * href="https://developer.gocardless.com/api-reference/#outbound-payments-approve-an-outbound-payment">approved</a>
+     * on time.</li>
+     * <li><code>failed</code>: The payment was not sent, usually due to an
+     * error while or after executing.</li>
+     * </ul>
      */
     protected $status;
 
