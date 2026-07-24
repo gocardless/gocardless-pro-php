@@ -73,16 +73,27 @@ class Paginator implements \Iterator
     #[\ReturnTypeWillChange]
     public function current()
     {
-        return $this->currentRecords()[$this->key()];
+        return $this->currentRecords()[$this->currentPageIndex()];
     }
 
     /**
-     * Gets the current iteration key
+     * Gets the current iteration key. This increases across
+     * pages so that it is unique across the entire iteration.
      *
      * @return int
      */
     #[\ReturnTypeWillChange]
     public function key()
+    {
+        return $this->current_position;
+    }
+
+    /**
+     * Gets the index of the current record within the current page
+     *
+     * @return int
+     */
+    private function currentPageIndex()
     {
         return $this->current_position - $this->current_page_position;
     }
@@ -111,7 +122,7 @@ class Paginator implements \Iterator
     public function valid()
     {
         return !is_null($this->current_response) &&
-            array_key_exists($this->key(), $this->currentRecords());
+            array_key_exists($this->currentPageIndex(), $this->currentRecords());
     }
 
     /**

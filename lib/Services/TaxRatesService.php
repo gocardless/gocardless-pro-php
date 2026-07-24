@@ -18,7 +18,7 @@ use GoCardlessPro\Core\Exception\InvalidStateException;
  * Service that provides access to the TaxRate
  * endpoints of the API
  *
- * @method ListResponse list(array $params)
+ * @method ListResponse list(array $params = [])
  *
  * @extends BaseService<\GoCardlessPro\Resources\TaxRate>
  */
