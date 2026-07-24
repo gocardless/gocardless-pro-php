@@ -55,6 +55,16 @@ class PaginatorTest extends TestCase
         $this->assertEquals("baz", $results[2]->name);
     }
 
+    public function testIteratorToArray()
+    {
+        $results = iterator_to_array($this->paginator);
+
+        $this->assertCount(3, $results);
+        $this->assertEquals("foo", $results[0]->name);
+        $this->assertEquals("bar", $results[1]->name);
+        $this->assertEquals("baz", $results[2]->name);
+    }
+
     public function testMultipleIterations()
     {
         $results = array();
