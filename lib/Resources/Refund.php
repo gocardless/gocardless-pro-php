@@ -32,16 +32,16 @@ class Refund extends BaseResource
     protected $amount;
 
     /**
-     * Fixed timestamp
-     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * Fixed <a
+     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;
 
     /**
-     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
-     * code. This is set to the currency of the refund's payment
-     * (https://developer.gocardless.com/api-reference/#core-endpoints-payments).
+     * <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO
+     * 4217</a> currency code. This is set to the currency of the refund's <a
+     * href="https://developer.gocardless.com/api-reference/#core-endpoints-payments">payment</a>.
      */
     protected $currency;
 
@@ -68,58 +68,55 @@ class Refund extends BaseResource
 
     /**
      * An optional reference that will appear on your customer's bank statement.
-     * The character limit for this reference is dependent on the scheme.
-     *  ACH <ul>
+     * The character limit for this reference is dependent on the
+     * scheme.<br></br> <strong>ACH</strong> <ul>
      * <li>10 characters</li>
-     * </ul>
-     *  Autogiro <ul>
+     * </ul><br></br> <strong>Autogiro</strong> <ul>
      * <li>11 characters</li>
-     * </ul>
-     *  Bacs <ul>
+     * </ul><br></br> <strong>Bacs</strong> <ul>
      * <li>10 characters</li>
-     * </ul>
-     *  BECS <ul>
+     * </ul><br></br> <strong>BECS</strong> <ul>
      * <li>30 characters</li>
-     * </ul>
-     *  BECS NZ <ul>
+     * </ul><br></br> <strong>BECS NZ</strong> <ul>
      * <li>12 characters</li>
-     * </ul>
-     *  Betalingsservice <ul>
+     * </ul><br></br> <strong>Betalingsservice</strong> <ul>
      * <li>30 characters</li>
-     * </ul>
-     *  Faster Payments <ul>
+     * </ul><br></br> <strong>Faster Payments</strong> <ul>
      * <li>18 characters</li>
-     * </ul>
-     *  PAD <ul>
+     * </ul><br></br> <strong>PAD</strong> <ul>
      * <li>scheme doesn't offer references</li>
-     * </ul>
-     *  PayTo <ul>
+     * </ul><br></br> <strong>PayTo</strong> <ul>
      * <li>18 characters</li>
-     * </ul>
-     *  SEPA <ul>
+     * </ul><br></br> <strong>SEPA</strong> <ul>
      * <li>140 characters</li>
-     * </ul>
-     *  Note that this reference must be unique (for each merchant) for the BECS
-     * scheme as it is a scheme requirement. Restricted: You can only specify a
-     * payment reference for Bacs payments (that is, when collecting from the
-     * UK) if you're on the GoCardless Plus, Pro or Enterprise packages
-     * (https://gocardless.com/pricing).
-     *  Restricted: You can not specify a payment reference for Faster Payments.
+     * </ul><br></br> Note that this reference must be unique (for each
+     * merchant) for the BECS scheme as it is a scheme requirement. <p
+     * class="restricted-notice"><strong>Restricted</strong>: You can only
+     * specify a payment reference for Bacs payments (that is, when collecting
+     * from the UK) if you're on the <a
+     * href="https://gocardless.com/pricing">GoCardless Plus, Pro or Enterprise
+     * packages</a>.</p> <p
+     * class="restricted-notice"><strong>Restricted</strong>: You can not
+     * specify a payment reference for Faster Payments.</p>
      */
     protected $reference;
 
     /**
      * One of:
      *
-     * - `created`: the refund has been created
-     * - `pending_submission`: the refund has been created, but not yet
-     * submitted to the banks
-     * - `submitted`: the refund has been submitted to the banks
-     * - `paid`:  the refund has been included in a payout
-     * (https://developer.gocardless.com/api-reference/#core-endpoints-payouts)
-     * - `cancelled`: the refund has been cancelled
-     * - `bounced`: the refund has failed to be paid
-     * - `funds_returned`: the refund has had its funds returned
+     * <ul>
+     * <li><code>created</code>: the refund has been created</li>
+     * <li><code>pending_submission</code>: the refund has been created, but not
+     * yet submitted to the banks</li>
+     * <li><code>submitted</code>: the refund has been submitted to the
+     * banks</li>
+     * <li><code>paid</code>:  the refund has been included in a <a
+     * href="https://developer.gocardless.com/api-reference/#core-endpoints-payouts">payout</a></li>
+     * <li><code>cancelled</code>: the refund has been cancelled</li>
+     * <li><code>bounced</code>: the refund has failed to be paid</li>
+     * <li><code>funds_returned</code>: the refund has had its funds
+     * returned</li>
+     * </ul>
      */
     protected $status;
 }

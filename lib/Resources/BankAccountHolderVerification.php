@@ -37,30 +37,36 @@ class BankAccountHolderVerification extends BaseResource
     /**
      * Result of the verification, could be one of
      *
-     * - `full_match`: The verification has confirmed that the account name
-     * exactly matches the details provided.
-     * - `partial_match`: The verification has confirmed that the account name
-     * is similar but does not match to the details provided.
-     * - `no_match`: The verification concludes the provided name does not match
-     * the account details.
-     * - `unable_to_match`: The verification could not be performed due to
-     * recipient bank issues or technical issues
+     * <ul>
+     * <li><code>full_match</code>: The verification has confirmed that the
+     * account name exactly matches the details provided.</li>
+     * <li><code>partial_match</code>: The verification has confirmed that the
+     * account name is similar but does not match to the details provided.</li>
+     * <li><code>no_match</code>: The verification concludes the provided name
+     * does not match the account details.</li>
+     * <li><code>unable_to_match</code>: The verification could not be performed
+     * due to recipient bank issues or technical issues</li>
+     * </ul>
      */
     protected $result;
 
     /**
      * The status of the bank account holder verification.
      *
-     * - `pending`: We have triggered the verification, but the result has not
-     * come back yet.
-     * - `completed`: The verification is complete and is ready to be used.
+     * <ul>
+     * <li><code>pending</code>: We have triggered the verification, but the
+     * result has not come back yet.</li>
+     * <li><code>completed</code>: The verification is complete and is ready to
+     * be used.</li>
+     * </ul>
      */
     protected $status;
 
     /**
      * Type of the verification that has been performed
-     * eg. Confirmation of Payee
-     * (https://www.wearepay.uk/what-we-do/overlay-services/confirmation-of-payee/)
+     * eg. <a
+     * href="https://www.wearepay.uk/what-we-do/overlay-services/confirmation-of-payee/">Confirmation
+     * of Payee</a>
      */
     protected $type;
 }

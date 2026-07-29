@@ -33,8 +33,8 @@ class RedirectFlow extends BaseResource
      * customer to rather than use your own page, that confirms in their chosen
      * language that their Direct Debit has been set up successfully. Only
      * returned once the customer has set up their mandate via the payment pages
-     * and the redirect flow has been completed
-     * (https://developer.gocardless.com/api-reference/#redirect-flows-complete-a-redirect-flow),
+     * and the redirect flow has been <a
+     * href="https://developer.gocardless.com/api-reference/#redirect-flows-complete-a-redirect-flow">completed</a>,
      * and only available for 15 minutes from when you complete the redirect
      * flow. The structure of this URL may change at any time, so you should
      * read it directly from the API response.
@@ -42,8 +42,8 @@ class RedirectFlow extends BaseResource
     protected $confirmation_url;
 
     /**
-     * Fixed timestamp
-     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * Fixed <a
+     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;
@@ -71,8 +71,8 @@ class RedirectFlow extends BaseResource
 
     /**
      * Key-value store of custom data. Up to 3 keys are permitted, with key
-     * names up to 50 characters and values up to 500 characters. Note: This
-     * should not be used for storing PII data.
+     * names up to 50 characters and values up to 500 characters. <em>Note:</em>
+     * This should not be used for storing PII data.
      */
     protected $metadata;
 
@@ -100,7 +100,7 @@ class RedirectFlow extends BaseResource
 
     /**
      * The URL to redirect to upon successful mandate setup. You must use a URL
-     * beginning `https` in the live environment.
+     * beginning <code>https</code> in the live environment.
      */
     protected $success_redirect_url;
 }

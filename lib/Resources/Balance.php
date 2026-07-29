@@ -33,31 +33,33 @@ class Balance extends BaseResource
     /**
      * Type of the balance. Could be one of
      *
-     * - `pending_payments_submitted`: Payments we have submitted to the scheme
-     * but not yet confirmed. This does not exactly correspond to Pending
-     * payments in the dashboard, because this balance does not include payments
-     * that are pending submission.
-     * - `confirmed_funds`: Payments that have been confirmed minus fees and
-     * unclaimed debits for refunds, failures and chargebacks. These funds have
-     * not yet been moved into a payout.
-     * - `pending_payouts`: Confirmed payments that have been moved into a
-     * payout. This is the total due to be paid into your bank account in the
-     * next payout run (payouts happen once every business day).
-     * `pending_payouts` will only be non-zero while we are generating and
-     * submitting the payouts to our partner bank.
+     * <ul>
+     * <li><code>pending_payments_submitted</code>: Payments we have submitted
+     * to the scheme but not yet confirmed. This does not exactly correspond to
+     * <i>Pending payments</i> in the dashboard, because this balance does not
+     * include payments that are pending submission.</li>
+     * <li><code>confirmed_funds</code>: Payments that have been confirmed minus
+     * fees and unclaimed debits for refunds, failures and chargebacks. These
+     * funds have not yet been moved into a payout.</li>
+     * <li><code>pending_payouts</code>: Confirmed payments that have been moved
+     * into a payout. This is the total due to be paid into your bank account in
+     * the next payout run (payouts happen once every business day).
+     * <code>pending_payouts</code> will only be non-zero while we are
+     * generating and submitting the payouts to our partner bank.</li>
+     * </ul>
      */
     protected $balance_type;
 
     /**
-     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
-     * code. Currently "AUD", "CAD", "DKK", "EUR", "GBP", "NZD", "SEK" and "USD"
-     * are supported.
+     * <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO
+     * 4217</a> currency code. Currently "AUD", "CAD", "DKK", "EUR", "GBP",
+     * "NZD", "SEK" and "USD" are supported.
      */
     protected $currency;
 
     /**
-     * Dynamic timestamp
-     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times)
+     * Dynamic <a
+     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>
      * recording when this resource was last updated.
      */
     protected $last_updated_at;

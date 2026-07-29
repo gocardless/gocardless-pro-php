@@ -37,15 +37,15 @@ class OutboundPaymentImport extends BaseResource
     protected $authorisation_url;
 
     /**
-     * Fixed timestamp
-     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * Fixed <a
+     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;
 
     /**
-     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency.
-     * Currently only "GBP" is supported.
+     * <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO
+     * 4217</a> currency. Currently only "GBP" is supported.
      */
     protected $currency;
 
@@ -67,15 +67,18 @@ class OutboundPaymentImport extends BaseResource
     /**
      * The status of the outbound payment import.
      *
-     * - `created`: The initial state of a new import.
-     * - `validating`: Import validation in progress.
-     * - `invalid`: Import validation failed.
-     * - `valid`: Import validation succeeded.
-     * - `processing`: Authorisation received; payments are being generated.
-     * - `processed`: All entries have been successfully converted into outbound
-     * payments.
-     * - `cancelled`: The import was cancelled by a user or automatically
-     * expired by the system.
+     * <ul>
+     * <li><code>created</code>: The initial state of a new import.</li>
+     * <li><code>validating</code>: Import validation in progress.</li>
+     * <li><code>invalid</code>: Import validation failed.</li>
+     * <li><code>valid</code>: Import validation succeeded.</li>
+     * <li><code>processing</code>: Authorisation received; payments are being
+     * generated.</li>
+     * <li><code>processed</code>: All entries have been successfully converted
+     * into outbound payments.</li>
+     * <li><code>cancelled</code>: The import was cancelled by a user or
+     * automatically expired by the system.</li>
+     * </ul>
      */
     protected $status;
 }

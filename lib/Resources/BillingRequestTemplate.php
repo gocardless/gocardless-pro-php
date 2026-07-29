@@ -37,13 +37,14 @@ class BillingRequestTemplate extends BaseResource
 
     /**
      * Permanent URL that customers can visit to allow them to complete a flow
-     * based on this template, before being returned to the `redirect_uri`.
+     * based on this template, before being returned to the
+     * <code>redirect_uri</code>.
      */
     protected $authorisation_url;
 
     /**
-     * Fixed timestamp
-     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * Fixed <a
+     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;
@@ -60,8 +61,8 @@ class BillingRequestTemplate extends BaseResource
     protected $mandate_request_constraints;
 
     /**
-     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
-     * code.
+     * <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO
+     * 4217</a> currency code.
      */
     protected $mandate_request_currency;
 
@@ -110,9 +111,10 @@ class BillingRequestTemplate extends BaseResource
     protected $payment_request_amount;
 
     /**
-     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
-     * code. `GBP` and `EUR` supported; `GBP` with your customers in the UK and
-     * for `EUR` with your customers in supported Eurozone countries only.
+     * <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO
+     * 4217</a> currency code. <code>GBP</code> and <code>EUR</code> supported;
+     * <code>GBP</code> with your customers in the UK and for <code>EUR</code>
+     * with your customers in supported Eurozone countries only.
      */
     protected $payment_request_currency;
 
@@ -131,11 +133,13 @@ class BillingRequestTemplate extends BaseResource
 
     /**
      * (Optional) A scheme used for Open Banking payments. Currently
-     * `faster_payments` is supported in the UK (GBP) and `sepa_credit_transfer`
-     * and `sepa_instant_credit_transfer` are supported in supported Eurozone
-     * countries (EUR). For Eurozone countries, `sepa_credit_transfer` is used
-     * as the default. Please be aware that `sepa_instant_credit_transfer` may
-     * incur an additional fee for your customer.
+     * <code>faster_payments</code> is supported in the UK (GBP) and
+     * <code>sepa_credit_transfer</code> and
+     * <code>sepa_instant_credit_transfer</code> are supported in supported
+     * Eurozone countries (EUR). For Eurozone countries,
+     * <code>sepa_credit_transfer</code> is used as the default. Please be aware
+     * that <code>sepa_instant_credit_transfer</code> may incur an additional
+     * fee for your customer.
      */
     protected $payment_request_scheme;
 
@@ -146,8 +150,8 @@ class BillingRequestTemplate extends BaseResource
     protected $redirect_uri;
 
     /**
-     * Dynamic timestamp
-     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times)
+     * Dynamic <a
+     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>
      * recording when this resource was last updated.
      */
     protected $updated_at;

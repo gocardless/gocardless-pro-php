@@ -27,21 +27,22 @@ class PayerAuthorisation extends BaseResource
 
     /**
      * All details required for the creation of a
-     * Customer Bank Account
-     * (https://developer.gocardless.com/api-reference/#core-endpoints-customer-bank-accounts).
+     * <a
+     * href="https://developer.gocardless.com/api-reference/#core-endpoints-customer-bank-accounts">Customer
+     * Bank Account</a>.
      */
     protected $bank_account;
 
     /**
-     * Timestamp
-     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * <a
+     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">Timestamp</a>,
      * recording when this Payer Authorisation was created.
      */
     protected $created_at;
 
     /**
-     * All details required for the creation of a Customer
-     * (https://developer.gocardless.com/api-reference/#core-endpoints-customers).
+     * All details required for the creation of a <a
+     * href="https://developer.gocardless.com/api-reference/#core-endpoints-customers">Customer</a>.
      */
     protected $customer;
 
@@ -63,23 +64,25 @@ class PayerAuthorisation extends BaseResource
     protected $links;
 
     /**
-     * All details required for the creation of a Mandate
-     * (https://developer.gocardless.com/api-reference/#core-endpoints-mandates).
+     * All details required for the creation of a <a
+     * href="https://developer.gocardless.com/api-reference/#core-endpoints-mandates">Mandate</a>.
      */
     protected $mandate;
 
     /**
      * One of:
      *
-     * - `created`: The PayerAuthorisation has been created, and not been
-     * confirmed yet
-     * - `submitted`: The payer information has been submitted
-     * - `confirmed`: PayerAuthorisation is confirmed and resources are ready to
-     * be created
-     * - `completed`: The PayerAuthorisation has been completed and customer,
-     * bank_account and mandate has been created
-     * - `failed`: The PayerAuthorisation has failed and customer, bank_account
-     * and mandate is not created
+     * <ul>
+     * <li><code>created</code>: The PayerAuthorisation has been created, and
+     * not been confirmed yet</li>
+     * <li><code>submitted</code>: The payer information has been submitted</li>
+     * <li><code>confirmed</code>: PayerAuthorisation is confirmed and resources
+     * are ready to be created</li>
+     * <li><code>completed</code>: The PayerAuthorisation has been completed and
+     * customer, bank_account and mandate has been created</li>
+     * <li><code>failed</code>: The PayerAuthorisation has failed and customer,
+     * bank_account and mandate is not created</li>
+     * </ul>
      */
     protected $status;
 }

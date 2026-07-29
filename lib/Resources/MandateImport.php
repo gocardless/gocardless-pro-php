@@ -23,8 +23,8 @@ class MandateImport extends BaseResource
     protected $model_name = "MandateImport";
 
     /**
-     * Fixed timestamp
-     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * Fixed <a
+     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;
@@ -40,8 +40,8 @@ class MandateImport extends BaseResource
     protected $links;
 
     /**
-     * The scheme of the mandates to be imported.
-     * All mandates in a single mandate
+     * The scheme of the mandates to be imported.<br></br>All mandates in a
+     * single mandate
      * import must be for the same scheme.
      */
     protected $scheme;
@@ -49,17 +49,21 @@ class MandateImport extends BaseResource
     /**
      * The status of the mandate import.
      *
-     * - `created`: A new mandate import.
-     * - `submitted`: After the integrator has finished adding mandates and
-     * submitted
-     * (https://developer.gocardless.com/api-reference/#mandate-imports-submit-a-mandate-import)
-     * the import.
-     * - `cancelled`: If the integrator cancelled
-     * (https://developer.gocardless.com/api-reference/#mandate-imports-cancel-a-mandate-import)
-     * the mandate import.
-     * - `processing`: Once a mandate import has been approved by a GoCardless
-     * team member it will be in this state while mandates are imported.
-     * - `processed`: When all mandates have been imported successfully.
+     * <ul>
+     * <li><code>created</code>: A new mandate import.</li>
+     * <li><code>submitted</code>: After the integrator has finished adding
+     * mandates and <a
+     * href="https://developer.gocardless.com/api-reference/#mandate-imports-submit-a-mandate-import">submitted</a>
+     * the import.</li>
+     * <li><code>cancelled</code>: If the integrator <a
+     * href="https://developer.gocardless.com/api-reference/#mandate-imports-cancel-a-mandate-import">cancelled</a>
+     * the mandate import.</li>
+     * <li><code>processing</code>: Once a mandate import has been approved by a
+     * GoCardless team member it will be in this state while mandates are
+     * imported.</li>
+     * <li><code>processed</code>: When all mandates have been imported
+     * successfully.</li>
+     * </ul>
      */
     protected $status;
 }

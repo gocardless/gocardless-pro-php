@@ -27,16 +27,16 @@ class InstalmentSchedule extends BaseResource
     protected $model_name = "InstalmentSchedule";
 
     /**
-     * Fixed timestamp
-     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * Fixed <a
+     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;
 
     /**
-     * ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency
-     * code. Currently "AUD", "CAD", "DKK", "EUR", "GBP", "NZD", "SEK" and "USD"
-     * are supported.
+     * <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO
+     * 4217</a> currency code. Currently "AUD", "CAD", "DKK", "EUR", "GBP",
+     * "NZD", "SEK" and "USD" are supported.
      */
     protected $currency;
 
@@ -64,8 +64,8 @@ class InstalmentSchedule extends BaseResource
     protected $name;
 
     /**
-     * If the status is `creation_failed`, this property will be populated with
-     * validation
+     * If the status is <code>creation_failed</code>, this property will be
+     * populated with validation
      * failures from the individual payments, arranged by the index of the
      * payment that
      * failed.
@@ -75,13 +75,17 @@ class InstalmentSchedule extends BaseResource
     /**
      * One of:
      *
-     * - `pending`: we're waiting for GC to create the payments
-     * - `active`: the payments have been created, and the schedule is active
-     * - `creation_failed`: payment creation failed
-     * - `completed`: we have passed the date of the final payment and all
-     * payments have been collected
-     * - `cancelled`: the schedule has been cancelled
-     * - `errored`: one or more payments have failed
+     * <ul>
+     * <li><code>pending</code>: we're waiting for GC to create the
+     * payments</li>
+     * <li><code>active</code>: the payments have been created, and the schedule
+     * is active</li>
+     * <li><code>creation_failed</code>: payment creation failed</li>
+     * <li><code>completed</code>: we have passed the date of the final payment
+     * and all payments have been collected</li>
+     * <li><code>cancelled</code>: the schedule has been cancelled</li>
+     * <li><code>errored</code>: one or more payments have failed</li>
+     * </ul>
      */
     protected $status;
 

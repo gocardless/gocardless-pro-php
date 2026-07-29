@@ -56,23 +56,24 @@ class Customer extends BaseResource
     protected $city;
 
     /**
-     * Customer's company name. Required unless a `given_name` and `family_name`
-     * are provided. For Canadian customers, the use of a `company_name` value
-     * will mean that any mandate created from this customer will be considered
-     * to be a "Business PAD" (otherwise, any mandate will be considered to be a
-     * "Personal PAD").
+     * Customer's company name. Required unless a <code>given_name</code> and
+     * <code>family_name</code> are provided. For Canadian customers, the use of
+     * a <code>company_name</code> value will mean that any mandate created from
+     * this customer will be considered to be a "Business PAD" (otherwise, any
+     * mandate will be considered to be a "Personal PAD").
      */
     protected $company_name;
 
     /**
-     * ISO 3166-1 alpha-2 code.
-     * (https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
+     * <a
+     * href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">ISO
+     * 3166-1 alpha-2 code.</a>
      */
     protected $country_code;
 
     /**
-     * Fixed timestamp
-     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * Fixed <a
+     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;
@@ -91,12 +92,14 @@ class Customer extends BaseResource
     protected $email;
 
     /**
-     * Customer's surname. Required unless a `company_name` is provided.
+     * Customer's surname. Required unless a <code>company_name</code> is
+     * provided.
      */
     protected $family_name;
 
     /**
-     * Customer's first name. Required unless a `company_name` is provided.
+     * Customer's first name. Required unless a <code>company_name</code> is
+     * provided.
      */
     protected $given_name;
 
@@ -106,13 +109,14 @@ class Customer extends BaseResource
     protected $id;
 
     /**
-     * ISO 639-1 (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) code.
-     * Used as the language for notification emails sent by GoCardless if your
-     * organisation does not send its own (see compliance requirements
-     * (https://developer.gocardless.com/api-reference/#appendix-compliance-requirements)).
-     * Currently only "en", "fr", "de", "pt", "es", "it", "nl", "da", "nb",
-     * "sl", "sv" are supported. If this is not provided, the language will be
-     * chosen based on the `country_code` (if supplied) or default to "en".
+     * <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO
+     * 639-1</a> code. Used as the language for notification emails sent by
+     * GoCardless if your organisation does not send its own (see <a
+     * href="https://developer.gocardless.com/api-reference/#appendix-compliance-requirements">compliance
+     * requirements</a>). Currently only "en", "fr", "de", "pt", "es", "it",
+     * "nl", "da", "nb", "sl", "sv" are supported. If this is not provided, the
+     * language will be chosen based on the <code>country_code</code> (if
+     * supplied) or default to "en".
      */
     protected $language;
 
@@ -123,8 +127,8 @@ class Customer extends BaseResource
     protected $metadata;
 
     /**
-     * ITU E.123 (https://en.wikipedia.org/wiki/E.123) formatted phone number,
-     * including country code.
+     * <a href="https://en.wikipedia.org/wiki/E.123">ITU E.123</a> formatted
+     * phone number, including country code.
      */
     protected $phone_number;
 
@@ -135,8 +139,9 @@ class Customer extends BaseResource
 
     /**
      * The customer's address region, county or department. For US customers a 2
-     * letter ISO3166-2:US (https://en.wikipedia.org/wiki/ISO_3166-2:US) state
-     * code is required (e.g. `CA` for California).
+     * letter <a
+     * href="https://en.wikipedia.org/wiki/ISO_3166-2:US">ISO3166-2:US</a> state
+     * code is required (e.g. <code>CA</code> for California).
      */
     protected $region;
 

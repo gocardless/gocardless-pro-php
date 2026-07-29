@@ -34,8 +34,8 @@ class Mandate extends BaseResource
     protected $model_name = "Mandate";
 
     /**
-     * This field is ACH specific, sometimes referred to as SEC code
-     * (https://www.moderntreasury.com/learn/sec-codes).
+     * This field is ACH specific, sometimes referred to as <a
+     * href="https://www.moderntreasury.com/learn/sec-codes">SEC code</a>.
      *
      * This is the way that the payer gives authorisation to the merchant.
      * web: Authorisation is Internet Initiated or via Mobile Entry (maps to SEC
@@ -60,8 +60,8 @@ class Mandate extends BaseResource
     protected $consent_type;
 
     /**
-     * Fixed timestamp
-     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times),
+     * Fixed <a
+     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;
@@ -70,11 +70,13 @@ class Mandate extends BaseResource
      * This field will decide how GoCardless handles settlement of funds from
      * the customer.
      *
-     * - `managed` will be moved through GoCardless' account, batched, and payed
-     * out.
-     * - `direct` will be a direct transfer from the payer's account to the
-     * merchant where
-     * invoicing will be handled separately.
+     * <ul>
+     * <li><code>managed</code> will be moved through GoCardless' account,
+     * batched, and payed out.</li>
+     * <li><code>direct</code> will be a direct transfer from the payer's
+     * account to the merchant where
+     * invoicing will be handled separately.</li>
+     * </ul>
      */
     protected $funds_settlement;
 
@@ -101,14 +103,15 @@ class Mandate extends BaseResource
     protected $metadata;
 
     /**
-     * The earliest date that can be used as a `charge_date` on any newly
-     * created payment for this mandate. This value will change over time.
+     * The earliest date that can be used as a <code>charge_date</code> on any
+     * newly created payment for this mandate. This value will change over time.
      */
     protected $next_possible_charge_date;
 
     /**
      * If this is an an ACH mandate, the earliest date that can be used as a
-     * `charge_date` on any newly created payment to be charged through standard
+     * <code>charge_date</code> on any newly created payment to be charged
+     * through standard
      * ACH, rather than Faster ACH. This value will change over time.
      *
      * It is only present in the API response for ACH mandates.
@@ -122,45 +125,49 @@ class Mandate extends BaseResource
     protected $payments_require_approval;
 
     /**
-     * Unique reference. Different schemes have different length and character
-     * set
-     * (https://developer.gocardless.com/api-reference/#appendix-character-sets)
-     * requirements. GoCardless will generate a unique reference satisfying the
-     * different scheme requirements if this field is left blank.
+     * Unique reference. Different schemes have different length and <a
+     * href="https://developer.gocardless.com/api-reference/#appendix-character-sets">character
+     * set</a> requirements. GoCardless will generate a unique reference
+     * satisfying the different scheme requirements if this field is left blank.
      */
     protected $reference;
 
     /**
-     * Bank payment scheme to which this mandate and associated payments are
-     * submitted. Can be supplied or automatically detected from the customer's
-     * bank account.
+     * <a name="mandates_scheme"></a>Bank payment scheme to which this mandate
+     * and associated payments are submitted. Can be supplied or automatically
+     * detected from the customer's bank account.
      */
     protected $scheme;
 
     /**
      * One of:
      *
-     * - `pending_customer_approval`: the mandate has not yet been signed by the
-     * second customer
-     * - `pending_submission`: the mandate has not yet been submitted to the
-     * customer's bank
-     * - `submitted`: the mandate has been submitted to the customer's bank but
-     * has not been processed yet
-     * - `active`: the mandate has been successfully set up by the customer's
-     * bank
-     * - `suspended_by_payer`: the mandate has been suspended by payer
-     * - `failed`: the mandate could not be created
-     * - `cancelled`: the mandate has been cancelled
-     * - `expired`: the mandate has expired due to dormancy
-     * - `consumed`: the mandate has been consumed and cannot be reused (note
-     * that this only applies to schemes that are per-payment authorised)
-     * - `blocked`: the mandate has been blocked and payments cannot be created
+     * <ul>
+     * <li><code>pending_customer_approval</code>: the mandate has not yet been
+     * signed by the second customer</li>
+     * <li><code>pending_submission</code>: the mandate has not yet been
+     * submitted to the customer's bank</li>
+     * <li><code>submitted</code>: the mandate has been submitted to the
+     * customer's bank but has not been processed yet</li>
+     * <li><code>active</code>: the mandate has been successfully set up by the
+     * customer's bank</li>
+     * <li><code>suspended_by_payer</code>: the mandate has been suspended by
+     * payer</li>
+     * <li><code>failed</code>: the mandate could not be created</li>
+     * <li><code>cancelled</code>: the mandate has been cancelled</li>
+     * <li><code>expired</code>: the mandate has expired due to dormancy</li>
+     * <li><code>consumed</code>: the mandate has been consumed and cannot be
+     * reused (note that this only applies to schemes that are per-payment
+     * authorised)</li>
+     * <li><code>blocked</code>: the mandate has been blocked and payments
+     * cannot be created</li>
+     * </ul>
      */
     protected $status;
 
     /**
-     * Timestamp
-     * (https://developer.gocardless.com/api-reference/#api-usage-dates-and-times)
+     * <a
+     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">Timestamp</a>
      * recording when this mandate was verified.
      */
     protected $verified_at;
