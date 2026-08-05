@@ -1,5 +1,9 @@
 name: build
-on: push
+on:
+  push:
+    branches: [master]
+  pull_request:
+    types: [opened, reopened, synchronize]
 
 jobs:
   test_library:
@@ -16,3 +20,16 @@ jobs:
       - run: composer install --no-interaction
       - name: Test Library
         run: ./vendor/phpunit/phpunit/phpunit
+
+  all-tests-passed:
+    name: All tests passed
+    runs-on: ubuntu-latest
+    needs: [test_library]
+    if: always()
+    steps:
+      - name: Check test_library job status
+        run: |
+          if [ "${{ needs.test_library.result }}" != "success" ]; then
+            echo "test_library job did not succeed"
+            exit 1
+          fi
