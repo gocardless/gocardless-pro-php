@@ -1,0 +1,14 @@
+name: Auto-merge client-library changes
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  pull-requests: write
+
+jobs:
+  run:
+    uses: gocardless/github-actions/.github/workflows/auto-merge-client-library-changes.yml@master
+    secrets: inherit
