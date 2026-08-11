@@ -33,6 +33,26 @@ jobs:
             echo "Tag v${VERSION} does not exist, will create release"
             echo "should_release=true" >> $GITHUB_OUTPUT
           fi
+
+      - name: Extract changelog notes for this version
+        id: notes
+        if: steps.check.outputs.should_release == 'true'
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          NOTES=""
+          if [ -f CHANGELOG.md ]; then
+            NOTES=$(awk -v ver="$VERSION" '
+              $0 ~ "^## " ver {p=1; next}
+              p && /^## / {exit}
+              p {print}
+            ' CHANGELOG.md)
+          fi
+          {
+            echo "notes<<EOF"
+            echo "$NOTES"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
       # There's no explicit publish step for Packagist.
       # 
       # Instead, we have a push hook that tells Packagist to crawl our repo.
@@ -51,6 +71,11 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git tag v${{ steps.version.outputs.version }}
           git push origin v${{ steps.version.outputs.version }}
-          gh release create v${{ steps.version.outputs.version }} --generate-notes
+          NOTES="${{ steps.notes.outputs.notes }}"
+          if [ -n "$(echo "$NOTES" | tr -d '[:space:]')" ]; then
+            gh release create v${{ steps.version.outputs.version }} --notes "$NOTES"
+          else
+            gh release create v${{ steps.version.outputs.version }} --generate-notes
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GOCARDLESS_CI_ROBOT_TOKEN }}
