@@ -22,7 +22,7 @@ jobs:
         run: ./vendor/phpunit/phpunit/phpunit
 
   all-tests-passed:
-    name: All tests passed
+    name: all-tests-passed
     runs-on: ubuntu-latest
     needs: [test_library]
     if: always()
