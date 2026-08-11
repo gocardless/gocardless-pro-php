@@ -36,6 +36,10 @@ class PaymentsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->amount_refunded, $response->amount_refunded);
         }
 
+        if (property_exists($body, 'app_fee')) {
+            $this->assertEquals($body->app_fee, $response->app_fee);
+        }
+
         if (property_exists($body, 'charge_date')) {
             $this->assertEquals($body->charge_date, $response->charge_date);
         }
@@ -120,6 +124,9 @@ class PaymentsIntegrationTest extends IntegrationTestBase
         if (property_exists($body, 'amount_refunded')) {
             $this->assertEquals($body->amount_refunded, $response->amount_refunded);
         }
+        if (property_exists($body, 'app_fee')) {
+            $this->assertEquals($body->app_fee, $response->app_fee);
+        }
         if (property_exists($body, 'charge_date')) {
             $this->assertEquals($body->charge_date, $response->charge_date);
         }
@@ -197,6 +204,10 @@ class PaymentsIntegrationTest extends IntegrationTestBase
 
             if (isset($body[$num]->amount_refunded)) {
                 $this->assertEquals($body[$num]->amount_refunded, $record->amount_refunded);
+            }
+
+            if (isset($body[$num]->app_fee)) {
+                $this->assertEquals($body[$num]->app_fee, $record->app_fee);
             }
 
             if (isset($body[$num]->charge_date)) {
@@ -279,6 +290,10 @@ class PaymentsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->amount_refunded, $response->amount_refunded);
         }
 
+        if (property_exists($body, 'app_fee')) {
+            $this->assertEquals($body->app_fee, $response->app_fee);
+        }
+
         if (property_exists($body, 'charge_date')) {
             $this->assertEquals($body->charge_date, $response->charge_date);
         }
@@ -357,6 +372,10 @@ class PaymentsIntegrationTest extends IntegrationTestBase
 
         if (property_exists($body, 'amount_refunded')) {
             $this->assertEquals($body->amount_refunded, $response->amount_refunded);
+        }
+
+        if (property_exists($body, 'app_fee')) {
+            $this->assertEquals($body->app_fee, $response->app_fee);
         }
 
         if (property_exists($body, 'charge_date')) {
@@ -439,6 +458,10 @@ class PaymentsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->amount_refunded, $response->amount_refunded);
         }
 
+        if (property_exists($body, 'app_fee')) {
+            $this->assertEquals($body->app_fee, $response->app_fee);
+        }
+
         if (property_exists($body, 'charge_date')) {
             $this->assertEquals($body->charge_date, $response->charge_date);
         }
@@ -517,6 +540,10 @@ class PaymentsIntegrationTest extends IntegrationTestBase
 
         if (property_exists($body, 'amount_refunded')) {
             $this->assertEquals($body->amount_refunded, $response->amount_refunded);
+        }
+
+        if (property_exists($body, 'app_fee')) {
+            $this->assertEquals($body->app_fee, $response->app_fee);
         }
 
         if (property_exists($body, 'charge_date')) {

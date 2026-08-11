@@ -14,6 +14,7 @@ namespace GoCardlessPro\Resources;
  *
  * @property-read mixed $amount
  * @property-read mixed $amount_refunded
+ * @property-read mixed $app_fee
  * @property-read mixed $charge_date
  * @property-read mixed $created_at
  * @property-read mixed $currency
@@ -54,6 +55,15 @@ class Payment extends BaseResource
      * EUR).
      */
     protected $amount_refunded;
+
+    /**
+     * The amount to be deducted from the payment as the OAuth app''s fee,
+     * in the lowest denomination for the currency (e.g. pence in GBP, cents in
+     * EUR).
+     *
+     * Only present if the payment was created via an app.
+     */
+    protected $app_fee;
 
     /**
      * A future date on which the payment should be collected. If not specified,
