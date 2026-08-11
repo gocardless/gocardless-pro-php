@@ -69,13 +69,14 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git tag v${{ steps.version.outputs.version }}
-          git push origin v${{ steps.version.outputs.version }}
+          TAG="v${{ steps.version.outputs.version }}"
+          git tag "$TAG"
+          git push origin "$TAG"
           NOTES="${{ steps.notes.outputs.notes }}"
           if [ -n "$(echo "$NOTES" | tr -d '[:space:]')" ]; then
-            gh release create v${{ steps.version.outputs.version }} --notes "$NOTES"
+            gh release create "$TAG" --title "$TAG" --notes "$NOTES"
           else
-            gh release create v${{ steps.version.outputs.version }} --generate-notes
+            gh release create "$TAG" --title "$TAG" --generate-notes
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GOCARDLESS_CI_ROBOT_TOKEN }}
