@@ -1,6 +1,15 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.1.2 (2026-09-04)
+
+### Fixes
+
+#### Define common titles for common types
+
+The intention is to make it possible to define common types in generated code.
+Instead of ~37 different currency enum types which are all equivalent, we could have one.
+
 ## 8.1.1 (2026-09-02)
 
 ### Fixes
