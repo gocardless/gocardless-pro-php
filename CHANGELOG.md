@@ -1,12 +1,6 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
-## 8.1.3 (2026-09-07)
-
-### Fixes
-
-- Update code samples to match change to integer types for amounts etc
-
 ## 8.1.2 (2026-09-04)
 
 ### Fixes
