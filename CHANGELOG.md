@@ -1,6 +1,14 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.1.4 (2026-09-08)
+
+### Fixes
+
+#### Remove incorrect Pro/Enterprise restriction from mandate and customer bank account endpoints
+
+The "Create a mandate", "Reinstate a mandate", and "Create a customer bank account" endpoints incorrectly stated they were restricted to GoCardless Pro and Enterprise accounts. Custom payment pages are available to any merchant — they are not package-restricted.
+
 ## 8.1.3 (2026-09-07)
 
 ### Fixes
