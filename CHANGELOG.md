@@ -1,6 +1,12 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.1.5 (2026-09-09)
+
+### Fixes
+
+- Add remember_me to ui_components bootstrap endpoint
+
 ## 8.1.4 (2026-09-08)
 
 ### Fixes
