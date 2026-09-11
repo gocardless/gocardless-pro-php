@@ -3,13 +3,13 @@
   
   "create_with_dates": {
     "method": "POST",
-    "path_template": "/instalment_schedules",
+    "path_template": "/instalment_schedules/create_with_dates",
     "url_params": {},
     "body": {"instalment_schedules":{"created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","id":"IS123","links":{"customer":"CU123","mandate":"MD123","payments":["PM123","PM456"]},"metadata":{},"name":"Invoice 4404","payment_errors":{"0":[{"field":"charge_date","message":"must be on or after mandate's next_possible_customer_charge_date"}]},"status":"active","total_amount":1000}}
   },
   "create_with_schedule": {
     "method": "POST",
-    "path_template": "/instalment_schedules",
+    "path_template": "/instalment_schedules/create_with_schedule",
     "url_params": {},
     "body": {"instalment_schedules":{"created_at":"2014-01-01T12:00:00.000Z","currency":"EUR","id":"IS123","links":{"customer":"CU123","mandate":"MD123","payments":["PM123","PM456"]},"metadata":{},"name":"Invoice 4404","payment_errors":{"0":[{"field":"charge_date","message":"must be on or after mandate's next_possible_customer_charge_date"}]},"status":"active","total_amount":1000}}
   },
