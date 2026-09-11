@@ -31,14 +31,14 @@ class InstalmentSchedulesService extends BaseService
     /**
     * Create (with dates)
     *
-    * Example URL: /instalment_schedules
+    * Example URL: /instalment_schedules/create_with_dates
     *
     * @param  array<string, mixed> $params An associative array for any params
     * @return InstalmentSchedule
     **/
     public function createWithDates($params = array())
     {
-        $path = "/instalment_schedules";
+        $path = "/instalment_schedules/create_with_dates";
         if (isset($params['params'])) {
             $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
 
@@ -66,14 +66,14 @@ class InstalmentSchedulesService extends BaseService
     /**
     * Create (with schedule)
     *
-    * Example URL: /instalment_schedules
+    * Example URL: /instalment_schedules/create_with_schedule
     *
     * @param  array<string, mixed> $params An associative array for any params
     * @return InstalmentSchedule
     **/
     public function createWithSchedule($params = array())
     {
-        $path = "/instalment_schedules";
+        $path = "/instalment_schedules/create_with_schedule";
         if (isset($params['params'])) {
             $params['body'] = json_encode(array($this->envelope_key => (object)$params['params']));
 
