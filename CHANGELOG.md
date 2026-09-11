@@ -1,6 +1,22 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.2.0 (2026-09-11)
+
+### Features
+
+#### Use specific sub-endpoints URLs for create /instalment_schedules: with_schedule and with_dates
+
+The two variants for creating an instalment_schedule were surfaced as separate functions. However, they both went to the same URL and endpoint on the backend.
+
+This created some bugs in generating our openapi schema and therefore our API reference documentation.
+
+Therefore, we've added specific URLs for each endpoint aliased to the original one: `POST /instalment_schedules/with_dates` or `POST /instalment_schedules/with_schedule`.
+
+The existing POST /instalment_schedules endpoint is unchanged and will remain available for the foreseeable future.
+
+Client libraries will now use the specific endpoint matching the method - if you are stubbing the HTTP call you may need to update those stubs.
+
 ## 8.1.5 (2026-09-09)
 
 ### Fixes
