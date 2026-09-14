@@ -1,6 +1,14 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.2.2 (2026-09-14)
+
+### Fixes
+
+#### Fix nullable field declarations and missing properties across multiple resources
+
+Adds `null` to type declarations for fields that legitimately return nil across redirect_flows, webhooks, scheme_identifiers, customer_bank_accounts, outbound_payments, and billing_request_with_actions. Also adds the missing `period_alignment` property to mandate consent_parameters.
+
 ## 8.2.1 (2026-09-14)
 
 ### Fixes
