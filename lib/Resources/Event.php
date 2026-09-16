@@ -84,23 +84,7 @@ class Event extends BaseResource
     protected $resource_metadata;
 
     /**
-     * The resource type for this event. One of:
-     *
-     * <ul>
-     * <li><code>billing_requests</code></li>
-     * <li><code>creditors</code></li>
-     * <li><code>exports</code></li>
-     * <li><code>instalment_schedules</code></li>
-     * <li><code>mandates</code></li>
-     * <li><code>payer_authorisations</code></li>
-     * <li><code>payments</code></li>
-     * <li><code>payouts</code></li>
-     * <li><code>refunds</code></li>
-     * <li><code>scheme_identifiers</code></li>
-     * <li><code>subscriptions</code></li>
-     * <li><code>outbound_payments</code></li>
-     * <li><code>payment_account_transactions</code></li>
-     * </ul>
+     * The resource type for this event.
      */
     protected $resource_type;
 
