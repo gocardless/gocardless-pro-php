@@ -1,6 +1,12 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.3.2 (2026-09-22)
+
+### Fixes
+
+- Fix example values for a small number of fields to comply with the schema
+
 ## 8.3.1 (2026-09-22)
 
 ### Fixes
