@@ -1,6 +1,14 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.4.0 (2026-09-25)
+
+### Features
+
+#### Add `interval` param to `GET /reporting/metrics` for aggregating results by day, week, or month
+
+You can now pass `interval` (`daily`, `weekly`, or `monthly`) when fetching metrics to have values aggregated over that period, instead of only receiving a single value for the full `start_date`/`end_date` range.
+
 ## 8.3.2 (2026-09-22)
 
 ### Fixes
