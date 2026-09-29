@@ -20,16 +20,8 @@ class BillingRequestWithAction extends BaseResource
     protected $model_name = "BillingRequestWithAction";
 
     /**
-     * Bank Authorisations can be used to authorise Billing Requests.
-     * Authorisations
-     * are created against a specific bank, usually the bank that provides the
-     * payer's
-     * account.
-     *
-     * Creation of Bank Authorisations is only permitted from GoCardless hosted
-     * UIs
-     * (see Billing Request Flows) to ensure we meet regulatory requirements for
-     * checkout flows.
+     * Bank authorisation resource, or null if no bank authorisation was
+     * created.
      */
     protected $bank_authorisations;
 
