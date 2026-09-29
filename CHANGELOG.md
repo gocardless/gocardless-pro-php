@@ -1,6 +1,14 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.5.0 (2026-09-29)
+
+### Features
+
+#### Add `payer_name_verification_result` to bank details lookups
+
+Bank details lookups now return a `payer_name_verification_result` field when an `account_holder_name` is supplied and a payer name verification check is performed. It can be `full`, `close`, `cannot_perform_verification` or `null`
+
 ## 8.4.0 (2026-09-25)
 
 ### Features
