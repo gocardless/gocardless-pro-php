@@ -15,6 +15,7 @@ namespace GoCardlessPro\Resources;
  * @property-read mixed $available_debit_schemes
  * @property-read mixed $bank_name
  * @property-read mixed $bic
+ * @property-read mixed $payer_name_verification_result
  */
 class BankDetailsLookup extends BaseResource
 {
@@ -42,4 +43,26 @@ class BankDetailsLookup extends BaseResource
      * reachability.</p>
      */
     protected $bic;
+
+    /**
+     * The result of the payer name verification check performed during the
+     * lookup. <code>null</code> if no check was performed.
+     *
+     * <ul>
+     * <li><code>full</code>: The name provided matches the name held by the
+     * bank.</li>
+     * <li><code>close</code>: The name provided is a close but not exact match
+     * to the name held by the bank.</li>
+     * <li><code>cannot_perform_verification</code>: A verification was
+     * attempted but could not be completed. This can happen for a number of
+     * reasons, including the account holder's bank not participating in the
+     * verification scheme, the account not being eligible for verification
+     * (e.g. the account holder has opted out), or the bank details not being
+     * resolvable, among others.</li>
+     * <li><code>null</code>: Verification was not triggered. Either PNV is not
+     * supported for the scheme, or PNV feature is disabled for your
+     * organisation.</li>
+     * </ul>
+     */
+    protected $payer_name_verification_result;
 }

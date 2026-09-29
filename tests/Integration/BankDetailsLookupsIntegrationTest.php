@@ -40,6 +40,10 @@ class BankDetailsLookupsIntegrationTest extends IntegrationTestBase
             $this->assertEquals($body->bic, $response->bic);
         }
 
+        if (property_exists($body, 'payer_name_verification_result')) {
+            $this->assertEquals($body->payer_name_verification_result, $response->payer_name_verification_result);
+        }
+
 
         $expectedPathRegex = $this->extractResourceFixturePathRegex($fixture);
         $dispatchedRequest = $this->history[0]['request'];
