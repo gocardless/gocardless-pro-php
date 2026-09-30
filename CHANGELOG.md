@@ -1,6 +1,16 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.5.3 (2026-09-30)
+
+### Fixes
+
+#### Refine types for billing_request amount fields
+
+The API and client libraries accept string or integer for amount-type fields.
+We only emit those same fields as integer.
+However, the schema incorrectly specified string or integer for the response as well as the request.
+
 ## 8.5.2 (2026-09-30)
 
 ### Fixes
