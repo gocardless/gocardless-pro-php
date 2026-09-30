@@ -1,6 +1,12 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.5.4 (2026-09-30)
+
+### Fixes
+
+- Fix nullable metadata reference in billing_request list response schema
+
 ## 8.5.3 (2026-09-30)
 
 ### Fixes
