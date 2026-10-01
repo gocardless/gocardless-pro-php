@@ -12,7 +12,6 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a institution, providing access to its
  * attributes
  *
- * @property-read mixed $autocompletes_collect_bank_account
  * @property-read mixed $country_code
  * @property-read mixed $icon_url
  * @property-read mixed $id
@@ -20,18 +19,10 @@ namespace GoCardlessPro\Resources;
  * @property-read mixed $logo_url
  * @property-read mixed $name
  * @property-read mixed $roles
- * @property-read mixed $status
  */
 class Institution extends BaseResource
 {
     protected $model_name = "Institution";
-
-    /**
-     * Flag to show if selecting this institution in the select_institution
-     * action can auto-complete the collect_bank_account action. The bank can
-     * return the payer's bank account details to GoCardless.
-     */
-    protected $autocompletes_collect_bank_account;
 
     /**
      * <a
@@ -72,9 +63,4 @@ class Institution extends BaseResource
      * features it supports.
      */
     protected $roles;
-
-    /**
-     * The status of the institution
-     */
-    protected $status;
 }

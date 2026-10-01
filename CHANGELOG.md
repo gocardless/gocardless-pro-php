@@ -1,6 +1,22 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.6.0 (2026-10-01)
+
+### Features
+
+#### Fixes to mandate property definitions
+
+* Add missing `consent_parameters` properties: `id`, `scheme`, `currency`, `fixed_amount_per_payment`
+* Make `max_amount_per_period`, `max_payments_per_period` and `end_date` nullable
+* Add missing `period_alignment` to `period_alignment` enum
+
+### Fixes
+
+#### Fix `GET /institutions` documentation incorrectly listing `status` and `autocompletes_collect_bank_account` fields
+
+These fields are only returned by `GET /billing_requests/{identity}/institutions`, not by the top-level `GET /institutions` endpoint. This is a documentation-only fix; API behaviour is unchanged.
+
 ## 8.5.6 (2026-10-01)
 
 ### Fixes
