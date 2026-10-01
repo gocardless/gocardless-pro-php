@@ -1,6 +1,16 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.5.6 (2026-10-01)
+
+### Fixes
+
+#### Correct supported type list for /customer_notifications/{id}/actions/handle
+
+Only `payment_created`, `mandate_created` and `subscription_created` are supported for now, but the enum implied it was more event types.
+
+The enum is unchanged to avoid breaking consumers dependent on the ordering.
+
 ## 8.5.5 (2026-09-30)
 
 ### Fixes
