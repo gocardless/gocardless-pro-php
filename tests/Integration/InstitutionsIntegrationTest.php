@@ -38,10 +38,6 @@ class InstitutionsIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
 
-            if (isset($body[$num]->autocompletes_collect_bank_account)) {
-                $this->assertEquals($body[$num]->autocompletes_collect_bank_account, $record->autocompletes_collect_bank_account);
-            }
-
             if (isset($body[$num]->country_code)) {
                 $this->assertEquals($body[$num]->country_code, $record->country_code);
             }
@@ -68,10 +64,6 @@ class InstitutionsIntegrationTest extends IntegrationTestBase
 
             if (isset($body[$num]->roles)) {
                 $this->assertEquals($body[$num]->roles, $record->roles);
-            }
-
-            if (isset($body[$num]->status)) {
-                $this->assertEquals($body[$num]->status, $record->status);
             }
         }
 
@@ -104,10 +96,6 @@ class InstitutionsIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
 
-            if (isset($body[$num]->autocompletes_collect_bank_account)) {
-                $this->assertEquals($body[$num]->autocompletes_collect_bank_account, $record->autocompletes_collect_bank_account);
-            }
-
             if (isset($body[$num]->country_code)) {
                 $this->assertEquals($body[$num]->country_code, $record->country_code);
             }
@@ -134,10 +122,6 @@ class InstitutionsIntegrationTest extends IntegrationTestBase
 
             if (isset($body[$num]->roles)) {
                 $this->assertEquals($body[$num]->roles, $record->roles);
-            }
-
-            if (isset($body[$num]->status)) {
-                $this->assertEquals($body[$num]->status, $record->status);
             }
         }
 
