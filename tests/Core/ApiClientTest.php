@@ -270,4 +270,81 @@ class ApiClientTest extends TestCase
             throw $e;
         }
     }
+
+    /**
+     * An absolute URL in the path would replace the configured base_uri while the
+     * Authorization header is still attached, handing the token to whichever host the URL
+     * names, so these are rejected before a request is dispatched.
+     */
+    public function testRejectsAbsoluteUrlAsPath()
+    {
+        $this->expectException('\InvalidArgumentException');
+
+        try {
+            $this->api_client->get('http://elsewhere.example.com/capture');
+        } finally {
+            $this->assertCount(0, $this->history);
+        }
+    }
+
+    public function testRejectsSchemeRelativeUrlAsPath()
+    {
+        $this->expectException('\InvalidArgumentException');
+
+        try {
+            $this->api_client->get('//elsewhere.example.com/capture');
+        } finally {
+            $this->assertCount(0, $this->history);
+        }
+    }
+
+    public function testRejectsAbsoluteUrlForEveryVerb()
+    {
+        $url = 'https://elsewhere.example.com/capture';
+        $calls = array(
+            function () use ($url) {
+                $this->api_client->get($url);
+            },
+            function () use ($url) {
+                $this->api_client->post($url, array());
+            },
+            function () use ($url) {
+                $this->api_client->put($url, array());
+            },
+            function () use ($url) {
+                $this->api_client->delete($url, array());
+            },
+        );
+
+        foreach ($calls as $call) {
+            $threw = false;
+            try {
+                $call();
+            } catch (\InvalidArgumentException $e) {
+                $threw = true;
+            }
+            $this->assertTrue($threw);
+        }
+
+        $this->assertCount(0, $this->history);
+    }
+
+    public function testAllowsRelativePathWithQueryString()
+    {
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], "{}"));
+        $this->api_client->get('/some_endpoint?page=1');
+
+        $dispatchedRequest = $this->history[0]['request'];
+        $this->assertEquals('/some_endpoint', $dispatchedRequest->getUri()->getPath());
+    }
+
+    public function testAllowsDotSegmentsWhichCannotLeaveTheBaseUrl()
+    {
+        // Dot segments resolve against base_uri, so they can reach another path on the same
+        // origin but cannot leave it. They are allowed through, and this pins that behaviour.
+        $this->mock->append(new \GuzzleHttp\Psr7\Response(200, [], "{}"));
+        $this->api_client->get('/some_endpoint/../other');
+
+        $this->assertCount(1, $this->history);
+    }
 }
