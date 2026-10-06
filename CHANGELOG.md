@@ -1,6 +1,42 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.12.0 (2026-10-06)
+
+### Features
+
+#### Reject request paths that would leave the configured base URL
+
+The low-level request path was joined onto the configured base URL with a resolving
+join, which follows a path the way a browser follows a link. An absolute URL
+(`https://host/x`) or a scheme-relative one (`//host/x`) replaced the configured
+origin outright while the Authorization header was still attached, so an application
+that passed untrusted input as a path could send its API token to a host of someone
+else's choosing.
+
+A path that is not a relative reference is now rejected before the join. Paths
+containing dot segments remain valid: they resolve against the base URL and cannot
+leave its origin.
+
+#### Reject URL parameters that could change which endpoint is addressed
+
+A URL parameter is a single path segment — a resource identity — but the escaping
+applied to one varied by language, and in Go, Node, PHP and .NET there was none at
+all. A value carrying path syntax could move a request to an endpoint the caller
+never asked for: `find("../mandates")` reached the mandates collection, and
+`find("?limit=500")` injected a query parameter.
+
+Escaping alone cannot fix this, because `.` and `..` are dot segments that a path
+resolver strips whether or not they are encoded, and an empty value addresses the
+collection rather than one resource. Values that could change which endpoint is
+addressed are therefore rejected rather than escaped: `/`, `?`, `#`, control
+characters, `.`, `..` and the empty string now raise an error instead of producing a
+request that quietly 404s. Everything else is escaped as before.
+
+No valid GoCardless resource identity contains any of these characters, so correct
+code is unaffected. Ruby and Java previously encoded `/` as `%2F` and sent the
+request; they now raise.
+
 ## 8.11.0 (2026-10-05)
 
 ### Features
