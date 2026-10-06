@@ -41,6 +41,8 @@ class ApiClient
      */
     public function get(string $path, array $params = []): Response
     {
+        $this->validatePath($path);
+
         if (array_key_exists("query", $params)) {
             $params["query"] = $this->castBooleanValuesToStrings($params["query"]);
         }
@@ -60,6 +62,8 @@ class ApiClient
      */
     public function put(string $path, array $params): Response
     {
+        $this->validatePath($path);
+
         $response = $this->http_client->request('PUT', $path, $params);
         $this->handleErrors($response);
         return $response;
@@ -75,6 +79,8 @@ class ApiClient
      */
     public function post(string $path, array $params): Response
     {
+        $this->validatePath($path);
+
         $idempotencyKey = uniqid("", true);
         $paramsWithHeaders = array("headers" => array("Idempotency-Key" => $idempotencyKey));
         $params = array_replace_recursive($paramsWithHeaders, $params);
@@ -95,6 +101,8 @@ class ApiClient
      */
     public function delete(string $path, array $params): Response
     {
+        $this->validatePath($path);
+
         $idempotencyKey = uniqid("", true);
         $paramsWithHeaders = array("headers" => array("Idempotency-Key" => $idempotencyKey));
         $params = array_replace_recursive($paramsWithHeaders, $params);
@@ -103,6 +111,37 @@ class ApiClient
 
         $this->handleErrors($response);
         return $response;
+    }
+
+    /**
+     * Check that a request path cannot move the request off the configured base URL.
+     *
+     * Guzzle resolves $path against base_uri like a browser resolves a link, so an
+     * absolute or scheme-relative path replaces the configured origin while the
+     * Authorization header stays attached. Checked with parse_url, the same parser
+     * Guzzle's own URI handling uses. Dot segments are left alone, since they resolve
+     * against base_uri and can't leave its origin.
+     *
+     * @param string $path The relative path for the API request
+     *
+     * @throws \InvalidArgumentException if the path is not a relative reference
+     */
+    private function validatePath(string $path)
+    {
+        $parsed = parse_url($path);
+
+        if ($parsed === false) {
+            throw new \InvalidArgumentException(
+                "Invalid request path '" . $path . "': not a valid URL path."
+            );
+        }
+
+        if (isset($parsed["scheme"]) || isset($parsed["host"])) {
+            throw new \InvalidArgumentException(
+                "Invalid request path '" . $path . "': a path may not specify a scheme or a " .
+                "host, only a location relative to the configured base URL."
+            );
+        }
     }
 
     /**
