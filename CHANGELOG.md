@@ -1,6 +1,23 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.12.1 (2026-10-06)
+
+### Fixes
+
+#### Document `required` fields on several API resource responses
+
+Several resource response schemas were missing `required` field lists,
+even though the fields are always present in the actual response.
+Added accurate `required` arrays (and fixed a few hardcoded docs
+examples that predated them) for: `payment`, `bank_details_lookup`,
+`billing_request_template`, `currency_exchange_rate`, `mandate_import`,
+`mandate_import_entry`, `negative_balance_limit`, `payer_authorisation`,
+`payout`, `payout_item`, `refund`, `scenario_simulator`,
+`scheme_identifier`, `tax_rate`, `verification_detail` and `logo`.
+
+This is a documentation-only change; API behaviour is unchanged.
+
 ## 8.12.0 (2026-10-06)
 
 ### Features
