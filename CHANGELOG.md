@@ -1,6 +1,12 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.13.0 (2026-10-06)
+
+### Features
+
+- Updates the public institutions API to allow merchants to provide the include_disabled query param and see institution status per feature
+
 ## 8.12.1 (2026-10-06)
 
 ### Fixes
