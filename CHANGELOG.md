@@ -1,6 +1,20 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.14.1 (2026-10-06)
+
+### Fixes
+
+#### Fix Institutions include_disabled request param to a string enum
+
+This field is only used in request parameters on GET requests. Parameters on
+GET requests are querystrings and can only ever be strings.
+
+Therefore any attempt was rejected with "One of your parameters was incorrectly
+typed" - "\"true\" is not a boolean.".
+
+This string enum "true" or "false" is our general pattern for parameters like this.
+
 ## 8.14.0 (2026-10-06)
 
 ### Features
