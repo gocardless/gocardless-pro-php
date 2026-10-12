@@ -1,6 +1,14 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.15.0 (2026-10-12)
+
+### Features
+
+#### Add `include` parameter to mandates
+
+Includes linked resources in the response. Use `customer` to embed customer details, or `bank_account` to embed bank account details.
+
 ## 8.14.2 (2026-10-07)
 
 ### Fixes
