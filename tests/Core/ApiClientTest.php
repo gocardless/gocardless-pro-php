@@ -272,6 +272,31 @@ class ApiClientTest extends TestCase
     }
 
     /**
+     * @dataProvider stringErrorStatusCodes
+     */
+    public function testStringErrorResponseWithUnmappedStatusCode($status_code)
+    {
+        $fixture = $this->loadFixture('string_error');
+
+        $this->mock->append(new \GuzzleHttp\Psr7\Response($status_code, ['Content-Type' => 'application/json'], $fixture));
+
+        try {
+            $this->api_client->get('/some_endpoint');
+            $this->fail('Expected an ApiException');
+        } catch (\GoCardlessPro\Core\Exception\ApiException $e) {
+            $this->assertEquals('Something went wrong', $e->getMessage());
+            $this->assertEquals((string) $status_code, $e->getApiResponse()->status_code);
+            $this->assertEquals(array(), $e->getErrors());
+            $this->assertEquals('gocardless', $e->getType());
+        }
+    }
+
+    public function stringErrorStatusCodes()
+    {
+        return [[404], [422], [500]];
+    }
+
+    /**
      * An absolute URL in the path would replace the configured base_uri while the
      * Authorization header is still attached, handing the token to whichever host the URL
      * names, so these are rejected before a request is dispatched.
