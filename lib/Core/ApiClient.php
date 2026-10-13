@@ -180,6 +180,7 @@ class ApiClient
         if (is_string($json->error)) {
             $json->error = (object)[
                 'code' => $status_code,
+                'type' => 'gocardless',
                 'message' => $json->error
             ];
             // Create a new response with normalized error structure
