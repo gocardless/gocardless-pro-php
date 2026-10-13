@@ -1,6 +1,14 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.15.1 (2026-10-13)
+
+### Fixes
+
+#### Make string response body handling more consistent
+
+Error responses whose `error` is a plain string (eg HTML from Cloudflare), with a status other than 400, 401, 403 or 429 (for example a 404 or 500), previously raised `GoCardlessProException: Invalid error type` and lost the message from the response. They now raise `GoCardlessInternalException` with the message from the response, and `getType()` returns `gocardless` as it is an internal error.
+
 ## 8.15.0 (2026-10-12)
 
 ### Features
