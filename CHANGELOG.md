@@ -1,6 +1,16 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.15.2 (2026-10-23)
+
+### Fixes
+
+#### Recommend upgrading PHP to fix critical vulnerabilities
+
+The README now recommends always using the latest patch release of a supported PHP version.
+
+PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35 fix two critical vulnerabilities that can allow unauthenticated remote code execution: [CVE-2026-109618](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w) and [CVE-2026-109619](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp). These vulnerabilities are in PHP itself, not in this library. If you are running an earlier version of PHP, please upgrade as soon as possible. See the [PHP security advisory](https://www.php.net/archive/2026.php#2026-10-21-5) for more details.
+
 ## 8.15.1 (2026-10-13)
 
 ### Fixes
