@@ -32,6 +32,16 @@ After installing, you need to require Composer's autoloader:
 require 'vendor/autoload.php';
 ```
 
+### Installation and PHP Versions
+
+GoCardless recommends always using the latest patch release of a [supported PHP
+version](https://www.php.net/supported-versions.php). Historical releases of
+this library support language versions that were appropriate at the time, but we
+suggest upgrading. You can find more information about some of the more severe
+vulnerabilities in older language versions here:
+- [CVE-2026-109618](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w)
+- [CVE-2026-109619](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp)
+
 ### Initialising A Client
 
 Create a `GoCardlessPro\Client` instance, providing your access token and the environment
