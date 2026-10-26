@@ -1,6 +1,24 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.16.0 (2026-10-26)
+
+### Features
+
+#### Time out requests after 60 seconds by default
+
+The `timeout` client option already existed, but defaulted to `0`, which waits indefinitely, so a stalled connection could hang forever. It now defaults to 60 seconds. If you rely on requests taking longer than that, pass a larger `timeout`, or `0` to restore the old behaviour:
+
+```php
+$client = new \GoCardlessPro\Client([
+  'access_token' => $access_token,
+  'environment'  => \GoCardlessPro\Environment::SANDBOX,
+  'timeout'      => 10
+]);
+```
+
+Timed out requests are retried automatically before an `ApiConnectionException` is raised, so the total time before an error can exceed `timeout`. The `timeout` option is not applied if you supply your own `http_client`.
+
 ## 8.15.2 (2026-10-23)
 
 ### Fixes
