@@ -64,6 +64,20 @@ The environment can either be `\GoCardlessPro\Environment::SANDBOX` or
 `\GoCardlessPro\Environment::LIVE`, depending on whether you want to
 use the sandbox or live API.
 
+Requests time out after 60 seconds by default. To change this, pass a `timeout` in seconds
+(or `0` to wait indefinitely) when creating the client:
+
+```php
+$client = new \GoCardlessPro\Client([
+  'access_token' => $access_token,
+  'environment'  => \GoCardlessPro\Environment::SANDBOX,
+  'timeout'      => 10
+]);
+```
+
+A request that times out is retried automatically (see "Handling Failures" below) before an
+`ApiConnectionException` is raised.
+
 For full documentation, see our [API docs](https://developer.gocardless.com/api-reference).
 
 ### GET requests
