@@ -8,6 +8,11 @@ namespace GoCardlessPro;
 class Client
 {
     /**
+     * Seconds to wait for a response when no `timeout` is configured
+     */
+    const DEFAULT_TIMEOUT = 60;
+
+    /**
     * @var Core\ApiClient Internal reference to Api Client
     */
     private $api_client;
@@ -19,7 +24,7 @@ class Client
      *
      *     @type string $environment
      *     @type string $access_token
-     *     @type float $timeout
+     *     @type float $timeout Seconds to wait for a response, defaults to 60; 0 waits indefinitely
      *     @type string $http_client
      */
     public function __construct($config)
@@ -42,7 +47,7 @@ class Client
             $stack = \GuzzleHttp\HandlerStack::create();
             $stack->push(RetryMiddlewareFactory::buildMiddleware()); // @phpstan-ignore argument.type (Guzzle's own Middleware::retry() return type doesn't match HandlerStack::push()'s expected callable shape; RetryMiddleware is invokable at runtime)
 
-            $timeout = 0;
+            $timeout = self::DEFAULT_TIMEOUT;
             if (isset($config['timeout'])) {
                 $timeout = $config['timeout'];
             }
