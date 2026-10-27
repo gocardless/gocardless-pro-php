@@ -1,6 +1,22 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.17.0 (2026-10-27)
+
+### Features
+
+#### Add `include` parameter to payments
+
+Includes linked resources in the response. Use `customer` to embed customer details, or `mandate` to embed mandate details.
+
+### Fixes
+
+#### Correct `day_of_month` documentation for subscriptions and plans
+
+For subscriptions and plans, values `1`-`31` or `-1` are accepted, not just `1`-`28`.
+
+`1`-`28` applies to payout intervals, creditors and mandate caps.
+
 ## 8.16.0 (2026-10-26)
 
 ### Features
