@@ -33,6 +33,7 @@ class RedirectFlowsService extends BaseService
     *
     * @param  array<string, mixed> $params An associative array for any params
     * @return RedirectFlow
+    * @deprecated Redirect Flows are legacy APIs and cannot be used by new integrators. The Billing Request flow (https://developer.gocardless.com/api-reference/#billing-requests) API should be used for your payment flows.
     **/
     public function create($params = array())
     {
@@ -69,6 +70,7 @@ class RedirectFlowsService extends BaseService
     * @param  string        $identity Unique identifier, beginning with "RE".
     * @param  array<string, mixed> $params An associative array for any params
     * @return RedirectFlow
+    * @deprecated Redirect Flows are legacy APIs and cannot be used by new integrators. The Billing Request flow (https://developer.gocardless.com/api-reference/#billing-requests) API should be used for your payment flows.
     **/
     public function get($identity, $params = array())
     {
@@ -99,6 +101,7 @@ class RedirectFlowsService extends BaseService
     * @param  string        $identity Unique identifier, beginning with "RE".
     * @param  array<string, mixed> $params An associative array for any params
     * @return RedirectFlow
+    * @deprecated Redirect Flows are legacy APIs and cannot be used by new integrators. The Billing Request flow (https://developer.gocardless.com/api-reference/#billing-requests) API should be used for your payment flows.
     **/
     public function complete($identity, $params = array())
     {
