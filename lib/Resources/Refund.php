@@ -33,7 +33,7 @@ class Refund extends BaseResource
 
     /**
      * Fixed <a
-     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
+     * href="https://docs.gocardless.com/docs/api-reference/data-conventions#dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;
@@ -41,7 +41,7 @@ class Refund extends BaseResource
     /**
      * <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO
      * 4217</a> currency code. This is set to the currency of the refund's <a
-     * href="https://developer.gocardless.com/api-reference/#core-endpoints-payments">payment</a>.
+     * href="https://docs.gocardless.com/docs/api-reference/payment">payment</a>.
      */
     protected $currency;
 
@@ -111,7 +111,7 @@ class Refund extends BaseResource
      * <li><code>submitted</code>: the refund has been submitted to the
      * banks</li>
      * <li><code>paid</code>:  the refund has been included in a <a
-     * href="https://developer.gocardless.com/api-reference/#core-endpoints-payouts">payout</a></li>
+     * href="https://docs.gocardless.com/docs/api-reference/payout">payout</a></li>
      * <li><code>cancelled</code>: the refund has been cancelled</li>
      * <li><code>bounced</code>: the refund has failed to be paid</li>
      * <li><code>funds_returned</code>: the refund has had its funds

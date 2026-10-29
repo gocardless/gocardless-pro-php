@@ -34,7 +34,7 @@ class RedirectFlow extends BaseResource
      * language that their Direct Debit has been set up successfully. Only
      * returned once the customer has set up their mandate via the payment pages
      * and the redirect flow has been <a
-     * href="https://developer.gocardless.com/api-reference/#redirect-flows-complete-a-redirect-flow">completed</a>,
+     * href="https://docs.gocardless.com/docs/api-reference/redirect-flow#complete-a-redirect-flow">completed</a>,
      * and only available for 15 minutes from when you complete the redirect
      * flow. The structure of this URL may change at any time, so you should
      * read it directly from the API response.
@@ -43,7 +43,7 @@ class RedirectFlow extends BaseResource
 
     /**
      * Fixed <a
-     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
+     * href="https://docs.gocardless.com/docs/api-reference/data-conventions#dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;

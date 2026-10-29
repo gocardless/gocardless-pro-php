@@ -50,7 +50,7 @@ class Payment extends BaseResource
 
     /**
      * Amount <a
-     * href="https://developer.gocardless.com/api-reference/#core-endpoints-refunds">refunded</a>,
+     * href="https://docs.gocardless.com/docs/api-reference/refund">refunded</a>,
      * in the lowest denomination for the currency (e.g. pence in GBP, cents in
      * EUR).
      */
@@ -69,7 +69,7 @@ class Payment extends BaseResource
      * A future date on which the payment should be collected. If not specified,
      * the payment will be collected as soon as possible. If the value is before
      * the <a
-     * href="https://developer.gocardless.com/api-reference/#core-endpoints-mandates">mandate</a>'s
+     * href="https://docs.gocardless.com/docs/api-reference/mandate">mandate</a>'s
      * <code>next_possible_charge_date</code> creation will fail. If the value
      * is not a working day it will be rolled forwards to the next available
      * one.
@@ -78,7 +78,7 @@ class Payment extends BaseResource
 
     /**
      * Fixed <a
-     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
+     * href="https://docs.gocardless.com/docs/api-reference/data-conventions#dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;
@@ -94,7 +94,7 @@ class Payment extends BaseResource
      * A human-readable description of the payment. This will be included in the
      * notification email GoCardless sends to your customer if your organisation
      * does not send its own notifications (see <a
-     * href="https://developer.gocardless.com/api-reference/#appendix-compliance-requirements">compliance
+     * href="https://docs.gocardless.com/docs/api-reference/compliance-requirements">compliance
      * requirements</a>).
      */
     protected $description;
@@ -165,7 +165,7 @@ class Payment extends BaseResource
 
     /**
      * On failure, automatically retry the payment using <a
-     * href="https://developer.gocardless.com/success-plus/overview">intelligent
+     * href="https://docs.gocardless.com/docs/optimise/reduced-failed-payments-with-success-plus">intelligent
      * retries</a>. Default is <code>false</code>. <p
      * class="notice"><strong>Important</strong>: To be able to use intelligent
      * retries, Success+ needs to be enabled in <a
@@ -195,7 +195,7 @@ class Payment extends BaseResource
      * <li><code>confirmed</code>: the payment has been confirmed as
      * collected</li>
      * <li><code>paid_out</code>: the payment has been included in a <a
-     * href="https://developer.gocardless.com/api-reference/#core-endpoints-payouts">payout</a></li>
+     * href="https://docs.gocardless.com/docs/api-reference/payout">payout</a></li>
      * <li><code>cancelled</code>: the payment has been cancelled</li>
      * <li><code>customer_approval_denied</code>: the customer has denied
      * approval for the payment. You should contact the customer directly</li>

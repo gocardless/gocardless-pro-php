@@ -32,7 +32,7 @@ class BillingRequestWithAction extends BaseResource
      * a payment using their mobile banking app.
      *
      * See <a
-     * href="https://developer.gocardless.com/getting-started/billing-requests/overview/">Billing
+     * href="https://docs.gocardless.com/docs/collect-payments/setting-up-mandates">Billing
      * Requests: Overview</a> for how-to's, explanations and tutorials. <p
      * class="notice"><strong>Important</strong>: All properties associated with
      * <code>subscription_request</code> and
