@@ -28,6 +28,10 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
 
+        if (property_exists($body, 'account_information_request')) {
+            $this->assertEquals($body->account_information_request, $response->account_information_request);
+        }
+
         if (property_exists($body, 'actions')) {
             $this->assertEquals($body->actions, $response->actions);
         }
@@ -118,6 +122,9 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
+        if (property_exists($body, 'account_information_request')) {
+            $this->assertEquals($body->account_information_request, $response->account_information_request);
+        }
         if (property_exists($body, 'actions')) {
             $this->assertEquals($body->actions, $response->actions);
         }
@@ -187,6 +194,10 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
+
+        if (property_exists($body, 'account_information_request')) {
+            $this->assertEquals($body->account_information_request, $response->account_information_request);
+        }
 
         if (property_exists($body, 'actions')) {
             $this->assertEquals($body->actions, $response->actions);
@@ -272,6 +283,10 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
 
+        if (property_exists($body, 'account_information_request')) {
+            $this->assertEquals($body->account_information_request, $response->account_information_request);
+        }
+
         if (property_exists($body, 'actions')) {
             $this->assertEquals($body->actions, $response->actions);
         }
@@ -355,6 +370,10 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
+
+        if (property_exists($body, 'account_information_request')) {
+            $this->assertEquals($body->account_information_request, $response->account_information_request);
+        }
 
         if (property_exists($body, 'actions')) {
             $this->assertEquals($body->actions, $response->actions);
@@ -440,6 +459,10 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
 
+        if (property_exists($body, 'account_information_request')) {
+            $this->assertEquals($body->account_information_request, $response->account_information_request);
+        }
+
         if (property_exists($body, 'actions')) {
             $this->assertEquals($body->actions, $response->actions);
         }
@@ -523,6 +546,10 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
+
+        if (property_exists($body, 'account_information_request')) {
+            $this->assertEquals($body->account_information_request, $response->account_information_request);
+        }
 
         if (property_exists($body, 'actions')) {
             $this->assertEquals($body->actions, $response->actions);
@@ -618,6 +645,10 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         foreach (range(0, count($body) - 1) as $num) {
             $record = $records[$num];
 
+            if (isset($body[$num]->account_information_request)) {
+                $this->assertEquals($body[$num]->account_information_request, $record->account_information_request);
+            }
+
             if (isset($body[$num]->actions)) {
                 $this->assertEquals($body[$num]->actions, $record->actions);
             }
@@ -701,6 +732,10 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
+
+        if (property_exists($body, 'account_information_request')) {
+            $this->assertEquals($body->account_information_request, $response->account_information_request);
+        }
 
         if (property_exists($body, 'actions')) {
             $this->assertEquals($body->actions, $response->actions);
@@ -786,6 +821,10 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
 
+        if (property_exists($body, 'account_information_request')) {
+            $this->assertEquals($body->account_information_request, $response->account_information_request);
+        }
+
         if (property_exists($body, 'actions')) {
             $this->assertEquals($body->actions, $response->actions);
         }
@@ -869,6 +908,10 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
+
+        if (property_exists($body, 'account_information_request')) {
+            $this->assertEquals($body->account_information_request, $response->account_information_request);
+        }
 
         if (property_exists($body, 'actions')) {
             $this->assertEquals($body->actions, $response->actions);
@@ -954,6 +997,10 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
 
+        if (property_exists($body, 'account_information_request')) {
+            $this->assertEquals($body->account_information_request, $response->account_information_request);
+        }
+
         if (property_exists($body, 'actions')) {
             $this->assertEquals($body->actions, $response->actions);
         }
@@ -1037,6 +1084,10 @@ class BillingRequestsIntegrationTest extends IntegrationTestBase
 
         $this->assertInstanceOf('\GoCardlessPro\Resources\BillingRequest', $response);
 
+
+        if (property_exists($body, 'account_information_request')) {
+            $this->assertEquals($body->account_information_request, $response->account_information_request);
+        }
 
         if (property_exists($body, 'actions')) {
             $this->assertEquals($body->actions, $response->actions);

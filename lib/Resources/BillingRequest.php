@@ -12,6 +12,7 @@ namespace GoCardlessPro\Resources;
  * A thin wrapper around a billing_request, providing access to its
  * attributes
  *
+ * @property-read mixed $account_information_request
  * @property-read mixed $actions
  * @property-read mixed $created_at
  * @property-read mixed $fallback_enabled
@@ -32,6 +33,11 @@ namespace GoCardlessPro\Resources;
 class BillingRequest extends BaseResource
 {
     protected $model_name = "BillingRequest";
+
+    /**
+     * Request for account information
+     */
+    protected $account_information_request;
 
     /**
      * List of actions that can be performed before this billing request can be
