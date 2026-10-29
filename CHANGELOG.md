@@ -1,6 +1,12 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.18.1 (2026-10-29)
+
+### Fixes
+
+- Update documentation links for new docs site
+
 ## 8.18.0 (2026-10-28)
 
 ### Features
