@@ -58,7 +58,7 @@ class Subscription extends BaseResource
 
     /**
      * Fixed <a
-     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
+     * href="https://docs.gocardless.com/docs/api-reference/data-conventions#dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;
@@ -156,7 +156,7 @@ class Subscription extends BaseResource
      * created and will appear on your customer's bank statement. See the
      * documentation for
      * the <a
-     * href="https://developer.gocardless.com/api-reference/#payments-create-a-payment">create
+     * href="https://docs.gocardless.com/docs/api-reference/payment#create-a-payment">create
      * payment endpoint</a> for more details.
      * <br></br>
      *
@@ -168,7 +168,7 @@ class Subscription extends BaseResource
 
     /**
      * On failure, automatically retry payments using <a
-     * href="https://developer.gocardless.com/success-plus/overview">intelligent
+     * href="https://docs.gocardless.com/docs/optimise/reduced-failed-payments-with-success-plus">intelligent
      * retries</a>. Default is <code>false</code>. <p
      * class="notice"><strong>Important</strong>: To be able to use intelligent
      * retries, Success+ needs to be enabled in <a
@@ -180,7 +180,7 @@ class Subscription extends BaseResource
     /**
      * The date on which the first payment should be charged. Must be on or
      * after the <a
-     * href="https://developer.gocardless.com/api-reference/#core-endpoints-mandates">mandate</a>'s
+     * href="https://docs.gocardless.com/docs/api-reference/mandate">mandate</a>'s
      * <code>next_possible_charge_date</code>. When left blank and
      * <code>month</code> or <code>day_of_month</code> are provided, this will
      * be set to the date of the first payment. If created without

@@ -34,7 +34,7 @@ class PaymentAccount extends BaseResource
     /**
      * Name of the account holder, as known by the bank. Usually this is the
      * same as the name stored with the linked <a
-     * href="https://developer.gocardless.com/api-reference/#core-endpoints-creditors">creditor</a>.
+     * href="https://docs.gocardless.com/docs/api-reference/creditor">creditor</a>.
      * This field will be transliterated, upcased and truncated to 18
      * characters.
      */

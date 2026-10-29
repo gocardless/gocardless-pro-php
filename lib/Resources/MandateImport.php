@@ -24,7 +24,7 @@ class MandateImport extends BaseResource
 
     /**
      * Fixed <a
-     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
+     * href="https://docs.gocardless.com/docs/api-reference/data-conventions#dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;
@@ -53,10 +53,10 @@ class MandateImport extends BaseResource
      * <li><code>created</code>: A new mandate import.</li>
      * <li><code>submitted</code>: After the integrator has finished adding
      * mandates and <a
-     * href="https://developer.gocardless.com/api-reference/#mandate-imports-submit-a-mandate-import">submitted</a>
+     * href="https://docs.gocardless.com/docs/api-reference/mandate-import#submit-a-mandate-import">submitted</a>
      * the import.</li>
      * <li><code>cancelled</code>: If the integrator <a
-     * href="https://developer.gocardless.com/api-reference/#mandate-imports-cancel-a-mandate-import">cancelled</a>
+     * href="https://docs.gocardless.com/docs/api-reference/mandate-import#cancel-a-mandate-import">cancelled</a>
      * the mandate import.</li>
      * <li><code>processing</code>: Once a mandate import has been approved by a
      * GoCardless team member it will be in this state while mandates are

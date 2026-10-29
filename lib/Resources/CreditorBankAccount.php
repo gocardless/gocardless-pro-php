@@ -32,7 +32,7 @@ class CreditorBankAccount extends BaseResource
     /**
      * Name of the account holder, as known by the bank. Usually this is the
      * same as the name stored with the linked <a
-     * href="https://developer.gocardless.com/api-reference/#core-endpoints-creditors">creditor</a>.
+     * href="https://docs.gocardless.com/docs/api-reference/creditor">creditor</a>.
      * This field will be transliterated, upcased and truncated to 18
      * characters.
      */
@@ -47,7 +47,7 @@ class CreditorBankAccount extends BaseResource
     /**
      * Bank account type. Required for USD-denominated bank accounts. Must not
      * be provided for bank accounts in other currencies. See <a
-     * href="https://developer.gocardless.com/api-reference/#local-bank-details-united-states">local
+     * href="https://docs.gocardless.com/docs/api-reference/local-bank-details#united-states">local
      * details</a> for more information.
      */
     protected $account_type;
@@ -67,7 +67,7 @@ class CreditorBankAccount extends BaseResource
 
     /**
      * Fixed <a
-     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
+     * href="https://docs.gocardless.com/docs/api-reference/data-conventions#dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;

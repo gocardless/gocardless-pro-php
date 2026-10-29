@@ -29,14 +29,14 @@ class Event extends BaseResource
 
     /**
      * What has happened to the resource. See <a
-     * href="https://developer.gocardless.com/api-reference/#event-types">Event
+     * href="https://docs.gocardless.com/docs/api-reference/events">Event
      * Types</a> for the possible actions.
      */
     protected $action;
 
     /**
      * Fixed <a
-     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
+     * href="https://docs.gocardless.com/docs/api-reference/data-conventions#dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;
@@ -45,7 +45,7 @@ class Event extends BaseResource
      * Present only in webhooks when an integrator is authorised to send their
      * own
      * notifications. See <a
-     * href="https://developer.gocardless.com/getting-started/api/handling-customer-notifications/">here</a>
+     * href="https://docs.gocardless.com/docs/tutorials/handling-customer-notifications">here</a>
      * for further information.
      */
     protected $customer_notifications;

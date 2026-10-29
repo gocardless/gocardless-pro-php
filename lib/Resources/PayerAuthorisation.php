@@ -28,21 +28,21 @@ class PayerAuthorisation extends BaseResource
     /**
      * All details required for the creation of a
      * <a
-     * href="https://developer.gocardless.com/api-reference/#core-endpoints-customer-bank-accounts">Customer
+     * href="https://docs.gocardless.com/docs/api-reference/customer-bank-account">Customer
      * Bank Account</a>.
      */
     protected $bank_account;
 
     /**
      * <a
-     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">Timestamp</a>,
+     * href="https://docs.gocardless.com/docs/api-reference/data-conventions#dates-and-times">Timestamp</a>,
      * recording when this Payer Authorisation was created.
      */
     protected $created_at;
 
     /**
      * All details required for the creation of a <a
-     * href="https://developer.gocardless.com/api-reference/#core-endpoints-customers">Customer</a>.
+     * href="https://docs.gocardless.com/docs/api-reference/customer">Customer</a>.
      */
     protected $customer;
 
@@ -65,7 +65,7 @@ class PayerAuthorisation extends BaseResource
 
     /**
      * All details required for the creation of a <a
-     * href="https://developer.gocardless.com/api-reference/#core-endpoints-mandates">Mandate</a>.
+     * href="https://docs.gocardless.com/docs/api-reference/mandate">Mandate</a>.
      */
     protected $mandate;
 

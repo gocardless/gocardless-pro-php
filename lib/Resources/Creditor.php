@@ -83,7 +83,7 @@ class Creditor extends BaseResource
 
     /**
      * Fixed <a
-     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
+     * href="https://docs.gocardless.com/docs/api-reference/data-conventions#dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;
@@ -128,7 +128,7 @@ class Creditor extends BaseResource
 
     /**
      * Boolean value indicating whether creditor has the <a
-     * href="https://developer.gocardless.com/api-reference/#core-endpoints-mandate-imports">Mandate
+     * href="https://docs.gocardless.com/docs/api-reference/mandate-import">Mandate
      * Imports</a> functionality enabled.
      */
     protected $mandate_imports_enabled;
@@ -137,7 +137,7 @@ class Creditor extends BaseResource
      * Boolean value indicating whether the organisation is responsible for
      * sending all customer notifications (note this is separate from the
      * functionality described <a
-     * href="https://developer.gocardless.com/getting-started/api/handling-customer-notifications/">here</a>).
+     * href="https://docs.gocardless.com/docs/tutorials/handling-customer-notifications">here</a>).
      * If you are a partner app, and this value is true, you should not send
      * notifications on behalf of this organisation.
      */
@@ -165,7 +165,7 @@ class Creditor extends BaseResource
      * The support address, <code>phone_number</code> and <code>email</code>
      * fields are for customers to contact the merchant for support purposes.
      * They must be displayed on the payment page, please see our <a
-     * href="https://developer.gocardless.com/api-reference/#appendix-compliance-requirements">compliance
+     * href="https://docs.gocardless.com/docs/api-reference/compliance-requirements">compliance
      * requirements</a> for more details.
      */
     protected $scheme_identifiers;
@@ -174,7 +174,7 @@ class Creditor extends BaseResource
      * The creditor's verification status, indicating whether they can yet
      * receive payouts. For more details on handling verification as a partner,
      * see our <a
-     * href="https://developer.gocardless.com/getting-started/partners/helping-your-users-get-verified/">"Helping
+     * href="https://docs.gocardless.com/docs/partner-integrations/getting-your-users-verified">"Helping
      * your users get verified" guide</a>. One of:
      *
      * <ul>

@@ -34,7 +34,7 @@ class PayerAuthorisationsService extends BaseService
     * @param  string        $identity Unique identifier, beginning with "PA".
     * @param  array<string, mixed> $params An associative array for any params
     * @return PayerAuthorisation
-    * @deprecated Payer Authorisation is legacy API and cannot be used by new integrators. The Billing Request (https://developer.gocardless.com/api-reference/#billing-requests) API should be used for any new integrations.
+    * @deprecated Payer Authorisation is legacy API and cannot be used by new integrators. The Billing Request (https://docs.gocardless.com/docs/api-reference/billing-request) API should be used for any new integrations.
     **/
     public function get($identity, $params = array())
     {
@@ -64,7 +64,7 @@ class PayerAuthorisationsService extends BaseService
     *
     * @param  array<string, mixed> $params An associative array for any params
     * @return PayerAuthorisation
-    * @deprecated Payer Authorisation is legacy API and cannot be used by new integrators. The Billing Request (https://developer.gocardless.com/api-reference/#billing-requests) API should be used for any new integrations.
+    * @deprecated Payer Authorisation is legacy API and cannot be used by new integrators. The Billing Request (https://docs.gocardless.com/docs/api-reference/billing-request) API should be used for any new integrations.
     **/
     public function create($params = array())
     {
@@ -101,7 +101,7 @@ class PayerAuthorisationsService extends BaseService
     * @param  string        $identity Unique identifier, beginning with "PA".
     * @param  array<string, mixed> $params An associative array for any params
     * @return PayerAuthorisation
-    * @deprecated Payer Authorisation is legacy API and cannot be used by new integrators. The Billing Request (https://developer.gocardless.com/api-reference/#billing-requests) API should be used for any new integrations.
+    * @deprecated Payer Authorisation is legacy API and cannot be used by new integrators. The Billing Request (https://docs.gocardless.com/docs/api-reference/billing-request) API should be used for any new integrations.
     **/
     public function update($identity, $params = array())
     {
@@ -133,7 +133,7 @@ class PayerAuthorisationsService extends BaseService
     * @param  string        $identity Unique identifier, beginning with "PA".
     * @param  array<string, mixed> $params An associative array for any params
     * @return PayerAuthorisation
-    * @deprecated Payer Authorisation is legacy API and cannot be used by new integrators. The Billing Request (https://developer.gocardless.com/api-reference/#billing-requests) API should be used for any new integrations.
+    * @deprecated Payer Authorisation is legacy API and cannot be used by new integrators. The Billing Request (https://docs.gocardless.com/docs/api-reference/billing-request) API should be used for any new integrations.
     **/
     public function submit($identity, $params = array())
     {
@@ -176,7 +176,7 @@ class PayerAuthorisationsService extends BaseService
     * @param  string        $identity Unique identifier, beginning with "PA".
     * @param  array<string, mixed> $params An associative array for any params
     * @return PayerAuthorisation
-    * @deprecated Payer Authorisation is legacy API and cannot be used by new integrators. The Billing Request (https://developer.gocardless.com/api-reference/#billing-requests) API should be used for any new integrations.
+    * @deprecated Payer Authorisation is legacy API and cannot be used by new integrators. The Billing Request (https://docs.gocardless.com/docs/api-reference/billing-request) API should be used for any new integrations.
     **/
     public function confirm($identity, $params = array())
     {

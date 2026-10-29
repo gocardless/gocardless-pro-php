@@ -23,7 +23,7 @@ class BankDetailsLookup extends BaseResource
 
     /**
      * Array of <a
-     * href="https://developer.gocardless.com/api-reference/#mandates_scheme">schemes</a>
+     * href="https://docs.gocardless.com/docs/api-reference/mandate">schemes</a>
      * supported for this bank account. This will be an empty array if the bank
      * account is not reachable by any schemes.
      */

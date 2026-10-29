@@ -38,7 +38,7 @@ class OutboundPayment extends BaseResource
 
     /**
      * Fixed <a
-     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
+     * href="https://docs.gocardless.com/docs/api-reference/data-conventions#dates-and-times">timestamp</a>,
      * recording when the outbound payment was created.
      */
     protected $created_at;
@@ -105,21 +105,21 @@ class OutboundPayment extends BaseResource
      *
      * <ul>
      * <li><code>verifying</code>: The payment has been <a
-     * href="https://developer.gocardless.com/api-reference/#outbound-payments-create-an-outbound-payment">created</a>
+     * href="https://docs.gocardless.com/docs/api-reference/outbound-payment#create-an-outbound-payment">created</a>
      * and the verification process has begun.</li>
      * <li><code>pending_approval</code>: The payment is awaiting <a
-     * href="https://developer.gocardless.com/api-reference/#outbound-payments-approve-an-outbound-payment">approval</a>.</li>
+     * href="https://docs.gocardless.com/docs/api-reference/outbound-payment#approve-an-outbound-payment">approval</a>.</li>
      * <li><code>scheduled</code>: The payment has passed verification &amp; <a
-     * href="https://developer.gocardless.com/api-reference/#outbound-payments-approve-an-outbound-payment">approval</a>,
+     * href="https://docs.gocardless.com/docs/api-reference/outbound-payment#approve-an-outbound-payment">approval</a>,
      * but processing has not yet begun.</li>
      * <li><code>executing</code>: The execution date has arrived and the
      * payment has been placed in queue for processing.</li>
      * <li><code>executed</code>: The payment has been accepted by the scheme
      * and is now on its way to the recipient.</li>
      * <li><code>cancelled</code>: The payment has been <a
-     * href="https://developer.gocardless.com/api-reference/#outbound-payments-cancel-an-outbound-payment">cancelled</a>
+     * href="https://docs.gocardless.com/docs/api-reference/outbound-payment#cancel-an-outbound-payment">cancelled</a>
      * or was not <a
-     * href="https://developer.gocardless.com/api-reference/#outbound-payments-approve-an-outbound-payment">approved</a>
+     * href="https://docs.gocardless.com/docs/api-reference/outbound-payment#approve-an-outbound-payment">approved</a>
      * on time.</li>
      * <li><code>failed</code>: The payment was not sent, usually due to an
      * error while or after executing.</li>

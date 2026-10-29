@@ -41,7 +41,7 @@ class BillingRequest extends BaseResource
 
     /**
      * Fixed <a
-     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
+     * href="https://docs.gocardless.com/docs/api-reference/data-conventions#dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;
@@ -52,7 +52,7 @@ class BillingRequest extends BaseResource
      * Should not be set if GoCardless payment intelligence feature is used.
      *
      * See <a
-     * href="https://developer.gocardless.com/billing-requests/retain-customers-with-fallbacks/">Billing
+     * href="https://docs.gocardless.com/docs/optimise/retain-customers-with-fallbacks">Billing
      * Requests: Retain customers with Fallbacks</a>
      * for more information.
      */
@@ -105,7 +105,7 @@ class BillingRequest extends BaseResource
      * reason or type of service/goods the payment relates to, improving
      * straight-through processing and compliance.
      * See <a
-     * href="https://developer.gocardless.com/vrp-commercial-payment-purpose-codes/">VRP
+     * href="https://docs.gocardless.com/docs/collect-payments/scheme-guidance/vrp-purpose-codes">VRP
      * Commercial Payment Purpose Codes</a> for the complete list of valid
      * codes.
      */
@@ -121,7 +121,7 @@ class BillingRequest extends BaseResource
      * using a set of pre-defined categories. Provides context on the nature and
      * reason for the payment to facilitate processing and compliance.
      * See <a
-     * href="https://developer.gocardless.com/billing-request-purpose-codes/">Billing
+     * href="https://docs.gocardless.com/docs/collect-payments/scheme-guidance/billing-request-purpose-codes">Billing
      * Request Purpose Codes</a> for the complete list of valid codes.
      */
     protected $purpose_code;

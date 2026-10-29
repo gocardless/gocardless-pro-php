@@ -36,7 +36,7 @@ class CustomerBankAccount extends BaseResource
      * when the customer is created is stored and is available via the API, but
      * is transliterated, upcased, and truncated to 18 characters in bank
      * submissions. This field is required unless the request includes a <a
-     * href="https://developer.gocardless.com/api-reference/#javascript-flow-customer-bank-account-tokens">customer
+     * href="https://docs.gocardless.com/docs/collect-payments/integration-types/javascript-drop-in-flow">customer
      * bank account token</a>.
      */
     protected $account_holder_name;
@@ -50,7 +50,7 @@ class CustomerBankAccount extends BaseResource
     /**
      * Bank account type. Required for USD-denominated bank accounts. Must not
      * be provided for bank accounts in other currencies. See <a
-     * href="https://developer.gocardless.com/api-reference/#local-bank-details-united-states">local
+     * href="https://docs.gocardless.com/docs/api-reference/local-bank-details#united-states">local
      * details</a> for more information.
      */
     protected $account_type;
@@ -76,7 +76,7 @@ class CustomerBankAccount extends BaseResource
 
     /**
      * Fixed <a
-     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
+     * href="https://docs.gocardless.com/docs/api-reference/data-conventions#dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;

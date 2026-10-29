@@ -61,7 +61,7 @@ class Mandate extends BaseResource
 
     /**
      * Fixed <a
-     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">timestamp</a>,
+     * href="https://docs.gocardless.com/docs/api-reference/data-conventions#dates-and-times">timestamp</a>,
      * recording when this resource was created.
      */
     protected $created_at;
@@ -126,7 +126,7 @@ class Mandate extends BaseResource
 
     /**
      * Unique reference. Different schemes have different length and <a
-     * href="https://developer.gocardless.com/api-reference/#appendix-character-sets">character
+     * href="https://docs.gocardless.com/docs/api-reference/character-sets">character
      * set</a> requirements. GoCardless will generate a unique reference
      * satisfying the different scheme requirements if this field is left blank.
      */
@@ -167,7 +167,7 @@ class Mandate extends BaseResource
 
     /**
      * <a
-     * href="https://developer.gocardless.com/api-reference/#api-usage-dates-and-times">Timestamp</a>
+     * href="https://docs.gocardless.com/docs/api-reference/data-conventions#dates-and-times">Timestamp</a>
      * recording when this mandate was verified.
      */
     protected $verified_at;
