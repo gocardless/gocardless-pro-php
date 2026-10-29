@@ -1,6 +1,15 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.19.0 (2026-10-29)
+
+### Features
+
+#### Add account_information_request to billing_request
+
+Add `account_information_request` field on billing requests, in both create and
+response, and the `links.account_information_request` ID.
+
 ## 8.18.1 (2026-10-29)
 
 ### Fixes
