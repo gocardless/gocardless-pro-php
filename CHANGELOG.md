@@ -1,6 +1,14 @@
 <!-- This file is generated, please add to it using `knope document-change` in the client-library-templates repo -->
 # Changelog
 
+## 8.20.0 (2026-11-05)
+
+### Features
+
+#### Add `status` field to institutions
+
+The `status` of an institution (`enabled`, `disabled` or `temporarily_disabled`) is now documented on the institution resource and exposed in the client libraries. The API already returned this field, so integrations calling the API directly are unaffected.
+
 ## 8.19.0 (2026-10-29)
 
 ### Features
