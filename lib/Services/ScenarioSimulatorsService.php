@@ -104,9 +104,19 @@ class ScenarioSimulatorsService extends BaseService
  <li><code>mandate_activated</code>: Transitions a mandate
  through to <code>activated</code>, having been submitted to
  the banks and set up successfully. It must start in the
- <code>pending_submission</code> state. Not compatible with
- ACH, BECS, BECS_NZ and SEPA mandates, which are submitted
- and activated with their first payment.</li>
+ <code>pending_submission</code> or <code>submitted</code>
+ state. Not compatible with ACH, BECS, BECS_NZ and SEPA
+ mandates, which are submitted and activated with their
+ first payment.</li>
+ <li><code>mandate_submitted</code>: Transitions a mandate
+ to <code>submitted</code>, as if it had been sent to the
+ banks, without proceeding any further. It must start in the
+ <code>pending_submission</code> state. Only compatible with
+ Bacs, Autogiro and Betalingsservice mandates; ACH, BECS,
+ BECS_NZ and SEPA mandates are submitted and activated with
+ their first payment. Use <code>mandate_activated</code> or
+ <code>mandate_failed</code> to move the mandate on
+ afterwards.</li>
  <li><code>mandate_customer_approval_granted</code>:
  Transitions a mandate through to
  <code>pending_submission</code>, as if the customer
