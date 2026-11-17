@@ -114,6 +114,14 @@ class ScenarioSimulator extends BaseResource
      * <code>pending_submission</code> or <code>submitted</code> states. Not
      * compatible with SEPA mandates, which are submitted with their first
      * payment.</li>
+     * <li><code>mandate_cancelled</code>: Transitions a mandate through to
+     * <code>cancelled</code>, as if a bank had cancelled it (for example
+     * because the customer asked their bank to cancel the Direct Debit
+     * instruction). It must start in the <code>pending_submission</code>,
+     * <code>submitted</code> or <code>activated</code> state. Compatible with
+     * ACH, Autogiro, Bacs, BECS, Betalingsservice, PAD and SEPA mandates. The
+     * mandate's pending payments, subscriptions and instalment schedules are
+     * cancelled along with it, a few seconds later.</li>
      * <li><code>mandate_expired</code>: Transitions a mandate through to
      * <code>expired</code>, having been submitted to the banks, set up
      * successfully and then expired because no collection attempts were made
